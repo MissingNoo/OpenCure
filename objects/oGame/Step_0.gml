@@ -1,5 +1,5 @@
 /// @description 
-
+depth=y;
 #region Spawn
 if (canspawn and room == Room1) {
 	a = irandom_range(-1,1)
@@ -9,10 +9,10 @@ if (canspawn and room == Room1) {
 	
 	random_set_seed(current_time);
     canspawn=false;
-	alarm[0]=60;
+	alarm[0]=120;
 	instance_create_layer(
-	oPlayer.x+(200*a),
-	oPlayer.y+(200*b),
+	oPlayer.x+(225*a),
+	oPlayer.y+(225*b),
 	"Instances",
 	oEnemy	
 	)
@@ -35,5 +35,6 @@ if (global.seconds >50 and zz=0) {
     zz=1
 	removeEnemyFromPool(0)
 }
+
 
 

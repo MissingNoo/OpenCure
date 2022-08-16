@@ -20,7 +20,7 @@ for (i=0; i<4; i++) {
 function createUpgrade(_id, _name, _sprite, _thumb, _dmg, _cooldown, _speed, _hits)
 {
 	global.upgradesAvaliable[_id]=ds_map_create();
-	m = global.upgradesAvaliable[_id];
+	var m = global.upgradesAvaliable[_id];
 	ds_map_add(m, "name", _name);
 	ds_map_add(m, "sprite", _sprite);
 	ds_map_add(m, "thumb", _thumb);
@@ -104,6 +104,7 @@ function tickPowers(){
 		}
 	}
 }
+
 
 
 

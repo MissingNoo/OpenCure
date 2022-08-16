@@ -28,6 +28,7 @@ function createCharacter(_id, _name, _sprite, _hp, _speed, _atk)
 	ds_map_add(m, "speed", _speed);
 	ds_map_add(m, "atk", _atk);
 }
-createCharacter(0,"John",sJohn,100,1,10);
-createCharacter(1,"Douglas",sEnemy1,100,2,10);		
+createCharacter(0,"John",sJohn,30,1,10);
+createCharacter(1,"Douglas",sEnemy1,30,2,10);		
+
 

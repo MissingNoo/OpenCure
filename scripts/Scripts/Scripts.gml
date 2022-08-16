@@ -11,7 +11,7 @@ function PauseGame(){
 		global.gamePaused = !global.gamePaused;		
 		if(global.gamePaused)
 		{
-				with	(all)
+				with(all)
 				{				
 					pausedSpeed = speed;
 					speed = 0;
@@ -58,3 +58,4 @@ function summonCircle(){
 		instance_create_layer(a,b,"Instances",oEnemy)
 	}	
 }
+
