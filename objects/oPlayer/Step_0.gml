@@ -1,5 +1,6 @@
-if(keyboard_check_pressed(ord("R"))) v--;
-if(keyboard_check_pressed(ord("T"))) v++;
+// Feather disable GM2016
+if(keyboard_check(ord("R"))) v-=0.01;
+if(keyboard_check(ord("T"))) v+=0.01;
 if (keyboard_check_pressed(vk_control)) {
 	//summonCircle();
 	global.xp=1600;
@@ -23,6 +24,7 @@ if (!global.gamePaused) {
 		game_restart()
 	}
 }
+
 
 
 

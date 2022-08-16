@@ -1,3 +1,4 @@
+// Feather disable GM2016
 if (room = rInicio) {
     if (keyboard_check_pressed(ord("Z"))) {
         switch (global.selected) {
@@ -16,7 +17,7 @@ if (global.upgrade == 1) {
 		for (i = 0; i < 6; i++) 
 		{	
 			#region Upgrade na lista			
-			if (global.upgrades[i][?"name"] ==global.upgrade_options[global.selected] ) 
+			if (global.upgrades[i][?"name"] == global.upgrade_options[global.selected] ) 
 			{
 				global.upgrades[i][?"level"] += 1;
 				break;
@@ -41,6 +42,9 @@ if (global.upgrade == 1) {
         PauseGame();
     }
 }
+
+
+
 
 
 

@@ -5,4 +5,3 @@ if (distance_to_object(oPlayer) < 20) {
 	speed=2;
 }
 else speed=0;
-

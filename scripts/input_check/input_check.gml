@@ -1,10 +1,12 @@
+/// @function	input_check(_verb _player_index, _buffer_duration)
 /// @desc    Returns a boolean indicating whether the given verb is currently active (a button is being held etc.)
 ///          If an array of verbs is given then this function will return <true> if ANY verb is active
 ///          If a buffer duration is specified then this function will return <true> if the verb has been active at any point within that timeframe
 /// @param   verb/array
 /// @param   [playerIndex=0]
 /// @param   [bufferDuration=0]
-
+// Feather disable GM1022
+// Feather disable all
 function input_check(_verb, _player_index = 0, _buffer_duration = 0)
 {
     __INPUT_VERIFY_PLAYER_INDEX

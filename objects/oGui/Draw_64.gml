@@ -19,7 +19,7 @@ if (room == rInicio) {
 }
 
 if (room == Room1) {
-    
+	
     #region Upgrades
 	draw_rectangle(5, 40, 165, 160, true);
 	offset=0
@@ -65,4 +65,5 @@ if (room == Room1) {
 	#endregion
 	
 }
+
 

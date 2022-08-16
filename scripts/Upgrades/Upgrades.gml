@@ -1,5 +1,7 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
+// Feather disable GM1043
+// Feather disable GM2025
 global.upgrade=0;
 
 global.null=ds_map_create()
@@ -94,7 +96,7 @@ function normalAttack(){
 
 function tickPowers(){
 	normalAttack();
-	if (attacktick and global.upgrades[0][?"name"]!="") {
+	if (attacktick == true and global.upgrades[0][?"name"]!="") {
 		attacktick=false;
 		alarm[2]=120;
 		for (i=0; i < array_length(global.upgrades); i++) {
@@ -104,6 +106,7 @@ function tickPowers(){
 		}
 	}
 }
+
 
 
 

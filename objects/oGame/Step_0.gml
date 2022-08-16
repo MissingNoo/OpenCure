@@ -1,7 +1,7 @@
 /// @description 
-depth=y;
+
 #region Spawn
-if (canspawn and room == Room1) {
+if (canspawn == true and room == Room1) {
 	a = irandom_range(-1,1)
 	if (a=0) a = 1;
 	b = irandom_range(-1,1)
@@ -35,6 +35,8 @@ if (global.seconds >50 and zz=0) {
     zz=1
 	removeEnemyFromPool(0)
 }
+
+
 
 
 

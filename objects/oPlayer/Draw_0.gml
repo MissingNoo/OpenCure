@@ -1,7 +1,8 @@
 /// @description Insert description here	
 // You can write your code in this editor
+draw_sprite_ext(spr_shadow,0,x,y+0.75,0.1,0.1,0,0,1);
 draw_self();
-if (damaged) {
+if (damaged == true) {
 	draw_sprite_ext(sprite_index,0,x,y,image_xscale,image_yscale,0,c_purple,1)
 }
 //draw_sprite_ext(Arrow,0,x,y,.25,.25,arrow_dir,c_red,1);
@@ -25,6 +26,7 @@ if (ds_list_size(coordsx) > 0) {
 //draw_circle(x+10,y,5,1)
 //draw_circle(x,y-10,5,1)
 //draw_circle(x+7,y-7,5,1)
+
 
 
 
