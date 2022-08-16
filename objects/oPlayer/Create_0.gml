@@ -1,0 +1,1 @@
+initializePlayer(global.Player)

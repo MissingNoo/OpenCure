@@ -1,0 +1,2 @@
+/// @description 
+damaged=false;
