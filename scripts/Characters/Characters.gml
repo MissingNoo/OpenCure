@@ -1,6 +1,8 @@
 function initializePlayer(p){
 	attacktick=true;
 	global.hp=p[?"hp"];
+	global.maxhp=p[?"hp"];
+	global.nome=p[?"name"];
 	for (i=0; i<6; i++) {
 		global.upgrades[i]=global.null;
 	}
@@ -30,5 +32,6 @@ function createCharacter(_id, _name, _sprite, _hp, _speed, _atk)
 }
 createCharacter(0,"John",sJohn,30,1,10);
 createCharacter(1,"Douglas",sEnemy1,30,2,10);		
+
 
 

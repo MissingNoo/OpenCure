@@ -11,7 +11,7 @@ global.upgrades=ds_map_create();
 
 
 
-a=0
-b=0
-c=0
-d=0
+a=110
+b=353
+c=110
+d=353

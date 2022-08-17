@@ -1,9 +1,13 @@
 // Feather disable GM2016
 
-if(keyboard_check_pressed(ord("Q"))) a -=.5;
-if(keyboard_check_pressed(ord("W"))) a +=.5;
-if(keyboard_check_pressed(ord("E"))) c = mouse_x;
-if(keyboard_check_pressed(ord("R"))) d = mouse_y;
+if(keyboard_check(ord("Q"))) a -=.5;
+if(keyboard_check(ord("W"))) a +=.5;
+if(keyboard_check(ord("E"))) b -=.5;
+if(keyboard_check(ord("R"))) b +=.5;
+if(keyboard_check(ord("T"))) c -=.5;
+if(keyboard_check(ord("Y"))) c +=.5;
+if(keyboard_check(ord("U"))) d -=.5;
+if(keyboard_check(ord("I"))) d +=.5;
 if(keyboard_check_pressed(ord("B"))) global.xp+=200;
 
 
