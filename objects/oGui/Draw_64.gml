@@ -1,10 +1,3 @@
-if(global.upgrade){
-	draw_text(10,100,a);
-	draw_text(10,120,b);
-	draw_text(10,140,c);
-	draw_text(10,160,d);
-}
-
 if (room == rInicio) {
     offset = 0;
     for (i = 0; i < array_length(menu_options); i++) {
@@ -28,8 +21,11 @@ if (room == rInicio) {
 if (room == Room1) {
 	
     #region Upgrades
-	//picutre
+	//picture
 	draw_rectangle(5, 40, 165, 160, true);
+	draw_sprite_part_ext(sGuiSlots,0,15,0,sprite_get_width(sGuiSlots),sprite_get_height(sGuiSlots),14,40,3,3,c_white,1);
+	draw_sprite_ext(oPlayer.sprite_index,0,74,105,6.8,6.8,0,c_white,1);
+	draw_sprite_part_ext(sGuiSlots,2,15,0,sprite_get_width(sGuiSlots),sprite_get_height(sGuiSlots),14,40,3,3,c_white,1);
 	var offset=0
 	var spr;
     for (i = 0; i < array_length(global.upgrades); i++) {		
@@ -40,10 +36,8 @@ if (room == Room1) {
 		else {
 			draw_sprite_ext(sGuiSlots,1,187+offset,40,1,1,0,c_white,1);
 		}
-		
-		draw_rectangle(190+offset, 40,230+offset, 80, true);
+		//draw_rectangle(190+offset, 40,230+offset, 80, true);
 		draw_sprite(global.upgrades[i][? "thumb"],0,193+offset,43)
-		
 		draw_text_transformed(195+offset, 60, global.upgrades[i][? "level"],.8,.8,0);
         offset+=43;
     }
@@ -113,3 +107,8 @@ if (room == Room1) {
 	#endregion
 	
 }
+	draw_text(10,100,a);
+	draw_text(10,120,b);
+	draw_text(10,140,c);
+	draw_text(10,160,d);
+
