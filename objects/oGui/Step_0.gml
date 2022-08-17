@@ -4,8 +4,8 @@ if(keyboard_check(ord("Q"))) a -=.5;
 if(keyboard_check(ord("W"))) a +=.5;
 if(keyboard_check(ord("E"))) b -=.5;
 if(keyboard_check(ord("R"))) b +=.5;
-if(keyboard_check(ord("T"))) c -=.5;
-if(keyboard_check(ord("Y"))) c +=.5;
+if(keyboard_check_pressed(ord("T"))) c -=.2;
+if(keyboard_check_pressed(ord("Y"))) c +=.2;
 if(keyboard_check(ord("U"))) d -=.5;
 if(keyboard_check(ord("I"))) d +=.5;
 if(keyboard_check_pressed(ord("B"))) global.xp+=200;
@@ -54,6 +54,9 @@ if (global.upgrade == 1) {
         PauseGame();
     }
 }
+
+
+
 
 
 

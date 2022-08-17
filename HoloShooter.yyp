@@ -75,6 +75,7 @@
     {"id":{"name":"spr_plant_04","path":"sprites/spr_plant_04/spr_plant_04.yy",},"order":12,},
     {"id":{"name":"rInicio","path":"rooms/rInicio/rInicio.yy",},"order":1,},
     {"id":{"name":"input_profile_exists","path":"scripts/input_profile_exists/input_profile_exists.yy",},"order":3,},
+    {"id":{"name":"Sprite154","path":"sprites/Sprite154/Sprite154.yy",},"order":1,},
     {"id":{"name":"input_keyboard_check","path":"scripts/input_keyboard_check/input_keyboard_check.yy",},"order":0,},
     {"id":{"name":"input_profile_get","path":"scripts/input_profile_get/input_profile_get.yy",},"order":4,},
     {"id":{"name":"__input_system","path":"scripts/__input_system/__input_system.yy",},"order":29,},
@@ -101,6 +102,7 @@
     {"id":{"name":"input_mouse_moved","path":"scripts/input_mouse_moved/input_mouse_moved.yy",},"order":9,},
     {"id":{"name":"__input_config_mouse_touch_cursor","path":"scripts/__input_config_mouse_touch_cursor/__input_config_mouse_touch_cursor.yy",},"order":4,},
     {"id":{"name":"input_combo_get_phase","path":"scripts/input_combo_get_phase/input_combo_get_phase.yy",},"order":2,},
+    {"id":{"name":"sGuiSlots","path":"sprites/sGuiSlots/sGuiSlots.yy",},"order":0,},
     {"id":{"name":"spr_satchel","path":"sprites/spr_satchel/spr_satchel.yy",},"order":8,},
     {"id":{"name":"input_combo_get_phase_count","path":"scripts/input_combo_get_phase_count/input_combo_get_phase_count.yy",},"order":3,},
     {"id":{"name":"input_check_repeat_opposing","path":"scripts/input_check_repeat_opposing/input_check_repeat_opposing.yy",},"order":12,},
@@ -455,6 +457,7 @@
     {"folderPath":"folders/Sprites/Full Colour/Treasure.yy","order":9,"resourceVersion":"1.0","name":"Treasure","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Sprites/Full Colour/Trophies and Awards.yy","order":10,"resourceVersion":"1.0","name":"Trophies and Awards","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Sprites/Imported.yy","order":16,"resourceVersion":"1.0","name":"Imported","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Sprites/GUI.yy","order":17,"resourceVersion":"1.0","name":"GUI","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":-1,"resourceVersion":"1.3","name":"audiogroup_default","resourceType":"GMAudioGroup",},

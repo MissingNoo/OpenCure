@@ -28,13 +28,24 @@ if (room == rInicio) {
 if (room == Room1) {
 	
     #region Upgrades
+	//picutre
 	draw_rectangle(5, 40, 165, 160, true);
-	offset=0
-    for (i = 0; i < array_length(global.upgrades); i++) {
-		draw_rectangle(185+offset, 40,225+offset, 80, true);
-		draw_sprite(global.upgrades[i][? "thumb"],0,185+offset,40)
-		draw_text(185+offset, 75, global.upgrades[i][? "level"])
-        offset+=50;
+	var offset=0
+	var spr;
+    for (i = 0; i < array_length(global.upgrades); i++) {		
+		var slot = [190, 230];
+		if (i == 0) {
+		    draw_sprite_ext(sGuiSlots,0,175+offset,40,1,1,0,c_white,1);
+		}
+		else {
+			draw_sprite_ext(sGuiSlots,1,187+offset,40,1,1,0,c_white,1);
+		}
+		
+		draw_rectangle(190+offset, 40,230+offset, 80, true);
+		draw_sprite(global.upgrades[i][? "thumb"],0,193+offset,43)
+		
+		draw_text_transformed(195+offset, 60, global.upgrades[i][? "level"],.8,.8,0);
+        offset+=43;
     }
     #endregion	
     #region XP
@@ -102,8 +113,3 @@ if (room == Room1) {
 	#endregion
 	
 }
-
-
-
-
-
