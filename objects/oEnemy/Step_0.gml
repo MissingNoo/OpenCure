@@ -1,4 +1,4 @@
-depth=y;
+
 if(global.gamePaused == false){
 	if(oPlayer.x < x) image_xscale=1;
 	if(oPlayer.x > x) image_xscale=-1;
@@ -10,6 +10,7 @@ if(global.gamePaused == false){
 		instance_destroy();
 	}
 }
+
 
 
 

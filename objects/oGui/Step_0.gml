@@ -1,4 +1,12 @@
 // Feather disable GM2016
+
+if(keyboard_check_pressed(ord("Q"))) a -=.5;
+if(keyboard_check_pressed(ord("W"))) a +=.5;
+if(keyboard_check_pressed(ord("E"))) c = mouse_x;
+if(keyboard_check_pressed(ord("R"))) d = mouse_y;
+if(keyboard_check_pressed(ord("B"))) global.xp+=200;
+
+
 if (room = rInicio) {
     if (keyboard_check_pressed(ord("Z"))) {
         switch (global.selected) {
@@ -42,6 +50,7 @@ if (global.upgrade == 1) {
         PauseGame();
     }
 }
+
 
 
 

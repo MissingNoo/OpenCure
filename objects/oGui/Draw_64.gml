@@ -1,3 +1,7 @@
+if(global.upgrade){
+	draw_text(10,100,a);
+}
+
 if (room == rInicio) {
     offset = 0;
     for (i = 0; i < array_length(menu_options); i++) {
@@ -38,13 +42,14 @@ if (room == Room1) {
 	 if (global.upgrade == 1) {
         offset = 0;
         draw_set_alpha(.75)
+		// Darken the screen
         draw_rectangle_color(0, 0, room_width, room_height, c_black, c_black, c_black, c_black, false);
         draw_set_alpha(1)
         for (i = 0; i < array_length(global.upgrade_options); i++) {
             if (i = global.selected) color = c_blue;
             else color = c_white;
             draw_rectangle(
-                ((room_width / 2) - string_width(global.upgrade_options[i]) - 5),
+                ((room_width / 2.5) - string_width(global.upgrade_options[i]) - 5),
                 (room_height / 2) + offset,
                 (room_width / 2) + string_width(global.upgrade_options[i]) + 5,
                 room_height / 2 + string_height(global.upgrade_options[i]) + offset,
@@ -65,5 +70,6 @@ if (room == Room1) {
 	#endregion
 	
 }
+
 
 
