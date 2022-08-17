@@ -11,7 +11,4 @@ if(global.gamePaused == false){
 	}
 }
 
-
-
-
-
+pausedamaged = false;
