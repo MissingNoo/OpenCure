@@ -4,3 +4,4 @@ speed=upg[?"speed"];
 atk=upg[?"dmg"];
 hits=upg[?"hits"];
 a=0;
+

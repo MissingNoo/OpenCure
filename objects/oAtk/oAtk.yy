@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "sAtk",
-    "path": "sprites/sAtk/sAtk.yy",
+    "name": "suNormalKnife",
+    "path": "sprites/suNormalKnife/suNormalKnife.yy",
   },
   "solid": false,
   "visible": true,

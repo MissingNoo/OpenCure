@@ -35,7 +35,7 @@ function createUpgrade(_id, _name, _sprite, _thumb, _dmg, _cooldown, _speed, _hi
 //createUpgrade(0,"Speed", suSpeed);		
 //createUpgrade(0,"Atk", suATK,10,3);		
 createUpgrade(0,"AsaCoco", sAsaCoco, suAsacoco,10,3,2,300);
-createUpgrade(1,"Knife", suKnife, sKnife,10,3,2,1);
+createUpgrade(1,"Flying Knife", suFlyingKnife, sKnife,10,3,2,1);
 #endregion
 
 function randomUpgrades(){
@@ -106,6 +106,9 @@ function tickPowers(){
 		}
 	}
 }
+
+
+
 
 
 

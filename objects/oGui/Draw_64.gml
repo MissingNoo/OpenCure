@@ -78,6 +78,17 @@ if (room == Room1) {
                 540,
                 108 + offset,
                 global.upgrade_options[i])
+			draw_line(525,130+offset,1265,130+offset);
+			//icon
+			draw_sprite_ext(sGuiSlots,3,542,145+offset,1.5,1.5,0,c_white,1);
+			//draw_text(542,145+offset,global.upgrade_options[i]);			
+			for (var j = 0; j<=array_length(global.upgradesAvaliable) -1; j++) {
+				if (global.upgradesAvaliable[j][? "name"] == global.upgrade_options[i]) {
+				    draw_sprite_ext(global.upgradesAvaliable[j][? "thumb"],0,545,151+offset,1.5,1.5,0,c_white,1);
+				}
+			}
+			
+			//
             offset += 150;
 			draw_set_color(c_white);
         }
@@ -111,4 +122,4 @@ if (room == Room1) {
 	draw_text(10,120,b);
 	draw_text(10,140,c);
 	draw_text(10,160,d);
-
+	draw_text(10,180, array_length(global.upgradesAvaliable));
