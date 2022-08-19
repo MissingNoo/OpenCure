@@ -16,11 +16,12 @@ function initializePlayer(p){
 	atk=p[?"atk"]
 	sprite_index=p[?"sprite"]
 	
+	global.upgrades[0] = p[?"weapon"];
 }
 
 global.characters=[];
 
-function createCharacter(_id, _name, _sprite, _hp, _speed, _atk)
+function createCharacter(_id, _name, _sprite, _hp, _speed, _atk, _weapon)
 {
 	global.characters[_id]=ds_map_create();
 	m = global.characters[_id];
@@ -29,9 +30,11 @@ function createCharacter(_id, _name, _sprite, _hp, _speed, _atk)
 	ds_map_add(m, "hp", _hp);
 	ds_map_add(m, "speed", _speed);
 	ds_map_add(m, "atk", _atk);
+	ds_map_add(m, "weapon", _weapon);
 }
-createCharacter(0,"John",sJohn,30,1,10);
-createCharacter(1,"Douglas",sEnemy1,30,2,10);		
+createCharacter(0,"John",sJohn,30,1,10,global.upgradesAvaliable[2]);
+createCharacter(1,"Douglas",sEnemy1,30,2,10, "Gun");		
+
 
 
 

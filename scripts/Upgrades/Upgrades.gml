@@ -36,6 +36,7 @@ function createUpgrade(_id, _name, _sprite, _thumb, _dmg, _cooldown, _speed, _hi
 //createUpgrade(0,"Atk", suATK,10,3);		
 createUpgrade(0,"AsaCoco", sAsaCoco, suAsacoco,10,3,2,300);
 createUpgrade(1,"Flying Knife", suFlyingKnife, sKnife,10,3,2,1);
+createUpgrade(2,"Knife", suNormalKnife, sKnife,10,3,0,1);
 #endregion
 
 function randomUpgrades(){
@@ -52,28 +53,35 @@ function arrowDir(){
     if (input_check("left")) {
         x -= spd;
         image_xscale = -1;
-        arrow_dir = -90;
+        global.arrow_dir = -90;
     }
     if (input_check("right")) {		
         x += spd;
         image_xscale = 1;
-        arrow_dir = 90;
+        global.arrow_dir = 90;
     }
     if (input_check("up")) {
         y -= spd;
-        arrow_dir = 180;
+        global.arrow_dir = 180;
     }
     if (input_check("down")) {
         y += spd;
-        arrow_dir = 0;
+        global.arrow_dir = 0;
     }	
+	if (!input_check("up") and !input_check("down") and !input_check("left") and !input_check("right")) {
+	    image_speed=0;
+		image_index=0;
+	}
+	else {
+	    image_speed=1;
+	}
 }
 
 function normalAttack(){
 	    if (can_shoot == 1) {
         can_shoot = 0;
         alarm[0] = 60;
-        attk = instance_create_layer(x, y, "Instances", oAtk);
+        /*attk = instance_create_layer(x, y, "Instances", oAtk);
         switch (arrow_dir) {
             case 90:
                 attk.x = x + 32;
@@ -90,7 +98,7 @@ function normalAttack(){
                 attk.y = y - 32;
                 attk.image_angle = point_direction(x, y, x, y - 90);
                 break;
-        }
+        }*/
     }
 }
 
@@ -106,14 +114,6 @@ function tickPowers(){
 		}
 	}
 }
-
-
-
-
-
-
-
-
 
 
 
