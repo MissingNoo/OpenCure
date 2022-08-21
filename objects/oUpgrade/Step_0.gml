@@ -26,6 +26,28 @@ switch (upg[?"name"]) {
 		}
         break;
 }
+
+if (upg[?"speed"] == 0) {
+    switch (global.arrow_dir) {
+            case 90:
+                x = x + 32;
+                break;
+            case -90:
+                x = x - 32;
+                image_xscale = -1;
+                break;
+            case 0:
+                y = y + 32;
+                image_angle = point_direction(x, y, x, y + 90);
+                break;
+            case 180:
+                y = y - 32;
+                image_angle = point_direction(x, y, x, y - 90);
+                break;
+        }
+}
+
+
 if (sprite_index==blank) {
     instance_destroy();
 }
@@ -33,6 +55,7 @@ if (sprite_index==blank) {
 if (hits <= 0) {
     instance_destroy();
 }
+
 
 
 

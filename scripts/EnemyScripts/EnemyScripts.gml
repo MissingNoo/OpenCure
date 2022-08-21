@@ -27,8 +27,8 @@ function createEnemy(_id, _name, _sprite, _hp, _speed, _atk, _def)
 	ds_map_add(m, "atk", _atk);
 	ds_map_add(m, "def", _def);
 }
-createEnemy(0,"Skeleton",sEnemy1,10,.3,1,1);
-createEnemy(1,"Zombie",sEnemy2,20,.3,1,1);
+createEnemy(0,"Skeleton",sEnemy1,10,.3,10,1);
+createEnemy(1,"Zombie",sEnemy2,20,.3,10,1);
 
 
 #region Enemy Pool Control
@@ -43,3 +43,4 @@ function removeEnemyFromPool(e){
 	ds_list_delete(global.enemyPool, ds_list_find_index(global.enemyPool,e[?"id"]))
 }
 #endregion
+
