@@ -231,6 +231,7 @@
     {"id":{"name":"sJohn","path":"sprites/sJohn/sJohn.yy",},"order":0,},
     {"id":{"name":"spr_book_purple","path":"sprites/spr_book_purple/spr_book_purple.yy",},"order":5,},
     {"id":{"name":"spr_chest_wooden_open_fx","path":"sprites/spr_chest_wooden_open_fx/spr_chest_wooden_open_fx.yy",},"order":8,},
+    {"id":{"name":"Macros","path":"scripts/Macros/Macros.yy",},"order":4,},
     {"id":{"name":"spr_minerals_coal_bar_hot","path":"sprites/spr_minerals_coal_bar_hot/spr_minerals_coal_bar_hot.yy",},"order":2,},
     {"id":{"name":"input_binding_get_name","path":"scripts/input_binding_get_name/input_binding_get_name.yy",},"order":4,},
     {"id":{"name":"input_players_get_status","path":"scripts/input_players_get_status/input_players_get_status.yy",},"order":11,},

@@ -28,16 +28,17 @@ if (global.seconds >60) {
 	global.seconds=0;	
 	global.minutes+=1;	
 }
-z=0
-if (global.seconds >30 and z=0) {
+
+if (global.seconds >30 and z==0) {
     z=1
-	addEnemyToPool(1);
+	addEnemyToPool(Enemies.Red_Guy);
 }
-zz=0
 if (global.seconds >50 and zz=0) {
     zz=1
-	removeEnemyFromPool(0)
+	removeEnemyFromPool(Enemies.Blue_Guy);
 }
+
+
 
 
 

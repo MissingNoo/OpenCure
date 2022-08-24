@@ -37,6 +37,14 @@ function createUpgrade(_id, _name, _sprite, _thumb, _dmg, _cooldown, _speed, _hi
 createUpgrade(0,"AsaCoco", sAsaCoco, suAsacoco,10,3,2,300);
 createUpgrade(1,"Flying Knife", suFlyingKnife, sKnife,10,3,2,1);
 createUpgrade(2,"Knife", suNormalKnife, sKnife,10,3,0,1);
+
+enum weapons
+{
+	AsaCoco = 0,
+	Flying_Knife = 1,
+	Knife = 2
+}
+
 #endregion
 
 function randomUpgrades(){
@@ -114,6 +122,7 @@ function tickPowers(){
 		}
 	}
 }
+
 
 
 

@@ -32,9 +32,5 @@ function createCharacter(_id, _name, _sprite, _hp, _speed, _atk, _weapon)
 	ds_map_add(m, "atk", _atk);
 	ds_map_add(m, "weapon", _weapon);
 }
-createCharacter(0,"John",sJohn,30,1,10,global.upgradesAvaliable[2]);
-createCharacter(1,"Douglas",sEnemy1,30,2,10, "Gun");		
-
-
-
-
+createCharacter(0,"John",sJohn,30,1,10,u[weapons.Knife]);
+createCharacter(1,"Douglas",sEnemy1,30,2,10, u[weapons.AsaCoco]);		

@@ -1,7 +1,5 @@
-/// @description 
-/// @description ;
 //show_message(upg[?"speed"])
-
+//Feather disable GM1043
 if (a==0) {
 a=1;
 sprite_index=upg[?"sprite"];
@@ -55,6 +53,8 @@ if (sprite_index==blank) {
 if (hits <= 0) {
     instance_destroy();
 }
+
+
 
 
 
