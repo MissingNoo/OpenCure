@@ -4,8 +4,9 @@ canspawn=true;
 global.gamePaused=false;
 gamePausedImageSpeed =0;
 global.Player=global.characters[0];
-z=0
-zz=0
+z=0;
+zz=0;
+
 
 
 
