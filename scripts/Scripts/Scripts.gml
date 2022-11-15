@@ -10,6 +10,9 @@ function resetTimer(){
 	global.minutes=0;
 	global.hours=0;
 }
+#macro Seconds global.seconds
+#macro Minutes global.minutes
+#macro Hours global.hours
 	
 function PauseGame(){
 		global.selected=0;
@@ -18,6 +21,11 @@ function PauseGame(){
 		{			
 				with(all)
 				{				
+					for (var i = 0; i < 12; i++)
+					{
+						alarms[i] = alarm_get(i);
+						alarm_set(i,-1);
+					}
 					pausedSpeed = speed;
 					speed = 0;
 					gamePausedImageSpeed =	image_speed;		
@@ -28,6 +36,10 @@ function PauseGame(){
 		{
 				with(all)
 				{	
+					for (var i = 0; i < 12; i++)
+					{
+						alarm_set(i,alarms[i]);
+					}
 					speed=pausedSpeed;
 					image_speed=gamePausedImageSpeed;
 				}
@@ -63,6 +75,7 @@ function summonCircle(){
 		instance_create_layer(a,b,"Instances",oEnemy)
 	}	
 }
+
 
 
 

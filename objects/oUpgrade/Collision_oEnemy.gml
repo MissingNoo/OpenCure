@@ -8,3 +8,4 @@ if (other.damaged ==false and !global.gamePaused) {
 }
 
 
+

@@ -1,9 +1,6 @@
-// Script assets have changed for v2.3.0 see
-// https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
-// Feather disable GM1043
-// Feather disable GM2025
+#macro UPGRADES global.upgrades
 global.upgrade=0;
-
+#region Null Upgrade
 global.null=ds_map_create()
 ds_map_add(global.null, "name", "");
 ds_map_add(global.null, "sprite", blank);
@@ -17,8 +14,18 @@ global.upgradesAvaliable=ds_list_create();
 for (i=0; i<4; i++) {
     global.upgrade_options[i]=global.null;
 }
+#endregion
 #region Upgrades
-
+/// @function					createUpgrade(id, name, sprite, thumbnail, damage, cooldown, speed, hits);
+/// @param {integer}		id			
+/// @param {string}		name	Upgrade Name
+/// @param {index}		sprite		
+/// @param {index}		thumbnail
+/// @param {integer}		damage
+/// @param {real}			cooldown
+/// @param {integer}		speed
+/// @param {integer}		hits
+/// @description             Show a message whenever the function is called.
 function createUpgrade(_id, _name, _sprite, _thumb, _dmg, _cooldown, _speed, _hits)
 {
 	global.upgradesAvaliable[_id]=ds_map_create();
@@ -37,12 +44,14 @@ function createUpgrade(_id, _name, _sprite, _thumb, _dmg, _cooldown, _speed, _hi
 createUpgrade(0,"AsaCoco", sAsaCoco, suAsacoco,10,3,2,300);
 createUpgrade(1,"Flying Knife", suFlyingKnife, sKnife,10,3,2,1);
 createUpgrade(2,"Knife", suNormalKnife, sKnife,10,3,0,1);
+createUpgrade(3,"DouglasShoot", sDouglasShoot, sDouglasShoot,10,3,3,100);
 
 enum weapons
 {
 	AsaCoco = 0,
 	Flying_Knife = 1,
-	Knife = 2
+	Knife = 2,
+	DouglasShoot = 3
 }
 
 #endregion
@@ -57,72 +66,13 @@ function randomUpgrades(){
 	}
 }	
 
-function arrowDir(){
-    if (input_check("left")) {
-        x -= spd;
-        image_xscale = -1;
-        global.arrow_dir = -90;
-    }
-    if (input_check("right")) {		
-        x += spd;
-        image_xscale = 1;
-        global.arrow_dir = 90;
-    }
-    if (input_check("up")) {
-        y -= spd;
-        global.arrow_dir = 180;
-    }
-    if (input_check("down")) {
-        y += spd;
-        global.arrow_dir = 0;
-    }	
-	if (!input_check("up") and !input_check("down") and !input_check("left") and !input_check("right")) {
-	    image_speed=0;
-		image_index=0;
-	}
-	else {
-	    image_speed=1;
-	}
-}
-
-function normalAttack(){
-	    if (can_shoot == 1) {
-        can_shoot = 0;
-        alarm[0] = 60;
-        /*attk = instance_create_layer(x, y, "Instances", oAtk);
-        switch (arrow_dir) {
-            case 90:
-                attk.x = x + 32;
-                break;
-            case -90:
-                attk.x = x - 32;
-                attk.image_xscale = -1;
-                break;
-            case 0:
-                attk.y = y + 32;
-                attk.image_angle = point_direction(x, y, x, y + 90);
-                break;
-            case 180:
-                attk.y = y - 32;
-                attk.image_angle = point_direction(x, y, x, y - 90);
-                break;
-        }*/
-    }
-}
-
 function tickPowers(){
-	normalAttack();
-	if (attacktick == true and global.upgrades[0][?"name"]!="") {
+	if (attacktick == true and UPGRADES[0][?"name"]!="") {
 		attacktick=false;
 		alarm[2]=120;
-		for (i=0; i < array_length(global.upgrades); i++) {
-			global.gen = global.upgrades[i];		
-			a = instance_create_layer(x,y,"Upgrades",oUpgrade);			
-			a.upg=global.upgrades[i];
+		for (i=0; i < array_length(UPGRADES); i++) {
+			inst = (instance_create_layer(x,y,"Upgrades",oUpgrade));
+			inst.upg=UPGRADES[i];
 		}
 	}
 }
-
-
-
-

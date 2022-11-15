@@ -1,13 +1,21 @@
 /// @description Insert description here
 // You can write your code in this editor
 // Feather disable GM1043
+debugy=169
 debug = false;
-global.selected=0;
+selected=0;
 color=c_white;
-menu_options = ["Iniciar", "Sair"];
+menu_options = ["Start", "Settings", "Exit"];
 resetTimer()
 global.upgrades=ds_map_create();
-a=1
-b=130
-c=1
-d=0
+show_debug_message(string(Characters.lenght));
+global.a=1;
+a=1;
+b=130;
+c=10;
+d=20;
+e=0;
+
+
+
+

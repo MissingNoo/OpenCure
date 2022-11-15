@@ -6,9 +6,11 @@ if(global.gamePaused == false){
 	//if(oPlayer.y > y) y+=.5;
 	direction=point_direction(x,y,oPlayer.x,oPlayer.y)
 	if (hp<=0) {
-	    instance_create_layer(x,y,"Instances",oXP);
-		instance_destroy();
+		image_alpha-=.05;
+		x+=image_xscale;
+		if (image_alpha == 0) {
+		    instance_destroy();
+		}
 	}
 }
-
 pausedamaged = false;

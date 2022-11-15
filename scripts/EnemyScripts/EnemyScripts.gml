@@ -1,4 +1,6 @@
 //iniciar variaveis do inimigo
+#macro EnemyList global.enemies
+#macro EnemyPool global.enemyPool
 function initiateEnemy(e){
 	damaged=false;
 	gamePausedImageSpeed=image_speed;
@@ -39,17 +41,24 @@ enum Enemies
 
 #region Enemy Pool Control
 global.enemyPool=ds_list_create(); //enemies the game can summon
-ds_list_add(EnemyPool, global.enemies[Enemies.Blue_Guy]) //start pool with the first mob
 
 function addEnemyToPool(e){
-	ds_list_add(EnemyPool, global.enemies[e]);	
-	show_debug_message(global.enemies[e][? "name"] + " added to enemy pool");
+	ds_list_add(EnemyPool, EnemyList[e]);	
+	show_debug_message(EnemyList[e][? "name"] + " added to enemy pool");
 }
 
 function removeEnemyFromPool(e){
-	ds_list_delete(EnemyPool, ds_list_find_index(EnemyPool,e[?"id"]))
-	show_debug_message(global.enemies[e][? "name"] + " removed from enemy pool");
+	ds_list_delete(EnemyPool, ds_list_find_index(EnemyPool, EnemyList[e]))
+	show_debug_message(EnemyList[e][? "name"] + " removed from enemy pool");
+}
+
+function ResetPool()
+{
+	ds_list_clear(EnemyPool);
+	ds_list_add(EnemyPool, EnemyList[Enemies.Blue_Guy]) //start pool with the first mob
 }
 #endregion
+
+
 
 

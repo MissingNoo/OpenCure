@@ -23,10 +23,9 @@ switch (upg[?"name"]) {
 			direction = point_direction(x,y,x-100,y)
 		}
         break;
-}
-
-if (upg[?"speed"] == 0) {
-    switch (global.arrow_dir) {
+	default:
+		image_speed=1;
+	    switch (global.arrow_dir) {
             case 90:
                 x = x + 32;
                 break;
@@ -43,22 +42,32 @@ if (upg[?"speed"] == 0) {
                 image_angle = point_direction(x, y, x, y - 90);
                 break;
         }
+		break;
+	case "DouglasShoot":
+		image_original_speed=1;
+		image_index=0;
+		image_speed=0;
+		switch (oPlayer.image_xscale) {
+            case 1:
+                x = x + 16;
+                break;
+            case -1:
+				speed=speed*-1;
+                x = x - 16;
+                image_xscale = -1;
+                break;
+        }
+		if (!alarmset) {
+		    alarm[0] = 15;
+			alarmset=true;
+		}
+		
+		break;
 }
 
 
-if (sprite_index==blank) {
-    instance_destroy();
+	if (sprite_index==blank) {
+		instance_destroy();
+	}
 }
-}
-if (hits <= 0) {
-    instance_destroy();
-}
-
-
-
-
-
-
-
-
 

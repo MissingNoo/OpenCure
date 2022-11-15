@@ -10,13 +10,14 @@ if (keyboard_check_pressed(vk_shift)) {
 }
 if (!global.gamePaused) {
 	tickPowers();
-	arrowDir();
+	Movement();
     //if (input_check_pressed("shoot")) instance_create_layer(mouse_x, mouse_y, "Instances", oEnemy);
 	
 	if (global.xp >= 1355) {
 		global.xp -=1355;
 		randomUpgrades()
 		global.upgrade=1;	
+		oGui.selected=0;
 		PauseGame()
 	}
 	
@@ -24,6 +25,8 @@ if (!global.gamePaused) {
 		game_restart()
 	}
 }
+
+
 
 
 
