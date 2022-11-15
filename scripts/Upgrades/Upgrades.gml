@@ -6,7 +6,7 @@ ds_map_add(global.null, "name", "");
 ds_map_add(global.null, "sprite", blank);
 ds_map_add(global.null, "thumb", blank);
 ds_map_add(global.null, "level", "");
-ds_map_add(global.null, "dmg", 0);
+ds_map_add(global.null, "dmg", 1);
 ds_map_add(global.null, "cooldown", 0);
 ds_map_add(global.null, "speed", 0);
 ds_map_add(global.null, "hits", 0);
@@ -41,19 +41,17 @@ function createUpgrade(_id, _name, _sprite, _thumb, _dmg, _cooldown, _speed, _hi
 }
 //createUpgrade(0,"Speed", suSpeed);		
 //createUpgrade(0,"Atk", suATK,10,3);		
-createUpgrade(0,"AsaCoco", sAsaCoco, suAsacoco,10,3,2,300);
-createUpgrade(1,"Flying Knife", suFlyingKnife, sKnife,10,3,2,1);
-createUpgrade(2,"Knife", suNormalKnife, sKnife,10,3,0,1);
-createUpgrade(3,"DouglasShoot", sDouglasShoot, sDouglasShoot,10,3,3,100);
-
 enum weapons
 {
-	AsaCoco = 0,
-	Flying_Knife = 1,
-	Knife = 2,
-	DouglasShoot = 3
+	AmePistol,
+	Flying_Knife,
+	Knife,
+	DouglasShoot
 }
-
+createUpgrade(weapons.AmePistol,"AmePistol", sAmeShoot, sAmePistol,10,3,4,1);
+createUpgrade(weapons.Flying_Knife,"Flying Knife", suFlyingKnife, sKnife,10,3,2,1);
+createUpgrade(weapons.Knife,"Knife", suNormalKnife, sKnife,10,3,0,1);
+createUpgrade(weapons.DouglasShoot,"DouglasShoot", sDouglasShoot, sDouglasShoot,10,3,3,100);
 #endregion
 
 function randomUpgrades(){
@@ -71,8 +69,19 @@ function tickPowers(){
 		attacktick=false;
 		alarm[2]=120;
 		for (i=0; i < array_length(UPGRADES); i++) {
-			inst = (instance_create_layer(x,y,"Upgrades",oUpgrade));
-			inst.upg=UPGRADES[i];
+			if (UPGRADES[i] != global.null) {
+			    inst = (instance_create_layer(x,y,"Upgrades",oUpgrade));
+				inst.upg=UPGRADES[i];
+			}			
 		}
 	}
 }
+
+function defaultBehaviour()
+{
+if (oPlayer.image_xscale==1) direction = point_direction(x,y,x+100,y);
+		else direction = point_direction(x,y,x-100,y);
+		image_speed=1;
+	    image_xscale=oPlayer.image_xscale;
+}
+

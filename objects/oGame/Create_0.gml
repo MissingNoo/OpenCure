@@ -6,4 +6,5 @@ gamePausedImageSpeed =0;
 global.Player=global.characters[Characters.John];
 ResetPool();
 resetTimer();
-gameWindow();
+//gameWindow();
+

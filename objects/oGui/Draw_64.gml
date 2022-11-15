@@ -1,3 +1,4 @@
+draw_set_font(Font1);
 if (room == rInicio) {
     var offset = 0;
 	var xoffset = 10
@@ -24,9 +25,11 @@ if (room == Room1) {
     #region Upgrades
 	//picture
 	//draw_rectangle(5, 40, 165, 160, true);
-	draw_sprite_part_ext(sGuiSlots,0,15,0,sprite_get_width(sGuiSlots),sprite_get_height(sGuiSlots),14,40,3,3,c_white,1);
+	//draw_sprite_part_ext(sGuiSlots,0,15,0,sprite_get_width(sGuiSlots),sprite_get_height(sGuiSlots),14,40,3,3,c_white,1);
+	//draw_sprite_ext(global.Player[?"portrait"],0,75,100,1.75,1.75,0,c_white,1);
+	//draw_sprite_part_ext(sGuiSlots,2,15,0,sprite_get_width(sGuiSlots),sprite_get_height(sGuiSlots),14,40,3,3,c_white,1);
 	draw_sprite_ext(global.Player[?"portrait"],0,75,100,1.75,1.75,0,c_white,1);
-	draw_sprite_part_ext(sGuiSlots,2,15,0,sprite_get_width(sGuiSlots),sprite_get_height(sGuiSlots),14,40,3,3,c_white,1);
+	//draw_sprite();
 	var offset=0;
     for (i = 0; i < array_length(global.upgrades); i++) {
 		if (i == 0) {
@@ -128,7 +131,7 @@ draw_set_alpha(.5);
 	draw_text(10,debugy+80,e);	
 	
 if (room == Room2) {	
-	str="Select your Character";
+	str="CHOOSE YOUR IDOL";
 	draw_text_transformed((GW/2)- string_width(str),50,str,2,2,0);
 	var _x = GW / 64;
 	var _y = GH / 6;
@@ -144,20 +147,10 @@ if (room == Room2) {
 	for (i=0; i < Characters.lenght; i++) {
 		draw_sprite_ext(CHARACTERS[i][?"portrait"],0,435+offset,200,1,1,0,c_white,1);
 		if (selected == i) {
-		    draw_rectangle(435+offset-32,200-32,435+offset,200-30,false);
-		draw_rectangle(435+offset-32,200-32,435+offset-30,200,false);
-		draw_rectangle(435+offset+32,200+30,435+offset,200+32,false);
-		draw_rectangle(435+offset+30,200+32,435+offset+32,200,false);
+			draw_sprite(menu_carselec_cursor,-1,435+offset, 200);
 		}
 		
 	    offset+=80;
 	}
 	//DrawWindow(a,b,c,d,"teste");
 }
-
-
-
-
-
-
-

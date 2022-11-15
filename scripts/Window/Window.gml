@@ -19,8 +19,8 @@ function DrawWindow(x, y, w, h, title){
 }
 function gameWindow(){
 //window_set_size( 960, 540 );
-var base_w = 480;
-var base_h = 270;
+var base_w = 640;
+var base_h = 360;
 var max_w = display_get_width();
 var max_h = display_get_height();
 var aspect = display_get_width() / display_get_height();
@@ -41,3 +41,4 @@ view_wport[0] = max_w;
 view_hport[0] = max_h;
 surface_resize(application_surface, view_wport[0], view_hport[0]);
 }
+

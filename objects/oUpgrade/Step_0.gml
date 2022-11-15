@@ -6,12 +6,15 @@ sprite_index=upg[?"sprite"];
 speed=upg[?"speed"];
 atk=upg[?"dmg"];
 hits=upg[?"hits"];
+show_debug_message("Spawned: " + upg[?"name"] );
 switch (upg[?"name"]) {
-    case "AsaCoco":
-		n = instance_nearest(x,y,oEnemy);
-        direction=point_direction(x,y,n.x,n.y);
-		image_angle=point_direction(x,y,n.x,n.y);
-        break;
+	default:
+		defaultBehaviour();
+		break;
+	case "AmePistol":
+		defaultBehaviour();
+		alarm[0] = 10;
+		break;
     case "Flying Knife":
         if (oPlayer.image_xscale==1) {
 		    image_xscale = 1;
@@ -23,26 +26,6 @@ switch (upg[?"name"]) {
 			direction = point_direction(x,y,x-100,y)
 		}
         break;
-	default:
-		image_speed=1;
-	    switch (global.arrow_dir) {
-            case 90:
-                x = x + 32;
-                break;
-            case -90:
-                x = x - 32;
-                image_xscale = -1;
-                break;
-            case 0:
-                y = y + 32;
-                image_angle = point_direction(x, y, x, y + 90);
-                break;
-            case 180:
-                y = y - 32;
-                image_angle = point_direction(x, y, x, y - 90);
-                break;
-        }
-		break;
 	case "DouglasShoot":
 		image_original_speed=1;
 		image_index=0;
@@ -61,13 +44,14 @@ switch (upg[?"name"]) {
 		    alarm[0] = 15;
 			alarmset=true;
 		}
-		
 		break;
 }
-
-
 	if (sprite_index==blank) {
 		instance_destroy();
 	}
+}
+
+if (hits <= 0) {
+    image_alpha=0;
 }
 

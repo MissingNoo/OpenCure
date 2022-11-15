@@ -16,27 +16,30 @@ function initializePlayer(p){
 	spd=p[?"speed"];
 	can_shoot = 1;
 	arrow_dir=0;
-	atk=p[?"atk"]
-	sprite_index=p[?"sprite"]
+	atk=p[?"atk"];
+	sprite=p[?"sprite"];
+	runningsprite=p[?"runningsprite"];
+	sprite_index=sprite;
 	
 	global.upgrades[0] = p[?"weapon"];
 }
 
 global.characters=[];
 #macro CHARACTERS global.characters
-function createCharacter(_id, _name, _portrait, _sprite, _hp, _speed, _atk, _weapon)
+function createCharacter(_id, _name, _portrait, _sprite, _runningsprite, _hp, _speed, _atk, _weapon)
 {
 	global.characters[_id]=ds_map_create();
 	m = global.characters[_id];
 	ds_map_add(m, "name", _name);
 	ds_map_add(m, "portrait", _portrait);
 	ds_map_add(m, "sprite", _sprite);
+	ds_map_add(m, "runningsprite", _runningsprite);
 	ds_map_add(m, "hp", _hp);
 	ds_map_add(m, "speed", _speed);
 	ds_map_add(m, "atk", _atk);
 	ds_map_add(m, "weapon", _weapon);
 }
-createCharacter(0,"John",sDouglasPortrait,sJohn,30,1,10,u[weapons.Knife]);
+createCharacter(0,"Amelia",sAmePortrait,sAmeIdle,sAmeRunning,30,1.35,10,u[weapons.AmePistol]);
 createCharacter(1,"Douglas",sDouglasPortrait,sDouglas,30,2,10, u[weapons.DouglasShoot]);		
 createCharacter(2,"RedGuy",sDouglasPortrait,sEnemy2,30,2,10, u[weapons.Flying_Knife]);		
 
@@ -98,18 +101,17 @@ if can_move == true{
         x = x + _xadd;
 
         y = y + _yadd;
-		image_speed=1;
+		sprite_index=runningsprite;
         }
 		else {
-			image_index = 0;
-			image_speed=0;
+			sprite_index=sprite;
 		}
     } 
 	else {
-        image_index = 0;
-		image_speed=0;
+		sprite_index=sprite;
 		}
 }
+
 
 
 
