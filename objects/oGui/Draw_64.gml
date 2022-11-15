@@ -43,7 +43,7 @@ if (room == Room1) {
     #endregion	
     #region XP
     draw_rectangle_color(5, 5, 5 + global.xp, 30, c_blue, c_blue, c_blue, c_blue, false);
-    draw_rectangle(5, 5, room_width - 5, 30, true);
+    draw_rectangle(5, 5, GW - 5, 30, true);
     #endregion
 	#region LevelUP	
 	 if (global.upgrade == 1) {
@@ -113,7 +113,7 @@ if (room == Room1) {
 	#region Timer
 	time = string(global.minutes) + ":" + string(string_format(global.seconds,2,0));
 	
-	draw_text_transformed(room_width/2-(string_width(time)/2),35,time,1,1,0)
+	draw_text_transformed(GW/2-(string_width(time)/2),35,time,1,1,0)
 	#endregion
 	
 }
@@ -154,6 +154,7 @@ if (room == Room2) {
 	}
 	//DrawWindow(a,b,c,d,"teste");
 }
+
 
 
 
