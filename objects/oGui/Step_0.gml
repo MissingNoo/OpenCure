@@ -50,18 +50,27 @@ if (room = Room2) {
     }
 }
 
-if(keyboard_check_pressed(ord("Q"))) a -=.25;
-if(keyboard_check_pressed(ord("W"))) a +=.25;
-if(keyboard_check(ord("E"))) b -=1;
-if(keyboard_check(ord("R"))) b +=1;
-if(keyboard_check(ord("T"))) c -=1;
-if(keyboard_check(ord("Y"))) c +=1;
+//if(keyboard_check(ord("Q"))) a -=1;
+if(keyboard_check(ord("Q"))) a -=.25;
+//if(keyboard_check(ord("W"))) a +=1;
+if(keyboard_check(ord("W"))) a +=.25;
+if(keyboard_check(ord("E"))) b -=.25;
+//if(keyboard_check(ord("E"))) b -=1;
+if(keyboard_check(ord("R"))) b +=.25;
+//if(keyboard_check(ord("R"))) b +=1;
+if(keyboard_check_pressed(ord("T"))) c -=1;
+if(keyboard_check_pressed(ord("Y"))) c +=1;
 if(keyboard_check(ord("U"))) d -=1;
 if(keyboard_check(ord("I"))) d +=1;
 if(keyboard_check(ord("O"))) e -=1;
 if(keyboard_check(ord("P"))) e +=1;
 if((keyboard_check(vk_escape) and room == Room2)) {room_goto(rInicio)}
-
-
-
-
+//if (keyboard_check_pressed(ord("V"))) {
+//    display_set_gui_size(640,360);
+//}
+//if (keyboard_check_pressed(ord("B"))) {
+//    display_set_gui_size(1280,720);
+//}
+//if (keyboard_check_pressed(ord("N"))) {
+//    display_set_gui_size(1920,1080);
+//}

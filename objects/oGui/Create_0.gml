@@ -10,12 +10,15 @@ resetTimer()
 global.upgrades=ds_map_create();
 show_debug_message(string(Characters.lenght));
 global.a=1;
-a=1;
-b=130;
-c=10;
-d=20;
+a=0;
+b=0;
+c=2;
+d=2;
 e=0;
-
-
-
+if (os_type == os_android) {
+    display_set_gui_size(1280,720);
+	if (!instance_exists(oJoystick)) {
+	    instance_create_depth(0,0,0,oJoystick);
+	}	
+}
 

@@ -26,8 +26,18 @@ if (global.gamePaused == false) {
 }
 
 
-if (global.seconds >60) {
+if (global.seconds > 60) {
 	global.seconds=0;	
 	global.minutes+=1;	
+}
+
+if (keyboard_check_pressed(ord("V"))) {
+    window_set_size(640,360);
+}
+if (keyboard_check_pressed(ord("B"))) {
+    window_set_size(1280,720);
+}
+if (keyboard_check_pressed(ord("N"))) {
+    window_set_size(1920,1080);
 }
 

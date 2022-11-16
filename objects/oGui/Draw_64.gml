@@ -28,20 +28,28 @@ if (room == Room1) {
 	//draw_sprite_part_ext(sGuiSlots,0,15,0,sprite_get_width(sGuiSlots),sprite_get_height(sGuiSlots),14,40,3,3,c_white,1);
 	//draw_sprite_ext(global.Player[?"portrait"],0,75,100,1.75,1.75,0,c_white,1);
 	//draw_sprite_part_ext(sGuiSlots,2,15,0,sprite_get_width(sGuiSlots),sprite_get_height(sGuiSlots),14,40,3,3,c_white,1);
-	draw_sprite_ext(global.Player[?"portrait"],0,75,100,1.75,1.75,0,c_white,1);
+	/// Portrait
+	draw_sprite_ext(ui_portrait_bg,0,60,90,2,2,0,c_white,1);
+	draw_sprite_ext(global.Player[?"portrait"],0,60,90,2,2,0,c_white,1);
+	draw_sprite_ext(ui_portrait_frame,0,60,90,2,2,0,c_white,1);
 	//draw_sprite();
+	/// Upgrades
 	var offset=0;
-    for (i = 0; i < array_length(global.upgrades); i++) {
-		if (i == 0) {
-		    draw_sprite_ext(sGuiSlots,0,135+offset,40,1,1,0,c_white,1);
-		}
-		else {
-			draw_sprite_ext(sGuiSlots,1,147+offset,40,1,1,0,c_white,1);
-		}
-		//draw_rectangle(190+offset, 40,230+offset, 80, true);
-		draw_sprite(global.upgrades[i][? "thumb"],0,153+offset,43)
-		draw_text_transformed(155+offset, 60, global.upgrades[i][? "level"],.8,.8,0);
-        offset+=43;
+    for (i = 0; i < array_length(UPGRADES); i++) {
+		draw_sprite_ext(ui_empty_slot_weapon,0,GW/10+offset,GH/12,1.5,1.5,0,c_white,.5);		
+		//draw_rectangle(190+offset, 40,230+offset, 80, 1true);
+		draw_sprite(UPGRADES[i][? "thumb"],0,GW/10+offset,GH/12)
+		draw_text_transformed(GW/10+offset, GH/12, UPGRADES[i][? "level"],.8,.8,0);
+        offset+=40;
+    }
+	/// ITEMS
+	offset=0;
+	for (i = 0; i < array_length(UPGRADES); i++) {
+		draw_sprite_ext(ui_empty_slot_item,0,GW/10+offset,GH/7,1.5,1.5,0,c_white,.5);		
+		//draw_rectangle(190+offset, 40,230+offset, 80, 1true);
+		//draw_sprite(UPGRADES[i][? "thumb"],0,GW/10+offset,GH/12)
+		//draw_text_transformed(GW/10+offset, GH/12, UPGRADES[i][? "level"],.8,.8,0);
+        offset+=40;
     }
     #endregion	
     #region XP
@@ -54,7 +62,7 @@ if (room == Room1) {
         offset = 0;
         draw_set_alpha(.75)
 		// Darken the screen
-        draw_rectangle_color(0, 0, room_width, room_height, c_black, c_black, c_black, c_black, false);
+        draw_rectangle_color(0, 0, display_get_gui_width(), display_get_gui_height(), c_black, c_black, c_black, c_black, false);
         draw_set_alpha(1)
         for (i = 0; i < array_length(global.upgrade_options); i++) {
             if (i = selected) 
@@ -120,7 +128,7 @@ if (room == Room1) {
 	#endregion
 	
 }
-draw_set_alpha(.5);
+	draw_set_alpha(.5);
 	draw_set_color(c_white)
 	draw_rectangle(5,debugy-5,150,debugy + 130,false);
 	draw_set_alpha(1);	
@@ -129,6 +137,13 @@ draw_set_alpha(.5);
 	draw_text(10,debugy+40,c);
 	draw_text(10,debugy+60,d);
 	draw_text(10,debugy+80,e);	
+	draw_text(10, debugy+100, device_mouse_x_to_gui(0));
+	draw_text(10, debugy+120, device_mouse_y_to_gui(0));
+	draw_text(10, debugy+140, device_mouse_x_to_gui(1));
+	draw_text(10, debugy+160, device_mouse_y_to_gui(1));
+	draw_text(10, debugy+180, display_get_gui_width());
+	draw_text(10, debugy+200, display_get_gui_height());
+	
 	
 if (room == Room2) {	
 	str="CHOOSE YOUR IDOL";
@@ -139,8 +154,8 @@ if (room == Room2) {
 	var _ww = GW / 4;
 	DrawWindow(_x,_y,_ww,_hh,global.name); //Character window
 	draw_set_color(c_white);
-	draw_text_transformed((GW/2)-285, 140,"Characters",.75,.75,0);
-	draw_line((GW/2)-285,160,(GW/2)+285,160);	
+	draw_text_transformed(GW/3.5, GH/5.7,"Characters",.75,.75,0);
+	draw_line(GW/3.5, GH/5, GW/1.4,GH/5);	
 	offset=0
 	//characters
 	draw_text(10,10,selected);
@@ -153,4 +168,5 @@ if (room == Room2) {
 	    offset+=80;
 	}
 	//DrawWindow(a,b,c,d,"teste");
+	
 }

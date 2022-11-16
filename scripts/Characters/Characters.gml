@@ -63,19 +63,19 @@ function Movement()
 
 if can_move == true{
 
-    var _left = (keyboard_check(ord("A"))) ;
+    var _left = (keyboard_check(LEFTKEY)) ;
 	if (_left) {
 	    global.arrow_dir=-90;
 	}
-    var _right = (keyboard_check(ord("D")));
+    var _right = (keyboard_check(RIGHTKEY));
 	if (_right) {
 		global.arrow_dir=90;
 	}
-    var _up = (keyboard_check(ord("W")));
+    var _up = (keyboard_check(UPKEY));
 	if (_up) {
 	    global.arrow_dir=180;
 	}
-    var _down = (keyboard_check(ord("S")));
+    var _down = (keyboard_check(DOWNKEY));
 	if (_down) {
 	    global.arrow_dir=0;
 	}
@@ -111,6 +111,7 @@ if can_move == true{
 		sprite_index=sprite;
 		}
 }
+
 
 
 
