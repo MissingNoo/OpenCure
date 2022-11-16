@@ -1,4 +1,6 @@
 draw_set_font(Font1);
+draw_set_alpha(1);
+draw_set_color(c_white);
 if (room == rInicio) {
     var offset = 0;
 	var xoffset = 10
@@ -38,7 +40,7 @@ if (room == Room1) {
     for (i = 0; i < array_length(UPGRADES); i++) {
 		draw_sprite_ext(ui_empty_slot_weapon,0,GW/10+offset,GH/12,1.5,1.5,0,c_white,.5);		
 		//draw_rectangle(190+offset, 40,230+offset, 80, 1true);
-		draw_sprite(UPGRADES[i][? "thumb"],0,GW/10+offset,GH/12)
+		draw_sprite_ext(UPGRADES[i][? "thumb"],0,GW/10+offset,GH/12,2,2,0,c_white,1);
 		draw_text_transformed(GW/10+offset, GH/12, UPGRADES[i][? "level"],.8,.8,0);
         offset+=40;
     }
@@ -170,3 +172,4 @@ if (room == Room2) {
 	//DrawWindow(a,b,c,d,"teste");
 	
 }
+

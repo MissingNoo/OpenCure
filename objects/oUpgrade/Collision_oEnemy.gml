@@ -2,12 +2,15 @@
 
 if (other.damaged == false and !global.gamePaused and other.image_alpha == 1 and image_alpha == 1) {
 	other.damaged=true;
-	other.hp-=atk;    
-	other.alarm[1]=25;	
+	random_set_seed(current_time);
+	dmg = irandom_range(atk,atk+5);
+	other.hp-= dmg;	
+	var inst = instance_create_layer(other.x,other.y,"DamageLayer",oDamageText);
+	with (inst)
+	{
+	    dmg=other.dmg;
+	}
+	other.alarm[1]=15;	
 	hits-=1;
 }
-
-
-
-
 
