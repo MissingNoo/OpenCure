@@ -3,8 +3,8 @@
   "solid": false,
   "visible": true,
   "spriteMaskId": {
-    "name": "sEnemy1",
-    "path": "sprites/sEnemy1/sEnemy1.yy",
+    "name": "sShrimp",
+    "path": "sprites/sShrimp/sShrimp.yy",
   },
   "persistent": false,
   "parentObjectId": null,

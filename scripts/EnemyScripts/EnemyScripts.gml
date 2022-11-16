@@ -16,27 +16,29 @@ function initiateEnemy(e){
 }
 	
 global.enemies=[];
-function createEnemy(_id, _name, _sprite, _atksprite, _hp, _speed, _atk, _def)
+function createEnemy(_id, _name, _sprite, _hp, _speed, _atk, _def)
 {
 	global.enemies[_id]=ds_map_create();
 	m = global.enemies[_id];
 	ds_map_add(m, "name", _name);	
 	ds_map_add(m, "sprite", _sprite);
-	ds_map_add(m, "atksprite", _atksprite);
 	ds_map_add(m, "hp", _hp);
 	ds_map_add(m, "speed", _speed);
 	ds_map_add(m, "atk", _atk);
 	ds_map_add(m, "def", _def);
 	show_debug_message(_name + " Added to enemies list")
 }
-createEnemy(0,"Blue Guy",sEnemy1, sEnemy1,10,.3,10,1);
-createEnemy(1,"Red Guy",sEnemy2, sEnemy2,20,.3,10,1);
-
 enum Enemies
 {
-	Blue_Guy,
-	Red_Guy
+	Shrimp,
+	DeadBeat,
+	Takodachi
 }
+createEnemy(Enemies.Shrimp,"Shrimp",sShrimp,10,.3,10,1);
+createEnemy(Enemies.DeadBeat,"DeadBeat",sDeadBeat,20,.3,10,1);
+createEnemy(Enemies.Takodachi,"TakoDachi",sTakodachi,30,.3,10,1);
+
+
 
 
 #region Enemy Pool Control
@@ -55,9 +57,10 @@ function removeEnemyFromPool(e){
 function ResetPool()
 {
 	ds_list_clear(EnemyPool);
-	ds_list_add(EnemyPool, EnemyList[Enemies.Blue_Guy]) //start pool with the first mob
+	ds_list_add(EnemyPool, EnemyList[Enemies.Shrimp]) //start pool with the first mob
 }
 #endregion
+
 
 
 

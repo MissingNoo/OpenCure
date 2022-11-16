@@ -5,7 +5,7 @@ if (seconds == 30 and Minutes == 0 and event) {
 	event = false;
 	alarm[0] = 60;
 	//shtimp e deadbeat
-	addEnemyToPool(Enemies.Red_Guy);
+	addEnemyToPool(Enemies.DeadBeat);
 }
 
 if (seconds == 0 and Minutes == 3 and event) {
@@ -13,7 +13,8 @@ if (seconds == 0 and Minutes == 3 and event) {
 	alarm[0] = 60;	
 	//remove shrimp
 	//deadbeat takodachi
-	removeEnemyFromPool(Enemies.Blue_Guy);
+	removeEnemyFromPool(Enemies.Shrimp);
+	addEnemyToPool(Enemies.Takodachi);
 }
 
 if (seconds == 0 and Minutes == 4 and event) {
@@ -59,3 +60,5 @@ if (seconds == 35 and Minutes == 8 and event) {
 	//trocentos deadbeat
 	//shlv2 a1/a2 bigbubba deadlv3
 }
+
+

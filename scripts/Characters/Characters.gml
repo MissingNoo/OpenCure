@@ -41,7 +41,7 @@ function createCharacter(_id, _name, _portrait, _sprite, _runningsprite, _hp, _s
 }
 createCharacter(0,"Amelia",sAmePortrait,sAmeIdle,sAmeRunning,30,1.35,10,u[weapons.AmePistol]);
 createCharacter(1,"Douglas",sDouglasPortrait,sDouglas,30,2,10, u[weapons.DouglasShoot]);		
-createCharacter(2,"RedGuy",sDouglasPortrait,sEnemy2,30,2,10, u[weapons.Flying_Knife]);		
+createCharacter(2,"RedGuy",sDouglasPortrait,sShrimp,30,2,10, u[weapons.Flying_Knife]);		
 
 NAME=CHARACTERS[Characters.John][?"name"];
 enum Characters {
