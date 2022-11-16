@@ -7,6 +7,9 @@ gamePausedImageSpeed =0;
 global.Player=global.characters[Characters.Amelia];
 ResetPool();
 resetTimer();
+global.strafe = false;
+global.minutesPast30 = 0;
+global.hoursPast1= 0 ;
 //gameWindow();
 
 

@@ -42,13 +42,15 @@ draw_circle(JoystickCenterX,JoystickCenterY,50,true);
 #endregion
 
 #region Right Joystick 
-	if (TouchY1 > Joystick2LimitUp and TouchY1 < Joystick2LimitDown and TouchX1 > Joystick2LimitLeft and TouchX1 < Joystick2LimitRight) {
-	//if (TouchY2 > Joystick2LimitUp and TouchY2 < Joystick2LimitDown and TouchX2 > Joystick2LimitLeft and TouchX2 < Joystick2LimitRight and device_mouse_check_button(1,mb_left)) {
-		draw_set_color(c_aqua);
-	    draw_circle(TouchX1,TouchY1,25,false);
+	if (instance_exists(oPlayer)) {
+		//if (TouchY1 > Joystick2LimitUp and TouchY1 < Joystick2LimitDown and TouchX1 > Joystick2LimitLeft and TouchX1 < Joystick2LimitRight) {
+		if (TouchY2 > Joystick2LimitUp and TouchY2 < Joystick2LimitDown and TouchX2 > Joystick2LimitLeft and TouchX2 < Joystick2LimitRight and device_mouse_check_button(1,mb_left)) {
+			draw_set_color(c_aqua);
+		    draw_circle(TouchX2,TouchY2,25,false);
+		}
+		else {draw_set_color(c_white);draw_circle(Joystick2CenterX,Joystick2CenterY,25,false);}
+		draw_circle(Joystick2CenterX,Joystick2CenterY,50,true);
 	}
-	else {draw_set_color(c_white);draw_circle(Joystick2CenterX,Joystick2CenterY,25,false);}
-draw_circle(Joystick2CenterX,Joystick2CenterY,50,true);
 #endregion
-
+draw_set_color(c_white);
 draw_set_alpha(1);

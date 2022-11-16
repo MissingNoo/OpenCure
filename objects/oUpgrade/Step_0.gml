@@ -17,7 +17,7 @@ if (a==0) {
 			break;
 		case "GuraTrident":
 			image_angle = global.arrow_dir;
-			defaultBehaviour();			
+			//defaultBehaviour();			
 			if (upg[?"level"] >= 6) {
 			    var dirr = (image_xscale > 0) ? .25 : -.25;
 				image_xscale += dirr;
@@ -29,20 +29,15 @@ if (a==0) {
 			//	else {
 			//	    image_angle = point_direction(x,y,x+100,y-diroffset);
 			//	}		    
-			}
+			//}
 			alarm[0] = 1;
 			break;
 		case "InaTentacle":
-			defaultBehaviour();
+			//defaultBehaviour();
+			image_angle = global.arrow_dir;
 			if (upg[?"level"] >= 4) {
 			    var dirr = (image_xscale > 0) ? .25 : -.25;
 				image_xscale += dirr;
-			}
-			if (image_xscale > 0) {
-			    x+= 16;
-			}
-			else {
-			    x-= 16;
 			}
 			break;
 	}
@@ -59,8 +54,9 @@ switch (upg[?"name"]) {
 		y=oPlayer.y-8;
 		break;
 	case "InaTentacle":
-		var dirr = (image_xscale > 0) ? 32 : -32;
-		x=oPlayer.x+dirr;
+		//var dirr = (image_xscale > 0) ? 32 : -32;
+		//x=oPlayer.x+dirr;
+		x=oPlayer.x;
 		y=oPlayer.y-8;
 		break;
 }

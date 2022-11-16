@@ -109,7 +109,7 @@ function tickPowers(){
 				inst.hits=UPGRADES[i][?"hits"];
 				inst.shoots = UPGRADES[i][?"shoots"];
 				inst.sprite_index=UPGRADES[i][?"sprite"];
-				inst.image_xscale=oPlayer.image_xscale;
+				//inst.image_xscale=oPlayer.image_xscale;
 			}			
 		}
 	}

@@ -16,7 +16,7 @@ function initiateEnemy(e){
 }
 	
 global.enemies=[];
-function createEnemy(_id, _name, _sprite, _hp, _speed, _atk, _def)
+function createEnemy(_id, _name, _sprite, _hp, _speed, _atk, _exp, _weight)
 {
 	global.enemies[_id]=ds_map_create();
 	m = global.enemies[_id];
@@ -25,21 +25,43 @@ function createEnemy(_id, _name, _sprite, _hp, _speed, _atk, _def)
 	ds_map_add(m, "hp", _hp);
 	ds_map_add(m, "speed", _speed);
 	ds_map_add(m, "atk", _atk);
-	ds_map_add(m, "def", _def);
+	ds_map_add(m, "exp", _exp);
+	ds_map_add(m, "weight", _weight);
 	show_debug_message(_name + " Added to enemies list")
 }
 enum Enemies
 {
 	Shrimp,
+	DarkShrimp,
+	MegaShrimp,
+	MegaDarkShrimp,
 	DeadBeat,
+	DeadBeatLV2,
+	DeadBeatLV3,
+	DeadBeatLV4,
+	DeadBeatLV5,
 	Takodachi
 }
-createEnemy(Enemies.Shrimp,"Shrimp",sShrimp,5,.3,10,1);
-createEnemy(Enemies.DeadBeat,"DeadBeat",sDeadBeat,30,.3,10,1);
-createEnemy(Enemies.Takodachi,"TakoDachi",sTakodachi,50,.3,10,1);
-
-
-
+#region Create Enemies
+	#region Shrimps
+		createEnemy(Enemies.Shrimp,"Shrimp",sShrimp,8,.35,2,6,1);
+		createEnemy(Enemies.MegaShrimp,"MegaShrimp",sShrimp,600,.5,6,150,1);
+		createEnemy(Enemies.DarkShrimp,"DarkShrimp",sShrimp,125,.6,5,12,1);		
+		createEnemy(Enemies.MegaDarkShrimp,"MegaDarkShrimp",sShrimp,2500,.9,10,1000,1);
+	#endregion
+	
+	#region DeadBeats
+		createEnemy(Enemies.DeadBeat,"DeadBeat",sDeadBeat,40,.4,4,7,1);
+		createEnemy(Enemies.DeadBeatLV2,"DeadBeatLV2",sDeadBeat,150,.6,7,9,1);
+		createEnemy(Enemies.DeadBeatLV3,"DeadBeatLV3",sDeadBeat,380,.65,4,8,1); //knockback immunity
+		createEnemy(Enemies.DeadBeatLV4,"DeadBeatLV4",sDeadBeat,80,1,4,8,1);
+		createEnemy(Enemies.DeadBeatLV5,"DeadBeatLV5",sDeadBeat,1500,.1,4,4,1);
+	#endregion
+	
+	#region Takodachis
+		createEnemy(Enemies.Takodachi,"TakoDachi",sTakodachi,50,.3,10,1,1);
+	#endregion
+#endregion
 
 #region Enemy Pool Control
 global.enemyPool=ds_list_create(); //enemies the game can summon
@@ -60,6 +82,7 @@ function ResetPool()
 	ds_list_add(EnemyPool, EnemyList[Enemies.Shrimp]) //start pool with the first mob
 }
 #endregion
+
 
 
 

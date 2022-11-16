@@ -14,12 +14,12 @@ b=0;
 c=2;
 d=2;
 e=0;
-//if (os_type == os_android) {
+if (os_type != os_android) {
     display_set_gui_size(1280,720);
 	if (!instance_exists(oJoystick)) {
 	    instance_create_depth(0,0,0,oJoystick);
 	}	
-//}
+}
 
 
 

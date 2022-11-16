@@ -8,10 +8,13 @@ global.gamePaused = false;
 function resetTimer(){
 	global.seconds=0;
 	global.minutes=0;
-	//global.hours=0;
+	global.hours=0;
+	global.minutesPast30 = 0;
+	global.hoursPast1= 0 ;
 }
 #macro Seconds global.seconds
 #macro Minutes global.minutes
+#macro Hours global.hours
 //#macro Hours global.hours
 	
 function PauseGame(){
@@ -75,6 +78,8 @@ function summonCircle(){
 		instance_create_layer(a,b,"Instances",oEnemy)
 	}	
 }
+
+
 
 
 

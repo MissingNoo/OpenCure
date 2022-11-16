@@ -32,14 +32,14 @@
 #endregion
 
 #region Right Joystick
-	if (TouchY1 > Joystick2LimitUp and TouchY1 < Joystick2LimitDown and TouchX1 > Joystick2LimitLeft and TouchX1 < Joystick2LimitRight) {
-	//if (TouchY2 > Joystick2LimitUp and TouchY2 < Joystick2LimitDown and TouchX2 > Joystick2LimitLeft and TouchX2 < Joystick2LimitRight and device_mouse_check_button(1,mb_left)) {
-		canrelease=true;
-		global.arrow_dir = point_direction(Joystick2CenterX,Joystick2CenterY, TouchX1, TouchY1);
-	}else{
-		if (canrelease) {
-		    alarm[0]=5;
-			canrelease=false;
+	if (instance_exists(oPlayer)) {
+		//if (TouchY1 > Joystick2LimitUp and TouchY1 < Joystick2LimitDown and TouchX1 > Joystick2LimitLeft and TouchX1 < Joystick2LimitRight) {
+		if (TouchY2 > Joystick2LimitUp and TouchY2 < Joystick2LimitDown and TouchX2 > Joystick2LimitLeft and TouchX2 < Joystick2LimitRight and device_mouse_check_button(1,mb_left)) {
+			canrelease=true;
+			global.arrow_dir = point_direction(Joystick2CenterX,Joystick2CenterY, TouchX2, TouchY2);
+			if (TouchX2 < Joystick2CenterX) {
+			    oPlayer.image_xscale=-1;
+			} else oPlayer.image_xscale=1;
 		}	
 	}
 #endregion

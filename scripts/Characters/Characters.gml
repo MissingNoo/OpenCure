@@ -68,21 +68,20 @@ function Movement()
 if can_move == true{
 
     var _left = (keyboard_check(LEFTKEY)) ;
-	if (_left) {
-	    global.arrow_dir=-90;
-	}
     var _right = (keyboard_check(RIGHTKEY));
-	if (_right) {
-		global.arrow_dir=90;
-	}
     var _up = (keyboard_check(UPKEY));
-	if (_up) {
-	    global.arrow_dir=180;
-	}
     var _down = (keyboard_check(DOWNKEY));
-	if (_down) {
-	    global.arrow_dir=0;
+	if (!instance_exists(oJoystick) and !global.strafe) {
+		if (_down) { global.arrow_dir=270; }
+		if (_up) { global.arrow_dir=90; }
+		if (_right) { global.arrow_dir=0; }
+		if (_left) { global.arrow_dir=180; }
+		if (_up and _right) { global.arrow_dir=45; }
+		if (_up and _left) { global.arrow_dir=135; }
+		if (_down and _right) { global.arrow_dir=315; }
+		if (_down and _left) { global.arrow_dir=225; }
 	}
+	
 	
     var _hspd = _right - _left;
 
@@ -91,7 +90,9 @@ if can_move == true{
     if (_hspd != 0 || _vspd != 0)
     {
 		if (_hspd != 0) {
-		    image_xscale=_hspd;
+			if (!global.strafe and !instance_exists(oJoystick)) {
+			    image_xscale=_hspd;
+			}		    
 		}
 		
         var _spd = spd;

@@ -12,8 +12,9 @@ draw_healthbar((x - 13), ((y - 16) - 20), (x + 13), ((y - 16) - 23), ((HP / MAXH
 draw_set_color(c_black);
 //draw_rectangle(x-15,y-10-(sprite_height/4),x+15,y-12-(sprite_height/4),true);
 draw_set_color(c_white);
-draw_text(x,y-20,image_speed);
-
+//draw_text(x,y-20,image_speed);
+var strafing = global.strafe ? 1 : 0;
+draw_sprite_ext(sArrow,strafing,x,y-16,1,1,global.arrow_dir,c_white,1);
 /*
 //draw_text_transformed(x,y-20,coords[0][?"x"],.5,.5,1)
 if (ds_list_size(coordsx) > 0) {
@@ -28,6 +29,7 @@ if (ds_list_size(coordsx) > 0) {
 //draw_circle(x+10,y,5,1)
 //draw_circle(x,y-10,5,1)
 //draw_circle(x+7,y-7,5,1)
+
 
 
 
