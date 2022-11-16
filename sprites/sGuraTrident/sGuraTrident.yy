@@ -74,7 +74,7 @@
   "nineSlice": null,
   "parent": {
     "name": "GuraTrident",
-    "path": "folders/Sprites/Powers/GuraTrident.yy",
+    "path": "folders/Sprites/Powers/CharacterPerks/GuraTrident.yy",
   },
   "resourceVersion": "1.0",
   "name": "sGuraTrident",

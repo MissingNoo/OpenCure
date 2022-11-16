@@ -53,9 +53,9 @@ if (room = Room2) {
 }
 
 //if(keyboard_check(ord("Q"))) a -=1;
-if(keyboard_check_pressed(ord("Q"))) a -=.05;
+if(keyboard_check(ord("Q"))) a -=1;
 //if(keyboard_check(ord("W"))) a +=1;
-if(keyboard_check_pressed(ord("W"))) a +=.05;
+if(keyboard_check(ord("W"))) a +=1;
 if(keyboard_check_pressed(ord("E"))) b -=.005;
 //if(keyboard_check(ord("E"))) b -=1;
 if(keyboard_check_pressed(ord("R"))) b +=.005;
@@ -76,4 +76,5 @@ if((keyboard_check(vk_escape) and room == Room2)) {room_goto(rInicio)}
 //if (keyboard_check_pressed(ord("N"))) {
 //    display_set_gui_size(1920,1080);
 //}
+
 

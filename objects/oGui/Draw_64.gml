@@ -183,14 +183,15 @@ if (room == Room2) {
 	//characters
 	draw_text(10,10,selected);
 	for (i=0; i < Characters.lenght; i++) {
-		draw_sprite_ext(CHARACTERS[i][?"portrait"],0,435+offset,200,1,1,0,c_white,1);
+		draw_sprite_ext(CHARACTERS[i][?"portrait"],0,435+offset,200,2,2,0,c_white,1);
 		if (selected == i) {
-			draw_sprite(menu_carselec_cursor,-1,435+offset, 200);
+			draw_sprite_ext(menu_carselec_cursor,-1,435+offset, 200,2,2,0,c_white,1);
 		}
 		
-	    offset+=80;
+	    offset+=100;
 	}
 	//DrawWindow(a,b,c,d,"teste");
 	
 }
+
 

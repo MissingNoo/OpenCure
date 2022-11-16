@@ -74,7 +74,7 @@
   "nineSlice": null,
   "parent": {
     "name": "AmePistol",
-    "path": "folders/Sprites/Powers/AmePistol.yy",
+    "path": "folders/Sprites/Powers/CharacterPerks/AmePistol.yy",
   },
   "resourceVersion": "1.0",
   "name": "sAmePistol",

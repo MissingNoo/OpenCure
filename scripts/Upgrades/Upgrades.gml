@@ -41,7 +41,7 @@ enum weapons
 {
 	AmePistol,
 	GuraTrident,
-	Knife,
+	InaTentacle,
 	DouglasShoot
 }
 //AmePistol
@@ -53,7 +53,15 @@ createUpgrade(weapons.AmePistol,"AmePistol",5, sAmeShoot, sAmePistol,7*1.25,13*1
 createUpgrade(weapons.AmePistol,"AmePistol",6, sAmeShoot, sAmePistol,(7*1.25)*1.40,(13*1.25)*1.40,80,4,2, "red", 4);
 createUpgrade(weapons.AmePistol,"AmePistol",7, sAmeShoot, sAmePistol,(7*1.25)*1.40,(13*1.25)*1.40,80,4,2, "red", 6);
 //GuraTrident
-createUpgrade(weapons.GuraTrident,"GuraTrident",1, sGuraTridentShoot, sGuraTrident,11,21,70,4,999, "red", 1);
+createUpgrade(weapons.GuraTrident,"GuraTrident",1, sGuraTridentShoot, sGuraTrident,11,21,70,0,999, "red", 1);
+createUpgrade(weapons.GuraTrident,"GuraTrident",2, sGuraTridentShoot, sGuraTrident,11*1.20,21*1.20,70,0,999, "red", 1);
+createUpgrade(weapons.GuraTrident,"GuraTrident",3, sGuraTridentShoot, sGuraTrident,11*1.20,21*1.20,70,0,999, "red", 2);
+createUpgrade(weapons.GuraTrident,"GuraTrident",4, sGuraTridentShoot, sGuraTrident,11*1.20,21*1.20,70*0.85,0,999, "red", 2);
+createUpgrade(weapons.GuraTrident,"GuraTrident",5, sGuraTridentShoot, sGuraTrident,11*1.20*1.40,21*1.20*1.40,70*0.85,0,999, "red", 2);
+createUpgrade(weapons.GuraTrident,"GuraTrident",6, sGuraTridentShoot, sGuraTrident,11*1.20*1.40,21*1.20*1.40,70*0.85,0,999, "red", 2);
+createUpgrade(weapons.GuraTrident,"GuraTrident",7, sGuraTridentShoot, sGuraTrident,11*1.20*1.40,21*1.20*1.40,70*0.85,0,999, "red", 3);
+//InaTentacle
+createUpgrade(weapons.InaTentacle,"InaTentacle",1, sInaTentacleShoot, sInaTentacle,8,16,90,0,999, "red", 1);
 
 #endregion
 
@@ -64,6 +72,7 @@ function randomUpgrades(){
 		    name = global.upgradesAvaliable[irandom_range(0,array_length(global.upgradesAvaliable)-1)][1][?"name"];
 		    global.upgrade_options[i] = name		
 	}
+	global.upgrade_options[0] = global.upgradesAvaliable[weapons.GuraTrident][1][?"name"];
 }	
 
 function tickPowers(){
@@ -72,7 +81,7 @@ function tickPowers(){
 		alarm[2]=120;
 		for (i=0; i < array_length(UPGRADES); i++) {
 			if (UPGRADES[i] != global.null) {
-			    inst = (instance_create_layer(x,y,"Upgrades",oUpgrade));
+			    inst = (instance_create_layer(x,y-8,"Upgrades",oUpgrade));
 				inst.upg=UPGRADES[i];
 				inst.speed=UPGRADES[i][?"speed"];
 				inst.hits=UPGRADES[i][?"hits"];
@@ -80,18 +89,23 @@ function tickPowers(){
 				inst.sprite_index=UPGRADES[i][?"sprite"];
 				inst.image_xscale=oPlayer.image_xscale;
 			}			
-			
-			
 		}
 	}
 }
 
 function defaultBehaviour()
 {
-if (oPlayer.image_xscale==1) direction = point_direction(x,y,x+100,y);
-		else direction = point_direction(x,y,x-100,y);
-		image_speed=1;
-	    image_xscale=oPlayer.image_xscale;
+	if (oPlayer.image_xscale==1) 
+	{
+		direction = point_direction(x,y,x+100,y+diroffset);
+	}
+	else 
+	{
+		direction = point_direction(x,y,x-100,y-diroffset);
+	}
+	image_xscale=oPlayer.image_xscale;
+	image_speed=1;
 }
+
 
 

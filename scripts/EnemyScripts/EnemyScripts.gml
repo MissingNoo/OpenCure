@@ -34,7 +34,7 @@ enum Enemies
 	DeadBeat,
 	Takodachi
 }
-createEnemy(Enemies.Shrimp,"Shrimp",sShrimp,10,.3,10,1);
+createEnemy(Enemies.Shrimp,"Shrimp",sShrimp,5,.3,10,1);
 createEnemy(Enemies.DeadBeat,"DeadBeat",sDeadBeat,30,.3,10,1);
 createEnemy(Enemies.Takodachi,"TakoDachi",sTakodachi,50,.3,10,1);
 
@@ -60,6 +60,7 @@ function ResetPool()
 	ds_list_add(EnemyPool, EnemyList[Enemies.Shrimp]) //start pool with the first mob
 }
 #endregion
+
 
 
 

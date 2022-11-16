@@ -41,7 +41,7 @@ function createCharacter(_id, _name, _portrait, _sprite, _runningsprite, _hp, _s
 }
 createCharacter(Characters.Amelia,"Watson Amelia",sAmePortrait,sAmeIdle,sAmeRunning,30,1.35,10,u[weapons.AmePistol]);
 createCharacter(Characters.Gura,"Gawr Gura",sGuraPortrait,sGuraIdle,sGuraRunning,30,1.35,10,u[weapons.GuraTrident]);
-createCharacter(Characters.Ina,"Ninomae Ina'nis",sAmePortrait,sAmeIdle,sAmeRunning,30,1.35,10,u[weapons.AmePistol]);
+createCharacter(Characters.Ina,"Ninomae Ina'nis",sInaPortrait,sInaIdle,sInaRunning,30,1.35,10,u[weapons.InaTentacle]);
 createCharacter(Characters.Kiara,"Takanashi Kiara",sAmePortrait,sAmeIdle,sAmeRunning,30,1.35,10,u[weapons.AmePistol]);
 createCharacter(Characters.Calli,"Mori Calliope",sAmePortrait,sAmeIdle,sAmeRunning,30,1.35,10,u[weapons.AmePistol]);
 
@@ -116,6 +116,7 @@ if can_move == true{
 		sprite_index=sprite;
 		}
 }
+
 
 
 
