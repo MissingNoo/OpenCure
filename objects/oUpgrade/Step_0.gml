@@ -4,7 +4,6 @@ if (a==0) {
 a=1;
 sprite_index=upg[?"sprite"];
 speed=upg[?"speed"];
-atk=upg[?"dmg"];
 hits=upg[?"hits"];
 show_debug_message("Spawned: " + upg[?"name"] );
 switch (upg[?"name"]) {
@@ -54,4 +53,5 @@ switch (upg[?"name"]) {
 if (hits <= 0) {
     image_alpha=0;
 }
+
 

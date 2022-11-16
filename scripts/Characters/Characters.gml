@@ -7,7 +7,8 @@ function initializePlayer(p){
 	MAXHP=p[?"hp"];
 	NAME=p[?"name"];
 	for (i=0; i<6; i++) {
-		global.upgrades[i]=global.null;
+		UPGRADES[i][0]=global.null;
+		UPGRADES[i][1]=global.null;
 	}
 	global.upgrade=0;
 	global.xp=0;
@@ -111,6 +112,7 @@ if can_move == true{
 		sprite_index=sprite;
 		}
 }
+
 
 
 

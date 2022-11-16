@@ -40,9 +40,24 @@ if (room == Room1) {
     for (i = 0; i < array_length(UPGRADES); i++) {
 		draw_sprite_ext(ui_empty_slot_weapon,0,GW/10+offset,GH/12,1.5,1.5,0,c_white,.5);		
 		//draw_rectangle(190+offset, 40,230+offset, 80, 1true);
-		draw_sprite_ext(UPGRADES[i][? "thumb"],0,GW/10+offset,GH/12,2,2,0,c_white,1);
-		draw_text_transformed(GW/10+offset, GH/12, UPGRADES[i][? "level"],.8,.8,0);
-        offset+=40;
+		if (UPGRADES[i]!=global.null) {
+		    draw_sprite_ext(UPGRADES[i][? "thumb"],0,GW/10+offset,GH/12,2,2,0,c_white,1);
+			switch (UPGRADES[i][? "type"]) {
+			    case "red":
+			        draw_sprite_ext(ui_level_header_pink,0,GW/10+offset,GH/12,2,2,0,c_white,1);
+					draw_sprite_ext(uiDigitPink,UPGRADES[i][? "level"],GW/10+5+offset,GH/12,2,2,0,c_white,1);
+			        break;
+			    case "yellow":
+			        draw_sprite_ext(ui_level_header_yellow,0,GW/10+offset,GH/12,2,2,0,c_white,1);
+					draw_sprite_ext(uiDigitYellow,UPGRADES[i][? "level"],GW/10+5+offset,GH/12,2,2,0,c_white,1);
+			        break;
+				case "white":
+			        draw_sprite_ext(ui_level_header_white,0,GW/10+offset,GH/12,2,2,0,c_white,1);
+					draw_sprite_ext(uiDigitWhite,UPGRADES[i][? "level"],GW/10+5+offset,GH/12,2,2,0,c_white,1);
+			        break;
+			}
+		}		
+        offset+=50;
     }
 	/// ITEMS
 	offset=0;
@@ -51,7 +66,7 @@ if (room == Room1) {
 		//draw_rectangle(190+offset, 40,230+offset, 80, 1true);
 		//draw_sprite(UPGRADES[i][? "thumb"],0,GW/10+offset,GH/12)
 		//draw_text_transformed(GW/10+offset, GH/12, UPGRADES[i][? "level"],.8,.8,0);
-        offset+=40;
+        offset+=50;
     }
     #endregion	
     #region XP

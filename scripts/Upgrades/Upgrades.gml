@@ -16,28 +16,22 @@ for (i=0; i<4; i++) {
 }
 #endregion
 #region Upgrades
-/// @function					createUpgrade(id, name, sprite, thumbnail, damage, cooldown, speed, hits);
-/// @param {integer}		id			
-/// @param {string}		name	Upgrade Name
-/// @param {index}		sprite		
-/// @param {index}		thumbnail
-/// @param {integer}		damage
-/// @param {real}			cooldown
-/// @param {integer}		speed
-/// @param {integer}		hits
-/// @description             Show a message whenever the function is called.
-function createUpgrade(_id, _name, _sprite, _thumb, _dmg, _cooldown, _speed, _hits)
+function createUpgrade(_id, _name, _level, _sprite, _thumb, _mindmg = 7, _maxdmg = 13, _cooldown, _speed, _hits = 1, _type = "white", _shoots = 1)
 {
-	global.upgradesAvaliable[_id]=ds_map_create();
-	var m = global.upgradesAvaliable[_id];
+	global.upgradesAvaliable[_id][0]=global.null;
+	global.upgradesAvaliable[_id][_level]=ds_map_create();
+	var m = global.upgradesAvaliable[_id][_level];
 	ds_map_add(m, "name", _name);
 	ds_map_add(m, "sprite", _sprite);
 	ds_map_add(m, "thumb", _thumb);
-	ds_map_add(m, "level", 1);
-	ds_map_add(m, "dmg", _dmg);
+	ds_map_add(m, "level", _level);
+	ds_map_add(m, "mindmg", _mindmg);
+	ds_map_add(m, "maxdmg", _maxdmg);
 	ds_map_add(m, "cooldown", _cooldown);
 	ds_map_add(m, "speed", _speed);
 	ds_map_add(m, "hits", _hits);
+	ds_map_add(m, "type", _type);	
+	ds_map_add(m, "shoots", _shoots);	
 }
 //createUpgrade(0,"Speed", suSpeed);		
 //createUpgrade(0,"Atk", suATK,10,3);		
@@ -48,10 +42,10 @@ enum weapons
 	Knife,
 	DouglasShoot
 }
-createUpgrade(weapons.AmePistol,"AmePistol", sAmeShoot, sAmePistol,10,3,4,1);
-createUpgrade(weapons.Flying_Knife,"Flying Knife", suFlyingKnife, sKnife,10,3,2,1);
-createUpgrade(weapons.Knife,"Knife", suNormalKnife, sKnife,10,3,0,1);
-createUpgrade(weapons.DouglasShoot,"DouglasShoot", sDouglasShoot, sDouglasShoot,10,3,3,100);
+createUpgrade(weapons.AmePistol,"AmePistol",1, sAmeShoot, sAmePistol,,,3,4,, "red", 3);
+createUpgrade(weapons.Flying_Knife,"Flying Knife",1, suFlyingKnife, sKnife,10,3,2,1);
+createUpgrade(weapons.Knife,"Knife",1, suNormalKnife, sKnife,10,3,0,1);
+createUpgrade(weapons.DouglasShoot,"DouglasShoot",1, sDouglasShoot, sDouglasShoot,10,3,3,100);
 #endregion
 
 function randomUpgrades(){
@@ -59,17 +53,17 @@ function randomUpgrades(){
 	onlist=false;
 	name="";
 	for (i=0; i<4; i++) {
-		    name = global.upgradesAvaliable[irandom_range(0,array_length(global.upgradesAvaliable)-1)][?"name"];
+		    name = global.upgradesAvaliable[irandom_range(0,array_length(global.upgradesAvaliable)-1)][1][?"name"];
 		    global.upgrade_options[i] = name		
 	}
 }	
 
 function tickPowers(){
-	if (attacktick == true and UPGRADES[0][?"name"]!="") {
+	if (attacktick == true and UPGRADES[0][1][?"name"]!="") {
 		attacktick=false;
 		alarm[2]=120;
 		for (i=0; i < array_length(UPGRADES); i++) {
-			if (UPGRADES[i] != global.null) {
+			if (UPGRADES[i][1] != global.null) {
 			    inst = (instance_create_layer(x,y,"Upgrades",oUpgrade));
 				inst.upg=UPGRADES[i];
 			}			
@@ -84,4 +78,5 @@ if (oPlayer.image_xscale==1) direction = point_direction(x,y,x+100,y);
 		image_speed=1;
 	    image_xscale=oPlayer.image_xscale;
 }
+
 
