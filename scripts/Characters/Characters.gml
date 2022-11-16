@@ -7,8 +7,7 @@ function initializePlayer(p){
 	MAXHP=p[?"hp"];
 	NAME=p[?"name"];
 	for (i=0; i<6; i++) {
-		UPGRADES[i][0]=global.null;
-		UPGRADES[i][1]=global.null;
+		UPGRADES[i]=global.null;
 	}
 	global.upgrade=0;
 	global.xp=0;
@@ -22,7 +21,7 @@ function initializePlayer(p){
 	runningsprite=p[?"runningsprite"];
 	sprite_index=sprite;
 	
-	global.upgrades[0] = p[?"weapon"];
+	global.upgrades[0] = p[?"weapon"][1];
 }
 
 global.characters=[];
@@ -40,15 +39,20 @@ function createCharacter(_id, _name, _portrait, _sprite, _runningsprite, _hp, _s
 	ds_map_add(m, "atk", _atk);
 	ds_map_add(m, "weapon", _weapon);
 }
-createCharacter(0,"Amelia",sAmePortrait,sAmeIdle,sAmeRunning,30,1.35,10,u[weapons.AmePistol]);
-createCharacter(1,"Douglas",sDouglasPortrait,sDouglas,30,2,10, u[weapons.DouglasShoot]);		
-createCharacter(2,"RedGuy",sDouglasPortrait,sShrimp,30,2,10, u[weapons.Flying_Knife]);		
+createCharacter(Characters.Amelia,"Watson Amelia",sAmePortrait,sAmeIdle,sAmeRunning,30,1.35,10,u[weapons.AmePistol]);
+createCharacter(Characters.Gura,"Gawr Gura",sGuraPortrait,sGuraIdle,sGuraRunning,30,1.35,10,u[weapons.GuraTrident]);
+createCharacter(Characters.Ina,"Ninomae Ina'nis",sAmePortrait,sAmeIdle,sAmeRunning,30,1.35,10,u[weapons.AmePistol]);
+createCharacter(Characters.Kiara,"Takanashi Kiara",sAmePortrait,sAmeIdle,sAmeRunning,30,1.35,10,u[weapons.AmePistol]);
+createCharacter(Characters.Calli,"Mori Calliope",sAmePortrait,sAmeIdle,sAmeRunning,30,1.35,10,u[weapons.AmePistol]);
 
-NAME=CHARACTERS[Characters.John][?"name"];
+
+NAME=CHARACTERS[Characters.Amelia][?"name"];
 enum Characters {
-	John,
-	Douglas,
-	RedGuy,
+	Amelia,
+	Gura,
+	Ina,
+	Kiara,
+	Calli,
 	lenght
 }
 

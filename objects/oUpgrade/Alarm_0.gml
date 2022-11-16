@@ -8,10 +8,14 @@ switch (upg[?"name"]) {
 		if (shoots > 1) {
 			inst = (instance_create_layer(oPlayer.x,oPlayer.y,"Upgrades",oUpgrade));
 			inst.upg=UPGRADES[weapons.AmePistol];
+			inst.speed=UPGRADES[weapons.AmePistol][?"speed"];
+			inst.hits=UPGRADES[weapons.AmePistol][?"hits"];
 			inst.shoots = 0;
+			inst.sprite_index=UPGRADES[weapons.AmePistol][?"sprite"];
 		    shoots-=1;
 			alarm[0]=10;
 		}
 		break;
 }
+
 

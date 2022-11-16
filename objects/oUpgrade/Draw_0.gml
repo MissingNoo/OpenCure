@@ -16,3 +16,4 @@ switch (upg[?"name"]) {
 		draw_self();
 		break
 }
+

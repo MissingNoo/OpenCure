@@ -2,10 +2,7 @@
 //Feather disable GM1043
 if (a==0) {
 a=1;
-sprite_index=upg[?"sprite"];
-speed=upg[?"speed"];
-hits=upg[?"hits"];
-show_debug_message("Spawned: " + upg[?"name"] );
+show_debug_message("Spawned: " + upg[?"name"] + " Level: " + string(upg[?"level"]));
 switch (upg[?"name"]) {
 	default:
 		defaultBehaviour();

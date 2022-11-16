@@ -41,7 +41,13 @@ if (room == Room1) {
 		draw_sprite_ext(ui_empty_slot_weapon,0,GW/10+offset,GH/12,1.5,1.5,0,c_white,.5);		
 		//draw_rectangle(190+offset, 40,230+offset, 80, 1true);
 		if (UPGRADES[i]!=global.null) {
-		    draw_sprite_ext(UPGRADES[i][? "thumb"],0,GW/10+offset,GH/12,2,2,0,c_white,1);
+			if (UPGRADES[i][?"level"] <=5) {
+			    draw_sprite_ext(UPGRADES[i][? "thumb"],0,GW/10+offset,GH/12,2,2,0,c_white,1);
+			}
+			else 
+			{
+				draw_sprite_ext(UPGRADES[i][? "thumb"],1,GW/10+offset,GH/12,2,2,0,c_white,1);
+			}		    
 			switch (UPGRADES[i][? "type"]) {
 			    case "red":
 			        draw_sprite_ext(ui_level_header_pink,0,GW/10+offset,GH/12,2,2,0,c_white,1);
@@ -110,8 +116,8 @@ if (room == Room1) {
 			draw_sprite_ext(sGuiSlots,3,542,145+offset,1.5,1.5,0,c_white,1);
 			//draw_text(542,145+offset,global.upgrade_options[i]);			
 			for (var j = 0; j<=array_length(global.upgradesAvaliable) -1; j++) {
-				if (global.upgradesAvaliable[j][? "name"] == global.upgrade_options[i]) {
-				    draw_sprite_ext(global.upgradesAvaliable[j][? "thumb"],0,545,151+offset,1.5,1.5,0,c_white,1);
+				if (global.upgradesAvaliable[j][1][? "name"] == global.upgrade_options[i]) {
+				    draw_sprite_ext(global.upgradesAvaliable[j][1][? "thumb"],0,545,151+offset,1.5,1.5,0,c_white,1);
 				}
 			}
 			

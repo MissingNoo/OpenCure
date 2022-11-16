@@ -17,9 +17,11 @@ if (global.upgrade == 1) {
 		for (i = 0; i < 6; i++) 
 		{	
 			#region Upgrade na lista			
-			if (global.upgrades[i][?"name"] == global.upgrade_options[selected] ) 
+			if (UPGRADES[i][?"name"] == global.upgrade_options[selected] ) 
 			{
-				global.upgrades[i][?"level"] += 1;
+				//global.upgradesAvaliable[UPGRADES[i][?"id"]][UPGRADES[i][?"level"]]+1;
+				//show_message(string(UPGRADES[i][?"id"]))
+				global.upgrades[i] = global.upgradesAvaliable[UPGRADES[i][?"id"]][UPGRADES[i][?"level"]]+1;
 				break;
 			}			
 			#endregion
@@ -29,9 +31,9 @@ if (global.upgrade == 1) {
 			{
 			    for (j=0; j<array_length(global.upgradesAvaliable); j++) 
 				{
-				    if (global.upgradesAvaliable[j][?"name"] == global.upgrade_options[selected]) 
+				    if (global.upgradesAvaliable[j][1][?"name"] == global.upgrade_options[selected]) 
 					{
-						global.upgrades[i]=global.upgradesAvaliable[j];
+						global.upgrades[i]=global.upgradesAvaliable[j][1];
 					}
 				}
 				break;

@@ -3,8 +3,9 @@
 canspawn=true;
 global.gamePaused=false;
 gamePausedImageSpeed =0;
-global.Player=global.characters[Characters.John];
+global.Player=global.characters[Characters.Amelia];
 ResetPool();
 resetTimer();
 //gameWindow();
+
 
