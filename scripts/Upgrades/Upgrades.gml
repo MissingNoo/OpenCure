@@ -44,35 +44,57 @@ enum weapons
 	InaTentacle,
 	DouglasShoot
 }
-//AmePistol
-createUpgrade(weapons.AmePistol,"AmePistol",1, sAmeShoot, sAmePistol,7,13,80,4,1, "red", 3);
-createUpgrade(weapons.AmePistol,"AmePistol",2, sAmeShoot, sAmePistol,7,13,80,4,2, "red", 4);
-createUpgrade(weapons.AmePistol,"AmePistol",3, sAmeShoot, sAmePistol,7*1.25,13*1.25,80,4,2, "red", 4);
-createUpgrade(weapons.AmePistol,"AmePistol",4, sAmeShoot, sAmePistol,7*1.25,13*1.25,80,4,2, "red", 4);
-createUpgrade(weapons.AmePistol,"AmePistol",5, sAmeShoot, sAmePistol,7*1.25,13*1.25,80,4,3, "red", 4);
-createUpgrade(weapons.AmePistol,"AmePistol",6, sAmeShoot, sAmePistol,(7*1.25)*1.40,(13*1.25)*1.40,80,4,2, "red", 4);
-createUpgrade(weapons.AmePistol,"AmePistol",7, sAmeShoot, sAmePistol,(7*1.25)*1.40,(13*1.25)*1.40,80,4,2, "red", 6);
-//GuraTrident
-createUpgrade(weapons.GuraTrident,"GuraTrident",1, sGuraTridentShoot, sGuraTrident,11,21,70,0,999, "red", 1);
-createUpgrade(weapons.GuraTrident,"GuraTrident",2, sGuraTridentShoot, sGuraTrident,11*1.20,21*1.20,70,0,999, "red", 1);
-createUpgrade(weapons.GuraTrident,"GuraTrident",3, sGuraTridentShoot, sGuraTrident,11*1.20,21*1.20,70,0,999, "red", 2);
-createUpgrade(weapons.GuraTrident,"GuraTrident",4, sGuraTridentShoot, sGuraTrident,11*1.20,21*1.20,70*0.85,0,999, "red", 2);
-createUpgrade(weapons.GuraTrident,"GuraTrident",5, sGuraTridentShoot, sGuraTrident,11*1.20*1.40,21*1.20*1.40,70*0.85,0,999, "red", 2);
-createUpgrade(weapons.GuraTrident,"GuraTrident",6, sGuraTridentShoot, sGuraTrident,11*1.20*1.40,21*1.20*1.40,70*0.85,0,999, "red", 2);
-createUpgrade(weapons.GuraTrident,"GuraTrident",7, sGuraTridentShoot, sGuraTrident,11*1.20*1.40,21*1.20*1.40,70*0.85,0,999, "red", 3);
-//InaTentacle
-createUpgrade(weapons.InaTentacle,"InaTentacle",1, sInaTentacleShoot, sInaTentacle,8,16,90,0,999, "red", 1);
-
+#region Character Perks
+	#region Amelia Perks
+		#region AmePistol
+			createUpgrade(weapons.AmePistol,"AmePistol",1, sAmeShoot, sAmePistol,7,13,80,4,1, "red", 3,1);
+			createUpgrade(weapons.AmePistol,"AmePistol",2, sAmeShoot, sAmePistol,7,13,80,4,2, "red", 4,1);
+			createUpgrade(weapons.AmePistol,"AmePistol",3, sAmeShoot, sAmePistol,7*1.25,13*1.25,80,4,2, "red", 4,1);
+			createUpgrade(weapons.AmePistol,"AmePistol",4, sAmeShoot, sAmePistol,7*1.25,13*1.25,80,4,2, "red", 4,1);
+			createUpgrade(weapons.AmePistol,"AmePistol",5, sAmeShoot, sAmePistol,7*1.25,13*1.25,80,4,3, "red", 4,1);
+			createUpgrade(weapons.AmePistol,"AmePistol",6, sAmeShoot, sAmePistol,(7*1.25)*1.40,(13*1.25)*1.40,80,4,2, "red", 4,1);
+			createUpgrade(weapons.AmePistol,"AmePistol",7, sAmeShoot, sAmePistol,(7*1.25)*1.40,(13*1.25)*1.40,80,4,2, "red", 6,1);
+		#endregion
+	#endregion
+	
+	#region Gura Perks
+		#region GuraTrident
+			createUpgrade(weapons.GuraTrident,"GuraTrident",1, sGuraTridentShoot, sGuraTrident,11,21,70,0,999, "red", 1,1);
+			createUpgrade(weapons.GuraTrident,"GuraTrident",2, sGuraTridentShoot, sGuraTrident,11*1.20,21*1.20,70,0,999, "red", 1,1);
+			createUpgrade(weapons.GuraTrident,"GuraTrident",3, sGuraTridentShoot, sGuraTrident,11*1.20,21*1.20,70,0,999, "red", 2,1);
+			createUpgrade(weapons.GuraTrident,"GuraTrident",4, sGuraTridentShoot, sGuraTrident,11*1.20,21*1.20,70*0.85,0,999, "red", 2,1);
+			createUpgrade(weapons.GuraTrident,"GuraTrident",5, sGuraTridentShoot, sGuraTrident,11*1.20*1.40,21*1.20*1.40,70*0.85,0,999, "red", 2,1);
+			createUpgrade(weapons.GuraTrident,"GuraTrident",6, sGuraTridentShoot, sGuraTrident,11*1.20*1.40,21*1.20*1.40,70*0.85,0,999, "red", 2,1);
+			createUpgrade(weapons.GuraTrident,"GuraTrident",7, sGuraTridentShoot, sGuraTrident,11*1.20*1.40,21*1.20*1.40,70*0.85,0,999, "red", 3,1);
+		#endregion
+	#endregion
+	
+	#region Ina Perks
+		#region InaTentacle
+			createUpgrade(weapons.InaTentacle,"InaTentacle",1, sInaTentacleShoot, sInaTentacle,8,16,90,0,999, "red", 1,1);
+		#endregion
+	#endregion
 #endregion
 
+createUpgrade(weapons.DouglasShoot,"teste",1,sJohn,sJohn,0,100,0,3,10,"white",1,0);
+createUpgrade(weapons.DouglasShoot+1,"teste2",1,sDouglas,sDouglasPortrait,0,100,0,3,10,"white",1,0);
+
+
+#endregion
+//generate random list of possible upgrades
 function randomUpgrades(){
 	random_set_seed(current_time);
 	name="";
 	for (i=0; i<4; i++) {
-		    name = global.upgradesAvaliable[irandom_range(0,array_length(global.upgradesAvaliable)-1)][1][?"name"];
-		    global.upgrade_options[i] = name		
+		do {
+			var rdnnumber = irandom_range(0,array_length(global.upgradesAvaliable)-1);
+			var pickedupgrade = global.upgradesAvaliable[rdnnumber][1];
+		    name = pickedupgrade[?"name"];
+			var isperk = pickedupgrade[?"perk"];
+		} until (isperk != 1);		    
+		    global.upgrade_options[i] = name;
 	}
-	global.upgrade_options[0] = global.upgradesAvaliable[weapons.GuraTrident][1][?"name"];
+	global.upgrade_options[0] = global.upgradesAvaliable[weapons.AmePistol][1][?"name"];
 }	
 
 function tickPowers(){
@@ -106,6 +128,8 @@ function defaultBehaviour()
 	image_xscale=oPlayer.image_xscale;
 	image_speed=1;
 }
+
+
 
 
 

@@ -20,7 +20,6 @@ function initializePlayer(p){
 	sprite=p[?"sprite"];
 	runningsprite=p[?"runningsprite"];
 	sprite_index=sprite;
-	
 	global.upgrades[0] = p[?"weapon"][1];
 }
 
@@ -116,6 +115,7 @@ if can_move == true{
 		sprite_index=sprite;
 		}
 }
+
 
 
 

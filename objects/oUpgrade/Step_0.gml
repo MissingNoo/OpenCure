@@ -16,18 +16,19 @@ if (a==0) {
 			alarm[0] = 10;
 			break;
 		case "GuraTrident":
-			defaultBehaviour();
+			image_angle = global.arrow_dir;
+			defaultBehaviour();			
 			if (upg[?"level"] >= 6) {
 			    var dirr = (image_xscale > 0) ? .25 : -.25;
 				image_xscale += dirr;
 			}
-			if (shoots==0) {
-				if (image_xscale==1) {
-				    image_angle = point_direction(x,y,x+100,y+diroffset);
-				}
-				else {
-				    image_angle = point_direction(x,y,x+100,y-diroffset);
-				}		    
+			//if (shoots==0) {
+			//	if (image_xscale==1) {
+			//	    image_angle = point_direction(x,y,x+100,y+diroffset);
+			//	}
+			//	else {
+			//	    image_angle = point_direction(x,y,x+100,y-diroffset);
+			//	}		    
 			}
 			alarm[0] = 1;
 			break;
@@ -69,6 +70,7 @@ switch (upg[?"name"]) {
 if (hits <= 0) {
     image_alpha=0;
 }
+
 
 
 

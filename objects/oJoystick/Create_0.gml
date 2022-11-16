@@ -18,3 +18,15 @@ JoystickLimitUp = JoystickCenterY-limit;
 JoystickAtivationUp = JoystickCenterY-ativation;
 JoystickLimitDown = JoystickCenterY+limit;
 JoystickAtivationDown = JoystickCenterY+ativation;
+
+Joystick2CenterX=GW/1.20;
+Joystick2CenterY=GH/1.25;
+Joystick2LimitLeft = Joystick2CenterX-limit;
+Joystick2AtivationLeft = Joystick2CenterX-ativation;
+Joystick2LimitRight = Joystick2CenterX+limit;
+Joystick2AtivationRight = Joystick2CenterX+ativation;
+Joystick2LimitUp = Joystick2CenterY-limit;
+Joystick2AtivationUp = Joystick2CenterY-ativation;
+Joystick2LimitDown = Joystick2CenterY+limit;
+Joystick2AtivationDown = Joystick2CenterY+ativation;
+

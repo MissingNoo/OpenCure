@@ -22,62 +22,62 @@ if (room == rInicio) {
     }
 }
 
-if (room == Room1) {
+if (instance_exists(oPlayer)) //while inside a stage
+{
 	
     #region Upgrades
-	//picture
-	//draw_rectangle(5, 40, 165, 160, true);
-	//draw_sprite_part_ext(sGuiSlots,0,15,0,sprite_get_width(sGuiSlots),sprite_get_height(sGuiSlots),14,40,3,3,c_white,1);
-	//draw_sprite_ext(global.Player[?"portrait"],0,75,100,1.75,1.75,0,c_white,1);
-	//draw_sprite_part_ext(sGuiSlots,2,15,0,sprite_get_width(sGuiSlots),sprite_get_height(sGuiSlots),14,40,3,3,c_white,1);
-	/// Portrait
-	draw_sprite_ext(ui_portrait_bg,0,60,90,2,2,0,c_white,1);
-	draw_sprite_ext(global.Player[?"portrait"],0,60,90,2,2,0,c_white,1);
-	draw_sprite_ext(ui_portrait_frame,0,60,90,2,2,0,c_white,1);
-	//draw_sprite();
-	/// Upgrades
-	var offset=0;
-    for (i = 0; i < array_length(UPGRADES); i++) {
-		draw_sprite_ext(ui_empty_slot_weapon,0,GW/10+offset,GH/12,1.5,1.5,0,c_white,.5);		
-		//draw_rectangle(190+offset, 40,230+offset, 80, 1true);
-		if (UPGRADES[i]!=global.null) {
-			if (UPGRADES[i][?"level"] <=5) {
-			    draw_sprite_ext(UPGRADES[i][? "thumb"],0,GW/10+offset,GH/12,2,2,0,c_white,1);
-			}
-			else 
+	
+		#region Character Portrait
+			draw_sprite_ext(ui_portrait_bg,0,60,90,2,2,0,c_white,1);
+			draw_sprite_ext(global.Player[?"portrait"],0,60,90,2,2,0,c_white,1);
+			draw_sprite_ext(ui_portrait_frame,0,60,90,2,2,0,c_white,1);
+		#endregion
+	
+		#region Weapons
+			var offset=0;			
+		    for (i = 0; i < array_length(UPGRADES); i++) //for the size of the upgrade arrays
 			{
-				draw_sprite_ext(UPGRADES[i][? "thumb"],1,GW/10+offset,GH/12,2,2,0,c_white,1);
-			}		    
-			switch (UPGRADES[i][? "type"]) {
-			    case "red":
-			        draw_sprite_ext(ui_level_header_pink,0,GW/10+offset,GH/12,2,2,0,c_white,1);
-					draw_sprite_ext(uiDigitPink,UPGRADES[i][? "level"],GW/10+5+offset,GH/12,2,2,0,c_white,1);
-			        break;
-			    case "yellow":
-			        draw_sprite_ext(ui_level_header_yellow,0,GW/10+offset,GH/12,2,2,0,c_white,1);
-					draw_sprite_ext(uiDigitYellow,UPGRADES[i][? "level"],GW/10+5+offset,GH/12,2,2,0,c_white,1);
-			        break;
-				case "white":
-			        draw_sprite_ext(ui_level_header_white,0,GW/10+offset,GH/12,2,2,0,c_white,1);
-					draw_sprite_ext(uiDigitWhite,UPGRADES[i][? "level"],GW/10+5+offset,GH/12,2,2,0,c_white,1);
-			        break;
-			}
-		}		
-        offset+=50;
-    }
-	/// ITEMS
-	offset=0;
-	for (i = 0; i < array_length(UPGRADES); i++) {
-		draw_sprite_ext(ui_empty_slot_item,0,GW/10+offset,GH/7,1.5,1.5,0,c_white,.5);		
-		//draw_rectangle(190+offset, 40,230+offset, 80, 1true);
-		//draw_sprite(UPGRADES[i][? "thumb"],0,GW/10+offset,GH/12)
-		//draw_text_transformed(GW/10+offset, GH/12, UPGRADES[i][? "level"],.8,.8,0);
-        offset+=50;
-    }
+				draw_sprite_ext(ui_empty_slot_weapon,0,GW/10+offset,GH/12,1.5,1.5,0,c_white,.5); //draw empty slots background
+				if (UPGRADES[i]!=global.null) //if there is a upgrade in the slot
+				{
+					var awakened = (UPGRADES[i][?"level"] < 7) ? 0 : 1; //check if weapon is awakened
+					draw_sprite_ext(UPGRADES[i][? "thumb"],awakened,GW/10+offset,GH/12,2,2,0,c_white,1); //draw weapon sprite
+					switch (UPGRADES[i][? "type"]) //detect the type of upgrade
+					{
+					    case "red":
+					        draw_sprite_ext(ui_level_header_pink,0,GW/10+offset,GH/12,2,2,0,c_white,1); //draw type sprite
+							draw_sprite_ext(uiDigitPink,UPGRADES[i][? "level"],GW/10+5+offset,GH/12,2,2,0,c_white,1); //draw level
+					        break;
+					    case "yellow":
+					        draw_sprite_ext(ui_level_header_yellow,0,GW/10+offset,GH/12,2,2,0,c_white,1); //draw type sprite
+							draw_sprite_ext(uiDigitYellow,UPGRADES[i][? "level"],GW/10+5+offset,GH/12,2,2,0,c_white,1); //draw level
+					        break;
+						case "white":
+					        draw_sprite_ext(ui_level_header_white,0,GW/10+offset,GH/12,2,2,0,c_white,1); //draw type sprite
+							draw_sprite_ext(uiDigitWhite,UPGRADES[i][? "level"],GW/10+5+offset,GH/12,2,2,0,c_white,1); //draw level
+					        break;
+					}
+				}		
+		        offset+=50;
+		    }
+		#endregion
+		
+		#region Items
+			offset=0;
+			for (i = 0; i < array_length(UPGRADES); i++) {
+				draw_sprite_ext(ui_empty_slot_item,0,GW/10+offset,GH/7,1.5,1.5,0,c_white,.5);		
+				//draw_rectangle(190+offset, 40,230+offset, 80, 1true);
+				//draw_sprite(UPGRADES[i][? "thumb"],0,GW/10+offset,GH/12)
+				//draw_text_transformed(GW/10+offset, GH/12, UPGRADES[i][? "level"],.8,.8,0);
+		        offset+=50;
+		    }
+		#endregion
+		
     #endregion	
+	
     #region XP
-    draw_rectangle_color(5, 5, 5 + global.xp, 30, c_blue, c_blue, c_blue, c_blue, false);
-    draw_rectangle(5, 5, GW - 5, 30, true);
+	    draw_rectangle_color(5, 5, 5 + global.xp, 30, c_blue, c_blue, c_blue, c_blue, false);
+	    draw_rectangle(5, 5, GW - 5, 30, true);
     #endregion
 	#region LevelUP	
 	 if (global.upgrade == 1) {
@@ -113,7 +113,7 @@ if (room == Room1) {
                 global.upgrade_options[i])
 			draw_line(525,130+offset,1265,130+offset);
 			//icon
-			draw_sprite_ext(sGuiSlots,3,542,145+offset,1.5,1.5,0,c_white,1);
+			//draw_sprite_ext(sGuiSlots,3,542,145+offset,1.5,1.5,0,c_white,1); //square
 			//draw_text(542,145+offset,global.upgrade_options[i]);			
 			for (var j = 0; j<=array_length(global.upgradesAvaliable) -1; j++) {
 				if (global.upgradesAvaliable[j][1][? "name"] == global.upgrade_options[i]) {
@@ -151,22 +151,29 @@ if (room == Room1) {
 	#endregion
 	
 }
-	draw_set_alpha(.5);
-	draw_set_color(c_white)
-	draw_rectangle(5,debugy-5,150,debugy + 130,false);
-	draw_set_alpha(1);	
-	draw_text(10,debugy,a);
-	draw_text(10,debugy+20,b);
-	draw_text(10,debugy+40,c);
-	draw_text(10,debugy+60,d);
-	draw_text(10,debugy+80,e);	
-	draw_text(10, debugy+100, device_mouse_x_to_gui(0));
-	draw_text(10, debugy+120, device_mouse_y_to_gui(0));
-	draw_text(10, debugy+140, device_mouse_x_to_gui(1));
-	draw_text(10, debugy+160, device_mouse_y_to_gui(1));
-	draw_text(10, debugy+180, display_get_gui_width());
-	draw_text(10, debugy+200, display_get_gui_height());
-	
+
+#region Debug
+	draw_text(10,10,global.debug);
+	var debugy=170;
+	var offset = 0;
+	if (global.debug) {
+		draw_set_alpha(.5);
+		draw_set_color(c_white)
+		var variables = ["a","b","c","d","e", "dir"];
+		var boxsize=0;
+		for (var i = 0; i < array_length(variables); ++i) {
+		    boxsize += 20;
+		}
+		draw_rectangle(5,debugy-5,150,debugy + boxsize,false);
+		draw_set_alpha(1);
+		for (var i = 0; i < array_length(variables); ++i) {
+			if (variable_instance_exists(self,variables[i])) {				
+			    draw_text(10,debugy+offset,string(variables[i]) + ": " + string(variable_instance_get(self,variables[i])));
+				offset += 20;
+			}		    
+		}
+	}
+#endregion	
 	
 if (room == Room2) {	
 	str="CHOOSE YOUR IDOL";
@@ -193,5 +200,6 @@ if (room == Room2) {
 	//DrawWindow(a,b,c,d,"teste");
 	
 }
+
 
 
