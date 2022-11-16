@@ -25,3 +25,4 @@ if (TouchY1 > JoystickLimitUp and TouchY1 < JoystickLimitDown and TouchX1 > Joys
 }
 else {draw_set_color(c_white);draw_circle(GW/6,GH/1.25,25,false);}
 draw_circle(GW/6,GH/1.25,50,true);
+draw_set_alpha(1);

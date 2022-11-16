@@ -20,7 +20,6 @@ if (other.damaged == false and !global.gamePaused and other.image_alpha == 1 and
 			}
 	        break;
 	    default:
-	        // code here
 	        break;
 	}
 	hits-=1;

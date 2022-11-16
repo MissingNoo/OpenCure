@@ -16,7 +16,7 @@ for (i=0; i<4; i++) {
 }
 #endregion
 #region Upgrades
-function createUpgrade(_id, _name, _level, _sprite, _thumb, _mindmg, _maxdmg, _cooldown, _speed, _hits, _type, _shoots)
+function createUpgrade(_id, _name, _level, _sprite, _thumb, _mindmg, _maxdmg, _cooldown, _speed, _hits, _type, _shoots, _perk = 0)
 {
 	global.upgradesAvaliable[_id][0]=global.null;
 	global.upgradesAvaliable[_id][_level]=ds_map_create();
@@ -33,6 +33,7 @@ function createUpgrade(_id, _name, _level, _sprite, _thumb, _mindmg, _maxdmg, _c
 	ds_map_add(m, "hits", _hits);
 	ds_map_add(m, "type", _type);	
 	ds_map_add(m, "shoots", _shoots);	
+	ds_map_add(m, "perk", _perk);	
 }
 //createUpgrade(0,"Speed", suSpeed);		
 //createUpgrade(0,"Atk", suATK,10,3);		
