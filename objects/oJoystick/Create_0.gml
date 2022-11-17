@@ -7,7 +7,7 @@
 #macro RIGHTKEY vk_right
 canrelease=true;
 limit = 137;
-ativation = 37;
+ativation = 30;
 JoystickCenterX=GW/6;
 JoystickCenterY=GH/1.25;
 JoystickLimitLeft = JoystickCenterX-limit;

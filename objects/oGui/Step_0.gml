@@ -52,22 +52,38 @@ if (room = Room2) {
 		room_goto(Room1);
     }
 }
+
+if (os_type == os_android) {
+	if (TouchY1 > zButtonY and TouchY1 < zButtonYEnd and TouchX1 > zButtonX and TouchX1 < zButtonXEnd and device_mouse_check_button(0,mb_left)) {
+		keyboard_key_press(ord("Z"));
+		keyboard_key_release(ord("Z"));
+		show_debug_message("Pressed Z");
+	}
+
+	if (TouchY1 > xButtonY and TouchY1 < xButtonYEnd and TouchX1 > xButtonX and TouchX1 < xButtonXEnd and device_mouse_check_button(0,mb_left)) {
+		keyboard_key_press(ord("X"));
+		keyboard_key_release(ord("X"));
+		show_debug_message("Pressed X");
+		game_restart();
+	}
+}
+
 #region Debug
 	if (global.debug) {
 		dir = global.arrow_dir;
 		//if(keyboard_check(ord("Q"))) a -=1;
-		if(keyboard_check_pressed(ord("Q"))) a -=.5;
+		if(keyboard_check(ord("Q"))) a -=.05;
 		//if(keyboard_check(ord("W"))) a +=1;
-		if(keyboard_check_pressed(ord("W"))) a +=.5;
-		if(keyboard_check_pressed(ord("E"))) b -=.05;
+		if(keyboard_check(ord("W"))) a += .05;
+		if(keyboard_check(ord("E"))) b -=.05;
 		//if(keyboard_check(ord("E"))) b -=1;
-		if(keyboard_check_pressed(ord("R"))) b +=.05;
+		if(keyboard_check(ord("R"))) b +=.05;
 		//if(keyboard_check(ord("R"))) b +=1;
 		if(keyboard_check_pressed(ord("T"))) c -=1;
 		if(keyboard_check_pressed(ord("Y"))) c +=1;
-		if(keyboard_check(ord("U"))) d -=1;
-		if(keyboard_check(ord("I"))) d +=1;
-		if(keyboard_check(ord("O"))) e -=1;
+		if(keyboard_check_pressed(ord("U"))) d -=1;
+		if(keyboard_check_pressed(ord("I"))) d +=1;
+		if(keyboard_check_pressed(ord("O"))) e -=1;
 		if(keyboard_check(ord("P"))) e +=1;
 		if((keyboard_check(vk_escape) and room == Room2)) {room_goto(rInicio)}
 		//if (keyboard_check_pressed(ord("V"))) {
@@ -81,3 +97,4 @@ if (room = Room2) {
 		//}
 	}
 #endregion
+

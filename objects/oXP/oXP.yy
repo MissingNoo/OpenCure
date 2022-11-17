@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_gem_blue",
-    "path": "sprites/spr_gem_blue/spr_gem_blue.yy",
+    "name": "sXP",
+    "path": "sprites/sXP/sXP.yy",
   },
   "solid": false,
   "visible": true,

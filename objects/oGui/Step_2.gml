@@ -40,6 +40,13 @@ if (room = Room1 and global.upgrade==1) {
         } else selected = 0
     }
 }
+if (room == Room2) {
+    if (sprindex < sprite_get_number(CHARACTERS[selected][?"sprite"])) {
+		sprindex+=1/10;
+	}
+}
+
+else sprindex=0;
 
 
 

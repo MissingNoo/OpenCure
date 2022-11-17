@@ -1,1 +1,3 @@
-resetTimer();audio_play_sound(suspect,0,-1);
+resetTimer();
+audio_play_sound(suspect,0,99);
+

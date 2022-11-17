@@ -1,10 +1,5 @@
 /// @description 
-if (keyboard_check_pressed(ord("M"))) {
-	    if (global.debug) {
-		    global.debug = false;
-		}
-		else global.debug=true;
-	}
+
 	var pressed = (keyboard_check(ord("Z"))) ? true : false
 	global.strafe = pressed;
 #region Spawn
@@ -61,5 +56,6 @@ if (keyboard_check_pressed(ord("B"))) {
 if (keyboard_check_pressed(ord("N"))) {
     window_set_size(1920,1080);
 }
+
 
 

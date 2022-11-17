@@ -6,4 +6,5 @@ if (damaged) {
     draw_self()
 	gpu_set_fog(false,c_white,0,0)
 }
-draw_text(x,y-32,string(atk));
+//draw_text(x,y-32,string(atk));
+

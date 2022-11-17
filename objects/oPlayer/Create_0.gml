@@ -6,3 +6,4 @@ can_move=true;
 if (!instance_exists(oCam)) {
     instance_create_depth(x,y,0,oCam);
 }
+

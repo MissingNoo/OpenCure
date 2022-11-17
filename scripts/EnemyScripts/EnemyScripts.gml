@@ -13,6 +13,7 @@ function initiateEnemy(e){
 	sprwalking=e[?"sprite"];
 	sprattack=e[?"atksprite"];	
 	sprite_index=sprwalking;
+	xp = e[?"exp"];
 }
 	
 global.enemies=[];
@@ -82,6 +83,7 @@ function ResetPool()
 	ds_list_add(EnemyPool, EnemyList[Enemies.Shrimp]) //start pool with the first mob
 }
 #endregion
+
 
 
 

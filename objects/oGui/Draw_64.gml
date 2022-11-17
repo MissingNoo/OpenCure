@@ -2,23 +2,23 @@ draw_set_font(Font1);
 draw_set_alpha(1);
 draw_set_color(c_white);
 if (room == rInicio) {
+	draw_text_transformed(20,GH-50,"Android Demo 0.?.?", 2,2,0);
     var offset = 0;
 	var xoffset = 10
+	var thiss=0;
     for (i = 0; i < array_length(menu_options); i++) {
-        if (i = selected) {color = c_blue; xoffset = 10}
-        else { color = c_white; xoffset = 0}
-        draw_rectangle(
-            x - 50 - xoffset,
-            y - 5 + offset,
-            x + 50 + xoffset,
-            y + 25 + offset,
-            true)
+        if (i = selected) { color = c_black; thiss = 1; xoffset = 10}
+        else {color = c_white; thiss=0; ; xoffset = 5}
+		var menuX = GW/1.20;
+		var menuY = GW/5;
+        //draw_rectangle(menuX -50 - xoffset,menuY -5 + offset,menuX + 50 + xoffset,menuY + 25 + offset,true)
+		draw_sprite(sHudButton,thiss,menuX, menuY+offset+10)
         draw_text_color(
-            x - string_width(menu_options[i]) / 2,
-            y + offset,
+            menuX- (string_width(menu_options[i]) / 2),
+            menuY + offset,
             menu_options[i],
             color, color, color, color, 1)
-        offset += 40;
+        offset += 40;	
     }
 }
 
@@ -153,6 +153,12 @@ if (instance_exists(oPlayer)) //while inside a stage
 }
 
 #region Debug
+if (keyboard_check_pressed(ord("M"))) {
+	    if (global.debug) {
+		    global.debug = false;
+		}
+		else global.debug=true;
+	}
 	draw_text(10,10,global.debug);
 	var debugy=170;
 	var offset = 0;
@@ -183,6 +189,7 @@ if (room == Room2) {
 	var _hh = GH / 1.5;
 	var _ww = GW / 4;
 	DrawWindow(_x,_y,_ww,_hh,global.name); //Character window
+	draw_sprite_ext(CHARACTERS[selected][?"sprite"], sprindex,_x+(_hh/3), _y+190,3,3,0,c_white,1);
 	draw_set_color(c_white);
 	draw_text_transformed(GW/3.5, GH/5.7,"Characters",.75,.75,0);
 	draw_line(GW/3.5, GH/5, GW/1.4,GH/5);	
@@ -201,5 +208,21 @@ if (room == Room2) {
 	
 }
 
-
-
+if (os_type == os_android) {
+	draw_set_font(Font1);
+	draw_set_alpha(0.5);
+	draw_set_color(c_white);
+	draw_rectangle(zButtonX, zButtonY, zButtonXEnd, zButtonYEnd, false);
+	draw_set_alpha(1);
+	draw_set_color(c_black);
+	draw_rectangle(zButtonX, zButtonY, zButtonXEnd, zButtonYEnd, true);	
+	draw_text(zButtonX + 70, zButtonY + 22.5, "Z");
+	draw_set_color(c_white);
+	draw_set_alpha(0.5);
+	draw_rectangle(xButtonX, xButtonY, xButtonXEnd, xButtonYEnd, false);
+	draw_set_alpha(1);
+	draw_set_color(c_black);
+	draw_rectangle(xButtonX, xButtonY, xButtonXEnd, xButtonYEnd, true);
+	draw_text(xButtonX + 70, xButtonY + 22.5, "X");
+	draw_set_color(c_white);
+}

@@ -10,7 +10,7 @@ ds_map_add(global.null, "dmg", 1);
 ds_map_add(global.null, "cooldown", 0);
 ds_map_add(global.null, "speed", 0);
 ds_map_add(global.null, "hits", 0);
-global.upgradesAvaliable=ds_list_create();
+global.upgradesAvaliable=[0];
 for (i=0; i<4; i++) {
     global.upgrade_options[i]=global.null;
 }
@@ -42,6 +42,7 @@ enum weapons
 	AmePistol,
 	GuraTrident,
 	InaTentacle,
+	PlugAsaCoco,
 	DouglasShoot
 }
 #region Character Perks
@@ -76,8 +77,18 @@ enum weapons
 	#endregion
 #endregion
 
+createUpgrade(weapons.PlugAsaCoco,"Plug-type Asacoco",1,sAsaCocoShoot,sAsaCocoThumb,10,18,150,5,99,"white",1,0);
 createUpgrade(weapons.DouglasShoot,"teste",1,sJohn,sJohn,0,100,0,3,10,"white",1,0);
 createUpgrade(weapons.DouglasShoot+1,"teste2",1,sDouglas,sDouglasPortrait,0,100,0,3,10,"white",1,0);
+createUpgrade(weapons.DouglasShoot+2,"teste3",1,sJohn,sJohn,0,100,0,3,10,"white",1,0);
+createUpgrade(weapons.DouglasShoot+3,"teste4",1,sDouglas,sDouglasPortrait,0,100,0,3,10,"white",1,0);
+createUpgrade(weapons.DouglasShoot+4,"teste5",1,sJohn,sJohn,0,100,0,3,10,"white",1,0);
+createUpgrade(weapons.DouglasShoot+5,"teste6",1,sDouglas,sDouglasPortrait,0,100,0,3,10,"white",1,0);
+createUpgrade(weapons.DouglasShoot+6,"teste7",1,sJohn,sJohn,0,100,0,3,10,"white",1,0);
+createUpgrade(weapons.DouglasShoot+7,"teste8",1,sDouglas,sDouglasPortrait,0,100,0,3,10,"white",1,0);
+createUpgrade(weapons.DouglasShoot+8,"teste9",1,sDouglas,sDouglasPortrait,0,100,0,3,10,"white",1,0);
+createUpgrade(weapons.DouglasShoot+9,"teste10",1,sDouglas,sDouglasPortrait,0,100,0,3,10,"white",1,0);
+createUpgrade(weapons.DouglasShoot+10,"teste11",1,sDouglas,sDouglasPortrait,0,100,0,3,10,"white",1,0);
 
 
 #endregion
@@ -85,16 +96,24 @@ createUpgrade(weapons.DouglasShoot+1,"teste2",1,sDouglas,sDouglasPortrait,0,100,
 function randomUpgrades(){
 	random_set_seed(current_time);
 	name="";
+	var ups = [];
+	for (var i = 0; i < array_length(global.upgradesAvaliable); ++i) {
+	    ups[i] = global.upgradesAvaliable[i];
+	}
+	show_debug_message(string(array_length(ups)));
 	for (i=0; i<4; i++) {
 		do {
-			var rdnnumber = irandom_range(0,array_length(global.upgradesAvaliable)-1);
-			var pickedupgrade = global.upgradesAvaliable[rdnnumber][1];
+			var rdnnumber = irandom_range(0,array_length(ups)-1);
+			var pickedupgrade = ups[rdnnumber][1];
 		    name = pickedupgrade[?"name"];
 			var isperk = pickedupgrade[?"perk"];
-		} until (isperk != 1);		    
-		    global.upgrade_options[i] = name;
+			array_delete(ups, rdnnumber, 1);
+		} until (isperk != 1);
+		array_delete(ups, rdnnumber, 1);
+		global.upgrade_options[i] = name;
 	}
-	global.upgrade_options[0] = global.upgradesAvaliable[weapons.AmePistol][1][?"name"];
+	global.upgrade_options[0] = global.Player[?"weapon"][1][?"name"];
+	global.upgrade_options[1] = global.upgradesAvaliable[weapons.PlugAsaCoco][1][?"name"];
 }	
 
 function tickPowers(){
@@ -128,6 +147,7 @@ function defaultBehaviour()
 	image_xscale=oPlayer.image_xscale;
 	image_speed=1;
 }
+
 
 
 

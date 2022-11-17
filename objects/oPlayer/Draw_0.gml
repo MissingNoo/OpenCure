@@ -2,11 +2,11 @@
 // You can write your code in this editor
 draw_sprite_ext(spr_shadow, 0, x, y, 1, 1, 0, c_white, 0.8)
 draw_self();
-if (damaged) {
-	gpu_set_fog(true,c_white,0,0)
-    draw_self()
-	gpu_set_fog(false,c_white,0,0)
-}
+//if (damaged) {
+//	gpu_set_fog(true,c_white,0,0)
+//    draw_self()
+//	gpu_set_fog(false,c_white,0,0)
+//}
 //draw_sprite_ext(Arrow,0,x,y,.25,.25,arrow_dir,c_red,1);
 draw_healthbar((x - 13), ((y - 16) - 20), (x + 13), ((y - 16) - 23), ((HP / MAXHP) * 100), c_red, c_lime, c_lime, 0, 1, 0)
 draw_set_color(c_black);
