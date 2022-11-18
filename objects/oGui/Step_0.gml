@@ -1,11 +1,11 @@
 if (room = rInicio) {
     if (keyboard_check_pressed(ord("Z"))) {
         switch (menu_options[selected]) {
-            case "Start":
+            case "Play":
 				selected=0;
                 room_goto(Room2);
                 break;
-            case "Exit":	
+            case "Quit":	
                 game_end();
                 break;
         }
@@ -66,24 +66,30 @@ if (os_type == os_android) {
 		show_debug_message("Pressed X");
 		game_restart();
 	}
+	
+	if (TouchY1 > pButtonY and TouchY1 < pButtonYEnd and TouchX1 > pButtonX and TouchX1 < pButtonXEnd and device_mouse_check_button(0,mb_left)) {
+		keyboard_key_press(vk_escape);
+		keyboard_key_release(vk_escape);
+		show_debug_message("Pressed Escape");
+	}
 }
 
 #region Debug
 	if (global.debug) {
 		dir = global.arrow_dir;
 		//if(keyboard_check(ord("Q"))) a -=1;
-		if(keyboard_check(ord("Q"))) a -=.05;
+		if(keyboard_check(ord("Q"))) a -=0.1;
 		//if(keyboard_check(ord("W"))) a +=1;
-		if(keyboard_check(ord("W"))) a += .05;
-		if(keyboard_check(ord("E"))) b -=.05;
+		if(keyboard_check(ord("W"))) a += 0.1;
+		if(keyboard_check(ord("E"))) b -=.1;
 		//if(keyboard_check(ord("E"))) b -=1;
-		if(keyboard_check(ord("R"))) b +=.05;
+		if(keyboard_check(ord("R"))) b +=.1;
 		//if(keyboard_check(ord("R"))) b +=1;
-		if(keyboard_check_pressed(ord("T"))) c -=1;
-		if(keyboard_check_pressed(ord("Y"))) c +=1;
-		if(keyboard_check_pressed(ord("U"))) d -=1;
-		if(keyboard_check_pressed(ord("I"))) d +=1;
-		if(keyboard_check_pressed(ord("O"))) e -=1;
+		if(keyboard_check_pressed(ord("T"))) c -=.25;
+		if(keyboard_check_pressed(ord("Y"))) c +=.25;
+		if(keyboard_check(ord("U"))) d -=.25;
+		if(keyboard_check(ord("I"))) d +=.25;
+		if(keyboard_check_pressed(ord("O"))) e -=.25;
 		if(keyboard_check(ord("P"))) e +=1;
 		if((keyboard_check(vk_escape) and room == Room2)) {room_goto(rInicio)}
 		//if (keyboard_check_pressed(ord("V"))) {
@@ -97,4 +103,5 @@ if (os_type == os_android) {
 		//}
 	}
 #endregion
+
 

@@ -57,5 +57,14 @@ if (keyboard_check_pressed(ord("N"))) {
     window_set_size(1920,1080);
 }
 
+#region Skills Cooldown
+	for (var i = 0; i < array_length(global.upgradeCooldown); ++i) {
+		if (global.upgradeCooldown[i] > 0) {
+		    global.upgradeCooldown[i] -= 1;
+		}
+	    
+	}
+#endregion
+
 
 

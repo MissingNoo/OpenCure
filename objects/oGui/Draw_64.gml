@@ -2,29 +2,89 @@ draw_set_font(Font1);
 draw_set_alpha(1);
 draw_set_color(c_white);
 if (room == rInicio) {
-	draw_text_transformed(20,GH-50,"Android Demo 0.?.?", 2,2,0);
-    var offset = 0;
-	var xoffset = 10
-	var thiss=0;
-    for (i = 0; i < array_length(menu_options); i++) {
-        if (i = selected) { color = c_black; thiss = 1; xoffset = 10}
-        else {color = c_white; thiss=0; ; xoffset = 5}
-		var menuX = GW/1.20;
-		var menuY = GW/5;
-        //draw_rectangle(menuX -50 - xoffset,menuY -5 + offset,menuX + 50 + xoffset,menuY + 25 + offset,true)
-		draw_sprite(sHudButton,thiss,menuX, menuY+offset+10)
-        draw_text_color(
-            menuX- (string_width(menu_options[i]) / 2),
-            menuY + offset,
-            menu_options[i],
-            color, color, color, color, 1)
-        offset += 40;	
-    }
+	#region Lines
+		var off = 0;
+		for (var i = 0; i < 130; ++i) {
+		    draw_sprite_ext(menu_charselec_bar,0,-100+off,GH,1.5,1.5,0,c_white,.5);
+			off +=16;
+		}	
+	#endregion
+	
+	#region Menu
+		draw_text_transformed(20,GH-50,"Android Demo 0.?.?", 2,2,0);
+	    var offset = 0;
+		var thiss=0;
+	    for (i = 0; i < array_length(menu_options); i++) {
+	        if (i = selected) { color = c_black; thiss = 1; scale = 2}
+	        else {color = c_white; thiss=0; scale = 1.8}
+			//var menuX = GW/1.20;
+			//var menuY = GW/5;
+			var menuX = GW/1.25;
+			var menuY = GW/6;
+			draw_set_valign(fa_center);
+			draw_set_halign(fa_center);
+			draw_sprite_ext(sHudButton,thiss,menuX, menuY+offset,scale,scale,0,c_white,1);
+	        draw_text_color(
+	            menuX,
+	            menuY + offset,
+	            menu_options[i],
+	            color, color, color, color, 1)
+	        offset += 66;	
+			draw_set_valign(fa_left);
+			draw_set_halign(fa_left);
+	    }
+	#endregion
+}
+
+if (room == Room2) {	
+	str="CHOOSE YOUR IDOL";
+	draw_text_transformed((GW/2)- string_width(str),50,str,2,2,0);
+	
+	#region Character window
+		var _x = GW / 64;
+		var _y = GH / 6;
+		var _hh = GH / 1.5;
+		var _ww = GW / 4;
+		DrawWindow(_x,_y,_ww,_hh,string_upper(global.name));
+		draw_sprite_ext(CHARACTERS[selected][?"sprite"], sprindex,_x+(_hh/3), _y+190,3,3,0,c_white,1);
+	#endregion
+	
+	#region CharacterList
+		draw_set_color(c_white);
+		draw_text_transformed(GW/3.5, GH/5.7,"Characters",.75,.75,0);
+		draw_line(GW/3.5, GH/5, GW/1.4,GH/5);	
+		offset=0
+		//characters
+		draw_text(10,10,selected);
+		for (i=0; i < Characters.lenght; i++) {
+			draw_sprite_ext(CHARACTERS[i][?"portrait"],0,435+offset,200,2,2,0,c_white,1);
+			if (selected == i) {
+				draw_sprite_ext(menu_carselec_cursor,-1,435+offset, 200,2,2,0,c_white,1);
+			}
+		    offset+=100;
+		}
+	#endregion	
+	
+	#region Weapon window
+		var _x = GW / 1.37;
+		var _y = GH / 6;
+		var _hh = GH / 3;
+		var _ww = GW / 3.85;
+		DrawWindow(_x,_y,_ww,_hh,"ATTACK");
+		var weaponID = CHARACTERS[selected][?"weapon"];
+		//show_message(string(weaponID[1][?"name"]));
+		var weaponSprite = weaponID[1][?"thumb"];
+		draw_sprite_ext(weaponSprite, 0,_x+30, _y+50,1.5,1.5,0,c_white,1);
+		draw_set_valign(fa_center); draw_set_color(c_white);
+		draw_text(_x + 60, _y + 50, weaponID[1][?"name"]);
+		draw_text(_x + 8, _y + 85, weaponID[1][?"desc"]);
+		draw_set_valign(0);
+		
+	#endregion
 }
 
 if (instance_exists(oPlayer)) //while inside a stage
-{
-	
+{	
     #region Upgrades
 	
 		#region Character Portrait
@@ -42,6 +102,7 @@ if (instance_exists(oPlayer)) //while inside a stage
 				{
 					var awakened = (UPGRADES[i][?"level"] < 7) ? 0 : 1; //check if weapon is awakened
 					draw_sprite_ext(UPGRADES[i][? "thumb"],awakened,GW/10+offset,GH/12,2,2,0,c_white,1); //draw weapon sprite
+					draw_text(GW/10+offset, GH/12-15,string(global.upgradeCooldown[UPGRADES[i][?"id"]]));
 					switch (UPGRADES[i][? "type"]) //detect the type of upgrade
 					{
 					    case "red":
@@ -180,33 +241,6 @@ if (keyboard_check_pressed(ord("M"))) {
 		}
 	}
 #endregion	
-	
-if (room == Room2) {	
-	str="CHOOSE YOUR IDOL";
-	draw_text_transformed((GW/2)- string_width(str),50,str,2,2,0);
-	var _x = GW / 64;
-	var _y = GH / 6;
-	var _hh = GH / 1.5;
-	var _ww = GW / 4;
-	DrawWindow(_x,_y,_ww,_hh,global.name); //Character window
-	draw_sprite_ext(CHARACTERS[selected][?"sprite"], sprindex,_x+(_hh/3), _y+190,3,3,0,c_white,1);
-	draw_set_color(c_white);
-	draw_text_transformed(GW/3.5, GH/5.7,"Characters",.75,.75,0);
-	draw_line(GW/3.5, GH/5, GW/1.4,GH/5);	
-	offset=0
-	//characters
-	draw_text(10,10,selected);
-	for (i=0; i < Characters.lenght; i++) {
-		draw_sprite_ext(CHARACTERS[i][?"portrait"],0,435+offset,200,2,2,0,c_white,1);
-		if (selected == i) {
-			draw_sprite_ext(menu_carselec_cursor,-1,435+offset, 200,2,2,0,c_white,1);
-		}
-		
-	    offset+=100;
-	}
-	//DrawWindow(a,b,c,d,"teste");
-	
-}
 
 if (os_type == os_android) {
 	draw_set_font(Font1);
@@ -225,4 +259,13 @@ if (os_type == os_android) {
 	draw_rectangle(xButtonX, xButtonY, xButtonXEnd, xButtonYEnd, true);
 	draw_text(xButtonX + 70, xButtonY + 22.5, "X");
 	draw_set_color(c_white);
+	//p
+	draw_set_alpha(0.5);
+	draw_rectangle(pButtonX, pButtonY, pButtonXEnd, pButtonYEnd, false);
+	draw_set_alpha(1);
+	draw_set_color(c_black);
+	draw_rectangle(pButtonX, pButtonY, pButtonXEnd, pButtonYEnd, true);
+	draw_text(pButtonX + 70, pButtonY + 22.5, "P");
+	draw_set_color(c_white);
 }
+

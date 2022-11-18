@@ -4,7 +4,7 @@
 debug=false;
 selected=0;
 color=c_white;
-menu_options = ["Start", "Settings", "Exit"];
+menu_options = ["Play", "Shop", "Leaderboard", "Achievements", "Settings", "Credits", "Quit"];
 resetTimer()
 global.upgrades=ds_map_create();
 show_debug_message(string(Characters.lenght));
@@ -31,6 +31,11 @@ xButtonX = GW/1.15 - 140;
 xButtonY = GH/14;
 xButtonXEnd = xButtonX + 120;
 xButtonYEnd =  xButtonY + 45;
+pButtonX = GW/1.15 - 280;
+pButtonY = GH/14;
+pButtonXEnd = pButtonX + 120;
+pButtonYEnd =  pButtonY + 45;
+
 
 
 
