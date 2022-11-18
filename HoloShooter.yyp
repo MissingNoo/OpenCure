@@ -81,6 +81,7 @@
     {"id":{"name":"sInaTentacleShoot","path":"sprites/sInaTentacleShoot/sInaTentacleShoot.yy",},"order":0,},
     {"id":{"name":"spr_gem_pink","path":"sprites/spr_gem_pink/spr_gem_pink.yy",},"order":16,},
     {"id":{"name":"spr_minerals_coal_bar","path":"sprites/spr_minerals_coal_bar/spr_minerals_coal_bar.yy",},"order":1,},
+    {"id":{"name":"Items","path":"scripts/Items/Items.yy",},"order":7,},
     {"id":{"name":"spr_potion_testtube_purple","path":"sprites/spr_potion_testtube_purple/spr_potion_testtube_purple.yy",},"order":12,},
     {"id":{"name":"sGuraTridentShoot","path":"sprites/sGuraTridentShoot/sGuraTridentShoot.yy",},"order":0,},
     {"id":{"name":"spr_scroll_close_sealed_blue","path":"sprites/spr_scroll_close_sealed_blue/spr_scroll_close_sealed_blue.yy",},"order":18,},
@@ -189,6 +190,7 @@
     {"id":{"name":"sGuraIdle","path":"sprites/sGuraIdle/sGuraIdle.yy",},"order":0,},
     {"id":{"name":"sAmeShoot","path":"sprites/sAmeShoot/sAmeShoot.yy",},"order":0,},
     {"id":{"name":"spr_scroll_close_sealed_cyan","path":"sprites/spr_scroll_close_sealed_cyan/spr_scroll_close_sealed_cyan.yy",},"order":19,},
+    {"id":{"name":"sBodyPillow","path":"sprites/sBodyPillow/sBodyPillow.yy",},"order":0,},
     {"id":{"name":"spr_key_bronze","path":"sprites/spr_key_bronze/spr_key_bronze.yy",},"order":0,},
     {"id":{"name":"sInaRunning","path":"sprites/sInaRunning/sInaRunning.yy",},"order":2,},
     {"id":{"name":"spr_plates_cup","path":"sprites/spr_plates_cup/spr_plates_cup.yy",},"order":5,},
@@ -289,6 +291,7 @@
     {"folderPath":"folders/Sprites/Characters/Inanis.yy","order":5,"resourceVersion":"1.0","name":"Inanis","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Sprites/Powers/CharacterPerks/InaTentacle.yy","order":2,"resourceVersion":"1.0","name":"InaTentacle","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Sprites/Powers/CharacterPerks.yy","order":6,"resourceVersion":"1.0","name":"CharacterPerks","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Sprites/Items.yy","order":13,"resourceVersion":"1.0","name":"Items","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":-1,"resourceVersion":"1.3","name":"audiogroup_default","resourceType":"GMAudioGroup",},

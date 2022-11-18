@@ -92,12 +92,12 @@ createUpgrade(weapons.DouglasShoot+1,"teste2",1,sDouglas,sDouglasPortrait,0,100,
 createUpgrade(weapons.DouglasShoot+2,"teste3",1,sJohn,sJohn,0,100,0,3,10,"white",1,0);
 createUpgrade(weapons.DouglasShoot+3,"teste4",1,sDouglas,sDouglasPortrait,0,100,0,3,10,"white",1,0);
 createUpgrade(weapons.DouglasShoot+4,"teste5",1,sJohn,sJohn,0,100,0,3,10,"white",1,0);
-createUpgrade(weapons.DouglasShoot+5,"teste6",1,sDouglas,sDouglasPortrait,0,100,0,3,10,"white",1,0);
-createUpgrade(weapons.DouglasShoot+6,"teste7",1,sJohn,sJohn,0,100,0,3,10,"white",1,0);
-createUpgrade(weapons.DouglasShoot+7,"teste8",1,sDouglas,sDouglasPortrait,0,100,0,3,10,"white",1,0);
-createUpgrade(weapons.DouglasShoot+8,"teste9",1,sDouglas,sDouglasPortrait,0,100,0,3,10,"white",1,0);
-createUpgrade(weapons.DouglasShoot+9,"teste10",1,sDouglas,sDouglasPortrait,0,100,0,3,10,"white",1,0);
-createUpgrade(weapons.DouglasShoot+10,"teste11",1,sDouglas,sDouglasPortrait,0,100,0,3,10,"white",1,0);
+//createUpgrade(weapons.DouglasShoot+5,"teste6",1,sDouglas,sDouglasPortrait,0,100,0,3,10,"white",1,0);
+//createUpgrade(weapons.DouglasShoot+6,"teste7",1,sJohn,sJohn,0,100,0,3,10,"white",1,0);
+//createUpgrade(weapons.DouglasShoot+7,"teste8",1,sDouglas,sDouglasPortrait,0,100,0,3,10,"white",1,0);
+//createUpgrade(weapons.DouglasShoot+8,"teste9",1,sDouglas,sDouglasPortrait,0,100,0,3,10,"white",1,0);
+//createUpgrade(weapons.DouglasShoot+9,"teste10",1,sDouglas,sDouglasPortrait,0,100,0,3,10,"white",1,0);
+//createUpgrade(weapons.DouglasShoot+10,"teste11",1,sDouglas,sDouglasPortrait,0,100,0,3,10,"white",1,0);
 
 
 #endregion
@@ -109,20 +109,31 @@ function randomUpgrades(){
 	for (var i = 0; i < array_length(global.upgradesAvaliable); ++i) {
 	    ups[i] = global.upgradesAvaliable[i];
 	}
+	//show_message(string(array_length(ups)));
+	//show_message(string(array_length(ups) + array_length(ItemList)));
+	for (var i = 0; i < array_length(ItemList); ++i) {
+	    array_push(ups, ItemList[i]);
+	}
+	var str = "";
+	for (var i = 0; i < array_length(ups); ++i) {
+	    str = str + ", " + ups[i][1][?"name"];
+	}
+	//show_message(str);
+	
 	show_debug_message(string(array_length(ups)));
 	for (i=0; i<4; i++) {
 		do {
 			var rdnnumber = irandom_range(0,array_length(ups)-1);
 			var pickedupgrade = ups[rdnnumber][1];
-		    name = pickedupgrade[?"name"];
+		    //name = pickedupgrade[?"name"];
 			var isperk = pickedupgrade[?"perk"];
 			array_delete(ups, rdnnumber, 1);
 		} until (isperk != 1);
 		array_delete(ups, rdnnumber, 1);
-		global.upgrade_options[i] = name;
+		global.upgrade_options[i] = pickedupgrade;
 	}
-	global.upgrade_options[0] = global.Player[?"weapon"][1][?"name"];
-	global.upgrade_options[1] = global.upgradesAvaliable[weapons.PlugAsaCoco][1][?"name"];
+	global.upgrade_options[0] = global.Player[?"weapon"][1];
+	//global.upgrade_options[1] = global.upgradesAvaliable[weapons.PlugAsaCoco][1][?"name"];
 }	
 
 function tickPowers(){
@@ -156,6 +167,7 @@ function defaultBehaviour()
 	image_xscale=oPlayer.image_xscale;
 	image_speed=1;
 }
+
 
 
 

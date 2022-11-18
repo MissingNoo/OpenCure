@@ -27,6 +27,13 @@ if (canspawn == true and global.gamePaused == false and room == Room1) {
 #region Time
 	if (global.gamePaused == false) {
 	    global.seconds+=1/60;
+		#region Skills Cooldown
+			for (var i = 0; i < array_length(global.upgradeCooldown); ++i) {
+				if (global.upgradeCooldown[i] > 0) {
+				    global.upgradeCooldown[i] -= 1;
+				}   
+			}
+		#endregion
 	}
 
 	if (global.seconds > 60) {
@@ -57,14 +64,8 @@ if (keyboard_check_pressed(ord("N"))) {
     window_set_size(1920,1080);
 }
 
-#region Skills Cooldown
-	for (var i = 0; i < array_length(global.upgradeCooldown); ++i) {
-		if (global.upgradeCooldown[i] > 0) {
-		    global.upgradeCooldown[i] -= 1;
-		}
-	    
-	}
-#endregion
+
+
 
 
 

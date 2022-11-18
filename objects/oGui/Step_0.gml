@@ -19,7 +19,7 @@ if (global.upgrade == 1) // after level up
 		{	
 			
 			#region Upgrade existing weapon
-				if (UPGRADES[i][?"name"] == global.upgrade_options[selected] ) 
+				if (UPGRADES[i][?"name"] == global.upgrade_options[selected][?"name"] ) 
 				{
 					UPGRADES[i] = global.upgradesAvaliable[UPGRADES[i][?"id"]][UPGRADES[i][?"level"]]+1;
 					break;
@@ -31,7 +31,7 @@ if (global.upgrade == 1) // after level up
 				{
 				    for (j=0; j<array_length(global.upgradesAvaliable); j++) 
 					{
-					    if (global.upgradesAvaliable[j][1][?"name"] == global.upgrade_options[selected]) 
+					    if (global.upgradesAvaliable[j][1][?"name"] == global.upgrade_options[selected][?"name"]) 
 						{
 							UPGRADES[i]=global.upgradesAvaliable[j][1];
 						}
@@ -103,5 +103,6 @@ if (os_type == os_android) {
 		//}
 	}
 #endregion
+
 
 

@@ -140,6 +140,7 @@ if (instance_exists(oPlayer)) //while inside a stage
 	    draw_rectangle_color(5, 5, 5 + global.xp, 30, c_blue, c_blue, c_blue, c_blue, false);
 	    draw_rectangle(5, 5, GW - 5, 30, true);
     #endregion
+	
 	#region LevelUP	
 	 if (global.upgrade == 1) {
 		 #region UpgradeList
@@ -171,18 +172,9 @@ if (instance_exists(oPlayer)) //while inside a stage
             draw_text(
                 540,
                 108 + offset,
-                global.upgrade_options[i])
+                string(global.upgrade_options[i][?"name"]))
 			draw_line(525,130+offset,1265,130+offset);
-			//icon
-			//draw_sprite_ext(sGuiSlots,3,542,145+offset,1.5,1.5,0,c_white,1); //square
-			//draw_text(542,145+offset,global.upgrade_options[i]);			
-			for (var j = 0; j<=array_length(global.upgradesAvaliable) -1; j++) {
-				if (global.upgradesAvaliable[j][1][? "name"] == global.upgrade_options[i]) {
-				    draw_sprite_ext(global.upgradesAvaliable[j][1][? "thumb"],0,545,151+offset,1.5,1.5,0,c_white,1);
-				}
-			}
-			
-			//
+			draw_sprite_ext(global.upgrade_options[i][? "thumb"],0,545,151+offset,1.5,1.5,0,c_white,1);
             offset += 150;
 			draw_set_color(c_white);
         }
@@ -268,4 +260,5 @@ if (os_type == os_android) {
 	draw_text(pButtonX + 70, pButtonY + 22.5, "P");
 	draw_set_color(c_white);
 }
+
 
