@@ -44,12 +44,12 @@ if (global.upgrade == 1) // after level up
 			    #region Upgrade existing item
 					if (playerItems[i][?"name"] == global.upgrade_options[selected][?"name"] ) 
 					{
-						playerItems[i] = global.upgradesAvaliable[playerItems[i][?"id"]][playerItems[i][?"level"]]+1;
+						playerItems[i] = ItemList[playerItems[i][?"id"]][playerItems[i][?"level"]]+1;
 						break;
 					}			
 				#endregion
 			
-				#region new weapon
+				#region new item
 					if (playerItems[i][?"name"] == "") 
 					{
 					    for (j=0; j<array_length(ItemList); j++) 
@@ -124,8 +124,13 @@ if (os_type == os_android) {
 		//if (keyboard_check_pressed(ord("N"))) {
 		//    display_set_gui_size(1920,1080);
 		//}
+		if (global.debug and instance_exists(oPlayer)) {
+		    revives = oPlayer.revives;
+		}
+		
 	}
 #endregion
+
 
 
 

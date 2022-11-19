@@ -23,9 +23,17 @@ if (!global.gamePaused) {
 	}
 	
 	if (global.hp <= 0) {
-		game_restart()
+		if (revives <= 0) {
+		    game_restart();
+		}
+		else {
+		    HP = MAXHP/2;
+			revives -= 1;
+		}
+		
 	}
 }
+
 
 
 

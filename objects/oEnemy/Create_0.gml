@@ -4,3 +4,4 @@ baseATK = atk;
 baseSPD = speed;
 baseHP = hp;
 hp = (baseHP + (baseHP * 0.05 + global.timeA)) * ( 1 + (global.timeB/50));
+canattack=true;

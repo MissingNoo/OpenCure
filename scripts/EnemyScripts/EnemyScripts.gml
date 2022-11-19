@@ -84,6 +84,18 @@ function ResetPool()
 }
 #endregion
 
+function damageCalculation(baseDmg)
+{
+	var damage = baseDmg;
+	for (var i = 0; i < array_length(Bonuses[bonusType.Defense]); ++i) {
+	    damage = damage * Bonuses[bonusType.Defense][i];
+	}
+	if (global.debug) {
+	    show_debug_message("baseDmg:" + string(baseDmg) + " after calculation: " + string(damage));
+	}	
+	return damage;
+}
+
 
 
 

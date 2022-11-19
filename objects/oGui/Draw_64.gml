@@ -142,7 +142,7 @@ if (instance_exists(oPlayer)) //while inside a stage
 							draw_sprite_ext(uiDigitYellow,playerItems[i][? "level"],GW/10+5+offset,GH/7,2,2,0,c_white,1); //draw level
 					        break;
 						case "white":
-					        draw_sprite_ext(ui_level_header_white,0,GW/10+offset,GH/12,2,2,0,c_white,1); //draw type sprite
+					        draw_sprite_ext(ui_level_header_white,0,GW/10+offset,GH/7,2,2,0,c_white,1); //draw type sprite
 							draw_sprite_ext(uiDigitWhite,playerItems[i][? "level"],GW/10+5+offset,GH/7,2,2,0,c_white,1); //draw level
 					        break;
 					}
@@ -235,7 +235,7 @@ if (keyboard_check_pressed(ord("M"))) {
 	if (global.debug) {
 		draw_set_alpha(.5);
 		draw_set_color(c_white)
-		var variables = ["a","b","c","d","e", "dir"];
+		var variables = ["a","b","c","d","e", "dir", "revives"];
 		var boxsize=0;
 		for (var i = 0; i < array_length(variables); ++i) {
 		    boxsize += 20;
@@ -277,6 +277,7 @@ if (os_type == os_android) {
 	draw_text(pButtonX + 70, pButtonY + 22.5, "P");
 	draw_set_color(c_white);
 }
+
 
 
 

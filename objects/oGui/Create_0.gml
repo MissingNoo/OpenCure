@@ -36,6 +36,8 @@ pButtonY = GH/14;
 pButtonXEnd = pButtonX + 120;
 pButtonYEnd =  pButtonY + 45;
 
-
+#region debug
+revives = 0;
+#endregion
 
 

@@ -69,6 +69,13 @@ if (keyboard_check_pressed(ord("N"))) {
     window_set_size(1920,1080);
 }
 
+if (keyboard_check_pressed(vk_escape) and global.upgrade == false) {
+		// Feather disable once GM2016
+		PauseGame()
+}
+
+
+
 
 
 

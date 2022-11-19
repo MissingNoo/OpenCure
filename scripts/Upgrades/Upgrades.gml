@@ -88,11 +88,11 @@ enum weapons
 #endregion
 
 createUpgrade(weapons.PlugAsaCoco,"Plug-type Asacoco",1,sAsaCocoShoot,sAsaCocoThumb,10,18,150,20,99,"white",1,0);
-createUpgrade(weapons.DouglasShoot,"teste",1,sJohn,sJohn,0,100,0,3,10,"white",1,0);
-createUpgrade(weapons.DouglasShoot+1,"teste2",1,sDouglas,sDouglasPortrait,0,100,0,3,10,"white",1,0);
-createUpgrade(weapons.DouglasShoot+2,"teste3",1,sJohn,sJohn,0,100,0,3,10,"white",1,0);
-createUpgrade(weapons.DouglasShoot+3,"teste4",1,sDouglas,sDouglasPortrait,0,100,0,3,10,"white",1,0);
-createUpgrade(weapons.DouglasShoot+4,"teste5",1,sJohn,sJohn,0,100,0,3,10,"white",1,0);
+createUpgrade(weapons.DouglasShoot,"teste",1,blank,sJohn,0,100,0,3,10,"white",1,0);
+createUpgrade(weapons.DouglasShoot+1,"teste2",1,blank,sDouglasPortrait,0,100,0,3,10,"white",1,0);
+createUpgrade(weapons.DouglasShoot+2,"teste3",1,blank,sJohn,0,100,0,3,10,"white",1,0);
+createUpgrade(weapons.DouglasShoot+3,"teste4",1,blank,sDouglasPortrait,0,100,0,3,10,"white",1,0);
+createUpgrade(weapons.DouglasShoot+4,"teste5",1,blank,sJohn,0,100,0,3,10,"white",1,0);
 //createUpgrade(weapons.DouglasShoot+5,"teste6",1,sDouglas,sDouglasPortrait,0,100,0,3,10,"white",1,0);
 //createUpgrade(weapons.DouglasShoot+6,"teste7",1,sJohn,sJohn,0,100,0,3,10,"white",1,0);
 //createUpgrade(weapons.DouglasShoot+7,"teste8",1,sDouglas,sDouglasPortrait,0,100,0,3,10,"white",1,0);
@@ -132,6 +132,7 @@ function randomUpgrades(){
 		global.upgrade_options[i] = pickedupgrade;
 	}
 	global.upgrade_options[0] = global.Player[?"weapon"][1];
+	global.upgrade_options[1] = ItemList[ItemIds.Body_Pillow][1];
 	//global.upgrade_options[1] = global.upgradesAvaliable[weapons.PlugAsaCoco][1][?"name"];
 }	
 
@@ -166,6 +167,7 @@ function defaultBehaviour()
 	image_xscale=oPlayer.image_xscale;
 	image_speed=1;
 }
+
 
 
 
