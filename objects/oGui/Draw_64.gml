@@ -85,14 +85,12 @@ if (room == Room2) {
 
 if (instance_exists(oPlayer)) //while inside a stage
 {	
-    #region Upgrades
-	
-		#region Character Portrait
-			draw_sprite_ext(ui_portrait_bg,0,60,90,2,2,0,c_white,1);
-			draw_sprite_ext(global.Player[?"portrait"],0,60,90,2,2,0,c_white,1);
-			draw_sprite_ext(ui_portrait_frame,0,60,90,2,2,0,c_white,1);
-		#endregion
-	
+	#region Character Portrait
+		draw_sprite_ext(ui_portrait_bg,0,60,90,2,2,0,c_white,1);
+		draw_sprite_ext(global.Player[?"portrait"],0,60,90,2,2,0,c_white,1);
+		draw_sprite_ext(ui_portrait_frame,0,60,90,2,2,0,c_white,1);
+	#endregion
+    #region Upgrades	
 		#region Weapons
 			var offset=0;			
 		    for (i = 0; i < array_length(UPGRADES); i++) //for the size of the upgrade arrays
@@ -123,13 +121,32 @@ if (instance_exists(oPlayer)) //while inside a stage
 		    }
 		#endregion
 		
-		#region Items
-			offset=0;
-			for (i = 0; i < array_length(UPGRADES); i++) {
-				draw_sprite_ext(ui_empty_slot_item,0,GW/10+offset,GH/7,1.5,1.5,0,c_white,.5);		
-				//draw_rectangle(190+offset, 40,230+offset, 80, 1true);
-				//draw_sprite(UPGRADES[i][? "thumb"],0,GW/10+offset,GH/12)
-				//draw_text_transformed(GW/10+offset, GH/12, UPGRADES[i][? "level"],.8,.8,0);
+		#region Items			
+			var offset=0;			
+		    for (i = 0; i < array_length(playerItems); i++) //for the size of the upgrade arrays
+			{
+				draw_sprite_ext(ui_empty_slot_item,0,GW/10+offset,GH/7,1.5,1.5,0,c_white,.5); //draw empty slots background
+				if (playerItems[i]!=global.nullitem) //if there is a upgrade in the slot
+				{
+					var awakened = (playerItems[i][?"level"] < 7) ? 0 : 1; //check if weapon is awakened
+					draw_sprite_ext(playerItems[i][? "thumb"],awakened,GW/10+offset,GH/7,2,2,0,c_white,1); //draw weapon sprite
+					draw_text(GW/10+offset, GH/7-15,string(global.itemCooldown[playerItems[i][?"id"]]));
+					switch (playerItems[i][? "type"]) //detect the type of upgrade
+					{
+					    case "red":
+					        draw_sprite_ext(ui_level_header_pink,0,GW/10+offset,GH/7,2,2,0,c_white,1); //draw type sprite
+							draw_sprite_ext(uiDigitPink,playerItems[i][? "level"],GW/10+5+offset,GH/7,2,2,0,c_white,1); //draw level
+					        break;
+					    case "yellow":
+					        draw_sprite_ext(ui_level_header_yellow,0,GW/10+offset,GH/7,2,2,0,c_white,1); //draw type sprite
+							draw_sprite_ext(uiDigitYellow,playerItems[i][? "level"],GW/10+5+offset,GH/7,2,2,0,c_white,1); //draw level
+					        break;
+						case "white":
+					        draw_sprite_ext(ui_level_header_white,0,GW/10+offset,GH/12,2,2,0,c_white,1); //draw type sprite
+							draw_sprite_ext(uiDigitWhite,playerItems[i][? "level"],GW/10+5+offset,GH/7,2,2,0,c_white,1); //draw level
+					        break;
+					}
+				}		
 		        offset+=50;
 		    }
 		#endregion
@@ -260,5 +277,6 @@ if (os_type == os_android) {
 	draw_text(pButtonX + 70, pButtonY + 22.5, "P");
 	draw_set_color(c_white);
 }
+
 
 

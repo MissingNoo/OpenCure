@@ -9,6 +9,9 @@ function initializePlayer(p){
 	for (i=0; i<6; i++) {
 		UPGRADES[i]=global.null;
 	}
+	for (i=0; i<6; i++) {
+		playerItems[i]=global.nullitem;
+	}
 	global.upgrade=0;
 	global.xp=0;
 	damaged=false;
@@ -116,6 +119,7 @@ if can_move == true{
 		sprite_index=sprite;
 		}
 }
+
 
 
 

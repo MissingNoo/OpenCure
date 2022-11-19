@@ -1,6 +1,7 @@
 #macro playerItems global.items
 #macro ItemList global.itemList
-global.item=0;
+global.items=[0];
+global.itemCooldown[0] = 0;
 #region Null item
 	global.nullitem=ds_map_create()
 	ds_map_add(global.nullitem, "name", "");
@@ -9,7 +10,7 @@ global.item=0;
 
 #region Item Functions
 
-	function createItem(_id, _name, _level, _maxLevel, _weight, _sprite, _desc = "", _unlocked = true, _type = "white", _perk = 0)
+	function createItem(_id, _name, _level, _maxLevel, _weight, _sprite, _cooldown, _desc, _unlocked = true, _type = "white", _perk = 0)
 	{
 		ItemList[_id][0]=global.nullitem;
 		ItemList[_id][_level]=ds_map_create();
@@ -24,6 +25,9 @@ global.item=0;
 		ds_map_add(item, "perk", _perk);
 		ds_map_add(item, "desc", _desc);
 		ds_map_add(item, "unlocked", _unlocked);
+		ds_map_add(item, "style", "item");
+		ds_map_add(item, "cooldown", _cooldown);
+		global.itemCooldown[_id] = _cooldown;
 	}
 
 	enum ItemIds
@@ -76,17 +80,33 @@ global.item=0;
 	#endregion
 	#region Items
 		#region BodyPillow
-			createItem(ItemIds.Body_Pillow, "Body Pillow", 1, 5, 3, sBodyPillow, "Gain a shield that absorbs up to 15 damage. Every 15 seconds, this shield refreshes. Also reduces damage taken by 5%.")
-			createItem(ItemIds.Body_Pillow, "Body Pillow", 2, 5, 3, sBodyPillow, "Gain a shield that absorbs up to 20 damage. Every 15 seconds, this shield refreshes. Also reduces damage taken by 10%.")
-			createItem(ItemIds.Body_Pillow, "Body Pillow", 3, 5, 3, sBodyPillow, "Gain a shield that absorbs up to 25 damage. Every 15 seconds, this shield refreshes. Also reduces damage taken by 15%.")
-			createItem(ItemIds.Body_Pillow, "Body Pillow", 4, 5, 3, sBodyPillow, "Gain a shield that absorbs up to 30 damage. Every 15 seconds, this shield refreshes. Also reduces damage taken by 20%.")
-			createItem(ItemIds.Body_Pillow, "Body Pillow", 5, 5, 3, sBodyPillow, "Gain a shield that absorbs up to 35 damage. Every 15 seconds, this shield refreshes. Also reduces damage taken by 25%.")
-			createItem(ItemIds.Body_Pillow, "Body Pillow", 5, 5, 3, sBodyPillow, "Gain a shield that absorbs up to 35 damage. Every 15 seconds, this shield refreshes. Also reduces damage taken by 25%.")
+			createItem(ItemIds.Body_Pillow, "Body Pillow", 1, 5, 3, sBodyPillow, 15, "Gain a shield that absorbs up to 15 damage. Every 15 seconds, this shield refreshes. Also reduces damage taken by 5%.")
+			createItem(ItemIds.Body_Pillow, "Body Pillow", 2, 5, 3, sBodyPillow, 15, "Gain a shield that absorbs up to 20 damage. Every 15 seconds, this shield refreshes. Also reduces damage taken by 10%.")
+			createItem(ItemIds.Body_Pillow, "Body Pillow", 3, 5, 3, sBodyPillow, 15, "Gain a shield that absorbs up to 25 damage. Every 15 seconds, this shield refreshes. Also reduces damage taken by 15%.")
+			createItem(ItemIds.Body_Pillow, "Body Pillow", 4, 5, 3, sBodyPillow, 15, "Gain a shield that absorbs up to 30 damage. Every 15 seconds, this shield refreshes. Also reduces damage taken by 20%.")
+			createItem(ItemIds.Body_Pillow, "Body Pillow", 5, 5, 3, sBodyPillow, 15, "Gain a shield that absorbs up to 35 damage. Every 15 seconds, this shield refreshes. Also reduces damage taken by 25%.")
+			createItem(ItemIds.Body_Pillow, "Body Pillow", 5, 5, 3, sBodyPillow, 15, "Gain a shield that absorbs up to 35 damage. Every 15 seconds, this shield refreshes. Also reduces damage taken by 25%.")
 		#endregion
 		
 	#endregion
 
 #endregion
 
+function tickItems()
+{
+	for (var i = 0; i < array_length(playerItems); ++i) {
+		if (playerItems[i] != global.nullitem and global.itemCooldown[playerItems[i][?"id"]] <= 0) {
+		    switch (playerItems[i]) {
+			    default:
+					defaultItemBehaviour(playerItems[i][?"id"], playerItems[i][?"cooldown"]);
+			        break;
+			}
+		}
+	}
+}
 
-
+function defaultItemBehaviour(_id, _cooldown)
+{
+	//global.itemCooldown[playerItems[i][?"id"]] = playerItems[i][?"cooldown"];
+	global.itemCooldown[_id] = _cooldown;
+}

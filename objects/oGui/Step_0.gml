@@ -17,29 +17,52 @@ if (global.upgrade == 1) // after level up
     if (keyboard_check(ord("Z"))) {
 		for (i = 0; i < 6; i++) 
 		{	
-			
-			#region Upgrade existing weapon
-				if (UPGRADES[i][?"name"] == global.upgrade_options[selected][?"name"] ) 
-				{
-					UPGRADES[i] = global.upgradesAvaliable[UPGRADES[i][?"id"]][UPGRADES[i][?"level"]]+1;
-					break;
-				}			
-			#endregion
-			
-			#region new weapon
-				if (UPGRADES[i][?"name"] == "") 
-				{
-				    for (j=0; j<array_length(global.upgradesAvaliable); j++) 
+			if (global.upgrade_options[selected][?"style"] == "weapon") {
+				#region Upgrade existing weapon
+					if (UPGRADES[i][?"name"] == global.upgrade_options[selected][?"name"] ) 
 					{
-					    if (global.upgradesAvaliable[j][1][?"name"] == global.upgrade_options[selected][?"name"]) 
-						{
-							UPGRADES[i]=global.upgradesAvaliable[j][1];
-						}
-					}
-					break;
-				}
-			#endregion
+						UPGRADES[i] = global.upgradesAvaliable[UPGRADES[i][?"id"]][UPGRADES[i][?"level"]]+1;
+						break;
+					}			
+				#endregion
 			
+				#region new weapon
+					if (UPGRADES[i][?"name"] == "") 
+					{
+					    for (j=0; j<array_length(global.upgradesAvaliable); j++) 
+						{
+						    if (global.upgradesAvaliable[j][1][?"name"] == global.upgrade_options[selected][?"name"]) 
+							{
+								UPGRADES[i]=global.upgradesAvaliable[j][1];
+							}
+						}
+						break;
+					}
+				#endregion			
+			}
+			else {
+			    #region Upgrade existing item
+					if (playerItems[i][?"name"] == global.upgrade_options[selected][?"name"] ) 
+					{
+						playerItems[i] = global.upgradesAvaliable[playerItems[i][?"id"]][playerItems[i][?"level"]]+1;
+						break;
+					}			
+				#endregion
+			
+				#region new weapon
+					if (playerItems[i][?"name"] == "") 
+					{
+					    for (j=0; j<array_length(ItemList); j++) 
+						{
+						    if (ItemList[j][1][?"name"] == global.upgrade_options[selected][?"name"]) 
+							{
+								playerItems[i]=ItemList[j][1];
+							}
+						}
+						break;
+					}
+				#endregion			
+			}
 		}
         global.upgrade = 0;
         PauseGame();
@@ -103,6 +126,7 @@ if (os_type == os_android) {
 		//}
 	}
 #endregion
+
 
 
 

@@ -36,6 +36,7 @@ function createUpgrade(_id, _name, _level, _sprite, _thumb, _mindmg, _maxdmg, _c
 	ds_map_add(m, "shoots", _shoots);	
 	ds_map_add(m, "perk", _perk);
 	ds_map_add(m, "desc", _desc);
+	ds_map_add(m, "style", "weapon");
 	global.upgradeCooldown[_id] = 0;
 }
 //createUpgrade(0,"Speed", suSpeed);		
@@ -107,10 +108,8 @@ function randomUpgrades(){
 	name="";
 	var ups = [];
 	for (var i = 0; i < array_length(global.upgradesAvaliable); ++i) {
-	    ups[i] = global.upgradesAvaliable[i];
+	    array_push(ups, global.upgradesAvaliable[i]);
 	}
-	//show_message(string(array_length(ups)));
-	//show_message(string(array_length(ups) + array_length(ItemList)));
 	for (var i = 0; i < array_length(ItemList); ++i) {
 	    array_push(ups, ItemList[i]);
 	}
@@ -167,6 +166,7 @@ function defaultBehaviour()
 	image_xscale=oPlayer.image_xscale;
 	image_speed=1;
 }
+
 
 
 

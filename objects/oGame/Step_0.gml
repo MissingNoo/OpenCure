@@ -33,6 +33,11 @@ if (canspawn == true and global.gamePaused == false and room == Room1) {
 				    global.upgradeCooldown[i] -= 1;
 				}   
 			}
+			for (var i = 0; i < array_length(global.itemCooldown); ++i) {
+				if (global.itemCooldown[i] > 0) {
+				    global.itemCooldown[i] -= 1/60;
+				}   
+			}
 		#endregion
 	}
 
@@ -63,6 +68,7 @@ if (keyboard_check_pressed(ord("B"))) {
 if (keyboard_check_pressed(ord("N"))) {
     window_set_size(1920,1080);
 }
+
 
 
 

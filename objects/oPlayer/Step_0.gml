@@ -10,6 +10,7 @@ if (keyboard_check_pressed(vk_shift)) {
 }
 if (!global.gamePaused) {
 	tickPowers();
+	tickItems();
 	Movement();
     //if (input_check_pressed("shoot")) instance_create_layer(mouse_x, mouse_y, "Instances", oEnemy);
 	
@@ -25,6 +26,7 @@ if (!global.gamePaused) {
 		game_restart()
 	}
 }
+
 
 
 
