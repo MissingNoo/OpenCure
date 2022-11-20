@@ -17,8 +17,9 @@ if (!global.gamePaused) {
 	if (global.xp >= 1355) {
 		global.xp -=1355;
 		randomUpgrades()
+		keyboard_clear(ord("Z"));
 		global.upgrade=1;	
-		oGui.selected=0;
+		oGui.selected=0;		
 		PauseGame()
 	}
 	

@@ -38,6 +38,7 @@ pButtonYEnd =  pButtonY + 45;
 
 #region debug
 revives = 0;
+event = 0;
 #endregion
 
 

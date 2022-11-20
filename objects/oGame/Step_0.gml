@@ -28,10 +28,25 @@ if (canspawn == true and global.gamePaused == false and room == Room1) {
 	if (global.gamePaused == false) {
 	    global.seconds+=1/60;
 		#region Skills Cooldown
-			for (var i = 0; i < array_length(global.upgradeCooldown); ++i) {
-				if (global.upgradeCooldown[i] > 0) {
-				    global.upgradeCooldown[i] -= 1;
-				}   
+		
+			#region cooldownamount
+				var down = 1
+				for (var i = 0; i < array_length(Bonuses[bonusType.Haste]); ++i) {
+					if (Bonuses[bonusType.Haste][i] != 0) {
+					    down = 1 * Bonuses[bonusType.Haste][i];
+					}				    
+				}
+			#endregion
+			for (var i = 0; i < array_length(UPGRADES); ++i) {
+				if (UPGRADES[i] != global.null) {
+					if (global.upgradeCooldown[UPGRADES[i][?"canBeHasted"]] == true) {
+					    global.upgradeCooldown[UPGRADES[i][?"id"]] -= down;
+						//show_message(string(round(UPGRADES[i][?"cooldown"] / (1 + (1.50/100)))))
+					}   
+					else{
+						global.upgradeCooldown[UPGRADES[i][?"id"]] -= 1;
+					}
+				}
 			}
 			for (var i = 0; i < array_length(global.itemCooldown); ++i) {
 				if (global.itemCooldown[i] > 0) {
@@ -74,7 +89,9 @@ if (keyboard_check_pressed(vk_escape) and global.upgrade == false) {
 		PauseGame()
 }
 
-
+if (keyboard_check(vk_control)) {
+    Seconds+=1;
+}
 
 
 

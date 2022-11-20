@@ -1,7 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 #region Start
-if (a==0) {
+if (a==0) {	
 	global.upgradeCooldown[upg[?"id"]] = upg[?"cooldown"];
 	image_speed=1;
 	image_alpha=1;
@@ -55,6 +55,16 @@ if (a==0) {
 		if (sprite_index==blank) {
 			instance_destroy();
 	}
+	var wSize = image_xscale;
+	for (var i = 0; i < array_length(Bonuses[bonusType.weaponSize]); ++i) {
+	    if (Bonuses[bonusType.weaponSize][i] != 0) {
+			if (image_xscale > 0) { image_xscale = image_xscale * Bonuses[bonusType.weaponSize][i]; }
+			else { image_xscale = image_xscale * (Bonuses[bonusType.weaponSize][i] * -1); }
+			image_yscale = image_yscale * Bonuses[bonusType.weaponSize][i];
+		}
+	}
+	
 }
 #endregion
+
 

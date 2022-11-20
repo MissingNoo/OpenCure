@@ -100,7 +100,8 @@ if (instance_exists(oPlayer)) //while inside a stage
 				{
 					var awakened = (UPGRADES[i][?"level"] < 7) ? 0 : 1; //check if weapon is awakened
 					draw_sprite_ext(UPGRADES[i][? "thumb"],awakened,GW/10+offset,GH/12,2,2,0,c_white,1); //draw weapon sprite
-					draw_text(GW/10+offset, GH/12-15,string(global.upgradeCooldown[UPGRADES[i][?"id"]]));
+					if (global.debug) {draw_text(GW/10+offset, GH/12-15,string(global.upgradeCooldown[UPGRADES[i][?"id"]]));}
+					
 					switch (UPGRADES[i][? "type"]) //detect the type of upgrade
 					{
 					    case "red":
@@ -123,27 +124,29 @@ if (instance_exists(oPlayer)) //while inside a stage
 		
 		#region Items			
 			var offset=0;			
+			var yoffset = 16;
 		    for (i = 0; i < array_length(playerItems); i++) //for the size of the upgrade arrays
 			{
-				draw_sprite_ext(ui_empty_slot_item,0,GW/10+offset,GH/7,1.5,1.5,0,c_white,.5); //draw empty slots background
+				draw_sprite_ext(ui_empty_slot_item,0,GW/10+offset,GH/7+yoffset,1.5,1.5,0,c_white,.5); //draw empty slots background
 				if (playerItems[i]!=global.nullitem) //if there is a upgrade in the slot
 				{
 					var awakened = (playerItems[i][?"level"] < 7) ? 0 : 1; //check if weapon is awakened
-					draw_sprite_ext(playerItems[i][? "thumb"],awakened,GW/10+offset,GH/7,2,2,0,c_white,1); //draw weapon sprite
-					draw_text(GW/10+offset, GH/7-15,string(global.itemCooldown[playerItems[i][?"id"]]));
+					draw_sprite_ext(playerItems[i][? "thumb"],awakened,GW/10+offset,GH/7+yoffset,2,2,0,c_white,1); //draw weapon sprite
+					if (global.debug) {draw_text(GW/10+offset, GH/7-15+yoffset,string(global.itemCooldown[playerItems[i][?"id"]]));}
+					
 					switch (playerItems[i][? "type"]) //detect the type of upgrade
 					{
 					    case "red":
-					        draw_sprite_ext(ui_level_header_pink,0,GW/10+offset,GH/7,2,2,0,c_white,1); //draw type sprite
-							draw_sprite_ext(uiDigitPink,playerItems[i][? "level"],GW/10+5+offset,GH/7,2,2,0,c_white,1); //draw level
+					        draw_sprite_ext(ui_level_header_pink,0,GW/10+offset,GH/7+yoffset,2,2,0,c_white,1); //draw type sprite
+							draw_sprite_ext(uiDigitPink,playerItems[i][? "level"],GW/10+5+offset,GH/7+yoffset,2,2,0,c_white,1); //draw level
 					        break;
 					    case "yellow":
-					        draw_sprite_ext(ui_level_header_yellow,0,GW/10+offset,GH/7,2,2,0,c_white,1); //draw type sprite
-							draw_sprite_ext(uiDigitYellow,playerItems[i][? "level"],GW/10+5+offset,GH/7,2,2,0,c_white,1); //draw level
+					        draw_sprite_ext(ui_level_header_yellow,0,GW/10+offset,GH/7+yoffset,2,2,0,c_white,1); //draw type sprite
+							draw_sprite_ext(uiDigitYellow,playerItems[i][? "level"],GW/10+5+offset,GH/7+yoffset,2,2,0,c_white,1); //draw level
 					        break;
 						case "white":
-					        draw_sprite_ext(ui_level_header_white,0,GW/10+offset,GH/7,2,2,0,c_white,1); //draw type sprite
-							draw_sprite_ext(uiDigitWhite,playerItems[i][? "level"],GW/10+5+offset,GH/7,2,2,0,c_white,1); //draw level
+					        draw_sprite_ext(ui_level_header_white,0,GW/10+offset,GH/7+yoffset,2,2,0,c_white,1); //draw type sprite
+							draw_sprite_ext(uiDigitWhite,playerItems[i][? "level"],GW/10+5+offset,GH/7+yoffset,2,2,0,c_white,1); //draw level
 					        break;
 					}
 				}		
@@ -235,7 +238,7 @@ if (keyboard_check_pressed(ord("M"))) {
 	if (global.debug) {
 		draw_set_alpha(.5);
 		draw_set_color(c_white)
-		var variables = ["a","b","c","d","e", "dir", "revives"];
+		var variables = ["a","b","c","d","e", "dir", "revives", "event"];
 		var boxsize=0;
 		for (var i = 0; i < array_length(variables); ++i) {
 		    boxsize += 20;

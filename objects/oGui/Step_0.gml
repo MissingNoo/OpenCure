@@ -127,6 +127,9 @@ if (os_type == os_android) {
 		if (global.debug and instance_exists(oPlayer)) {
 		    revives = oPlayer.revives;
 		}
+		if (global.debug and instance_exists(oEvents)) {
+		    event= oEvents.event;
+		}
 		
 	}
 #endregion
