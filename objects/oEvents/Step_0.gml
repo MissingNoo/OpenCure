@@ -8,6 +8,10 @@ if (seconds == 30 and Minutes == 0 and event) {
 	addEnemyToPool(Enemies.DeadBeat);
 }
 
+if (seconds == 0 and Minutes == 2 and event) {
+	addEnemyToPool(Enemies.MegaShrimp);
+}
+
 if (seconds == 0 and Minutes == 3 and event) {
 	event = false;
 	alarm[0] = 60;	
@@ -20,14 +24,18 @@ if (seconds == 0 and Minutes == 3 and event) {
 if (seconds == 0 and Minutes == 4 and event) {
 	event = false;
 	alarm[0] = 60;	
-	//dead tako kfp
+	addEnemyToPool(Enemies.KFPEmployee);
+	addEnemyToPool(Enemies.TakoGrande);
 }
 
 if (seconds == 0 and Minutes == 5 and event) {
 	event = false;
 	alarm[0] = 60;	
-	//remove dead
-	//tako kfp a1/a2
+	removeEnemyFromPool(Enemies.DeadBeat);
+	removeEnemyFromPool(Enemies.Takodachi);
+	addEnemyToPool(Enemies.DarkShrimp);
+	addEnemyToPool(Enemies.Bloom);
+	addEnemyToPool(Enemies.Gloom);
 }
 
 if (seconds == 40 and Minutes == 5 and event) {
@@ -36,29 +44,57 @@ if (seconds == 40 and Minutes == 5 and event) {
 	//shrimplv2 a1/a2 deadlv2 
 }
 
-if (seconds == 35 and Minutes == 6 and event) {
+if (seconds == 0 and Minutes == 6 and event) {
 	event = false;
 	alarm[0] = 60;	
-	//shlv2 a1/a2 bigbubba
+	removeEnemyFromPool(Enemies.KFPEmployee);
+	addEnemyToPool(Enemies.DeadBatter);
+	addEnemyToPool(Enemies.MegaDarkShrimp);
+}
+
+if (seconds == 30 and Minutes == 6 and event) {
+	event = false;
+	alarm[0] = 60;	
+	addEnemyToPool(Enemies.InvestiGator)
 }
 
 if (seconds == 35 and Minutes == 7 and event) {
 	event = false;
 	alarm[0] = 60;	
-	//shlv2 deadbeatlv2 bigbubba takolv2
+	addEnemyToPool(Enemies.HungryTakodachi);
 }
 
 if (seconds == 0 and Minutes == 8 and event) {
 	event = false;
 	alarm[0] = 60;	
-	//1 boss
+	addEnemyToPool(Enemies.GiantDeadBatter);
 }
 
-if (seconds == 35 and Minutes == 8 and event) {
+if (seconds == 30 and Minutes == 8 and event) {
 	event = false;
 	alarm[0] = 60;	
-	//trocentos deadbeat
-	//shlv2 a1/a2 bigbubba deadlv3
+	removeEnemyFromPool(Enemies.DarkShrimp);
+	removeEnemyFromPool(Enemies.DeadBatter);
 }
 
+if (seconds == 30 and Minutes == 9 and event) {
+	event = false;
+	alarm[0] = 60;	
+	addEnemyToPool(Enemies.DisgruntledEmployee);
+}
 
+if (seconds == 0 and Minutes == 10 and event) {
+	event = false;
+	alarm[0] = 60;	
+	addEnemyToPool(Enemies.FubuZilla);
+}
+
+if (seconds == 0 and Minutes == 11 and event) {
+	event = false;
+	alarm[0] = 60;	
+	removeEnemyFromPool(Enemies.Bloom);
+	removeEnemyFromPool(Enemies.Gloom);
+	removeEnemyFromPool(Enemies.HungryTakodachi);
+	removeEnemyFromPool(Enemies.InvestiGator);
+	removeEnemyFromPool(Enemies.DisgruntledEmployee)
+}

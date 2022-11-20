@@ -1,7 +1,14 @@
 
 if(global.gamePaused == false){
-	if(oPlayer.x < x) image_xscale=-1;
-	if(oPlayer.x > x) image_xscale=1;
+	if (boss) {
+	    if(oPlayer.x < x) image_xscale=-2;
+		if(oPlayer.x > x) image_xscale=2;
+	}
+	else{
+		if(oPlayer.x < x) image_xscale=-1;
+		if(oPlayer.x > x) image_xscale=1;
+	}
+	
 	//if(oPlayer.y < y) y-=.5;
 	//if(oPlayer.y > y) y+=.5;
 	direction=point_direction(x,y,oPlayer.x,oPlayer.y)
@@ -16,4 +23,5 @@ if(global.gamePaused == false){
 	speed = (baseSPD + (0.12 * global.timeA)) * (1 + (global.timeB / 25));
 }
 pausedamaged = false;
+
 
