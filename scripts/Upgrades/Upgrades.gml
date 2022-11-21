@@ -9,6 +9,7 @@ global.upgradeCooldown[0] = 0;
 	ds_map_add(global.null, "level", "");
 	ds_map_add(global.null, "dmg", 1);
 	ds_map_add(global.null, "cooldown", 0);
+	ds_map_add(global.null, "hitCooldown", 0);
 	ds_map_add(global.null, "speed", 0);
 	ds_map_add(global.null, "hits", 0);
 	global.upgradesAvaliable=[0];
@@ -56,7 +57,7 @@ enum weapons
 	AmePistol,
 	//GuraTrident,
 	//InaTentacle,
-	//BlBook,
+	BlBook,
 	PlugAsaCoco
 }
 function populateUpgrades(){
@@ -104,7 +105,20 @@ function populateUpgrades(){
 			#endregion
 		#endregion
 	#endregion
-	
+	createUpgrade(weapons.BlBook, "BL Book", 1, sBLBook, sBLBookThumb, 10, 18, 360, 120, 20, 1, 3, 7, "white", 3, "Repels targets with orbiting BL Books.");
+	createUpgradeP2(weapons.BlBook, 1, 7, 3, 5);
+	createUpgrade(weapons.BlBook, "BL Book", 2, sBLBook, sBLBookThumb, 10, 18, 360, 120, 20, 1, 3, 7, "white", 4, "Repels targets with orbiting BL Books.");
+	createUpgradeP2(weapons.BlBook, 2, 7, 3, 5);
+	createUpgrade(weapons.BlBook, "BL Book", 3, sBLBook, sBLBookThumb, 10*1.30, 18*1.30, 360, 180, 20, 1, 3, 7, "white", 4, "Repels targets with orbiting BL Books.");
+	createUpgradeP2(weapons.BlBook, 3, 7, 3, 5);
+	createUpgrade(weapons.BlBook, "BL Book", 4, sBLBook, sBLBookThumb, 10*1.30, 18*1.30, 360, 180, 20, 1, 3, 7, "white", 5, "Repels targets with orbiting BL Books.");
+	createUpgradeP2(weapons.BlBook, 4, 7, 3, 5);
+	createUpgrade(weapons.BlBook, "BL Book", 5, sBLBook, sBLBookThumb, 10*1.30*1.40, 18*1.30*1.40, 360, 180, 20, 1, 3, 7, "white", 5, "Repels targets with orbiting BL Books.");
+	createUpgradeP2(weapons.BlBook, 5, 7, 3, 5);
+	createUpgrade(weapons.BlBook, "BL Book", 6, sBLBook, sBLBookThumb, 10*1.30*1.40, 18*1.30*1.40, 360, 180, 20, 1, 3, 7, "white", 6, "Repels targets with orbiting BL Books.");
+	createUpgradeP2(weapons.BlBook, 6, 7, 3, 5);
+	createUpgrade(weapons.BlBook, "BL Book", 7, sBLBook, sBLBookThumb, 10*1.30*1.40*1.40, 18*1.30*1.40*1.40, 360, 180, 20, 1, 3, 7, "white", 6, "Repels targets with orbiting BL Books.");
+	createUpgradeP2(weapons.BlBook, 7, 7, 3, 5);
 	//createUpgrade(weapons.PlugAsaCoco,"Plug-type Asacoco",1,sAsaCocoShoot,sAsaCocoThumb,10,18,150,true,20,99,"white",1,0);
 }
 
@@ -207,7 +221,7 @@ function randomUpgrades(){
 		
 	//global.upgrade_options[0] = global.Player[?"weapon"][1];
 	//global.upgrade_options[1] = ItemList[ItemIds.Uber_Sheep][1];
-	//global.upgrade_options[1] = global.upgradesAvaliable[weapons.PlugAsaCoco][1][?"name"];
+	global.upgrade_options[0] = global.upgradesAvaliable[weapons.BlBook][1];
 }	
 
 function tickPowers(){
@@ -240,6 +254,7 @@ function defaultBehaviour(){
 	image_xscale=oPlayer.image_xscale;
 	image_speed=1;
 }
+
 
 
 

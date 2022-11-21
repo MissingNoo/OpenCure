@@ -9,3 +9,6 @@ diroffset=0;
 offset=-16;
 b=0;
 originaly=0;
+//bl
+orbitoffset = -90;
+orbit_place = 0;

@@ -2,7 +2,8 @@
 #macro EnemyList global.enemies
 #macro EnemyPool global.enemyPool
 function initiateEnemy(e){
-	hittedcooldown = array_create()
+	//hittedcooldown = array_create(array_length(global.upgradesAvaliable));
+	hittedcooldown[0] = 0
 	thisEnemy = e[?"id"];
 	damaged=false;
 	gamePausedImageSpeed=image_speed;
@@ -17,6 +18,9 @@ function initiateEnemy(e){
 	sprite_index=sprwalking;
 	xp = e[?"exp"];
 	boss = e[?"boss"];
+	for (var i = 0; i < array_length(UPGRADES); ++i) {
+	    hittedcooldown[i] = 0;
+	}
 }
 	
 global.enemies=[];
@@ -155,6 +159,7 @@ function damageCalculation(baseDmg)
 	}	
 	return damage;
 }
+
 
 
 

@@ -1,5 +1,6 @@
 
 if(global.gamePaused == false){
+	
 	if (boss) {
 	    if(oPlayer.x < x) image_xscale=-2;
 		if(oPlayer.x > x) image_xscale=2;
@@ -25,6 +26,7 @@ if(global.gamePaused == false){
 	speed = (baseSPD + (0.12 * global.timeA)) * (1 + (global.timeB / 25));
 }
 pausedamaged = false;
+
 
 
 

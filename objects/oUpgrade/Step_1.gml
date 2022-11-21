@@ -3,6 +3,7 @@
 #region Start
 if (a==0) {	
 	global.upgradeCooldown[upg[?"id"]] = upg[?"cooldown"];
+	alarm[1] = upg[?"duration"];
 	image_speed=1;
 	image_alpha=1;
 	a=1;
@@ -51,6 +52,36 @@ if (a==0) {
 			speed = 0;
 			alarm[0]=30;
 			break;
+		case "BL Book":
+			orbit_length = 50;
+			if (shoots > 0) {	
+				switch (upg[?"level"]) {
+				    case 1:
+				        orbitoffset = -120;
+				        break;
+				    case 2:
+				        orbitoffset = -90;
+				        break;
+					case 3:
+				        orbitoffset = -90;
+				        break;
+					case 4:
+				        orbitoffset = -60;
+				        break;
+					case 5:
+				        orbitoffset = -60;
+				        break;
+					case 6:
+				        orbitoffset = -30;
+				        break;
+					case 7:
+				        orbitoffset = -30;
+				        break;
+				}			
+				
+			}
+			alarm[0]=1;
+			break;
 	}
 		if (sprite_index==blank) {
 			instance_destroy();
@@ -66,5 +97,6 @@ if (a==0) {
 	
 }
 #endregion
+
 
 
