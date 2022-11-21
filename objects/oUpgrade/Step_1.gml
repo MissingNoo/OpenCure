@@ -53,18 +53,19 @@ if (a==0) {
 				random_set_seed(current_time * global.upgradeCooldown[0]);
 				var enemies = instance_number(oEnemy);
 				//var CE = instance_nearest(x,y-50.75,oEnemy);
-				var CE = instance_find(oEnemy, irandom_range(0,enemies-1));
+				CE = instance_find(oEnemy, irandom_range(0,enemies-1));
 				direction = point_direction(x,y-50.75,CE.x, CE.y)
 				image_angle = point_direction(x,y-50.75,CE.x, CE.y)
-				for (var i = 0; i < shoots; ++i) {
-					inst = (instance_create_layer(oPlayer.x,oPlayer.y-8,"Upgrades",oUpgrade));
-					inst.upg=upg;
-					inst.speed=upg[?"speed"];
-					inst.hits=upg[?"hits"];
-					inst.shoots = 0;
-					inst.sprite_index=upg[?"sprite"];
-				    shoots-=1;
-					alarm[0]=1;
+				if (shoots>0) {
+					for (var i = 1; i < shoots; ++i) {
+						inst = (instance_create_layer(oPlayer.x,oPlayer.y-8,"Upgrades",oUpgrade));
+						inst.upg=upg;
+						inst.speed=upg[?"speed"];
+						inst.hits=upg[?"hits"];
+						inst.shoots = 0;
+						inst.sprite_index=upg[?"sprite"];
+						alarm[0]=1;
+					}
 				}
 			} else instance_destroy();
 			originalspeed = speed;
@@ -125,6 +126,7 @@ if (a==0) {
 	
 }
 #endregion
+
 
 
 
