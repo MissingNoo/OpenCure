@@ -41,13 +41,14 @@ function createUpgrade(_id, _name, _level, _sprite, _thumb, _mindmg, _maxdmg, _c
 	ds_map_add(m, "style", "weapon");	
 	global.upgradeCooldown[_id] = 0;
 }
-function createUpgradeP2(_id, _level, _knockbackSpeed, _knockbackDuration, _perk = 0, _character = 0)
+function createUpgradeP2(_id, _level, _maxlevel, _knockbackSpeed, _knockbackDuration, _perk = 0, _character = 0)
 {
 	var m = global.upgradesAvaliable[_id][_level];
 	ds_map_add(m, "knockbackSpeed", _knockbackSpeed);
 	ds_map_add(m, "knockbackDuration", _knockbackDuration);
 	ds_map_add(m, "perk", _perk);
 	ds_map_add(m, "characterid", _character);
+	ds_map_add(m, "maxlevel", _maxlevel);
 }
 
 enum weapons
@@ -63,21 +64,21 @@ function populateUpgrades(){
 		#region Amelia Perks
 			#region AmePistol
 				createUpgrade(weapons.AmePistol, "AmePistol", 1, sAmeShoot, sAmePistol, 7, 13, 80, 120, 10, true, 5, 1, "red", 3, "Shoots 3 Projectiles forward. Horizontal only.");
-				createUpgradeP2(weapons.AmePistol, 1, 0, 0, 1, Characters.Amelia);
+				createUpgradeP2(weapons.AmePistol, 1, 7, 0, 0, 1, Characters.Amelia);
 				createUpgrade(weapons.AmePistol, "AmePistol", 2, sAmeShoot, sAmePistol, 7, 13, 80, 120, 10, true, 5, 2, "red", 4, "Shoot 1 additional shot, and each bullet can pierce +1 times.");
-				createUpgradeP2(weapons.AmePistol, 2, 0, 0, 1, Characters.Amelia);
+				createUpgradeP2(weapons.AmePistol, 2, 7, 0, 0, 1, Characters.Amelia);
 				createUpgrade(weapons.AmePistol, "AmePistol", 3, sAmeShoot, sAmePistol, 7*1.25, 13*1.25, 80, 120, 10, true, 5, 2, "red", 4, "Increase damage by 25%.");
-				createUpgradeP2(weapons.AmePistol, 3, 0, 0, 1, Characters.Amelia);
+				createUpgradeP2(weapons.AmePistol, 3, 7, 0, 0, 1, Characters.Amelia);
 				createUpgrade(weapons.AmePistol, "AmePistol", 4, sAmeShoot, sAmePistol, 7*1.25, 13*1.25, 80, 120, 10, true, 5, 2, "red", 4, "Bullets ricochet if hit limit is reached.");
-				createUpgradeP2(weapons.AmePistol, 4, 0, 0, 1, Characters.Amelia);
+				createUpgradeP2(weapons.AmePistol, 4, 7, 0, 0, 1, Characters.Amelia);
 				createUpgrade(weapons.AmePistol, "AmePistol", 5, sAmeShoot, sAmePistol, 7*1.25, 13*1.25, 80*0.75, 120, 10, true, 5, 3, "red", 4, "Each bullet can pierce +1 times. Reduce the time between attacks by 25%.");
-				createUpgradeP2(weapons.AmePistol, 5, 0, 0, 1, Characters.Amelia);
+				createUpgradeP2(weapons.AmePistol, 5, 7, 0, 0, 1, Characters.Amelia);
 				createUpgrade(weapons.AmePistol, "AmePistol", 6, sAmeShoot, sAmePistol, 7*1.25*1.40, 13*1.25*1.40, 80*0.75, 120, 10, true, 5, 3, "red", 4, "Increase damage by 40%.");
-				createUpgradeP2(weapons.AmePistol, 6, 0, 0, 1, Characters.Amelia);
+				createUpgradeP2(weapons.AmePistol, 6, 7, 0, 0, 1, Characters.Amelia);
 				createUpgrade(weapons.AmePistol, "AmePistol", 7, sAmeShoot, sAmePistol, 7*1.25*1.40, 13*1.25*1.40, 80*0.75, 120, 10, true, 5, 3, "red", 6, "Shoot 2 additional shots, and pistol becomes spread type.");
-				createUpgradeP2(weapons.AmePistol, 7, 0, 0, 1, Characters.Amelia);
+				createUpgradeP2(weapons.AmePistol, 7, 7, 0, 0, 1, Characters.Amelia);
 			#endregion
-		#endregion
+		#endregion	
 	
 		#region Gura Perks
 			#region GuraTrident
@@ -113,28 +114,80 @@ function randomUpgrades(){
 	random_set_seed(current_time);
 	name="";
 	var ups = [];
-	if (UPGRADES[0][?"level"] < 7) {
-	    array_push(ups, global.Player[?"weapon"])
-	}	
-	for (var i = 0; i < array_length(global.upgradesAvaliable); ++i) {
-	    array_push(ups, global.upgradesAvaliable[i]);
-	}
-	for (var i = 0; i < array_length(ItemList); ++i) {
-	    array_push(ups, ItemList[i]);
-	}
-	for (var i = 0; i < array_length(PerkList); ++i) {
-		if (PerkList[i][0][?"characterid"] == global.Player[?"id"]) {
-		    array_push(ups, PerkList[i]);
-			//show_debug_message("Added: " + string( PerkList[i][0][?"name"]));
-		}	    
-	}
-	//var str = "";
-	//for (var i = 0; i < array_length(ups); ++i) {
-	//    str = str + ", " + ups[i][1][?"name"];
-	//}
-	//show_message(str);
 	
-	show_debug_message(string(array_length(ups)));
+	#region Upgrades		
+		for (var i = 0; i < array_length(global.upgradesAvaliable); ++i) {
+			var maxed = false;
+			var found = false;
+			for (var j = 0; j < array_length(UPGRADES); ++j) {
+				//show_message("A:" + string(UPGRADES[j][?"name"]));
+				//show_message("B:" + string(global.upgradesAvaliable[i][1][?"name"]));
+				if (UPGRADES[j][?"name"] == global.upgradesAvaliable[i][1][?"name"]) {
+					found = true;
+				    if (UPGRADES[j][?"level"] != global.upgradesAvaliable[i][1][?"maxlevel"]){
+						maxed = false;
+					}
+					else maxed = true;
+				}
+				//else {array_push(ups, global.upgradesAvaliable[i]);}
+			}	    
+			if (found) {
+			    if (!maxed) {
+				    array_push(ups, global.upgradesAvaliable[i]);
+				}
+			} else {array_push(ups, global.upgradesAvaliable[i]);}
+		}
+	#endregion
+	
+	#region Items
+		for (var i = 0; i < array_length(ItemList); ++i) {
+			var maxed = false;
+			var found = false;
+			for (var j = 0; j < array_length(playerItems); ++j) {
+				if (playerItems[j][?"name"] == ItemList[i][1][?"name"]) {
+					found = true;
+				    if (playerItems[j][?"level"] != ItemList[i][1][?"maxlevel"]){
+						maxed = false;
+					}
+					else maxed = true;
+				}
+				//else {array_push(ups, global.upgradesAvaliable[i]);}
+			}	    
+			if (found) {
+			    if (!maxed) {
+				    array_push(ups, ItemList[i]);	
+				}
+			} else {array_push(ups, ItemList[i]);}
+		}
+	#endregion
+	
+	#region Perks
+	
+		for (var i = 0; i < array_length(PerkList); ++i) {
+			if (PerkList[i][0][?"characterid"] == global.Player[?"id"]) {
+			    //	array_push(ups, PerkList[i]);
+				var maxed = false;
+				var found = false;
+				for (var j = 0; j < array_length(playerPerks); ++j) {
+					if (playerPerks[j][?"name"] == PerkList[i][1][?"name"]) {
+						found = true;
+					    if (playerPerks[j][?"level"] != PerkList[i][1][?"maxlevel"]){
+							maxed = false;
+						}
+						else maxed = true;
+					}
+					//else {array_push(ups, global.upgradesAvaliable[i]);}
+				}	    
+				if (found) {
+				    if (!maxed) {
+					    array_push(ups, PerkList[i]);	
+					}
+				} else {array_push(ups, PerkList[i]);}
+				//show_debug_message("Added: " + string( PerkList[i][0][?"name"]));
+			}	    
+		}
+	#endregion
+	
 	for (i=0; i<4; i++) {
 		do {
 			var rdnnumber = irandom_range(0,array_length(ups)-1);
@@ -152,6 +205,7 @@ function randomUpgrades(){
 		array_delete(ups, rdnnumber, 1);
 		global.upgrade_options[i] = pickedupgrade;
 	}
+		
 	//global.upgrade_options[0] = global.Player[?"weapon"][1];
 	//global.upgrade_options[1] = ItemList[ItemIds.Uber_Sheep][1];
 	//global.upgrade_options[1] = global.upgradesAvaliable[weapons.PlugAsaCoco][1][?"name"];
@@ -187,3 +241,6 @@ function defaultBehaviour(){
 	image_xscale=oPlayer.image_xscale;
 	image_speed=1;
 }
+
+
+

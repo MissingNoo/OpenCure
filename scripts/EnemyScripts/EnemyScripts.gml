@@ -1,4 +1,4 @@
-//iniciar variaveis do inimigo
+	//iniciar variaveis do inimigo
 #macro EnemyList global.enemies
 #macro EnemyPool global.enemyPool
 function initiateEnemy(e){
@@ -6,7 +6,7 @@ function initiateEnemy(e){
 	damaged=false;
 	gamePausedImageSpeed=image_speed;
 	pausedSpeed=0;
-	col=false
+	col=false;
 	hp=e[?"hp"];
 	speed=e[?"speed"];
 	def=e[?"def"];
@@ -154,6 +154,7 @@ function damageCalculation(baseDmg)
 	}	
 	return damage;
 }
+
 
 
 
