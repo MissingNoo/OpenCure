@@ -8,6 +8,7 @@
 canrelease=true;
 limit = 137;
 ativation = 30;
+J1Set=false;
 JoystickCenterX=GW/6;
 JoystickCenterY=GH/1.25;
 JoystickLimitLeft = JoystickCenterX-limit;
@@ -19,6 +20,7 @@ JoystickAtivationUp = JoystickCenterY-ativation;
 JoystickLimitDown = JoystickCenterY+limit;
 JoystickAtivationDown = JoystickCenterY+ativation;
 
+J2Set=false;
 Joystick2CenterX=GW/1.20;
 Joystick2CenterY=GH/1.25;
 Joystick2LimitLeft = Joystick2CenterX-limit;
@@ -29,4 +31,5 @@ Joystick2LimitUp = Joystick2CenterY-limit;
 Joystick2AtivationUp = Joystick2CenterY-ativation;
 Joystick2LimitDown = Joystick2CenterY+limit;
 Joystick2AtivationDown = Joystick2CenterY+ativation;
+
 

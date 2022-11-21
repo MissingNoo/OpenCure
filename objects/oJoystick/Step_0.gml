@@ -1,6 +1,23 @@
 /// @description Insert description here
 // You can write your code in this editor
 #region Left Joystick
+	if (device_mouse_check_button_pressed(0, mb_left) and !J1Set) {
+	    J1Set = true;
+		JoystickCenterX = TouchX1;
+		JoystickCenterY = TouchY1;
+		JoystickLimitLeft = JoystickCenterX-limit;
+		JoystickAtivationLeft = JoystickCenterX-ativation;
+		JoystickLimitRight = JoystickCenterX+limit;
+		JoystickAtivationRight = JoystickCenterX+ativation;
+		JoystickLimitUp = JoystickCenterY-limit;
+		JoystickAtivationUp = JoystickCenterY-ativation;
+		JoystickLimitDown = JoystickCenterY+limit;
+		JoystickAtivationDown = JoystickCenterY+ativation;
+	}
+	if (!device_mouse_check_button_pressed(0, mb_left)) {
+	    J1Set = false;
+	}
+
 	if (TouchY1 > JoystickLimitUp and TouchY1 < JoystickLimitDown and TouchX1 > JoystickLimitLeft and TouchX1 < JoystickLimitRight and device_mouse_check_button(0,mb_left)) {
 		canrelease=true;
 		//up
@@ -32,6 +49,23 @@
 #endregion
 
 #region Right Joystick
+	if (device_mouse_check_button_pressed(1, mb_left) and !J2Set) {
+	    J2Set = true;
+		Joystick2CenterX = TouchX2;
+		Joystick2CenterY = TouchY2;
+		Joystick2LimitLeft = Joystick2CenterX-limit;
+		Joystick2AtivationLeft = Joystick2CenterX-ativation;
+		Joystick2LimitRight = Joystick2CenterX+limit;
+		Joystick2AtivationRight = Joystick2CenterX+ativation;
+		Joystick2LimitUp = Joystick2CenterY-limit;
+		Joystick2AtivationUp = Joystick2CenterY-ativation;
+		Joystick2LimitDown = Joystick2CenterY+limit;
+		Joystick2AtivationDown = Joystick2CenterY+ativation;
+	}
+	if (!device_mouse_check_button_pressed(1, mb_left)) {
+	    J2Set = false;
+	}
+	
 	if (instance_exists(oPlayer)) {
 		//if (TouchY1 > Joystick2LimitUp and TouchY1 < Joystick2LimitDown and TouchX1 > Joystick2LimitLeft and TouchX1 < Joystick2LimitRight) {
 		if (TouchY2 > Joystick2LimitUp and TouchY2 < Joystick2LimitDown and TouchX2 > Joystick2LimitLeft and TouchX2 < Joystick2LimitRight and device_mouse_check_button(1,mb_left)) {
@@ -44,6 +78,7 @@
 #endregion
 //and TouchX1 > GW/10.5 and TouchX1 < GW/4.25
 //and TouchX2 > GW/10.5 and TouchX2 < GW/4.25
+
 
 
 
