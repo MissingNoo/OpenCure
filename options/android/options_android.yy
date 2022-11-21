@@ -61,7 +61,7 @@
   "option_android_permission_write_external_storage": false,
   "option_android_permission_read_phone_state": false,
   "option_android_permission_network_state": false,
-  "option_android_permission_internet": true,
+  "option_android_permission_internet": false,
   "option_android_permission_bluetooth": true,
   "option_android_permission_record_audio": false,
   "option_android_application_tag_inject": "",

@@ -192,7 +192,6 @@ function randomUpgrades(){
 		do {
 			var rdnnumber = irandom_range(0,array_length(ups)-1);
 			var pickedupgrade = ups[rdnnumber][1];
-		    //name = pickedupgrade[?"name"];
 			var isperk = pickedupgrade[?"perk"];
 			if (pickedupgrade[?"perk"] == 1) {
 				show_debug_message("picked a perk: " + string(pickedupgrade[?"name"]));

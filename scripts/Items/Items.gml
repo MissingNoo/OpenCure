@@ -37,7 +37,7 @@ global.itemCooldown[0] = 0;
 		//Credit_Card,
 		Energy_Drink,
 		Face_Mask,
-		Full_Meal,
+		Full_Meal, //TODO: double heal		
 		Gorilla_Paw,
 		//GWS_Pill,
 		//Halu,
@@ -299,4 +299,5 @@ function tickItems()
 function defaultItemBehaviour(_id, _cooldown){
 	global.itemCooldown[_id] = _cooldown;
 }
+
 
