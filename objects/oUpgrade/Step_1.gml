@@ -10,16 +10,20 @@ if (a==0) {
 	if (shoots > 0) {
 	    show_debug_message("Spawned: " + string(upg[?"id"]) + " Name: " + upg[?"name"] + " Level: " + string(upg[?"level"]) + " shoots: " + string(shoots) + " cooldown: " + string(upg[?"cooldown"]) );
 	}
+	
 	//show_message(string(image_xscale));
 	switch (upg[?"name"]) {
-		default:
+		default:{
 			defaultBehaviour();
-			break;
-		case "AmePistol":
+			break;}
+			
+		case "AmePistol":{
+			audio_play_sound(sndBullet,0,0);
 			defaultBehaviour();
 			alarm[0] = 10;
-			break;
-		case "GuraTrident":		
+			break;}
+			
+		case "GuraTrident":{
 			image_angle = global.arrow_dir + diroffset;
 			//defaultBehaviour();			
 			if (upg[?"level"] >= 6) {
@@ -27,8 +31,9 @@ if (a==0) {
 				image_xscale += dirr;
 			}
 			alarm[0] = 1;
-			break;
-		case "InaTentacle":
+			break;}
+			
+		case "InaTentacle":{
 			//defaultBehaviour();
 			if (shoots > 0) {
 			    image_angle = global.arrow_dir;
@@ -40,8 +45,9 @@ if (a==0) {
 				image_xscale += dirr;
 			}
 			alarm[0]=1;
-			break;
-		case "Plug-type Asacoco":
+			break;}
+			
+		case "Plug-type Asacoco":{
 			originaly=y;
 			if (instance_exists(oEnemy)) {
 				var CE = instance_nearest(x,y-50.75,oEnemy);
@@ -51,8 +57,9 @@ if (a==0) {
 			originalspeed = speed;
 			speed = 0;
 			alarm[0]=30;
-			break;
-		case "BL Book":
+			break;}
+			
+		case "BL Book":{
 			orbit_length = 50;
 			if (shoots > 0) {	
 				switch (upg[?"level"]) {
@@ -66,27 +73,25 @@ if (a==0) {
 				        orbitoffset = -90;
 				        break;
 					case 4:
-				        orbitoffset = -60;
+				        orbitoffset = -80;
 				        break;
 					case 5:
-				        orbitoffset = -60;
+				        orbitoffset = -80;
 				        break;
 					case 6:
-				        orbitoffset = -30;
+				        orbitoffset = -60;
 				        break;
 					case 7:
-				        orbitoffset = -30;
+				        orbitoffset = -60;
 				        break;
-				}			
-				
+				}
 			}
 			alarm[0]=1;
-			break;
+			break;}
 	}
 		if (sprite_index==blank) {
 			instance_destroy();
 	}
-	var wSize = image_xscale;
 	for (var i = 0; i < array_length(Bonuses[bonusType.weaponSize]); ++i) {
 	    if (Bonuses[bonusType.weaponSize][i] != 0) {
 			if (image_xscale > 0) { image_xscale = image_xscale * Bonuses[bonusType.weaponSize][i]; }

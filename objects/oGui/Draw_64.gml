@@ -138,15 +138,15 @@ if (instance_exists(oPlayer)) //while inside a stage
 					{
 					    case "red":
 					        draw_sprite_ext(ui_level_header_pink,0,GW/10+offset,GH/7+yoffset,2,2,0,c_white,1); //draw type sprite
-							draw_sprite_ext(uiDigitPink,playerItems[i][? "level"],GW/10+5+offset,GH/7+yoffset+20,2,2,0,c_white,1); //draw level
+							draw_sprite_ext(uiDigitPink,playerItems[i][? "level"],GW/10+5+offset,GH/7+yoffset,2,2,0,c_white,1); //draw level
 					        break;
 					    case "yellow":
 					        draw_sprite_ext(ui_level_header_yellow,0,GW/10+offset,GH/7+yoffset,2,2,0,c_white,1); //draw type sprite
-							draw_sprite_ext(uiDigitYellow,playerItems[i][? "level"],GW/10+5+offset,GH/7+yoffset+20,2,2,0,c_white,1); //draw level
+							draw_sprite_ext(uiDigitYellow,playerItems[i][? "level"],GW/10+5+offset,GH/7+yoffset,2,2,0,c_white,1); //draw level
 					        break;
 						case "white":
 					        draw_sprite_ext(ui_level_header_white,0,GW/10+offset,GH/7+yoffset,2,2,0,c_white,1); //draw type sprite
-							draw_sprite_ext(uiDigitWhite,playerItems[i][? "level"],GW/10+5+offset,GH/7+yoffset+20,2,2,0,c_white,1); //draw level
+							draw_sprite_ext(uiDigitWhite,playerItems[i][? "level"],GW/10+5+offset,GH/7+yoffset,2,2,0,c_white,1); //draw level
 					        break;
 					}
 				}		
@@ -298,6 +298,7 @@ if (os_type == os_android) {
 	draw_text(pButtonX + 70, pButtonY + 22.5, "P");
 	draw_set_color(c_white);
 }
+
 
 
 

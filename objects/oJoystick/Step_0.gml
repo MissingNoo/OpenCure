@@ -35,7 +35,6 @@
 	if (instance_exists(oPlayer)) {
 		//if (TouchY1 > Joystick2LimitUp and TouchY1 < Joystick2LimitDown and TouchX1 > Joystick2LimitLeft and TouchX1 < Joystick2LimitRight) {
 		if (TouchY2 > Joystick2LimitUp and TouchY2 < Joystick2LimitDown and TouchX2 > Joystick2LimitLeft and TouchX2 < Joystick2LimitRight and device_mouse_check_button(1,mb_left)) {
-			canrelease=true;
 			global.arrow_dir = point_direction(Joystick2CenterX,Joystick2CenterY, TouchX2, TouchY2);
 			if (TouchX2 < Joystick2CenterX) {
 			    oPlayer.image_xscale=-1;
@@ -45,5 +44,6 @@
 #endregion
 //and TouchX1 > GW/10.5 and TouchX1 < GW/4.25
 //and TouchX2 > GW/10.5 and TouchX2 < GW/4.25
+
 
 

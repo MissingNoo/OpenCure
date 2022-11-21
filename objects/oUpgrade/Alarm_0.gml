@@ -65,16 +65,16 @@ switch (upg[?"name"]) {
 				        orbitoffset -= 90;
 				        break;
 					case 4:
-				        orbitoffset -= 75;
+				        orbitoffset -= 80;
 				        break;
 					case 5:
-				        orbitoffset -= 75;
+				        orbitoffset -= 80;
 				        break;
 					case 6:
-				        orbitoffset -= 35;
+				        orbitoffset -= 60;
 				        break;
 					case 7:
-				        orbitoffset -= 35;
+				        orbitoffset -= 60;
 				        break;
 				}			
 		    shoots-=1;			

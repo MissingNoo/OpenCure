@@ -1,6 +1,7 @@
 /// @description 
 if (other.canattack and !global.gamePaused) {
 	//damaged=true;
+	audio_play_sound(sndHurt,0,0);
 	var damage = damageCalculation(other.atk);
 	if (Shield > 0) {
 	    Shield -= damage;
@@ -17,3 +18,4 @@ if (other.canattack and !global.gamePaused) {
 	    dmg=round(damage);
 	}
 }
+

@@ -73,11 +73,11 @@ if (global.upgrade == 1) // after level up
 					#endregion		
 			}
 		}
+		global.xp -=1355;
         global.upgrade = 0;
         PauseGame();
     }
 }
-	
 if (room = Room2) {
     if (keyboard_check_pressed(ord("Z"))) {
         global.Player=CHARACTERS[selected];
@@ -111,6 +111,7 @@ if (os_type == os_android) {
 
 #region Debug
 	if (global.debug) {
+		if(keyboard_check(ord("L"))) game_restart();
 		dir = global.arrow_dir;
 		//if(keyboard_check(ord("Q"))) a -=1;
 		if(keyboard_check(ord("Q"))) a -=0.1;
@@ -145,6 +146,7 @@ if (os_type == os_android) {
 		
 	}
 #endregion
+
 
 
 

@@ -16,9 +16,9 @@ if (!global.gamePaused) {
     //if (input_check_pressed("shoot")) instance_create_layer(mouse_x, mouse_y, "Instances", oEnemy);
 	
 	if (global.xp >= 1355) {
-		global.xp -=1355;
 		randomUpgrades()
 		keyboard_clear(ord("Z"));
+		audio_play_sound(sndLvlUp,0,0);
 		global.upgrade=1;	
 		oGui.selected=0;		
 		PauseGame()
@@ -42,3 +42,4 @@ if (global.debug) {
 if (HP > MAXHP) {
     HP=MAXHP;
 }
+
