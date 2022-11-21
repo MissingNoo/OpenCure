@@ -35,6 +35,7 @@ function createCharacter(_id, _name, _portrait, _sprite, _runningsprite, _hp, _s
 {
 	global.characters[_id]=ds_map_create();
 	m = global.characters[_id];
+	ds_map_add(m, "id", _id);
 	ds_map_add(m, "name", _name);
 	ds_map_add(m, "portrait", _portrait);
 	ds_map_add(m, "sprite", _sprite);
@@ -44,18 +45,20 @@ function createCharacter(_id, _name, _portrait, _sprite, _runningsprite, _hp, _s
 	ds_map_add(m, "atk", _atk);
 	ds_map_add(m, "weapon", _weapon);
 }
-createCharacter(Characters.Amelia,"Watson Amelia",sAmePortrait,sAmeIdle,sAmeRunning,75,1.35,1.30,u[weapons.AmePistol]);
-createCharacter(Characters.Gura,"Gawr Gura",sGuraPortrait,sGuraIdle,sGuraRunning,65,1.40,1.10,u[weapons.GuraTrident]);
-createCharacter(Characters.Ina,"Ninomae Ina'nis",sInaPortrait,sInaIdle,sInaRunning,75,1.50,0.90,u[weapons.InaTentacle]);
-//createCharacter(Characters.Kiara,"Takanashi Kiara",sAmePortrait,sAmeIdle,sAmeRunning,30,1.35,10,u[weapons.AmePistol]);
-//createCharacter(Characters.Calli,"Mori Calliope",sAmePortrait,sAmeIdle,sAmeRunning,30,1.35,10,u[weapons.AmePistol]);
+function populateCharacters(){
+	createCharacter(Characters.Amelia,"Watson Amelia",sAmePortrait,sAmeIdle,sAmeRunning,75,1.35,1.30,u[weapons.AmePistol]);
+	//createCharacter(Characters.Gura,"Gawr Gura",sGuraPortrait,sGuraIdle,sGuraRunning,65,1.40,1.10,u[weapons.GuraTrident]);
+	//createCharacter(Characters.Ina,"Ninomae Ina'nis",sInaPortrait,sInaIdle,sInaRunning,75,1.50,0.90,u[weapons.InaTentacle]);
+	//createCharacter(Characters.Kiara,"Takanashi Kiara",sAmePortrait,sAmeIdle,sAmeRunning,30,1.35,10,u[weapons.AmePistol]);
+	//createCharacter(Characters.Calli,"Mori Calliope",sAmePortrait,sAmeIdle,sAmeRunning,30,1.35,10,u[weapons.AmePistol]);
+	NAME=CHARACTERS[Characters.Amelia][?"name"];
+}
 
 
-NAME=CHARACTERS[Characters.Amelia][?"name"];
 enum Characters {
 	Amelia,
-	Gura,
-	Ina,
+	//Gura,
+	//Ina,
 	//Kiara,
 	//Calli,
 	lenght
@@ -122,6 +125,7 @@ if can_move == true{
 		sprite_index=sprite;
 		}
 }
+
 
 
 

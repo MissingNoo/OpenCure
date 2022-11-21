@@ -40,7 +40,7 @@ if (global.upgrade == 1) // after level up
 					}
 				#endregion			
 			}
-			else {
+			else if (global.upgrade_options[selected][?"style"] == "item") {
 			    #region Upgrade existing item
 					if (playerItems[i][?"name"] == global.upgrade_options[selected][?"name"] ) 
 					{
@@ -63,6 +63,15 @@ if (global.upgrade == 1) // after level up
 					}
 				#endregion			
 			}
+			else if (global.upgrade_options[selected][?"style"] == "perk") {
+				#region Upgrade existing item
+						if (playerPerks[i][?"name"] == global.upgrade_options[selected][?"name"] ) 
+						{
+							playerPerks[i] = PerkList[playerPerks[i][?"id"]][playerPerks[i][?"level"]]+1;
+							break;
+						}			
+					#endregion		
+			}
 		}
         global.upgrade = 0;
         PauseGame();
@@ -72,6 +81,9 @@ if (global.upgrade == 1) // after level up
 if (room = Room2) {
     if (keyboard_check_pressed(ord("Z"))) {
         global.Player=CHARACTERS[selected];
+		//show_message(string(Characters.Amelia));
+		//show_message(string(CHARACTERS[selected][?"id"]));
+		playerPerks = global.characterPerks[CHARACTERS[selected][?"id"]];
 		room_goto(Room1);
     }
 }
@@ -133,6 +145,7 @@ if (os_type == os_android) {
 		
 	}
 #endregion
+
 
 
 

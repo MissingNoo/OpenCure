@@ -12,3 +12,4 @@ global.minutesPast30 = 0;
 global.hoursPast1= 0 ;
 global.arrow_dir=0;
 //gameWindow();
+//show_message(string(global.upgradesAvaliable[weapons.AmePistol][1][?"name"]));

@@ -39,7 +39,7 @@ if (canspawn == true and global.gamePaused == false and room == Room1) {
 			#endregion
 			for (var i = 0; i < array_length(UPGRADES); ++i) {
 				if (UPGRADES[i] != global.null) {
-					if (global.upgradeCooldown[UPGRADES[i][?"canBeHasted"]] == true) {
+					if (UPGRADES[i][?"canBeHasted"] == true) {
 					    global.upgradeCooldown[UPGRADES[i][?"id"]] -= down;
 						//show_message(string(round(UPGRADES[i][?"cooldown"] / (1 + (1.50/100)))))
 					}   
@@ -92,6 +92,7 @@ if (keyboard_check_pressed(vk_escape) and global.upgrade == false) {
 if (keyboard_check(vk_control)) {
     Seconds+=1;
 }
+
 
 
 

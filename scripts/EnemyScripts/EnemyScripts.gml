@@ -2,7 +2,7 @@
 #macro EnemyList global.enemies
 #macro EnemyPool global.enemyPool
 function initiateEnemy(e){
-	thisEnemy = e;
+	thisEnemy = e[?"id"];
 	damaged=false;
 	gamePausedImageSpeed=image_speed;
 	pausedSpeed=0;
@@ -19,10 +19,11 @@ function initiateEnemy(e){
 }
 	
 global.enemies=[];
-function createEnemy(_id, _name, _sprite, _hp, _speed, _atk, _exp, _weight, _boss = false)
+function createEnemy(_id, _name, _sprite, _hp, _speed, _atk, _exp, _weight = 1, _boss = false)
 {
 	global.enemies[_id]=ds_map_create();
 	m = global.enemies[_id];
+	ds_map_add(m, "id", _id);	
 	ds_map_add(m, "name", _name);	
 	ds_map_add(m, "sprite", _sprite);
 	ds_map_add(m, "hp", _hp);
@@ -53,47 +54,65 @@ enum Enemies
 	GiantDeadBatter,
 	DisgruntledEmployee,
 	HungryTakodachi,
-	FubuZilla
+	FubuZilla,
+	BaeRat,
+	KronieA,
+	KronieB,
+	KingKronie,
+	QDeadBeat,
+	QShrimp,
+	GiantQDeadbeat,
+	MegaQShrimp,
+	SaplingA,
+	SaplingB,
+	SaplingC,
+	HoomanA,
+	HoomanB,
+	OvergrownSapling,
+	Sanallite,
+	SwarmingKingKronie,
+	SwarmingOvergrownSapling,
+	ThiccBubba,
+	SmolAme
 }
 #region Create Enemies
-	#region Shrimps
-		createEnemy(Enemies.Shrimp,"Shrimp",sShrimp,8,.35,2,6,1);
-		createEnemy(Enemies.MegaShrimp,"MegaShrimp",sShrimp,600,.5,6,150,1, true);
-		createEnemy(Enemies.DarkShrimp,"DarkShrimp",sShrimp,125,.6,5,12,1);		
-		createEnemy(Enemies.MegaDarkShrimp,"MegaDarkShrimp",sShrimp,2500,.9,10,1000,1, true);
-	#endregion
-	
-	#region DeadBeats
+	#region Stage 1
+		createEnemy(Enemies.Shrimp, "Shrimp", sShrimp, 8, .35, 2, 6, 1);
+		createEnemy(Enemies.MegaShrimp, "MegaShrimp", sShrimp, 600,.5,6,150,1, true);
+		createEnemy(Enemies.DarkShrimp,"DarkShrimp",sDarkShrimp,125,.6,5,12,1);		
+		createEnemy(Enemies.MegaDarkShrimp,"MegaDarkShrimp",sDarkShrimp,2500,.9,10,1000,1, true);
 		createEnemy(Enemies.DeadBeat,"DeadBeat",sDeadBeat,40,.4,4,7,1);
 		createEnemy(Enemies.DeadBatter,"DeadBeatLV2",sDeadBatter,150,.6,7,9,1);
 		createEnemy(Enemies.GiantDeadBatter,"GiantDeadBeatLV2",sDeadBatter,3500,1,11,1500,1, true);
-		createEnemy(Enemies.DeadBeatLV3,"DeadBeatLV3",sDeadBeat,380,.65,4,8,1); //knockback immunity
-		createEnemy(Enemies.DeadBeatLV4,"DeadBeatLV4",sDeadBeat,80,1,4,8,1);
-		createEnemy(Enemies.DeadBeatLV5,"DeadBeatLV5",sDeadBeat,1500,.1,4,4,1);
-	#endregion
-	
-	#region Takodachis
 		createEnemy(Enemies.Takodachi,"TakoDachi",sTakodachi,50,.4,4,1,1);
 		createEnemy(Enemies.HungryTakodachi,"Hungry TakoDachi",sHungryTakodachi,220,.65,8,9,1);
 		createEnemy(Enemies.TakoGrande,"Tako Grande",sTakodachi,1800,.75,10, 600,1, true);
-	#endregion
-	
-	#region KPF
 		createEnemy(Enemies.KFPEmployee, "KFPEmployee", sKFPEmployee, 20, 1, 2, 3, 1);
 		createEnemy(Enemies.DisgruntledEmployee, "Disgruntled Employee", sDisgruntledEmployee, 50, 1.15, 4, 7, 1);
-	#endregion
-	
-	#region Hope
 		createEnemy(Enemies.Gloom, "Gloom", sGloom, 30, .7, 6, 12, 1);
 		createEnemy(Enemies.Bloom, "Bloom", sBloom, 30, .7, 6, 12, 1);
-	#endregion
-	
-	#region Ame
-		createEnemy(Enemies.InvestiGator, "Inveti-Gator", sInvestigator, 180, 0.85, 7, 9, 1)
-	#endregion
-	
-	#region fubuzilla
-		createEnemy(Enemies.FubuZilla, "FubuZilla", sFubuzilla, 8000, 0.8, 15, 2000,1,true);
+		createEnemy(Enemies.InvestiGator, "Inveti-Gator", sInvestigator, 180, 0.85, 7, 9, 1);
+		createEnemy(Enemies.FubuZilla, "FubuZilla", sFubuzilla, 8000, 0.8, 15, 2000,1,true);		
+		createEnemy(Enemies.BaeRat, "BaeRat", sBaeRat, 100, 1.1, 5, 8, 1);
+		createEnemy(Enemies.KronieA, "KronieA", sKronieA, 450, 0.8, 11, 10, 1)
+		createEnemy(Enemies.KronieB, "KronieB", sKronieA, 450, 0.8, 11, 10, 1);
+		createEnemy(Enemies.KingKronie, "King Kronie", sKingKronie, 5500, 1, 18, 2000, 1, true);
+		createEnemy(Enemies.QDeadBeat, "Q DeadBeat", sQDeadBeat, 650, 0.7, 14, 12, 1);
+		createEnemy(Enemies.QShrimp, "Q Shrimp", sQShrimp, 650, 0.9, 12, 12, 1);
+		createEnemy(Enemies.GiantQDeadbeat, "Giant Q Deadbeat", sQDeadBeat, 7500, 1.1, 20, 1200);
+		createEnemy(Enemies.MegaQShrimp, "Mega Q Shrimp", sQShrimp, 7500, 1.1, 20, 1200);
+		createEnemy(Enemies.SaplingA, "Sapling A", sSaplingA, 900, 0.7, 14, 11);
+		createEnemy(Enemies.SaplingB, "Sapling B", sSaplingB, 900, 0.7, 14, 11);
+		createEnemy(Enemies.SaplingC, "Sapling C", sSaplingC, 900, 0.7, 14, 11);
+		createEnemy(Enemies.HoomanA, "Hooman A", sHoomanA, 750, 1, 12, 11);
+		createEnemy(Enemies.HoomanB, "Hooman B", sHoomanB, 750, 1, 12, 11);
+		createEnemy(Enemies.OvergrownSapling, "Overgrown Sapling", sSaplingKing, 11000, 1.1, 20, 2000);
+		createEnemy(Enemies.Sanallite, "Sanallite", sSanallite, 2000, 0.6, 18, 14);
+		createEnemy(Enemies.SwarmingKingKronie, "SwarmingKingKronie", sKingKronie, 3000, 0.4, 17, 15);
+		createEnemy(Enemies.SwarmingOvergrownSapling, "SwarmingOvergrownSapling", sSaplingKing, 3000, 0.4, 17, 15);
+		createEnemy(Enemies.ThiccBubba, "Thicc Bubba", sThiccBubba, 1000, 0.85, 12, 20);
+		createEnemy(Enemies.SmolAme, "Smol Ame", sSmolAme, 25000, 1.2, 20, 5000);
+		
 	#endregion
 #endregion
 
@@ -135,6 +154,7 @@ function damageCalculation(baseDmg)
 	}	
 	return damage;
 }
+
 
 
 

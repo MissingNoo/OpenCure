@@ -138,17 +138,35 @@ if (instance_exists(oPlayer)) //while inside a stage
 					{
 					    case "red":
 					        draw_sprite_ext(ui_level_header_pink,0,GW/10+offset,GH/7+yoffset,2,2,0,c_white,1); //draw type sprite
-							draw_sprite_ext(uiDigitPink,playerItems[i][? "level"],GW/10+5+offset,GH/7+yoffset,2,2,0,c_white,1); //draw level
+							draw_sprite_ext(uiDigitPink,playerItems[i][? "level"],GW/10+5+offset,GH/7+yoffset+20,2,2,0,c_white,1); //draw level
 					        break;
 					    case "yellow":
 					        draw_sprite_ext(ui_level_header_yellow,0,GW/10+offset,GH/7+yoffset,2,2,0,c_white,1); //draw type sprite
-							draw_sprite_ext(uiDigitYellow,playerItems[i][? "level"],GW/10+5+offset,GH/7+yoffset,2,2,0,c_white,1); //draw level
+							draw_sprite_ext(uiDigitYellow,playerItems[i][? "level"],GW/10+5+offset,GH/7+yoffset+20,2,2,0,c_white,1); //draw level
 					        break;
 						case "white":
 					        draw_sprite_ext(ui_level_header_white,0,GW/10+offset,GH/7+yoffset,2,2,0,c_white,1); //draw type sprite
-							draw_sprite_ext(uiDigitWhite,playerItems[i][? "level"],GW/10+5+offset,GH/7+yoffset,2,2,0,c_white,1); //draw level
+							draw_sprite_ext(uiDigitWhite,playerItems[i][? "level"],GW/10+5+offset,GH/7+yoffset+20,2,2,0,c_white,1); //draw level
 					        break;
 					}
+				}		
+		        offset+=50;
+		    }
+		#endregion
+		
+		#region Perks
+			var offset=0;			
+			var yoffset = 80;
+		    for (i = 0; i < array_length(playerPerks); i++) //for the size of the upgrade arrays
+			{
+				draw_sprite_ext(ui_empty_slot_item,0,GW/10+offset,GH/7+yoffset,1.5,1.5,0,c_white,.5); //draw empty slots background
+				if (playerPerks[i]!=global.nullperk) //if there is a upgrade in the slot
+				{
+					draw_sprite_ext(playerPerks[i][? "thumb"],0,GW/10+offset,GH/7+yoffset,2,2,0,c_white,1); //draw weapon sprite
+					if (global.debug) {draw_text(GW/10+offset, GH/7-15+yoffset,string(global.itemCooldown[playerPerks[i][?"id"]]));}
+					draw_sprite_ext(ui_level_header_pink,0,GW/10+offset,GH/7+yoffset,2,2,0,c_white,1); //draw type sprite
+					draw_sprite_ext(uiDigitPink,playerPerks[i][? "level"],GW/10+5+offset,GH/7+yoffset,2,2,0,c_white,1); //draw level
+					        
 				}		
 		        offset+=50;
 		    }
@@ -280,6 +298,7 @@ if (os_type == os_android) {
 	draw_text(pButtonX + 70, pButtonY + 22.5, "P");
 	draw_set_color(c_white);
 }
+
 
 
 

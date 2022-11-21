@@ -77,8 +77,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Monsters",
-    "path": "folders/Sprites/Monsters.yy",
+    "name": "Stage 1",
+    "path": "folders/Sprites/Monsters/Stage 1.yy",
   },
   "resourceVersion": "1.0",
   "name": "sHungryTakodachi",

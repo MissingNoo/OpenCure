@@ -9,6 +9,8 @@ if (seconds == 30 and Minutes == 0 and event) {
 }
 
 if (seconds == 0 and Minutes == 2 and event) {
+	event = false;
+	alarm[0] = 60;
 	addEnemyToPool(Enemies.MegaShrimp);
 }
 
@@ -97,4 +99,92 @@ if (seconds == 0 and Minutes == 11 and event) {
 	removeEnemyFromPool(Enemies.HungryTakodachi);
 	removeEnemyFromPool(Enemies.InvestiGator);
 	removeEnemyFromPool(Enemies.DisgruntledEmployee)
+	addEnemyToPool(Enemies.BaeRat);
+}
+
+if (seconds == 0 and Minutes == 12 and event) {
+	event = false;
+	alarm[0] = 60;	
+	addEnemyToPool(Enemies.KronieA);
+	addEnemyToPool(Enemies.KronieB);
+}
+
+if (seconds == 0 and Minutes == 13 and event) {
+	event = false;
+	alarm[0] = 60;	
+	addEnemyToPool(Enemies.KingKronie);
+}
+
+if (seconds == 0 and Minutes == 14 and event) {
+	event = false;
+	alarm[0] = 60;	
+	removeEnemyFromPool(Enemies.BaeRat);
+	removeEnemyFromPool(Enemies.KronieA);
+	removeEnemyFromPool(Enemies.KronieB);
+	addEnemyToPool(Enemies.QDeadBeat);
+	addEnemyToPool(Enemies.QShrimp);
+}
+
+if (seconds == 0 and Minutes == 15 and event) {
+	event = false;
+	alarm[0] = 60;	
+	addEnemyToPool(Enemies.GiantQDeadbeat);
+	addEnemyToPool(Enemies.MegaQShrimp);
+}
+
+if (seconds == 45 and Minutes == 15 and event) {
+	event = false;
+	alarm[0] = 60;	
+	addEnemyToPool(Enemies.SaplingA);
+	addEnemyToPool(Enemies.SaplingB);
+	addEnemyToPool(Enemies.SaplingC);
+	addEnemyToPool(Enemies.HoomanA);
+	addEnemyToPool(Enemies.HoomanB);
+}
+
+if (seconds == 0 and Minutes == 16 and event) {
+	event = false;
+	alarm[0] = 60;	
+	removeEnemyFromPool(Enemies.QDeadBeat);
+	removeEnemyFromPool(Enemies.QShrimp);
+}
+
+if (seconds == 30 and Minutes == 17 and event) {
+	event = false;
+	alarm[0] = 60;	
+	addEnemyToPool(Enemies.OvergrownSapling);
+}
+
+if (seconds == 0 and Minutes == 18 and event) {
+	event = false;
+	alarm[0] = 60;	
+	addEnemyToPool(Enemies.Sanallite);
+}
+
+if (seconds == 0 and Minutes == 19 and event) {
+	event = false;
+	alarm[0] = 60;	
+	addEnemyToPool(Enemies.SwarmingKingKronie);
+	addEnemyToPool(Enemies.SwarmingOvergrownSapling);
+	removeEnemyFromPool(Enemies.SaplingA);
+	removeEnemyFromPool(Enemies.SaplingB);
+	removeEnemyFromPool(Enemies.SaplingC);
+	removeEnemyFromPool(Enemies.HoomanA);
+	removeEnemyFromPool(Enemies.HoomanB);
+	removeEnemyFromPool(Enemies.Sanallite);
+}
+
+if (seconds == 0 and Minutes == 20 and event) {
+	event = false;
+	alarm[0] = 60;	
+	addEnemyToPool(Enemies.ThiccBubba);
+	addEnemyToPool(Enemies.SmolAme);
+	removeEnemyFromPool(Enemies.SwarmingKingKronie);
+	removeEnemyFromPool(Enemies.SwarmingOvergrownSapling);
+}
+
+if (seconds == 0 and Minutes == 23 and event) {
+	event = false;
+	alarm[0] = 60;	
+	removeEnemyFromPool(Enemies.ThiccBubba);	
 }
