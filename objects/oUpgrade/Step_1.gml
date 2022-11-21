@@ -50,9 +50,22 @@ if (a==0) {
 		case "Plug-type Asacoco":{
 			originaly=y;
 			if (instance_exists(oEnemy)) {
-				var CE = instance_nearest(x,y-50.75,oEnemy);
+				random_set_seed(current_time * global.upgradeCooldown[0]);
+				var enemies = instance_number(oEnemy);
+				//var CE = instance_nearest(x,y-50.75,oEnemy);
+				var CE = instance_find(oEnemy, irandom_range(0,enemies-1));
 				direction = point_direction(x,y-50.75,CE.x, CE.y)
 				image_angle = point_direction(x,y-50.75,CE.x, CE.y)
+				for (var i = 0; i < shoots; ++i) {
+					inst = (instance_create_layer(oPlayer.x,oPlayer.y-8,"Upgrades",oUpgrade));
+					inst.upg=upg;
+					inst.speed=upg[?"speed"];
+					inst.hits=upg[?"hits"];
+					inst.shoots = 0;
+					inst.sprite_index=upg[?"sprite"];
+				    shoots-=1;
+					alarm[0]=1;
+				}
 			} else instance_destroy();
 			originalspeed = speed;
 			speed = 0;
@@ -87,6 +100,16 @@ if (a==0) {
 				}
 			}
 			alarm[0]=1;
+			break;}
+			
+		case "Elite Lava Bucket":{	
+			random_set_seed(current_time);
+			x = oPlayer.x + irandom_range(-200,200)
+			random_set_seed(current_time);
+			y = oPlayer.y + (irandom_range(-200,200)*-1)
+			alarm[0] = 1;
+			alarm[1] = 9999;
+			depth=oPlayer.depth;
 			break;}
 	}
 		if (sprite_index==blank) {

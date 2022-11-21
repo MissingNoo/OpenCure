@@ -57,8 +57,19 @@ enum weapons
 	AmePistol,
 	//GuraTrident,
 	//InaTentacle,
-	BlBook,
-	PlugAsaCoco
+	BlBook, //TODO: area
+	//CEOTears,
+	//CuttingBoard,
+	EliteLavaBucket, //TODO: lava area
+	//FanBean,
+	//Glowstick,
+	//HoloBomb,
+	//IdolSong,
+	PlugAsaCoco, //TODO: afterimage, knockback lv 6
+	//PsychoAxe,
+	//SpiderCooking,
+	//WamyWater,
+	//X-Potato
 }
 function populateUpgrades(){
 	#region Character Perks
@@ -105,21 +116,57 @@ function populateUpgrades(){
 			#endregion
 		#endregion
 	#endregion
-	createUpgrade(weapons.BlBook, "BL Book", 1, sBLBook, sBLBookThumb, 10, 18, 360, 120, 20, 1, 3, 7, "white", 3, "Repels targets with orbiting BL Books.");
-	createUpgradeP2(weapons.BlBook, 1, 7, 3, 5);
-	createUpgrade(weapons.BlBook, "BL Book", 2, sBLBook, sBLBookThumb, 10, 18, 360, 120, 20, 1, 3, 7, "white", 4, "Repels targets with orbiting BL Books.");
-	createUpgradeP2(weapons.BlBook, 2, 7, 3, 5);
-	createUpgrade(weapons.BlBook, "BL Book", 3, sBLBook, sBLBookThumb, 10*1.30, 18*1.30, 360, 180, 20, 1, 3, 7, "white", 4, "Repels targets with orbiting BL Books.");
-	createUpgradeP2(weapons.BlBook, 3, 7, 3, 5);
-	createUpgrade(weapons.BlBook, "BL Book", 4, sBLBook, sBLBookThumb, 10*1.30, 18*1.30, 360, 180, 20, 1, 3, 7, "white", 5, "Repels targets with orbiting BL Books.");
-	createUpgradeP2(weapons.BlBook, 4, 7, 3, 5);
-	createUpgrade(weapons.BlBook, "BL Book", 5, sBLBook, sBLBookThumb, 10*1.30*1.40, 18*1.30*1.40, 360, 180, 20, 1, 3, 7, "white", 5, "Repels targets with orbiting BL Books.");
-	createUpgradeP2(weapons.BlBook, 5, 7, 3, 5);
-	createUpgrade(weapons.BlBook, "BL Book", 6, sBLBook, sBLBookThumb, 10*1.30*1.40, 18*1.30*1.40, 360, 180, 20, 1, 3, 7, "white", 6, "Repels targets with orbiting BL Books.");
-	createUpgradeP2(weapons.BlBook, 6, 7, 3, 5);
-	createUpgrade(weapons.BlBook, "BL Book", 7, sBLBook, sBLBookThumb, 10*1.30*1.40*1.40, 18*1.30*1.40*1.40, 360, 180, 20, 1, 3, 7, "white", 6, "Repels targets with orbiting BL Books.");
-	createUpgradeP2(weapons.BlBook, 7, 7, 3, 5);
-	//createUpgrade(weapons.PlugAsaCoco,"Plug-type Asacoco",1,sAsaCocoShoot,sAsaCocoThumb,10,18,150,true,20,99,"white",1,0);
+	
+	#region BLBook
+		createUpgrade(weapons.BlBook, "BL Book", 1, sBLBook, sBLBookThumb, 10, 18, 360, 120, 20, 1, 3, 7, "white", 3, "Repels targets with orbiting BL Books.");
+		createUpgradeP2(weapons.BlBook, 1, 7, 3, 5);
+		createUpgrade(weapons.BlBook, "BL Book", 2, sBLBook, sBLBookThumb, 10, 18, 360, 120, 20, 1, 3, 7, "white", 4, "Repels targets with orbiting BL Books.");
+		createUpgradeP2(weapons.BlBook, 2, 7, 3, 5);
+		createUpgrade(weapons.BlBook, "BL Book", 3, sBLBook, sBLBookThumb, 10*1.30, 18*1.30, 360, 180, 20, 1, 3, 7, "white", 4, "Repels targets with orbiting BL Books.");
+		createUpgradeP2(weapons.BlBook, 3, 7, 3, 5);
+		createUpgrade(weapons.BlBook, "BL Book", 4, sBLBook, sBLBookThumb, 10*1.30, 18*1.30, 360, 180, 20, 1, 3, 7, "white", 5, "Repels targets with orbiting BL Books.");
+		createUpgradeP2(weapons.BlBook, 4, 7, 3, 5);
+		createUpgrade(weapons.BlBook, "BL Book", 5, sBLBook, sBLBookThumb, 10*1.30*1.40, 18*1.30*1.40, 360, 180, 20, 1, 3, 7, "white", 5, "Repels targets with orbiting BL Books.");
+		createUpgradeP2(weapons.BlBook, 5, 7, 3, 5);
+		createUpgrade(weapons.BlBook, "BL Book", 6, sBLBook, sBLBookThumb, 10*1.30*1.40, 18*1.30*1.40, 360, 180, 20, 1, 3, 7, "white", 6, "Repels targets with orbiting BL Books.");
+		createUpgradeP2(weapons.BlBook, 6, 7, 3, 5);
+		createUpgrade(weapons.BlBook, "BL Book", 7, sBLBook, sBLBookThumb, 10*1.30*1.40*1.40, 18*1.30*1.40*1.40, 360, 180, 20, 1, 3, 7, "white", 6, "Repels targets with orbiting BL Books.");
+		createUpgradeP2(weapons.BlBook, 7, 7, 3, 5);
+	#endregion
+	
+	#region EliteLavaBucket
+		createUpgrade(weapons.EliteLavaBucket, "Elite Lava Bucket", 1, sLavaPoolStart, sEliteLavaBucketThumb, 6, 10, 300, 180, 45, true, 0, 999, "white", 1, "Drop lava on the ground, burning targets slowly.");
+		createUpgradeP2(weapons.EliteLavaBucket, 1, 7, 0 ,0);
+		createUpgrade(weapons.EliteLavaBucket, "Elite Lava Bucket", 2, sLavaPoolStart, sEliteLavaBucketThumb, 6, 10, 300, 180, 45, true, 0, 999, "white", 1, "Increase lava area by 20%. ");
+		createUpgradeP2(weapons.EliteLavaBucket, 2, 7, 0 ,0);
+		createUpgrade(weapons.EliteLavaBucket, "Elite Lava Bucket", 3, sLavaPoolStart, sEliteLavaBucketThumb, 6, 10, 300, 180, 45, true, 0, 999, "white", 2, "Throw 2 lava buckets. ");
+		createUpgradeP2(weapons.EliteLavaBucket, 3, 7, 0 ,0);
+		createUpgrade(weapons.EliteLavaBucket, "Elite Lava Bucket", 4, sLavaPoolStart, sEliteLavaBucketThumb, 6*1.30, 10*1.30, 300, 240, 45, true, 0, 999, "white", 2, "Increase damage by 30% and increase duration of lava by 1 second.");
+		createUpgradeP2(weapons.EliteLavaBucket, 4, 7, 0 ,0);
+		createUpgrade(weapons.EliteLavaBucket, "Elite Lava Bucket", 5, sLavaPoolStart, sEliteLavaBucketThumb, 6*1.30*1.30, 10*1.30*1.30, 300, 240, 45, true, 0, 999, "white", 2, "Increase damage by 30%.");
+		createUpgradeP2(weapons.EliteLavaBucket, 5, 7, 0 ,0);
+		createUpgrade(weapons.EliteLavaBucket, "Elite Lava Bucket", 6, sLavaPoolStart, sEliteLavaBucketThumb, 6*1.30*1.30, 10*1.30*1.30, 300, 240, 45, true, 0, 999, "white", 3, "Throw 3 lava buckets.");
+		createUpgradeP2(weapons.EliteLavaBucket, 6, 7, 0 ,0);
+		createUpgrade(weapons.EliteLavaBucket, "Elite Lava Bucket", 7, sLavaPoolStart, sEliteLavaBucketThumb, 6*1.30*1.30, 10*1.30*1.30, 300, 240, 45, true, 0, 999, "white", 4, "Throw 4 lava buckets and increase lava size by 20% .");
+		createUpgradeP2(weapons.EliteLavaBucket, 7, 7, 0 ,0);
+	#endregion
+		#region Asacoco
+			createUpgrade(weapons.PlugAsaCoco,"Plug-type Asacoco",1,sAsaCocoShoot,sAsaCocoThumb, 10, 18, 150, 45, 10, true, 20, 999, "white", 1, "Fires a fast piercing tail at a random target.");
+			createUpgradeP2(weapons.PlugAsaCoco, 1, 7, 7, 15);
+			createUpgrade(weapons.PlugAsaCoco,"Plug-type Asacoco",2,sAsaCocoShoot,sAsaCocoThumb, 10*1.20, 18*1.20, 150, 45, 10, true, 20, 999, "white", 1, "Increase damage by 20%. ");
+			createUpgradeP2(weapons.PlugAsaCoco, 2, 7, 7, 15);
+			createUpgrade(weapons.PlugAsaCoco,"Plug-type Asacoco",3,sAsaCocoShoot,sAsaCocoThumb, 10*1.20, 18*1.20, 150, 45, 10, true, 20, 999, "white", 2, "Fire an additional Asacoco. ");
+			createUpgradeP2(weapons.PlugAsaCoco, 3, 7, 7, 15);
+			createUpgrade(weapons.PlugAsaCoco,"Plug-type Asacoco",4,sAsaCocoShoot,sAsaCocoThumb, 10*1.20*1.30, 18*1.20*1.30, 150, 45, 10, true, 20, 999, "white", 2, "Increase damage by 30%. ");
+			createUpgradeP2(weapons.PlugAsaCoco, 4, 7, 7, 15);
+			createUpgrade(weapons.PlugAsaCoco,"Plug-type Asacoco",5,sAsaCocoShoot,sAsaCocoThumb, 10*1.20*1.30, 18*1.20*1.30, 150, 45, 10, true, 20, 999, "white", 3, "Fire an additional Asacoco. ");
+			createUpgradeP2(weapons.PlugAsaCoco, 5, 7, 7, 15);
+			createUpgrade(weapons.PlugAsaCoco,"Plug-type Asacoco",6,sAsaCocoShoot,sAsaCocoThumb, 10*1.20*1.30, 18*1.20*1.30, 150, 45, 10, true, 20, 999, "white", 3, "Adds knockback on hit. ");
+			createUpgradeP2(weapons.PlugAsaCoco, 6, 7, 7, 15); 
+			createUpgrade(weapons.PlugAsaCoco,"Plug-type Asacoco",7,sAsaCocoShoot,sAsaCocoThumb, 10*1.20*1.30, 18*1.20*1.30, 150, 45, 10, true, 20, 999, "white", 4, "Fire an additional Asacoco. ");
+			createUpgradeP2(weapons.PlugAsaCoco, 7, 7, 7, 15); 
+		#endregion
+		
 }
 
 #endregion
@@ -222,6 +269,8 @@ function randomUpgrades(){
 	//global.upgrade_options[0] = global.Player[?"weapon"][1];
 	//global.upgrade_options[1] = ItemList[ItemIds.Uber_Sheep][1];
 	global.upgrade_options[0] = global.upgradesAvaliable[weapons.BlBook][1];
+	global.upgrade_options[1] = global.upgradesAvaliable[weapons.PlugAsaCoco][1];
+	global.upgrade_options[2] = global.upgradesAvaliable[weapons.EliteLavaBucket][1];
 }	
 
 function tickPowers(){

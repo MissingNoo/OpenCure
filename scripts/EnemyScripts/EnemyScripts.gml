@@ -149,6 +149,13 @@ function damageCalculation(baseDmg)
 		    damage = damage * Bonuses[bonusType.Defense][i];
 		}
 	}
+	//// perk bonuses
+	//for (var i = 0; i < array_length(PerkBonuses[bonusType.Defense]); ++i) {
+	//	if (PerkBonuses[bonusType.Defense][i] != 0) {
+	//	    damage = damage * PerkBonuses[bonusType.Defense][i];
+	//	}
+	//}
+	//
 	for (var i = 0; i < array_length(Bonuses[bonusType.TakeDamage]); ++i) {
 		if (Bonuses[bonusType.TakeDamage][i] != 0) {
 		    damage = damage * Bonuses[bonusType.TakeDamage][i];

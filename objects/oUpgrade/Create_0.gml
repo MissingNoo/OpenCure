@@ -12,3 +12,7 @@ originaly=0;
 //bl
 orbitoffset = -90;
 orbit_place = 0;
+
+//lava
+loops = 0;
+changeSprite=false;

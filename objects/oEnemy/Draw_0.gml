@@ -1,7 +1,5 @@
 /// @description Insert description here
-// You can write your code in this editor
-
-draw_text(x,y-16,string(hittedcooldown[0]));
+// You can write your code in this editor                         
 if (damaged) {
 	gpu_set_fog(true,c_white,0,0);
     draw_self();

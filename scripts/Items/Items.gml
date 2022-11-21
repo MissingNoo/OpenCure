@@ -38,7 +38,7 @@ global.itemCooldown[0] = 0;
 		Energy_Drink,
 		Face_Mask,
 		Full_Meal, //TODO: double heal		
-		Gorilla_Paw,
+		Gorilla_Paw, //TODO: minus crit damage
 		//GWS_Pill,
 		//Halu,
 		//Headphones,
@@ -72,6 +72,7 @@ global.itemCooldown[0] = 0;
 		weaponSize
 	}
 #endregion
+
 function populateItems(){
 	#region Item Creation
 		#region Items
@@ -299,5 +300,3 @@ function tickItems()
 function defaultItemBehaviour(_id, _cooldown){
 	global.itemCooldown[_id] = _cooldown;
 }
-
-

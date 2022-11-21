@@ -19,7 +19,6 @@ if (!global.gamePaused) {
 		case "BL Book":
 			x = oPlayer.x + lengthdir_x(orbit_length, orbit_place);
 			y = oPlayer.y - 16 + lengthdir_y(orbit_length, orbit_place);
-			
 			orbit_place-=3;
 			break;
 	}

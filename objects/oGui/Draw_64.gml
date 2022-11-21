@@ -162,11 +162,11 @@ if (instance_exists(oPlayer)) //while inside a stage
 				draw_sprite_ext(ui_empty_slot_item,0,GW/10+offset,GH/7+yoffset,1.5,1.5,0,c_white,.5); //draw empty slots background
 				if (playerPerks[i]!=global.nullperk) //if there is a upgrade in the slot
 				{
-					draw_sprite_ext(playerPerks[i][? "thumb"],0,GW/10+offset,GH/7+yoffset,2,2,0,c_white,1); //draw weapon sprite
-					if (global.debug) {draw_text(GW/10+offset, GH/7-15+yoffset,string(global.itemCooldown[playerPerks[i][?"id"]]));}
+					var activated = playerPerks[i][?"level"] > 0  ? 1 : .5;
+					draw_sprite_ext(playerPerks[i][? "thumb"],0,GW/10+offset,GH/7+yoffset,2,2,0,c_white, activated); //draw weapon sprite
+					if (global.debug) {draw_text(GW/10+offset, GH/7-15+yoffset,string(global.perkCooldown[playerPerks[i][?"id"]]));}
 					draw_sprite_ext(ui_level_header_pink,0,GW/10+offset,GH/7+yoffset,2,2,0,c_white,1); //draw type sprite
-					draw_sprite_ext(uiDigitPink,playerPerks[i][? "level"],GW/10+5+offset,GH/7+yoffset,2,2,0,c_white,1); //draw level
-					        
+					draw_sprite_ext(uiDigitPink,playerPerks[i][? "level"],GW/10+5+offset,GH/7+yoffset,2,2,0,c_white,1); //draw level					        
 				}		
 		        offset+=50;
 		    }
