@@ -2,6 +2,7 @@
 #macro EnemyList global.enemies
 #macro EnemyPool global.enemyPool
 function initiateEnemy(e){
+	hittedcooldown = array_create()
 	thisEnemy = e[?"id"];
 	damaged=false;
 	gamePausedImageSpeed=image_speed;
@@ -154,6 +155,7 @@ function damageCalculation(baseDmg)
 	}	
 	return damage;
 }
+
 
 
 

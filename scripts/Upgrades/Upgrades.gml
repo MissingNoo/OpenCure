@@ -54,9 +54,9 @@ function createUpgradeP2(_id, _level, _maxlevel, _knockbackSpeed, _knockbackDura
 enum weapons
 {
 	AmePistol,
-	GuraTrident,
-	InaTentacle,
-	BlBook,
+	//GuraTrident,
+	//InaTentacle,
+	//BlBook,
 	PlugAsaCoco
 }
 function populateUpgrades(){
@@ -240,6 +240,7 @@ function defaultBehaviour(){
 	image_xscale=oPlayer.image_xscale;
 	image_speed=1;
 }
+
 
 
 
