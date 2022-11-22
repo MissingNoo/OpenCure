@@ -135,7 +135,7 @@ function populateUpgrades(){
 	#endregion
 	
 	#region CEO Tears
-		
+		//createUpgrade(weapons.CEOTears, "CEO's Tears", 1, s)
 		//Damage: 	100% (7 – 13)
 		//Attack time: 	30 (0.5 s)
 		//Attack count: 	1
@@ -322,6 +322,7 @@ function defaultBehaviour(){
 	image_xscale=oPlayer.image_xscale;
 	image_speed=1;
 }
+
 
 
 
