@@ -58,7 +58,7 @@ enum weapons
 	//GuraTrident,
 	//InaTentacle,
 	BlBook, //TODO: area
-	//CEOTears,
+	CEOTears,
 	//CuttingBoard,
 	EliteLavaBucket, //TODO: lava area
 	//FanBean,
@@ -132,6 +132,25 @@ function populateUpgrades(){
 		createUpgradeP2(weapons.BlBook, 6, 7, 3, 5);
 		createUpgrade(weapons.BlBook, "BL Book", 7, sBLBook, sBLBookThumb, 10*1.30*1.40*1.40, 18*1.30*1.40*1.40, 360, 180, 20, 1, 3, 7, "white", 6, "Repels targets with orbiting BL Books.");
 		createUpgradeP2(weapons.BlBook, 7, 7, 3, 5);
+	#endregion
+	
+	#region CEO Tears
+		
+		//Damage: 	100% (7 – 13)
+		//Attack time: 	30 (0.5 s)
+		//Attack count: 	1
+		//Hit limit: 	1
+		//Hit cooldown: 	30 (0.5 s)
+		//Area: 	100%
+		//Duration: 	90 (1.5 s)
+		//Projectile speed: 	4 
+		//Level 1 	Fires rapid tears at random targets.
+		//Level 2 	Increases damage by 20%.
+		//Level 3 	Shoot 2 tears.
+		//Level 4 	Reduce the time between attacks by 33%.
+		//Level 5 	Tears are 25% faster and increase damage by 20%.
+		//Level 6 	Reduce the time between attacks by 50%.
+		//Level MAX 	Shoot 4 tears. 
 	#endregion
 	
 	#region EliteLavaBucket
@@ -303,6 +322,7 @@ function defaultBehaviour(){
 	image_xscale=oPlayer.image_xscale;
 	image_speed=1;
 }
+
 
 
 

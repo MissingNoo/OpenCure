@@ -14,7 +14,7 @@ function initiateEnemy(e){
 	def=e[?"def"];
 	atk=e[?"atk"];
 	sprwalking=e[?"sprite"];
-	sprattack=e[?"atksprite"];	
+	sprattack=e[?"atksprite"];
 	sprite_index=sprwalking;
 	xp = e[?"exp"];
 	boss = e[?"boss"];
@@ -166,6 +166,7 @@ function damageCalculation(baseDmg)
 	}	
 	return damage;
 }
+
 
 
 
