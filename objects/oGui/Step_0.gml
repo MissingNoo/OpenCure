@@ -17,7 +17,7 @@ if (global.upgrade == 1) // after level up
     if (keyboard_check(ord("Z"))) {
 		for (i = 0; i < 6; i++) 
 		{	
-			if (global.upgrade_options[selected][?"style"] == "weapon") {
+			if (global.upgrade_options[selected][?"style"] == ItemTypes.Weapon) {
 				#region Upgrade existing weapon
 					if (UPGRADES[i][?"name"] == global.upgrade_options[selected][?"name"] ) 
 					{
@@ -40,7 +40,7 @@ if (global.upgrade == 1) // after level up
 					}
 				#endregion			
 			}
-			else if (global.upgrade_options[selected][?"style"] == "item") {
+			else if (global.upgrade_options[selected][?"style"] == ItemTypes.Item) {
 			    #region Upgrade existing item
 					if (playerItems[i][?"name"] == global.upgrade_options[selected][?"name"] ) 
 					{
@@ -63,7 +63,7 @@ if (global.upgrade == 1) // after level up
 					}
 				#endregion			
 			}
-			else if (global.upgrade_options[selected][?"style"] == "perk") {
+			else if (global.upgrade_options[selected][?"style"] == ItemTypes.Perk) {
 				#region Upgrade existing item
 						if (playerPerks[i][?"name"] == global.upgrade_options[selected][?"name"] ) 
 						{
@@ -146,6 +146,7 @@ if (os_type == os_android) {
 		
 	}
 #endregion
+
 
 
 

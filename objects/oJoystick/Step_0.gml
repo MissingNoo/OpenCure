@@ -18,6 +18,7 @@
 	    J1Set = false;
 	}
 
+	//if (TouchY1 > JoystickLimitUp and TouchY1 < JoystickLimitDown and TouchX1 > JoystickLimitLeft and TouchX1 < JoystickLimitRight and device_mouse_check_button(0,mb_left)) {
 	if (TouchY1 > JoystickLimitUp and TouchY1 < JoystickLimitDown and TouchX1 > JoystickLimitLeft and TouchX1 < JoystickLimitRight and device_mouse_check_button(0,mb_left)) {
 		canrelease=true;
 		//up
@@ -78,6 +79,7 @@
 #endregion
 //and TouchX1 > GW/10.5 and TouchX1 < GW/4.25
 //and TouchX2 > GW/10.5 and TouchX2 < GW/4.25
+
 
 
 

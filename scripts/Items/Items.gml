@@ -26,7 +26,7 @@ global.itemCooldown[0] = 0;
 		ds_map_add(item, "unlocked", _unlocked);
 		ds_map_add(item, "type", _type);
 		ds_map_add(item, "perk", _perk);
-		ds_map_add(item, "style", "item");
+		ds_map_add(item, "style", ItemTypes.Item);
 		global.itemCooldown[_id] = _cooldown;
 	}
 
@@ -300,4 +300,5 @@ function tickItems()
 function defaultItemBehaviour(_id, _cooldown){
 	global.itemCooldown[_id] = _cooldown;
 }
+
 

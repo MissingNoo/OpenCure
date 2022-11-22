@@ -72,6 +72,7 @@
     {"id":{"name":"spr_plant_05","path":"sprites/spr_plant_05/spr_plant_05.yy",},"order":13,},
     {"id":{"name":"spr_rossette_red","path":"sprites/spr_rossette_red/spr_rossette_red.yy",},"order":7,},
     {"id":{"name":"spr_chest_golden_open","path":"sprites/spr_chest_golden_open/spr_chest_golden_open.yy",},"order":1,},
+    {"id":{"name":"sItemType","path":"sprites/sItemType/sItemType.yy",},"order":0,},
     {"id":{"name":"sGuraTrident","path":"sprites/sGuraTrident/sGuraTrident.yy",},"order":1,},
     {"id":{"name":"spr_crates_big_02","path":"sprites/spr_crates_big_02/spr_crates_big_02.yy",},"order":4,},
     {"id":{"name":"ui_empty_slot_weapon","path":"sprites/ui_empty_slot_weapon/ui_empty_slot_weapon.yy",},"order":5,},
@@ -188,6 +189,7 @@
     {"id":{"name":"spr_book_purple","path":"sprites/spr_book_purple/spr_book_purple.yy",},"order":5,},
     {"id":{"name":"spr_chest_wooden_open_fx","path":"sprites/spr_chest_wooden_open_fx/spr_chest_wooden_open_fx.yy",},"order":8,},
     {"id":{"name":"oEvents","path":"objects/oEvents/oEvents.yy",},"order":3,},
+    {"id":{"name":"sHolobomb","path":"sprites/sHolobomb/sHolobomb.yy",},"order":15,},
     {"id":{"name":"Macros","path":"scripts/Macros/Macros.yy",},"order":4,},
     {"id":{"name":"spr_minerals_coal_bar_hot","path":"sprites/spr_minerals_coal_bar_hot/spr_minerals_coal_bar_hot.yy",},"order":2,},
     {"id":{"name":"sDouglasPortrait","path":"sprites/sDouglasPortrait/sDouglasPortrait.yy",},"order":0,},
@@ -360,6 +362,7 @@
     {"folderPath":"folders/Sprites/Monsters/Stage 1/SmolAme.yy","order":27,"resourceVersion":"1.0","name":"SmolAme","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Sprites/Items/Perks.yy","order":11,"resourceVersion":"1.0","name":"Perks","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Sounds/WeaponSounds.yy","order":1,"resourceVersion":"1.0","name":"WeaponSounds","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Sprites/Hud/ItemTypes.yy","order":13,"resourceVersion":"1.0","name":"ItemTypes","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":-1,"resourceVersion":"1.3","name":"audiogroup_default","resourceType":"GMAudioGroup",},

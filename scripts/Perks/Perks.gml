@@ -25,7 +25,7 @@ global.perkBonuses[0] = 0;
 		ds_map_add(item, "desc", _desc);
 		ds_map_add(item, "characterid", _character);
 		ds_map_add(item, "perk", 1);
-		ds_map_add(item, "style", "perk");		
+		ds_map_add(item, "style", ItemTypes.Perk);		
 		global.perkCooldown[_id] = _cooldown;
 	}
 
@@ -107,6 +107,7 @@ function tickPerks()
 function defaultPerkBehaviour(_id, _cooldown){
 	global.perkCooldown[_id] = _cooldown;
 }
+
 
 
 

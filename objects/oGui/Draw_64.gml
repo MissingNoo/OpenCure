@@ -235,6 +235,7 @@ if (instance_exists(oPlayer)) //while inside a stage
 		 #endregion
     }
 	#endregion
+	
 	#region Timer
 	time = string(global.minutes) + ":" + string(string_format(global.seconds,2,0));
 	
@@ -298,6 +299,7 @@ if (os_type == os_android) {
 	draw_text(pButtonX + 70, pButtonY + 22.5, "P");
 	draw_set_color(c_white);
 }
+
 
 
 

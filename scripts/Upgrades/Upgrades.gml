@@ -17,8 +17,15 @@ global.upgradeCooldown[0] = 0;
 	    global.upgrade_options[i]=global.null;
 }
 #endregion
+enum ItemTypes {
+	Weapon,
+	Item,
+	Perk,
+	Collab
+}
+
 #region Upgrades
-function createUpgrade(_id, _name, _level, _sprite, _thumb, _mindmg, _maxdmg, _cooldown, _duration, _hitCooldown, _canBeHasted, _speed, _hits, _type, _shoots, _desc = "")
+function createUpgrade(_id, _name, _level, _sprite, _thumb, _mindmg, _maxdmg, _cooldown, _duration, _hitCooldown, _canBeHasted, _speed, _hits, _type = "white", _shoots, _desc = "")
 {
 	global.upgradesAvaliable[_id][0]=global.null;
 	global.upgradesAvaliable[_id][_level]=ds_map_create();
@@ -39,7 +46,7 @@ function createUpgrade(_id, _name, _level, _sprite, _thumb, _mindmg, _maxdmg, _c
 	ds_map_add(m, "type", _type);	
 	ds_map_add(m, "shoots", _shoots);	
 	ds_map_add(m, "desc", _desc);
-	ds_map_add(m, "style", "weapon");	
+	ds_map_add(m, "style", ItemTypes.Weapon);	
 	global.upgradeCooldown[_id] = 0;
 }
 function createUpgradeP2(_id, _level, _maxlevel, _knockbackSpeed, _knockbackDuration, _perk = 0, _character = 0)
@@ -58,12 +65,12 @@ enum weapons
 	//GuraTrident,
 	//InaTentacle,
 	BlBook, //TODO: area
-	CEOTears,
+	//CEOTears,
 	//CuttingBoard,
 	EliteLavaBucket, //TODO: lava area
 	//FanBean,
 	//Glowstick,
-	//HoloBomb,
+	HoloBomb, //TODO: explosion radius
 	//IdolSong,
 	PlugAsaCoco, //TODO: afterimage, knockback lv 6
 	//PsychoAxe,
@@ -135,7 +142,6 @@ function populateUpgrades(){
 	#endregion
 	
 	#region CEO Tears
-		//createUpgrade(weapons.CEOTears, "CEO's Tears", 1, s)
 		//Damage: 	100% (7 – 13)
 		//Attack time: 	30 (0.5 s)
 		//Attack count: 	1
@@ -169,22 +175,49 @@ function populateUpgrades(){
 		createUpgrade(weapons.EliteLavaBucket, "Elite Lava Bucket", 7, sLavaPoolStart, sEliteLavaBucketThumb, 6*1.30*1.30, 10*1.30*1.30, 300, 240, 45, true, 0, 999, "white", 4, "Throw 4 lava buckets and increase lava size by 20% .");
 		createUpgradeP2(weapons.EliteLavaBucket, 7, 7, 0 ,0);
 	#endregion
-		#region Asacoco
-			createUpgrade(weapons.PlugAsaCoco,"Plug-type Asacoco",1,sAsaCocoShoot,sAsaCocoThumb, 10, 18, 150, 45, 10, true, 20, 999, "white", 1, "Fires a fast piercing tail at a random target.");
-			createUpgradeP2(weapons.PlugAsaCoco, 1, 7, 7, 15);
-			createUpgrade(weapons.PlugAsaCoco,"Plug-type Asacoco",2,sAsaCocoShoot,sAsaCocoThumb, 10*1.20, 18*1.20, 150, 45, 10, true, 20, 999, "white", 1, "Increase damage by 20%. ");
-			createUpgradeP2(weapons.PlugAsaCoco, 2, 7, 7, 15);
-			createUpgrade(weapons.PlugAsaCoco,"Plug-type Asacoco",3,sAsaCocoShoot,sAsaCocoThumb, 10*1.20, 18*1.20, 150, 45, 10, true, 20, 999, "white", 2, "Fire an additional Asacoco. ");
-			createUpgradeP2(weapons.PlugAsaCoco, 3, 7, 7, 15);
-			createUpgrade(weapons.PlugAsaCoco,"Plug-type Asacoco",4,sAsaCocoShoot,sAsaCocoThumb, 10*1.20*1.30, 18*1.20*1.30, 150, 45, 10, true, 20, 999, "white", 2, "Increase damage by 30%. ");
-			createUpgradeP2(weapons.PlugAsaCoco, 4, 7, 7, 15);
-			createUpgrade(weapons.PlugAsaCoco,"Plug-type Asacoco",5,sAsaCocoShoot,sAsaCocoThumb, 10*1.20*1.30, 18*1.20*1.30, 150, 45, 10, true, 20, 999, "white", 3, "Fire an additional Asacoco. ");
-			createUpgradeP2(weapons.PlugAsaCoco, 5, 7, 7, 15);
-			createUpgrade(weapons.PlugAsaCoco,"Plug-type Asacoco",6,sAsaCocoShoot,sAsaCocoThumb, 10*1.20*1.30, 18*1.20*1.30, 150, 45, 10, true, 20, 999, "white", 3, "Adds knockback on hit. ");
-			createUpgradeP2(weapons.PlugAsaCoco, 6, 7, 7, 15); 
-			createUpgrade(weapons.PlugAsaCoco,"Plug-type Asacoco",7,sAsaCocoShoot,sAsaCocoThumb, 10*1.20*1.30, 18*1.20*1.30, 150, 45, 10, true, 20, 999, "white", 4, "Fire an additional Asacoco. ");
-			createUpgradeP2(weapons.PlugAsaCoco, 7, 7, 7, 15); 
-		#endregion
+	
+	#region Holobomb
+	createUpgrade(weapons.HoloBomb, "Holo Bomb", 1, sHolobomb, sHolobomb, 12, 22, 120, 630, 20, true, 7, 1,, 1, "A bomb that explodes, dealing damage to all nearby targets.");
+	createUpgrade(weapons.HoloBomb, "Holo Bomb", 2, sHolobomb, sHolobomb, 12, 22, 120, 630, 20, true, 7, 1,, 1, "Increase explosion size by 15%.");
+	createUpgrade(weapons.HoloBomb, "Holo Bomb", 3, sHolobomb, sHolobomb, 12*1.20, 22*1.20, 120, 630, 20, true, 7, 1,, 1, "Increase damage by 20%.");
+	createUpgrade(weapons.HoloBomb, "Holo Bomb", 4, sHolobomb, sHolobomb, 12*1.20, 22*1.20, 120, 630, 20, true, 7, 1,, 2, "Throw 2 bombs.");
+	createUpgrade(weapons.HoloBomb, "Holo Bomb", 5, sHolobomb, sHolobomb, 12*1.20, 22*1.20, 120*0.80, 630, 20, true, 7, 1,, 2, "Reduce the time between attacks by 20%.");
+	createUpgrade(weapons.HoloBomb, "Holo Bomb", 6, sHolobomb, sHolobomb, 12*1.20, 22*1.20, 120*0.80, 630, 20, true, 7, 1,, 2, "Increase explosion size by 20%.");
+	createUpgrade(weapons.HoloBomb, "Holo Bomb", 7, sHolobomb, sHolobomb, 12*1.20, 22*1.20, 120*0.80, 630, 20, true, 7, 1,, 3, "Throw 3 bombs.");
+		//Damage: 	170% (12 – 22)
+		//Attack time: 	120 (2 s)
+		//Attack count: 	1
+		//Attack delay: 	5 (0.08 s)
+		//Hit limit: 	-
+		//Hit cooldown: 	20 (0.33 s)
+		//Area: 	100%
+		//Duration: 	630 (10.5 s)
+		//Projectile speed: 	7 
+		//Level 1 	A bomb that explodes, dealing damage to all nearby targets.
+		//Level 2 	Increase explosion size by 15%.
+		//Level 3 	Increase damage by 20%.
+		//Level 4 	Throw 2 bombs.
+		//Level 5 	Reduce the time between attacks by 20%.
+		//Level 6 	Increase explosion size by 20%.
+		//Level MAX 	Throw 3 bombs. 
+	#endregion
+	
+	#region Asacoco
+		createUpgrade(weapons.PlugAsaCoco,"Plug-type Asacoco",1,sAsaCocoShoot,sAsaCocoThumb, 10, 18, 150, 45, 10, true, 20, 999, "white", 1, "Fires a fast piercing tail at a random target.");
+		createUpgradeP2(weapons.PlugAsaCoco, 1, 7, 7, 15);
+		createUpgrade(weapons.PlugAsaCoco,"Plug-type Asacoco",2,sAsaCocoShoot,sAsaCocoThumb, 10*1.20, 18*1.20, 150, 45, 10, true, 20, 999, "white", 1, "Increase damage by 20%. ");
+		createUpgradeP2(weapons.PlugAsaCoco, 2, 7, 7, 15);
+		createUpgrade(weapons.PlugAsaCoco,"Plug-type Asacoco",3,sAsaCocoShoot,sAsaCocoThumb, 10*1.20, 18*1.20, 150, 45, 10, true, 20, 999, "white", 2, "Fire an additional Asacoco. ");
+		createUpgradeP2(weapons.PlugAsaCoco, 3, 7, 7, 15);
+		createUpgrade(weapons.PlugAsaCoco,"Plug-type Asacoco",4,sAsaCocoShoot,sAsaCocoThumb, 10*1.20*1.30, 18*1.20*1.30, 150, 45, 10, true, 20, 999, "white", 2, "Increase damage by 30%. ");
+		createUpgradeP2(weapons.PlugAsaCoco, 4, 7, 7, 15);
+		createUpgrade(weapons.PlugAsaCoco,"Plug-type Asacoco",5,sAsaCocoShoot,sAsaCocoThumb, 10*1.20*1.30, 18*1.20*1.30, 150, 45, 10, true, 20, 999, "white", 3, "Fire an additional Asacoco. ");
+		createUpgradeP2(weapons.PlugAsaCoco, 5, 7, 7, 15);
+		createUpgrade(weapons.PlugAsaCoco,"Plug-type Asacoco",6,sAsaCocoShoot,sAsaCocoThumb, 10*1.20*1.30, 18*1.20*1.30, 150, 45, 10, true, 20, 999, "white", 3, "Adds knockback on hit. ");
+		createUpgradeP2(weapons.PlugAsaCoco, 6, 7, 7, 15); 
+		createUpgrade(weapons.PlugAsaCoco,"Plug-type Asacoco",7,sAsaCocoShoot,sAsaCocoThumb, 10*1.20*1.30, 18*1.20*1.30, 150, 45, 10, true, 20, 999, "white", 4, "Fire an additional Asacoco. ");
+		createUpgradeP2(weapons.PlugAsaCoco, 7, 7, 7, 15); 
+	#endregion
 		
 }
 
@@ -287,9 +320,9 @@ function randomUpgrades(){
 		
 	//global.upgrade_options[0] = global.Player[?"weapon"][1];
 	//global.upgrade_options[1] = ItemList[ItemIds.Uber_Sheep][1];
-	global.upgrade_options[0] = global.upgradesAvaliable[weapons.BlBook][1];
-	global.upgrade_options[1] = global.upgradesAvaliable[weapons.PlugAsaCoco][1];
-	global.upgrade_options[2] = global.upgradesAvaliable[weapons.EliteLavaBucket][1];
+	//global.upgrade_options[0] = global.upgradesAvaliable[weapons.BlBook][1];
+	global.upgrade_options[1] = global.upgradesAvaliable[weapons.HoloBomb][1];
+	global.upgrade_options[0] = global.upgradesAvaliable[weapons.EliteLavaBucket][1];
 }	
 
 function tickPowers(){
@@ -322,10 +355,3 @@ function defaultBehaviour(){
 	image_xscale=oPlayer.image_xscale;
 	image_speed=1;
 }
-
-
-
-
-
-
-

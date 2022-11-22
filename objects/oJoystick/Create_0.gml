@@ -6,7 +6,8 @@
 #macro LEFTKEY vk_left
 #macro RIGHTKEY vk_right
 canrelease=true;
-limit = 137;
+//limit = 137;
+limit = 9999;
 ativation = 30;
 J1Set=false;
 JoystickCenterX=GW/6;
@@ -31,5 +32,6 @@ Joystick2LimitUp = Joystick2CenterY-limit;
 Joystick2AtivationUp = Joystick2CenterY-ativation;
 Joystick2LimitDown = Joystick2CenterY+limit;
 Joystick2AtivationDown = Joystick2CenterY+ativation;
+
 
 
