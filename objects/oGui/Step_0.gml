@@ -1,3 +1,4 @@
+
 if (room = rInicio) {
     if (keyboard_check_pressed(ord("Z"))) {
         switch (menu_options[selected]) {
@@ -14,6 +15,8 @@ if (room = rInicio) {
 
 if (global.upgrade == 1) // after level up
 {
+	if (holoarrowspr <= 8) { holoarrowspr+=.25; } else { holoarrowspr=0; }
+	
     if (keyboard_check(ord("Z"))) {
 		for (i = 0; i < 6; i++) 
 		{	
@@ -114,18 +117,18 @@ if (os_type == os_android) {
 		if(keyboard_check(ord("L"))) game_restart();
 		dir = global.arrow_dir;
 		//if(keyboard_check(ord("Q"))) a -=1;
-		if(keyboard_check(ord("Q"))) a -=0.1;
+		if(keyboard_check(ord("Q"))) a -=0.25;
 		//if(keyboard_check(ord("W"))) a +=1;
-		if(keyboard_check(ord("W"))) a += 0.1;
-		if(keyboard_check(ord("E"))) b -=.1;
+		if(keyboard_check(ord("W"))) a += 0.25;
+		if(keyboard_check_pressed(ord("E"))) b -=.25;
 		//if(keyboard_check(ord("E"))) b -=1;
-		if(keyboard_check(ord("R"))) b +=.1;
+		if(keyboard_check_pressed(ord("R"))) b +=.25;
 		//if(keyboard_check(ord("R"))) b +=1;
-		if(keyboard_check_pressed(ord("T"))) c -=.25;
-		if(keyboard_check_pressed(ord("Y"))) c +=.25;
-		if(keyboard_check(ord("U"))) d -=.25;
-		if(keyboard_check(ord("I"))) d +=.25;
-		if(keyboard_check_pressed(ord("O"))) e -=.25;
+		if(keyboard_check_pressed(ord("T"))) c -=.01;
+		if(keyboard_check_pressed(ord("Y"))) c +=.01;
+		if(keyboard_check_pressed(ord("U"))) d -=.01;
+		if(keyboard_check_pressed(ord("I"))) d +=.01;
+		if(keyboard_check_pressed(ord("O"))) e -=.5;
 		if(keyboard_check(ord("P"))) e +=1;
 		if((keyboard_check(vk_escape) and room == Room2)) {room_goto(rInicio)}
 		//if (keyboard_check_pressed(ord("V"))) {
@@ -146,11 +149,3 @@ if (os_type == os_android) {
 		
 	}
 #endregion
-
-
-
-
-
-
-
-

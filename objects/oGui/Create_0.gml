@@ -1,6 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 // Feather disable GM1043
+holoarrowspr=0;
 debug=false;
 selected=0;
 color=c_white;
@@ -9,10 +10,10 @@ resetTimer()
 global.upgrades=ds_map_create();
 show_debug_message(string(Characters.lenght));
 global.a=1;
-a=1;
-b=1;
-c=1;
-d=1;
+a=430;
+b=4.45;
+c=3.25;
+d=2;
 e=0;
 image_speed=5;
 sprindex=0;
@@ -40,5 +41,6 @@ pButtonYEnd =  pButtonY + 45;
 revives = 0;
 event = 0;
 #endregion
+
 
 

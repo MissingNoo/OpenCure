@@ -2,7 +2,7 @@
   "hinting": 0,
   "glyphOperations": 0,
   "interpreter": 0,
-  "pointRounding": 2,
+  "pointRounding": 0,
   "applyKerning": 0,
   "fontName": "Noto Sans",
   "styleName": "Regular",

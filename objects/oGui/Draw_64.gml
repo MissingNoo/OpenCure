@@ -1,6 +1,13 @@
 draw_set_font(Font1);
 draw_set_alpha(1);
 draw_set_color(c_white);
+if (global.upgrade == 1) {
+	draw_set_alpha(.75)
+	// Darken the screen
+	draw_rectangle_color(0, 0, display_get_gui_width(), display_get_gui_height(), c_black, c_black, c_black, c_black, false);
+	draw_set_alpha(1)
+}
+
 if (room == rInicio) {
 	#region Lines
 		var off = 0;
@@ -183,37 +190,33 @@ if (instance_exists(oPlayer)) //while inside a stage
 	 if (global.upgrade == 1) {
 		 #region UpgradeList
         offset = 0;
-        draw_set_alpha(.75)
-		// Darken the screen
-        draw_rectangle_color(0, 0, display_get_gui_width(), display_get_gui_height(), c_black, c_black, c_black, c_black, false);
-        draw_set_alpha(1)
         for (i = 0; i < array_length(global.upgrade_options); i++) {
-            if (i = selected) 
-			{
-				draw_set_color(c_blue);
-				draw_rectangle(
-                515,
-                100+offset,
-                1275,
-                220+offset,
-                true)
+			var _xx = GW/1.52;
+			var _yy = GH/4.5;
+			draw_sprite_ext(sUpgradeBackground, 0, _xx, _yy + offset, 3.30, 2.25, 0, c_black, .75);//upgrade background
+			draw_sprite_ext(sUpgradeBackground, 2, _xx, _yy + offset, 3.30, 2.25, 0, c_white, .75);//upgrade line for the text
+            if (i = selected) { //if select draw border
+				draw_sprite_ext(sUpgradeBackground, 1, _xx, _yy + offset, 3.30, 2.25, 0, c_white, 1); 
+				draw_sprite_ext(sHoloCursor, holoarrowspr, _xx - 440, _yy + offset, 2.5, 2.5, 0, c_white, 1); 
+				} 
+            draw_text(540, 108 + offset, string(global.upgrade_options[i][?"name"])); // draw the name
+			var style = ""; switch (global.upgrade_options[i][?"style"]) { // type of upgrade
+			    case ItemTypes.Weapon:
+			        style = " >> Weapon";
+			        break;
+			    case ItemTypes.Item:
+			        style = " >> Item";
+			        break;
+				case ItemTypes.Perk:
+			        style = " >> Skill";
+			        break;
 			}
-			draw_set_alpha(.50)
-            draw_rectangle_color(
-                515,
-                100+offset,
-                1275,
-                220+offset,
-				c_black, c_black, c_black, c_black,
-                false)
-				draw_set_alpha(1)
-            draw_text(
-                540,
-                108 + offset,
-                string(global.upgrade_options[i][?"name"]))
-			draw_line(525,130+offset,1265,130+offset);
-			draw_sprite_ext(global.upgrade_options[i][? "thumb"],0,545,151+offset,1.5,1.5,0,c_white,1);
-            offset += 150;
+			draw_set_halign(fa_right);
+			draw_text(1265, 108 + offset, string(style))  // draw type of upgrade
+			draw_set_halign(fa_left);
+			draw_sprite_ext(global.upgrade_options[i][? "thumb"],0,565, 170+offset,1.5,1.5,0,c_white,1); // item thumb			
+			draw_sprite_ext(sItemType, global.upgrade_options[i][?"style"], 565, 170+offset,1.5,1.5,0,c_white,1); // item thumb type
+            offset += 165;
 			draw_set_color(c_white);
         }
 		#endregion
@@ -239,7 +242,7 @@ if (instance_exists(oPlayer)) //while inside a stage
 	#region Timer
 	time = string(global.minutes) + ":" + string(string_format(global.seconds,2,0));
 	
-	draw_text_transformed(GW/2-(string_width(time)/2),35,time,1,1,0)
+	draw_text_transformed(GW/2-(string_width(time)/2),35,time,1,1,0);
 	#endregion
 	
 }
