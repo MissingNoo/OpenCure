@@ -10,8 +10,8 @@ resetTimer()
 global.upgrades=ds_map_create();
 show_debug_message(string(Characters.lenght));
 global.a=1;
-a=430;
-b=4.45;
+a=1;
+b=0;
 c=3.25;
 d=2;
 e=0;
@@ -41,6 +41,7 @@ pButtonYEnd =  pButtonY + 45;
 revives = 0;
 event = 0;
 #endregion
+
 
 
 

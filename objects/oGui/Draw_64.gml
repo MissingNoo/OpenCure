@@ -216,6 +216,22 @@ if (instance_exists(oPlayer)) //while inside a stage
 			draw_set_halign(fa_left);
 			draw_sprite_ext(global.upgrade_options[i][? "thumb"],0,565, 170+offset,1.5,1.5,0,c_white,1); // item thumb			
 			draw_sprite_ext(sItemType, global.upgrade_options[i][?"style"], 565, 170+offset,1.5,1.5,0,c_white,1); // item thumb type
+			var foundup = false;
+			var foundlv = 0;
+			for (var j = 0; j < array_length(UPGRADES); ++j) {
+			    if (UPGRADES[j][?"name"] == global.upgrade_options[i][?"name"]) {
+				    foundup = true;
+					foundlv = UPGRADES[j][?"level"] + 1;
+				}
+			}			
+			if (foundup) {
+				var idd = global.upgrade_options[i][?"id"];
+				
+			    drawDesc(GW/2.20,GH/5.5+offset, global.upgradesAvaliable[idd][foundlv][?"desc"], GW/2.20);
+			}
+			else{
+				drawDesc(GW/2.20,GH/5.5+offset, global.upgrade_options[i][?"desc"], GW/2.20);
+			}
             offset += 165;
 			draw_set_color(c_white);
         }
@@ -302,6 +318,7 @@ if (os_type == os_android) {
 	draw_text(pButtonX + 70, pButtonY + 22.5, "P");
 	draw_set_color(c_white);
 }
+
 
 
 

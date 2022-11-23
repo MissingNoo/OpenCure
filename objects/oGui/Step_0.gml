@@ -102,7 +102,8 @@ if (os_type == os_android) {
 		keyboard_key_press(ord("X"));
 		keyboard_key_release(ord("X"));
 		show_debug_message("Pressed X");
-		game_restart();
+		global.xp=1600;
+		//game_restart();
 	}
 	
 	if (TouchY1 > pButtonY and TouchY1 < pButtonYEnd and TouchX1 > pButtonX and TouchX1 < pButtonXEnd and device_mouse_check_button(0,mb_left)) {
@@ -117,15 +118,15 @@ if (os_type == os_android) {
 		if(keyboard_check(ord("L"))) game_restart();
 		dir = global.arrow_dir;
 		//if(keyboard_check(ord("Q"))) a -=1;
-		if(keyboard_check(ord("Q"))) a -=0.25;
+		if(keyboard_check(ord("Q"))) a -=0.01;
 		//if(keyboard_check(ord("W"))) a +=1;
-		if(keyboard_check(ord("W"))) a += 0.25;
-		if(keyboard_check_pressed(ord("E"))) b -=.25;
+		if(keyboard_check(ord("W"))) a += 0.01;
+		if(keyboard_check(ord("E"))) b -=.05;
 		//if(keyboard_check(ord("E"))) b -=1;
-		if(keyboard_check_pressed(ord("R"))) b +=.25;
+		if(keyboard_check(ord("R"))) b +=.05;
 		//if(keyboard_check(ord("R"))) b +=1;
-		if(keyboard_check_pressed(ord("T"))) c -=.01;
-		if(keyboard_check_pressed(ord("Y"))) c +=.01;
+		if(keyboard_check(ord("T"))) c -=1;
+		if(keyboard_check(ord("Y"))) c +=1;
 		if(keyboard_check_pressed(ord("U"))) d -=.01;
 		if(keyboard_check_pressed(ord("I"))) d +=.01;
 		if(keyboard_check_pressed(ord("O"))) e -=.5;
@@ -149,3 +150,5 @@ if (os_type == os_android) {
 		
 	}
 #endregion
+
+

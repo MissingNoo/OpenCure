@@ -84,17 +84,17 @@ function populateUpgrades(){
 			#region AmePistol
 				createUpgrade(weapons.AmePistol, "AmePistol", 1, sAmeShoot, sAmePistol, 7, 13, 80, 120, 10, true, 5, 1, "red", 3, "Shoots 3 Projectiles forward. Horizontal only.");
 				createUpgradeP2(weapons.AmePistol, 1, 7, 0, 0, 1, Characters.Amelia);
-				createUpgrade(weapons.AmePistol, "AmePistol", 2, sAmeShoot, sAmePistol, 7, 13, 80, 120, 10, true, 5, 2, "red", 4, "Shoot 1 additional shot, and each bullet can pierce +1 times.");
+				createUpgrade(weapons.AmePistol, "AmePistol", 2, sAmeShoot, sAmePistol, 7, 13, 80, 120, 10, true, 5, 2, "red", 4, "Shoot [1] additional shot, and each bullet can pierce [+1] times.");
 				createUpgradeP2(weapons.AmePistol, 2, 7, 0, 0, 1, Characters.Amelia);
-				createUpgrade(weapons.AmePistol, "AmePistol", 3, sAmeShoot, sAmePistol, 7*1.25, 13*1.25, 80, 120, 10, true, 5, 2, "red", 4, "Increase damage by 25%.");
+				createUpgrade(weapons.AmePistol, "AmePistol", 3, sAmeShoot, sAmePistol, 7*1.25, 13*1.25, 80, 120, 10, true, 5, 2, "red", 4, "Increase damage by [25%].");
 				createUpgradeP2(weapons.AmePistol, 3, 7, 0, 0, 1, Characters.Amelia);
 				createUpgrade(weapons.AmePistol, "AmePistol", 4, sAmeShoot, sAmePistol, 7*1.25, 13*1.25, 80, 120, 10, true, 5, 2, "red", 4, "Bullets ricochet if hit limit is reached.");
 				createUpgradeP2(weapons.AmePistol, 4, 7, 0, 0, 1, Characters.Amelia);
-				createUpgrade(weapons.AmePistol, "AmePistol", 5, sAmeShoot, sAmePistol, 7*1.25, 13*1.25, 80*0.75, 120, 10, true, 5, 3, "red", 4, "Each bullet can pierce +1 times. Reduce the time between attacks by 25%.");
+				createUpgrade(weapons.AmePistol, "AmePistol", 5, sAmeShoot, sAmePistol, 7*1.25, 13*1.25, 80*0.75, 120, 10, true, 5, 3, "red", 4, "Each bullet can pierce [+1] times. Reduce the time between attacks by [25%].");
 				createUpgradeP2(weapons.AmePistol, 5, 7, 0, 0, 1, Characters.Amelia);
-				createUpgrade(weapons.AmePistol, "AmePistol", 6, sAmeShoot, sAmePistol, 7*1.25*1.40, 13*1.25*1.40, 80*0.75, 120, 10, true, 5, 3, "red", 4, "Increase damage by 40%.");
+				createUpgrade(weapons.AmePistol, "AmePistol", 6, sAmeShoot, sAmePistol, 7*1.25*1.40, 13*1.25*1.40, 80*0.75, 120, 10, true, 5, 3, "red", 4, "Increase damage by [40%].");
 				createUpgradeP2(weapons.AmePistol, 6, 7, 0, 0, 1, Characters.Amelia);
-				createUpgrade(weapons.AmePistol, "AmePistol", 7, sAmeShoot, sAmePistol, 7*1.25*1.40, 13*1.25*1.40, 80*0.75, 120, 10, true, 5, 3, "red", 6, "Shoot 2 additional shots, and pistol becomes spread type.");
+				createUpgrade(weapons.AmePistol, "AmePistol", 7, sAmeShoot, sAmePistol, 7*1.25*1.40, 13*1.25*1.40, 80*0.75, 120, 10, true, 5, 3, "red", 6, "Shoot [2] additional shots, and pistol becomes spread type.");
 				createUpgradeP2(weapons.AmePistol, 7, 7, 0, 0, 1, Characters.Amelia);
 			#endregion
 		#endregion	
@@ -127,17 +127,17 @@ function populateUpgrades(){
 	#region BLBook
 		createUpgrade(weapons.BlBook, "BL Book", 1, sBLBook, sBLBookThumb, 10, 18, 360, 120, 20, 1, 3, 7, "white", 3, "Repels targets with orbiting BL Books.");
 		createUpgradeP2(weapons.BlBook, 1, 7, 3, 5);
-		createUpgrade(weapons.BlBook, "BL Book", 2, sBLBook, sBLBookThumb, 10, 18, 360, 120, 20, 1, 3, 7, "white", 4, "Repels targets with orbiting BL Books.");
+		createUpgrade(weapons.BlBook, "BL Book", 2, sBLBook, sBLBookThumb, 10, 18, 360, 120, 20, 1, 3, 7, "white", 4, "Add [1] additional book. ");
 		createUpgradeP2(weapons.BlBook, 2, 7, 3, 5);
-		createUpgrade(weapons.BlBook, "BL Book", 3, sBLBook, sBLBookThumb, 10*1.30, 18*1.30, 360, 180, 20, 1, 3, 7, "white", 4, "Repels targets with orbiting BL Books.");
+		createUpgrade(weapons.BlBook, "BL Book", 3, sBLBook, sBLBookThumb, 10*1.30, 18*1.30, 360, 180, 20, 1, 3, 7, "white", 4, "Increase damage by [30%] and increase duration by [1] second. ");
 		createUpgradeP2(weapons.BlBook, 3, 7, 3, 5);
-		createUpgrade(weapons.BlBook, "BL Book", 4, sBLBook, sBLBookThumb, 10*1.30, 18*1.30, 360, 180, 20, 1, 3, 7, "white", 5, "Repels targets with orbiting BL Books.");
+		createUpgrade(weapons.BlBook, "BL Book", 4, sBLBook, sBLBookThumb, 10*1.30, 18*1.30, 360, 180, 20, 1, 3, 7, "white", 5, "Add [1] additional book.");
 		createUpgradeP2(weapons.BlBook, 4, 7, 3, 5);
-		createUpgrade(weapons.BlBook, "BL Book", 5, sBLBook, sBLBookThumb, 10*1.30*1.40, 18*1.30*1.40, 360, 180, 20, 1, 3, 7, "white", 5, "Repels targets with orbiting BL Books.");
+		createUpgrade(weapons.BlBook, "BL Book", 5, sBLBook, sBLBookThumb, 10*1.30*1.40, 18*1.30*1.40, 360, 180, 20, 1, 3, 7, "white", 5, "Increase Damage by [40%].");
 		createUpgradeP2(weapons.BlBook, 5, 7, 3, 5);
-		createUpgrade(weapons.BlBook, "BL Book", 6, sBLBook, sBLBookThumb, 10*1.30*1.40, 18*1.30*1.40, 360, 180, 20, 1, 3, 7, "white", 6, "Repels targets with orbiting BL Books.");
+		createUpgrade(weapons.BlBook, "BL Book", 6, sBLBook, sBLBookThumb, 10*1.30*1.40, 18*1.30*1.40, 360, 180, 20, 1, 3, 7, "white", 6, "Add [1] additional book. ");
 		createUpgradeP2(weapons.BlBook, 6, 7, 3, 5);
-		createUpgrade(weapons.BlBook, "BL Book", 7, sBLBook, sBLBookThumb, 10*1.30*1.40*1.40, 18*1.30*1.40*1.40, 360, 180, 20, 1, 3, 7, "white", 6, "Repels targets with orbiting BL Books.");
+		createUpgrade(weapons.BlBook, "BL Book", 7, sBLBook, sBLBookThumb, 10*1.30*1.40*1.40, 18*1.30*1.40*1.40, 360, 180, 20, 1, 3, 7, "white", 6, "Increase damage by [40%].");
 		createUpgradeP2(weapons.BlBook, 7, 7, 3, 5);
 	#endregion
 	
@@ -162,28 +162,28 @@ function populateUpgrades(){
 	#region EliteLavaBucket
 		createUpgrade(weapons.EliteLavaBucket, "Elite Lava Bucket", 1, sLavaPoolStart, sEliteLavaBucketThumb, 6, 10, 300, 180, 45, true, 0, 999, "white", 1, "Drop lava on the ground, burning targets slowly.");
 		createUpgradeP2(weapons.EliteLavaBucket, 1, 7, 0 ,0);
-		createUpgrade(weapons.EliteLavaBucket, "Elite Lava Bucket", 2, sLavaPoolStart, sEliteLavaBucketThumb, 6, 10, 300, 180, 45, true, 0, 999, "white", 1, "Increase lava area by 20%. ");
+		createUpgrade(weapons.EliteLavaBucket, "Elite Lava Bucket", 2, sLavaPoolStart, sEliteLavaBucketThumb, 6, 10, 300, 180, 45, true, 0, 999, "white", 1, "Increase lava area by [20%]. ");
 		createUpgradeP2(weapons.EliteLavaBucket, 2, 7, 0 ,0);
-		createUpgrade(weapons.EliteLavaBucket, "Elite Lava Bucket", 3, sLavaPoolStart, sEliteLavaBucketThumb, 6, 10, 300, 180, 45, true, 0, 999, "white", 2, "Throw 2 lava buckets. ");
+		createUpgrade(weapons.EliteLavaBucket, "Elite Lava Bucket", 3, sLavaPoolStart, sEliteLavaBucketThumb, 6, 10, 300, 180, 45, true, 0, 999, "white", 2, "Throw [2] lava buckets. ");
 		createUpgradeP2(weapons.EliteLavaBucket, 3, 7, 0 ,0);
-		createUpgrade(weapons.EliteLavaBucket, "Elite Lava Bucket", 4, sLavaPoolStart, sEliteLavaBucketThumb, 6*1.30, 10*1.30, 300, 240, 45, true, 0, 999, "white", 2, "Increase damage by 30% and increase duration of lava by 1 second.");
+		createUpgrade(weapons.EliteLavaBucket, "Elite Lava Bucket", 4, sLavaPoolStart, sEliteLavaBucketThumb, 6*1.30, 10*1.30, 300, 240, 45, true, 0, 999, "white", 2, "Increase damage by [30%] and increase duration of lava by 1 second.");
 		createUpgradeP2(weapons.EliteLavaBucket, 4, 7, 0 ,0);
-		createUpgrade(weapons.EliteLavaBucket, "Elite Lava Bucket", 5, sLavaPoolStart, sEliteLavaBucketThumb, 6*1.30*1.30, 10*1.30*1.30, 300, 240, 45, true, 0, 999, "white", 2, "Increase damage by 30%.");
+		createUpgrade(weapons.EliteLavaBucket, "Elite Lava Bucket", 5, sLavaPoolStart, sEliteLavaBucketThumb, 6*1.30*1.30, 10*1.30*1.30, 300, 240, 45, true, 0, 999, "white", 2, "Increase damage by [30%].");
 		createUpgradeP2(weapons.EliteLavaBucket, 5, 7, 0 ,0);
-		createUpgrade(weapons.EliteLavaBucket, "Elite Lava Bucket", 6, sLavaPoolStart, sEliteLavaBucketThumb, 6*1.30*1.30, 10*1.30*1.30, 300, 240, 45, true, 0, 999, "white", 3, "Throw 3 lava buckets.");
+		createUpgrade(weapons.EliteLavaBucket, "Elite Lava Bucket", 6, sLavaPoolStart, sEliteLavaBucketThumb, 6*1.30*1.30, 10*1.30*1.30, 300, 240, 45, true, 0, 999, "white", 3, "Throw [3] lava buckets.");
 		createUpgradeP2(weapons.EliteLavaBucket, 6, 7, 0 ,0);
-		createUpgrade(weapons.EliteLavaBucket, "Elite Lava Bucket", 7, sLavaPoolStart, sEliteLavaBucketThumb, 6*1.30*1.30, 10*1.30*1.30, 300, 240, 45, true, 0, 999, "white", 4, "Throw 4 lava buckets and increase lava size by 20% .");
+		createUpgrade(weapons.EliteLavaBucket, "Elite Lava Bucket", 7, sLavaPoolStart, sEliteLavaBucketThumb, 6*1.30*1.30, 10*1.30*1.30, 300, 240, 45, true, 0, 999, "white", 4, "Throw [4] lava buckets and increase lava size by [20%].");
 		createUpgradeP2(weapons.EliteLavaBucket, 7, 7, 0 ,0);
 	#endregion
 	
 	#region Holobomb
 	createUpgrade(weapons.HoloBomb, "Holo Bomb", 1, sHolobomb, sHolobomb, 12, 22, 120, 630, 20, true, 7, 1,, 1, "A bomb that explodes, dealing damage to all nearby targets.");
-	createUpgrade(weapons.HoloBomb, "Holo Bomb", 2, sHolobomb, sHolobomb, 12, 22, 120, 630, 20, true, 7, 1,, 1, "Increase explosion size by 15%.");
-	createUpgrade(weapons.HoloBomb, "Holo Bomb", 3, sHolobomb, sHolobomb, 12*1.20, 22*1.20, 120, 630, 20, true, 7, 1,, 1, "Increase damage by 20%.");
-	createUpgrade(weapons.HoloBomb, "Holo Bomb", 4, sHolobomb, sHolobomb, 12*1.20, 22*1.20, 120, 630, 20, true, 7, 1,, 2, "Throw 2 bombs.");
-	createUpgrade(weapons.HoloBomb, "Holo Bomb", 5, sHolobomb, sHolobomb, 12*1.20, 22*1.20, 120*0.80, 630, 20, true, 7, 1,, 2, "Reduce the time between attacks by 20%.");
-	createUpgrade(weapons.HoloBomb, "Holo Bomb", 6, sHolobomb, sHolobomb, 12*1.20, 22*1.20, 120*0.80, 630, 20, true, 7, 1,, 2, "Increase explosion size by 20%.");
-	createUpgrade(weapons.HoloBomb, "Holo Bomb", 7, sHolobomb, sHolobomb, 12*1.20, 22*1.20, 120*0.80, 630, 20, true, 7, 1,, 3, "Throw 3 bombs.");
+	createUpgrade(weapons.HoloBomb, "Holo Bomb", 2, sHolobomb, sHolobomb, 12, 22, 120, 630, 20, true, 7, 1,, 1, "Increase explosion size by [15%].");
+	createUpgrade(weapons.HoloBomb, "Holo Bomb", 3, sHolobomb, sHolobomb, 12*1.20, 22*1.20, 120, 630, 20, true, 7, 1,, 1, "Increase damage by [20%].");
+	createUpgrade(weapons.HoloBomb, "Holo Bomb", 4, sHolobomb, sHolobomb, 12*1.20, 22*1.20, 120, 630, 20, true, 7, 1,, 2, "Throw [2] bombs.");
+	createUpgrade(weapons.HoloBomb, "Holo Bomb", 5, sHolobomb, sHolobomb, 12*1.20, 22*1.20, 120*0.80, 630, 20, true, 7, 1,, 2, "Reduce the time between attacks by [20%].");
+	createUpgrade(weapons.HoloBomb, "Holo Bomb", 6, sHolobomb, sHolobomb, 12*1.20, 22*1.20, 120*0.80, 630, 20, true, 7, 1,, 2, "Increase explosion size by [20%].");
+	createUpgrade(weapons.HoloBomb, "Holo Bomb", 7, sHolobomb, sHolobomb, 12*1.20, 22*1.20, 120*0.80, 630, 20, true, 7, 1,, 3, "Throw [3] bombs.");
 		//Damage: 	170% (12 – 22)
 		//Attack time: 	120 (2 s)
 		//Attack count: 	1
@@ -205,11 +205,11 @@ function populateUpgrades(){
 	#region Asacoco
 		createUpgrade(weapons.PlugAsaCoco,"Plug-type Asacoco",1,sAsaCocoShoot,sAsaCocoThumb, 10, 18, 150, 45, 10, true, 20, 999, "white", 1, "Fires a fast piercing tail at a random target.");
 		createUpgradeP2(weapons.PlugAsaCoco, 1, 7, 7, 15);
-		createUpgrade(weapons.PlugAsaCoco,"Plug-type Asacoco",2,sAsaCocoShoot,sAsaCocoThumb, 10*1.20, 18*1.20, 150, 45, 10, true, 20, 999, "white", 1, "Increase damage by 20%. ");
+		createUpgrade(weapons.PlugAsaCoco,"Plug-type Asacoco",2,sAsaCocoShoot,sAsaCocoThumb, 10*1.20, 18*1.20, 150, 45, 10, true, 20, 999, "white", 1, "Increase damage by [20%]. ");
 		createUpgradeP2(weapons.PlugAsaCoco, 2, 7, 7, 15);
 		createUpgrade(weapons.PlugAsaCoco,"Plug-type Asacoco",3,sAsaCocoShoot,sAsaCocoThumb, 10*1.20, 18*1.20, 150, 45, 10, true, 20, 999, "white", 2, "Fire an additional Asacoco. ");
 		createUpgradeP2(weapons.PlugAsaCoco, 3, 7, 7, 15);
-		createUpgrade(weapons.PlugAsaCoco,"Plug-type Asacoco",4,sAsaCocoShoot,sAsaCocoThumb, 10*1.20*1.30, 18*1.20*1.30, 150, 45, 10, true, 20, 999, "white", 2, "Increase damage by 30%. ");
+		createUpgrade(weapons.PlugAsaCoco,"Plug-type Asacoco",4,sAsaCocoShoot,sAsaCocoThumb, 10*1.20*1.30, 18*1.20*1.30, 150, 45, 10, true, 20, 999, "white", 2, "Increase damage by [30%]. ");
 		createUpgradeP2(weapons.PlugAsaCoco, 4, 7, 7, 15);
 		createUpgrade(weapons.PlugAsaCoco,"Plug-type Asacoco",5,sAsaCocoShoot,sAsaCocoThumb, 10*1.20*1.30, 18*1.20*1.30, 150, 45, 10, true, 20, 999, "white", 3, "Fire an additional Asacoco. ");
 		createUpgradeP2(weapons.PlugAsaCoco, 5, 7, 7, 15);
@@ -321,8 +321,8 @@ function randomUpgrades(){
 	//global.upgrade_options[0] = global.Player[?"weapon"][1];
 	//global.upgrade_options[1] = ItemList[ItemIds.Uber_Sheep][1];
 	//global.upgrade_options[0] = global.upgradesAvaliable[weapons.BlBook][1];
-	global.upgrade_options[1] = global.upgradesAvaliable[weapons.HoloBomb][1];
-	global.upgrade_options[0] = global.upgradesAvaliable[weapons.EliteLavaBucket][1];
+	//global.upgrade_options[1] = global.upgradesAvaliable[weapons.HoloBomb][1];
+	//global.upgrade_options[0] = global.upgradesAvaliable[weapons.EliteLavaBucket][1];
 }	
 
 function tickPowers(){
@@ -355,3 +355,4 @@ function defaultBehaviour(){
 	image_xscale=oPlayer.image_xscale;
 	image_speed=1;
 }
+
