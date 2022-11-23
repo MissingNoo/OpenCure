@@ -96,6 +96,13 @@ if (keyboard_check(vk_control)) {
     Seconds+=1;
 }
 
+#region in stage
+	if (instance_exists(oPlayer)) {
+	    if (room == Room1) {
+		    audio_sound_gain(global.musicPlaying, global.musicVolume, 0);
+		}
+	}
+#endregion
 
 
 

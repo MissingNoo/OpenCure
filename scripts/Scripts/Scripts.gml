@@ -17,8 +17,11 @@ function resetTimer(){
 #macro Hours global.hours
 //#macro Hours global.hours
 	
+	
 function PauseGame(){
-		global.selected=0;
+		oGui.activeMenu=pMenus.Pause;
+		oGui.selected=0;
+		maxselected = 0;
 		global.gamePaused = !global.gamePaused;		
 		if(global.gamePaused)
 		{			
@@ -78,6 +81,7 @@ function summonCircle(){
 		instance_create_layer(a,b,"Instances",oEnemy)
 	}	
 }
+
 
 
 

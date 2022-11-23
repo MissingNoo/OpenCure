@@ -1,3 +1,4 @@
 resetTimer();
-audio_play_sound(suspect,0,99);
+global.musicPlaying = audio_play_sound(suspect,0,99);
+
 

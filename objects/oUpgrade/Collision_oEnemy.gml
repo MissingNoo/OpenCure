@@ -19,11 +19,11 @@ if (other.hittedcooldown[upg[?"id"]] <= 0  and !global.gamePaused and other.imag
 		}
 	}
 	other.hp-= dmg * global.Player[?"atk"];
-	var inst = instance_create_layer(other.x,other.y,"DamageLayer",oDamageText);
-	with (inst)
-	{
-	    dmg=other.dmg;
+	if (global.damageNumbers) {
+	    var inst = instance_create_layer(other.x,other.y,"DamageLayer",oDamageText);
+		with (inst) { dmg=other.dmg; }
 	}
+	
 	other.alarm[1]=15;	
 	switch (upg[?"name"]) {
 	    case "AmePistol":
@@ -38,6 +38,7 @@ if (other.hittedcooldown[upg[?"id"]] <= 0  and !global.gamePaused and other.imag
 	}
 	hits-=1;
 }
+
 
 
 

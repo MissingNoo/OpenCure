@@ -4,8 +4,8 @@
 	draw_set_color(c_white);
 #endregion
 
-#region upgrade black screen below gui
-	if (global.upgrade == 1) {
+#region black screen below gui
+	if (global.upgrade == 1 or global.gamePaused and room != rInicio) {
 		draw_set_alpha(.75)
 		// Darken the screen
 		draw_rectangle_color(0, 0, display_get_gui_width(), display_get_gui_height(), c_black, c_black, c_black, c_black, false);
@@ -17,6 +17,9 @@
 	if (room == rInicio) {
 		#region Lines
 			var linesoff = 0;
+			if (alarm_get(0) == -1) {
+			    alarm[0]=1;
+			}
 			for (var i = 0; i < 130; ++i) {
 			    draw_sprite_ext(menu_charselec_bar,0,linespos+linesoff,GH,1.5,2.15,0,c_white,.25);
 				linesoff +=16;
@@ -24,6 +27,7 @@
 		#endregion
 	//1.75 1.15
 		#region Menu
+		if (!global.gamePaused) {
 			draw_text_transformed(20,GH-50,"version DEMO 0.4.11072001 ported by Airgeadlamh", 1, 1, 0);
 		    var offset = 0;
 			var thiss=0;
@@ -36,15 +40,16 @@
 				var menuY = GW/6;
 				draw_set_valign(fa_center);
 				draw_set_halign(fa_center);
-				draw_sprite_ext(sHudButton,thiss,menuX, menuY+offset,1.75+scale,1.15,0,c_white,1);
+				draw_sprite_ext(sHudButton,thiss,menuX, menuY+offset,1.75+scale, 1.5,0,c_white,1);
 		        draw_text_transformed(
 		            menuX,
 		            menuY + offset,
 		            menu_options[i],1.85, 1.85,0);
-		        offset += 66;	
+		        offset += 55;	
 				draw_set_valign(fa_left);
 				draw_set_halign(fa_left);
 		    }
+		}
 		#endregion
 	}
 #endregion
@@ -272,6 +277,84 @@
 	}
 #endregion
 
+#region PauseMenu
+	if (global.gamePaused) {
+		//pauseMenu[pMenus.Pause][pM.xScale] = a;
+		//pauseMenu[pMenus.Pause][pM.yScale] = b;
+		//pauseMenu[pMenus.Pause][pM.yScale] = array_length(pauseMenu[activeMenu][pM.Options])/(3 - (array_length(pauseMenu[activeMenu][pM.Options])*1.5));
+		//pauseMenu[pMenus.Pause][pM.yScale] = b;
+		draw_sprite_ext(sMenu, 0,
+		GW/2,
+		GH/2,
+		pauseMenu[activeMenu][pM.xScale],
+		pauseMenu[activeMenu][pM.yScale],
+		0,c_white,1);
+		draw_set_halign(fa_center);
+		draw_set_valign(fa_top);
+		
+		draw_text_transformed(GW/2, 
+		(GH/2 - (sprite_get_height(sMenu) * pauseMenu[activeMenu][pM.yScale])/2) + 20,
+		pauseMenu[activeMenu][pM.Title], 
+		3, 3, 0);
+		var mOffset = 0;
+		draw_set_valign(fa_center);
+		//draw options
+		var startOption = 0;
+		var totaloptions = array_length(pauseMenu[activeMenu][pM.Options]);
+		if (totaloptions >= 6) {
+		    totaloptions=6;
+		}
+		for (var i = selected; i >= totaloptions - startOption; --i) {
+		    startOption++;
+			totaloptions++;
+		}
+		
+		
+		//draw_text(300, 200,
+		//"totaloptions = " + string(array_length(pauseMenu[activeMenu][pM.Options])) +
+		//" \n totalOptionsNow= " + string(totaloptions) +
+		//" \n startOption= " + string(startOption) +
+		//" \n selected= " + string(selected) +
+		//" \n t-s= " + string(totaloptions - startOption) +
+		//" \n totaloptions = " + string("a")	
+		//);
+		var bigString = 0;
+		for (var i = 0; i < array_length(pauseMenu[activeMenu][pM.Options]); ++i) {
+		    if (string_length(pauseMenu[activeMenu][pM.Options][i])/11 > bigString) {
+			    bigString = string_length(pauseMenu[activeMenu][pM.Options][i])/11;
+			}
+		}
+		
+		for (var i = startOption; i < totaloptions; ++i) {
+			var spr = (selected == i) ? 1 : 0;
+			draw_sprite_ext(sHudButton, spr, GW/2, 
+			//GH/2 - sprite_get_height(sMenu)/3.5+mOffset, 
+			(GH/2 - (sprite_get_height(sMenu) * pauseMenu[activeMenu][pM.yScale])/2) + 90 + mOffset,
+			bigString,
+			1.35,0,c_white,1);
+			
+			draw_set_color(selected == i ? c_black : c_white);
+			draw_text_transformed(GW/2,
+			(GH/2 - (sprite_get_height(sMenu) * pauseMenu[activeMenu][pM.yScale])/2) + 90 + mOffset,
+			pauseMenu[activeMenu][pM.Options][i], 1.5, 1.5, 0);	
+			if (activeMenu == pMenus.Settings and pauseMenu[activeMenu][pM.Bool][i] == true) {
+				var boolselected = (selected == i) ? 2 : 0;
+				var boolv = (pauseMenu[activeMenu][pM.BoolValue][i]) ? 1 : 0;
+			    draw_sprite_ext(sToggleButton, boolselected + boolv, GW/1.72, 
+				//GH/2 - sprite_get_height(sMenu)/3.5+mOffset, 
+				(GH/2 - (sprite_get_height(sMenu) * pauseMenu[activeMenu][pM.yScale])/2) + 90 + mOffset,
+				1,
+				1,0,c_white,1);
+			}
+			
+		    mOffset+=45;
+		}
+		draw_set_halign(fa_left);
+		draw_set_valign(fa_top);
+		draw_set_color(c_white);
+	}
+#endregion
+
 #region Debug
 if (keyboard_check_pressed(ord("M"))) {
 	    if (global.debug) {
@@ -329,3 +412,4 @@ if (keyboard_check_pressed(ord("M"))) {
 		draw_set_color(c_white);
 	}
 #endregion
+

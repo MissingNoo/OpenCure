@@ -1,7 +1,26 @@
 /// @description Insert description here
 // You can write your code in this editor
+#region Touch1
+	//if (device_mouse_check_button(0,mb_left) and !Touch1) {
+	//    Touch1 = true;
+	//	TouchX1 = device_mouse_x_to_gui(0);
+	//	TouchY1 = device_mouse_y_to_gui(0);
+	//}else{
+	//	Touch1=false;
+	//}
+	//if (device_mouse_check_button(0,mb_left) and !Touch2) {
+	//    Touch2 = true;
+	//	TouchX2 = device_mouse_x_to_gui(1);
+	//	TouchY2 = device_mouse_y_to_gui(1);
+	//}else{
+	//	Touch2=false;
+	//}
+#endregion
+
+
+if (mode == "stage") {
 #region Left Joystick
-	if (device_mouse_check_button_pressed(0, mb_left) and !J1Set) {
+	if (device_mouse_check_button_pressed(0, mb_left) and !J1Set and TouchX1 < GW/2 and TouchY1 > GH/2) {
 	    J1Set = true;
 		JoystickCenterX = TouchX1;
 		JoystickCenterY = TouchY1;
@@ -19,7 +38,7 @@
 	}
 
 	//if (TouchY1 > JoystickLimitUp and TouchY1 < JoystickLimitDown and TouchX1 > JoystickLimitLeft and TouchX1 < JoystickLimitRight and device_mouse_check_button(0,mb_left)) {
-	if (TouchY1 > JoystickLimitUp and TouchY1 < JoystickLimitDown and TouchX1 > JoystickLimitLeft and TouchX1 < JoystickLimitRight and device_mouse_check_button(0,mb_left)) {
+	if (TouchY1 > JoystickLimitUp and TouchY1 < JoystickLimitDown and TouchX1 > JoystickLimitLeft and TouchX1 < JoystickLimitRight and device_mouse_check_button(0,mb_left) and TouchX1 < GW/2 and TouchY1 > GH/2) {
 		canrelease=true;
 		//up
 		if (TouchY1 > JoystickLimitUp and TouchY1 < JoystickAtivationUp ) {
@@ -50,7 +69,7 @@
 #endregion
 
 #region Right Joystick
-	if (device_mouse_check_button_pressed(1, mb_left) and !J2Set) {
+	if (device_mouse_check_button_pressed(1, mb_left) and !J2Set and TouchX2 > GW/2 and TouchY2 > GH/2) {
 	    J2Set = true;
 		Joystick2CenterX = TouchX2;
 		Joystick2CenterY = TouchY2;
@@ -77,8 +96,23 @@
 		}	
 	}
 #endregion
+}
+
+#region MenuMode
+	if (mode == "menu") {
+		if (TouchY1 > upButtonY and TouchY1 < upButtonSizeY and TouchX1 > upButtonX and TouchX1 < upButtonSizeX and device_mouse_check_button(0,mb_left)) {
+			keyboard_key_press(UPKEY);
+			keyboard_key_release(UPKEY);
+		}
+	    if (TouchY1 > downButtonY and TouchY1 < downButtonSizeY and TouchX1 > downButtonX and TouchX1 < downButtonSizeX and device_mouse_check_button(0,mb_left)) {
+			keyboard_key_press(DOWNKEY);
+			keyboard_key_release(DOWNKEY);
+		}
+	}
+#endregion
 //and TouchX1 > GW/10.5 and TouchX1 < GW/4.25
 //and TouchX2 > GW/10.5 and TouchX2 < GW/4.25
+
 
 
 

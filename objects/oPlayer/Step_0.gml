@@ -19,6 +19,7 @@ if (!global.gamePaused) {
 		randomUpgrades()
 		keyboard_clear(ord("Z"));
 		audio_play_sound(sndLvlUp,0,0);
+		if (instance_exists(oJoystick)) { oJoystick.mode = "menu"; }
 		global.upgrade=1;	
 		oGui.selected=0;		
 		PauseGame()
@@ -42,4 +43,5 @@ if (global.debug) {
 if (HP > MAXHP) {
     HP=MAXHP;
 }
+
 

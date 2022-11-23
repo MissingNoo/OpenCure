@@ -1,11 +1,19 @@
+isP=global.gamePaused;
+
+
 #region Start Menu
-	if (room = rInicio) {
+	if (room = rInicio and !global.gamePaused) {
 	    if (keyboard_check_pressed(ord("Z"))) {
 	        switch (menu_options[selected]) {
 	            case "Play":
 					selected=0;
 	                room_goto(Room2);
 	                break;
+				case "Settings":
+					keyboard_clear(ord("Z"));
+					PauseGame();					
+					activeMenu = pMenus.Settings;
+					break;
 	            case "Quit":	
 	                game_end();
 	                break;
@@ -78,6 +86,7 @@
 				}
 			}
 			global.xp = 0;
+			if (instance_exists(oJoystick)) { oJoystick.mode = "stage"; }
 	        global.upgrade = 0;
 	        PauseGame();
 	    }
@@ -91,6 +100,7 @@
 			//show_message(string(Characters.Amelia));
 			//show_message(string(CHARACTERS[selected][?"id"]));
 			playerPerks = global.characterPerks[CHARACTERS[selected][?"id"]];
+			if (instance_exists(oJoystick)) { oJoystick.mode = "stage"; }
 			room_goto(Room1);
 	    }
 	}
@@ -120,6 +130,97 @@
 }
 #endregion
 
+#region PauseMenu
+if (global.gamePaused) {
+	pauseMenu[activeMenu][pM.yScale] = 0.75;
+	for (var i = 1; i < array_length(pauseMenu[activeMenu][pM.Options]); ++i) {
+		if (i < 5) {
+		    pauseMenu[activeMenu][pM.yScale] += .1 * i;
+		}			
+	}
+	
+	if (keyboard_check_pressed(ord("K"))){
+		pauseMenu[activeMenu][pM.Options][array_length(pauseMenu[activeMenu][pM.Options])] = "teste " + string(irandom_range(0,99));
+	}
+    if (keyboard_check_pressed(ord("Z"))){
+		var optionIs = "";
+		for (var i = 1; i < string_length(pauseMenu[activeMenu][pM.Options][selected]); ++i) {
+			if (string_copy(pauseMenu[activeMenu][pM.Options][selected],i,1) == ":") {
+			    break;
+			}
+		    optionIs = optionIs + string_copy(pauseMenu[activeMenu][pM.Options][selected],i,1);
+		}
+		switch (optionIs) {
+			case "Damage Numbers":{
+		        global.damageNumbers = !global.damageNumbers;
+				loadSettingValues();
+		        break;} 
+		}
+		
+		var lastmenu = activeMenu;
+		switch (pauseMenu[activeMenu][pM.Options][selected]) {
+			case "Skills":{
+		        show_message("a");
+		        break;}
+			case "????":{
+		        show_message("b");
+		        break;}
+			case "Resume":{
+		        show_message("c");
+		        break;}
+		    case "Settings":{
+		        activeMenu = pMenus.Settings;
+		        break;}
+			case "Quit":{
+		        game_restart();
+		        break;}
+		}
+		
+		#region settings controlaudio_sound_get_gain(global.musicPlaying));
+		#endregion
+		if (activeMenu != lastmenu) {
+			loadSettingValues();
+		    selected=0;
+			startOption = 0;
+			totaloptions = array_length(pauseMenu[activeMenu][pM.Options]);
+		}		
+		
+	}		
+	if (keyboard_check_pressed(LEFTKEY) or keyboard_check_pressed(RIGHTKEY)){
+		var optionIs = "";
+		for (var i = 1; i < string_length(pauseMenu[activeMenu][pM.Options][selected]); ++i) {
+			if (string_copy(pauseMenu[activeMenu][pM.Options][selected],i,1) == ":") {
+			    break;
+			}
+		    optionIs = optionIs + string_copy(pauseMenu[activeMenu][pM.Options][selected],i,1);
+		}
+		switch (optionIs) {
+		    case "Music Volume":{
+		        global.musicVolume += (keyboard_check_pressed(RIGHTKEY)*0.1) - (keyboard_check_pressed(LEFTKEY)*0.1);
+				if (global.musicVolume > 1) {
+				    global.musicVolume = 1;
+				}
+				if (global.musicVolume < 0) {
+				    global.musicVolume = 0;
+				}
+				loadSettingValues();
+		        break;}
+			case "Sound Volume":{
+		        global.soundVolume += (keyboard_check_pressed(RIGHTKEY)*0.1) - (keyboard_check_pressed(LEFTKEY)*0.1);
+				if (global.soundVolume > 1) {
+				    global.soundVolume = 1;
+				}
+				if (global.soundVolume < 0) {
+				    global.soundVolume = 0;
+				}
+				loadSettingValues();
+		        break;}
+		}
+	}
+}
+#endregion
+
+
 #region Debug
 	if (global.debug) {
 		if(keyboard_check(ord("L"))) game_restart();
@@ -134,8 +235,8 @@
 		//if(keyboard_check(ord("R"))) b +=1;
 		if(keyboard_check(ord("T"))) c -=.1;
 		if(keyboard_check(ord("Y"))) c +=.1;
-		if(keyboard_check_pressed(ord("U"))) d -=.01;
-		if(keyboard_check_pressed(ord("I"))) d +=.01;
+		if(keyboard_check(ord("U"))) d -=.1;
+		if(keyboard_check(ord("I"))) d +=.1;
 		if(keyboard_check_pressed(ord("O"))) e -=.5;
 		if(keyboard_check(ord("P"))) e +=1;
 		if((keyboard_check(vk_escape) and room == Room2)) {room_goto(rInicio)}
@@ -157,6 +258,4 @@
 		
 	}
 #endregion
-
-
 

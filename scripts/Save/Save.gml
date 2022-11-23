@@ -1,5 +1,5 @@
 global.Data = [
-    "Money","a",
+    "Money","musicVolume","soundVolume", "damageNumbers"
     ];
 
 #macro DATA (working_directory + "Save_Data.bin")
@@ -46,4 +46,5 @@ function Load_Reserve () {
                     variable_global_set(Key, Json[$ Key] );}}
           } ds_map_destroy(Map);
      };
+
 
