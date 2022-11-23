@@ -43,23 +43,23 @@ function populatePerks(){
 			#region Amelia Perks
 				#region FPS Mastery
 					createPerk(perkIds.FpsMastery, "FPS Mastery", 0, 3, 1, sFpsMastery, 1, "Do nothing.", Characters.Amelia);
-					createPerk(perkIds.FpsMastery, "FPS Mastery", 1, 3, 1, sFpsMastery, 1, "Weapons deal 20% more damage.", Characters.Amelia);
-					createPerk(perkIds.FpsMastery, "FPS Mastery", 2, 3, 1, sFpsMastery, 1, "Weapons deal 40% more damage.", Characters.Amelia);
-					createPerk(perkIds.FpsMastery, "FPS Mastery", 3, 3, 1, sFpsMastery, 1, "Weapons deal 60% more damage and fire 10% faster.", Characters.Amelia);
+					createPerk(perkIds.FpsMastery, "FPS Mastery", 1, 3, 1, sFpsMastery, 1, "Weapons deal [20%] more damage.", Characters.Amelia);
+					createPerk(perkIds.FpsMastery, "FPS Mastery", 2, 3, 1, sFpsMastery, 1, "Weapons deal [40%] more damage.", Characters.Amelia);
+					createPerk(perkIds.FpsMastery, "FPS Mastery", 3, 3, 1, sFpsMastery, 1, "Weapons deal [60%] more damage and fire [10%] faster.", Characters.Amelia);
 				#endregion
 				
 				#region Detective Eye
 					createPerk(perkIds.DetectiveEye, "Detective Eye", 0, 3, 1, sDetectiveEye, 1, "Do nothing.", Characters.Amelia);
-					createPerk(perkIds.DetectiveEye, "Detective Eye", 1, 3, 1, sDetectiveEye, 1, "Increases critical hit chance by 10%.", Characters.Amelia);
-					createPerk(perkIds.DetectiveEye, "Detective Eye", 2, 3, 1, sDetectiveEye, 1, "Increases critical hit chance by 20%.", Characters.Amelia);
-					createPerk(perkIds.DetectiveEye, "Detective Eye", 3, 3, 1, sDetectiveEye, 1, "Increases critical hit chance by 30% with a 2% chance to defeat a target in 1 hit.", Characters.Amelia);
+					createPerk(perkIds.DetectiveEye, "Detective Eye", 1, 3, 1, sDetectiveEye, 1, "Increases critical hit chance by [10%].", Characters.Amelia);
+					createPerk(perkIds.DetectiveEye, "Detective Eye", 2, 3, 1, sDetectiveEye, 1, "Increases critical hit chance by [20%].", Characters.Amelia);
+					createPerk(perkIds.DetectiveEye, "Detective Eye", 3, 3, 1, sDetectiveEye, 1, "Increases critical hit chance by [30%] with a [2%] chance to defeat a target in [1] hit.", Characters.Amelia);
 				#endregion
 				
 				#region Bubba
 					createPerk(perkIds.Bubba, "Bubba", 0, 3, 1, sBubba, 1, "Do nothing.", Characters.Amelia);
-					createPerk(perkIds.Bubba, "Bubba", 1, 3, 1, sBubba, 1, "Gain a dog companion that attacks random targets, dealing 100% of your base damage per hit.", Characters.Amelia);
-					createPerk(perkIds.Bubba, "Bubba", 2, 3, 1, sBubba, 1, "Bubba deals 150% of your base damage per hit.", Characters.Amelia);
-					createPerk(perkIds.Bubba, "Bubba", 3, 3, 1, sBubba, 1, "Bubba deals 200% of your base damage per hit and stuns targets for 2 seconds on hit.", Characters.Amelia);
+					createPerk(perkIds.Bubba, "Bubba", 1, 3, 1, sBubba, 1, "Gain a dog companion that attacks random targets, dealing [100%] of your base damage per hit.", Characters.Amelia);
+					createPerk(perkIds.Bubba, "Bubba", 2, 3, 1, sBubba, 1, "Bubba deals [150%] of your base damage per hit.", Characters.Amelia);
+					createPerk(perkIds.Bubba, "Bubba", 3, 3, 1, sBubba, 1, "Bubba deals [200%] of your base damage per hit and stuns targets for [2] seconds on hit.", Characters.Amelia);
 				#endregion
 				global.characterPerks[Characters.Amelia] = [PerkList[perkIds.FpsMastery][0], PerkList[perkIds.DetectiveEye][0], PerkList[perkIds.Bubba][0]];
 			#endregion
@@ -107,6 +107,7 @@ function tickPerks()
 function defaultPerkBehaviour(_id, _cooldown){
 	global.perkCooldown[_id] = _cooldown;
 }
+
 
 
 

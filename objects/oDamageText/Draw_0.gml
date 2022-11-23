@@ -4,3 +4,5 @@ draw_set_font(Font1);
 draw_set_color(c_yellow);
 draw_set_alpha(image_alpha);
 draw_text(x,y,string(dmg));
+
+

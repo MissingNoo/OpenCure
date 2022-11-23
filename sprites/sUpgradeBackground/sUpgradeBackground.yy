@@ -77,9 +77,9 @@
   ],
   "nineSlice": {
     "left": 141,
-    "top": 85,
-    "right": 132,
-    "bottom": 78,
+    "top": 86,
+    "right": 133,
+    "bottom": 79,
     "guideColour": [
       4294902015,
       4294902015,
@@ -88,9 +88,9 @@
     ],
     "highlightColour": 1728023040,
     "highlightStyle": 0,
-    "enabled": false,
+    "enabled": true,
     "tileMode": [
-      1,
+      0,
       0,
       0,
       0,

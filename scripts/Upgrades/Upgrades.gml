@@ -84,17 +84,17 @@ function populateUpgrades(){
 			#region AmePistol
 				createUpgrade(weapons.AmePistol, "AmePistol", 1, sAmeShoot, sAmePistol, 7, 13, 80, 120, 10, true, 5, 1, "red", 3, "Shoots 3 Projectiles forward. Horizontal only.");
 				createUpgradeP2(weapons.AmePistol, 1, 7, 0, 0, 1, Characters.Amelia);
-				createUpgrade(weapons.AmePistol, "AmePistol", 2, sAmeShoot, sAmePistol, 7, 13, 80, 120, 10, true, 5, 2, "red", 4, "Shoot [1] additional shot, and each bullet can pierce [+1] times.");
+				createUpgrade(weapons.AmePistol, "AmePistol", 2, sAmeShoot, sAmePistol, 7, 13, 80, 120, 10, true, 5, 2, "red", 4, "Shoot [1] additional shot, and each bullet can pierce [+1]  times.");
 				createUpgradeP2(weapons.AmePistol, 2, 7, 0, 0, 1, Characters.Amelia);
-				createUpgrade(weapons.AmePistol, "AmePistol", 3, sAmeShoot, sAmePistol, 7*1.25, 13*1.25, 80, 120, 10, true, 5, 2, "red", 4, "Increase damage by [25%].");
+				createUpgrade(weapons.AmePistol, "AmePistol", 3, sAmeShoot, sAmePistol, 7*1.25, 13*1.25, 80, 120, 10, true, 5, 2, "red", 4, "Increase damage by [25%] .");
 				createUpgradeP2(weapons.AmePistol, 3, 7, 0, 0, 1, Characters.Amelia);
 				createUpgrade(weapons.AmePistol, "AmePistol", 4, sAmeShoot, sAmePistol, 7*1.25, 13*1.25, 80, 120, 10, true, 5, 2, "red", 4, "Bullets ricochet if hit limit is reached.");
 				createUpgradeP2(weapons.AmePistol, 4, 7, 0, 0, 1, Characters.Amelia);
-				createUpgrade(weapons.AmePistol, "AmePistol", 5, sAmeShoot, sAmePistol, 7*1.25, 13*1.25, 80*0.75, 120, 10, true, 5, 3, "red", 4, "Each bullet can pierce [+1] times. Reduce the time between attacks by [25%].");
+				createUpgrade(weapons.AmePistol, "AmePistol", 5, sAmeShoot, sAmePistol, 7*1.25, 13*1.25, 80*0.75, 120, 10, true, 5, 3, "red", 4, "Each bullet can pierce [+1]  times. Reduce the time between attacks by [25%] .");
 				createUpgradeP2(weapons.AmePistol, 5, 7, 0, 0, 1, Characters.Amelia);
-				createUpgrade(weapons.AmePistol, "AmePistol", 6, sAmeShoot, sAmePistol, 7*1.25*1.40, 13*1.25*1.40, 80*0.75, 120, 10, true, 5, 3, "red", 4, "Increase damage by [40%].");
+				createUpgrade(weapons.AmePistol, "AmePistol", 6, sAmeShoot, sAmePistol, 7*1.25*1.40, 13*1.25*1.40, 80*0.75, 120, 10, true, 5, 3, "red", 4, "Increase damage by [40%] .");
 				createUpgradeP2(weapons.AmePistol, 6, 7, 0, 0, 1, Characters.Amelia);
-				createUpgrade(weapons.AmePistol, "AmePistol", 7, sAmeShoot, sAmePistol, 7*1.25*1.40, 13*1.25*1.40, 80*0.75, 120, 10, true, 5, 3, "red", 6, "Shoot [2] additional shots, and pistol becomes spread type.");
+				createUpgrade(weapons.AmePistol, "AmePistol", 7, sAmeShoot, sAmePistol, 7*1.25*1.40, 13*1.25*1.40, 80*0.75, 120, 10, true, 5, 3, "red", 6, "Shoot [2]  additional shots, and pistol becomes spread type.");
 				createUpgradeP2(weapons.AmePistol, 7, 7, 0, 0, 1, Characters.Amelia);
 			#endregion
 		#endregion	
@@ -127,17 +127,17 @@ function populateUpgrades(){
 	#region BLBook
 		createUpgrade(weapons.BlBook, "BL Book", 1, sBLBook, sBLBookThumb, 10, 18, 360, 120, 20, 1, 3, 7, "white", 3, "Repels targets with orbiting BL Books.");
 		createUpgradeP2(weapons.BlBook, 1, 7, 3, 5);
-		createUpgrade(weapons.BlBook, "BL Book", 2, sBLBook, sBLBookThumb, 10, 18, 360, 120, 20, 1, 3, 7, "white", 4, "Add [1] additional book. ");
+		createUpgrade(weapons.BlBook, "BL Book", 2, sBLBook, sBLBookThumb, 10, 18, 360, 120, 20, 1, 3, 7, "white", 4, "Add [1]  additional book. ");
 		createUpgradeP2(weapons.BlBook, 2, 7, 3, 5);
-		createUpgrade(weapons.BlBook, "BL Book", 3, sBLBook, sBLBookThumb, 10*1.30, 18*1.30, 360, 180, 20, 1, 3, 7, "white", 4, "Increase damage by [30%] and increase duration by [1] second. ");
+		createUpgrade(weapons.BlBook, "BL Book", 3, sBLBook, sBLBookThumb, 10*1.30, 18*1.30, 360, 180, 20, 1, 3, 7, "white", 4, "Increase damage by [30%]  and increase duration by [1]  second. ");
 		createUpgradeP2(weapons.BlBook, 3, 7, 3, 5);
-		createUpgrade(weapons.BlBook, "BL Book", 4, sBLBook, sBLBookThumb, 10*1.30, 18*1.30, 360, 180, 20, 1, 3, 7, "white", 5, "Add [1] additional book.");
+		createUpgrade(weapons.BlBook, "BL Book", 4, sBLBook, sBLBookThumb, 10*1.30, 18*1.30, 360, 180, 20, 1, 3, 7, "white", 5, "Add [1]  additional book.");
 		createUpgradeP2(weapons.BlBook, 4, 7, 3, 5);
-		createUpgrade(weapons.BlBook, "BL Book", 5, sBLBook, sBLBookThumb, 10*1.30*1.40, 18*1.30*1.40, 360, 180, 20, 1, 3, 7, "white", 5, "Increase Damage by [40%].");
+		createUpgrade(weapons.BlBook, "BL Book", 5, sBLBook, sBLBookThumb, 10*1.30*1.40, 18*1.30*1.40, 360, 180, 20, 1, 3, 7, "white", 5, "Increase Damage by [40%] .");
 		createUpgradeP2(weapons.BlBook, 5, 7, 3, 5);
-		createUpgrade(weapons.BlBook, "BL Book", 6, sBLBook, sBLBookThumb, 10*1.30*1.40, 18*1.30*1.40, 360, 180, 20, 1, 3, 7, "white", 6, "Add [1] additional book. ");
+		createUpgrade(weapons.BlBook, "BL Book", 6, sBLBook, sBLBookThumb, 10*1.30*1.40, 18*1.30*1.40, 360, 180, 20, 1, 3, 7, "white", 6, "Add [1]  additional book. ");
 		createUpgradeP2(weapons.BlBook, 6, 7, 3, 5);
-		createUpgrade(weapons.BlBook, "BL Book", 7, sBLBook, sBLBookThumb, 10*1.30*1.40*1.40, 18*1.30*1.40*1.40, 360, 180, 20, 1, 3, 7, "white", 6, "Increase damage by [40%].");
+		createUpgrade(weapons.BlBook, "BL Book", 7, sBLBook, sBLBookThumb, 10*1.30*1.40*1.40, 18*1.30*1.40*1.40, 360, 180, 20, 1, 3, 7, "white", 6, "Increase damage by [40%] .");
 		createUpgradeP2(weapons.BlBook, 7, 7, 3, 5);
 	#endregion
 	
@@ -355,4 +355,5 @@ function defaultBehaviour(){
 	image_xscale=oPlayer.image_xscale;
 	image_speed=1;
 }
+
 

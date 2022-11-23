@@ -80,9 +80,13 @@ function drawDesc(_xx, _yy, _string, maxX){
 		        break;
 		}
 		char = string_copy(_string, i, 1);
+		if (xt == 0 and char == " ") {
+		    xt = -10.5;
+		}
 	    draw_text(_xx+xt, _yy+yt, char);
 		xt+=10.5;
 	}
 	draw_set_halign(fa_left);
 }
+
 
