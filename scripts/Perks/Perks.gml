@@ -33,8 +33,11 @@ global.perkBonuses[0] = 0;
 	{
 		//Amelia
 		FpsMastery,
-		DetectiveEye,
-		Bubba
+		DetectiveEye,//TODO: chance to kill in one hit
+		Bubba,
+		ShortSize,//TODO: not work with shield, dodge, 
+		PowerofAtlantis,
+		SharkBite
 	}
 #endregion
 function populatePerks(){
@@ -65,9 +68,28 @@ function populatePerks(){
 			#endregion
 	
 			#region Gura Perks
-				#region 
-			
+				#region ShortSize
+					createPerk(perkIds.ShortSize, "Short Size", 0, 3, 1, sShortHeight, 1, "Do Nothing.", Characters.Gura);
+					createPerk(perkIds.ShortSize, "Short Size", 1, 3, 1, sShortHeight, 1, "Grants a [15%] chance to dodge an attack. After dodging, increase movement speed by [30%] and stay invulnerable for [0.5] second.", Characters.Gura);
+					createPerk(perkIds.ShortSize, "Short Size", 2, 3, 1, sShortHeight, 1, "Grants a [25%] chance to dodge an attack. After dodging, increase movement speed by [40%] and stay invulnerable for [0.5] second.", Characters.Gura);
+					createPerk(perkIds.ShortSize, "Short Size", 3, 3, 1, sShortHeight, 1, "Grants a [35%] chance to dodge an attack. After dodging, increase movement speed by [50%] and stay invulnerable for [0.5] second.", Characters.Gura);
 				#endregion
+				
+				#region PowerofAtlantis
+					createPerk(perkIds.PowerofAtlantis, "Power of Atlantis", 0, 3, 1, sPowerofAtlantisThumb, 1, "Do nothing.", Characters.Gura);
+					createPerk(perkIds.PowerofAtlantis, "Power of Atlantis", 1, 3, 1, sPowerofAtlantisThumb, 600, "Every [10] seconds, create a whirlpool that draws in targets and takes [15%] more damage, lasting 6 seconds and deals [30%] damage every [0.5] seconds.", Characters.Gura);
+					createPerk(perkIds.PowerofAtlantis, "Power of Atlantis", 2, 3, 1, sPowerofAtlantisThumb, 600, "Every [10] seconds, create a whirlpool that draws in targets and takes [30%] more damage, lasting 6 seconds and deals [40%] damage every [0.5] seconds.", Characters.Gura);
+					createPerk(perkIds.PowerofAtlantis, "Power of Atlantis", 3, 3, 1, sPowerofAtlantisThumb, 600, "Every [10] seconds, create a whirlpool that draws in targets and takes [50%] more damage, lasting 6 seconds and deals [50%] damage every [0.5] seconds.", Characters.Gura);
+				#endregion
+				
+				#region SharkBite
+					createPerk(perkIds.SharkBite, "Shark Bite", 0, 3, 1, sSharkBite, 1, "Do nothing.", Characters.Gura);
+					createPerk(perkIds.SharkBite, "Shark Bite", 1, 3, 1, sSharkBite, 600, "Attacks have a [10%] chance to place 1 'Bite Mark' (max 5). Per stack, Target takes [6%] more damage, and a [20%] chance to heal you [1%] when defeated.", Characters.Gura);
+					createPerk(perkIds.SharkBite, "Shark Bite", 2, 3, 1, sSharkBite, 600, "Attacks have a [15%] chance to place 1 'Bite Mark' (max 5). Per stack, Target takes [9%] more damage, and a [20%] chance to heal you [1%] when defeated.", Characters.Gura);
+					createPerk(perkIds.SharkBite, "Shark Bite", 3, 3, 1, sSharkBite, 600, "Attacks have a [20%] chance to place 1 'Bite Mark' (max 5). Per stack, Target takes [12%] more damage, and a [20%] chance to heal you [1%] when defeated.", Characters.Gura);
+					global.characterPerks[Characters.Gura] = [PerkList[perkIds.ShortSize][0], PerkList[perkIds.PowerofAtlantis][0], PerkList[perkIds.SharkBite][0]];
+				#endregion		
+
 			#endregion
 	
 			#region Ina Perks
@@ -99,6 +121,67 @@ function tickPerks()
 						        break;
 						}						
 					break;}
+				case perkIds.DetectiveEye:{
+						switch (playerPerks[i][?"level"]) {
+						    case 1:
+						        PerkBonuses[bonusType.Critical][perkIds.DetectiveEye] = 1.10;
+						        break;
+						    case 2:
+						        PerkBonuses[bonusType.Critical][perkIds.DetectiveEye] = 1.20;
+						        break;
+							case 3:
+						        PerkBonuses[bonusType.Critical][perkIds.DetectiveEye] = 1.30;
+						        break;
+						}						
+					break;}
+				case perkIds.Bubba:{
+						switch (playerPerks[i][?"level"]) {
+						    case 1:
+						        PerkBonuses[bonusType.Bubba] = global.Player[?"atk"];
+						        break;
+						    case 2:
+						        PerkBonuses[bonusType.Bubba] = global.Player[?"atk"]*1.50;
+						        break;
+							case 3:
+						        PerkBonuses[bonusType.Bubba] = global.Player[?"atk"]*2;
+						        break;
+						}						
+					break;}
+				case perkIds.PowerofAtlantis:{
+						switch (playerPerks[i][?"level"]) {
+						    case 1:{
+								inst = (instance_create_layer(x,y-8,"Upgrades",oUpgrade));
+								inst.upg=global.upgradesAvaliable[weapons.PowerofAtlantis][1];
+								//show_message(string(global.upgradesAvaliable[weapons.PowerofAtlantis][1][?"duration"]))
+								inst.speed=0;
+								inst.mindmg = UPGRADES[0][?"mindmg"] * 0.3;
+								inst.maxdmg = UPGRADES[0][?"maxdmg"] * 0.3;
+								inst.hits=999;
+								inst.shoots = 1;
+								inst.sprite_index=global.upgradesAvaliable[weapons.PowerofAtlantis][1][?"sprite"];
+						        break;}
+						    case 2:{
+								inst = (instance_create_layer(x,y-8,"Upgrades",oUpgrade));
+								inst.upg=global.upgradesAvaliable[weapons.PowerofAtlantis][1];
+								inst.speed=0;
+								inst.mindmg = UPGRADES[0][?"mindmg"] * 0.4;
+								inst.maxdmg = UPGRADES[0][?"maxdmg"] * 0.4;
+								inst.hits=999;
+								inst.shoots = 2;
+								inst.sprite_index=global.upgradesAvaliable[weapons.PowerofAtlantis][1][?"sprite"];
+						        break;}
+							case 3:{
+								inst = (instance_create_layer(x,y-8,"Upgrades",oUpgrade));
+								inst.upg=global.upgradesAvaliable[weapons.PowerofAtlantis][1];
+								inst.speed=0;
+								inst.mindmg = UPGRADES[0][?"mindmg"] * 0.5;
+								inst.maxdmg = UPGRADES[0][?"maxdmg"] * 0.5;
+								inst.hits=999;
+								inst.shoots = 3;
+								inst.sprite_index=global.upgradesAvaliable[weapons.PowerofAtlantis][1][?"sprite"];
+						        break;}
+						}						
+					break;}
 			}
 		}
 	}
@@ -107,6 +190,8 @@ function tickPerks()
 function defaultPerkBehaviour(_id, _cooldown){
 	global.perkCooldown[_id] = _cooldown;
 }
+
+
 
 
 

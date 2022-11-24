@@ -18,7 +18,7 @@ function initiateEnemy(e){
 	sprite_index=sprwalking;
 	xp = e[?"exp"];
 	boss = e[?"boss"];
-	for (var i = 0; i < array_length(UPGRADES); ++i) {
+	for (var i = 0; i < array_length(global.upgradesAvaliable); ++i) {
 	    hittedcooldown[i] = 0;
 	}
 }
@@ -78,7 +78,8 @@ enum Enemies
 	SwarmingKingKronie,
 	SwarmingOvergrownSapling,
 	ThiccBubba,
-	SmolAme
+	SmolAme,
+	lenght
 }
 #region Create Enemies
 	#region Stage 1
@@ -166,6 +167,8 @@ function damageCalculation(baseDmg)
 	}	
 	return damage;
 }
+
+
 
 
 

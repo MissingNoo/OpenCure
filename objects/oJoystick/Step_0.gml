@@ -108,10 +108,19 @@ if (mode == "stage") {
 			keyboard_key_press(DOWNKEY);
 			keyboard_key_release(DOWNKEY);
 		}
+		if (TouchY1 > leftButtonY and TouchY1 < leftButtonSizeY and TouchX1 > leftButtonX and TouchX1 < leftButtonSizeX and device_mouse_check_button(0,mb_left)) {
+			keyboard_key_press(LEFTKEY);
+			keyboard_key_release(LEFTKEY);
+		}
+		if (TouchY1 > rightButtonY and TouchY1 < rightButtonSizeY and TouchX1 > rightButtonX and TouchX1 < rightButtonSizeX and device_mouse_check_button(0,mb_left)) {
+			keyboard_key_press(RIGHTKEY);
+			keyboard_key_release(RIGHTKEY);
+		}
 	}
 #endregion
 //and TouchX1 > GW/10.5 and TouchX1 < GW/4.25
 //and TouchX2 > GW/10.5 and TouchX2 < GW/4.25
+
 
 
 

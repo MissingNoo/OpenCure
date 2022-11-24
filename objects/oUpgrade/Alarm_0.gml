@@ -97,4 +97,23 @@ switch (upg[?"name"]) {
 			alarm[0]=1;
 		}
 		break;}
+	case "Power of Atlantis":{
+		if (shoots > 1) {			
+			inst = (instance_create_layer(oPlayer.x,oPlayer.y-8,"Upgrades",oUpgrade));
+			inst.upg=upg;
+			inst.speed=upg[?"speed"];
+			inst.hits=upg[?"hits"];
+			inst.shoots = 0;
+			inst.mindmg = mindmg;
+			inst.maxdmg = maxdmg;
+			inst.sprite_index=upg[?"sprite"];
+			random_set_seed(current_time);
+			x = oPlayer.x + irandom_range(-200,200)
+			random_set_seed(current_time);
+			y = oPlayer.y + irandom_range(-200,200)
+		    shoots-=1;
+			alarm[0]=1;
+		}
+		break;}
 }
+

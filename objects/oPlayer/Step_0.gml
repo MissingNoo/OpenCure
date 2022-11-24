@@ -1,7 +1,7 @@
 // Feather disable GM2016
 if(keyboard_check(ord("R"))) v-=0.01;
 if(keyboard_check(ord("T"))) v+=0.01;
-if (keyboard_check_pressed(vk_control)) {
+if (keyboard_check_pressed(vk_control) and global.debug) {
 	//summonCircle();
 	global.xp=1600;
 }
@@ -19,7 +19,7 @@ if (!global.gamePaused) {
 		randomUpgrades()
 		keyboard_clear(ord("Z"));
 		audio_play_sound(sndLvlUp,0,0);
-		if (instance_exists(oJoystick)) { oJoystick.mode = "menu"; }
+		//if (instance_exists(oJoystick)) { oJoystick.mode = "menu"; }
 		global.upgrade=1;	
 		oGui.selected=0;		
 		PauseGame()
@@ -43,5 +43,7 @@ if (global.debug) {
 if (HP > MAXHP) {
     HP=MAXHP;
 }
+
+
 
 

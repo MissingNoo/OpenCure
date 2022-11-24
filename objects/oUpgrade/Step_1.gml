@@ -1,9 +1,17 @@
-/// @description Insert description here
-// You can write your code in this editor
 #region Start
 if (a==0) {	
 	global.upgradeCooldown[upg[?"id"]] = upg[?"cooldown"];
 	alarm[1] = upg[?"duration"];
+	
+	if (!variable_instance_exists(self, "mindmg")) {
+		mindmg = upg[?"mindmg"];
+	}
+	
+	if (!variable_instance_exists(self, "maxdmg")) {
+	    maxdmg = upg[?"maxdmg"];
+	}
+	
+	
 	image_speed=1;
 	image_alpha=1;
 	a=1;
@@ -112,6 +120,14 @@ if (a==0) {
 			alarm[1] = 9999;
 			depth=oPlayer.depth;
 			break;}
+		case "Power of Atlantis":{	
+			random_set_seed(current_time);
+			x = oPlayer.x + irandom_range(-200,200)
+			random_set_seed(current_time);
+			y = oPlayer.y + (irandom_range(-200,200)*-1)
+			alarm[0] = 1;
+			depth=oPlayer.depth;
+			break;}
 	}
 		if (sprite_index==blank) {
 			instance_destroy();
@@ -126,6 +142,7 @@ if (a==0) {
 	
 }
 #endregion
+
 
 
 

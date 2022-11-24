@@ -3,7 +3,7 @@
 // Feather disable GM1019
 // Feather disable GM1049
 // Feather disable GM2016
-
+global.sprites[0]=0
 global.gamePaused = false;
 function resetTimer(){
 	global.seconds=0;
@@ -22,6 +22,12 @@ function PauseGame(){
 		oGui.activeMenu=pMenus.Pause;
 		oGui.selected=0;
 		maxselected = 0;
+		if (instance_exists(oJoystick)) {
+			if (oJoystick.mode = "menu") {
+			    oJoystick.mode = "stage";
+			}
+			else{oJoystick.mode = "menu";}
+		}
 		global.gamePaused = !global.gamePaused;		
 		if(global.gamePaused)
 		{			
@@ -81,6 +87,8 @@ function summonCircle(){
 		instance_create_layer(a,b,"Instances",oEnemy)
 	}	
 }
+
+
 
 
 

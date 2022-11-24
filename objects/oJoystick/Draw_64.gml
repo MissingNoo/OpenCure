@@ -77,7 +77,24 @@ if (mode == "menu") {
 		draw_set_alpha(1);
 		draw_rectangle(downButtonX, downButtonY, downButtonSizeX, downButtonSizeY, true);
 	#endregion
+	#region LeftButton
+		draw_set_alpha(0.5);
+		draw_set_color(c_white);
+		draw_rectangle(leftButtonX, leftButtonY, leftButtonSizeX, leftButtonSizeY, false);
+		draw_set_color(c_teal);
+		draw_set_alpha(1);
+		draw_rectangle(leftButtonX, leftButtonY, leftButtonSizeX, leftButtonSizeY, true);
+	#endregion
+	#region RightButton
+		draw_set_alpha(0.5);
+		draw_set_color(c_white);
+		draw_rectangle(rightButtonX, rightButtonY, rightButtonSizeX, rightButtonSizeY, false);
+		draw_set_color(c_teal);
+		draw_set_alpha(1);
+		draw_rectangle(rightButtonX, rightButtonY, rightButtonSizeX, rightButtonSizeY, true);
+	#endregion
 }
 draw_set_color(c_white);
 draw_set_alpha(1);
 #endregion
+

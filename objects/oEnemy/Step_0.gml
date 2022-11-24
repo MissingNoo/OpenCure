@@ -13,8 +13,12 @@ if(global.gamePaused == false){
 	}
 	
 	//if(oPlayer.y < y) y-=.5;
-	//if(oPlayer.y > y) y+=.5;
-	direction=point_direction(x,y,oPlayer.x,oPlayer.y)
+		//if(oPlayer.y > y) y+=.5;
+		var isColliding = collision_point(x,y, oUpgrade,false, true)
+	if (isColliding != noone and isColliding.upg[?"name"] == "Power of Atlantis") {
+	    direction=point_direction(x,y,isColliding.x,isColliding.y);
+	}	else {direction=point_direction(x,y,oPlayer.x,oPlayer.y);}
+	
 	if (hp<=0) {
 		image_alpha-=.05;
 		x-=image_xscale;
@@ -26,6 +30,7 @@ if(global.gamePaused == false){
 	speed = (baseSPD + (0.12 * global.timeA)) * (1 + (global.timeB / 25));
 }
 pausedamaged = false;
+
 
 
 

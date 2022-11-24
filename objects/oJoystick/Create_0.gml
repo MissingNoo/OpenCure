@@ -42,14 +42,23 @@ mode = "menu"
 	Joystick2AtivationDown = Joystick2CenterY+ativation;
 #endregion
 #region Menu Mode
-	downButtonX = GW/12;
+	downButtonX = GW/7.5;
 	downButtonY = GW/2.20-64;
 	downButtonSizeX = downButtonX + 128;
 	downButtonSizeY = downButtonY + 128;
-	upButtonX = GW/12;
+	upButtonX = GW/7.5;
 	upButtonY = GW/2.20-74-128;
 	upButtonSizeX = upButtonX + 128;
 	upButtonSizeY = upButtonY + 128;
+	leftButtonX = GW/30;
+	leftButtonY = GW/2.20-74-64;
+	leftButtonSizeX = leftButtonX + 128;
+	leftButtonSizeY = leftButtonY + 128;
+	rightButtonX = GW/4.30;
+	rightButtonY = GW/2.20-74-64;
+	rightButtonSizeX = rightButtonX + 128;
+	rightButtonSizeY = rightButtonY + 128;
 #endregion
+
 
 

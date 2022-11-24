@@ -1,6 +1,4 @@
 isP=global.gamePaused;
-
-
 #region Start Menu
 	if (room = rInicio and !global.gamePaused) {
 	    if (keyboard_check_pressed(ord("Z"))) {
@@ -86,9 +84,10 @@ isP=global.gamePaused;
 				}
 			}
 			global.xp = 0;
-			if (instance_exists(oJoystick)) { oJoystick.mode = "stage"; }
+			
 	        global.upgrade = 0;
 	        PauseGame();
+			if (instance_exists(oJoystick)) { oJoystick.mode = "stage"; }
 	    }
 }
 #endregion
@@ -101,6 +100,7 @@ isP=global.gamePaused;
 			//show_message(string(CHARACTERS[selected][?"id"]));
 			playerPerks = global.characterPerks[CHARACTERS[selected][?"id"]];
 			if (instance_exists(oJoystick)) { oJoystick.mode = "stage"; }
+			audio_stop_sound(global.musicPlaying);
 			room_goto(Room1);
 	    }
 	}
@@ -131,7 +131,7 @@ isP=global.gamePaused;
 #endregion
 
 #region PauseMenu
-if (global.gamePaused) {
+if (global.gamePaused and !global.upgrade) {
 	pauseMenu[activeMenu][pM.yScale] = 0.75;
 	for (var i = 1; i < array_length(pauseMenu[activeMenu][pM.Options]); ++i) {
 		if (i < 5) {
@@ -258,4 +258,7 @@ if (global.gamePaused) {
 		
 	}
 #endregion
+
+
+
 

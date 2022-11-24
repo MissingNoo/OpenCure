@@ -45,7 +45,7 @@ if (room == Room2) {
 }
 
 #region PausedMenu
-	if (global.gamePaused) {
+	if (global.gamePaused and !global.upgrade) {
 		if (keyboard_check_pressed(vk_up))
 		{
 			if (selected == 0)
@@ -65,6 +65,7 @@ if (room == Room2) {
 		}	
 	}
 #endregion
+
 
 
 

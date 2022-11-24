@@ -15,16 +15,6 @@
 
 #region Menu room
 	if (room == rInicio) {
-		#region Lines
-			var linesoff = 0;
-			if (alarm_get(0) == -1) {
-			    alarm[0]=1;
-			}
-			for (var i = 0; i < 130; ++i) {
-			    draw_sprite_ext(menu_charselec_bar,0,linespos+linesoff,GH,1.5,2.15,0,c_white,.25);
-				linesoff +=16;
-			}	
-		#endregion
 	//1.75 1.15
 		#region Menu
 		if (!global.gamePaused) {
@@ -278,7 +268,7 @@
 #endregion
 
 #region PauseMenu
-	if (global.gamePaused) {
+	if (global.gamePaused and !global.upgrade) {
 		//pauseMenu[pMenus.Pause][pM.xScale] = a;
 		//pauseMenu[pMenus.Pause][pM.yScale] = b;
 		//pauseMenu[pMenus.Pause][pM.yScale] = array_length(pauseMenu[activeMenu][pM.Options])/(3 - (array_length(pauseMenu[activeMenu][pM.Options])*1.5));
@@ -412,4 +402,6 @@ if (keyboard_check_pressed(ord("M"))) {
 		draw_set_color(c_white);
 	}
 #endregion
+
+
 

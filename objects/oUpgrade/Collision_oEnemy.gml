@@ -4,7 +4,7 @@ if (other.hittedcooldown[upg[?"id"]] <= 0  and !global.gamePaused and other.imag
 	other.hittedcooldown[upg[?"id"]] = upg[?"hitCooldown"];
 	other.damaged = true;
 	random_set_seed(current_time);
-	dmg = irandom_range(upg[?"mindmg"],upg[?"maxdmg"]);
+	dmg = irandom_range(mindmg, maxdmg);
 	var bdmg = dmg;
 	for (var i = 0; i < array_length(Bonuses[bonusType.Damage]); ++i) {
 	    if (Bonuses[bonusType.Damage][i] != 0) {
@@ -38,6 +38,7 @@ if (other.hittedcooldown[upg[?"id"]] <= 0  and !global.gamePaused and other.imag
 	}
 	hits-=1;
 }
+
 
 
 

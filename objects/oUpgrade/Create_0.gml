@@ -1,3 +1,4 @@
+
 CE=0;
 image_alpha=0;
 image_speed=0;	
@@ -17,4 +18,5 @@ orbit_place = 0;
 //lava
 loops = 0;
 changeSprite=false;
+
 

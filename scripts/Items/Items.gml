@@ -69,7 +69,8 @@ global.itemCooldown[0] = 0;
 		ChickenFeather,
 		EnergyDrinkHpMinus,
 		Healing,
-		weaponSize
+		weaponSize,
+		Bubba
 	}
 #endregion
 
@@ -300,6 +301,7 @@ function tickItems()
 function defaultItemBehaviour(_id, _cooldown){
 	global.itemCooldown[_id] = _cooldown;
 }
+
 
 
 

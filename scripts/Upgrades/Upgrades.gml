@@ -62,7 +62,8 @@ function createUpgradeP2(_id, _level, _maxlevel, _knockbackSpeed, _knockbackDura
 enum weapons
 {
 	AmePistol,
-	//GuraTrident,
+	GuraTrident,
+	PowerofAtlantis, //TODO: water area, more damage
 	//InaTentacle,
 	BlBook, //TODO: area
 	//CEOTears,
@@ -101,13 +102,30 @@ function populateUpgrades(){
 	
 		#region Gura Perks
 			#region GuraTrident
-				//createUpgrade(weapons.GuraTrident,"GuraTrident",1, sGuraTridentShoot, sGuraTrident,11,21,70,true,0,999, "red", 1,1,"Mid ranged stab attack in front.");
-				//createUpgrade(weapons.GuraTrident,"GuraTrident",2, sGuraTridentShoot, sGuraTrident,11*1.20,21*1.20,70,true,0,999, "red", 1,1,"Increase damage by 20%. ");
-				//createUpgrade(weapons.GuraTrident,"GuraTrident",3, sGuraTridentShoot, sGuraTrident,11*1.20,21*1.20,70,true,0,999, "red", 2,1,"Stab one extra time, forming a V shape. ");
-				//createUpgrade(weapons.GuraTrident,"GuraTrident",4, sGuraTridentShoot, sGuraTrident,11*1.20,21*1.20,70*0.85,true,0,999, "red", 2,1,"Reduce the time between attacks by 15%. ");
-				//createUpgrade(weapons.GuraTrident,"GuraTrident",5, sGuraTridentShoot, sGuraTrident,11*1.20*1.40,21*1.20*1.40,70*0.85,true,0,999, "red", 2,1,"Increase damage by 40%. ");
-				//createUpgrade(weapons.GuraTrident,"GuraTrident",6, sGuraTridentShoot, sGuraTrident,11*1.20*1.40,21*1.20*1.40,70*0.85,true,0,999, "red", 2,1,"Increase attack area by 25%. ");
-				//createUpgrade(weapons.GuraTrident,"GuraTrident",7, sGuraTridentShoot, sGuraTrident,11*1.20*1.40,21*1.20*1.40,70*0.85,true,0,999, "red", 3,1,"Thrust 3 times, in a fork-like shape. ");
+				createUpgrade(weapons.GuraTrident,"GuraTrident",1, sGuraTridentShoot, sGuraTrident,11,21,70,100,20,true,0,999, "red", 1,"Mid ranged stab attack in front.");
+				createUpgradeP2(weapons.GuraTrident, 1, 7, 0, 0, 1, Characters.Gura);
+				createUpgrade(weapons.GuraTrident,"GuraTrident",2, sGuraTridentShoot, sGuraTrident,11*1.20,21*1.20,70,100,20,true,0,999, "red", 1,"Increase damage by 20%. ");
+				createUpgradeP2(weapons.GuraTrident, 2, 7, 0, 0, 1, Characters.Gura);
+				createUpgrade(weapons.GuraTrident,"GuraTrident",3, sGuraTridentShoot, sGuraTrident,11*1.20,21*1.20,70,100,20,true,0,999, "red", 2,"Stab one extra time, forming a V shape. ");
+				createUpgradeP2(weapons.GuraTrident, 3, 7, 0, 0, 1, Characters.Gura);
+				createUpgrade(weapons.GuraTrident,"GuraTrident",4, sGuraTridentShoot, sGuraTrident,11*1.20,21*1.20,70*0.85,100,20,true,0,999, "red", 2,"Reduce the time between attacks by 15%. ");
+				createUpgradeP2(weapons.GuraTrident, 4, 7, 0, 0, 1, Characters.Gura);
+				createUpgrade(weapons.GuraTrident,"GuraTrident",5, sGuraTridentShoot, sGuraTrident,11*1.20*1.40,21*1.20*1.40,70*0.85,100,20,true,0,999, "red", 2,"Increase damage by 40%. ");
+				createUpgradeP2(weapons.GuraTrident, 5, 7, 0, 0, 1, Characters.Gura);
+				createUpgrade(weapons.GuraTrident,"GuraTrident",6, sGuraTridentShoot, sGuraTrident,11*1.20*1.40,21*1.20*1.40,70*0.85,100,20,true,0,999, "red", 2,"Increase attack area by 25%. ");
+				createUpgradeP2(weapons.GuraTrident, 6, 7, 0, 0, 1, Characters.Gura);
+				createUpgrade(weapons.GuraTrident,"GuraTrident",7, sGuraTridentShoot, sGuraTrident,11*1.20*1.40,21*1.20*1.40,70*0.85,100,20,true,0,999, "red", 3,"Thrust 3 times, in a fork-like shape. ");
+				createUpgradeP2(weapons.GuraTrident, 7, 7, 0, 0, 1, Characters.Gura);
+			#endregion
+			
+			#region PowerofAtlantis
+				//var pdmg = global.Player[?"atk"];
+				createUpgrade(weapons.PowerofAtlantis, "Power of Atlantis", 1, sWaterPoolStart, sPowerofAtlantisThumb, 6, 10, 600, 360, 45, true, 0, 999, "white", 1, "Every 10 seconds, create a whirlpool that draws in targets and takes 15% more damage, lasting 6 seconds and deals 30% damage every 0.5 seconds.");
+				createUpgradeP2(weapons.PowerofAtlantis, 1, 3, 0 ,0,1,-1);
+				createUpgrade(weapons.PowerofAtlantis, "Power of Atlantis", 2, sWaterPoolStart, sPowerofAtlantisThumb, 6, 10, 600, 360, 45, true, 0, 999, "white", 2, "Every 10 seconds, create a whirlpool that draws in targets and takes 30% more damage, lasting 6 seconds and deals 40% damage every 0.5 seconds.");
+				createUpgradeP2(weapons.PowerofAtlantis, 2, 3, 0 ,0,1,-1);
+				createUpgrade(weapons.PowerofAtlantis, "Power of Atlantis", 3, sWaterPoolStart, sPowerofAtlantisThumb, 6, 10, 600, 360, 45, true, 0, 999, "white", 3, "Every 10 seconds, create a whirlpool that draws in targets and takes 50% more damage, lasting 6 seconds and deals 50% damage every 0.5 seconds.");
+				createUpgradeP2(weapons.PowerofAtlantis, 3, 3, 0 ,0,1,-1);
 			#endregion
 		#endregion
 	
@@ -175,7 +193,9 @@ function populateUpgrades(){
 		createUpgrade(weapons.EliteLavaBucket, "Elite Lava Bucket", 7, sLavaPoolStart, sEliteLavaBucketThumb, 6*1.30*1.30, 10*1.30*1.30, 300, 240, 45, true, 0, 999, "white", 4, "Throw [4] lava buckets and increase lava size by [20%].");
 		createUpgradeP2(weapons.EliteLavaBucket, 7, 7, 0 ,0);
 	#endregion
+
 	
+
 	#region Holobomb
 	createUpgrade(weapons.HoloBomb, "Holo Bomb", 1, sHolobomb, sHolobomb, 12, 22, 120, 630, 20, true, 7, 1,, 1, "A bomb that explodes, dealing damage to all nearby targets.");
 	createUpgrade(weapons.HoloBomb, "Holo Bomb", 2, sHolobomb, sHolobomb, 12, 22, 120, 630, 20, true, 7, 1,, 1, "Increase explosion size by [15%].");
@@ -355,5 +375,6 @@ function defaultBehaviour(){
 	image_xscale=oPlayer.image_xscale;
 	image_speed=1;
 }
+
 
 

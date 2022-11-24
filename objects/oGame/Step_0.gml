@@ -97,12 +97,15 @@ if (keyboard_check(vk_control)) {
 }
 
 #region in stage
-	if (instance_exists(oPlayer)) {
-	    if (room == Room1) {
-		    audio_sound_gain(global.musicPlaying, global.musicVolume, 0);
-		}
-	}
+	//if (instance_exists(oPlayer)) {
+	//    if (room == Room1) {
+	if (global.musicPlaying != undefined) {
+	    audio_sound_gain(global.musicPlaying, global.musicVolume, 0);
+	}		    
+	//	}
+	//}
 #endregion
+
 
 
 
