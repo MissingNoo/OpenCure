@@ -14,6 +14,7 @@ function initializePlayer(p){
 	}
 	global.upgrade=0;
 	global.xp=0;
+	global.level = 1;
 	damaged=false;
 	spddefault=p[?"speed"];
 	spd=p[?"speed"];
@@ -125,6 +126,7 @@ if can_move == true{
 		sprite_index=sprite;
 		}
 }
+
 
 
 

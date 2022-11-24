@@ -1,7 +1,8 @@
 /// @description Insert description here
 // You can write your code in this editor
 instance_destroy(other);
-global.xp+=other.xp*10;
+global.xp+=other.xp;
+
 
 
 

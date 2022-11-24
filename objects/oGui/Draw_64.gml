@@ -187,7 +187,7 @@
 	    #endregion	
 	
 	    #region XP
-		    draw_rectangle_color(5, 5, 5 + global.xp, 30, c_blue, c_blue, c_blue, c_blue, false);
+		    draw_rectangle_color(5, 5, 5 + ((global.xp / oPlayer.neededxp) * 100), 30, c_blue, c_blue, c_blue, c_blue, false);
 		    draw_rectangle(5, 5, GW - 5, 30, true);
 	    #endregion
 	
@@ -402,6 +402,7 @@ if (keyboard_check_pressed(ord("M"))) {
 		draw_set_color(c_white);
 	}
 #endregion
+
 
 
 
