@@ -37,7 +37,7 @@ global.perkBonuses[0] = 0;
 		Bubba,
 		ShortSize,//TODO: not work with shield, dodge, 
 		PowerofAtlantis,
-		SharkBite
+		SharkBite//TODO: everything
 	}
 #endregion
 function populatePerks(){
