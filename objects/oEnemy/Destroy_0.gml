@@ -1,5 +1,8 @@
 /// @description Insert description here
 // You can write your code in this editor
+if (boss and global.canShake == 1) {
+    oGame.shake_magnitude=6;
+}
 a = instance_create_layer(x,y,"Instances",oXP);
 a.xp = xp;
 random_set_seed(current_time);
@@ -23,3 +26,4 @@ for (var i = 0; i < array_length(playerItems); ++i) {
 		}
 	}
 }
+

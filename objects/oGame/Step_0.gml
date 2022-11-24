@@ -1,5 +1,12 @@
-/// @description 
+// Apply shake
+fx_set_parameter(shake_fx, "g_Magnitude", shake_magnitude);
+fx_set_parameter(shake_fx, "g_ShakeSpeed", shake_speed);
 
+// Fall to 0
+if (shake_magnitude > 0)
+{
+	shake_magnitude -= 0.2;
+}
 	var pressed = (keyboard_check(ord("Z"))) ? true : false
 	global.strafe = pressed;
 #region Spawn
@@ -105,6 +112,7 @@ if (keyboard_check(vk_control)) {
 	//	}
 	//}
 #endregion
+
 
 
 

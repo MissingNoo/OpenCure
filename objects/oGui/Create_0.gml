@@ -85,7 +85,9 @@ event = 0;
 			pauseMenu[pMenus.Settings][pM.Bool][2] = true;
 			pauseMenu[pMenus.Settings][pM.BoolValue][2] = global.damageNumbers;
 			pauseMenu[pMenus.Settings][pM.Options][2] = "Damage Numbers: ";
-			
+			pauseMenu[pMenus.Settings][pM.Bool][3] = true;
+			pauseMenu[pMenus.Settings][pM.BoolValue][3] = global.canShake;
+			pauseMenu[pMenus.Settings][pM.Options][3] = "Screen Shake: ";
 		}
 		loadSettingValues();
 		//pauseMenu[pMenus.Pause][pM.Options] = ["Skills"];
@@ -98,4 +100,5 @@ event = 0;
 if (instance_number(Object16) < 15 and room == rInicio) {
     instance_create_layer(0,0, "Instances", Object16);
 }
+
 

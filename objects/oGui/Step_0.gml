@@ -155,6 +155,10 @@ if (global.gamePaused and !global.upgrade) {
 		        global.damageNumbers = !global.damageNumbers;
 				loadSettingValues();
 		        break;} 
+			case "Screen Shake":{
+		        global.canShake= !global.canShake;
+				loadSettingValues();
+		        break;} 
 		}
 		
 		var lastmenu = activeMenu;
@@ -258,6 +262,7 @@ if (global.gamePaused and !global.upgrade) {
 		
 	}
 #endregion
+
 
 
 

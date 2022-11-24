@@ -2,10 +2,7 @@
   "spriteId": null,
   "solid": false,
   "visible": true,
-  "spriteMaskId": {
-    "name": "sShrimp",
-    "path": "sprites/sShrimp/sShrimp.yy",
-  },
+  "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": null,
   "physicsObject": false,
