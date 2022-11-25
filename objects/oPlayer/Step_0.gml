@@ -48,7 +48,9 @@ if (!global.gamePaused) {
 if (global.debug) {
     HP=999999;
 }
-
+if (xp<0) {
+    xp = 0;
+}
 if (HP > MAXHP) {
     HP=MAXHP;
 }

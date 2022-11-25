@@ -1,4 +1,5 @@
 // Feather disable GM2043
+// Feather disable GM1024
 // Feather disable GM2017
 #macro GW display_get_gui_width()
 #macro GH display_get_gui_height()

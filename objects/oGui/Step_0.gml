@@ -85,7 +85,7 @@ isP=global.gamePaused;
 						#endregion		
 				}
 			}
-			global.xp = 0;
+			global.xp -= oPlayer.neededxp;
 			
 	        global.upgrade = 0;
 	        PauseGame();

@@ -13,5 +13,7 @@ do {
 sprite_index = sprite;
 x = 0-sprite_get_width(sprite_index);
 speed = irandom_range(3,5);
+oSpeed = speed;
+oImageSpeed = image_speed;
 alarm[0] = irandom_range(1,100);
 

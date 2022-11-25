@@ -1,6 +1,5 @@
 
-var _a = instance_create_layer(x,y,"Instances",oXP);
-_a.xp = xp;
+instance_create_layer(x,y,"Instances",oXP, {xp : xp});
 random_set_seed(current_time);
 for (var i = 0; i < array_length(playerItems); ++i) {
 	//show_message(string(playerItems[i][?"id"]));

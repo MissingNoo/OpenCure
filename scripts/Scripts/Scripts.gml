@@ -34,6 +34,9 @@ function PauseGame(){
 				{				
 					for (var i = 0; i < 12; i++)
 					{
+						if (alarm_get(i) > 0) {
+						    setalarms[i] = true;
+						}else {setalarms[i] = false;}
 						alarms[i] = alarm_get(i);
 						alarm_set(i,-1);
 					}
@@ -49,10 +52,16 @@ function PauseGame(){
 				{	
 					for (var i = 0; i < 12; i++)
 					{
-						alarm_set(i,alarms[i]);
+						if (variable_instance_exists(self, "setalarms") and setalarms[i] == true) {
+						    alarm_set(i,alarms[i]);
+						}						
 					}
-					speed=pausedSpeed;
-					image_speed=gamePausedImageSpeed;
+					if (variable_instance_exists(self, "pausedSpeed")) {
+					    speed=pausedSpeed;
+					}
+					if (variable_instance_exists(self, "gamePausedImageSpeed")) {
+					    image_speed=gamePausedImageSpeed;
+					}					
 				}
 		}
 }		

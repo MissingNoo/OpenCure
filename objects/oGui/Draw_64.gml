@@ -4,13 +4,13 @@
 	draw_set_alpha(1);
 	draw_set_color(c_white);
 #endregion
-var lasti = "";
-for (var i = 0; i < array_length(lastinputs); ++i) {
-    lasti = lasti + ":" + string(lastinputs[i]);
-}
-draw_set_color(c_red);
-draw_text(100,100,lasti);
-draw_set_color(c_white);
+//var lasti = "";
+//for (var i = 0; i < array_length(lastinputs); ++i) {
+//    lasti = lasti + ":" + string(lastinputs[i]);
+//}
+//draw_set_color(c_red);
+//draw_text(100,100,lasti);
+//draw_set_color(c_white);
 #region black screen below gui
 	if (global.upgrade == 1 or global.gamePaused and room != rInicio) {
 		draw_set_alpha(.75)
