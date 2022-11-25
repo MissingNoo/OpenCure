@@ -2,6 +2,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 // Feather disable GM2017
+global.spawnEnemies = 1;
 shake_fx = layer_get_fx("ShakeLayer");
 shake_magnitude = 0;
 shake_speed = 1;

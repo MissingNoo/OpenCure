@@ -2,7 +2,7 @@
 // Feather disable GM2016
 if(keyboard_check(ord("R"))) v-=0.01;
 if(keyboard_check(ord("T"))) v+=0.01;
-if (keyboard_check_pressed(vk_control) and global.debug) {
+if (keyboard_check_pressed(ord("H")) and global.debug) {
 	//summonCircle();
 	global.xp=neededxp;
 	//98
@@ -46,7 +46,7 @@ if (!global.gamePaused) {
 	}
 }
 if (global.debug) {
-    HP=MAXHP;
+    HP=999999;
 }
 
 if (HP > MAXHP) {

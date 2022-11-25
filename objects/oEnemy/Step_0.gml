@@ -31,6 +31,7 @@ if(global.gamePaused == false){
 		}
 	}
 	atk = (baseATK + (2 * global.timeA)) * (1 + (global.timeB / 25));
+	
 	speed = (baseSPD + (0.12 * global.timeA)) * (1 + (global.timeB / 25));
 }
 var pausedamaged = false;

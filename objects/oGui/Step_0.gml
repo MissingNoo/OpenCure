@@ -161,6 +161,10 @@ if (global.gamePaused and !global.upgrade) {
 		        global.canShake= !global.canShake;
 				loadSettingValues();
 		        break;} 
+			case "SpawnEnemies":{
+		        global.spawnEnemies= !global.spawnEnemies;
+				loadSettingValues();
+		        break;} 
 		}
 		
 		var lastmenu = activeMenu;

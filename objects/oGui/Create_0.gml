@@ -90,6 +90,9 @@ event = 0;
 			pauseMenu[PMenus.Settings][pM.Bool][3] = true;
 			pauseMenu[PMenus.Settings][pM.BoolValue][3] = global.canShake;
 			pauseMenu[PMenus.Settings][pM.Options][3] = "Screen Shake: ";
+			pauseMenu[PMenus.Settings][pM.Bool][4] = true;
+			pauseMenu[PMenus.Settings][pM.BoolValue][4] = global.spawnEnemies;
+			pauseMenu[PMenus.Settings][pM.Options][4] = "SpawnEnemies: ";
 		}
 		loadSettingValues();
 		//pauseMenu[PMenus.Pause][pM.Options] = ["Skills"];

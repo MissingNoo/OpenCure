@@ -11,6 +11,8 @@ if (room != rInicio) {
 	    removeEnemyFromPool(thisEnemy);
 	}
 	baseATK = atk;
+	baseHP = hp;
+	//hp = (baseHP + baseHP * 0.05 * global.timeA) * (1 + (global.timeB / 50));
 	baseSPD = speed;
 	baseHP = hp;
 	hp = (baseHP + (baseHP * 0.05 + global.timeA)) * ( 1 + (global.timeB/50));

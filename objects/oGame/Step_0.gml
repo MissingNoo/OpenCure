@@ -11,7 +11,7 @@ if (shake_magnitude > 0)
 	var pressed = (keyboard_check(ord("Z"))) ? true : false
 	global.strafe = pressed;
 #region Spawn
-if (canspawn == true and global.gamePaused == false and room == Room1) {
+if (canspawn == true and global.gamePaused == false and room == Room1 and global.spawnEnemies == 1) {
 	if (!instance_exists(oEvents)) {
 	    instance_create_layer(0,0,"Instances",oEvents);
 	}	
