@@ -34,7 +34,7 @@ if (a==0) {
 			break;}
 			
 		case "GuraTrident":{
-			image_angle = global.arrow_dir + diroffset;
+			image_angle = global.arrowDir + diroffset;
 			//defaultBehaviour();			
 			if (upg[?"level"] >= 6) {
 			    var dirr = (image_xscale > 0) ? .25 : -.25;
@@ -46,7 +46,7 @@ if (a==0) {
 		case "InaTentacle":{
 			//defaultBehaviour();
 			if (shoots > 0) {
-			    image_angle = global.arrow_dir;
+			    image_angle = global.arrowDir;
 			}
 			else image_angle=diroffset;
 			
@@ -134,11 +134,11 @@ if (a==0) {
 		if (sprite_index==blank) {
 			instance_destroy();
 	}
-	for (var i = 0; i < array_length(Bonuses[bonusType.weaponSize]); ++i) {
-	    if (Bonuses[bonusType.weaponSize][i] != 0) {
-			if (image_xscale > 0) { image_xscale = image_xscale * Bonuses[bonusType.weaponSize][i]; }
-			else { image_xscale = image_xscale * (Bonuses[bonusType.weaponSize][i] * -1); }
-			image_yscale = image_yscale * Bonuses[bonusType.weaponSize][i];
+	for (var i = 0; i < array_length(Bonuses[BonusType.weaponSize]); ++i) {
+	    if (Bonuses[BonusType.weaponSize][i] != 0) {
+			if (image_xscale > 0) { image_xscale = image_xscale * Bonuses[BonusType.weaponSize][i]; }
+			else { image_xscale = image_xscale * (Bonuses[BonusType.weaponSize][i] * -1); }
+			image_yscale = image_yscale * Bonuses[BonusType.weaponSize][i];
 		}
 	}
 	

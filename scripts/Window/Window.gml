@@ -1,10 +1,8 @@
-// Script assets have changed for v2.3.0 see
-// https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
-
 // Feather disable GM2043
+// Feather disable GM2017
 #macro GW display_get_gui_width()
 #macro GH display_get_gui_height()
-function DrawWindow(x, y, w, h, title){
+function drawWindow(x, y, w, h, title){
 	//background
 	draw_set_alpha(.35);
 	draw_set_color(c_black);

@@ -12,7 +12,7 @@ color=c_white;
 menu_options = ["Play", "Shop", "Leaderboard", "Achievements", "Settings", "Credits", "Quit"];
 resetTimer()
 global.upgrades=ds_map_create();
-show_debug_message(string(Characters.lenght));
+show_debug_message(string(Characters.Lenght));
 global.a=1;
 a=2;
 b=1;
@@ -49,7 +49,7 @@ event = 0;
 
 #region PauseMenu
 	
-	activeMenu = pMenus.Pause;
+	activeMenu = PMenus.Pause;
 	enum pM{	
 		Title,
 		xScale,
@@ -57,43 +57,43 @@ event = 0;
 		Options,
 		Bool,
 		BoolValue,
-		lenght
+		Lenght
 	}
-	enum pMenus{
+	enum PMenus{
 		Pause,
 		Settings,
-		lenght
+		Lenght
 	}
-	for (var i = 0; i < pMenus.lenght; ++i) {
-		pauseMenu[i] = array_create(pMenus.lenght, 0);
+	for (var i = 0; i < PMenus.Lenght; ++i) {
+		pauseMenu[i] = array_create(PMenus.Lenght, 0);
 		//show_message(string(pauseMenu));
-	    for (var j = 0; j < pM.lenght; ++j) {
+	    for (var j = 0; j < pM.Lenght; ++j) {
 		    pauseMenu[i][j] = 0;
 		}
 	}
 	
-	pauseMenu[pMenus.Pause][pM.Title] = "PAUSED";
-	pauseMenu[pMenus.Pause][pM.xScale] = 2;
-	pauseMenu[pMenus.Pause][pM.Options] = ["Skills", "????", "Resume", "Settings", "Quit"];
-	//pauseMenu[pMenus.Pause][pM.Options] = ["Skills"];
-	pauseMenu[pMenus.Pause][pM.yScale] = 0.75;
+	pauseMenu[PMenus.Pause][pM.Title] = "PAUSED";
+	pauseMenu[PMenus.Pause][pM.xScale] = 2;
+	pauseMenu[PMenus.Pause][pM.Options] = ["Skills", "????", "Resume", "Settings", "Quit"];
+	//pauseMenu[PMenus.Pause][pM.Options] = ["Skills"];
+	pauseMenu[PMenus.Pause][pM.yScale] = 0.75;
 	#region Settings
-		pauseMenu[pMenus.Settings][pM.Title] = "SETTINGS";
-		pauseMenu[pMenus.Settings][pM.xScale] = 2.5;
+		pauseMenu[PMenus.Settings][pM.Title] = "SETTINGS";
+		pauseMenu[PMenus.Settings][pM.xScale] = 2.5;
 	
 		function loadSettingValues(){
-			pauseMenu[pMenus.Settings][pM.Options][0] = "Music Volume: " + string(round(global.musicVolume*100)) + "%";
-			pauseMenu[pMenus.Settings][pM.Options][1] = "Sound Volume: " + string(round(global.soundVolume*100)) + "%";
-			pauseMenu[pMenus.Settings][pM.Bool][2] = true;
-			pauseMenu[pMenus.Settings][pM.BoolValue][2] = global.damageNumbers;
-			pauseMenu[pMenus.Settings][pM.Options][2] = "Damage Numbers: ";
-			pauseMenu[pMenus.Settings][pM.Bool][3] = true;
-			pauseMenu[pMenus.Settings][pM.BoolValue][3] = global.canShake;
-			pauseMenu[pMenus.Settings][pM.Options][3] = "Screen Shake: ";
+			pauseMenu[PMenus.Settings][pM.Options][0] = "Music Volume: " + string(round(global.musicVolume*100)) + "%";
+			pauseMenu[PMenus.Settings][pM.Options][1] = "Sound Volume: " + string(round(global.soundVolume*100)) + "%";
+			pauseMenu[PMenus.Settings][pM.Bool][2] = true;
+			pauseMenu[PMenus.Settings][pM.BoolValue][2] = global.damageNumbers;
+			pauseMenu[PMenus.Settings][pM.Options][2] = "Damage Numbers: ";
+			pauseMenu[PMenus.Settings][pM.Bool][3] = true;
+			pauseMenu[PMenus.Settings][pM.BoolValue][3] = global.canShake;
+			pauseMenu[PMenus.Settings][pM.Options][3] = "Screen Shake: ";
 		}
 		loadSettingValues();
-		//pauseMenu[pMenus.Pause][pM.Options] = ["Skills"];
-		pauseMenu[pMenus.Settings][pM.yScale] = 0.75;
+		//pauseMenu[PMenus.Pause][pM.Options] = ["Skills"];
+		pauseMenu[PMenus.Settings][pM.yScale] = 0.75;
 		#endregion
 	startOption = 0;
 	totaloptions = array_length(pauseMenu[activeMenu][pM.Options]);

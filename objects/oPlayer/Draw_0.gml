@@ -23,7 +23,7 @@ draw_set_color(c_black);
 draw_set_color(c_white);
 //draw_text(x,y-20,image_speed);
 var strafing = global.strafe ? 1 : 0;
-draw_sprite_ext(sArrow,strafing,x,y-16,1,1,global.arrow_dir,c_white,1);
+draw_sprite_ext(sArrow,strafing,x,y-16,1,1,global.arrowDir,c_white,1);
 /*
 //draw_text_transformed(x,y-20,coords[0][?"x"],.5,.5,1)
 if (ds_list_size(coordsx) > 0) {

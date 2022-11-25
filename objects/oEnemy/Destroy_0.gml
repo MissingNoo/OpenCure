@@ -4,8 +4,8 @@ _a.xp = xp;
 random_set_seed(current_time);
 for (var i = 0; i < array_length(playerItems); ++i) {
 	//show_message(string(playerItems[i][?"id"]));
-	//show_message(string(ItemIds.Nurse_Horn));
-    if (playerItems[i][?"id"] == ItemIds.Nurse_Horn) {
+	//show_message(string(ItemIds.NurseHorn));
+    if (playerItems[i][?"id"] == ItemIds.NurseHorn) {
 	    var rdn = irandom_range(0,100);
 		if (rdn <= 30) {
 		    switch (playerItems[i][?"level"]) {

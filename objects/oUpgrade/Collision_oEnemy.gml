@@ -6,19 +6,19 @@ if (other.hittedcooldown[upg[?"id"]] <= 0  and !global.gamePaused and other.imag
 	random_set_seed(current_time);
 	var dmg = irandom_range(mindmg, maxdmg);
 	var bdmg = dmg;
-	for (var i = 0; i < array_length(Bonuses[bonusType.Damage]); ++i) {
-	    if (Bonuses[bonusType.Damage][i] != 0) {
-			//show_message(string(dmg) + " : " + string(Bonuses[bonusType.Damage][i]) + " = " +  string(dmg*Bonuses[bonusType.Damage][i]));
-		    dmg = dmg * Bonuses[bonusType.Damage][i];			
+	for (var i = 0; i < array_length(Bonuses[BonusType.Damage]); ++i) {
+	    if (Bonuses[BonusType.Damage][i] != 0) {
+			//show_message(string(dmg) + " : " + string(Bonuses[BonusType.Damage][i]) + " = " +  string(dmg*Bonuses[BonusType.Damage][i]));
+		    dmg = dmg * Bonuses[BonusType.Damage][i];			
 		}
 	}
-	for (var i = 0; i < array_length(PerkBonuses[bonusType.Damage]); ++i) {
-	    if (PerkBonuses[bonusType.Damage][i] != 0) {
-			//show_message(string(dmg) + " : " + string(Bonuses[bonusType.Damage][i]) + " = " +  string(dmg*Bonuses[bonusType.Damage][i]));
-		    dmg = dmg * PerkBonuses[bonusType.Damage][i];			
+	for (var i = 0; i < array_length(PerkBonuses[BonusType.Damage]); ++i) {
+	    if (PerkBonuses[BonusType.Damage][i] != 0) {
+			//show_message(string(dmg) + " : " + string(Bonuses[BonusType.Damage][i]) + " = " +  string(dmg*Bonuses[BonusType.Damage][i]));
+		    dmg = dmg * PerkBonuses[BonusType.Damage][i];			
 		}
 	}
-	other.hp-= dmg * global.Player[?"atk"];
+	other.hp-= dmg * global.player[?"atk"];
 	if (global.damageNumbers) {
 	    var _inst = instance_create_layer(other.x,other.y,"DamageLayer",oDamageText);
 		_inst.dmg = dmg;

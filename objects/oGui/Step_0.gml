@@ -12,7 +12,7 @@ isP=global.gamePaused;
 				case "Settings":
 					keyboard_clear(ord("Z"));
 					PauseGame();					
-					activeMenu = pMenus.Settings;
+					activeMenu = PMenus.Settings;
 					break;
 	            case "Quit":	
 	                game_end();
@@ -29,9 +29,9 @@ isP=global.gamePaused;
 	    if (keyboard_check(ord("Z"))) {
 			for (var i = 0; i < 6; i++) 
 			{	
-				if (global.upgrade_options[selected][?"style"] == ItemTypes.Weapon) {
+				if (global.upgradeOptions[selected][?"style"] == ItemTypes.Weapon) {
 					#region Upgrade existing weapon
-						if (UPGRADES[i][?"name"] == global.upgrade_options[selected][?"name"] ) 
+						if (UPGRADES[i][?"name"] == global.upgradeOptions[selected][?"name"] ) 
 						{
 							UPGRADES[i] = global.upgradesAvaliable[UPGRADES[i][?"id"]][UPGRADES[i][?"level"]]+1;
 							break;
@@ -43,7 +43,7 @@ isP=global.gamePaused;
 						{
 						    for (var j=0; j<array_length(global.upgradesAvaliable); j++) 
 							{
-							    if (global.upgradesAvaliable[j][1][?"name"] == global.upgrade_options[selected][?"name"]) 
+							    if (global.upgradesAvaliable[j][1][?"name"] == global.upgradeOptions[selected][?"name"]) 
 								{
 									UPGRADES[i]=global.upgradesAvaliable[j][1];
 								}
@@ -52,9 +52,9 @@ isP=global.gamePaused;
 						}
 					#endregion			
 				}
-				else if (global.upgrade_options[selected][?"style"] == ItemTypes.Item) {
+				else if (global.upgradeOptions[selected][?"style"] == ItemTypes.Item) {
 				    #region Upgrade existing item
-						if (playerItems[i][?"name"] == global.upgrade_options[selected][?"name"] ) 
+						if (playerItems[i][?"name"] == global.upgradeOptions[selected][?"name"] ) 
 						{
 							playerItems[i] = ItemList[playerItems[i][?"id"]][playerItems[i][?"level"]]+1;
 							break;
@@ -66,7 +66,7 @@ isP=global.gamePaused;
 						{
 						    for (var j=0; j<array_length(ItemList); j++) 
 							{
-							    if (ItemList[j][1][?"name"] == global.upgrade_options[selected][?"name"]) 
+							    if (ItemList[j][1][?"name"] == global.upgradeOptions[selected][?"name"]) 
 								{
 									playerItems[i]=ItemList[j][1];
 								}
@@ -75,11 +75,11 @@ isP=global.gamePaused;
 						}
 					#endregion			
 				}
-				else if (global.upgrade_options[selected][?"style"] == ItemTypes.Perk) {
+				else if (global.upgradeOptions[selected][?"style"] == ItemTypes.Perk) {
 					#region Upgrade existing item
-							if (playerPerks[i][?"name"] == global.upgrade_options[selected][?"name"] ) 
+							if (PLAYER_PERKS[i][?"name"] == global.upgradeOptions[selected][?"name"] ) 
 							{
-								playerPerks[i] = PerkList[playerPerks[i][?"id"]][playerPerks[i][?"level"]]+1;
+								PLAYER_PERKS[i] = PERK_LIST[PLAYER_PERKS[i][?"id"]][PLAYER_PERKS[i][?"level"]]+1;
 								break;
 							}			
 						#endregion		
@@ -97,10 +97,10 @@ isP=global.gamePaused;
 #region Select Character room
 	if (room = Room2) {
 	    if (keyboard_check_pressed(ord("Z"))) {
-	        global.Player=CHARACTERS[selected];
+	        global.player=CHARACTERS[selected];
 			//show_message(string(Characters.Amelia));
 			//show_message(string(CHARACTERS[selected][?"id"]));
-			playerPerks = global.characterPerks[CHARACTERS[selected][?"id"]];
+			PLAYER_PERKS = global.characterPerks[CHARACTERS[selected][?"id"]];
 			if (instance_exists(oJoystick)) { oJoystick.mode = "stage"; }
 			audio_stop_sound(global.musicPlaying);
 			room_goto(Room1);
@@ -175,7 +175,7 @@ if (global.gamePaused and !global.upgrade) {
 		        show_message("c");
 		        break;}
 		    case "Settings":{
-		        activeMenu = pMenus.Settings;
+		        activeMenu = PMenus.Settings;
 		        break;}
 			case "Quit":{
 		        game_restart();

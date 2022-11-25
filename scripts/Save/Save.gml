@@ -1,4 +1,4 @@
-
+// Feather disable GM2017
 global.Data = [
     "Money","musicVolume","soundVolume", "damageNumbers"
     ];

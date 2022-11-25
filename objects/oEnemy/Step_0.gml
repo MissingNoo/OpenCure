@@ -1,4 +1,5 @@
 
+// Feather disable GM2017
 if(global.gamePaused == false){
 	
 	if (boss) {

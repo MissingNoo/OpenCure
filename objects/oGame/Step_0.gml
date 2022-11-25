@@ -39,9 +39,9 @@ if (canspawn == true and global.gamePaused == false and room == Room1) {
 		
 			#region cooldownamount
 				var down = 1
-				for (var i = 0; i < array_length(Bonuses[bonusType.Haste]); ++i) {
-					if (Bonuses[bonusType.Haste][i] != 0) {
-					    down = 1 * Bonuses[bonusType.Haste][i];
+				for (var i = 0; i < array_length(Bonuses[BonusType.Haste]); ++i) {
+					if (Bonuses[BonusType.Haste][i] != 0) {
+					    down = 1 * Bonuses[BonusType.Haste][i];
 					}				    
 				}
 			#endregion

@@ -20,8 +20,8 @@ function initializePlayer(_p){
 	spddefault=_p[?"speed"];
 	spd=_p[?"speed"];
 	// Feather disable GM2017
-	can_shoot = 1;
-	arrow_dir=0;
+	canShoot = 1;
+	arrowDir=0;
 	// Feather enable GM2017
 	atk=_p[?"atk"];
 	sprite=_p[?"sprite"];
@@ -50,11 +50,11 @@ function createCharacter(_id, _name, _portrait, _sprite, _runningsprite, _hp, _s
 	ds_map_add(m, "weapon", _weapon);
 }
 function populateCharacters(){
-	createCharacter(Characters.Amelia,"Watson Amelia",sAmePortrait,sAmeIdle,sAmeRunning,75,1.35,1.30,u[weapons.AmePistol]);
-	createCharacter(Characters.Gura,"Gawr Gura",sGuraPortrait,sGuraIdle,sGuraRunning,65,1.40,1.10,u[weapons.GuraTrident]);
-	//createCharacter(Characters.Ina,"Ninomae Ina'nis",sInaPortrait,sInaIdle,sInaRunning,75,1.50,0.90,u[weapons.InaTentacle]);
-	//createCharacter(Characters.Kiara,"Takanashi Kiara",sAmePortrait,sAmeIdle,sAmeRunning,30,1.35,10,u[weapons.AmePistol]);
-	//createCharacter(Characters.Calli,"Mori Calliope",sAmePortrait,sAmeIdle,sAmeRunning,30,1.35,10,u[weapons.AmePistol]);
+	createCharacter(Characters.Amelia,"Watson Amelia",sAmePortrait,sAmeIdle,sAmeRunning,75,1.35,1.30,u[Weapons.AmePistol]);
+	createCharacter(Characters.Gura,"Gawr Gura",sGuraPortrait,sGuraIdle,sGuraRunning,65,1.40,1.10,u[Weapons.GuraTrident]);
+	//createCharacter(Characters.Ina,"Ninomae Ina'nis",sInaPortrait,sInaIdle,sInaRunning,75,1.50,0.90,u[Weapons.InaTentacle]);
+	//createCharacter(Characters.Kiara,"Takanashi Kiara",sAmePortrait,sAmeIdle,sAmeRunning,30,1.35,10,u[Weapons.AmePistol]);
+	//createCharacter(Characters.Calli,"Mori Calliope",sAmePortrait,sAmeIdle,sAmeRunning,30,1.35,10,u[Weapons.AmePistol]);
 	NAME=CHARACTERS[Characters.Amelia][?"name"];
 }
 
@@ -65,7 +65,7 @@ enum Characters {
 	//Ina,
 	//Kiara,
 	//Calli,
-	lenght
+	Lenght
 }
 
 
@@ -85,14 +85,14 @@ if can_move == true{
     var _up = (keyboard_check(UPKEY));
     var _down = (keyboard_check(DOWNKEY));
 	if (!instance_exists(oJoystick) and !global.strafe) {
-		if (_down) { global.arrow_dir=270; }
-		if (_up) { global.arrow_dir=90; }
-		if (_right) { global.arrow_dir=0; }
-		if (_left) { global.arrow_dir=180; }
-		if (_up and _right) { global.arrow_dir=45; }
-		if (_up and _left) { global.arrow_dir=135; }
-		if (_down and _right) { global.arrow_dir=315; }
-		if (_down and _left) { global.arrow_dir=225; }
+		if (_down) { global.arrowDir=270; }
+		if (_up) { global.arrowDir=90; }
+		if (_right) { global.arrowDir=0; }
+		if (_left) { global.arrowDir=180; }
+		if (_up and _right) { global.arrowDir=45; }
+		if (_up and _left) { global.arrowDir=135; }
+		if (_down and _right) { global.arrowDir=315; }
+		if (_down and _left) { global.arrowDir=225; }
 	}
 	
 	

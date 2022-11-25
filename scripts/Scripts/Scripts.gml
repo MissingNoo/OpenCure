@@ -1,6 +1,7 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 
+// Feather disable GM2017
 global.sprites[0]=0
 global.gamePaused = false;
 function resetTimer(){
@@ -17,7 +18,7 @@ function resetTimer(){
 	
 	
 function PauseGame(){
-		oGui.activeMenu=pMenus.Pause;
+		oGui.activeMenu=PMenus.Pause;
 		oGui.selected=0;
 		maxselected = 0;
 		if (instance_exists(oJoystick)) {
@@ -85,16 +86,3 @@ function summonCircle(){
 		instance_create_layer(a,b,"Instances",oEnemy)
 	}	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

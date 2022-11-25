@@ -146,21 +146,21 @@ function ResetPool()
 function damageCalculation(baseDmg)
 {
 	var damage = baseDmg;
-	for (var i = 0; i < array_length(Bonuses[bonusType.Defense]); ++i) {
-		if (Bonuses[bonusType.Defense][i] != 0) {
-		    damage = damage * Bonuses[bonusType.Defense][i];
+	for (var i = 0; i < array_length(Bonuses[BonusType.Defense]); ++i) {
+		if (Bonuses[BonusType.Defense][i] != 0) {
+		    damage = damage * Bonuses[BonusType.Defense][i];
 		}
 	}
 	//// perk bonuses
-	//for (var i = 0; i < array_length(PerkBonuses[bonusType.Defense]); ++i) {
-	//	if (PerkBonuses[bonusType.Defense][i] != 0) {
-	//	    damage = damage * PerkBonuses[bonusType.Defense][i];
+	//for (var i = 0; i < array_length(PerkBonuses[BonusType.Defense]); ++i) {
+	//	if (PerkBonuses[BonusType.Defense][i] != 0) {
+	//	    damage = damage * PerkBonuses[BonusType.Defense][i];
 	//	}
 	//}
 	//
-	for (var i = 0; i < array_length(Bonuses[bonusType.TakeDamage]); ++i) {
-		if (Bonuses[bonusType.TakeDamage][i] != 0) {
-		    damage = damage * Bonuses[bonusType.TakeDamage][i];
+	for (var i = 0; i < array_length(Bonuses[BonusType.TakeDamage]); ++i) {
+		if (Bonuses[BonusType.TakeDamage][i] != 0) {
+		    damage = damage * Bonuses[BonusType.TakeDamage][i];
 		}
 	}
 	if (global.debug) {

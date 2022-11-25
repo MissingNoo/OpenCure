@@ -63,7 +63,7 @@ draw_set_color(c_white);
 			var _y = GH / 6;
 			var _hh = GH / 1.5;
 			var _ww = GW / 4;
-			DrawWindow(_x,_y,_ww,_hh,string_upper(global.name));
+			drawWindow(_x,_y,_ww,_hh,string_upper(global.name));
 			draw_sprite_ext(CHARACTERS[selected][?"sprite"], sprindex,_x+(_hh/3), _y+190,3,3,0,c_white,1);
 		#endregion
 	
@@ -74,7 +74,7 @@ draw_set_color(c_white);
 			offset=0
 			//characters
 			draw_text(10,10,selected);
-			for (var i=0; i < Characters.lenght; i++) {
+			for (var i=0; i < Characters.Lenght; i++) {
 				draw_sprite_ext(CHARACTERS[i][?"portrait"],0,435+offset,200,2,2,0,c_white,1);
 				if (selected == i) {
 					draw_sprite_ext(menu_carselec_cursor,-1,435+offset, 200,2,2,0,c_white,1);
@@ -88,7 +88,7 @@ draw_set_color(c_white);
 			_y = GH / 6;
 			_hh = GH / 3;
 			_ww = GW / 3.85;
-			DrawWindow(_x,_y,_ww,_hh,"ATTACK");
+			drawWindow(_x,_y,_ww,_hh,"ATTACK");
 			var weaponID = CHARACTERS[selected][?"weapon"];
 			//show_message(string(weaponID[1][?"name"]));
 			var weaponSprite = weaponID[1][?"thumb"];
@@ -108,7 +108,7 @@ draw_set_color(c_white);
 	{	
 		#region Character Portrait
 			draw_sprite_ext(ui_portrait_bg,0,60,90,2,2,0,c_white,1);
-			draw_sprite_ext(global.Player[?"portrait"],0,60,90,2,2,0,c_white,1);
+			draw_sprite_ext(global.player[?"portrait"],0,60,90,2,2,0,c_white,1);
 			draw_sprite_ext(ui_portrait_frame,0,60,90,2,2,0,c_white,1);
 		#endregion
 	    #region Upgrades	
@@ -178,16 +178,16 @@ draw_set_color(c_white);
 			#region Perks
 				offset=0;			
 				yoffset = 80;
-			    for (var i = 0; i < array_length(playerPerks); i++) //for the size of the upgrade arrays
+			    for (var i = 0; i < array_length(PLAYER_PERKS); i++) //for the size of the upgrade arrays
 				{
 					draw_sprite_ext(ui_empty_slot_item,0,GW/10+offset,GH/7+yoffset,1.5,1.5,0,c_white,.5); //draw empty slots background
-					if (playerPerks[i]!=global.nullperk) //if there is a upgrade in the slot
+					if (PLAYER_PERKS[i]!=global.nullperk) //if there is a upgrade in the slot
 					{
-						var activated = playerPerks[i][?"level"] > 0  ? 1 : .5;
-						draw_sprite_ext(playerPerks[i][? "thumb"],0,GW/10+offset,GH/7+yoffset,2,2,0,c_white, activated); //draw weapon sprite
-						if (global.debug) {draw_text(GW/10+offset, GH/7-15+yoffset,string(global.perkCooldown[playerPerks[i][?"id"]]));}
+						var activated = PLAYER_PERKS[i][?"level"] > 0  ? 1 : .5;
+						draw_sprite_ext(PLAYER_PERKS[i][? "thumb"],0,GW/10+offset,GH/7+yoffset,2,2,0,c_white, activated); //draw weapon sprite
+						if (global.debug) {draw_text(GW/10+offset, GH/7-15+yoffset,string(global.perkCooldown[PLAYER_PERKS[i][?"id"]]));}
 						draw_sprite_ext(ui_level_header_pink,0,GW/10+offset,GH/7+yoffset,2,2,0,c_white,1); //draw type sprite
-						draw_sprite_ext(uiDigitPink,playerPerks[i][? "level"],GW/10+5+offset,GH/7+yoffset,2,2,0,c_white,1); //draw level					        
+						draw_sprite_ext(uiDigitPink,PLAYER_PERKS[i][? "level"],GW/10+5+offset,GH/7+yoffset,2,2,0,c_white,1); //draw level					        
 					}		
 			        offset+=50;
 			    }
@@ -196,7 +196,9 @@ draw_set_color(c_white);
 	    #endregion	
 	
 	    #region XP
-		    draw_rectangle_color(5, 5, 5 + ((global.xp / oPlayer.neededxp) * 100), 30, c_blue, c_blue, c_blue, c_blue, false);
+			if (global.xp > 0) {
+			    draw_rectangle_color(5, 5, 5 + ((global.xp / oPlayer.neededxp) * GW - 5), 30, c_blue, c_blue, c_blue, c_blue, false);
+			}		    
 		    draw_rectangle(5, 5, GW - 5, 30, true);
 	    #endregion
 	
@@ -204,7 +206,7 @@ draw_set_color(c_white);
 		 if (global.upgrade == 1) {
 			 #region UpgradeList
 	        offset = 0;
-	        for (var i = 0; i < array_length(global.upgrade_options); i++) {
+	        for (var i = 0; i < array_length(global.upgradeOptions); i++) {
 				var _xx = GW/1.52;
 				var _yy = GH/4.5;
 				draw_sprite_ext(sUpgradeBackground, 0, _xx, _yy + offset, 2.10, 1.25, 0, c_black, .75);//upgrade background
@@ -213,8 +215,8 @@ draw_set_color(c_white);
 					draw_sprite_ext(sUpgradeBackground, 1, _xx, _yy + offset, 2.10, 1.25, 0, c_white, 1); 
 					draw_sprite_ext(sHoloCursor, holoarrowspr, _xx - 440, _yy + offset, 2.5, 2.5, 0, c_white, 1); 
 					} 
-	            draw_text_transformed(GW/2.50, GH/6.80 + offset, string(global.upgrade_options[i][?"name"]),1,1,0); // draw the name
-				var style = ""; switch (global.upgrade_options[i][?"style"]) { // type of upgrade
+	            draw_text_transformed(GW/2.50, GH/6.80 + offset, string(global.upgradeOptions[i][?"name"]),1,1,0); // draw the name
+				var style = ""; switch (global.upgradeOptions[i][?"style"]) { // type of upgrade
 				    case ItemTypes.Weapon:
 				        style = " >> Weapon";
 				        break;
@@ -228,22 +230,22 @@ draw_set_color(c_white);
 				draw_set_halign(fa_right);
 				draw_text_transformed(GW/1.08, GH/6.80 + offset, string(style), 1, 1, 0);  // draw type of upgrade
 				draw_set_halign(fa_left);
-				draw_sprite_ext(global.upgrade_options[i][? "thumb"],0,GW/2.40, GW/8+offset,2, 2,0,c_white,1); // item thumb			
-				draw_sprite_ext(sItemType, global.upgrade_options[i][?"style"], GW/2.40, GW/8+offset,2, 2,0,c_white,1); // item thumb type
+				draw_sprite_ext(global.upgradeOptions[i][? "thumb"],0,GW/2.40, GW/8+offset,2, 2,0,c_white,1); // item thumb			
+				draw_sprite_ext(sItemType, global.upgradeOptions[i][?"style"], GW/2.40, GW/8+offset,2, 2,0,c_white,1); // item thumb type
 				var foundup = false;
 				var foundlv = 0;
 				for (var j = 0; j < array_length(UPGRADES); ++j) {
-				    if (UPGRADES[j][?"name"] == global.upgrade_options[i][?"name"]) {
+				    if (UPGRADES[j][?"name"] == global.upgradeOptions[i][?"name"]) {
 					    foundup = true;
 						foundlv = UPGRADES[j][?"level"] + 1;
 					}
 				}			
 				if (foundup) {
-					var idd = global.upgrade_options[i][?"id"];
+					var idd = global.upgradeOptions[i][?"id"];
 				    drawDesc(GW/2.20,GH/5.5+offset, global.upgradesAvaliable[idd][foundlv][?"desc"], GW/2.20);
 				}
 				else{
-					drawDesc(GW/2.20,GH/5.5+offset, global.upgrade_options[i][?"desc"], GW/2.20);
+					drawDesc(GW/2.20,GH/5.5+offset, global.upgradeOptions[i][?"desc"], GW/2.20);
 				}
 	            offset += 165;
 				draw_set_color(c_white);
@@ -278,10 +280,10 @@ draw_set_color(c_white);
 
 #region PauseMenu
 	if (global.gamePaused and !global.upgrade) {
-		//pauseMenu[pMenus.Pause][pM.xScale] = a;
-		//pauseMenu[pMenus.Pause][pM.yScale] = b;
-		//pauseMenu[pMenus.Pause][pM.yScale] = array_length(pauseMenu[activeMenu][pM.Options])/(3 - (array_length(pauseMenu[activeMenu][pM.Options])*1.5));
-		//pauseMenu[pMenus.Pause][pM.yScale] = b;
+		//pauseMenu[PMenus.Pause][pM.xScale] = a;
+		//pauseMenu[PMenus.Pause][pM.yScale] = b;
+		//pauseMenu[PMenus.Pause][pM.yScale] = array_length(pauseMenu[activeMenu][pM.Options])/(3 - (array_length(pauseMenu[activeMenu][pM.Options])*1.5));
+		//pauseMenu[PMenus.Pause][pM.yScale] = b;
 		draw_sprite_ext(sMenu, 0,
 		GW/2,
 		GH/2,
@@ -336,7 +338,7 @@ draw_set_color(c_white);
 			draw_text_transformed(GW/2,
 			(GH/2 - (sprite_get_height(sMenu) * pauseMenu[activeMenu][pM.yScale])/2) + 90 + mOffset,
 			pauseMenu[activeMenu][pM.Options][i], 1.5, 1.5, 0);	
-			if (activeMenu == pMenus.Settings and pauseMenu[activeMenu][pM.Bool][i] == true) {
+			if (activeMenu == PMenus.Settings and pauseMenu[activeMenu][pM.Bool][i] == true) {
 				var boolselected = (selected == i) ? 2 : 0;
 				var boolv = (pauseMenu[activeMenu][pM.BoolValue][i]) ? 1 : 0;
 			    draw_sprite_ext(sToggleButton, boolselected + boolv, GW/1.72, 
