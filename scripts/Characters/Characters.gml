@@ -1,11 +1,12 @@
+// Feather disable GM2017
 #macro HP global.hp
 #macro MAXHP global.maxhp
 #macro NAME global.name
-function initializePlayer(p){
+function initializePlayer(_p){
 	attacktick=true;
-	HP=p[?"hp"];
-	MAXHP=p[?"hp"];
-	NAME=p[?"name"];
+	HP=_p[?"hp"];
+	MAXHP=_p[?"hp"];
+	NAME=_p[?"name"];
 	for (i=0; i<6; i++) {
 		UPGRADES[i]=global.null;
 	}
@@ -16,15 +17,17 @@ function initializePlayer(p){
 	global.xp=0;
 	global.level = 1;
 	damaged=false;
-	spddefault=p[?"speed"];
-	spd=p[?"speed"];
+	spddefault=_p[?"speed"];
+	spd=_p[?"speed"];
+	// Feather disable GM2017
 	can_shoot = 1;
 	arrow_dir=0;
-	atk=p[?"atk"];
-	sprite=p[?"sprite"];
-	runningsprite=p[?"runningsprite"];
+	// Feather enable GM2017
+	atk=_p[?"atk"];
+	sprite=_p[?"sprite"];
+	runningsprite=_p[?"runningsprite"];
 	sprite_index=sprite;
-	global.upgrades[0] = p[?"weapon"][1];
+	global.upgrades[0] = _p[?"weapon"][1];
 	Shield = 0;
 	MaxShield = 0;
 	revives = 0;
@@ -126,19 +129,3 @@ if can_move == true{
 		sprite_index=sprite;
 		}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

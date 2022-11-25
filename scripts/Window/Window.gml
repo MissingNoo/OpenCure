@@ -1,5 +1,7 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
+
+// Feather disable GM2043
 #macro GW display_get_gui_width()
 #macro GH display_get_gui_height()
 function DrawWindow(x, y, w, h, title){
@@ -42,7 +44,7 @@ view_hport[0] = max_h;
 surface_resize(application_surface, view_wport[0], view_hport[0]);
 }
 function drawDesc(_xx, _yy, _string, maxX){
-	draw_set_font(Font1);
+	draw_set_font(fnt_font1);
 	draw_set_halign(fa_center);
 	var xt=0;
 	var yt=0;

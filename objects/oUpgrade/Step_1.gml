@@ -1,4 +1,6 @@
+
 #region Start
+// Feather disable GM2016
 if (a==0) {	
 	global.upgradeCooldown[upg[?"id"]] = upg[?"cooldown"];
 	alarm[1] = upg[?"duration"];
@@ -26,7 +28,7 @@ if (a==0) {
 			break;}
 			
 		case "AmePistol":{
-			audio_play_sound(sndBullet,0,0);
+			audio_play_sound(snd_Bullet,0,0);
 			defaultBehaviour();
 			alarm[0] = 10;
 			break;}

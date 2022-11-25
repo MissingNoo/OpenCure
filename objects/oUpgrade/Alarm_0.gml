@@ -1,5 +1,9 @@
+
+
 /// @description Insert description here
 // You can write your code in this editor
+// Feather disable GM2016
+var inst = noone;
 switch (upg[?"name"]) {
 	default:
 		break;

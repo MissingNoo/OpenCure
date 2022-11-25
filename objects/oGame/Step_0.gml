@@ -1,3 +1,4 @@
+
 // Apply shake
 fx_set_parameter(shake_fx, "g_Magnitude", shake_magnitude);
 fx_set_parameter(shake_fx, "g_ShakeSpeed", shake_speed);
@@ -14,9 +15,9 @@ if (canspawn == true and global.gamePaused == false and room == Room1) {
 	if (!instance_exists(oEvents)) {
 	    instance_create_layer(0,0,"Instances",oEvents);
 	}	
-	a = irandom_range(-1,1)
+	var a = irandom_range(-1,1)
 	if (a=0) a = 1;
-	b = irandom_range(-1,1)
+	var b = irandom_range(-1,1)
 	if (b=0) b = 1;
 	
 	random_set_seed(current_time);
@@ -94,10 +95,7 @@ if (keyboard_check_pressed(ord("N"))) {
     window_set_size(1920,1080);
 }
 
-if (keyboard_check_pressed(vk_escape) and global.upgrade == false) {
-		// Feather disable once GM2016
-		PauseGame()
-}
+
 
 if (keyboard_check(vk_control)) {
     Seconds+=1;

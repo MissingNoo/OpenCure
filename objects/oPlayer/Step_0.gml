@@ -1,3 +1,4 @@
+
 // Feather disable GM2016
 if(keyboard_check(ord("R"))) v-=0.01;
 if(keyboard_check(ord("T"))) v+=0.01;
@@ -26,7 +27,7 @@ if (!global.gamePaused) {
 		//192
 		randomUpgrades()
 		keyboard_clear(ord("Z"));
-		audio_play_sound(sndLvlUp,0,0);
+		audio_play_sound(snd_LvlUp,0,0);
 		//if (instance_exists(oJoystick)) { oJoystick.mode = "menu"; }
 		global.upgrade=1;	
 		oGui.selected=0;		

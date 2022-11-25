@@ -1,3 +1,4 @@
+// Feather disable GM2017
 #macro playerItems global.items
 #macro ItemList global.itemList
 global.items=[0];

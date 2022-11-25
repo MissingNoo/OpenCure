@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sDarkShrimp",
   "bboxMode": 0,
   "collisionKind": 0,
   "type": 0,
@@ -14,6 +17,7 @@
   "HTile": false,
   "VTile": false,
   "For3D": false,
+  "DynamicTexturePage": false,
   "width": 40,
   "height": 40,
   "textureGroupId": {
@@ -24,18 +28,14 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"f779d60a-d75a-44aa-8ffd-ac9685324cb6","path":"sprites/sDarkShrimp/sDarkShrimp.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"f779d60a-d75a-44aa-8ffd-ac9685324cb6","path":"sprites/sDarkShrimp/sDarkShrimp.yy",},"LayerId":{"name":"eb1f8c0c-329d-407a-b1c9-5742c72ba9dd","path":"sprites/sDarkShrimp/sDarkShrimp.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sDarkShrimp","path":"sprites/sDarkShrimp/sDarkShrimp.yy",},"resourceVersion":"1.0","name":"f779d60a-d75a-44aa-8ffd-ac9685324cb6","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"06cc516a-acef-422c-9dc1-31f005358e8e","path":"sprites/sDarkShrimp/sDarkShrimp.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"06cc516a-acef-422c-9dc1-31f005358e8e","path":"sprites/sDarkShrimp/sDarkShrimp.yy",},"LayerId":{"name":"eb1f8c0c-329d-407a-b1c9-5742c72ba9dd","path":"sprites/sDarkShrimp/sDarkShrimp.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sDarkShrimp","path":"sprites/sDarkShrimp/sDarkShrimp.yy",},"resourceVersion":"1.0","name":"06cc516a-acef-422c-9dc1-31f005358e8e","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"06db1504-22e7-4d51-bec7-59cac73a5764","path":"sprites/sDarkShrimp/sDarkShrimp.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"06db1504-22e7-4d51-bec7-59cac73a5764","path":"sprites/sDarkShrimp/sDarkShrimp.yy",},"LayerId":{"name":"eb1f8c0c-329d-407a-b1c9-5742c72ba9dd","path":"sprites/sDarkShrimp/sDarkShrimp.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sDarkShrimp","path":"sprites/sDarkShrimp/sDarkShrimp.yy",},"resourceVersion":"1.0","name":"06db1504-22e7-4d51-bec7-59cac73a5764","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"f779d60a-d75a-44aa-8ffd-ac9685324cb6",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"06cc516a-acef-422c-9dc1-31f005358e8e",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"06db1504-22e7-4d51-bec7-59cac73a5764",},
   ],
   "sequence": {
-    "spriteId": {"name":"sDarkShrimp","path":"sprites/sDarkShrimp/sDarkShrimp.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sDarkShrimp",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 5.0,
@@ -46,11 +46,11 @@
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
             {"id":"d9d17fda-4757-415d-9e6f-3a16e68ec026","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"f779d60a-d75a-44aa-8ffd-ac9685324cb6","path":"sprites/sDarkShrimp/sDarkShrimp.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"9c1a3b21-192a-4f66-bda8-c7eb4d9cdbe4","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"06cc516a-acef-422c-9dc1-31f005358e8e","path":"sprites/sDarkShrimp/sDarkShrimp.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"05245854-3495-4f54-97d4-333c124eec1a","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"06db1504-22e7-4d51-bec7-59cac73a5764","path":"sprites/sDarkShrimp/sDarkShrimp.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -66,22 +66,13 @@
     "yorigin": 20,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sDarkShrimp","path":"sprites/sDarkShrimp/sDarkShrimp.yy",},
-    "resourceVersion": "1.4",
-    "name": "sDarkShrimp",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"eb1f8c0c-329d-407a-b1c9-5742c72ba9dd","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"eb1f8c0c-329d-407a-b1c9-5742c72ba9dd","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Stage 1",
     "path": "folders/Sprites/Monsters/Stage 1.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sDarkShrimp",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

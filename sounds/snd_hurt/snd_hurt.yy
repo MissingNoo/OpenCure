@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSound",
+  "resourceVersion": "1.0",
+  "name": "snd_hurt",
   "conversionMode": 0,
   "compression": 0,
   "volume": 1.0,
@@ -11,14 +14,10 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "sndLvlUp.wav",
-  "duration": 1.184218,
+  "soundFile": "snd_hurt.wav",
+  "duration": 0.26712,
   "parent": {
     "name": "Sounds",
     "path": "folders/Sounds.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sndLvlUp",
-  "tags": [],
-  "resourceType": "GMSound",
 }

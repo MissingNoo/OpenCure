@@ -4,7 +4,7 @@ if (other.hittedcooldown[upg[?"id"]] <= 0  and !global.gamePaused and other.imag
 	other.hittedcooldown[upg[?"id"]] = upg[?"hitCooldown"];
 	other.damaged = true;
 	random_set_seed(current_time);
-	dmg = irandom_range(mindmg, maxdmg);
+	var dmg = irandom_range(mindmg, maxdmg);
 	var bdmg = dmg;
 	for (var i = 0; i < array_length(Bonuses[bonusType.Damage]); ++i) {
 	    if (Bonuses[bonusType.Damage][i] != 0) {
@@ -20,8 +20,8 @@ if (other.hittedcooldown[upg[?"id"]] <= 0  and !global.gamePaused and other.imag
 	}
 	other.hp-= dmg * global.Player[?"atk"];
 	if (global.damageNumbers) {
-	    var inst = instance_create_layer(other.x,other.y,"DamageLayer",oDamageText);
-		with (inst) { dmg=other.dmg; }
+	    var _inst = instance_create_layer(other.x,other.y,"DamageLayer",oDamageText);
+		_inst.dmg = dmg;
 	}
 	
 	other.alarm[1]=15;	

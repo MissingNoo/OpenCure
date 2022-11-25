@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "spr_potion_testtube_pink",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -14,6 +17,7 @@
   "HTile": false,
   "VTile": false,
   "For3D": false,
+  "DynamicTexturePage": false,
   "width": 200,
   "height": 200,
   "textureGroupId": {
@@ -24,12 +28,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"759d3477-5b06-4f05-8361-d2fc279f8464","path":"sprites/spr_potion_testtube_pink/spr_potion_testtube_pink.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"759d3477-5b06-4f05-8361-d2fc279f8464","path":"sprites/spr_potion_testtube_pink/spr_potion_testtube_pink.yy",},"LayerId":{"name":"584af8a7-352a-4508-a6b8-21ec57fe2b98","path":"sprites/spr_potion_testtube_pink/spr_potion_testtube_pink.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_potion_testtube_pink","path":"sprites/spr_potion_testtube_pink/spr_potion_testtube_pink.yy",},"resourceVersion":"1.0","name":"759d3477-5b06-4f05-8361-d2fc279f8464","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"759d3477-5b06-4f05-8361-d2fc279f8464",},
   ],
   "sequence": {
-    "spriteId": {"name":"spr_potion_testtube_pink","path":"sprites/spr_potion_testtube_pink/spr_potion_testtube_pink.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "spr_potion_testtube_pink",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -40,9 +44,9 @@
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
             {"id":"fa4587d2-7d7a-4e8c-bf7e-9a7ec9c066d4","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"759d3477-5b06-4f05-8361-d2fc279f8464","path":"sprites/spr_potion_testtube_pink/spr_potion_testtube_pink.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -58,22 +62,13 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"spr_potion_testtube_pink","path":"sprites/spr_potion_testtube_pink/spr_potion_testtube_pink.yy",},
-    "resourceVersion": "1.4",
-    "name": "spr_potion_testtube_pink",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"584af8a7-352a-4508-a6b8-21ec57fe2b98","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"584af8a7-352a-4508-a6b8-21ec57fe2b98","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Magical",
     "path": "folders/Sprites/Full Colour/Magical.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "spr_potion_testtube_pink",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

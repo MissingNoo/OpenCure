@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sGuraTrident",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -14,6 +17,7 @@
   "HTile": false,
   "VTile": false,
   "For3D": false,
+  "DynamicTexturePage": false,
   "width": 25,
   "height": 25,
   "textureGroupId": {
@@ -24,15 +28,13 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"4e94b0b0-9e23-41d7-a847-7f8fe31d3dec","path":"sprites/sGuraTrident/sGuraTrident.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"4e94b0b0-9e23-41d7-a847-7f8fe31d3dec","path":"sprites/sGuraTrident/sGuraTrident.yy",},"LayerId":{"name":"44cc1bf9-3670-4072-86bf-28b3ebdb34a4","path":"sprites/sGuraTrident/sGuraTrident.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sGuraTrident","path":"sprites/sGuraTrident/sGuraTrident.yy",},"resourceVersion":"1.0","name":"4e94b0b0-9e23-41d7-a847-7f8fe31d3dec","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"36b37481-0fb2-45e9-96ce-480ebe0bcdf5","path":"sprites/sGuraTrident/sGuraTrident.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"36b37481-0fb2-45e9-96ce-480ebe0bcdf5","path":"sprites/sGuraTrident/sGuraTrident.yy",},"LayerId":{"name":"44cc1bf9-3670-4072-86bf-28b3ebdb34a4","path":"sprites/sGuraTrident/sGuraTrident.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sGuraTrident","path":"sprites/sGuraTrident/sGuraTrident.yy",},"resourceVersion":"1.0","name":"36b37481-0fb2-45e9-96ce-480ebe0bcdf5","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"4e94b0b0-9e23-41d7-a847-7f8fe31d3dec",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"36b37481-0fb2-45e9-96ce-480ebe0bcdf5",},
   ],
   "sequence": {
-    "spriteId": {"name":"sGuraTrident","path":"sprites/sGuraTrident/sGuraTrident.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sGuraTrident",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -43,10 +45,10 @@
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
             {"id":"ee0cc8a2-835a-4ebf-abce-17f3a68351da","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"4e94b0b0-9e23-41d7-a847-7f8fe31d3dec","path":"sprites/sGuraTrident/sGuraTrident.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"71b7252e-9ad1-43cb-add1-4d234e30ff06","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"36b37481-0fb2-45e9-96ce-480ebe0bcdf5","path":"sprites/sGuraTrident/sGuraTrident.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -62,22 +64,13 @@
     "yorigin": 12,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sGuraTrident","path":"sprites/sGuraTrident/sGuraTrident.yy",},
-    "resourceVersion": "1.4",
-    "name": "sGuraTrident",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"44cc1bf9-3670-4072-86bf-28b3ebdb34a4","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"44cc1bf9-3670-4072-86bf-28b3ebdb34a4","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "GuraTrident",
     "path": "folders/Sprites/Powers/CharacterPerks/GuraTrident.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sGuraTrident",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

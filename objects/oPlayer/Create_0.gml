@@ -1,4 +1,5 @@
-initializePlayer(global.Player)
+
+initializePlayer(global.Player);
 neededxp = 79;
 atkpercentage=0;
 v=0;

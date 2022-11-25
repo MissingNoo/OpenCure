@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sEliteLavaBucketThumb",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -14,6 +17,7 @@
   "HTile": false,
   "VTile": false,
   "For3D": false,
+  "DynamicTexturePage": false,
   "width": 17,
   "height": 20,
   "textureGroupId": {
@@ -24,12 +28,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"40536dd8-277a-4c80-aa07-88abe6074c0c","path":"sprites/sEliteLavaBucketThumb/sEliteLavaBucketThumb.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"40536dd8-277a-4c80-aa07-88abe6074c0c","path":"sprites/sEliteLavaBucketThumb/sEliteLavaBucketThumb.yy",},"LayerId":{"name":"7599a62d-089a-4747-abd4-6d6f52e0cb31","path":"sprites/sEliteLavaBucketThumb/sEliteLavaBucketThumb.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sEliteLavaBucketThumb","path":"sprites/sEliteLavaBucketThumb/sEliteLavaBucketThumb.yy",},"resourceVersion":"1.0","name":"40536dd8-277a-4c80-aa07-88abe6074c0c","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"40536dd8-277a-4c80-aa07-88abe6074c0c",},
   ],
   "sequence": {
-    "spriteId": {"name":"sEliteLavaBucketThumb","path":"sprites/sEliteLavaBucketThumb/sEliteLavaBucketThumb.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sEliteLavaBucketThumb",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -40,9 +44,9 @@
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
             {"id":"b2749325-3f30-464b-97fe-2581b2604a17","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"40536dd8-277a-4c80-aa07-88abe6074c0c","path":"sprites/sEliteLavaBucketThumb/sEliteLavaBucketThumb.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -58,22 +62,13 @@
     "yorigin": 10,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sEliteLavaBucketThumb","path":"sprites/sEliteLavaBucketThumb/sEliteLavaBucketThumb.yy",},
-    "resourceVersion": "1.4",
-    "name": "sEliteLavaBucketThumb",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"7599a62d-089a-4747-abd4-6d6f52e0cb31","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"7599a62d-089a-4747-abd4-6d6f52e0cb31","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Powers",
     "path": "folders/Sprites/Powers.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sEliteLavaBucketThumb",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

@@ -1,7 +1,9 @@
+
 /// @description Insert description here
 // You can write your code in this editor
 // Feather disable GM1043
-
+isP=global.gamePaused;
+lastinputs = array_create(10);
 holoarrowspr=0;
 debug=false;
 selected=0;
@@ -97,8 +99,8 @@ event = 0;
 	totaloptions = array_length(pauseMenu[activeMenu][pM.Options]);
 #endregion
 
-if (instance_number(Object16) < 15 and room == rInicio) {
-    instance_create_layer(0,0, "Instances", Object16);
+if (instance_number(oTitleRunning) < 15 and room == rInicio) {
+    instance_create_layer(0,0, "Instances", oTitleRunning);
 }
 
 

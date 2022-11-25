@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sDetectiveEye",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -14,6 +17,7 @@
   "HTile": false,
   "VTile": false,
   "For3D": false,
+  "DynamicTexturePage": false,
   "width": 24,
   "height": 24,
   "textureGroupId": {
@@ -24,12 +28,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"abcf6bcd-d63c-4bcb-81c2-d089d046f0f6","path":"sprites/sDetectiveEye/sDetectiveEye.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"abcf6bcd-d63c-4bcb-81c2-d089d046f0f6","path":"sprites/sDetectiveEye/sDetectiveEye.yy",},"LayerId":{"name":"570ec63e-fd3e-4bce-ba2c-c48e0b41e773","path":"sprites/sDetectiveEye/sDetectiveEye.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sDetectiveEye","path":"sprites/sDetectiveEye/sDetectiveEye.yy",},"resourceVersion":"1.0","name":"abcf6bcd-d63c-4bcb-81c2-d089d046f0f6","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"abcf6bcd-d63c-4bcb-81c2-d089d046f0f6",},
   ],
   "sequence": {
-    "spriteId": {"name":"sDetectiveEye","path":"sprites/sDetectiveEye/sDetectiveEye.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sDetectiveEye",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -40,9 +44,9 @@
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
             {"id":"81ec1dff-bdc8-4d00-a922-063a0d13aa0d","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"abcf6bcd-d63c-4bcb-81c2-d089d046f0f6","path":"sprites/sDetectiveEye/sDetectiveEye.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -58,22 +62,13 @@
     "yorigin": 12,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sDetectiveEye","path":"sprites/sDetectiveEye/sDetectiveEye.yy",},
-    "resourceVersion": "1.4",
-    "name": "sDetectiveEye",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"570ec63e-fd3e-4bce-ba2c-c48e0b41e773","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"570ec63e-fd3e-4bce-ba2c-c48e0b41e773","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Amelia",
     "path": "folders/Sprites/Characters/Amelia.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sDetectiveEye",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

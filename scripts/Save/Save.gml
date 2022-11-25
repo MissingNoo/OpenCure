@@ -1,3 +1,4 @@
+
 global.Data = [
     "Money","musicVolume","soundVolume", "damageNumbers"
     ];
@@ -44,7 +45,9 @@ function Load_Reserve () {
                 var Key = global.Data[i];
                 if(variable_global_exists(Key)){
                     variable_global_set(Key, Json[$ Key] );}}
-          } ds_map_destroy(Map);
+          } 
+		  // Feather disable once GM2043
+		  ds_map_destroy(Map);
      };
 
 

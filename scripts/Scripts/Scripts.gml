@@ -1,8 +1,6 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
-// Feather disable GM1019
-// Feather disable GM1049
-// Feather disable GM2016
+
 global.sprites[0]=0
 global.gamePaused = false;
 function resetTimer(){

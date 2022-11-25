@@ -1,7 +1,8 @@
+
 /// @description 
 if (other.canattack and !global.gamePaused) {
 	//damaged=true;
-	audio_play_sound(sndHurt,0,0);
+	audio_play_sound(snd_hurt,0,0);
 	var damage = damageCalculation(other.atk);
 	if (Shield > 0) {
 	    Shield -= damage;

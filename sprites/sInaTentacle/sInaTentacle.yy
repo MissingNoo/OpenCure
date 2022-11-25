@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sInaTentacle",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -14,6 +17,7 @@
   "HTile": false,
   "VTile": false,
   "For3D": false,
+  "DynamicTexturePage": false,
   "width": 50,
   "height": 50,
   "textureGroupId": {
@@ -24,15 +28,13 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"57f81b11-c40f-458f-ad2d-d90ffb918532","path":"sprites/sInaTentacle/sInaTentacle.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"57f81b11-c40f-458f-ad2d-d90ffb918532","path":"sprites/sInaTentacle/sInaTentacle.yy",},"LayerId":{"name":"8c54a15f-f29a-446c-a566-fd8e29d70e33","path":"sprites/sInaTentacle/sInaTentacle.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sInaTentacle","path":"sprites/sInaTentacle/sInaTentacle.yy",},"resourceVersion":"1.0","name":"57f81b11-c40f-458f-ad2d-d90ffb918532","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"3132fbb8-2cfe-480f-9d02-e96770740c7b","path":"sprites/sInaTentacle/sInaTentacle.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"3132fbb8-2cfe-480f-9d02-e96770740c7b","path":"sprites/sInaTentacle/sInaTentacle.yy",},"LayerId":{"name":"8c54a15f-f29a-446c-a566-fd8e29d70e33","path":"sprites/sInaTentacle/sInaTentacle.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sInaTentacle","path":"sprites/sInaTentacle/sInaTentacle.yy",},"resourceVersion":"1.0","name":"3132fbb8-2cfe-480f-9d02-e96770740c7b","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"57f81b11-c40f-458f-ad2d-d90ffb918532",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"3132fbb8-2cfe-480f-9d02-e96770740c7b",},
   ],
   "sequence": {
-    "spriteId": {"name":"sInaTentacle","path":"sprites/sInaTentacle/sInaTentacle.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sInaTentacle",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -43,10 +45,10 @@
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
             {"id":"23057445-e646-49c2-97e7-603a9892aa41","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"57f81b11-c40f-458f-ad2d-d90ffb918532","path":"sprites/sInaTentacle/sInaTentacle.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"755ab799-70ab-4cac-a0eb-fb0de2ca1dcd","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"3132fbb8-2cfe-480f-9d02-e96770740c7b","path":"sprites/sInaTentacle/sInaTentacle.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -62,22 +64,13 @@
     "yorigin": 25,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sInaTentacle","path":"sprites/sInaTentacle/sInaTentacle.yy",},
-    "resourceVersion": "1.4",
-    "name": "sInaTentacle",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"8c54a15f-f29a-446c-a566-fd8e29d70e33","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"8c54a15f-f29a-446c-a566-fd8e29d70e33","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "InaTentacle",
     "path": "folders/Sprites/Powers/CharacterPerks/InaTentacle.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sInaTentacle",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

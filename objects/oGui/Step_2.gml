@@ -1,3 +1,4 @@
+
 if (isP != global.gamePaused) {
     loadSettingValues();
 }

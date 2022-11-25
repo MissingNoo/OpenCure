@@ -1,9 +1,16 @@
+
 #region Start variables
-	draw_set_font(Font1);
+	draw_set_font(fnt_font1);
 	draw_set_alpha(1);
 	draw_set_color(c_white);
 #endregion
-
+var lasti = "";
+for (var i = 0; i < array_length(lastinputs); ++i) {
+    lasti = lasti + ":" + string(lastinputs[i]);
+}
+draw_set_color(c_red);
+draw_text(100,100,lasti);
+draw_set_color(c_white);
 #region black screen below gui
 	if (global.upgrade == 1 or global.gamePaused and room != rInicio) {
 		draw_set_alpha(.75)
@@ -21,14 +28,15 @@
 			draw_text_transformed(20,GH-50,"version DEMO 0.4.11072001 ported by Airgeadlamh", 1, 1, 0);
 		    var offset = 0;
 			var thiss=0;
-		    for (i = 0; i < array_length(menu_options); i++) {
+			var scale;
+		    for (var i = 0; i < array_length(menu_options); i++) {
 		        if (i = selected) { draw_set_color(c_black); thiss = 1; scale = 0.35;}
 		        else {draw_set_color(c_white); thiss=0; scale = 0;}
 				//var menuX = GW/1.20;
 				//var menuY = GW/5;
 				var menuX = GW/1.25;
 				var menuY = GW/6;
-				draw_set_valign(fa_center);
+				draw_set_valign(fa_middle);
 				draw_set_halign(fa_center);
 				draw_sprite_ext(sHudButton,thiss,menuX, menuY+offset,1.75+scale, 1.5,0,c_white,1);
 		        draw_text_transformed(
@@ -36,7 +44,7 @@
 		            menuY + offset,
 		            menu_options[i],1.85, 1.85,0);
 		        offset += 55;	
-				draw_set_valign(fa_left);
+				draw_set_valign(fa_top);
 				draw_set_halign(fa_left);
 		    }
 		}
@@ -45,6 +53,7 @@
 #endregion
 
 #region Character Select Room
+	var str = ""; var offset = 0;
 	if (room == Room2) {	
 		str="CHOOSE YOUR IDOL";
 		draw_text_transformed((GW/2)- string_width(str),50,str,2,2,0);
@@ -65,7 +74,7 @@
 			offset=0
 			//characters
 			draw_text(10,10,selected);
-			for (i=0; i < Characters.lenght; i++) {
+			for (var i=0; i < Characters.lenght; i++) {
 				draw_sprite_ext(CHARACTERS[i][?"portrait"],0,435+offset,200,2,2,0,c_white,1);
 				if (selected == i) {
 					draw_sprite_ext(menu_carselec_cursor,-1,435+offset, 200,2,2,0,c_white,1);
@@ -75,16 +84,16 @@
 		#endregion	
 	
 		#region Weapon window
-			var _x = GW / 1.37;
-			var _y = GH / 6;
-			var _hh = GH / 3;
-			var _ww = GW / 3.85;
+			_x = GW / 1.37;
+			_y = GH / 6;
+			_hh = GH / 3;
+			_ww = GW / 3.85;
 			DrawWindow(_x,_y,_ww,_hh,"ATTACK");
 			var weaponID = CHARACTERS[selected][?"weapon"];
 			//show_message(string(weaponID[1][?"name"]));
 			var weaponSprite = weaponID[1][?"thumb"];
 			draw_sprite_ext(weaponSprite, 0,_x+30, _y+50,1.5,1.5,0,c_white,1);
-			draw_set_valign(fa_center); draw_set_color(c_white);
+			draw_set_valign(fa_middle); draw_set_color(c_white);
 			draw_text(_x + 60, _y + 50, weaponID[1][?"name"]);
 			//draw_text(_x + 8, _y + 85, weaponID[1][?"desc"]);
 			drawDesc(_x + 8, _y + 85, weaponID[1][?"desc"], GW/3.35);
@@ -104,8 +113,8 @@
 		#endregion
 	    #region Upgrades	
 			#region Weapons
-				var offset=0;			
-			    for (i = 0; i < array_length(UPGRADES); i++) //for the size of the upgrade arrays
+				offset=0;			
+			    for (var i = 0; i < array_length(UPGRADES); i++) //for the size of the upgrade arrays
 				{
 					draw_sprite_ext(ui_empty_slot_weapon,0,GW/10+offset,GH/12,1.5,1.5,0,c_white,.5); //draw empty slots background
 					if (UPGRADES[i]!=global.null) //if there is a upgrade in the slot
@@ -135,9 +144,9 @@
 			#endregion
 		
 			#region Items			
-				var offset=0;			
+				offset=0;			
 				var yoffset = 16;
-			    for (i = 0; i < array_length(playerItems); i++) //for the size of the upgrade arrays
+			    for (var i = 0; i < array_length(playerItems); i++) //for the size of the upgrade arrays
 				{
 					draw_sprite_ext(ui_empty_slot_item,0,GW/10+offset,GH/7+yoffset,1.5,1.5,0,c_white,.5); //draw empty slots background
 					if (playerItems[i]!=global.nullitem) //if there is a upgrade in the slot
@@ -167,9 +176,9 @@
 			#endregion
 		
 			#region Perks
-				var offset=0;			
-				var yoffset = 80;
-			    for (i = 0; i < array_length(playerPerks); i++) //for the size of the upgrade arrays
+				offset=0;			
+				yoffset = 80;
+			    for (var i = 0; i < array_length(playerPerks); i++) //for the size of the upgrade arrays
 				{
 					draw_sprite_ext(ui_empty_slot_item,0,GW/10+offset,GH/7+yoffset,1.5,1.5,0,c_white,.5); //draw empty slots background
 					if (playerPerks[i]!=global.nullperk) //if there is a upgrade in the slot
@@ -195,7 +204,7 @@
 		 if (global.upgrade == 1) {
 			 #region UpgradeList
 	        offset = 0;
-	        for (i = 0; i < array_length(global.upgrade_options); i++) {
+	        for (var i = 0; i < array_length(global.upgrade_options); i++) {
 				var _xx = GW/1.52;
 				var _yy = GH/4.5;
 				draw_sprite_ext(sUpgradeBackground, 0, _xx, _yy + offset, 2.10, 1.25, 0, c_black, .75);//upgrade background
@@ -247,20 +256,20 @@
 			 draw_sprite_stretched(heart_shaded,0,75,355,30,30);
 			 draw_text_transformed(110,353,"HP",1.5,1.5,0);
 			 draw_line(110,381,340,381);
-			 var str = string(HP) + "/" + string(MAXHP);
+			 str = string(HP) + "/" + string(MAXHP);
 			 draw_text_transformed(333-string_width(str)*1.5,353,str,1.5,1.5,0);
 			 //atk
 			 draw_sprite_stretched(sword_blue,0,75,395,30,30);
 			 draw_text_transformed(110,393,"ATK",1.5,1.5,0);		 
 			 draw_line(110,421,340,421);
-			 var str = "+" + string(oPlayer.atkpercentage) + "%";
+			 str = "+" + string(oPlayer.atkpercentage) + "%";
 			 draw_text_transformed(333-string_width(str)*1.5,393,str,1.5,1.5,0);
 			 #endregion
 	    }
 		#endregion
 	
 		#region Timer
-		time = string(global.minutes) + ":" + string(string_format(global.seconds,2,0));
+		var time = string(global.minutes) + ":" + string(string_format(global.seconds,2,0));
 	
 		draw_text_transformed(GW/2-(string_width(time)/2),35,time,1,1,0);
 		#endregion
@@ -287,7 +296,7 @@
 		pauseMenu[activeMenu][pM.Title], 
 		3, 3, 0);
 		var mOffset = 0;
-		draw_set_valign(fa_center);
+		draw_set_valign(fa_middle);
 		//draw options
 		var startOption = 0;
 		var totaloptions = array_length(pauseMenu[activeMenu][pM.Options]);
@@ -354,7 +363,7 @@ if (keyboard_check_pressed(ord("M"))) {
 	}
 	draw_text(10,10,global.debug);
 	var debugy=170;
-	var offset = 0;
+	offset = 0;
 	if (global.debug) {
 		draw_set_alpha(.5);
 		draw_set_color(c_white)
@@ -376,7 +385,7 @@ if (keyboard_check_pressed(ord("M"))) {
 
 #region Android Buttons
 	if (os_type == os_android) {
-		draw_set_font(Font1);
+		draw_set_font(fnt_font1);
 		draw_set_alpha(0.5);
 		draw_set_color(c_white);
 		draw_rectangle(zButtonX, zButtonY, zButtonXEnd, zButtonYEnd, false);

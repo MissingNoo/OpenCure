@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "spr_potion_testtube_orange",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -14,6 +17,7 @@
   "HTile": false,
   "VTile": false,
   "For3D": false,
+  "DynamicTexturePage": false,
   "width": 200,
   "height": 200,
   "textureGroupId": {
@@ -24,12 +28,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"c4469dcb-bcfe-451b-ade1-3ef1942ac69f","path":"sprites/spr_potion_testtube_orange/spr_potion_testtube_orange.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"c4469dcb-bcfe-451b-ade1-3ef1942ac69f","path":"sprites/spr_potion_testtube_orange/spr_potion_testtube_orange.yy",},"LayerId":{"name":"d88f858f-54a8-47f5-90f2-42317ba03453","path":"sprites/spr_potion_testtube_orange/spr_potion_testtube_orange.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_potion_testtube_orange","path":"sprites/spr_potion_testtube_orange/spr_potion_testtube_orange.yy",},"resourceVersion":"1.0","name":"c4469dcb-bcfe-451b-ade1-3ef1942ac69f","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"c4469dcb-bcfe-451b-ade1-3ef1942ac69f",},
   ],
   "sequence": {
-    "spriteId": {"name":"spr_potion_testtube_orange","path":"sprites/spr_potion_testtube_orange/spr_potion_testtube_orange.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "spr_potion_testtube_orange",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -40,9 +44,9 @@
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
             {"id":"e88b25a9-474b-4cac-be36-74bdd57db886","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"c4469dcb-bcfe-451b-ade1-3ef1942ac69f","path":"sprites/spr_potion_testtube_orange/spr_potion_testtube_orange.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -58,22 +62,13 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"spr_potion_testtube_orange","path":"sprites/spr_potion_testtube_orange/spr_potion_testtube_orange.yy",},
-    "resourceVersion": "1.4",
-    "name": "spr_potion_testtube_orange",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"d88f858f-54a8-47f5-90f2-42317ba03453","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"d88f858f-54a8-47f5-90f2-42317ba03453","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Magical",
     "path": "folders/Sprites/Full Colour/Magical.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "spr_potion_testtube_orange",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

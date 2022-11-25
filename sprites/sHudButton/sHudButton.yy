@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sHudButton",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -14,6 +17,7 @@
   "HTile": false,
   "VTile": false,
   "For3D": false,
+  "DynamicTexturePage": false,
   "width": 180,
   "height": 29,
   "textureGroupId": {
@@ -24,15 +28,13 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"1ce8d314-d956-42a8-abb0-7cb0cd673b2a","path":"sprites/sHudButton/sHudButton.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"1ce8d314-d956-42a8-abb0-7cb0cd673b2a","path":"sprites/sHudButton/sHudButton.yy",},"LayerId":{"name":"4e35fb60-b48b-441a-87b1-c8b5acfe9fbf","path":"sprites/sHudButton/sHudButton.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sHudButton","path":"sprites/sHudButton/sHudButton.yy",},"resourceVersion":"1.0","name":"1ce8d314-d956-42a8-abb0-7cb0cd673b2a","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"28848ab1-091e-4772-b7ac-06cc7e2bc915","path":"sprites/sHudButton/sHudButton.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"28848ab1-091e-4772-b7ac-06cc7e2bc915","path":"sprites/sHudButton/sHudButton.yy",},"LayerId":{"name":"4e35fb60-b48b-441a-87b1-c8b5acfe9fbf","path":"sprites/sHudButton/sHudButton.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sHudButton","path":"sprites/sHudButton/sHudButton.yy",},"resourceVersion":"1.0","name":"28848ab1-091e-4772-b7ac-06cc7e2bc915","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"1ce8d314-d956-42a8-abb0-7cb0cd673b2a",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"28848ab1-091e-4772-b7ac-06cc7e2bc915",},
   ],
   "sequence": {
-    "spriteId": {"name":"sHudButton","path":"sprites/sHudButton/sHudButton.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sHudButton",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -43,10 +45,10 @@
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
             {"id":"b90ced40-f4d8-43fe-acda-d71e74db8fe1","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"1ce8d314-d956-42a8-abb0-7cb0cd673b2a","path":"sprites/sHudButton/sHudButton.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"a16fd648-38af-43b1-8cf2-bbe61170d691","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"28848ab1-091e-4772-b7ac-06cc7e2bc915","path":"sprites/sHudButton/sHudButton.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -62,14 +64,9 @@
     "yorigin": 14,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sHudButton","path":"sprites/sHudButton/sHudButton.yy",},
-    "resourceVersion": "1.4",
-    "name": "sHudButton",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"4e35fb60-b48b-441a-87b1-c8b5acfe9fbf","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"4e35fb60-b48b-441a-87b1-c8b5acfe9fbf","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": {
     "left": 10,
@@ -100,8 +97,4 @@
     "name": "Hud",
     "path": "folders/Sprites/Hud.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sHudButton",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

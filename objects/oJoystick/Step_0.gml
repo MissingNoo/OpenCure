@@ -1,3 +1,4 @@
+
 /// @description Insert description here
 // You can write your code in this editor
 #region Touch1
@@ -100,7 +101,7 @@ if (mode == "stage") {
 
 #region MenuMode
 	if (mode == "menu") {
-		if (TouchY1 > upButtonY and TouchY1 < upButtonSizeY and TouchX1 > upButtonX and TouchX1 < upButtonSizeX and device_mouse_check_button(0,mb_left)) {
+		if (TouchY1 > upButtonY and TouchY1 < upButtonSizeY and TouchX1 > upButtonX and TouchX1 < upButtonSizeX and (device_mouse_check_button(0,mb_left) or mouse_check_button(mb_left))) {
 			keyboard_key_press(UPKEY);
 			keyboard_key_release(UPKEY);
 		}

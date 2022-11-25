@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "spr_minerals_coal_bar_hot",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -14,6 +17,7 @@
   "HTile": false,
   "VTile": false,
   "For3D": false,
+  "DynamicTexturePage": false,
   "width": 200,
   "height": 200,
   "textureGroupId": {
@@ -24,12 +28,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"f4e3c8e5-3126-4079-b560-3a48c0a892cd","path":"sprites/spr_minerals_coal_bar_hot/spr_minerals_coal_bar_hot.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"f4e3c8e5-3126-4079-b560-3a48c0a892cd","path":"sprites/spr_minerals_coal_bar_hot/spr_minerals_coal_bar_hot.yy",},"LayerId":{"name":"fd06d7cb-9387-4580-88d0-ea0bdf018281","path":"sprites/spr_minerals_coal_bar_hot/spr_minerals_coal_bar_hot.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_minerals_coal_bar_hot","path":"sprites/spr_minerals_coal_bar_hot/spr_minerals_coal_bar_hot.yy",},"resourceVersion":"1.0","name":"f4e3c8e5-3126-4079-b560-3a48c0a892cd","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"f4e3c8e5-3126-4079-b560-3a48c0a892cd",},
   ],
   "sequence": {
-    "spriteId": {"name":"spr_minerals_coal_bar_hot","path":"sprites/spr_minerals_coal_bar_hot/spr_minerals_coal_bar_hot.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "spr_minerals_coal_bar_hot",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -40,9 +44,9 @@
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
             {"id":"eba3901e-ea33-4d03-aee0-6ff464f6c683","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"f4e3c8e5-3126-4079-b560-3a48c0a892cd","path":"sprites/spr_minerals_coal_bar_hot/spr_minerals_coal_bar_hot.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -58,22 +62,13 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"spr_minerals_coal_bar_hot","path":"sprites/spr_minerals_coal_bar_hot/spr_minerals_coal_bar_hot.yy",},
-    "resourceVersion": "1.4",
-    "name": "spr_minerals_coal_bar_hot",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"fd06d7cb-9387-4580-88d0-ea0bdf018281","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"fd06d7cb-9387-4580-88d0-ea0bdf018281","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Resources",
     "path": "folders/Sprites/Full Colour/Resources.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "spr_minerals_coal_bar_hot",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

@@ -1,3 +1,4 @@
+// Feather disable GM2017
 	//iniciar variaveis do inimigo
 #macro EnemyList global.enemies
 #macro EnemyPool global.enemyPool

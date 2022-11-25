@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sThiccBubba",
   "bboxMode": 0,
   "collisionKind": 0,
   "type": 0,
@@ -14,6 +17,7 @@
   "HTile": false,
   "VTile": false,
   "For3D": false,
+  "DynamicTexturePage": false,
   "width": 64,
   "height": 64,
   "textureGroupId": {
@@ -24,18 +28,14 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"81d55823-d739-4ec7-bd4e-016372876fc8","path":"sprites/sThiccBubba/sThiccBubba.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"81d55823-d739-4ec7-bd4e-016372876fc8","path":"sprites/sThiccBubba/sThiccBubba.yy",},"LayerId":{"name":"49b10624-b140-4ab4-9337-cc44833856fb","path":"sprites/sThiccBubba/sThiccBubba.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sThiccBubba","path":"sprites/sThiccBubba/sThiccBubba.yy",},"resourceVersion":"1.0","name":"81d55823-d739-4ec7-bd4e-016372876fc8","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"8c7b521b-1985-4eb2-9151-7a5e06387607","path":"sprites/sThiccBubba/sThiccBubba.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"8c7b521b-1985-4eb2-9151-7a5e06387607","path":"sprites/sThiccBubba/sThiccBubba.yy",},"LayerId":{"name":"49b10624-b140-4ab4-9337-cc44833856fb","path":"sprites/sThiccBubba/sThiccBubba.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sThiccBubba","path":"sprites/sThiccBubba/sThiccBubba.yy",},"resourceVersion":"1.0","name":"8c7b521b-1985-4eb2-9151-7a5e06387607","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"01746581-48e3-4a87-8c10-d2b691499771","path":"sprites/sThiccBubba/sThiccBubba.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"01746581-48e3-4a87-8c10-d2b691499771","path":"sprites/sThiccBubba/sThiccBubba.yy",},"LayerId":{"name":"49b10624-b140-4ab4-9337-cc44833856fb","path":"sprites/sThiccBubba/sThiccBubba.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sThiccBubba","path":"sprites/sThiccBubba/sThiccBubba.yy",},"resourceVersion":"1.0","name":"01746581-48e3-4a87-8c10-d2b691499771","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"81d55823-d739-4ec7-bd4e-016372876fc8",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"8c7b521b-1985-4eb2-9151-7a5e06387607",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"01746581-48e3-4a87-8c10-d2b691499771",},
   ],
   "sequence": {
-    "spriteId": {"name":"sThiccBubba","path":"sprites/sThiccBubba/sThiccBubba.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sThiccBubba",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 5.0,
@@ -46,11 +46,11 @@
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
             {"id":"e5027dfa-16fd-478c-a8b3-a31f4ccff79c","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"81d55823-d739-4ec7-bd4e-016372876fc8","path":"sprites/sThiccBubba/sThiccBubba.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"f987008a-9edc-4fdd-994e-054d4364daeb","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"8c7b521b-1985-4eb2-9151-7a5e06387607","path":"sprites/sThiccBubba/sThiccBubba.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"70dd9491-e0a1-4ce1-9f9b-007019463f17","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"01746581-48e3-4a87-8c10-d2b691499771","path":"sprites/sThiccBubba/sThiccBubba.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -66,22 +66,13 @@
     "yorigin": 32,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sThiccBubba","path":"sprites/sThiccBubba/sThiccBubba.yy",},
-    "resourceVersion": "1.4",
-    "name": "sThiccBubba",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"49b10624-b140-4ab4-9337-cc44833856fb","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"49b10624-b140-4ab4-9337-cc44833856fb","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Stage 1",
     "path": "folders/Sprites/Monsters/Stage 1.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sThiccBubba",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

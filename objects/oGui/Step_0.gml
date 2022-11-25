@@ -1,4 +1,6 @@
+
 isP=global.gamePaused;
+
 #region Start Menu
 	if (room = rInicio and !global.gamePaused) {
 	    if (keyboard_check_pressed(ord("Z"))) {
@@ -25,7 +27,7 @@ isP=global.gamePaused;
 	{
 		if (holoarrowspr <= 8) { holoarrowspr+=.25; } else { holoarrowspr=0; } // arrow sprite index
 	    if (keyboard_check(ord("Z"))) {
-			for (i = 0; i < 6; i++) 
+			for (var i = 0; i < 6; i++) 
 			{	
 				if (global.upgrade_options[selected][?"style"] == ItemTypes.Weapon) {
 					#region Upgrade existing weapon
@@ -39,7 +41,7 @@ isP=global.gamePaused;
 					#region new weapon
 						if (UPGRADES[i][?"name"] == "") 
 						{
-						    for (j=0; j<array_length(global.upgradesAvaliable); j++) 
+						    for (var j=0; j<array_length(global.upgradesAvaliable); j++) 
 							{
 							    if (global.upgradesAvaliable[j][1][?"name"] == global.upgrade_options[selected][?"name"]) 
 								{
@@ -62,7 +64,7 @@ isP=global.gamePaused;
 					#region new item
 						if (playerItems[i][?"name"] == "") 
 						{
-						    for (j=0; j<array_length(ItemList); j++) 
+						    for (var j=0; j<array_length(ItemList); j++) 
 							{
 							    if (ItemList[j][1][?"name"] == global.upgrade_options[selected][?"name"]) 
 								{
@@ -228,7 +230,6 @@ if (global.gamePaused and !global.upgrade) {
 #region Debug
 	if (global.debug) {
 		if(keyboard_check(ord("L"))) game_restart();
-		dir = global.arrow_dir;
 		//if(keyboard_check(ord("Q"))) a -=1;
 		if(keyboard_check(ord("Q"))) a -=0.005;
 		//if(keyboard_check(ord("W"))) a +=1;

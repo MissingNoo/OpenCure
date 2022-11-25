@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sKingKronie",
   "bboxMode": 0,
   "collisionKind": 0,
   "type": 0,
@@ -14,6 +17,7 @@
   "HTile": false,
   "VTile": false,
   "For3D": false,
+  "DynamicTexturePage": false,
   "width": 40,
   "height": 40,
   "textureGroupId": {
@@ -24,18 +28,14 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"dafaea95-519a-49ec-9e5b-99ccdc11d31d","path":"sprites/sKingKronie/sKingKronie.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"dafaea95-519a-49ec-9e5b-99ccdc11d31d","path":"sprites/sKingKronie/sKingKronie.yy",},"LayerId":{"name":"0fc3e855-2007-4d86-9cb3-fe1633f70e09","path":"sprites/sKingKronie/sKingKronie.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sKingKronie","path":"sprites/sKingKronie/sKingKronie.yy",},"resourceVersion":"1.0","name":"dafaea95-519a-49ec-9e5b-99ccdc11d31d","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"4f64aeef-6f73-46bb-a89f-9d59406d5df3","path":"sprites/sKingKronie/sKingKronie.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"4f64aeef-6f73-46bb-a89f-9d59406d5df3","path":"sprites/sKingKronie/sKingKronie.yy",},"LayerId":{"name":"0fc3e855-2007-4d86-9cb3-fe1633f70e09","path":"sprites/sKingKronie/sKingKronie.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sKingKronie","path":"sprites/sKingKronie/sKingKronie.yy",},"resourceVersion":"1.0","name":"4f64aeef-6f73-46bb-a89f-9d59406d5df3","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"81a8238f-b66f-44da-b5e5-9f1964eef5e2","path":"sprites/sKingKronie/sKingKronie.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"81a8238f-b66f-44da-b5e5-9f1964eef5e2","path":"sprites/sKingKronie/sKingKronie.yy",},"LayerId":{"name":"0fc3e855-2007-4d86-9cb3-fe1633f70e09","path":"sprites/sKingKronie/sKingKronie.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sKingKronie","path":"sprites/sKingKronie/sKingKronie.yy",},"resourceVersion":"1.0","name":"81a8238f-b66f-44da-b5e5-9f1964eef5e2","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"dafaea95-519a-49ec-9e5b-99ccdc11d31d",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"4f64aeef-6f73-46bb-a89f-9d59406d5df3",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"81a8238f-b66f-44da-b5e5-9f1964eef5e2",},
   ],
   "sequence": {
-    "spriteId": {"name":"sKingKronie","path":"sprites/sKingKronie/sKingKronie.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sKingKronie",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 5.0,
@@ -46,11 +46,11 @@
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
             {"id":"99168768-bfe5-42e6-b5cc-f47b5d403dde","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"dafaea95-519a-49ec-9e5b-99ccdc11d31d","path":"sprites/sKingKronie/sKingKronie.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"ee22a347-2de3-482d-8596-9ae069c4a362","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"4f64aeef-6f73-46bb-a89f-9d59406d5df3","path":"sprites/sKingKronie/sKingKronie.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"32ec3f00-0025-4db9-aa07-0ad041c95ed2","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"81a8238f-b66f-44da-b5e5-9f1964eef5e2","path":"sprites/sKingKronie/sKingKronie.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -66,22 +66,13 @@
     "yorigin": 20,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sKingKronie","path":"sprites/sKingKronie/sKingKronie.yy",},
-    "resourceVersion": "1.4",
-    "name": "sKingKronie",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"0fc3e855-2007-4d86-9cb3-fe1633f70e09","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"0fc3e855-2007-4d86-9cb3-fe1633f70e09","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Stage 1",
     "path": "folders/Sprites/Monsters/Stage 1.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sKingKronie",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

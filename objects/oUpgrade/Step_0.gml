@@ -1,3 +1,4 @@
+
 #region Connected to Character
 if (!global.gamePaused) {
 	switch (upg[?"name"]) {

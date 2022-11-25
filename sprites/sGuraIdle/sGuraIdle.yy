@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sGuraIdle",
   "bboxMode": 2,
   "collisionKind": 1,
   "type": 0,
@@ -14,6 +17,7 @@
   "HTile": false,
   "VTile": false,
   "For3D": false,
+  "DynamicTexturePage": false,
   "width": 50,
   "height": 50,
   "textureGroupId": {
@@ -24,18 +28,14 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"62be0562-b3dd-471b-9ce9-6aa89efa37d9","path":"sprites/sGuraIdle/sGuraIdle.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"62be0562-b3dd-471b-9ce9-6aa89efa37d9","path":"sprites/sGuraIdle/sGuraIdle.yy",},"LayerId":{"name":"5243bd56-df96-4324-856e-1d8d5cddd8be","path":"sprites/sGuraIdle/sGuraIdle.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sGuraIdle","path":"sprites/sGuraIdle/sGuraIdle.yy",},"resourceVersion":"1.0","name":"62be0562-b3dd-471b-9ce9-6aa89efa37d9","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"0932c7a1-6486-4aba-9cc9-99b5f021fb20","path":"sprites/sGuraIdle/sGuraIdle.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"0932c7a1-6486-4aba-9cc9-99b5f021fb20","path":"sprites/sGuraIdle/sGuraIdle.yy",},"LayerId":{"name":"5243bd56-df96-4324-856e-1d8d5cddd8be","path":"sprites/sGuraIdle/sGuraIdle.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sGuraIdle","path":"sprites/sGuraIdle/sGuraIdle.yy",},"resourceVersion":"1.0","name":"0932c7a1-6486-4aba-9cc9-99b5f021fb20","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"77e0f097-11c3-4d9d-93df-f66de2f12f7e","path":"sprites/sGuraIdle/sGuraIdle.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"77e0f097-11c3-4d9d-93df-f66de2f12f7e","path":"sprites/sGuraIdle/sGuraIdle.yy",},"LayerId":{"name":"5243bd56-df96-4324-856e-1d8d5cddd8be","path":"sprites/sGuraIdle/sGuraIdle.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sGuraIdle","path":"sprites/sGuraIdle/sGuraIdle.yy",},"resourceVersion":"1.0","name":"77e0f097-11c3-4d9d-93df-f66de2f12f7e","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"62be0562-b3dd-471b-9ce9-6aa89efa37d9",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"0932c7a1-6486-4aba-9cc9-99b5f021fb20",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"77e0f097-11c3-4d9d-93df-f66de2f12f7e",},
   ],
   "sequence": {
-    "spriteId": {"name":"sGuraIdle","path":"sprites/sGuraIdle/sGuraIdle.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sGuraIdle",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 5.0,
@@ -46,11 +46,11 @@
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
             {"id":"47d414d9-c085-4bae-bd28-36c69f052d75","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"62be0562-b3dd-471b-9ce9-6aa89efa37d9","path":"sprites/sGuraIdle/sGuraIdle.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"0f2432b0-19ab-4f23-9bc5-275a36c08ba1","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"0932c7a1-6486-4aba-9cc9-99b5f021fb20","path":"sprites/sGuraIdle/sGuraIdle.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"c471f0fb-3c7f-42b0-bce0-c589dbbbdc26","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"77e0f097-11c3-4d9d-93df-f66de2f12f7e","path":"sprites/sGuraIdle/sGuraIdle.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -66,22 +66,13 @@
     "yorigin": 28,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sGuraIdle","path":"sprites/sGuraIdle/sGuraIdle.yy",},
-    "resourceVersion": "1.4",
-    "name": "sGuraIdle",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"5243bd56-df96-4324-856e-1d8d5cddd8be","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"5243bd56-df96-4324-856e-1d8d5cddd8be","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Gura",
     "path": "folders/Sprites/Characters/Gura.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sGuraIdle",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

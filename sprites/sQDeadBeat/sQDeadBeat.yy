@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sQDeadBeat",
   "bboxMode": 0,
   "collisionKind": 0,
   "type": 0,
@@ -14,6 +17,7 @@
   "HTile": false,
   "VTile": false,
   "For3D": false,
+  "DynamicTexturePage": false,
   "width": 64,
   "height": 64,
   "textureGroupId": {
@@ -24,18 +28,14 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"e3aca046-bccd-4eb5-be6a-100dadefa37f","path":"sprites/sQDeadBeat/sQDeadBeat.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"e3aca046-bccd-4eb5-be6a-100dadefa37f","path":"sprites/sQDeadBeat/sQDeadBeat.yy",},"LayerId":{"name":"8cf1b55b-3723-4eaf-bb5b-38b31efca87a","path":"sprites/sQDeadBeat/sQDeadBeat.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sQDeadBeat","path":"sprites/sQDeadBeat/sQDeadBeat.yy",},"resourceVersion":"1.0","name":"e3aca046-bccd-4eb5-be6a-100dadefa37f","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"65ebbe50-507c-4d51-b744-6b211816163f","path":"sprites/sQDeadBeat/sQDeadBeat.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"65ebbe50-507c-4d51-b744-6b211816163f","path":"sprites/sQDeadBeat/sQDeadBeat.yy",},"LayerId":{"name":"8cf1b55b-3723-4eaf-bb5b-38b31efca87a","path":"sprites/sQDeadBeat/sQDeadBeat.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sQDeadBeat","path":"sprites/sQDeadBeat/sQDeadBeat.yy",},"resourceVersion":"1.0","name":"65ebbe50-507c-4d51-b744-6b211816163f","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"31120c85-1bbb-4d76-b7ac-cf2c736b8b76","path":"sprites/sQDeadBeat/sQDeadBeat.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"31120c85-1bbb-4d76-b7ac-cf2c736b8b76","path":"sprites/sQDeadBeat/sQDeadBeat.yy",},"LayerId":{"name":"8cf1b55b-3723-4eaf-bb5b-38b31efca87a","path":"sprites/sQDeadBeat/sQDeadBeat.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sQDeadBeat","path":"sprites/sQDeadBeat/sQDeadBeat.yy",},"resourceVersion":"1.0","name":"31120c85-1bbb-4d76-b7ac-cf2c736b8b76","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"e3aca046-bccd-4eb5-be6a-100dadefa37f",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"65ebbe50-507c-4d51-b744-6b211816163f",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"31120c85-1bbb-4d76-b7ac-cf2c736b8b76",},
   ],
   "sequence": {
-    "spriteId": {"name":"sQDeadBeat","path":"sprites/sQDeadBeat/sQDeadBeat.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sQDeadBeat",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 5.0,
@@ -46,11 +46,11 @@
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
             {"id":"84aaddf5-ab4d-41fb-ae90-c7150efdedaa","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"e3aca046-bccd-4eb5-be6a-100dadefa37f","path":"sprites/sQDeadBeat/sQDeadBeat.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"07bca458-0089-46b0-b759-5a7843dccb5a","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"65ebbe50-507c-4d51-b744-6b211816163f","path":"sprites/sQDeadBeat/sQDeadBeat.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"a992230c-16be-4419-baea-8e2fd1fe5388","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"31120c85-1bbb-4d76-b7ac-cf2c736b8b76","path":"sprites/sQDeadBeat/sQDeadBeat.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -66,22 +66,13 @@
     "yorigin": 32,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sQDeadBeat","path":"sprites/sQDeadBeat/sQDeadBeat.yy",},
-    "resourceVersion": "1.4",
-    "name": "sQDeadBeat",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"8cf1b55b-3723-4eaf-bb5b-38b31efca87a","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"8cf1b55b-3723-4eaf-bb5b-38b31efca87a","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Stage 1",
     "path": "folders/Sprites/Monsters/Stage 1.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sQDeadBeat",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

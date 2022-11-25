@@ -1,3 +1,4 @@
+
 #macro UPGRADES global.upgrades
 global.upgrade=0;
 global.upgradeCooldown[0] = 0;
@@ -25,7 +26,7 @@ enum ItemTypes {
 }
 
 #region Upgrades
-function createUpgrade(_id, _name, _level, _sprite, _thumb, _mindmg, _maxdmg, _cooldown, _duration, _hitCooldown, _canBeHasted, _speed, _hits, _type = "white", _shoots, _desc = "")
+function createUpgrade(_id, _name, _level, _sprite, _thumb, _mindmg, _maxdmg, _cooldown, _duration, _hitCooldown, _canBeHasted, _speed, _hits, _type, _shoots, _desc = "")
 {
 	global.upgradesAvaliable[_id][0]=global.null;
 	global.upgradesAvaliable[_id][_level]=ds_map_create();
@@ -320,12 +321,12 @@ function randomUpgrades(){
 			}	    
 		}
 	#endregion
-	
-	for (i=0; i<4; i++) {
+	var isperk; var rdnnumber; var pickedupgrade;
+	for (var i=0; i<4; i++) {
 		do {
-			var rdnnumber = irandom_range(0,array_length(ups)-1);
-			var pickedupgrade = ups[rdnnumber][1];
-			var isperk = pickedupgrade[?"perk"];
+			rdnnumber = irandom_range(0,array_length(ups)-1);
+			pickedupgrade = ups[rdnnumber][1];
+			isperk = pickedupgrade[?"perk"];
 			if (pickedupgrade[?"perk"] == 1) {
 				show_debug_message("picked a perk: " + string(pickedupgrade[?"name"]));
 			    if (pickedupgrade[?"characterid"] == global.Player[?"id"]) {
