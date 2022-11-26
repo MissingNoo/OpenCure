@@ -15,6 +15,13 @@ if (!global.gamePaused) {
 	tickItems();
 	tickPerks();
 	Movement();
+	
+	#region XP Range
+		inRange = collision_circle(x,y-16,pickupRadius, oXP, false, true);
+		if (inRange != noone) {
+		    inRange.onArea = true;
+		}
+	#endregion
     //if (input_check_pressed("shoot")) instance_create_layer(mouse_x, mouse_y, "Instances", oEnemy);
 	
 	if (global.xp >= neededxp) {
@@ -48,8 +55,8 @@ if (!global.gamePaused) {
 if (global.debug) {
     HP=999999;
 }
-if (xp<0) {
-    xp = 0;
+if (global.xp<0) {
+    global.xp = 0;
 }
 if (HP > MAXHP) {
     HP=MAXHP;

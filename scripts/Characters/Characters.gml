@@ -31,6 +31,7 @@ function initializePlayer(_p){
 	Shield = 0;
 	MaxShield = 0;
 	revives = 0;
+	pickupRadius = 35;
 }
 
 global.characters=[];

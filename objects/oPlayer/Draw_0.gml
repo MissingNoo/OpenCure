@@ -4,6 +4,7 @@
 draw_sprite_ext(spr_shadow, 0, x, y, 1, 1, 0, c_white, 0.8)
 if (global.debug) {
     draw_text(x,y-40, string(global.xp) + "/" + string(neededxp));
+	draw_circle(x,y-16,pickupRadius,true);
 }
 
 draw_self();

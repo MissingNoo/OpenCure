@@ -1,4 +1,6 @@
 initializePlayer(global.player);
+pickupRadius = 35;
+in_range = noone;
 canShoot=1;
 neededxp = 79;
 atkpercentage=0;
