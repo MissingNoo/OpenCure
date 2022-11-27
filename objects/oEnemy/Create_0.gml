@@ -1,3 +1,4 @@
+damaged=false;
 if (room != rInicio) {
 	    random_set_seed(current_time);
 	if (ds_list_size(global.enemyPool) > 0 ) {

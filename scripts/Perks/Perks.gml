@@ -35,7 +35,7 @@ global.perkBonuses[0] = 0;
 		//Amelia
 		FpsMastery,
 		DetectiveEye,//TODO: chance to kill in one hit
-		Bubba,
+		Bubba,//TODO: Everythingq
 		ShortSize,//TODO: not work with shield, dodge, 
 		PowerofAtlantis,
 		SharkBite//TODO: everything
