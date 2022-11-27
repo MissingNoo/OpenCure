@@ -29,6 +29,9 @@ isP=global.gamePaused;
 	    if (keyboard_check(ord("Z"))) {
 			for (var i = 0; i < 6; i++) 
 			{	
+				if (global.upgradeOptions[selected][?"name"] == "null") {
+				    break;
+				}
 				if (global.upgradeOptions[selected][?"style"] == ItemTypes.Weapon) {
 					#region Upgrade existing weapon
 						if (UPGRADES[i][?"name"] == global.upgradeOptions[selected][?"name"] ) 
@@ -39,7 +42,7 @@ isP=global.gamePaused;
 					#endregion
 			
 					#region new weapon
-						if (UPGRADES[i][?"name"] == "") 
+						if (UPGRADES[i][?"name"] == "null") 
 						{
 						    for (var j=0; j<array_length(global.upgradesAvaliable); j++) 
 							{

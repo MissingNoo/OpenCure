@@ -4,15 +4,25 @@ global.upgrade=0;
 global.upgradeCooldown[0] = 0;
 #region Null Upgrade
 	global.null=ds_map_create()
-	ds_map_add(global.null, "name", "");
-	ds_map_add(global.null, "sprite", blank);
-	ds_map_add(global.null, "thumb", blank);
-	ds_map_add(global.null, "level", "");
-	ds_map_add(global.null, "dmg", 1);
-	ds_map_add(global.null, "cooldown", 0);
-	ds_map_add(global.null, "hitCooldown", 0);
-	ds_map_add(global.null, "speed", 0);
-	ds_map_add(global.null, "hits", 0);
+	var m = global.null;
+	ds_map_add(m, "id", 0);
+	ds_map_add(m, "name", "null");
+	ds_map_add(m, "level", 0);
+	ds_map_add(m, "maxlevel", 0);
+	ds_map_add(m, "sprite", blank);
+	ds_map_add(m, "thumb", blank);
+	ds_map_add(m, "mindmg", 0);
+	ds_map_add(m, "maxdmg", 0);
+	ds_map_add(m, "cooldown", 1);
+	ds_map_add(m, "duration", 0);
+	ds_map_add(m, "hitCooldown", 0);
+	ds_map_add(m, "canBeHasted", false);
+	ds_map_add(m, "speed", 0);
+	ds_map_add(m, "hits", 0);	
+	ds_map_add(m, "type", "white");	
+	ds_map_add(m, "shoots", 0);	
+	ds_map_add(m, "desc", "null");
+	ds_map_add(m, "style", ItemTypes.Weapon);	
 	global.upgradesAvaliable=[0];
 	for (i=0; i<4; i++) {
 	    global.upgradeOptions[i]=global.null;
@@ -198,13 +208,20 @@ function populateUpgrades(){
 	
 
 	#region Holobomb
-	createUpgrade(Weapons.HoloBomb, "Holo Bomb", 1, sHolobomb, sHolobomb, 12, 22, 120, 630, 20, true, 7, 1,, 1, "A bomb that explodes, dealing damage to all nearby targets.");
-	createUpgrade(Weapons.HoloBomb, "Holo Bomb", 2, sHolobomb, sHolobomb, 12, 22, 120, 630, 20, true, 7, 1,, 1, "Increase explosion size by [15%].");
-	createUpgrade(Weapons.HoloBomb, "Holo Bomb", 3, sHolobomb, sHolobomb, 12*1.20, 22*1.20, 120, 630, 20, true, 7, 1,, 1, "Increase damage by [20%].");
-	createUpgrade(Weapons.HoloBomb, "Holo Bomb", 4, sHolobomb, sHolobomb, 12*1.20, 22*1.20, 120, 630, 20, true, 7, 1,, 2, "Throw [2] bombs.");
-	createUpgrade(Weapons.HoloBomb, "Holo Bomb", 5, sHolobomb, sHolobomb, 12*1.20, 22*1.20, 120*0.80, 630, 20, true, 7, 1,, 2, "Reduce the time between attacks by [20%].");
-	createUpgrade(Weapons.HoloBomb, "Holo Bomb", 6, sHolobomb, sHolobomb, 12*1.20, 22*1.20, 120*0.80, 630, 20, true, 7, 1,, 2, "Increase explosion size by [20%].");
-	createUpgrade(Weapons.HoloBomb, "Holo Bomb", 7, sHolobomb, sHolobomb, 12*1.20, 22*1.20, 120*0.80, 630, 20, true, 7, 1,, 3, "Throw [3] bombs.");
+	createUpgrade(Weapons.HoloBomb, "Holo Bomb", 1, sHolobomb, sHolobomb, 12, 22, 120, 630, 20, true, 7, 1,"white", 1, "A bomb that explodes, dealing damage to all nearby targets.");
+	createUpgradeP2(Weapons.HoloBomb, 1, 7, 0, 0);
+	createUpgrade(Weapons.HoloBomb, "Holo Bomb", 2, sHolobomb, sHolobomb, 12, 22, 120, 630, 20, true, 7, 1,"white", 1, "Increase explosion size by [15%].");
+	createUpgradeP2(Weapons.HoloBomb, 2, 7, 0, 0);
+	createUpgrade(Weapons.HoloBomb, "Holo Bomb", 3, sHolobomb, sHolobomb, 12*1.20, 22*1.20, 120, 630, 20, true, 7, 1,"white", 1, "Increase damage by [20%].");
+	createUpgradeP2(Weapons.HoloBomb, 3, 7, 0, 0);
+	createUpgrade(Weapons.HoloBomb, "Holo Bomb", 4, sHolobomb, sHolobomb, 12*1.20, 22*1.20, 120, 630, 20, true, 7, 1,"white", 2, "Throw [2] bombs.");
+	createUpgradeP2(Weapons.HoloBomb, 4, 7, 0, 0);
+	createUpgrade(Weapons.HoloBomb, "Holo Bomb", 5, sHolobomb, sHolobomb, 12*1.20, 22*1.20, 120*0.80, 630, 20, true, 7, 1,"white", 2, "Reduce the time between attacks by [20%].");
+	createUpgradeP2(Weapons.HoloBomb, 5, 7, 0, 0);
+	createUpgrade(Weapons.HoloBomb, "Holo Bomb", 6, sHolobomb, sHolobomb, 12*1.20, 22*1.20, 120*0.80, 630, 20, true, 7, 1,"white", 2, "Increase explosion size by [20%].");
+	createUpgradeP2(Weapons.HoloBomb, 6, 7, 0, 0);
+	createUpgrade(Weapons.HoloBomb, "Holo Bomb", 7, sHolobomb, sHolobomb, 12*1.20, 22*1.20, 120*0.80, 630, 20, true, 7, 1,"white", 3, "Throw [3] bombs.");
+	createUpgradeP2(Weapons.HoloBomb, 7, 7, 0, 0);
 		//Damage: 	170% (12 – 22)
 		//Attack time: 	120 (2 s)
 		//Attack count: 	1
@@ -247,103 +264,246 @@ function populateUpgrades(){
 function randomUpgrades(){
 	random_set_seed(current_time);
 	name="";
-	var ups = [];
 	
-	#region Upgrades		
-		for (var i = 0; i < array_length(global.upgradesAvaliable); ++i) {
-			var maxed = false;
-			var found = false;
-			for (var j = 0; j < array_length(UPGRADES); ++j) {
-				//show_message("A:" + string(UPGRADES[j][?"name"]));
-				//show_message("B:" + string(global.upgradesAvaliable[i][1][?"name"]));
-				if (UPGRADES[j][?"name"] == global.upgradesAvaliable[i][1][?"name"]) {
-					found = true;
-				    if (UPGRADES[j][?"level"] != global.upgradesAvaliable[i][1][?"maxlevel"]){
-						maxed = false;
-					}
-					else maxed = true;
-				}
-				//else {array_push(ups, global.upgradesAvaliable[i]);}
-			}	    
-			if (found) {
-			    if (!maxed) {
-				    array_push(ups, global.upgradesAvaliable[i]);
-				}
-			} else {array_push(ups, global.upgradesAvaliable[i]);}
-		}
-	#endregion
+	#region Generate the lists
+		//function generateLists() {
+		var weapons_list = [];
+		var items_list = [];
+		var perks_list = [];
 	
-	#region Items
-		for (var i = 0; i < array_length(ItemList); ++i) {
-			var maxed = false;
-			var found = false;
-			for (var j = 0; j < array_length(playerItems); ++j) {
-				if (playerItems[j][?"name"] == ItemList[i][1][?"name"]) {
-					found = true;
-				    if (playerItems[j][?"level"] != ItemList[i][1][?"maxlevel"]){
-						maxed = false;
-					}
-					else maxed = true;
-				}
-				//else {array_push(ups, global.upgradesAvaliable[i]);}
-			}	    
-			if (found) {
-			    if (!maxed) {
-				    array_push(ups, ItemList[i]);	
-				}
-			} else {array_push(ups, ItemList[i]);}
-		}
-	#endregion
-	
-	#region Perks
-	
-		for (var i = 0; i < array_length(PERK_LIST); ++i) {
-			if (PERK_LIST[i][0][?"characterid"] == global.player[?"id"]) {
-			    //	array_push(ups, PERK_LIST[i]);
-				var maxed = false;
-				var found = false;
-				for (var j = 0; j < array_length(PLAYER_PERKS); ++j) {
-					if (PLAYER_PERKS[j][?"name"] == PERK_LIST[i][1][?"name"]) {
-						found = true;
-					    if (PLAYER_PERKS[j][?"level"] != PERK_LIST[i][1][?"maxlevel"]){
-							maxed = false;
+		#region Weapons List
+			//show_message(UPGRADES[5][?"name"]);	
+			if (UPGRADES[5] == global.null) {
+				for (var i = 0; i < array_length(WEAPONS_LIST); ++i) {
+					var maxed = false;
+					var found = false;
+					for (var j = 0; j < array_length(UPGRADES); ++j) {
+						//show_message("A:" + string(UPGRADES[j][?"name"]));
+						//show_message("B:" + string(global.upgradesAvaliable[i][1][?"name"]));
+						if (UPGRADES[j][?"name"] == WEAPONS_LIST[i][1][?"name"]) {
+							found = true;
+						    if (UPGRADES[j][?"level"] != WEAPONS_LIST[i][1][?"maxlevel"]){
+								maxed = false;
+							}
+							else maxed = true;
 						}
-						else maxed = true;
+						//else {array_push(ups, global.upgradesAvaliable[i]);}
+					}	    
+					if (found) {
+					    if (!maxed) {
+						    array_push(weapons_list, WEAPONS_LIST[i]);
+						}
+					} else {
+						if (WEAPONS_LIST[i][1][?"characterid"] != -1) {
+						    array_push(weapons_list, WEAPONS_LIST[i]);
+						}						
 					}
-					//else {array_push(ups, global.upgradesAvaliable[i]);}
-				}	    
-				if (found) {
-				    if (!maxed) {
-					    array_push(ups, PERK_LIST[i]);	
-					}
-				} else {array_push(ups, PERK_LIST[i]);}
-				//show_debug_message("Added: " + string( PERK_LIST[i][0][?"name"]));
-			}	    
-		}
-	#endregion
-	var isperk; var rdnnumber; var pickedupgrade;
-	for (var i=0; i<4; i++) {
-		do {
-			rdnnumber = irandom_range(0,array_length(ups)-1);
-			pickedupgrade = ups[rdnnumber][1];
-			isperk = pickedupgrade[?"perk"];
-			if (pickedupgrade[?"perk"] == 1) {
-				show_debug_message("picked a perk: " + string(pickedupgrade[?"name"]));
-			    if (pickedupgrade[?"characterid"] == global.player[?"id"]) {
-				    isperk = 0;
 				}
-			}			
-			array_delete(ups, rdnnumber, 1);
-		} until (isperk != 1);
-		array_delete(ups, rdnnumber, 1);
-		global.upgradeOptions[i] = pickedupgrade;
-	}
+			}else{
+				//var str = "";
+				for (var i = 0; i < array_length(UPGRADES); ++i) {
+				    if (UPGRADES[i][?"level"] != UPGRADES[i][?"maxlevel"] and UPGRADES[i] != global.null) {
+					    array_push(weapons_list, WEAPONS_LIST[UPGRADES[i][?"id"]]);
+						//str = str + ":" + UPGRADES[i][?"name"];
+					}
+				}	
+				//show_message(str);
+			}
+			
+		#endregion
+	
+		#region Items
+			if (playerItems[5] == global.nullitem) {
+				for (var i = 0; i < array_length(ItemList); ++i) {
+					var maxed = false;
+					var found = false;
+					for (var j = 0; j < array_length(playerItems); ++j) {
+						if (playerItems[j][?"name"] == ItemList[i][1][?"name"]) {
+							found = true;
+						    if (playerItems[j][?"level"] != ItemList[i][1][?"maxlevel"]){
+								maxed = false;
+							}
+							else maxed = true;
+						}
+						//else {array_push(ups, global.upgradesAvaliable[i]);}
+					}	    
+					if (found) {
+					    if (!maxed) {
+							for (var k = 0; k < ItemList[i][1][?"weight"]; ++k) {
+							    array_push(items_list, ItemList[i]);
+							}				    
+						}
+					} else {
+						for (var k = 0; k < ItemList[i][1][?"weight"]; ++k) {
+							    array_push(items_list, ItemList[i]);
+							}
+						}
+				}
+				//var str = "";
+				//for (var i = 0; i < array_length(items_list); ++i) {
+				//    str = str + " : " + items_list[i][1][?"name"];
+				//}
+				//show_message(str);
+			}else{
+				for (var i = 0; i < array_length(playerItems); ++i) {
+				    if (playerItems[i][?"level"] != playerItems[i][?"maxlevel"]) {
+					    for (var k = 0; k < ItemList[playerItems[i][?"id"]][1][?"weight"]; ++k) {
+							    array_push(items_list, ItemList[playerItems[i][?"id"]]);
+						}
+					}
+				}
+			}
+		#endregion
+	
+		#region Perks
+			for (var i = 0; i < array_length(PERK_LIST); ++i) {
+				if (PERK_LIST[i][0][?"characterid"] == global.player[?"id"]) {
+				    //	array_push(ups, PERK_LIST[i]);
+					var maxed = false;
+					var found = false;
+					for (var j = 0; j < array_length(PLAYER_PERKS); ++j) {
+						if (PLAYER_PERKS[j][?"name"] == PERK_LIST[i][1][?"name"]) {
+							found = true;
+						    if (PLAYER_PERKS[j][?"level"] != PERK_LIST[i][1][?"maxlevel"]){
+								maxed = false;
+							}
+							else maxed = true;
+						}
+						//else {array_push(ups, global.upgradesAvaliable[i]);}
+					}	    
+					if (found) {
+					    if (!maxed) {
+						    array_push(perks_list, PERK_LIST[i]);	
+						}
+					} else {array_push(perks_list, PERK_LIST[i]);}
+					//show_debug_message("Added: " + string( PERK_LIST[i][0][?"name"]));
+				}	    
+			}
+		#endregion
+		
+	#endregion
+	
+	var isperk; var rdnnumber; var pickedupgrade;
+	#region Generate the options
+		global.is_what = "";
+		#region 1&2
+			function slotRandomizer12() {
+				randomize();
+				global.is_what = "";
+				can_be_weapon = false;
+				for (var i = 0; i < array_length(UPGRADES); ++i) {
+					if (UPGRADES[i][?"level"] != UPGRADES[i][?"maxlevel"]) {
+						can_be_weapon = true;
+					}
+				}
+				
+				can_be_item = false;
+				for (var i = 0; i < array_length(playerItems); ++i) {
+					if (playerItems[i][?"level"] != playerItems[i][?"maxlevel"]) {
+						can_be_item = true;
+					}
+				}
+				
+				can_be_perk = false;
+				for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
+					if (PLAYER_PERKS[i][?"level"] != PLAYER_PERKS[i][?"maxlevel"]) {
+						can_be_perk = true;
+					}
+				}
+				
+				do {
+					if (irandom_range(1,9) <= 4) {
+					    global.is_what = ItemTypes.Weapon;
+					}else if (irandom_range(1,9) == 1) {
+					    global.is_what = ItemTypes.Item;
+					}else if (irandom_range(1,18) == 1) {
+							     global.is_what = ItemTypes.Item; //TODO: change to stat-up
+					}else if (irandom_range(1,18) <= 7) {
+							     global.is_what = ItemTypes.Perk;
+					}
+				} until (global.is_what != "");
+				if (global.is_what == ItemTypes.Weapon and !can_be_weapon) {
+				    global.is_what = ItemTypes.Item;
+				}
+				if (global.is_what == ItemTypes.Item and !can_be_item) {
+					global.is_what = "null";
+				    //TODO: change item type to statup
+				}
+				if (global.is_what == ItemTypes.Perk and !can_be_perk) {
+				global.is_what = "null";
+			    //TODO: change item type to statup
+			}
+			}
+			var rdn = 0;
+			slotRandomizer12();
+			#region fill slot 1	
+			//global.is_what = ItemTypes.Item;
+			//show_message(string(can_be_item) + ":" + string(can_be_perk) + ":" + string(can_be_weapon) + ":" + string(global.is_what));
+				switch (global.is_what) {
+				    case ItemTypes.Weapon:{
+						rdn = irandom_range(0,array_length(weapons_list)-1);
+				        global.upgradeOptions[0] = weapons_list[rdn][1];
+						array_delete(weapons_list, rdn, 1);
+				        break;}
+					case ItemTypes.Item:{
+				        global.upgradeOptions[0] = items_list[irandom_range(0,array_length(items_list)-1)][1];
+				        break;}
+					case ItemTypes.Perk:{
+				        global.upgradeOptions[0] = perks_list[irandom_range(0,array_length(perks_list)-1)][1];
+				        break;}				
+					case "null":{
+				        global.upgradeOptions[0] = global.null;
+				        break;}
+					}
+			#endregion
+			slotRandomizer12();
+			#region fill slot 2		
+				switch (global.is_what) {
+				    case ItemTypes.Weapon:{
+				        rdn = irandom_range(0,array_length(weapons_list)-1);
+				        global.upgradeOptions[0] = weapons_list[rdn][1];
+						array_delete(weapons_list, rdn, 1);
+				        break;}
+					case ItemTypes.Item:{
+				        global.upgradeOptions[1] = items_list[irandom_range(0,array_length(items_list)-1)][1];
+				        break;}
+					case ItemTypes.Perk:{
+				        global.upgradeOptions[1] = perks_list[irandom_range(0,array_length(perks_list)-1)][1];
+				        break;}				
+					case "null":{
+				        global.upgradeOptions[1] = global.null;
+				        break;}
+					}
+			#endregion
+		#endregion
+	global.upgradeOptions[2] = global.null;
+	global.upgradeOptions[3] = global.null;
+	#endregion
+	
+	#region old	
+	//for (var i=0; i<4; i++) {
+	//	do {
+	//		rdnnumber = irandom_range(0,array_length(ups)-1);
+	//		pickedupgrade = ups[rdnnumber][1];
+	//		isperk = pickedupgrade[?"perk"];
+	//		if (pickedupgrade[?"perk"] == 1) {
+	//			show_debug_message("picked a perk: " + string(pickedupgrade[?"name"]));
+	//		    if (pickedupgrade[?"characterid"] == global.player[?"id"]) {
+	//			    isperk = 0;
+	//			}
+	//		}			
+	//		array_delete(ups, rdnnumber, 1);
+	//	} until (isperk != 1);
+	//	array_delete(ups, rdnnumber, 1);
+	//	global.upgradeOptions[i] = pickedupgrade;
+	//}
 		
 	//global.upgradeOptions[0] = global.player[?"weapon"][1];
 	//global.upgradeOptions[1] = ItemList[ItemIds.Uber_Sheep][1];
 	//global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.BlBook][1];
 	//global.upgradeOptions[1] = global.upgradesAvaliable[Weapons.HoloBomb][1];
 	//global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.EliteLavaBucket][1];
+	#endregion
 }	
 
 function tickPowers(){
