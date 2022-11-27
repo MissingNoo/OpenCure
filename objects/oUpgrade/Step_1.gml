@@ -59,6 +59,7 @@ if (a==0) {
 			
 		case "Plug-type Asacoco":{
 			originaly=y;
+			image_alpha = .99;
 			if (instance_exists(oEnemy)) {
 				random_set_seed(current_time * global.upgradeCooldown[0]);
 				var enemies = instance_number(oEnemy);

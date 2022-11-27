@@ -19,7 +19,7 @@ if (!global.gamePaused) {
 					direction = point_direction(x,y,CE.x, CE.y)
 					image_angle = point_direction(x,y,CE.x, CE.y)    
 				}				
-			}		
+			}else {image_alpha = 1;}		
 			break;}
 		case "BL Book":{
 			x = oPlayer.x + lengthdir_x(orbit_length, orbit_place);

@@ -5,7 +5,19 @@ global.items=[0];
 global.itemCooldown[0] = 0;
 #region Null item
 	global.nullitem=ds_map_create()
-	ds_map_add(global.nullitem, "name", "");
+	var item = global.nullitem;
+		ds_map_add(item, "id", 0);
+		ds_map_add(item, "name", "");
+		ds_map_add(item, "level", 1);
+		ds_map_add(item, "maxlevel", 1);
+		ds_map_add(item, "weight", 1);
+		ds_map_add(item, "thumb", blank);
+		ds_map_add(item, "cooldown", 1);
+		ds_map_add(item, "desc", "null");
+		ds_map_add(item, "unlocked", true);
+		ds_map_add(item, "type", "white");
+		ds_map_add(item, "perk", 0);
+		ds_map_add(item, "style", ItemTypes.Item);
 	global.itemList=[0];
 #endregion
 
@@ -126,8 +138,8 @@ function populateItems(){
 		
 			#region Injection Type Asacoco
 				createItem(ItemIds.Injection_Type_Asacoco, "Injection Type Asacoco", 1, 3, 2, sInjectionAsacoco, 1, "Lose [5%] HP every second (until 1 HP remains), but gain [40%] damage. ");
-				createItem(ItemIds.Injection_Type_Asacoco, "Injection Type Asacoco", 1, 3, 2, sInjectionAsacoco, 1, "Lose [5%] HP every second (until 1 HP remains), but gain [60%] damage. ");
-				createItem(ItemIds.Injection_Type_Asacoco, "Injection Type Asacoco", 1, 3, 2, sInjectionAsacoco, 1, "Lose [5%] HP every second (until 1 HP remains), but gain [80%] damage. ");
+				createItem(ItemIds.Injection_Type_Asacoco, "Injection Type Asacoco", 2, 3, 2, sInjectionAsacoco, 1, "Lose [5%] HP every second (until 1 HP remains), but gain [60%] damage. ");
+				createItem(ItemIds.Injection_Type_Asacoco, "Injection Type Asacoco", 3, 3, 2, sInjectionAsacoco, 1, "Lose [5%] HP every second (until 1 HP remains), but gain [80%] damage. ");
 				Bonuses[BonusType.Damage][ItemIds.Injection_Type_Asacoco] = 0;
 			#endregion
 		

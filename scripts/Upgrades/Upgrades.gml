@@ -60,7 +60,7 @@ function createUpgrade(_id, _name, _level, _sprite, _thumb, _mindmg, _maxdmg, _c
 	ds_map_add(m, "style", ItemTypes.Weapon);	
 	global.upgradeCooldown[_id] = 0;
 }
-function createUpgradeP2(_id, _level, _maxlevel, _knockbackSpeed, _knockbackDuration, _perk = 0, _character = 0)
+function createUpgradeP2(_id, _level, _maxlevel, _knockbackSpeed, _knockbackDuration, _perk = 0, _character = -1)
 {
 	var m = global.upgradesAvaliable[_id][_level];
 	ds_map_add(m, "knockbackSpeed", _knockbackSpeed);
@@ -132,11 +132,11 @@ function populateUpgrades(){
 			#region PowerofAtlantis
 				//var pdmg = global.player[?"atk"];
 				createUpgrade(Weapons.PowerofAtlantis, "Power of Atlantis", 1, sWaterPoolStart, sPowerofAtlantisThumb, 6, 10, 600, 360, 45, true, 0, 999, "white", 1, "Every 10 seconds, create a whirlpool that draws in targets and takes 15% more damage, lasting 6 seconds and deals 30% damage every 0.5 seconds.");
-				createUpgradeP2(Weapons.PowerofAtlantis, 1, 3, 0 ,0,1,-1);
+				createUpgradeP2(Weapons.PowerofAtlantis, 1, 3, 0 ,0,1,-2);
 				createUpgrade(Weapons.PowerofAtlantis, "Power of Atlantis", 2, sWaterPoolStart, sPowerofAtlantisThumb, 6, 10, 600, 360, 45, true, 0, 999, "white", 2, "Every 10 seconds, create a whirlpool that draws in targets and takes 30% more damage, lasting 6 seconds and deals 40% damage every 0.5 seconds.");
-				createUpgradeP2(Weapons.PowerofAtlantis, 2, 3, 0 ,0,1,-1);
+				createUpgradeP2(Weapons.PowerofAtlantis, 2, 3, 0 ,0,1,-2);
 				createUpgrade(Weapons.PowerofAtlantis, "Power of Atlantis", 3, sWaterPoolStart, sPowerofAtlantisThumb, 6, 10, 600, 360, 45, true, 0, 999, "white", 3, "Every 10 seconds, create a whirlpool that draws in targets and takes 50% more damage, lasting 6 seconds and deals 50% damage every 0.5 seconds.");
-				createUpgradeP2(Weapons.PowerofAtlantis, 3, 3, 0 ,0,1,-1);
+				createUpgradeP2(Weapons.PowerofAtlantis, 3, 3, 0 ,0,1,-2);
 			#endregion
 		#endregion
 	
@@ -267,9 +267,9 @@ function randomUpgrades(){
 	
 	#region Generate the lists
 		//function generateLists() {
-		var weapons_list = [];
-		var items_list = [];
-		var perks_list = [];
+		weapons_list = [];
+		items_list = [];
+		perks_list = [];
 	
 		#region Weapons List
 			//show_message(UPGRADES[5][?"name"]);	
@@ -294,7 +294,7 @@ function randomUpgrades(){
 						    array_push(weapons_list, WEAPONS_LIST[i]);
 						}
 					} else {
-						if (WEAPONS_LIST[i][1][?"characterid"] != -1) {
+						if (WEAPONS_LIST[i][1][?"characterid"] == -1 or WEAPONS_LIST[i][1][?"characterid"] == global.player[?"id"]) {
 						    array_push(weapons_list, WEAPONS_LIST[i]);
 						}						
 					}
@@ -382,14 +382,114 @@ function randomUpgrades(){
 		#endregion
 		
 	#endregion
-	
-	var isperk; var rdnnumber; var pickedupgrade;
 	#region Generate the options
-		global.is_what = "";
+		is_what = "";
 		#region 1&2
 			function slotRandomizer12() {
 				randomize();
-				global.is_what = "";
+				is_what = "";
+				can_be_weapon = false;
+				for (var i = 0; i < array_length(UPGRADES); ++i) {
+					if (UPGRADES[i][?"level"] != UPGRADES[i][?"maxlevel"] or UPGRADES[i] == global.null) {
+						can_be_weapon = true;
+					}
+				}
+				
+				can_be_item = false;
+				for (var i = 0; i < array_length(playerItems); ++i) {
+					//show_message(string(playerItems[i][?"level"]) + ":" + string(playerItems[i][?"maxlevel"]));
+					if (playerItems[i][?"level"] != playerItems[i][?"maxlevel"] or playerItems[i] == global.nullitem) {
+						can_be_item = true;
+					}
+				}
+				
+				can_be_perk = false;
+				for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
+					if (PLAYER_PERKS[i][?"level"] != PLAYER_PERKS[i][?"maxlevel"]) {
+						can_be_perk = true;
+					}
+				}
+				
+				do {
+					if (irandom_range(1,9) <= 4) {
+					    is_what = ItemTypes.Weapon;
+					}else if (irandom_range(1,9) == 1) {
+					    is_what = ItemTypes.Item;
+					}else if (irandom_range(1,18) == 1) {
+							     is_what = ItemTypes.Item; //TODO: change to stat-up
+					}else if (irandom_range(1,18) <= 7) {
+							     is_what = ItemTypes.Perk;
+					}
+				} until (is_what != "");
+				if (is_what == ItemTypes.Weapon and !can_be_weapon or array_length(weapons_list) == 0) {
+				    is_what = ItemTypes.Item;
+				}
+				if (is_what == ItemTypes.Item and !can_be_item or array_length(items_list) == 0) {
+					is_what = "null";
+				    //TODO: change item type to statup
+				}
+				if (is_what == ItemTypes.Perk and !can_be_perk) {
+				is_what = "null";
+			    //TODO: change item type to statup
+				}
+				var str = "Weapons";
+				for (var i = 0; i < array_length(weapons_list); ++i) { str = str + " : " + weapons_list[i][1][?"name"]; }
+				str = str + "\n\nItems"; 
+				for (var i = 0; i < array_length(items_list); ++i) { str = str + " : " + items_list[i][1][?"name"]; }
+				str = str + "\n\nPerks"; 
+				for (var i = 0; i < array_length(perks_list); ++i) { str = str + " : " + perks_list[i][1][?"name"]; }
+				str = str + "\n\ncanbe: weapon:" + string(can_be_weapon) + " item:" + string(can_be_item) + " perk:" + string(can_be_perk); 
+				if (keyboard_check(ord("G"))) {
+				    show_message(str);
+				}
+			}
+			var rdn = 0;
+			
+			#region fill slot 1 & 2
+				var m = 0;
+				repeat (2) {
+				    slotRandomizer12();
+					switch (is_what) {
+					    case ItemTypes.Weapon:{
+							rdn = irandom_range(0,array_length(weapons_list)-1);
+					        global.upgradeOptions[m] = weapons_list[rdn][1];
+							array_delete(weapons_list, rdn, 1);
+					        break;}
+						case ItemTypes.Item:{
+							rdn = irandom_range(0,array_length(items_list)-1);
+					        global.upgradeOptions[m] = items_list[rdn][1];
+							var item_name = items_list[rdn][1][?"id"];
+							var maxI = array_length(items_list);
+							for (var i = 0; i < maxI; ++i) {
+							    if (items_list[i][1][?"id"] == item_name) {
+								    array_delete(items_list, i, 1);
+									var maxI = array_length(items_list);
+									i=0;
+								}
+							}
+					        break;}
+						case ItemTypes.Perk:{
+							if (array_length(perks_list) > 0) {
+							    rdn = irandom_range(0,array_length(perks_list)-1);
+								global.upgradeOptions[m] = perks_list[rdn][1];
+								array_delete(perks_list, rdn, 1);
+							}else{
+								global.upgradeOptions[m] = global.null; //TODO Change to statup
+							}
+					        break;}				
+						case "null":{
+					        global.upgradeOptions[m] = global.null;
+					        break;}
+						}
+						m++;
+					}				
+			#endregion
+		#endregion
+		
+		#region 3
+			function slotRandomizer3() {
+				randomize();
+				is_what = "";
 				can_be_weapon = false;
 				for (var i = 0; i < array_length(UPGRADES); ++i) {
 					if (UPGRADES[i][?"level"] != UPGRADES[i][?"maxlevel"]) {
@@ -410,73 +510,72 @@ function randomUpgrades(){
 						can_be_perk = true;
 					}
 				}
-				
-				do {
-					if (irandom_range(1,9) <= 4) {
-					    global.is_what = ItemTypes.Weapon;
-					}else if (irandom_range(1,9) == 1) {
-					    global.is_what = ItemTypes.Item;
-					}else if (irandom_range(1,18) == 1) {
-							     global.is_what = ItemTypes.Item; //TODO: change to stat-up
-					}else if (irandom_range(1,18) <= 7) {
-							     global.is_what = ItemTypes.Perk;
+				repeat (5) {
+				    do {
+						if (irandom_range(1,5) <= 2) {
+						    is_what = ItemTypes.Weapon;
+						}else if (irandom_range(1,2) == 1) {
+						    is_what = ItemTypes.Item;
+						}else if (irandom_range(1,10) == 1) {
+								     is_what = ItemTypes.Perk;
+						}
+					} until (is_what != "");
+					if (is_what == ItemTypes.Weapon and !can_be_weapon or array_length(weapons_list) == 0) {
+					    is_what = ItemTypes.Item;
 					}
-				} until (global.is_what != "");
-				if (global.is_what == ItemTypes.Weapon and !can_be_weapon) {
-				    global.is_what = ItemTypes.Item;
+					if (is_what == ItemTypes.Item and !can_be_item or array_length(items_list) == 0) {
+						is_what = ItemTypes.Perk;
+					}
+					if (is_what == ItemTypes.Perk and !can_be_perk) {
+					is_what = "null";
+					}
+					if (is_what != "null") {
+					    break;
+					}
 				}
-				if (global.is_what == ItemTypes.Item and !can_be_item) {
-					global.is_what = "null";
-				    //TODO: change item type to statup
+				if (is_what == "null") {
+				    is_what = "null" //TODO: Change to Food option
 				}
-				if (global.is_what == ItemTypes.Perk and !can_be_perk) {
-				global.is_what = "null";
-			    //TODO: change item type to statup
-			}
 			}
 			var rdn = 0;
-			slotRandomizer12();
-			#region fill slot 1	
-			//global.is_what = ItemTypes.Item;
-			//show_message(string(can_be_item) + ":" + string(can_be_perk) + ":" + string(can_be_weapon) + ":" + string(global.is_what));
-				switch (global.is_what) {
+			slotRandomizer3();
+			#region fill slot 3
+			//is_what = ItemTypes.Item;
+			//show_message(string(can_be_item) + ":" + string(can_be_perk) + ":" + string(can_be_weapon) + ":" + string(is_what));
+				switch (is_what) {
 				    case ItemTypes.Weapon:{
 						rdn = irandom_range(0,array_length(weapons_list)-1);
-				        global.upgradeOptions[0] = weapons_list[rdn][1];
+				        global.upgradeOptions[2] = weapons_list[rdn][1];
 						array_delete(weapons_list, rdn, 1);
 				        break;}
 					case ItemTypes.Item:{
-				        global.upgradeOptions[0] = items_list[irandom_range(0,array_length(items_list)-1)][1];
+				        rdn = irandom_range(0,array_length(items_list)-1);
+				        global.upgradeOptions[2] = items_list[rdn][1];
+						var item_name = items_list[rdn][1][?"id"];
+							var maxI = array_length(items_list);
+							for (var i = 0; i < maxI; ++i) {
+							    if (items_list[i][1][?"id"] == item_name) {
+								    array_delete(items_list, i, 1);
+									var maxI = array_length(items_list);
+									i=0;
+								}
+							}
 				        break;}
 					case ItemTypes.Perk:{
-				        global.upgradeOptions[0] = perks_list[irandom_range(0,array_length(perks_list)-1)][1];
-				        break;}				
+				        if (array_length(perks_list) > 0) {
+							    rdn = irandom_range(0,array_length(perks_list)-1);
+								global.upgradeOptions[2] = perks_list[rdn][1];
+								array_delete(perks_list, rdn, 1);
+							}else{
+								global.upgradeOptions[2] = global.null; //TODO Change to food
+							}
+					        break;}				
 					case "null":{
-				        global.upgradeOptions[0] = global.null;
+				        global.upgradeOptions[2] = global.null;
 				        break;}
 					}
-			#endregion
-			slotRandomizer12();
-			#region fill slot 2		
-				switch (global.is_what) {
-				    case ItemTypes.Weapon:{
-				        rdn = irandom_range(0,array_length(weapons_list)-1);
-				        global.upgradeOptions[0] = weapons_list[rdn][1];
-						array_delete(weapons_list, rdn, 1);
-				        break;}
-					case ItemTypes.Item:{
-				        global.upgradeOptions[1] = items_list[irandom_range(0,array_length(items_list)-1)][1];
-				        break;}
-					case ItemTypes.Perk:{
-				        global.upgradeOptions[1] = perks_list[irandom_range(0,array_length(perks_list)-1)][1];
-				        break;}				
-					case "null":{
-				        global.upgradeOptions[1] = global.null;
-				        break;}
-					}
-			#endregion
+			#endregion		
 		#endregion
-	global.upgradeOptions[2] = global.null;
 	global.upgradeOptions[3] = global.null;
 	#endregion
 	
