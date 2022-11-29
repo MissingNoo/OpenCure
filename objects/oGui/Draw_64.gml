@@ -247,7 +247,8 @@
 				else{
 					drawDesc(GW/2.20,GH/5.5+offset, global.upgradeOptions[i][?"desc"], GW/2.20);
 				}
-	            offset += 165;
+	            //offset += 165;
+				offset += GH/5.30;
 				draw_set_color(c_white);
 	        }
 			#endregion
