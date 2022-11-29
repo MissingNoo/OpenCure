@@ -14,7 +14,8 @@ originaly=0;
 //bl
 orbitoffset = -90;
 orbit_place = 0;
-
+image_speed=0;
+image_alpha=0;
 //lava
 loops = 0;
 changeSprite=false;

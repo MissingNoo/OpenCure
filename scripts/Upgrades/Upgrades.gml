@@ -12,7 +12,7 @@ global.upgradeCooldown[0] = 0;
 	ds_map_add(m, "sprite", blank);
 	ds_map_add(m, "thumb", blank);
 	ds_map_add(m, "mindmg", 0);
-	ds_map_add(m, "maxdmg", 0);
+	ds_map_add(m, "maxdmg", 1);
 	ds_map_add(m, "cooldown", 1);
 	ds_map_add(m, "duration", 0);
 	ds_map_add(m, "hitCooldown", 0);
@@ -463,7 +463,7 @@ function randomUpgrades(){
 							for (var i = 0; i < maxI; ++i) {
 							    if (items_list[i][1][?"id"] == item_name) {
 								    array_delete(items_list, i, 1);
-									var maxI = array_length(items_list);
+									maxI = array_length(items_list);
 									i=0;
 								}
 							}
@@ -492,14 +492,14 @@ function randomUpgrades(){
 				is_what = "";
 				can_be_weapon = false;
 				for (var i = 0; i < array_length(UPGRADES); ++i) {
-					if (UPGRADES[i][?"level"] != UPGRADES[i][?"maxlevel"]) {
+					if (UPGRADES[i][?"level"] != UPGRADES[i][?"maxlevel"] or UPGRADES[i] == global.null) {
 						can_be_weapon = true;
 					}
 				}
 				
 				can_be_item = false;
 				for (var i = 0; i < array_length(playerItems); ++i) {
-					if (playerItems[i][?"level"] != playerItems[i][?"maxlevel"]) {
+					if (playerItems[i][?"level"] != playerItems[i][?"maxlevel"] or playerItems[i] == global.nullitem) {
 						can_be_item = true;
 					}
 				}
@@ -537,7 +537,7 @@ function randomUpgrades(){
 				    is_what = "null" //TODO: Change to Food option
 				}
 			}
-			var rdn = 0;
+			rdn = 0;
 			slotRandomizer3();
 			#region fill slot 3
 			//is_what = ItemTypes.Item;
@@ -556,7 +556,7 @@ function randomUpgrades(){
 							for (var i = 0; i < maxI; ++i) {
 							    if (items_list[i][1][?"id"] == item_name) {
 								    array_delete(items_list, i, 1);
-									var maxI = array_length(items_list);
+									maxI = array_length(items_list);
 									i=0;
 								}
 							}
@@ -576,7 +576,77 @@ function randomUpgrades(){
 					}
 			#endregion		
 		#endregion
-	global.upgradeOptions[3] = global.null;
+		
+		#region 4
+			function slotRandomizer4() {
+				randomize();
+				is_what = "";
+				can_be_weapon = false;
+				for (var i = 0; i < array_length(UPGRADES); ++i) {
+					if (UPGRADES[i][?"level"] != UPGRADES[i][?"maxlevel"] or UPGRADES[i] == global.null or playerItems[i] == global.nullitem) {
+						can_be_weapon = true;
+					}
+				}
+				
+				can_be_item = false;
+				for (var i = 0; i < array_length(playerItems); ++i) {
+					if (playerItems[i][?"level"] != playerItems[i][?"maxlevel"] or playerItems[i] == global.nullitem) {
+						can_be_item = true;
+					}
+				}
+				repeat (5) {
+				    do {
+						if (irandom_range(1,2) == 1) {
+						    is_what = ItemTypes.Weapon;
+						}else if (irandom_range(1,2) == 1) {
+						    is_what = ItemTypes.Item;
+						}
+					} until (is_what != "");
+					if (is_what == ItemTypes.Weapon and !can_be_weapon or array_length(weapons_list) == 0) {
+					    is_what = ItemTypes.Item;
+					}
+					if (is_what == ItemTypes.Item and !can_be_item or array_length(items_list) == 0) {
+						is_what = "null";
+					}
+					if (is_what != "null") {
+					    break;
+					}
+				}
+				if (is_what == "null") {					
+				    is_what = "null" //TODO: Change to holocoin
+				}
+			}
+			rdn = 0;
+			slotRandomizer4();
+			#region fill slot 4
+			//is_what = ItemTypes.Item;
+			//show_message(string(can_be_item) + ":" + string(can_be_perk) + ":" + string(can_be_weapon) + ":" + string(is_what));
+				switch (is_what) {
+				    case ItemTypes.Weapon:{
+						rdn = irandom_range(0,array_length(weapons_list)-1);
+				        global.upgradeOptions[3] = weapons_list[rdn][1];
+						array_delete(weapons_list, rdn, 1);
+				        break;}
+					case ItemTypes.Item:{
+				        rdn = irandom_range(0,array_length(items_list)-1);
+				        global.upgradeOptions[3] = items_list[rdn][1];
+						var item_name = items_list[rdn][1][?"id"];
+							var maxI = array_length(items_list);
+							for (var i = 0; i < maxI; ++i) {
+							    if (items_list[i][1][?"id"] == item_name) {
+								    array_delete(items_list, i, 1);
+									maxI = array_length(items_list);
+									i=0;
+								}
+							}
+				        break;}	
+					case "null":{
+				        global.upgradeOptions[3] = global.null;
+				        break;}
+					}
+			#endregion		
+		
+	//global.upgradeOptions[3] = global.null;
 	#endregion
 	
 	#region old	
@@ -607,17 +677,22 @@ function randomUpgrades(){
 
 function tickPowers(){
 	if (attacktick == true and UPGRADES[0][?"name"]!="") {
-		//attacktick=false;
-		//alarm[2]=120;
 		for (i=0; i < array_length(UPGRADES); i++) {
 			if (UPGRADES[i] != global.null and global.upgradeCooldown[UPGRADES[i][?"id"]] <= 0) {
-			    inst = (instance_create_layer(x,y-8,"Upgrades",oUpgrade));
-				inst.upg=UPGRADES[i];
-				inst.speed=UPGRADES[i][?"speed"];
-				inst.hits=UPGRADES[i][?"hits"];
-				inst.shoots = UPGRADES[i][?"shoots"];
-				inst.sprite_index=UPGRADES[i][?"sprite"];
-				//inst.image_xscale=oPlayer.image_xscale;
+			    //inst = (instance_create_layer(x,y-8,"Upgrades",oUpgrade));
+				//inst.upg=UPGRADES[i];
+				//inst.speed=UPGRADES[i][?"speed"];
+				//inst.hits=UPGRADES[i][?"hits"];
+				//inst.shoots = UPGRADES[i][?"shoots"];
+				//inst.sprite_index=UPGRADES[i][?"sprite"];
+				instance_create_layer(x,y-8,"Upgrades",oUpgrade,{
+					upg : UPGRADES[i],
+					speed : UPGRADES[i][?"speed"],
+					hits : UPGRADES[i][?"hits"],
+					shoots : UPGRADES[i][?"shoots"],
+					sprite_index : UPGRADES[i][?"sprite"]
+				});
+				
 			}			
 		}
 	}
@@ -634,6 +709,7 @@ function defaultBehaviour(){
 	}
 	image_xscale=oPlayer.image_xscale;
 	image_speed=1;
+	image_alpha=1;
 }
 
 

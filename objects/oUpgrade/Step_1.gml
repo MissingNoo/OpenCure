@@ -4,6 +4,8 @@
 if (a==0) {	
 	global.upgradeCooldown[upg[?"id"]] = upg[?"cooldown"];
 	alarm[1] = upg[?"duration"];
+	image_speed=1;
+	image_alpha=1;
 	
 	if (!variable_instance_exists(self, "mindmg")) {
 		mindmg = upg[?"mindmg"];
@@ -12,10 +14,7 @@ if (a==0) {
 	if (!variable_instance_exists(self, "maxdmg")) {
 	    maxdmg = upg[?"maxdmg"];
 	}
-	
-	
-	image_speed=1;
-	image_alpha=1;
+		
 	a=1;
 	if (shoots > 0) {
 	    show_debug_message("Spawned: " + string(upg[?"id"]) + " Name: " + upg[?"name"] + " Level: " + string(upg[?"level"]) + " shoots: " + string(shoots) + " cooldown: " + string(upg[?"cooldown"]) );
@@ -69,12 +68,19 @@ if (a==0) {
 				image_angle = point_direction(x,y-50.75,CE.x, CE.y)
 				if (shoots>0) {
 					for (var i = 1; i < shoots; ++i) {
-						inst = (instance_create_layer(oPlayer.x,oPlayer.y-8,"Upgrades",oUpgrade));
-						inst.upg=upg;
-						inst.speed=upg[?"speed"];
-						inst.hits=upg[?"hits"];
-						inst.shoots = 0;
-						inst.sprite_index=upg[?"sprite"];
+						//inst = (instance_create_layer(oPlayer.x,oPlayer.y-8,"Upgrades",oUpgrade));
+						//inst.upg=upg;
+						//inst.speed=upg[?"speed"];
+						//inst.hits=999;
+						//inst.shoots = 0;
+						//inst.sprite_index=upg[?"sprite"];
+						instance_create_layer(oPlayer.x,oPlayer.y-8,"Upgrades",oUpgrade,{
+							upg : upg,
+							speed : upg[?"speed"],
+							hits : upg[?"hits"],
+							shoots : 0,
+							sprite_index : upg[?"sprite"]
+						});
 						alarm[0]=1;
 					}
 				}
