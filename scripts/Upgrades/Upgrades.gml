@@ -1,4 +1,6 @@
 
+// Feather disable GM2017
+// Feather disable GM2017
 #macro UPGRADES global.upgrades
 global.upgrade=0;
 global.upgradeCooldown[0] = 0;
