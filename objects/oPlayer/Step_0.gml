@@ -48,6 +48,11 @@ if (!global.gamePaused) {
 		else {
 		    HP = MAXHP/2;
 			revives -= 1;
+			with (oEnemy) {
+			   if (!boss) {
+			       instance_destroy();
+			   }
+			}
 		}
 		
 	}
@@ -61,7 +66,12 @@ if (global.xp<0) {
 if (HP > MAXHP) {
     HP=MAXHP;
 }
-
+for (var i = 0; i < array_length(Bonuses[BonusType.Speed]); ++i) {
+	if (Bonuses[BonusType.Speed][i] != 0) {
+	    spd = ospd * Bonuses[BonusType.Speed][i];
+	}
+    
+}
 
 
 

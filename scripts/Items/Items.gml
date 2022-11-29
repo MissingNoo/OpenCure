@@ -174,7 +174,7 @@ function tickItems()
 		if (playerItems[i] != global.nullitem and global.itemCooldown[playerItems[i][?"id"]] <= 0) {
 			defaultItemBehaviour(playerItems[i][?"id"], playerItems[i][?"cooldown"]);
 		    switch (playerItems[i][?"id"]) {
-				case ItemIds.Body_Pillow:					
+				case ItemIds.Body_Pillow:{	
 					switch (playerItems[i][?"level"]) {
 					    case 1:
 					        Shield = 15;
@@ -183,58 +183,63 @@ function tickItems()
 					        break;
 						case 2:
 					        Shield = 20;
-							MaxShield = 15;
+							MaxShield = 20;
 							Bonuses[BonusType.Defense][ItemIds.Body_Pillow] = 0.90;
 					        break;
 						case 3:
 					        Shield = 25;
-							MaxShield = 15;
+							MaxShield = 25;
 							Bonuses[BonusType.Defense][ItemIds.Body_Pillow] = 0.85;
 					        break;
 						case 4:
 					        Shield = 30;
-							MaxShield = 15;
+							MaxShield = 30;
 							Bonuses[BonusType.Defense][ItemIds.Body_Pillow] = 0.80;
 					        break;
 						case 5:
 					        Shield = 35;
-							MaxShield = 15;
+							MaxShield = 35;
 							Bonuses[BonusType.Defense][ItemIds.Body_Pillow] = 0.75;
 					        break;
 					    default:
 					        // code here
 					        break;
 					}
-					break;
-					
-				case ItemIds.Chicken_Feather:
+					break;}
+				case ItemIds.Chicken_Feather:{
 					if (playerItems[i][?"level"] != Bonuses[BonusType.ChickenFeather]) {
 						Bonuses[BonusType.ChickenFeather] = playerItems[i][?"level"];
 						oPlayer.revives +=1 ;
 					}
-					break;
-					
-				case ItemIds.Energy_Drink:
-					if (Bonuses[BonusType.EnergyDrinkHpMinus] == 0) {
-					    Bonuses[BonusType.EnergyDrinkHpMinus] = 1;
-						MAXHP = MAXHP * 0.80;
-					}
+					break;}
+				case ItemIds.Energy_Drink:{
 					switch (playerItems[i][?"level"]) {
 					    case 1:
+							if (Bonuses[BonusType.EnergyDrinkHpMinus] == 0) {
+							    Bonuses[BonusType.EnergyDrinkHpMinus] = 1;
+								MAXHP = MAXHP * 0.80;
+							}
 					        Bonuses[BonusType.Haste][ItemIds.Energy_Drink] = 1.10;
 							Bonuses[BonusType.Speed][ItemIds.Energy_Drink] = 1.30;
 					        break;
 					    case 2:
+							if (Bonuses[BonusType.EnergyDrinkHpMinus] == 1) {
+							    Bonuses[BonusType.EnergyDrinkHpMinus] = 2;
+								MAXHP = MAXHP * 0.80;
+							}
 					        Bonuses[BonusType.Haste][ItemIds.Energy_Drink] = 1.15;
 							Bonuses[BonusType.Speed][ItemIds.Energy_Drink] = 1.40;
 					        break;
 						case 3:
+							if (Bonuses[BonusType.EnergyDrinkHpMinus] == 2) {
+							    Bonuses[BonusType.EnergyDrinkHpMinus] = 3;
+								MAXHP = MAXHP * 0.80;
+							}
 							Bonuses[BonusType.Haste][ItemIds.Energy_Drink] = 1.20;
 							Bonuses[BonusType.Speed][ItemIds.Energy_Drink] = 1.50;
 							break;
 					}
-					break;
-					
+					break;}
 				case ItemIds.Face_Mask:
 					Bonuses[BonusType.Damage][ItemIds.Face_Mask] = 1.50;
 					Bonuses[BonusType.Haste][ItemIds.Face_Mask] = 1.10;
