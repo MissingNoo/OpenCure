@@ -1,3 +1,4 @@
+event_inherited();
 damaged=false;
 if (room != rInicio) {
 	    random_set_seed(current_time);

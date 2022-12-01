@@ -1,3 +1,4 @@
+event_inherited();
 initializePlayer(global.player);
 pickupRadius = 35;
 in_range = noone;

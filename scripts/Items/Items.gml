@@ -310,7 +310,6 @@ function tickItems()
 					"Instances",
 					oBurguer
 					)
-					break;
 					switch (playerItems[i][?"level"]) {
 					    case 1:{
 					        Bonuses[BonusType.UberSheep] = 1.10;
@@ -328,8 +327,7 @@ function tickItems()
 					        Bonuses[BonusType.UberSheep] = 1.20;
 					        break;}
 					}
-					
-			
+					break;			
 			}
 		}
 	}

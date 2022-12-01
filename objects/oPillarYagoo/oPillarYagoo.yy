@@ -1,15 +1,19 @@
 {
+  "resourceType": "GMObject",
+  "resourceVersion": "1.0",
+  "name": "oPillarYagoo",
   "spriteId": {
     "name": "BG_yagoohead",
     "path": "sprites/BG_yagoohead/BG_yagoohead.yy",
   },
   "solid": false,
   "visible": true,
+  "managed": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "oCollision",
-    "path": "objects/oCollision/oCollision.yy",
+    "name": "oDepthParent",
+    "path": "objects/oDepthParent/oDepthParent.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -23,15 +27,13 @@
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [],
-  "eventList": [],
+  "eventList": [
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,},
+  ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
     "name": "MapItems",
     "path": "folders/Objects/MapItems.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "oPillarYagoo",
-  "tags": [],
-  "resourceType": "GMObject",
 }

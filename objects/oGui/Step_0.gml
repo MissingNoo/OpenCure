@@ -113,22 +113,34 @@ isP=global.gamePaused;
 
 #region Android buttons
 	if (os_type == os_android) {
-		if (TouchY1 > zButtonY and TouchY1 < zButtonYEnd and TouchX1 > zButtonX and TouchX1 < zButtonXEnd and device_mouse_check_button(0,mb_left)) {
+		if (global.gamePaused) {
+		    released=true;
+		}
+		if (TouchY1 > zButtonY and TouchY1 < zButtonYEnd and TouchX1 > zButtonX and TouchX1 < zButtonXEnd and device_mouse_check_button(0,mb_left) and released) {
+			released = false;
+			alarm[0]=10;
 			keyboard_key_press(ord("Z"));
+			keyboard_key_release(ord("Z"));
 			keyboard_clear(ord("Z"));
 			show_debug_message("Pressed Z");
 		}
 
-		if (TouchY1 > xButtonY and TouchY1 < xButtonYEnd and TouchX1 > xButtonX and TouchX1 < xButtonXEnd and device_mouse_check_button(0,mb_left)) {
+		if (TouchY1 > xButtonY and TouchY1 < xButtonYEnd and TouchX1 > xButtonX and TouchX1 < xButtonXEnd and device_mouse_check_button(0,mb_left) and released) {
+			released = false;
+			alarm[0]=10;
 			keyboard_key_press(ord("X"));
+			keyboard_key_release(ord("X"));
 			keyboard_clear(ord("X"));
 			show_debug_message("Pressed X");
 			global.xp=1600;
 			//game_restart();
 		}
 	
-		if (TouchY1 > pButtonY and TouchY1 < pButtonYEnd and TouchX1 > pButtonX and TouchX1 < pButtonXEnd and device_mouse_check_button(0,mb_left)) {
+		if (TouchY1 > pButtonY and TouchY1 < pButtonYEnd and TouchX1 > pButtonX and TouchX1 < pButtonXEnd and device_mouse_check_button(0,mb_left)  and released) {
+			released = false;
+			alarm[0]=10;
 			keyboard_key_press(vk_escape);
+			keyboard_key_release(vk_escape);
 			keyboard_clear(vk_escape);
 			show_debug_message("Pressed Escape");
 		}
