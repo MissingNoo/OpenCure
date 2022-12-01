@@ -93,6 +93,7 @@ switch (upg[?"name"]) {
 			inst.hits=upg[?"hits"];
 			inst.shoots = 0;
 			inst.sprite_index=upg[?"sprite"];
+			inst.level = level;
 			random_set_seed(current_time);
 			x = oPlayer.x + irandom_range(-200,200)
 			random_set_seed(current_time);

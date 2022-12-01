@@ -127,6 +127,20 @@ if (a==0) {
 			y = oPlayer.y + (irandom_range(-200,200)*-1)
 			alarm[0] = 1;
 			depth=oPlayer.depth;
+			for (var i = 0; i < array_length(Bonuses[BonusType.weaponSize]); ++i) {
+				if (Bonuses[BonusType.weaponSize][i] != 0) {
+				    image_xscale = image_xscale * Bonuses[BonusType.weaponSize][i];
+					image_yscale = image_yscale * Bonuses[BonusType.weaponSize][i];
+				}			    
+			}
+			if (level >= 2 and level < 7) {
+			    image_xscale = image_xscale * 1.20;
+				image_yscale = image_yscale * 1.20;
+			}
+			if (level >= 7) {
+			    image_xscale = image_xscale * 1.40;
+				image_yscale = image_yscale * 1.40;
+			}
 			break;}
 		case "Power of Atlantis":{	
 			random_set_seed(current_time);

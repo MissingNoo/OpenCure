@@ -692,7 +692,8 @@ function tickPowers(){
 					speed : UPGRADES[i][?"speed"],
 					hits : UPGRADES[i][?"hits"],
 					shoots : UPGRADES[i][?"shoots"],
-					sprite_index : UPGRADES[i][?"sprite"]
+					sprite_index : UPGRADES[i][?"sprite"],
+					level : UPGRADES[i][?"level"]
 				});
 				
 			}			

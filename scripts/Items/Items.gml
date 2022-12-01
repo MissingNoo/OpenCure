@@ -83,7 +83,8 @@ global.itemCooldown[0] = 0;
 		EnergyDrinkHpMinus,
 		Healing,
 		weaponSize,
-		Bubba
+		Bubba,
+		UberSheep
 	}
 #endregion
 
@@ -147,7 +148,7 @@ function populateItems(){
 				createItem(ItemIds.Knightly_Milk, "Knightly Milk", 1, 3, 1, sKnightlyMilk, 1, "Increases attack size of weapons by [10%]. Also increase Pick Up Range by [30%].");
 				createItem(ItemIds.Knightly_Milk, "Knightly Milk", 2, 3, 1, sKnightlyMilk, 1, "Increases attack size of weapons by [15%]. Also increase Pick Up Range by [40%].");
 				createItem(ItemIds.Knightly_Milk, "Knightly Milk", 3, 3, 1, sKnightlyMilk, 1, "Increases attack size of weapons by [20%]. Also increase Pick Up Range by [50%].");
-				Bonuses[BonusType.weaponSize][ItemIds.Knightly_Milk] = 0;
+				Bonuses[BonusType.weaponSize][ItemIds.Knightly_Milk] = 1;
 			#endregion
 		
 			#region Nurse's Horn
@@ -162,6 +163,7 @@ function populateItems(){
 				createItem(ItemIds.Uber_Sheep, "Uber Sheep", 3, 5 , 4, sUberSheep, 8, "Every [8] seconds, food will drop close by. Also increase food drop chance from defeated targets by [10%]. ");
 				createItem(ItemIds.Uber_Sheep, "Uber Sheep", 4, 5 , 4, sUberSheep, 7, "Every [7] seconds, food will drop close by. Also increase food drop chance from defeated targets by [10%]. ");
 				createItem(ItemIds.Uber_Sheep, "Uber Sheep", 5, 5 , 4 , sUberSheep, 6, "Every [6] seconds, food will drop close by. Also increase food drop chance from defeated targets by [10%]. ");
+				Bonuses[BonusType.UberSheep] = 1;
 			#endregion
 		
 			#endregion
@@ -309,6 +311,23 @@ function tickItems()
 					oBurguer
 					)
 					break;
+					switch (playerItems[i][?"level"]) {
+					    case 1:{
+					        Bonuses[BonusType.UberSheep] = 1.10;
+					        break;}
+					    case 2:{
+					        Bonuses[BonusType.UberSheep] = 1.12;
+					        break;}
+						case 3:{
+					        Bonuses[BonusType.UberSheep] = 1.15;
+					        break;}
+						case 4:{
+					        Bonuses[BonusType.UberSheep] = 1.18;
+					        break;}
+						case 5:{
+					        Bonuses[BonusType.UberSheep] = 1.20;
+					        break;}
+					}
 					
 			
 			}
