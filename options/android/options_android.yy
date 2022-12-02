@@ -16,7 +16,7 @@
   "option_android_package_product": "gamea",
   "option_android_arch_armv7": true,
   "option_android_arch_arm64": true,
-  "option_android_arch_x86_64": false,
+  "option_android_arch_x86_64": true,
   "option_android_orient_portrait": false,
   "option_android_orient_portrait_flipped": false,
   "option_android_orient_landscape": true,
