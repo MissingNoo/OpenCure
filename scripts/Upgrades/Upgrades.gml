@@ -88,7 +88,7 @@ enum Weapons
 	//IdolSong,
 	PlugAsaCoco, //TODO: afterimage, knockback lv 6
 	//PsychoAxe,
-	//SpiderCooking,
+	SpiderCooking,
 	//WamyWater,
 	//X-Potato
 }
@@ -207,8 +207,6 @@ function populateUpgrades(){
 		createUpgradeP2(Weapons.EliteLavaBucket, 7, 7, 0 ,0);
 	#endregion
 
-	
-
 	#region Holobomb
 	createUpgrade(Weapons.HoloBomb, "Holo Bomb", 1, sHolobomb, sHolobomb, 12, 22, 120, 630, 20, true, 7, 1,"white", 1, "A bomb that explodes, dealing damage to all nearby targets.");
 	createUpgradeP2(Weapons.HoloBomb, 1, 7, 0, 0);
@@ -259,6 +257,9 @@ function populateUpgrades(){
 		createUpgradeP2(Weapons.PlugAsaCoco, 7, 7, 7, 15); 
 	#endregion
 		
+	#region SpiderCooking
+		//createUpgrade(Weapons.SpiderCooking, "Spider Cooking", )
+	#endregion
 }
 
 #endregion
