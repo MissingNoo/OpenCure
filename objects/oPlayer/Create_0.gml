@@ -1,6 +1,7 @@
 event_inherited();
 initializePlayer(global.player);
 pickupRadius = 35;
+originalPickupRadius = pickupRadius;
 in_range = noone;
 canShoot=1;
 neededxp = 79;

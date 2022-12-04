@@ -252,22 +252,7 @@
 				draw_set_color(c_white);
 	        }
 			#endregion
-			 #region Stats
-			 draw_text_transformed(120,200,"LevelUP",3,3,0);
-			 draw_text_transformed(120,250,NAME,2.5,2.5,0);
-			 //hp
-			 draw_sprite_stretched(heart_shaded,0,75,355,30,30);
-			 draw_text_transformed(110,353,"HP",1.5,1.5,0);
-			 draw_line(110,381,340,381);
-			 str = string(HP) + "/" + string(MAXHP);
-			 draw_text_transformed(333-string_width(str)*1.5,353,str,1.5,1.5,0);
-			 //atk
-			 draw_sprite_stretched(sword_blue,0,75,395,30,30);
-			 draw_text_transformed(110,393,"ATK",1.5,1.5,0);		 
-			 draw_line(110,421,340,421);
-			 str = "+" + string(oPlayer.atkpercentage) + "%";
-			 draw_text_transformed(333-string_width(str)*1.5,393,str,1.5,1.5,0);
-			 #endregion
+			 drawStats();
 	    }
 		#endregion
 	
@@ -415,6 +400,136 @@ if (keyboard_check_pressed(ord("M"))) {
 	}
 #endregion
 
+#region Functions
+	function drawStats(){
+		#region Stats
+			draw_set_halign(fa_center);
+			draw_text_transformed(GW/5, GH/3.40, "LevelUP", 3, 3, 0);
+			draw_text_transformed(GW/5, GH/2.70, NAME, 2, 2, 0);
+			var stats_offset=0;
+			
+			#region HP
+				draw_sprite_stretched(heart_shaded, 0, GW/11, GH/2.15, 25, 25);
+				draw_text_transformed(GW/8, GH/2.15, "HP", 1.5, 1.5, 0);
+				draw_line(GW/8.80, GH/2, GW/3.40, GH/2);
+				str = string(HP) + "/" + string(MAXHP);
+				draw_set_halign(fa_right);
+				draw_text_transformed(GW/3.40, GH/2.15, str, 1.5, 1.5, 0);
+				draw_set_halign(fa_left);
+			#endregion
+			
+				#region ATK
+					stats_offset += 35;
+					draw_sprite_stretched(sword_blue, 0, GW/11, GH/2.15 + stats_offset, 25, 25);
+					draw_text_transformed(GW/8, GH/2.15 + stats_offset, "ATK", 1.5, 1.5, 0);
+					draw_line(GW/8.80, GH/2 + stats_offset, GW/3.40, GH/2 + stats_offset);
+					var calc = 0;
+					for (var i = 0; i < array_length(Bonuses[BonusType.Damage]); ++i) {
+						if (Bonuses[BonusType.Damage][i] != 0) {
+						    calc += real(string_replace(string(Bonuses[BonusType.Damage][i]), "1.", ""));
+						}
+					}
+					for (var i = 0; i < array_length(PerkBonuses[BonusType.Damage]); ++i) {
+						if (PerkBonuses[BonusType.Damage][i] != 0) {
+						    calc += real(string_replace(string(PerkBonuses[BonusType.Damage][i]), "1.", ""));
+						}
+					}
+					str = "+" + string(calc) + "%";
+					draw_set_halign(fa_right);
+					draw_text_transformed(GW/3.40, GH/2.15 + stats_offset, str, 1.5, 1.5, 0);
+					draw_set_halign(fa_left);
+				#endregion
+				
+				#region SPD
+					stats_offset += 35;
+					draw_sprite_stretched(sHudSpdIcon, 0, GW/11, GH/2.15 + stats_offset, 25, 25);
+					draw_text_transformed(GW/8, GH/2.15 + stats_offset, "SPD", 1.5, 1.5, 0);
+					draw_line(GW/8.80, GH/2 + stats_offset, GW/3.40, GH/2 + stats_offset);
+					var calc = 0;
+					for (var i = 0; i < array_length(Bonuses[BonusType.Speed]); ++i) {
+						if (Bonuses[BonusType.Speed][i] != 0) {
+						    calc += real(string_replace(string(Bonuses[BonusType.Speed][i]), "1.", ""));
+						}
+					}
+					for (var i = 0; i < array_length(PerkBonuses[BonusType.Speed]); ++i) {
+						if (PerkBonuses[BonusType.Speed][i] != 0) {
+						    calc += real(string_replace(string(PerkBonuses[BonusType.Speed][i]), "1.", ""));							
+						}
+					}
+					str = "+" + string(calc) + "%";
+					draw_set_halign(fa_right);
+					draw_text_transformed(GW/3.40, GH/2.15 + stats_offset, str, 1.5, 1.5, 0);
+					draw_set_halign(fa_left);
+				#endregion
+				
+				#region CRT
+					stats_offset += 35;
+					draw_sprite_stretched(sHudCrtIcon, 0, GW/11, GH/2.15 + stats_offset, 25, 25);
+					draw_text_transformed(GW/8, GH/2.15 + stats_offset, "CRT", 1.5, 1.5, 0);
+					draw_line(GW/8.80, GH/2 + stats_offset, GW/3.40, GH/2 + stats_offset);
+					var calc = 0;
+					for (var i = 0; i < array_length(Bonuses[BonusType.Critical]); ++i) {
+						if (Bonuses[BonusType.Critical][i] != 0) {
+						    calc += real(string_replace(string(Bonuses[BonusType.Critical][i]), "1.", ""));
+						}
+					}
+					for (var i = 0; i < array_length(PerkBonuses[BonusType.Critical]); ++i) {
+						if (PerkBonuses[BonusType.Critical][i] != 0) {
+						    calc += real(string_replace(string(PerkBonuses[BonusType.Critical][i]), "1.", ""));
+						}
+					}
+					str = "+" + string(calc) + "%";
+					draw_set_halign(fa_right);
+					draw_text_transformed(GW/3.40, GH/2.15 + stats_offset, str, 1.5, 1.5, 0);
+					draw_set_halign(fa_left);
+				#endregion
+				
+				#region Pickup
+					stats_offset += 35;
+					draw_sprite_stretched(sHudPickupIcon, 0, GW/11, GH/2.15 + stats_offset, 25, 25);
+					draw_text_transformed(GW/8, GH/2.15 + stats_offset, "Pickup", 1.5, 1.5, 0);
+					draw_line(GW/8.80, GH/2 + stats_offset, GW/3.40, GH/2 + stats_offset);
+					calc = 0;
+					for (var i = 0; i < array_length(Bonuses[BonusType.PickupRange]); ++i) {
+						if (Bonuses[BonusType.PickupRange][i] != 0) {
+						    calc += real(string_replace(string(Bonuses[BonusType.PickupRange][i]), "1.", ""));
+						}
+					}
+					//for (var i = 0; i < array_length(PerkBonuses[BonusType.PickupRange]); ++i) {
+					//	if (PerkBonuses[BonusType.PickupRange][i] != 0) {
+					//	    calc += real(string_replace(string(PerkBonuses[BonusType.PickupRange][i]), "1.", ""));
+					//	}
+					//}//TODO: if there is a pickuprange bonus perk
+					str = "+" + string(calc) + "%";
+					draw_set_halign(fa_right);
+					draw_text_transformed(GW/3.40, GH/2.15 + stats_offset, str, 1.5, 1.5, 0);
+					draw_set_halign(fa_left);
+				#endregion
 
+				#region Haste
+					stats_offset += 35;
+					draw_sprite_stretched(sHudPickupIcon, 0, GW/11, GH/2.15 + stats_offset, 25, 25);
+					draw_text_transformed(GW/8, GH/2.15 + stats_offset, "Haste", 1.5, 1.5, 0);
+					draw_line(GW/8.80, GH/2 + stats_offset, GW/3.40, GH/2 + stats_offset);
+					calc = 0;
+					for (var i = 0; i < array_length(Bonuses[BonusType.Haste]); ++i) {
+						if (Bonuses[BonusType.Haste][i] != 0) {
+						    calc += real(string_replace(string(Bonuses[BonusType.Haste][i]), "1.", ""));
+						}
+					}
+					//for (var i = 0; i < array_length(PerkBonuses[BonusType.Haste]); ++i) {
+					//	if (PerkBonuses[BonusType.Haste][i] != 0) {
+					//	    calc += real(string_replace(string(PerkBonuses[BonusType.Haste][i]), "1.", ""));
+					//	}
+					//}//TODO: if there is a Haste bonus perk
+					str = "+" + string(calc) + "%";
+					draw_set_halign(fa_right);
+					draw_text_transformed(GW/3.40, GH/2.15 + stats_offset, str, 1.5, 1.5, 0);
+					draw_set_halign(fa_center);
+				#endregion
+				draw_set_halign(fa_left);
+			#endregion
+	}
+#endregion
 
 

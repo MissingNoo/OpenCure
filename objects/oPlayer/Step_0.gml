@@ -66,13 +66,36 @@ if (global.xp<0) {
 if (HP > MAXHP) {
     HP=MAXHP;
 }
-for (var i = 0; i < array_length(Bonuses[BonusType.Speed]); ++i) {
-	if (Bonuses[BonusType.Speed][i] != 0) {
-	    spd = ospd * Bonuses[BonusType.Speed][i];
+#region spd calc
+	var calc = 0;
+	for (var i = 0; i < array_length(Bonuses[BonusType.Speed]); ++i) {
+		if (Bonuses[BonusType.Speed][i] != 0) {
+		    calc += Bonuses[BonusType.Speed][i];
+		}    
 	}
-    
-}
+	for (var i = 0; i < array_length(PerkBonuses[BonusType.Speed]); ++i) {
+		if (PerkBonuses[BonusType.Speed][i] != 0) {
+		    calc += PerkBonuses[BonusType.Speed][i];
+		}    
+	}
+	if (calc != 0) {
+	    spd = ospd * calc;
+	}
+#endregion
 
-
-
-
+#region pickup calc
+	calc = 0;
+	for (var i = 0; i < array_length(Bonuses[BonusType.PickupRange]); ++i) {
+		if (Bonuses[BonusType.PickupRange][i] != 0) {
+		    calc += Bonuses[BonusType.PickupRange][i];
+		}    
+	}
+	//for (var i = 0; i < array_length(PerkBonuses[BonusType.PickupRange]); ++i) {
+	//	if (PerkBonuses[BonusType.PickupRange][i] != 0) {
+	//	    calc += PerkBonuses[BonusType.PickupRange][i];
+	//	}    
+	//}//TODO: if there is a pickuprange bonus perk
+	if (calc != 0) {
+	    pickupRadius = originalPickupRadius * calc;
+	}
+#endregion

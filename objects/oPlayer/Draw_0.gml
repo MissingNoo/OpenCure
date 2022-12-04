@@ -1,8 +1,10 @@
 event_inherited();
 /// @description Insert description here	
 // You can write your code in this editor
+
 draw_sprite_ext(spr_shadow, 0, x, y, 1, 1, 0, c_white, 0.8)
 if (global.debug) {
+	draw_text(x,y-60, "spd: " + string(spd));
     draw_text(x,y-40, string(global.xp) + "/" + string(neededxp));
 	draw_circle(x,y-16,pickupRadius,true);
 }

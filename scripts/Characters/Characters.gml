@@ -32,6 +32,31 @@ function initializePlayer(_p){
 	MaxShield = 0;
 	revives = 0;
 	pickupRadius = 35;
+	#region Reset bonuses
+		for (var i = 0; i < array_length(Bonuses); ++i) {
+			if (is_array(Bonuses[i])) {
+			    for (var j = 0; j < array_length(Bonuses[i]); ++j) {
+					Bonuses[i][j]=0;
+				}
+			}
+			else{
+				Bonuses[i]=0;
+			}
+		}
+	#endregion
+	
+	#region reset perk bonuses
+		for (var i = 0; i < array_length(PerkBonuses); ++i) {
+			if (is_array(PerkBonuses[i])) {
+			    for (var j = 0; j < array_length(PerkBonuses[i]); ++j) {
+					PerkBonuses[i][j]=0;
+				}
+			}
+			else{
+				PerkBonuses[i]=0;
+			}
+		}
+	#endregion
 }
 
 global.characters=[];

@@ -1,6 +1,6 @@
 
 /// @description 
-if (other.canattack and !global.gamePaused) {
+if (other.canattack and other.image_alpha == 1 and !global.gamePaused) {
 	//damaged=true;
 	audio_play_sound(snd_hurt,0,0);
 	var damage = damageCalculation(other.atk);
