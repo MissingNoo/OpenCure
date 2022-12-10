@@ -7,9 +7,9 @@ if (a==0) {
 	image_speed=1;
 	image_alpha=1;		
 	a=1;
-	if (shoots > 0) {
-	    show_debug_message("Spawned: " + string(upg[?"id"]) + " Name: " + upg[?"name"] + " Level: " + string(upg[?"level"]) + " shoots: " + string(shoots) + " cooldown: " + string(upg[?"cooldown"]) );
-	}
+	//if (shoots > 0) {
+	//    show_debug_message("Spawned: " + string(upg[?"id"]) + " Name: " + upg[?"name"] + " Level: " + string(upg[?"level"]) + " shoots: " + string(shoots) + " cooldown: " + string(upg[?"cooldown"]) );
+	//}
 	
 	//show_message(string(image_xscale));
 	switch (upg[?"name"]) {

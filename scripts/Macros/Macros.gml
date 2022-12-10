@@ -5,3 +5,5 @@
 #macro MaxShield global.maxshield
 #macro Bonuses global.bonuses
 #macro PerkBonuses global.perkBonuses
+global.anvil = false;
+#macro ANVIL global.anvil

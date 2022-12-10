@@ -25,18 +25,16 @@ var base_h = 360;
 var max_w = display_get_width();
 var max_h = display_get_height();
 var aspect = display_get_width() / display_get_height();
-if (max_w < max_h)
-    {
-    // portait
+if (max_w < max_h){
+	// portait
      var VIEW_WIDTH = min(base_w, max_w);
-    var VIEW_HEIGHT = VIEW_WIDTH / aspect;
-    }
-else
-    {
-    // landscape
-    var VIEW_HEIGHT = min(base_h, max_h);
-    var VIEW_WIDTH = VIEW_HEIGHT * aspect;
-    }
+	var VIEW_HEIGHT = VIEW_WIDTH / aspect;
+}
+else{
+	// landscape
+	var VIEW_HEIGHT = min(base_h, max_h);
+	var VIEW_WIDTH = VIEW_HEIGHT * aspect;
+}
 camera_set_view_size(view_camera[0], floor(VIEW_WIDTH), floor(VIEW_HEIGHT))
 view_wport[0] = max_w;
 view_hport[0] = max_h;
@@ -56,13 +54,13 @@ function drawDesc(_xx, _yy, _string, maxX){
 		}
 		if (char == " ") { //if word wont fit jump line
 			var totalx = 0
-		    for (var j = i+1; j < string_length(_string); ++j) {
+			for (var j = i+1; j < string_length(_string); ++j) {
 				char2 = string_copy(_string, j, 1);
-			    if (char2 != " ") {
-				    totalx += 10.5;
+				if (char2 != " ") {
+					totalx += 10.5;
 				}
 				else {
-				    break;
+					break;
 				}
 			}
 			if (_xx + xt + totalx >= _xx + maxX) {
@@ -72,13 +70,13 @@ function drawDesc(_xx, _yy, _string, maxX){
 		}
 		switch (char) {
 		    case "[":
-		        draw_set_color(c_green);
+				draw_set_color(c_green);
 				i++
-		        break;
+				break;
 		    case "]":
-		        draw_set_color(c_white);
+				draw_set_color(c_white);
 				i++
-		        break;
+				break;
 		}
 		char = string_copy(_string, i, 1);
 		if (xt == 0 and char == " ") {

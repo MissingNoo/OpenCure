@@ -152,7 +152,7 @@ isP=global.gamePaused;
 #endregion
 
 #region PauseMenu
-if (global.gamePaused and !global.upgrade) {
+if (global.gamePaused and !global.upgrade and !ANVIL) {
 	pauseMenu[activeMenu][pM.yScale] = 0.75;
 	for (var i = 1; i < array_length(pauseMenu[activeMenu][pM.Options]); ++i) {
 		if (i < 5) {
@@ -253,10 +253,10 @@ if (global.gamePaused and !global.upgrade) {
 #region Debug
 	if (global.debug) {
 		if(keyboard_check(ord("L"))) game_restart();
-		//if(keyboard_check(ord("Q"))) a -=1;
-		if(keyboard_check(ord("Q"))) a -=0.005;
-		//if(keyboard_check(ord("W"))) a +=1;
-		if(keyboard_check(ord("W"))) a += 0.005;
+		if(keyboard_check(ord("Q"))) a -=1;
+		//if(keyboard_check(ord("Q"))) a -=0.005;
+		if(keyboard_check(ord("W"))) a +=1;
+		//if(keyboard_check(ord("W"))) a += 0.005;
 		if(keyboard_check(ord("E"))) b -=.05;
 		//if(keyboard_check(ord("E"))) b -=1;
 		if(keyboard_check(ord("R"))) b +=.05;
@@ -286,8 +286,3 @@ if (global.gamePaused and !global.upgrade) {
 		
 	}
 #endregion
-
-
-
-
-

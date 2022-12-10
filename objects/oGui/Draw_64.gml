@@ -111,7 +111,7 @@
 			draw_sprite_ext(global.player[?"portrait"],0,60,90,2,2,0,c_white,1);
 			draw_sprite_ext(ui_portrait_frame,0,60,90,2,2,0,c_white,1);
 		#endregion
-	    #region Upgrades	
+		#region Upgrades
 			#region Weapons
 				offset=0;			
 			    for (var i = 0; i < array_length(UPGRADES); i++) //for the size of the upgrade arrays
@@ -143,7 +143,7 @@
 			    }
 			#endregion
 		
-			#region Items			
+			#region Items
 				offset=0;			
 				var yoffset = 16;
 			    for (var i = 0; i < array_length(playerItems); i++) //for the size of the upgrade arrays
@@ -194,15 +194,15 @@
 			#endregion
 		
 	    #endregion	
-	
-	    #region XP
+
+		#region XP
 			if (global.xp > 0) {
 			    draw_rectangle_color(5, 5, 5 + ((global.xp / oPlayer.neededxp) * GW - 5), 30, c_blue, c_blue, c_blue, c_blue, false);
 			}		    
 		    draw_rectangle(5, 5, GW - 5, 30, true);
 	    #endregion
-	
-		#region LevelUP	
+
+		#region LevelUP
 		 if (global.upgrade == 1) {
 			 #region UpgradeList
 	        offset = 0;
@@ -255,7 +255,56 @@
 			 drawStats();
 	    }
 		#endregion
-	
+
+		#region Anvil
+		if (ANVIL) {
+			#region Weapons
+				var xoffset = 0;
+				for (var i = 0; i < array_length(UPGRADES); ++i){
+				    draw_sprite_ext(sItemSquare, 0, GW/2.30 + xoffset, GH/3, 2, 2, 0, c_white, 1);
+					draw_sprite_ext(UPGRADES[i][?"thumb"], 0, GW/2.30 + xoffset, GH/3, 2, 2, 0, c_white, 1);
+					xoffset += GW/12;
+				}
+			#endregion
+			
+			#region Items
+				xoffset = 0;
+				for (var i = 0; i < array_length(playerItems); ++i){
+					draw_sprite_ext(sItemSquare, 0, GW/2.30 + xoffset, GH/2.30, 2, 2, 0, c_white, 1);
+					draw_sprite_ext(playerItems[i][?"thumb"], 0, GW/2.30 + xoffset, GH/2.30, 2, 2, 0, c_white, 1);
+					xoffset += GW/12;
+				}
+			#endregion
+			
+			#region Item Info
+				var _xx = GW/1.55;
+				var _yy = GH/1.60;
+				var style;
+				draw_sprite_ext(sUpgradeBackground, 0, _xx, _yy, 2.10, 1.25, 0, c_black, .75);//upgrade background
+				draw_sprite_ext(sUpgradeBackground, 2, _xx, _yy, 2.10, 1.25, 0, c_white, .75);//upgrade line for the text
+				draw_sprite_ext(sUpgradeBackground, 1, _xx, _yy, 2.10, 1.25, 0, c_white, 1); 
+				draw_text_transformed(_xx - 385, _yy - 59.50 , string(anvilSelected[?"name"]), 1, 1, 0); // draw the name
+				switch (anvilSelected[?"style"]) { // type of upgrade
+				    case ItemTypes.Weapon:
+				        style = " >> Weapon";
+				        break;
+				    case ItemTypes.Item:
+				        style = " >> Item";
+				        break;
+					case ItemTypes.Perk:
+				        style = " >> Skill";
+				        break;
+				}
+				draw_set_halign(fa_right);
+				draw_text_transformed(_xx + 370, _yy - 59.50, string(style), 1, 1, 0);  // draw type of upgrade
+				draw_set_halign(fa_left);
+				draw_sprite_ext(anvilSelected[? "thumb"],0, _xx - 350, _yy, 2, 2,0,c_white,1); // item thumb
+				draw_sprite_ext(sItemType, anvilSelected[?"style"], _xx - 350, _yy, 2, 2,0,c_white,1); // item thumb type
+			#endregion
+			drawStats();
+		}
+		#endregion
+
 		#region Timer
 		var time = string(global.minutes) + ":" + string(string_format(global.seconds,2,0));
 	
@@ -265,7 +314,7 @@
 #endregion
 
 #region PauseMenu
-	if (global.gamePaused and !global.upgrade) {
+	if (global.gamePaused and !global.upgrade and !ANVIL) {
 		//pauseMenu[PMenus.Pause][pM.xScale] = a;
 		//pauseMenu[PMenus.Pause][pM.yScale] = b;
 		//pauseMenu[PMenus.Pause][pM.yScale] = array_length(pauseMenu[activeMenu][pM.Options])/(3 - (array_length(pauseMenu[activeMenu][pM.Options])*1.5));
