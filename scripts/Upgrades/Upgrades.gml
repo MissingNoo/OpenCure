@@ -694,7 +694,9 @@ function tickPowers(){
 					hits : UPGRADES[i][?"hits"],
 					shoots : UPGRADES[i][?"shoots"],
 					sprite_index : UPGRADES[i][?"sprite"],
-					level : UPGRADES[i][?"level"]
+					level : UPGRADES[i][?"level"],
+					mindmg: UPGRADES[i][?"mindmg"],
+					maxdmg: UPGRADES[i][?"maxdmg"]
 				});
 				
 			}			
@@ -714,4 +716,17 @@ function defaultBehaviour(){
 	image_xscale=oPlayer.image_xscale;
 	image_speed=1;
 	image_alpha=1;
+}
+
+function spawnUpgrade(_upg = upg, _speed = upg[?"speed"], _hits = upg[?"hits"], _shoots = 0, _mindmg = upg[?"mindmg"], _maxdmg = upg[?"maxdmg"], _sprite = upg[?"sprite"]){
+	var instancecreated = instance_create_layer(oPlayer.x,oPlayer.y-8,"Upgrades",oUpgrade,{
+					upg : _upg,
+					speed : _speed,
+					hits : _hits,
+					shoots : _shoots,
+					mindmg : _mindmg,
+					maxdmg : _maxdmg,
+					sprite_index : _sprite
+				});
+		return instancecreated;
 }

@@ -3,30 +3,22 @@
 /// @description Insert description here
 // You can write your code in this editor
 // Feather disable GM2016
+
+
 var inst = noone;
 switch (upg[?"name"]) {
 	default:
 		break;
 	case "AmePistol":
 		if (shoots > 1) {			
-			inst = (instance_create_layer(oPlayer.x,oPlayer.y-8,"Upgrades",oUpgrade));
-			inst.upg=upg;
-			inst.speed=upg[?"speed"];
-			inst.hits=upg[?"hits"];
-			inst.shoots = 0;
-			inst.sprite_index=upg[?"sprite"];
+			spawnUpgrade();
 		    shoots-=1;
 			alarm[0]=10;
 		}
 		break;
 	case "GuraTrident":
 		if (shoots > 1) {			
-			inst = (instance_create_layer(oPlayer.x,oPlayer.y-8,"Upgrades",oUpgrade));
-			inst.upg=upg;
-			inst.speed=upg[?"speed"];
-			inst.hits=upg[?"hits"];
-			inst.shoots = 0;
-			inst.sprite_index=upg[?"sprite"];
+			inst = spawnUpgrade();
 			inst.diroffset=offset;
 			offset+=32;			
 		    shoots-=1;			
@@ -35,12 +27,7 @@ switch (upg[?"name"]) {
 		break;
 	case "InaTentacle":
 		if (shoots > 1) {			
-			inst = (instance_create_layer(oPlayer.x,oPlayer.y-8,"Upgrades",oUpgrade));
-			inst.upg=upg;
-			inst.speed=upg[?"speed"];
-			inst.hits=upg[?"hits"];
-			inst.shoots = 0;
-			inst.sprite_index=upg[?"sprite"];
+			inst = spawnUpgrade();
 			inst.diroffset=irandom_range(0,360);
 		    shoots-=1;			
 			alarm[0]=1;
@@ -50,12 +37,7 @@ switch (upg[?"name"]) {
 		break;}
 	case "BL Book":{
 		if (shoots > 1) {			
-			inst = (instance_create_layer(oPlayer.x,oPlayer.y-8,"Upgrades",oUpgrade));
-			inst.upg=upg;
-			inst.speed=upg[?"speed"];
-			inst.hits=upg[?"hits"];
-			inst.sprite_index=upg[?"sprite"];
-			inst.shoots = 0;
+			inst = spawnUpgrade();
 			inst.orbit_place = orbitoffset;
 			inst.orbit_length = orbit_length;
 			switch (upg[?"level"]) {
@@ -87,13 +69,7 @@ switch (upg[?"name"]) {
 		break;}
 	case "Elite Lava Bucket":{
 		if (shoots > 1) {			
-			inst = (instance_create_layer(oPlayer.x,oPlayer.y-8,"Upgrades",oUpgrade));
-			inst.upg=upg;
-			inst.speed=upg[?"speed"];
-			inst.hits=upg[?"hits"];
-			inst.shoots = 0;
-			inst.sprite_index=upg[?"sprite"];
-			inst.level = level;
+			spawnUpgrade();
 			random_set_seed(current_time);
 			x = oPlayer.x + irandom_range(-200,200)
 			random_set_seed(current_time);
@@ -104,14 +80,7 @@ switch (upg[?"name"]) {
 		break;}
 	case "Power of Atlantis":{
 		if (shoots > 1) {			
-			inst = (instance_create_layer(oPlayer.x,oPlayer.y-8,"Upgrades",oUpgrade));
-			inst.upg=upg;
-			inst.speed=upg[?"speed"];
-			inst.hits=upg[?"hits"];
-			inst.shoots = 0;
-			inst.mindmg = mindmg;
-			inst.maxdmg = maxdmg;
-			inst.sprite_index=upg[?"sprite"];
+			spawnUpgrade();
 			random_set_seed(current_time);
 			x = oPlayer.x + irandom_range(-200,200)
 			random_set_seed(current_time);
@@ -121,4 +90,3 @@ switch (upg[?"name"]) {
 		}
 		break;}
 }
-

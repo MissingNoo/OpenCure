@@ -403,6 +403,7 @@ if (keyboard_check_pressed(ord("M"))) {
 #region Functions
 	function drawStats(){
 		#region Stats
+			var str
 			draw_set_halign(fa_center);
 			draw_text_transformed(GW/5, GH/3.40, "LevelUP", 3, 3, 0);
 			draw_text_transformed(GW/5, GH/2.70, NAME, 2, 2, 0);
@@ -445,7 +446,7 @@ if (keyboard_check_pressed(ord("M"))) {
 					draw_sprite_stretched(sHudSpdIcon, 0, GW/11, GH/2.15 + stats_offset, 25, 25);
 					draw_text_transformed(GW/8, GH/2.15 + stats_offset, "SPD", 1.5, 1.5, 0);
 					draw_line(GW/8.80, GH/2 + stats_offset, GW/3.40, GH/2 + stats_offset);
-					var calc = 0;
+					calc = 0;
 					for (var i = 0; i < array_length(Bonuses[BonusType.Speed]); ++i) {
 						if (Bonuses[BonusType.Speed][i] != 0) {
 						    calc += real(string_replace(string(Bonuses[BonusType.Speed][i]), "1.", ""));
@@ -467,7 +468,7 @@ if (keyboard_check_pressed(ord("M"))) {
 					draw_sprite_stretched(sHudCrtIcon, 0, GW/11, GH/2.15 + stats_offset, 25, 25);
 					draw_text_transformed(GW/8, GH/2.15 + stats_offset, "CRT", 1.5, 1.5, 0);
 					draw_line(GW/8.80, GH/2 + stats_offset, GW/3.40, GH/2 + stats_offset);
-					var calc = 0;
+					calc = 0;
 					for (var i = 0; i < array_length(Bonuses[BonusType.Critical]); ++i) {
 						if (Bonuses[BonusType.Critical][i] != 0) {
 						    calc += real(string_replace(string(Bonuses[BonusType.Critical][i]), "1.", ""));
@@ -508,7 +509,7 @@ if (keyboard_check_pressed(ord("M"))) {
 
 				#region Haste
 					stats_offset += 35;
-					draw_sprite_stretched(sHudPickupIcon, 0, GW/11, GH/2.15 + stats_offset, 25, 25);
+					draw_sprite_stretched(sHudCooldownIcon, 0, GW/11, GH/2.15 + stats_offset, 25, 25);
 					draw_text_transformed(GW/8, GH/2.15 + stats_offset, "Haste", 1.5, 1.5, 0);
 					draw_line(GW/8.80, GH/2 + stats_offset, GW/3.40, GH/2 + stats_offset);
 					calc = 0;

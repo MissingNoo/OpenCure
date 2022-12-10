@@ -7,10 +7,10 @@ function initializePlayer(_p){
 	HP=_p[?"hp"];
 	MAXHP=_p[?"hp"];
 	NAME=_p[?"name"];
-	for (i=0; i<6; i++) {
+	for (var i=0; i<6; i++) {
 		UPGRADES[i]=global.null;
 	}
-	for (i=0; i<6; i++) {
+	for (var i=0; i<6; i++) {
 		playerItems[i]=global.nullitem;
 	}
 	global.upgrade=0;

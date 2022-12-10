@@ -9,6 +9,7 @@ if (other.hittedcooldown[upg[?"id"]] <= 0  and !global.gamePaused and other.imag
 	}
 	
 	if (!variable_instance_exists(self, "maxdmg")) {
+	    // Feather disable once GM2016
 	    maxdmg = 0;
 	}
 	var dmg = irandom_range(mindmg, maxdmg);
@@ -37,7 +38,14 @@ if (other.hittedcooldown[upg[?"id"]] <= 0  and !global.gamePaused and other.imag
 	        if (hits == 1 and !AmePistolLastHit and upg[?"level"] >= 4) {
 			    AmePistolLastHit=true;
 				hits+=5;
-				direction=direction*180;
+				switch (direction) {
+				    case 0:
+				        direction = 180;
+				        break;
+				    case 180:
+				        direction = 0;
+				        break;
+				}
 			}
 	        break;
 	    default:

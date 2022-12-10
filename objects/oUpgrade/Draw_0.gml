@@ -4,7 +4,7 @@ switch (upg[?"name"]) {
 		if (global.debug) {
 		    //draw_text(x,y-30, string(alarm_get(1)));
 			//draw_text(x,y-60, string(upg[?"duration"]));
-		    draw_text(x,y-30, string(level));
+		    draw_text(x,y-30, string(direction));
 		}		
 		break
 }
