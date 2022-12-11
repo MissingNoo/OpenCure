@@ -1,4 +1,12 @@
-released=true;
+guiOffset = 0;
+if (os_type == os_android) {
+	display_set_gui_size(display_get_width()/1.5, display_get_height()/1.5);
+	window_set_size(display_get_width(),display_get_height());
+	//show_message_async(string(1366) + ":" + string(display_get_width()/1.5) + "=" + string(1366 - (display_get_width()/1.5)))
+	guiOffset = round((display_get_width()/1.5) - 1366) / 6.50;
+	//display_set_gui_size(2340/1.5, 1080/1.5);
+}
+released=false;
 /// @description Insert description here
 // You can write your code in this editor
 // Feather disable GM1043

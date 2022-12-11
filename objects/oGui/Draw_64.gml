@@ -75,11 +75,11 @@
 			//characters
 			draw_text(10,10,selected);
 			for (var i=0; i < Characters.Lenght; i++) {
-				draw_sprite_ext(CHARACTERS[i][?"portrait"],0,435+offset,200,2,2,0,c_white,1);
+				draw_sprite_ext(CHARACTERS[i][?"portrait"],0,GW/3.10 + offset,GH/3.75,2,2,0,c_white,1);
 				if (selected == i) {
-					draw_sprite_ext(menu_carselec_cursor,-1,435+offset, 200,2,2,0,c_white,1);
+					draw_sprite_ext(menu_carselec_cursor,-1,GW/3.10 + offset, GH/3.75,2,2,0,c_white,1);
 				}
-			    offset+=100;
+			    offset+=GW/13;
 			}
 		#endregion	
 	
@@ -210,7 +210,7 @@
 				var _xx = GW/1.52;
 				var _yy = GH/4.5;
 				draw_sprite_ext(sUpgradeBackground, 0, _xx, _yy + offset, 2.10, 1.25, 0, c_black, .75);//upgrade background
-				draw_sprite_ext(sUpgradeBackground, 2, _xx, _yy + offset, 2.10, 1.25, 0, c_white, .75);//upgrade line for the text
+				draw_sprite_ext(sUpgradeBackground, 2, _xx, _yy + 5 + offset, 2.10, 1.25, 0, c_white, .75);//upgrade line for the text
 	            if (i = selected) { //if select draw border
 					draw_sprite_ext(sUpgradeBackground, 1, _xx, _yy + offset, 2.10, 1.25, 0, c_white, 1); 
 					draw_sprite_ext(sHoloCursor, holoarrowspr, _xx - 440, _yy + offset, 2.5, 2.5, 0, c_white, 1); 
@@ -228,10 +228,10 @@
 				        break;
 				}
 				draw_set_halign(fa_right);
-				draw_text_transformed(GW/1.08, GH/6.80 + offset, string(style), 1, 1, 0);  // draw type of upgrade
+				draw_text_transformed(GW/1.08 - guiOffset, GH/6.80 + offset, string(style), 1, 1, 0);  // draw type of upgrade
 				draw_set_halign(fa_left);
-				draw_sprite_ext(global.upgradeOptions[i][? "thumb"],0,GW/2.40, GW/8+offset,2, 2,0,c_white,1); // item thumb			
-				draw_sprite_ext(sItemType, global.upgradeOptions[i][?"style"], GW/2.40, GW/8+offset,2, 2,0,c_white,1); // item thumb type
+				draw_sprite_ext(global.upgradeOptions[i][? "thumb"],0,GW/2.45 + guiOffset, _yy + offset,2, 2,0,c_white,1); // item thumb			
+				draw_sprite_ext(sItemType, global.upgradeOptions[i][?"style"], GW/2.45 + guiOffset, _yy + offset,2, 2,0,c_white,1); // item thumb type
 				var foundup = false;
 				var foundlv = 0;
 				for (var j = 0; j < array_length(UPGRADES); ++j) {
@@ -242,10 +242,10 @@
 				}			
 				if (foundup) {
 					var idd = global.upgradeOptions[i][?"id"];
-				    drawDesc(GW/2.20,GH/5.5+offset, global.upgradesAvaliable[idd][foundlv][?"desc"], GW/2.20);
+				    drawDesc(GW/2.20+(guiOffset/2),GH/5.5+offset, global.upgradesAvaliable[idd][foundlv][?"desc"], GW/2.20);
 				}
 				else{
-					drawDesc(GW/2.20,GH/5.5+offset, global.upgradeOptions[i][?"desc"], GW/2.20);
+					drawDesc(GW/2.20+(guiOffset/2),GH/5.5+offset, global.upgradeOptions[i][?"desc"], GW/2.20);
 				}
 	            //offset += 165;
 				offset += GH/5.30;

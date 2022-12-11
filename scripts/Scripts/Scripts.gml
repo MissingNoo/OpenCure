@@ -22,7 +22,7 @@ function PauseGame(){
 		oGui.selected=0;
 		maxselected = 0;
 		if (instance_exists(oJoystick)) {
-			if (oJoystick.mode = "menu") {
+			if (oJoystick.mode == "menu") {
 			    oJoystick.mode = "stage";
 			}
 			else{oJoystick.mode = "menu";}

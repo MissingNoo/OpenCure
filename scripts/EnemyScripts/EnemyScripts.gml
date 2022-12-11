@@ -122,6 +122,10 @@ enum Enemies
 		
 	#endregion
 #endregion
+global.sprites = [];
+for (var i = 0; i < Enemies.lenght; ++i) {
+	array_push(global.sprites, EnemyList[i][?"sprite"]);
+}
 
 #region Enemy Pool Control
 global.enemyPool=ds_list_create(); //enemies the game can summon

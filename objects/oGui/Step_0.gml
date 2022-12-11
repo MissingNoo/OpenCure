@@ -138,13 +138,14 @@ if (ANVIL) {
 
 #region Android buttons
 	if (os_type == os_android) {
-		if (global.gamePaused and !released and alarm_get(0) == -1) {
-			released = false;
-			if (!alarm_get(0) > 0) {
-			    alarm[0] = 30;
-			}
-			//released=true;
-		}
+		//if (global.gamePaused and !released and alarm_get(0) == -1 and !device_mouse_check_button(0, mb_left)) {
+		//	released = false;
+		//	if (!alarm_get(0) > 0) {
+		//	    alarm[0] = 60;
+		//	}
+		//	//released=true;
+		//}
+		
 		if (TouchY1 > zButtonY and TouchY1 < zButtonYEnd and TouchX1 > zButtonX and TouchX1 < zButtonXEnd and device_mouse_check_button(0,mb_left) and released) {
 			released = false;
 			//alarm[0]=30;
@@ -165,7 +166,9 @@ if (ANVIL) {
 			//oGui.xKey = false;
 			keyboard_clear(ord("X"));
 			show_debug_message("Pressed X");
-			instance_create_layer(oPlayer.x+200, oPlayer.y, "Instances", oAnvil);
+			instance_create_layer(oPlayer.x+100, oPlayer.y, "Instances", oAnvil);
+			var inst = instance_create_layer(oPlayer.x-100, oPlayer.y, "Instances", oXP);
+			inst.xp = oPlayer.neededxp;
 			//game_restart();
 		}
 	
@@ -180,9 +183,7 @@ if (ANVIL) {
 			show_debug_message("Pressed Escape");
 		}
 		if (!device_mouse_check_button(0, mb_left) and !released) {
-			if (alarm_get(0) == 0 or alarm_get(0) == -1) {
-				alarm[0]=30;
-			}
+			released = true;
 		}
 }
 #endregion
@@ -289,10 +290,10 @@ if (global.gamePaused and !global.upgrade and !ANVIL) {
 #region Debug
 	if (global.debug) {
 		if(keyboard_check(ord("L"))) game_restart();
-		if(keyboard_check(ord("Q"))) a -=1;
-		//if(keyboard_check(ord("Q"))) a -=0.005;
-		if(keyboard_check(ord("W"))) a +=1;
-		//if(keyboard_check(ord("W"))) a += 0.005;
+		//if(keyboard_check(ord("Q"))) a -=1;
+		if(keyboard_check(ord("Q"))) a -=0.005;
+		//if(keyboard_check(ord("W"))) a +=1;
+		if(keyboard_check(ord("W"))) a += 0.005;
 		if(keyboard_check(ord("E"))) b -=.05;
 		//if(keyboard_check(ord("E"))) b -=1;
 		if(keyboard_check(ord("R"))) b +=.05;
