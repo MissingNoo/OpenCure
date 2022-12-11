@@ -1,9 +1,11 @@
 
 isP=global.gamePaused;
-
+zKey = keyboard_check_pressed(ord("Z"));
+xKey = keyboard_check_pressed(ord("X"));
+eKey = keyboard_check_pressed(vk_escape);
 #region Start Menu
 	if (room = rInicio and !global.gamePaused) {
-	    if (keyboard_check_pressed(ord("Z"))) {
+	    if (zKey) {
 	        switch (menu_options[selected]) {
 	            case "Play":
 					selected=0;
@@ -97,9 +99,32 @@ isP=global.gamePaused;
 }
 #endregion
 
+#region Anvil
+if (ANVIL) {
+	var selectedThing;
+	if (anvilSelectedCategory == 0) {
+		selectedThing = UPGRADES[anvilSelected];
+	}else{
+		selectedThing = playerItems[anvilSelected];
+	}
+	var level = selectedThing[?"level"];
+	var maxlevel = selectedThing[?"maxlevel"];
+	if (keyboard_check_pressed(ord("Z")) and level < maxlevel) {
+		if (anvilSelectedCategory == 0) {
+			UPGRADES[anvilSelected] = global.upgradesAvaliable[UPGRADES[anvilSelected][?"id"]][UPGRADES[anvilSelected][?"level"] + 1];
+		}
+		if (anvilSelectedCategory == 1) {
+			playerItems[anvilSelected] = global.itemList[playerItems[anvilSelected][?"id"]][playerItems[anvilSelected][?"level"] + 1];
+		}
+	ANVIL = false;//TODO: Cost money
+	PauseGame();
+	}
+}
+#endregion
+
 #region Select Character room
 	if (room = Room2) {
-	    if (keyboard_check_pressed(ord("Z"))) {
+	    if (zKey) {
 	        global.player=CHARACTERS[selected];
 			//show_message(string(Characters.Amelia));
 			//show_message(string(CHARACTERS[selected][?"id"]));
@@ -118,35 +143,46 @@ isP=global.gamePaused;
 			if (!alarm_get(0) > 0) {
 			    alarm[0] = 30;
 			}
-		    //released=true;
+			//released=true;
 		}
 		if (TouchY1 > zButtonY and TouchY1 < zButtonYEnd and TouchX1 > zButtonX and TouchX1 < zButtonXEnd and device_mouse_check_button(0,mb_left) and released) {
 			released = false;
-			alarm[0]=30;
+			//alarm[0]=30;
 			keyboard_key_press(ord("Z"));
+			//oGui.zKey = true;
 			keyboard_key_release(ord("Z"));
+			//oGui.zKey = false;
 			keyboard_clear(ord("Z"));
 			show_debug_message("Pressed Z");
 		}
 
 		if (TouchY1 > xButtonY and TouchY1 < xButtonYEnd and TouchX1 > xButtonX and TouchX1 < xButtonXEnd and device_mouse_check_button(0,mb_left) and released) {
 			released = false;
-			alarm[0]=30;
+			//alarm[0]=30;
 			keyboard_key_press(ord("X"));
+			//oGui.xKey = true;
 			keyboard_key_release(ord("X"));
+			//oGui.xKey = false;
 			keyboard_clear(ord("X"));
 			show_debug_message("Pressed X");
-			global.xp=oPlayer.neededxp;
+			instance_create_layer(oPlayer.x+200, oPlayer.y, "Instances", oAnvil);
 			//game_restart();
 		}
 	
 		if (TouchY1 > pButtonY and TouchY1 < pButtonYEnd and TouchX1 > pButtonX and TouchX1 < pButtonXEnd and device_mouse_check_button(0,mb_left)  and released) {
 			released = false;
-			alarm[0]=30;
+			//alarm[0]=30;
 			keyboard_key_press(vk_escape);
+			//oGui.eKey = true;
 			keyboard_key_release(vk_escape);
+			//oGui.eKey = false;
 			keyboard_clear(vk_escape);
 			show_debug_message("Pressed Escape");
+		}
+		if (!device_mouse_check_button(0, mb_left) and !released) {
+			if (alarm_get(0) == 0 or alarm_get(0) == -1) {
+				alarm[0]=30;
+			}
 		}
 }
 #endregion
@@ -163,7 +199,7 @@ if (global.gamePaused and !global.upgrade and !ANVIL) {
 	if (keyboard_check_pressed(ord("K"))){
 		pauseMenu[activeMenu][pM.Options][array_length(pauseMenu[activeMenu][pM.Options])] = "teste " + string(irandom_range(0,99));
 	}
-    if (keyboard_check_pressed(ord("Z"))){
+    if (zKey){
 		var optionIs = "";
 		for (var i = 1; i < string_length(pauseMenu[activeMenu][pM.Options][selected]); ++i) {
 			if (string_copy(pauseMenu[activeMenu][pM.Options][selected],i,1) == ":") {

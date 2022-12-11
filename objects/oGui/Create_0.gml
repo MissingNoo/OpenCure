@@ -2,6 +2,9 @@ released=true;
 /// @description Insert description here
 // You can write your code in this editor
 // Feather disable GM1043
+zKey = 0;
+xKey = 0;
+eKey = 0;
 isP=global.gamePaused;
 lastinputs = array_create(10);
 holoarrowspr=0;

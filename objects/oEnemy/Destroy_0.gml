@@ -33,7 +33,7 @@ if (irandom_range(1,90) == 1) {
 }
 
 if (irandom_range(1,1301) == 1) {
-    //TODO: code here for anvil
+	instance_create_layer(x,y,"Instances", oAnvil);
 }
 
 if (irandom_range(1,3000) == 1) {

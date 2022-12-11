@@ -258,10 +258,17 @@
 
 		#region Anvil
 		if (ANVIL) {
+			draw_text_transformed(GW/2, GH/7.25, "UPGRADE!", 4, 4, 0);
 			#region Weapons
 				var xoffset = 0;
+				var anvilIsSelected = 0;
 				for (var i = 0; i < array_length(UPGRADES); ++i){
-				    draw_sprite_ext(sItemSquare, 0, GW/2.30 + xoffset, GH/3, 2, 2, 0, c_white, 1);
+					if (anvilSelectedCategory == 0 and i == anvilSelected){
+						anvilIsSelected = 1
+					}else{
+						anvilIsSelected = 0;
+					}
+				    draw_sprite_ext(sItemSquare, anvilIsSelected, GW/2.30 + xoffset, GH/3, 2, 2, 0, c_white, 1);
 					draw_sprite_ext(UPGRADES[i][?"thumb"], 0, GW/2.30 + xoffset, GH/3, 2, 2, 0, c_white, 1);
 					xoffset += GW/12;
 				}
@@ -270,7 +277,12 @@
 			#region Items
 				xoffset = 0;
 				for (var i = 0; i < array_length(playerItems); ++i){
-					draw_sprite_ext(sItemSquare, 0, GW/2.30 + xoffset, GH/2.30, 2, 2, 0, c_white, 1);
+					if (anvilSelectedCategory == 1 and i == anvilSelected){
+						anvilIsSelected = 1
+					}else{
+						anvilIsSelected = 0;
+					}
+					draw_sprite_ext(sItemSquare, anvilIsSelected, GW/2.30 + xoffset, GH/2.30, 2, 2, 0, c_white, 1);
 					draw_sprite_ext(playerItems[i][?"thumb"], 0, GW/2.30 + xoffset, GH/2.30, 2, 2, 0, c_white, 1);
 					xoffset += GW/12;
 				}
@@ -283,23 +295,49 @@
 				draw_sprite_ext(sUpgradeBackground, 0, _xx, _yy, 2.10, 1.25, 0, c_black, .75);//upgrade background
 				draw_sprite_ext(sUpgradeBackground, 2, _xx, _yy, 2.10, 1.25, 0, c_white, .75);//upgrade line for the text
 				draw_sprite_ext(sUpgradeBackground, 1, _xx, _yy, 2.10, 1.25, 0, c_white, 1); 
-				draw_text_transformed(_xx - 385, _yy - 59.50 , string(anvilSelected[?"name"]), 1, 1, 0); // draw the name
-				switch (anvilSelected[?"style"]) { // type of upgrade
-				    case ItemTypes.Weapon:
-				        style = " >> Weapon";
-				        break;
+				var selectedThing;
+				if (anvilSelectedCategory == 0) {
+				    selectedThing = UPGRADES[anvilSelected];
+				}else{
+					selectedThing = playerItems[anvilSelected];
+				}
+				var level = selectedThing[?"level"] + 1;
+				var maxlevel = selectedThing[?"maxlevel"];
+				draw_text_transformed(_xx - 385, _yy - 59.50 , string(selectedThing[?"name"]), 1, 1, 0); // draw the name
+				draw_set_color(c_yellow);
+				if (level -1 < maxlevel) {
+					str = string_ext("LV {0} >> LV {1} ", [string(selectedThing[?"level"]), string(selectedThing[?"level"] + 1)]);
+				}else{
+					str = "MAX LV";
+				}
+				if (selectedThing != global.null and selectedThing != global.nullitem) {
+				    draw_text_transformed(_xx - 385 + (string_width(selectedThing[?"name"]) + 20), _yy - 59.50 , str, 1, 1, 0); // draw the name
+				}
+				draw_set_color(c_white);
+				switch (selectedThing[?"style"]) { // type of upgrade
+					case ItemTypes.Weapon:
+						style = " >> Weapon";
+						break;
 				    case ItemTypes.Item:
-				        style = " >> Item";
-				        break;
+						style = " >> Item";
+						break;
 					case ItemTypes.Perk:
-				        style = " >> Skill";
-				        break;
+						style = " >> Skill";
+						break;
 				}
 				draw_set_halign(fa_right);
 				draw_text_transformed(_xx + 370, _yy - 59.50, string(style), 1, 1, 0);  // draw type of upgrade
 				draw_set_halign(fa_left);
-				draw_sprite_ext(anvilSelected[? "thumb"],0, _xx - 350, _yy, 2, 2,0,c_white,1); // item thumb
-				draw_sprite_ext(sItemType, anvilSelected[?"style"], _xx - 350, _yy, 2, 2,0,c_white,1); // item thumb type
+				draw_sprite_ext(selectedThing[? "thumb"],0, _xx - 350, _yy, 2, 2,0,c_white,1); // item thumb
+				draw_sprite_ext(sItemType, selectedThing[?"style"], _xx - 350, _yy, 2, 2,0,c_white,1); // item thumb type
+				if (level > maxlevel) {	level -= 1	}
+				if (anvilSelectedCategory == 0 and selectedThing != global.null and selectedThing != global.nullitem) {
+					drawDesc(_xx - 290,_yy - 35, global.upgradesAvaliable[selectedThing[?"id"]][level][?"desc"], GW/2);
+				}
+				if (anvilSelectedCategory == 1 and selectedThing != global.null and selectedThing != global.nullitem) {
+					
+					drawDesc(_xx - 290,_yy - 35, global.itemList[selectedThing[?"id"]][level][?"desc"], GW/2);
+				}
 			#endregion
 			drawStats();
 		}
@@ -428,7 +466,7 @@ if (keyboard_check_pressed(ord("M"))) {
 		draw_rectangle(zButtonX, zButtonY, zButtonXEnd, zButtonYEnd, false);
 		draw_set_alpha(1);
 		draw_set_color(c_black);
-		draw_rectangle(zButtonX, zButtonY, zButtonXEnd, zButtonYEnd, true);	
+		draw_rectangle(zButtonX, zButtonY, zButtonXEnd, zButtonYEnd, true);
 		draw_text(zButtonX + 70, zButtonY + 22.5, "Z");
 		draw_set_color(c_white);
 		draw_set_alpha(0.5);

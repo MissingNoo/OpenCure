@@ -23,7 +23,7 @@ global.upgradeCooldown[0] = 0;
 	ds_map_add(m, "hits", 0);	
 	ds_map_add(m, "type", "white");	
 	ds_map_add(m, "shoots", 0);	
-	ds_map_add(m, "desc", "null");
+	ds_map_add(m, "desc", "");
 	ds_map_add(m, "style", ItemTypes.Weapon);	
 	global.upgradesAvaliable=[0];
 	for (i=0; i<4; i++) {
