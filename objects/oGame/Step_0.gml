@@ -1,4 +1,140 @@
 
+
+#region 
+if (instance_exists(oPlayer)) {
+	var xx;
+	var yy;
+	var px;
+	var py;
+	//yy = oCam.y - oPlayer.y;
+    if (oPlayer.x < 1280) {
+		xx = oCam.x - oPlayer.x;
+		px = oPlayer.x;
+		py = oPlayer.y;
+	    oPlayer.x = 1280 * 2;
+		oCam.x = oPlayer.x + xx;
+		with (oEnemy) {
+		    xx = x - px;
+			yy = y - py;
+			x = oPlayer.x + xx;
+			y = oPlayer.y + yy;
+		}
+		with (oXP) {
+		    xx = x - px;
+			yy = y - py;
+			x = oPlayer.x + xx;
+			y = oPlayer.y + yy;
+		}
+		with (oAnvil) {
+		    xx = x - px;
+			yy = y - py;
+			x = oPlayer.x + xx;
+			y = oPlayer.y + yy;
+		}
+		with (oBurguer) {
+		    xx = x - px;
+			yy = y - py;
+			x = oPlayer.x + xx;
+			y = oPlayer.y + yy;
+		}
+	}
+	if (oPlayer.x > 1280 * 2) {
+		xx = oCam.x - oPlayer.x;
+		px = oPlayer.x;
+		py = oPlayer.y;
+	    oPlayer.x = 1280;
+		oCam.x = oPlayer.x + xx;
+		with (oXP) {
+		    xx = x - px;
+			yy = y - py;
+			x = oPlayer.x + xx;
+			y = oPlayer.y + yy;
+		}
+		with (oEnemy) {
+		    xx = x - px;
+			yy = y - py;
+			x = oPlayer.x + xx;
+			y = oPlayer.y + yy;
+		}
+		with (oAnvil) {
+		    xx = x - px;
+			yy = y - py;
+			x = oPlayer.x + xx;
+			y = oPlayer.y + yy;
+		}
+		with (oBurguer) {
+		    xx = x - px;
+			yy = y - py;
+			x = oPlayer.x + xx;
+			y = oPlayer.y + yy;
+		}
+	}
+	if (oPlayer.y < 1280) {
+		xx = oCam.x - oPlayer.x;
+		yy = oCam.y - oPlayer.y;
+		px = oPlayer.x;
+		py = oPlayer.y;
+	    oPlayer.y = 1280 * 2;
+		oCam.y = oPlayer.y + yy;
+		with (oEnemy) {
+		    xx = x - px;
+			yy = y - py;
+			x = oPlayer.x + xx;
+			y = oPlayer.y + yy;
+		}
+		with (oXP) {
+		    xx = x - px;
+			yy = y - py;
+			x = oPlayer.x + xx;
+			y = oPlayer.y + yy;
+		}
+		with (oAnvil) {
+		    xx = x - px;
+			yy = y - py;
+			x = oPlayer.x + xx;
+			y = oPlayer.y + yy;
+		}
+		with (oBurguer) {
+		    xx = x - px;
+			yy = y - py;
+			x = oPlayer.x + xx;
+			y = oPlayer.y + yy;
+		}
+	}
+	if (oPlayer.y > 1280 * 2) {
+		xx = oCam.x - oPlayer.x;
+		yy = oCam.y - oPlayer.y;
+		px = oPlayer.x;
+		py = oPlayer.y;
+	    oPlayer.y = 1280;
+		oCam.y = oPlayer.y + yy;
+		with (oXP) {
+		    xx = x - px;
+			yy = y - py;
+			x = oPlayer.x + xx;
+			y = oPlayer.y + yy;
+		}
+		with (oEnemy) {
+		    xx = x - px;
+			yy = y - py;
+			x = oPlayer.x + xx;
+			y = oPlayer.y + yy;
+		}
+		with (oAnvil) {
+		    xx = x - px;
+			yy = y - py;
+			x = oPlayer.x + xx;
+			y = oPlayer.y + yy;
+		}
+		with (oBurguer) {
+		    xx = x - px;
+			yy = y - py;
+			x = oPlayer.x + xx;
+			y = oPlayer.y + yy;
+		}
+	}
+}
+#endregion
 // Apply shake
 fx_set_parameter(shake_fx, "g_Magnitude", shake_magnitude);
 fx_set_parameter(shake_fx, "g_ShakeSpeed", shake_speed);

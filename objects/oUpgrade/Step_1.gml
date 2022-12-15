@@ -133,7 +133,8 @@ if (a==0) {
 			random_set_seed(current_time);
 			y = oPlayer.y + (irandom_range(-200,200)*-1)
 			alarm[0] = 1;
-			depth=oPlayer.depth;
+			image_xscale = 1.3;
+			image_yscale = 1.3;
 			break;}
 	}
 		if (sprite_index==blank) {

@@ -2,7 +2,7 @@
 // Feather disable GM2017
 // Feather disable GM2017
 #macro UPGRADES global.upgrades
-global.upgrade=0;
+global.upgrade = false;
 global.upgradeCooldown[0] = 0;
 #region Null Upgrade
 	global.null=ds_map_create()

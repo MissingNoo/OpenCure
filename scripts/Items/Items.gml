@@ -1,6 +1,7 @@
 // Feather disable GM2017
 #macro playerItems global.items
 #macro ItemList global.itemList
+global.upgrade=false;
 global.items=[0];
 global.itemCooldown[0] = 0;
 #region Null item

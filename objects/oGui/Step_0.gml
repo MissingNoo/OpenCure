@@ -25,7 +25,7 @@ eKey = keyboard_check_pressed(vk_escape);
 #endregion
 
 #region LevelUp control
-	if (global.upgrade == 1) // after level up
+	if (global.upgrade) // after level up
 	{
 		if (holoarrowspr <= 8) { holoarrowspr+=.25; } else { holoarrowspr=0; } // arrow sprite index
 	    if (keyboard_check(ord("Z"))) {
