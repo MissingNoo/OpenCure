@@ -38,6 +38,37 @@ enum ItemTypes {
 }
 
 #region Upgrades
+function newCreateUpgrade(_data){
+	global.upgradesAvaliable[_data.id][0] = global.null;
+	for (var i = 1; i <= _data.maxlevel; ++i) {	    
+		global.upgradesAvaliable[_data.id][i] = ds_map_create();
+		var m = global.upgradesAvaliable[_data.id][i];
+		ds_map_add(m, "id", _data.id);
+		ds_map_add(m, "name", _data.name);
+		ds_map_add(m, "level", i);
+		ds_map_add(m, "sprite", _data.sprite);
+		ds_map_add(m, "thumb", _data.thumb);
+		ds_map_add(m, "mindmg", _data.mindmg[i-1]);
+		ds_map_add(m, "maxdmg", _data.maxdmg[i-1]);
+		ds_map_add(m, "cooldown", _data.cooldown[i-1]);
+		ds_map_add(m, "duration", _data.duration[i-1]);
+		ds_map_add(m, "hitCooldown", _data.hitCooldown);
+		ds_map_add(m, "canBeHasted", _data.canBeHasted);
+		ds_map_add(m, "speed", _data.speed);
+		ds_map_add(m, "hits", _data.hits[i-1]);	
+		ds_map_add(m, "type", _data.type);	
+		ds_map_add(m, "shoots", _data.shoots[i-1]);	
+		ds_map_add(m, "desc", _data.desc[i-1]);
+		ds_map_add(m, "style", ItemTypes.Weapon);	
+		ds_map_add(m, "knockbackSpeed", _data.knockbackSpeed[i-1]);
+		ds_map_add(m, "knockbackDuration", _data.knockbackDuration[i-1]);
+		ds_map_add(m, "perk", _data.perk);
+		ds_map_add(m, "characterid", _data.character);
+		ds_map_add(m, "maxlevel", _data.maxlevel);
+		global.upgradeCooldown[_data.id] = 0;
+	}
+}
+
 function createUpgrade(_id, _name, _level, _sprite, _thumb, _mindmg, _maxdmg, _cooldown, _duration, _hitCooldown, _canBeHasted, _speed, _hits, _type, _shoots, _desc = "")
 {
 	global.upgradesAvaliable[_id][0]=global.null;
@@ -95,21 +126,56 @@ enum Weapons
 function populateUpgrades(){
 	#region Character Perks
 		#region Amelia Perks
-			#region AmePistol
-				createUpgrade(Weapons.AmePistol, "AmePistol", 1, sAmeShoot, sAmePistol, 7, 13, 80, 120, 10, true, 5, 1, "red", 3, "Shoots 3 Projectiles forward. Horizontal only.");
-				createUpgradeP2(Weapons.AmePistol, 1, 7, 0, 0, 1, Characters.Amelia);
-				createUpgrade(Weapons.AmePistol, "AmePistol", 2, sAmeShoot, sAmePistol, 7, 13, 80, 120, 10, true, 5, 2, "red", 4, "Shoot [1] additional shot, and each bullet can pierce [+1]  times.");
-				createUpgradeP2(Weapons.AmePistol, 2, 7, 0, 0, 1, Characters.Amelia);
-				createUpgrade(Weapons.AmePistol, "AmePistol", 3, sAmeShoot, sAmePistol, 7*1.25, 13*1.25, 80, 120, 10, true, 5, 2, "red", 4, "Increase damage by [25%] .");
-				createUpgradeP2(Weapons.AmePistol, 3, 7, 0, 0, 1, Characters.Amelia);
-				createUpgrade(Weapons.AmePistol, "AmePistol", 4, sAmeShoot, sAmePistol, 7*1.25, 13*1.25, 80, 120, 10, true, 5, 2, "red", 4, "Bullets ricochet if hit limit is reached.");
-				createUpgradeP2(Weapons.AmePistol, 4, 7, 0, 0, 1, Characters.Amelia);
-				createUpgrade(Weapons.AmePistol, "AmePistol", 5, sAmeShoot, sAmePistol, 7*1.25, 13*1.25, 80*0.75, 120, 10, true, 5, 3, "red", 4, "Each bullet can pierce [+1]  times. Reduce the time between attacks by [25%] .");
-				createUpgradeP2(Weapons.AmePistol, 5, 7, 0, 0, 1, Characters.Amelia);
-				createUpgrade(Weapons.AmePistol, "AmePistol", 6, sAmeShoot, sAmePistol, 7*1.25*1.40, 13*1.25*1.40, 80*0.75, 120, 10, true, 5, 3, "red", 4, "Increase damage by [40%] .");
-				createUpgradeP2(Weapons.AmePistol, 6, 7, 0, 0, 1, Characters.Amelia);
-				createUpgrade(Weapons.AmePistol, "AmePistol", 7, sAmeShoot, sAmePistol, 7*1.25*1.40, 13*1.25*1.40, 80*0.75, 120, 10, true, 5, 3, "red", 6, "Shoot [2]  additional shots, and pistol becomes spread type.");
-				createUpgradeP2(Weapons.AmePistol, 7, 7, 0, 0, 1, Characters.Amelia);
+			#region AmePistol old
+				//createUpgrade(Weapons.AmePistol, "AmePistol", 1, sAmeShoot, sAmePistol, 7, 13, 80, 120, 10, true, 5, 1, "red", 3, "Shoots 3 Projectiles forward. Horizontal only.");
+				//createUpgradeP2(Weapons.AmePistol, 1, 7, 0, 0, 1, Characters.Amelia);
+				//createUpgrade(Weapons.AmePistol, "AmePistol", 2, sAmeShoot, sAmePistol, 7, 13, 80, 120, 10, true, 5, 2, "red", 4, "Shoot [1] additional shot, and each bullet can pierce [+1]  times.");
+				//createUpgradeP2(Weapons.AmePistol, 2, 7, 0, 0, 1, Characters.Amelia);
+				//createUpgrade(Weapons.AmePistol, "AmePistol", 3, sAmeShoot, sAmePistol, 7*1.25, 13*1.25, 80, 120, 10, true, 5, 2, "red", 4, "Increase damage by [25%] .");
+				//createUpgradeP2(Weapons.AmePistol, 3, 7, 0, 0, 1, Characters.Amelia);
+				//createUpgrade(Weapons.AmePistol, "AmePistol", 4, sAmeShoot, sAmePistol, 7*1.25, 13*1.25, 80, 120, 10, true, 5, 2, "red", 4, "Bullets ricochet if hit limit is reached.");
+				//createUpgradeP2(Weapons.AmePistol, 4, 7, 0, 0, 1, Characters.Amelia);
+				//createUpgrade(Weapons.AmePistol, "AmePistol", 5, sAmeShoot, sAmePistol, 7*1.25, 13*1.25, 80*0.75, 120, 10, true, 5, 3, "red", 4, "Each bullet can pierce [+1]  times. Reduce the time between attacks by [25%] .");
+				//createUpgradeP2(Weapons.AmePistol, 5, 7, 0, 0, 1, Characters.Amelia);
+				//createUpgrade(Weapons.AmePistol, "AmePistol", 6, sAmeShoot, sAmePistol, 7*1.25*1.40, 13*1.25*1.40, 80*0.75, 120, 10, true, 5, 3, "red", 4, "Increase damage by [40%] .");
+				//createUpgradeP2(Weapons.AmePistol, 6, 7, 0, 0, 1, Characters.Amelia);
+				//createUpgrade(Weapons.AmePistol, "AmePistol", 7, sAmeShoot, sAmePistol, 7*1.25*1.40, 13*1.25*1.40, 80*0.75, 120, 10, true, 5, 3, "red", 6, "Shoot [2]  additional shots, and pistol becomes spread type.");
+				//createUpgradeP2(Weapons.AmePistol, 7, 7, 0, 0, 1, Characters.Amelia);
+			#endregion
+			#region AmePistol 
+			newCreateUpgrade(
+			{
+				id : Weapons.AmePistol,
+				name : "AmePistol",
+				maxlevel : 7,
+				sprite : sAmeShoot,
+				thumb : sAmePistol,
+				mindmg : [7, 7, 7*1.25, 7*1.25, 7*1.25, 7*1.25*1.40, 7*1.25*1.40],
+				maxdmg : [13, 13, 13*1.25, 13*1.25, 13*1.25, 13*1.20*1.40, 13*1.20*1.40],
+				cooldown : [80, 80, 80, 80, 80*0.75, 80*0.75, 80*0.75],
+				duration : [120, 120, 120, 120, 120, 120, 120], 
+				hitCooldown : 10, 
+				canBeHasted : true,
+				speed : 5,
+				hits : [1, 2, 2, 2, 3, 3, 3],
+				type : "red",
+				shoots : [3, 4, 4, 4, 4, 4, 6],
+				desc : [
+				"Shoots 3 Projectiles forward. Horizontal only.", 
+				"Shoot [1] additional shot, and each bullet can pierce [+1] times.",
+				"Increase damage by [25%].",
+				"Bullets ricochet if hit limit is reached.",
+				"Each bullet can pierce [+1] times. Reduce the time between attacks by [25%].",
+				"Increase damage by [40%].",
+				"Shoot [2] additional shots, and pistol becomes spread type."
+				],
+				knockbackSpeed : [0, 0, 0, 0, 0, 0, 0],
+				knockbackDuration : [0, 0, 0, 0, 0, 0, 0],
+				perk : true,
+				character : Characters.Amelia
+			}
+			
+			)
 			#endregion
 		#endregion	
 	

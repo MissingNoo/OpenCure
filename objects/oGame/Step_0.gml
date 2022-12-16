@@ -1,6 +1,6 @@
 
 
-#region 
+#region room limit, TODO: redo all this crap
 if (instance_exists(oPlayer)) {
 	var xx;
 	var yy;
@@ -37,6 +37,12 @@ if (instance_exists(oPlayer)) {
 			x = oPlayer.x + xx;
 			y = oPlayer.y + yy;
 		}
+		with (oUpgrade) {
+		    xx = x - px;
+			yy = y - py;
+			x = oPlayer.x + xx;
+			y = oPlayer.y + yy;
+		}
 	}
 	if (oPlayer.x > 1280 * 2) {
 		xx = oCam.x - oPlayer.x;
@@ -63,6 +69,12 @@ if (instance_exists(oPlayer)) {
 			y = oPlayer.y + yy;
 		}
 		with (oBurguer) {
+		    xx = x - px;
+			yy = y - py;
+			x = oPlayer.x + xx;
+			y = oPlayer.y + yy;
+		}
+		with (oUpgrade) {
 		    xx = x - px;
 			yy = y - py;
 			x = oPlayer.x + xx;
@@ -100,6 +112,12 @@ if (instance_exists(oPlayer)) {
 			x = oPlayer.x + xx;
 			y = oPlayer.y + yy;
 		}
+		with (oUpgrade) {
+		    xx = x - px;
+			yy = y - py;
+			x = oPlayer.x + xx;
+			y = oPlayer.y + yy;
+		}
 	}
 	if (oPlayer.y > 1280 * 2) {
 		xx = oCam.x - oPlayer.x;
@@ -127,6 +145,12 @@ if (instance_exists(oPlayer)) {
 			y = oPlayer.y + yy;
 		}
 		with (oBurguer) {
+		    xx = x - px;
+			yy = y - py;
+			x = oPlayer.x + xx;
+			y = oPlayer.y + yy;
+		}
+		with (oUpgrade) {
 		    xx = x - px;
 			yy = y - py;
 			x = oPlayer.x + xx;

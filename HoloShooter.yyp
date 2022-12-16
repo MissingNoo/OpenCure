@@ -163,6 +163,7 @@
     {"id":{"name":"BG_yagoohead","path":"sprites/BG_yagoohead/BG_yagoohead.yy",},"order":3,},
     {"id":{"name":"sBubba","path":"sprites/sBubba/sBubba.yy",},"order":5,},
     {"id":{"name":"spr_lock_silver_open","path":"sprites/spr_lock_silver_open/spr_lock_silver_open.yy",},"order":8,},
+    {"id":{"name":"seq_xp","path":"sequences/seq_xp/seq_xp.yy",},"order":0,},
     {"id":{"name":"sEnergyDrink","path":"sprites/sEnergyDrink/sEnergyDrink.yy",},"order":2,},
     {"id":{"name":"sHalu","path":"sprites/sHalu/sHalu.yy",},"order":12,},
     {"id":{"name":"sQShrimp","path":"sprites/sQShrimp/sQShrimp.yy",},"order":17,},

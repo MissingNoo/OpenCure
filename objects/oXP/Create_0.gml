@@ -3,9 +3,5 @@
 //image_angle = randomise();
 //image_xscale=.05;
 //image_yscale=.05;
+xp = global.lastxp;
 onArea = false;
-otherxp = collision_circle(x,y, 30, oXP,false,true);
-if (otherxp != noone) {
-    otherxp.xp += xp;
-	instance_destroy();
-}

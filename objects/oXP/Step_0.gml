@@ -6,4 +6,8 @@ if (onArea) {
 	speed=oPlayer.spd*1.2;
 }
 else speed=0;
-
+otherxp = collision_circle(x,y, 30, oXP,false,true);
+if (otherxp != noone) {
+    otherxp.xp += xp;
+	instance_destroy();
+}

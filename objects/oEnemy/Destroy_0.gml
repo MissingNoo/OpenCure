@@ -1,5 +1,7 @@
 
-instance_create_layer(x,y,"Instances",oXP, {xp : xp});
+//instance_create_layer(x,y,"Instances",oXP, {xp : xp});
+global.lastxp = xp;
+layer_sequence_create("Instances", x, y, seq_xp);
 random_set_seed(current_time);
 #region nurse horn
 	for (var i = 0; i < array_length(playerItems); ++i) {
