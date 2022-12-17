@@ -39,33 +39,52 @@ enum ItemTypes {
 
 #region Upgrades
 function newCreateUpgrade(_data){
-	global.upgradesAvaliable[_data.id][0] = global.null;
-	for (var i = 1; i <= _data.maxlevel; ++i) {	    
-		global.upgradesAvaliable[_data.id][i] = ds_map_create();
-		var m = global.upgradesAvaliable[_data.id][i];
-		ds_map_add(m, "id", _data.id);
-		ds_map_add(m, "name", _data.name);
+	global.upgradesAvaliable[_data.id[0]][0] = global.null;
+	for (var i = 1; i <= _data.maxlevel[0]; ++i) {	    
+		global.upgradesAvaliable[_data.id[0]][i] = ds_map_create();
+		var m = global.upgradesAvaliable[_data.id[0]][i];
+		//ds_map_add(m, "id", _data.id);
+		//ds_map_add(m, "name", _data.name);
 		ds_map_add(m, "level", i);
-		ds_map_add(m, "sprite", _data.sprite);
-		ds_map_add(m, "thumb", _data.thumb);
-		ds_map_add(m, "mindmg", _data.mindmg[i-1]);
-		ds_map_add(m, "maxdmg", _data.maxdmg[i-1]);
-		ds_map_add(m, "cooldown", _data.cooldown[i-1]);
-		ds_map_add(m, "duration", _data.duration[i-1]);
-		ds_map_add(m, "hitCooldown", _data.hitCooldown);
-		ds_map_add(m, "canBeHasted", _data.canBeHasted);
-		ds_map_add(m, "speed", _data.speed);
-		ds_map_add(m, "hits", _data.hits[i-1]);	
-		ds_map_add(m, "type", _data.type);	
-		ds_map_add(m, "shoots", _data.shoots[i-1]);	
-		ds_map_add(m, "desc", _data.desc[i-1]);
+		//ds_map_add(m, "sprite", _data.sprite);
+		//ds_map_add(m, "thumb", _data.thumb);
+		//ds_map_add(m, "mindmg", _data.mindmg[i-1]);
+		//ds_map_add(m, "maxdmg", _data.maxdmg[i-1]);
+		//ds_map_add(m, "cooldown", _data.cooldown[i-1]);
+		//ds_map_add(m, "duration", _data.duration[i-1]);
+		//ds_map_add(m, "hitCooldown", _data.hitCooldown[i-1]);
+		//ds_map_add(m, "canBeHasted", _data.canBeHasted);
+		//ds_map_add(m, "speed", _data.speed[i-1]);
+		//ds_map_add(m, "hits", _data.hits[i-1]);	
+		//ds_map_add(m, "type", _data.type);	
+		//ds_map_add(m, "shoots", _data.shoots[i-1]);	
+		//ds_map_add(m, "desc", _data.desc[i-1]);
 		ds_map_add(m, "style", ItemTypes.Weapon);	
-		ds_map_add(m, "knockbackSpeed", _data.knockbackSpeed[i-1]);
-		ds_map_add(m, "knockbackDuration", _data.knockbackDuration[i-1]);
-		ds_map_add(m, "perk", _data.perk);
-		ds_map_add(m, "characterid", _data.character);
-		ds_map_add(m, "maxlevel", _data.maxlevel);
-		global.upgradeCooldown[_data.id] = 0;
+		//ds_map_add(m, "knockbackSpeed", _data.knockbackSpeed[i-1]);
+		//ds_map_add(m, "knockbackDuration", _data.knockbackDuration[i-1]);
+		//ds_map_add(m, "perk", _data.perk);
+		//ds_map_add(m, "characterid", _data.character);
+		//ds_map_add(m, "maxlevel", _data.maxlevel);
+		
+		
+
+		var keys = variable_struct_get_names(_data);
+		for (var j = array_length(keys)-1; j >= 0; --j) {
+		    var k = keys[j];
+		    var v = _data[$ k];
+			if (array_length(v) > 1) {
+			    ds_map_add(m, k, v[i-1]);
+			}
+			else
+			{
+				ds_map_add(m, k, v[0]);
+			}
+		    
+		}
+
+
+		
+		global.upgradeCooldown[_data.id[0]] = 0;
 	}
 }
 
@@ -145,20 +164,20 @@ function populateUpgrades(){
 			#region AmePistol 
 			newCreateUpgrade(
 			{
-				id : Weapons.AmePistol,
-				name : "AmePistol",
-				maxlevel : 7,
-				sprite : sAmeShoot,
-				thumb : sAmePistol,
+				id : [Weapons.AmePistol],
+				name : ["AmePistol"],
+				maxlevel : [7],
+				sprite : [sAmeShoot],
+				thumb : [sAmePistol],
 				mindmg : [7, 7, 7*1.25, 7*1.25, 7*1.25, 7*1.25*1.40, 7*1.25*1.40],
 				maxdmg : [13, 13, 13*1.25, 13*1.25, 13*1.25, 13*1.20*1.40, 13*1.20*1.40],
 				cooldown : [80, 80, 80, 80, 80*0.75, 80*0.75, 80*0.75],
 				duration : [120, 120, 120, 120, 120, 120, 120], 
-				hitCooldown : 10, 
-				canBeHasted : true,
-				speed : 5,
+				hitCooldown : [10, 10, 10, 10, 10, 10, 10], 
+				canBeHasted : [true],
+				speed : [5, 5, 5, 5, 5, 5, 5],
 				hits : [1, 2, 2, 2, 3, 3, 3],
-				type : "red",
+				type : ["red"],
 				shoots : [3, 4, 4, 4, 4, 4, 6],
 				desc : [
 				"Shoots 3 Projectiles forward. Horizontal only.", 
@@ -171,8 +190,8 @@ function populateUpgrades(){
 				],
 				knockbackSpeed : [0, 0, 0, 0, 0, 0, 0],
 				knockbackDuration : [0, 0, 0, 0, 0, 0, 0],
-				perk : true,
-				character : Characters.Amelia
+				perk : [true],
+				character : [Characters.Amelia]
 			}
 			
 			)
