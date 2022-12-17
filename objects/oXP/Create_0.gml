@@ -3,5 +3,7 @@
 //image_angle = randomise();
 //image_xscale=.05;
 //image_yscale=.05;
-xp = global.lastxp;
+//xp = global.lastxp;
 onArea = false;
+oY = y;
+dir = 0;
