@@ -5,5 +5,6 @@
 //image_yscale=.05;
 //xp = global.lastxp;
 onArea = false;
+otherxp = 0;
 oY = y;
 dir = 0;

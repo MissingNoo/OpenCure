@@ -1,8 +1,8 @@
 
 isP=global.gamePaused;
-zKey = keyboard_check_pressed(ord("Z"));
-xKey = keyboard_check_pressed(ord("X"));
-eKey = keyboard_check_pressed(vk_escape);
+zKey = keyboard_check_pressed(ord("Z")) or gamepad_button_check_pressed(global.GP_NUM, gp_face1);
+xKey = keyboard_check_pressed(ord("X")) or gamepad_button_check_pressed(global.GP_NUM, gp_face2);
+eKey = keyboard_check_pressed(vk_escape)  or gamepad_button_check_pressed(global.GP_NUM, gp_start);
 #region Start Menu
 	if (room = rInicio and !global.gamePaused) {
 	    if (zKey) {
@@ -28,7 +28,7 @@ eKey = keyboard_check_pressed(vk_escape);
 	if (global.upgrade) // after level up
 	{
 		if (holoarrowspr <= 8) { holoarrowspr+=.25; } else { holoarrowspr=0; } // arrow sprite index
-	    if (keyboard_check(ord("Z"))) {
+	    if (zKey) {
 			for (var i = 0; i < 6; i++) 
 			{	
 				if (global.upgradeOptions[selected][?"name"] == "null") {
@@ -198,7 +198,7 @@ if (global.gamePaused and !global.upgrade and !ANVIL) {
 	}
 	
 	if (keyboard_check_pressed(ord("K"))){
-		pauseMenu[activeMenu][pM.Options][array_length(pauseMenu[activeMenu][pM.Options])] = "teste " + string(irandom_range(0,99));
+		//pauseMenu[activeMenu][pM.Options][array_length(pauseMenu[activeMenu][pM.Options])] = "teste " + string(irandom_range(0,99));
 	}
     if (zKey){
 		var optionIs = "";
@@ -206,22 +206,28 @@ if (global.gamePaused and !global.upgrade and !ANVIL) {
 			if (string_copy(pauseMenu[activeMenu][pM.Options][selected],i,1) == ":") {
 			    break;
 			}
+			if (string_copy(pauseMenu[activeMenu][pM.Options][selected],i,1) == " ") {
+				i++;
+			}
 		    optionIs = optionIs + string_copy(pauseMenu[activeMenu][pM.Options][selected],i,1);
 		}
-		switch (optionIs) {
-			case "Damage Numbers":{
-		        global.damageNumbers = !global.damageNumbers;
-				loadSettingValues();
-		        break;} 
-			case "Screen Shake":{
-		        global.canShake= !global.canShake;
-				loadSettingValues();
-		        break;} 
-			case "SpawnEnemies":{
-		        global.spawnEnemies= !global.spawnEnemies;
-				loadSettingValues();
-		        break;} 
-		}
+		
+		variable_global_set(optionIs, !variable_global_get(optionIs));
+		loadSettingValues();
+		//switch (optionIs) {
+		//	case "Damage Numbers":{
+		//        global.DamageNumbers = !global.DamageNumbers;
+		//		loadSettingValues();
+		//        break;} 
+		//	case "Screen Shake":{
+		//        global.ScreenShake= !global.ScreenShake;
+		//		loadSettingValues();
+		//        break;} 
+		//	case "SpawnEnemies":{
+		//        global.SpawnEnemies= !global.SpawnEnemies;
+		//		loadSettingValues();
+		//        break;} 
+		//}
 		
 		var lastmenu = activeMenu;
 		switch (pauseMenu[activeMenu][pM.Options][selected]) {

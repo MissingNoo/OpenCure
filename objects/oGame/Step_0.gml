@@ -1,4 +1,33 @@
 
+if (os_type == os_android) {
+	if (device_mouse_check_button(0,mb_left)) {
+		    global.GamePad = false;
+		}
+		if (gamepad_button_check_pressed(global.GP_NUM, gp_start)) {
+		    global.GamePad = true;
+		}
+}
+for (var i = 0; i < gamepad_get_device_count(); i++) {
+	if(gamepad_is_connected(i)){
+		global.GP_NUM = i;
+	}
+	if (os_type == os_android) {	
+	    if(global.GamePad){
+			if (instance_exists(oJoystick)) {
+				instance_destroy(oJoystick);
+			}
+		}
+		else{
+			if (!instance_exists(oJoystick)) {
+				instance_create_depth(0,0,0,oJoystick);
+			}
+		}
+	}
+}
+
+
+
+global.debug = true;
 
 #region room limit, TODO: redo all this crap
 if (instance_exists(oPlayer)) {
@@ -168,10 +197,10 @@ if (shake_magnitude > 0)
 {
 	shake_magnitude -= 0.2;
 }
-	var pressed = (keyboard_check(ord("Z")) and !global.gamePaused) ? true : false
+	var pressed = (keyboard_check(ord("Z")) or gamepad_button_check(global.GP_NUM, gp_face1) and !global.gamePaused) ? true : false
 	global.strafe = pressed;
 #region Spawn
-if (canspawn == true and global.gamePaused == false and room == Room1 and global.spawnEnemies == 1) {
+if (canspawn == true and global.gamePaused == false and room == Room1 and global.SpawnEnemies == 1) {
 	if (!instance_exists(oEvents)) {
 	    instance_create_layer(0,0,"Instances",oEvents);
 	}	
@@ -257,8 +286,8 @@ if (keyboard_check_pressed(ord("N"))) {
 
 
 
-if (keyboard_check(vk_control)) {
-    Seconds+=1;
+if (keyboard_check(vk_control) and global.debug) {
+	Seconds+=1;
 }
 
 #region in stage
@@ -270,14 +299,3 @@ if (keyboard_check(vk_control)) {
 	//	}
 	//}
 #endregion
-
-
-
-
-
-
-
-
-
-
-

@@ -27,7 +27,7 @@ if (other.hittedcooldown[upg[?"id"]] <= 0  and !global.gamePaused and other.imag
 		}
 	}
 	other.hp-= dmg * global.player[?"atk"];
-	if (global.damageNumbers) {
+	if (global.DamageNumbers) {
 	    var _inst = instance_create_layer(other.x,other.y,"DamageLayer",oDamageText);
 		_inst.dmg = dmg;
 	}

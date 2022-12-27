@@ -57,6 +57,9 @@ function initializePlayer(_p){
 			}
 		}
 	#endregion
+	
+	_gx = 0;
+	_gy =0;
 }
 
 global.characters=[];
@@ -105,20 +108,34 @@ function Movement()
 // if the variable _vspd does not equal zero
 
 if can_move == true{
-
-    var _left = (keyboard_check(LEFTKEY)) ;
-    var _right = (keyboard_check(RIGHTKEY));
-    var _up = (keyboard_check(UPKEY));
-    var _down = (keyboard_check(DOWNKEY));
+	gamepad_set_axis_deadzone(global.GP_NUM, 0.7);
+    var _left = keyboard_check(LEFTKEY) or gamepad_axis_value(global.GP_NUM, gp_axislh) < 0 ? 1 : 0;
+    var _right = keyboard_check(RIGHTKEY) or gamepad_axis_value(global.GP_NUM, gp_axislh) > 0 ? 1 : 0;
+    var _up = keyboard_check(UPKEY) or gamepad_axis_value(global.GP_NUM, gp_axislv) < 0 ? 1 : 0;
+    var _down = keyboard_check(DOWNKEY) or gamepad_axis_value(global.GP_NUM, gp_axislv) > 0 ? 1 : 0;
+	lef =_left;
+	dow=_down;
+	rig=_right;
+	upp=_up;
 	if (!instance_exists(oJoystick) and !global.strafe) {
-		if (_down) { global.arrowDir=270; }
-		if (_up) { global.arrowDir=90; }
-		if (_right) { global.arrowDir=0; }
-		if (_left) { global.arrowDir=180; }
-		if (_up and _right) { global.arrowDir=45; }
-		if (_up and _left) { global.arrowDir=135; }
-		if (_down and _right) { global.arrowDir=315; }
-		if (_down and _left) { global.arrowDir=225; }
+		if (gamepad_axis_value(global.GP_NUM, gp_axisrh) != 0 or gamepad_axis_value(global.GP_NUM, gp_axisrv) != 0) {
+			_gx = gamepad_axis_value(global.GP_NUM, gp_axisrh);
+			_gy = gamepad_axis_value(global.GP_NUM, gp_axisrv);
+		}
+		
+		if (!global.GamePad) {
+			if (_down) { global.arrowDir=270; }
+			if (_up) { global.arrowDir=90; }
+			if (_right) { global.arrowDir=0; }
+			if (_left) { global.arrowDir=180; }
+			if (_up and _right) { global.arrowDir=45; }
+			if (_up and _left) { global.arrowDir=135; }
+			if (_down and _right) { global.arrowDir=315; }
+			if (_down and _left) { global.arrowDir=225; }
+		}
+		else{
+			global.arrowDir = point_direction(x,y, x + _gx, y + _gy)
+		}
 	}
 	
 	

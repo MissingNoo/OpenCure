@@ -23,7 +23,7 @@ if(global.gamePaused == false){
 	if (hp<=0) {
 		image_alpha-=.05;
 		x-=image_xscale;
-		if (boss and global.canShake == 1) {
+		if (boss and global.ScreenShake == 1) {
 			oGame.shake_magnitude=6;
 		}
 		if (image_alpha == 0) {

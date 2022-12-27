@@ -16,7 +16,7 @@ if (dir == 1) {
     y += .15;
 	} else {dir = 0}
 }
-var otherxp = collision_circle(x,y, 30, oXP,false,true);
+otherxp = collision_circle(x,y, 30, oXP,false,true);
 if (otherxp != noone) {
     
 	direction = point_direction(x,y,otherxp.x,otherxp.y);

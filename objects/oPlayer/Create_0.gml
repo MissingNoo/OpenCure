@@ -15,3 +15,7 @@ if (!instance_exists(oCam)) {
 }
 
 
+lef =0;
+dow=0;
+rig=0;
+upp=0;
