@@ -1,10 +1,15 @@
+if (keyboard_check_pressed(RIGHTKEY) or keyboard_check_pressed(LEFTKEY) or keyboard_check_pressed(UPKEY)  or keyboard_check_pressed(DOWNKEY)) {
+	global.GamePad = false;
+}
+if (gamepad_button_check_pressed(global.GP_NUM, gp_start) or gamepad_button_check_pressed(global.GP_NUM, gp_face1) or gamepad_button_check_pressed(global.GP_NUM, gp_padd) or gamepad_button_check_pressed(global.GP_NUM, gp_padu) or gamepad_button_check_pressed(global.GP_NUM, gp_padr) or gamepad_button_check_pressed(global.GP_NUM, gp_padl) or gamepad_axis_value(global.GP_NUM, gp_axisrv) != 0 or gamepad_axis_value(global.GP_NUM, gp_axislv) != 0) {
+	global.GamePad = true;
+}
+
+
 
 if (os_type == os_android) {
 	if (device_mouse_check_button(0,mb_left)) {
 		    global.GamePad = false;
-		}
-		if (gamepad_button_check_pressed(global.GP_NUM, gp_start)) {
-		    global.GamePad = true;
 		}
 }
 for (var i = 0; i < gamepad_get_device_count(); i++) {
@@ -24,10 +29,6 @@ for (var i = 0; i < gamepad_get_device_count(); i++) {
 		}
 	}
 }
-
-
-
-global.debug = true;
 
 #region room limit, TODO: redo all this crap
 if (instance_exists(oPlayer)) {

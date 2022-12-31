@@ -183,6 +183,7 @@
     {"id":{"name":"spr_bone_head","path":"sprites/spr_bone_head/spr_bone_head.yy",},"order":1,},
     {"id":{"name":"menu_carselec_cursor","path":"sprites/menu_carselec_cursor/menu_carselec_cursor.yy",},"order":0,},
     {"id":{"name":"spr_bone_femur","path":"sprites/spr_bone_femur/spr_bone_femur.yy",},"order":0,},
+    {"id":{"name":"oShop","path":"objects/oShop/oShop.yy",},"order":5,},
     {"id":{"name":"sFubuzilla","path":"sprites/sFubuzilla/sFubuzilla.yy",},"order":5,},
     {"id":{"name":"sGun1","path":"sprites/sGun1/sGun1.yy",},"order":0,},
     {"id":{"name":"sStolenPiggyBank","path":"sprites/sStolenPiggyBank/sStolenPiggyBank.yy",},"order":23,},

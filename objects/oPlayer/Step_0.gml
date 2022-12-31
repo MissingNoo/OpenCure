@@ -35,7 +35,7 @@ if (!global.gamePaused) {
 		randomUpgrades()
 		keyboard_clear(ord("Z"));
 		audio_play_sound(snd_LvlUp,0,0);
-		//if (instance_exists(oJoystick)) { oJoystick.mode = "menu"; }
+		//if (instance_exists(oJoystick)) { global.mode = "menu"; }
 		global.upgrade=1;	
 		oGui.selected=0;		
 		PauseGame()

@@ -22,10 +22,10 @@ function PauseGame(){
 		oGui.selected=0;
 		maxselected = 0;
 		if (instance_exists(oJoystick)) {
-			if (oJoystick.mode == "menu") {
-			    oJoystick.mode = "stage";
+			if (global.mode == "menu") {
+			    global.mode = "stage";
 			}
-			else{oJoystick.mode = "menu";}
+			else{global.mode = "menu";}
 		}
 		global.gamePaused = !global.gamePaused;		
 		if(global.gamePaused)

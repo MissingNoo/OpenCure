@@ -55,7 +55,7 @@ eKey = keyboard_check_pressed(vk_escape)  or gamepad_button_check_pressed(global
 							}
 							break;
 						}
-					#endregion			
+					#endregion
 				}
 				else if (global.upgradeOptions[selected][?"style"] == ItemTypes.Item) {
 				    #region Upgrade existing item
@@ -63,7 +63,7 @@ eKey = keyboard_check_pressed(vk_escape)  or gamepad_button_check_pressed(global
 						{
 							playerItems[i] = ItemList[playerItems[i][?"id"]][playerItems[i][?"level"]]+1;
 							break;
-						}			
+						}
 					#endregion
 			
 					#region new item
@@ -78,7 +78,7 @@ eKey = keyboard_check_pressed(vk_escape)  or gamepad_button_check_pressed(global
 							}
 							break;
 						}
-					#endregion			
+					#endregion
 				}
 				else if (global.upgradeOptions[selected][?"style"] == ItemTypes.Perk) {
 					#region Upgrade existing item
@@ -86,15 +86,15 @@ eKey = keyboard_check_pressed(vk_escape)  or gamepad_button_check_pressed(global
 							{
 								PLAYER_PERKS[i] = PERK_LIST[PLAYER_PERKS[i][?"id"]][PLAYER_PERKS[i][?"level"]]+1;
 								break;
-							}			
-						#endregion		
+							}
+						#endregion
 				}
 			}
 			global.xp -= oPlayer.neededxp;
 			
 	        global.upgrade = 0;
 	        PauseGame();
-			if (instance_exists(oJoystick)) { oJoystick.mode = "stage"; }
+			if (instance_exists(oJoystick)) { global.mode = "stage"; }
 	    }
 }
 #endregion
@@ -109,7 +109,7 @@ if (ANVIL) {
 	}
 	var level = selectedThing[?"level"];
 	var maxlevel = selectedThing[?"maxlevel"];
-	if (keyboard_check_pressed(ord("Z")) and level < maxlevel) {
+	if (zKey and level < maxlevel) {
 		if (anvilSelectedCategory == 0) {
 			UPGRADES[anvilSelected] = global.upgradesAvaliable[UPGRADES[anvilSelected][?"id"]][UPGRADES[anvilSelected][?"level"] + 1];
 		}
@@ -129,7 +129,7 @@ if (ANVIL) {
 			//show_message(string(Characters.Amelia));
 			//show_message(string(CHARACTERS[selected][?"id"]));
 			PLAYER_PERKS = global.characterPerks[CHARACTERS[selected][?"id"]];
-			if (instance_exists(oJoystick)) { oJoystick.mode = "stage"; }
+			if (instance_exists(oJoystick)) { global.mode = "stage"; }
 			audio_stop_sound(global.musicPlaying);
 			room_goto(Room1);
 	    }

@@ -14,7 +14,13 @@ if (instance_exists(oJoystick) and instance_number(oJoystick) > 1) {
 #macro DOWNKEY vk_down
 #macro LEFTKEY vk_left
 #macro RIGHTKEY vk_right
-mode = "menu"
+//if (variable_global_exists("mode")) {
+	mode = global.mode;
+//}
+//else{
+//	mode = "menu";
+//}
+
 #region Stage Mode
 	canrelease=true;
 	//limit = 137;
