@@ -58,6 +58,14 @@ function initializePlayer(_p){
 		}
 	#endregion
 	
+	#region reset buffs
+		for (var i = 0; i < array_length(Buffs); ++i) {
+			if (is_struct(Buffs[i])) {
+			    Buffs[i].cooldown = 0;
+			}
+		}
+	#endregion
+	
 	_gx = 0;
 	_gy =0;
 }
@@ -78,9 +86,35 @@ function createCharacter(_id, _name, _portrait, _sprite, _runningsprite, _hp, _s
 	ds_map_add(m, "atk", _atk);
 	ds_map_add(m, "weapon", _weapon);
 }
+
+enum BuffNames{
+	ShortHeight,
+	SharkBite
+}
+
 function populateCharacters(){
 	createCharacter(Characters.Amelia,"Watson Amelia",sAmePortrait,sAmeIdle,sAmeRunning,75,1.35,1.30,u[Weapons.AmePistol]);
 	createCharacter(Characters.Gura,"Gawr Gura",sGuraPortrait,sGuraIdle,sGuraRunning,65,1.40,1.10,u[Weapons.GuraTrident]);
+	Buffs[BuffNames.ShortHeight] = {
+		id : BuffNames.ShortHeight,
+		name : "Short Height",
+		icon : sShortHeight,
+		enabled : false,
+		baseCooldown : 2,
+		cooldown : 0,
+		chance : [0,15,25,35],
+		bonus : [0,1.3,1.4,1.5]
+	}
+	Buffs[BuffNames.SharkBite] = {
+		id : BuffNames.SharkBite,
+		name : "Shark Bite",
+		icon : sSharkBite,
+		maxMarks : 5,
+		marks : 1,
+		level : 1,
+		damage : [1,1.6,1.9,1.12],
+		chance : [0,10,15,20]
+	}
 	//createCharacter(Characters.Ina,"Ninomae Ina'nis",sInaPortrait,sInaIdle,sInaRunning,75,1.50,0.90,u[Weapons.InaTentacle]);
 	//createCharacter(Characters.Kiara,"Takanashi Kiara",sAmePortrait,sAmeIdle,sAmeRunning,30,1.35,10,u[Weapons.AmePistol]);
 	//createCharacter(Characters.Calli,"Mori Calliope",sAmePortrait,sAmeIdle,sAmeRunning,30,1.35,10,u[Weapons.AmePistol]);
@@ -109,14 +143,20 @@ function Movement()
 
 if can_move == true{
 	gamepad_set_axis_deadzone(global.GP_NUM, 0.7);
-    var _left = keyboard_check(LEFTKEY) or gamepad_axis_value(global.GP_NUM, gp_axislh) < 0 ? 1 : 0;
-    var _right = keyboard_check(RIGHTKEY) or gamepad_axis_value(global.GP_NUM, gp_axislh) > 0 ? 1 : 0;
-    var _up = keyboard_check(UPKEY) or gamepad_axis_value(global.GP_NUM, gp_axislv) < 0 ? 1 : 0;
-    var _down = keyboard_check(DOWNKEY) or gamepad_axis_value(global.GP_NUM, gp_axislv) > 0 ? 1 : 0;
-	lef =_left;
-	dow=_down;
-	rig=_right;
-	upp=_up;
+	if (global.GamePad) {
+	    var _left = gamepad_axis_value(global.GP_NUM, gp_axislh) < 0 ? 1 : 0;
+	    var _right = gamepad_axis_value(global.GP_NUM, gp_axislh) > 0 ? 1 : 0;
+	    var _up = gamepad_axis_value(global.GP_NUM, gp_axislv) < 0 ? 1 : 0;
+	    var _down = gamepad_axis_value(global.GP_NUM, gp_axislv) > 0 ? 1 : 0;
+	}
+	else{
+		var _left = keyboard_check(LEFTKEY);
+	    var _right = keyboard_check(RIGHTKEY);
+	    var _up = keyboard_check(UPKEY);
+	    var _down = keyboard_check(DOWNKEY);
+	}
+    
+
 	if (!instance_exists(oJoystick) and !global.strafe) {
 		if (gamepad_axis_value(global.GP_NUM, gp_axisrh) != 0 or gamepad_axis_value(global.GP_NUM, gp_axisrv) != 0) {
 			_gx = gamepad_axis_value(global.GP_NUM, gp_axisrh);

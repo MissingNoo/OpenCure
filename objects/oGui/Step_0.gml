@@ -129,7 +129,7 @@ if (ANVIL) {
 			//show_message(string(Characters.Amelia));
 			//show_message(string(CHARACTERS[selected][?"id"]));
 			PLAYER_PERKS = global.characterPerks[CHARACTERS[selected][?"id"]];
-			if (instance_exists(oJoystick)) { global.mode = "stage"; }
+			global.mode = "stage";
 			audio_stop_sound(global.musicPlaying);
 			room_goto(Room1);
 	    }
@@ -244,6 +244,7 @@ if (global.gamePaused and !global.upgrade and !ANVIL) {
 		        activeMenu = PMenus.Settings;
 		        break;}
 			case "Quit":{
+				global.mode = "menu";
 		        game_restart();
 		        break;}
 		}
@@ -297,12 +298,12 @@ if (global.gamePaused and !global.upgrade and !ANVIL) {
 	if (global.debug) {
 		if(keyboard_check(ord("L"))) game_restart();
 		//if(keyboard_check(ord("Q"))) a -=1;
-		if(keyboard_check(ord("Q"))) a -=0.005;
+		if(keyboard_check(ord("Q"))) a -=0.5;
 		//if(keyboard_check(ord("W"))) a +=1;
-		if(keyboard_check(ord("W"))) a += 0.005;
-		if(keyboard_check(ord("E"))) b -=.05;
+		if(keyboard_check(ord("W"))) a += 0.5;
+		if(keyboard_check(ord("E"))) b -=.5;
 		//if(keyboard_check(ord("E"))) b -=1;
-		if(keyboard_check(ord("R"))) b +=.05;
+		if(keyboard_check(ord("R"))) b +=.5;
 		//if(keyboard_check(ord("R"))) b +=1;
 		if(keyboard_check(ord("T"))) c -=.1;
 		if(keyboard_check(ord("Y"))) c +=.1;

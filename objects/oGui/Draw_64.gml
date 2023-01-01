@@ -1,6 +1,6 @@
 
 #region Start variables
-	draw_set_font(fnt_font1);
+	draw_set_font(global.Font); //draw_set_font(fnt_font1);
 	draw_set_alpha(1);
 	draw_set_color(c_white);
 #endregion
@@ -348,6 +348,25 @@
 	
 		draw_text_transformed(GW/2-(string_width(time)/2),35,time,1,1,0);
 		#endregion
+		
+		#region Buffs
+			var _xx = 55;
+			var _yy = GH - 55;
+			for (var i = 0; i < array_length(Buffs); ++i) {
+			    if (Buffs[i].enabled == true) {
+				    draw_set_alpha(.5);
+					draw_rectangle(_xx - 32, _yy - 32, _xx + 32, _yy + 32, false);
+					draw_set_alpha(1);
+					draw_sprite_stretched(Buffs[i].icon, 0, _xx - sprite_get_width(Buffs[i].icon), _yy - sprite_get_height(Buffs[i].icon), 35, 35);
+					draw_set_color(c_blue);
+					draw_text(_xx, _yy+10, string(round(Buffs[i].cooldown)));
+					draw_set_color(c_white);
+					draw_set_alpha(1);
+					_xx += 40;
+				}
+			}
+			
+		#endregion
 	}
 #endregion
 
@@ -460,7 +479,7 @@ if (keyboard_check_pressed(ord("M"))) {
 
 #region Android Buttons
 	if (os_type == os_android) {
-		draw_set_font(fnt_font1);
+		draw_set_font(global.Font); //draw_set_font(fnt_font1);
 		draw_set_alpha(0.5);
 		draw_set_color(c_white);
 		draw_rectangle(zButtonX, zButtonY, zButtonXEnd, zButtonYEnd, false);

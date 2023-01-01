@@ -16,6 +16,7 @@
     {"id":{"name":"sNurseHorn","path":"sprites/sNurseHorn/sNurseHorn.yy",},"order":8,},
     {"id":{"name":"Save","path":"scripts/Save/Save.yy",},"order":6,},
     {"id":{"name":"spr_chest_wooden","path":"sprites/spr_chest_wooden/spr_chest_wooden.yy",},"order":6,},
+    {"id":{"name":"sFont256269","path":"sprites/sFont256269/sFont256269.yy",},"order":2,},
     {"id":{"name":"spr_gadget_vinci","path":"sprites/spr_gadget_vinci/spr_gadget_vinci.yy",},"order":3,},
     {"id":{"name":"spr_tools_hammer","path":"sprites/spr_tools_hammer/spr_tools_hammer.yy",},"order":0,},
     {"id":{"name":"sBaeRat","path":"sprites/sBaeRat/sBaeRat.yy",},"order":12,},

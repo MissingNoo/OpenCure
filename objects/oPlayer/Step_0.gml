@@ -78,6 +78,9 @@ if (HP > MAXHP) {
 		    calc += PerkBonuses[BonusType.Speed][i];
 		}    
 	}
+	if (calc == 0) {
+	    calc = 1;
+	}
 	if (calc != 0) {
 	    spd = ospd * calc;
 	}

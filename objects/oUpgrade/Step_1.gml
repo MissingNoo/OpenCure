@@ -106,10 +106,11 @@ if (a==0) {
 			break;}
 			
 		case "Elite Lava Bucket":{	
+			level = upg[?"level"];
 			random_set_seed(current_time);
-			x = oPlayer.x + irandom_range(-200,200)
+			x = oPlayer.x + irandom_range(-100,100)
 			random_set_seed(current_time);
-			y = oPlayer.y + (irandom_range(-200,200)*-1)
+			y = oPlayer.y + (irandom_range(-100,100)*-1)
 			alarm[0] = 1;
 			depth=oPlayer.depth;
 			for (var i = 0; i < array_length(Bonuses[BonusType.weaponSize]); ++i) {

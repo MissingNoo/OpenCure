@@ -22,6 +22,8 @@ function initiateEnemy(e){
 	for (var i = 0; i < array_length(global.upgradesAvaliable); ++i) {
 	    hittedcooldown[i] = 0;
 	}
+	debuffs = [];
+	effects = [];
 }
 	
 global.enemies=[];

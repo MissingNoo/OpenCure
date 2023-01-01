@@ -1,4 +1,7 @@
-padset = false;
+if (!variable_global_exists("mode")) {
+	global.mode = "menu";
+}
+
 global.GP_NUM = 0;
 /// @description Insert description here
 // You can write your code in this editor

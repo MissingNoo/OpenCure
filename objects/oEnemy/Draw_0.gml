@@ -15,5 +15,8 @@ if (global.debug) {
 	}
 }
 //draw_text(x,y-32,string(atk));
-
+for (var i = 0; i < array_length(debuffs); ++i) {
+    draw_sprite(debuffs[i].icon,0,x,y+30);
+	draw_text(x,y+35, debuffs[i].marks);
+}
 

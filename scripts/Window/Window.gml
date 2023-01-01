@@ -41,7 +41,7 @@ view_hport[0] = max_h;
 surface_resize(application_surface, view_wport[0], view_hport[0]);
 }
 function drawDesc(_xx, _yy, _string, maxX){
-	draw_set_font(fnt_font1);
+	draw_set_font(global.Font); //draw_set_font(fnt_font1);
 	draw_set_halign(fa_center);
 	var xt=0;
 	var yt=0;

@@ -90,7 +90,7 @@ function populatePerks(){
 					createPerk(PerkIds.SharkBite, "Shark Bite", 1, 3, 1, sSharkBite, 600, "Attacks have a [10%] chance to place 1 'Bite Mark' (max 5). Per stack, Target takes [6%] more damage, and a [20%] chance to heal you [1%] when defeated.", Characters.Gura);
 					createPerk(PerkIds.SharkBite, "Shark Bite", 2, 3, 1, sSharkBite, 600, "Attacks have a [15%] chance to place 1 'Bite Mark' (max 5). Per stack, Target takes [9%] more damage, and a [20%] chance to heal you [1%] when defeated.", Characters.Gura);
 					createPerk(PerkIds.SharkBite, "Shark Bite", 3, 3, 1, sSharkBite, 600, "Attacks have a [20%] chance to place 1 'Bite Mark' (max 5). Per stack, Target takes [12%] more damage, and a [20%] chance to heal you [1%] when defeated.", Characters.Gura);
-					global.characterPerks[Characters.Gura] = [PERK_LIST[PerkIds.ShortSize][0], PERK_LIST[PerkIds.PowerofAtlantis][0], PERK_LIST[PerkIds.SharkBite][0]];
+					global.characterPerks[Characters.Gura] = [PERK_LIST[PerkIds.ShortSize][3], PERK_LIST[PerkIds.PowerofAtlantis][0], PERK_LIST[PerkIds.SharkBite][3]];
 				#endregion		
 
 			#endregion
