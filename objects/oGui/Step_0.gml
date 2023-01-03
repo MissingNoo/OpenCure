@@ -3,6 +3,13 @@ isP=global.gamePaused;
 zKey = keyboard_check_pressed(ord("Z")) or gamepad_button_check_pressed(global.GP_NUM, gp_face1);
 xKey = keyboard_check_pressed(ord("X")) or gamepad_button_check_pressed(global.GP_NUM, gp_face2);
 eKey = keyboard_check_pressed(vk_escape)  or gamepad_button_check_pressed(global.GP_NUM, gp_start);
+leftKey = keyboard_check_pressed(LEFTKEY)  or gamepad_button_check_pressed(global.GP_NUM, gp_padl);
+rightKey = keyboard_check_pressed(RIGHTKEY)  or gamepad_button_check_pressed(global.GP_NUM, gp_padr);
+
+if (xKey and global.gamePaused) {
+    PauseGame();
+}
+
 #region Start Menu
 	if (room = rInicio and !global.gamePaused) {
 	    if (zKey) {
@@ -259,7 +266,7 @@ if (global.gamePaused and !global.upgrade and !ANVIL) {
 		}		
 		
 	}		
-	if (keyboard_check_pressed(LEFTKEY) or keyboard_check_pressed(RIGHTKEY)){
+	if (leftKey or rightKey){
 		var optionIs = "";
 		for (var i = 1; i < string_length(pauseMenu[activeMenu][pM.Options][selected]); ++i) {
 			if (string_copy(pauseMenu[activeMenu][pM.Options][selected],i,1) == ":") {
@@ -269,7 +276,7 @@ if (global.gamePaused and !global.upgrade and !ANVIL) {
 		}
 		switch (optionIs) {
 		    case "Music Volume":{
-		        global.musicVolume += (keyboard_check_pressed(RIGHTKEY)*0.1) - (keyboard_check_pressed(LEFTKEY)*0.1);
+		        global.musicVolume += (rightKey*0.1) - (leftKey*0.1);
 				if (global.musicVolume > 1) {
 				    global.musicVolume = 1;
 				}
@@ -279,7 +286,7 @@ if (global.gamePaused and !global.upgrade and !ANVIL) {
 				loadSettingValues();
 		        break;}
 			case "Sound Volume":{
-		        global.soundVolume += (keyboard_check_pressed(RIGHTKEY)*0.1) - (keyboard_check_pressed(LEFTKEY)*0.1);
+		        global.soundVolume += (rightKey*0.1) - (leftKey*0.1);
 				if (global.soundVolume > 1) {
 				    global.soundVolume = 1;
 				}

@@ -43,6 +43,7 @@ if (!global.gamePaused) {
 	
 	if (global.hp <= 0) {
 		if (revives <= 0) {
+			global.mode = "menu";
 		    game_restart();
 		}
 		else {

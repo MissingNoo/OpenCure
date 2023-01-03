@@ -143,17 +143,18 @@ function Movement()
 
 if can_move == true{
 	gamepad_set_axis_deadzone(global.GP_NUM, 0.7);
+	var _left, _right, _up, _down;
 	if (global.GamePad) {
-	    var _left = gamepad_axis_value(global.GP_NUM, gp_axislh) < 0 ? 1 : 0;
-	    var _right = gamepad_axis_value(global.GP_NUM, gp_axislh) > 0 ? 1 : 0;
-	    var _up = gamepad_axis_value(global.GP_NUM, gp_axislv) < 0 ? 1 : 0;
-	    var _down = gamepad_axis_value(global.GP_NUM, gp_axislv) > 0 ? 1 : 0;
+	     _left = gamepad_axis_value(global.GP_NUM, gp_axislh) < 0 ? 1 : 0;
+	    _right = gamepad_axis_value(global.GP_NUM, gp_axislh) > 0 ? 1 : 0;
+	    _up = gamepad_axis_value(global.GP_NUM, gp_axislv) < 0 ? 1 : 0;
+	    _down = gamepad_axis_value(global.GP_NUM, gp_axislv) > 0 ? 1 : 0;
 	}
 	else{
-		var _left = keyboard_check(LEFTKEY);
-	    var _right = keyboard_check(RIGHTKEY);
-	    var _up = keyboard_check(UPKEY);
-	    var _down = keyboard_check(DOWNKEY);
+		_left = keyboard_check(LEFTKEY);
+	    _right = keyboard_check(RIGHTKEY);
+	    _up = keyboard_check(UPKEY);
+	    _down = keyboard_check(DOWNKEY);
 	}
     
 

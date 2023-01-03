@@ -1,8 +1,12 @@
-if (keyboard_check_pressed(RIGHTKEY) or keyboard_check_pressed(LEFTKEY) or keyboard_check_pressed(UPKEY)  or keyboard_check_pressed(DOWNKEY) or device_mouse_check_button(0,mb_left)) {
+if (keyboard_check_pressed(RIGHTKEY) or keyboard_check_pressed(LEFTKEY) or keyboard_check_pressed(UPKEY)  or keyboard_check_pressed(DOWNKEY)) {
 	global.GamePad = false;
 }
 if (gamepad_button_check_pressed(global.GP_NUM, gp_start)) {
 	global.GamePad = true;
+}
+if (!global.padset) {
+	global.GamePad = false;
+    global.padset = true;
 }
 
 for (var i = 0; i < gamepad_get_device_count(); i++) {
@@ -11,6 +15,9 @@ for (var i = 0; i < gamepad_get_device_count(); i++) {
 		gamepad_set_axis_deadzone(global.GP_NUM, 0.7);
 	}
 	if (os_type == os_android) {
+		if (device_mouse_check_button(0,mb_left)) {
+		    global.GamePad = false;
+		}
 	    if(global.GamePad){
 			if (instance_exists(oJoystick)) {
 				instance_destroy(oJoystick);

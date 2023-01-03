@@ -4,6 +4,7 @@
 	draw_set_alpha(1);
 	draw_set_color(c_white);
 #endregion
+
 //var lasti = "";
 //for (var i = 0; i < array_length(lastinputs); ++i) {
 //    lasti = lasti + ":" + string(lastinputs[i]);
