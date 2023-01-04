@@ -6,13 +6,13 @@ draw_sprite_ext(spr_shadow, 0, x, y, 1, 1, 0, c_white, 0.8)
 if (global.debug) {
 	//draw_text(x,y-60, "lh: " + string(gamepad_axis_value(global.GP_NUM, gp_axislh)));
 	//draw_text(x,y-80, "lv: " + string(gamepad_axis_value(global.GP_NUM, gp_axislv)));
-	draw_text(x,y-60, "left: " + string(spd));
-	draw_text(x,y-80, "down: " + string(Buffs[BuffNames.ShortHeight].cooldown));
+	draw_text(x,y-60, "left: " + string(image_speed));
+	//draw_text(x,y-80, "down: " + string(Buffs[BuffNames.ShortHeight].cooldown));
 	//draw_text(x,y-100, "right: " + string(rig));
 	//draw_text(x,y-120, "up: " + string(upp));
 	//draw_text(x,y-100, "rh: " + string(gamepad_axis_value(global.GP_NUM, gp_axisrh)));
 	//draw_text(x,y-120, "rv: " + string(gamepad_axis_value(global.GP_NUM, gp_axisrv)));
-    draw_text(x,y-40, string(global.xp) + "/" + string(neededxp));
+    //draw_text(x,y-40, string(global.xp) + "/" + string(neededxp));
 	draw_circle(x,y-16,pickupRadius,true);
 }
 

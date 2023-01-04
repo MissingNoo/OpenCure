@@ -103,3 +103,8 @@ if (HP > MAXHP) {
 	    pickupRadius = originalPickupRadius * calc;
 	}
 #endregion
+if (global.gamePaused) {
+    image_speed=0;
+}else{
+	image_speed=1;
+}

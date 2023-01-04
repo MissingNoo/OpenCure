@@ -1,3 +1,4 @@
+// Feather disable GM2016
 var _left = (keyboard_check_pressed(LEFTKEY) or gamepad_button_check_pressed(global.GP_NUM,gp_padl));
 var _right = (keyboard_check_pressed(RIGHTKEY) or gamepad_button_check_pressed(global.GP_NUM,gp_padr));
 var _up = (keyboard_check_pressed(UPKEY) or gamepad_button_check_pressed(global.GP_NUM,gp_padu));

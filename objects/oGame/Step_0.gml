@@ -199,7 +199,11 @@ if (shake_magnitude > 0)
 {
 	shake_magnitude -= 0.2;
 }
-	var pressed = (keyboard_check(ord("Z")) or gamepad_button_check(global.GP_NUM, gp_face1) and !global.gamePaused) ? true : false
+var pressed;
+if (global.GamePad) {
+    pressed = (keyboard_check(ord("Z")) or gamepad_button_check(global.GP_NUM, gp_face1) and !global.gamePaused) ? true : false
+}else{ pressed = (keyboard_check(ord("Z")) and !global.gamePaused) ? true : false}
+	
 	global.strafe = pressed;
 #region Spawn
 if (canspawn == true and global.gamePaused == false and room == Room1 and global.SpawnEnemies == 1) {

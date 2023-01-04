@@ -40,7 +40,8 @@ view_wport[0] = max_w;
 view_hport[0] = max_h;
 surface_resize(application_surface, view_wport[0], view_hport[0]);
 }
-function drawDesc(_xx, _yy, _string, maxX){
+function drawDesc(_xx, _yy, _string, maxX, _size = 1){
+	_originalSize = font_get_size(global.Font);
 	draw_set_font(global.Font); //draw_set_font(fnt_font1);
 	draw_set_halign(fa_center);
 	var xt=0;
@@ -50,7 +51,7 @@ function drawDesc(_xx, _yy, _string, maxX){
 		char = string_copy(_string, i, 1);
 		if (_xx + xt >= _xx + maxX) { // past max x jump line
 		    xt = 0;
-			yt+=15
+			yt+=20
 		}
 		if (char == " ") { //if word wont fit jump line
 			var totalx = 0
@@ -65,7 +66,7 @@ function drawDesc(_xx, _yy, _string, maxX){
 			}
 			if (_xx + xt + totalx >= _xx + maxX) {
 				xt = -10.5;
-				yt+=15
+				yt+=20
 			}
 		}
 		switch (char) {
@@ -82,7 +83,7 @@ function drawDesc(_xx, _yy, _string, maxX){
 		if (xt == 0 and char == " ") {
 		    xt = -10.5;
 		}
-	    draw_text(_xx+xt, _yy+yt, char);
+	    draw_text_transformed(_xx+xt, _yy+yt, char, _size, _size, 0);
 		xt+=10.5;
 	}
 	draw_set_halign(fa_left);

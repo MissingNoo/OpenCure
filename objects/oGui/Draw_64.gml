@@ -216,7 +216,8 @@
 					draw_sprite_ext(sUpgradeBackground, 1, _xx, _yy + offset, 2.10, 1.25, 0, c_white, 1); 
 					draw_sprite_ext(sHoloCursor, holoarrowspr, _xx - 440, _yy + offset, 2.5, 2.5, 0, c_white, 1); 
 					} 
-	            draw_text_transformed(GW/2.50, GH/6.80 + offset, string(global.upgradeOptions[i][?"name"]),1,1,0); // draw the name
+				draw_set_halign(fa_left);
+	            draw_text_transformed(GW/2.60 + guiOffset, GH/6.65 + offset, string(global.upgradeOptions[i][?"name"]), 1.5, 1.5, 0); // draw the name
 				var style = ""; switch (global.upgradeOptions[i][?"style"]) { // type of upgrade
 				    case ItemTypes.Weapon:
 				        style = " >> Weapon";
@@ -229,7 +230,7 @@
 				        break;
 				}
 				draw_set_halign(fa_right);
-				draw_text_transformed(GW/1.08 - guiOffset, GH/6.80 + offset, string(style), 1, 1, 0);  // draw type of upgrade
+				draw_text_transformed(GW/1.08 - guiOffset, GH/6.65 + offset, string(style), 1.5, 1.5, 0);  // draw type of upgrade
 				draw_set_halign(fa_left);
 				draw_sprite_ext(global.upgradeOptions[i][? "thumb"],0,GW/2.45 + guiOffset, _yy + offset,2, 2,0,c_white,1); // item thumb			
 				draw_sprite_ext(sItemType, global.upgradeOptions[i][?"style"], GW/2.45 + guiOffset, _yy + offset,2, 2,0,c_white,1); // item thumb type
@@ -243,10 +244,10 @@
 				}			
 				if (foundup) {
 					var idd = global.upgradeOptions[i][?"id"];
-				    drawDesc(GW/2.20+(guiOffset/2),GH/5.5+offset, global.upgradesAvaliable[idd][foundlv][?"desc"], GW/2.20);
+				    drawDesc(GW/2.20+(guiOffset/2),GH/5.5+offset, global.upgradesAvaliable[idd][foundlv][?"desc"], GW/2.20, 2);
 				}
 				else{
-					drawDesc(GW/2.20+(guiOffset/2),GH/5.5+offset, global.upgradeOptions[i][?"desc"], GW/2.20);
+					drawDesc(GW/2.20+(guiOffset/2),GH/5.5+offset, global.upgradeOptions[i][?"desc"], GW/2.20, 2);
 				}
 	            //offset += 165;
 				offset += GH/5.30;
@@ -333,11 +334,11 @@
 				draw_sprite_ext(sItemType, selectedThing[?"style"], _xx - 350, _yy, 2, 2,0,c_white,1); // item thumb type
 				if (level > maxlevel) {	level -= 1	}
 				if (anvilSelectedCategory == 0 and selectedThing != global.null and selectedThing != global.nullitem) {
-					drawDesc(_xx - 290,_yy - 35, global.upgradesAvaliable[selectedThing[?"id"]][level][?"desc"], GW/2);
+					drawDesc(_xx - 290,_yy - 35, global.upgradesAvaliable[selectedThing[?"id"]][level][?"desc"], GW/2, 2);
 				}
 				if (anvilSelectedCategory == 1 and selectedThing != global.null and selectedThing != global.nullitem) {
 					
-					drawDesc(_xx - 290,_yy - 35, global.itemList[selectedThing[?"id"]][level][?"desc"], GW/2);
+					drawDesc(_xx - 290,_yy - 35, global.itemList[selectedThing[?"id"]][level][?"desc"], GW/2, 2);
 				}
 			#endregion
 			drawStats();

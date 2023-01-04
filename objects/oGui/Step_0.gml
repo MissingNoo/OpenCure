@@ -1,6 +1,9 @@
 
 isP=global.gamePaused;
-zKey = keyboard_check_pressed(ord("Z")) or gamepad_button_check_pressed(global.GP_NUM, gp_face1);
+if (global.GamePad) {
+    zKey = keyboard_check_pressed(ord("Z")) or gamepad_button_check_pressed(global.GP_NUM, gp_face1);
+}else{zKey = keyboard_check_pressed(ord("Z"));}
+
 xKey = keyboard_check_pressed(ord("X")) or gamepad_button_check_pressed(global.GP_NUM, gp_face2);
 eKey = keyboard_check_pressed(vk_escape)  or gamepad_button_check_pressed(global.GP_NUM, gp_start);
 leftKey = keyboard_check_pressed(LEFTKEY)  or gamepad_button_check_pressed(global.GP_NUM, gp_padl);
@@ -305,9 +308,9 @@ if (global.gamePaused and !global.upgrade and !ANVIL) {
 	if (global.debug) {
 		if(keyboard_check(ord("L"))) game_restart();
 		//if(keyboard_check(ord("Q"))) a -=1;
-		if(keyboard_check(ord("Q"))) a -=0.5;
+		if(keyboard_check(ord("Q"))) a -=0.005;
 		//if(keyboard_check(ord("W"))) a +=1;
-		if(keyboard_check(ord("W"))) a += 0.5;
+		if(keyboard_check(ord("W"))) a += 0.005;
 		if(keyboard_check(ord("E"))) b -=.5;
 		//if(keyboard_check(ord("E"))) b -=1;
 		if(keyboard_check(ord("R"))) b +=.5;
