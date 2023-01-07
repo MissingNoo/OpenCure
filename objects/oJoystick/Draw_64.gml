@@ -4,6 +4,8 @@
 ///Joystick
 draw_set_alpha(.5);
 #macro TouchX1 device_mouse_x_to_gui(0)
+#macro MOUSEX device_mouse_x_to_gui(0)
+#macro MOUSEY device_mouse_y_to_gui(0)
 #macro TouchX2 device_mouse_x_to_gui(1)
 #macro TouchY1 device_mouse_y_to_gui(0)
 #macro TouchY2 device_mouse_y_to_gui(1)
@@ -61,7 +63,7 @@ draw_set_alpha(.5);
 #endregion
 draw_set_alpha(1);
 #region Menu Mode
-if (mode == "menu") {
+if (mode == "menua") {
 	#region UpButton
 		draw_set_alpha(0.5);
 		draw_set_color(c_white);

@@ -22,21 +22,22 @@ if (room = rInicio) {
 	if (!global.gamePaused) {
 	    if (_up) { if (selected == 0) { selected = array_length(menu_options) - 1; } else selected -= 1 }
 		if (_down) { if (selected < array_length(menu_options) - 1) { selected += 1; } else selected = 0 }
+		//mouseOnButton(GW/1.25, GW/6, 55, sHudButton, 1.75, 1.5, menu_options);
 	}
-    
 }
 
 if (room = Room2) {
     if (_left) {
         if (selected == 0) {
             selected = Characters.Lenght - 1;
-        } else selected -= 1
+        } else selected -= 1;
 		NAME=CHARACTERS[selected][?"name"];
     }
     if (_right) {
         if (selected < Characters.Lenght - 1) {
             selected += 1;
-        } else selected = 0
+        } else selected = 0;
+		//mouseOnButton(GW/3.10,GH/3.75, GW/13, sAmePortrait, 2, 2, array_create(Characters.Lenght, 0), "horizontal");
 		NAME=CHARACTERS[selected][?"name"];
     }
 }

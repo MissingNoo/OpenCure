@@ -88,5 +88,44 @@ function drawDesc(_xx, _yy, _string, maxX, _size = 1){
 	}
 	draw_set_halign(fa_left);
 }
-
+	
+function mouseOnButton(_startX, _startY, _off, _sprite, _scaleX, _scaleY, _array, _variable = "selected", _direction = "vertical"){
+	variable_instance_set(self, "mousein", false);
+	var menuX = _startX;
+	var menuY = _startY;
+	var off = 0;
+	if (_direction == "vertical") {
+	    for (var i = 0; i < array_length(_array); ++i) {
+			if (global.debug) {
+			    randomize();
+			    draw_set_color(make_color_rgb(random(255),random(255),random(255)));
+				draw_rectangle( menuX - ((sprite_get_width(_sprite) * _scaleX)/2), (menuY + off) - ((sprite_get_height(_sprite)*_scaleY)/2), menuX + ((sprite_get_width(_sprite) * _scaleX)/2), (menuY + off) + ((sprite_get_height(_sprite)*_scaleY)/2),false);
+				draw_set_color(c_white);
+				draw_circle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), 3, false);
+			}
+			if (point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), menuX - ((sprite_get_width(_sprite) * _scaleX)/2), (menuY + off) - ((sprite_get_height(_sprite)*_scaleY)/2), menuX + ((sprite_get_width(_sprite) * _scaleX)/2), (menuY + off) + ((sprite_get_height(_sprite)*_scaleY)/2))) {
+				variable_instance_set(self, _variable, i);
+				variable_instance_set(self, "mousein", true);
+			}
+			off += _off;
+		}
+	}
+	if (_direction == "horizontal") {
+	    for (var i = 0; i < array_length(_array); ++i) {
+			if (global.debug) {
+				randomize();
+			    draw_set_color(make_color_rgb(random(255),random(255),random(255)));
+				draw_rectangle((menuX + off) - ((sprite_get_width(_sprite) * _scaleX)/2), menuY - ((sprite_get_height(_sprite)*_scaleY)/2), (menuX + off) + ((sprite_get_width(_sprite) * _scaleX)/2), menuY + ((sprite_get_height(_sprite)*_scaleY)/2),false);
+				draw_set_color(c_white);
+				draw_circle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), 3, false);
+			}
+			if (point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), (menuX + off) - ((sprite_get_width(_sprite) * _scaleX)/2), menuY - ((sprite_get_height(_sprite)*_scaleY)/2), (menuX + off) + ((sprite_get_width(_sprite) * _scaleX)/2), menuY + ((sprite_get_height(_sprite)*_scaleY)/2))) {
+				variable_instance_set(self, _variable, i);
+				variable_instance_set(self, "mousein", true);
+			}
+			off += _off;
+		}
+	}
+	
+}
 

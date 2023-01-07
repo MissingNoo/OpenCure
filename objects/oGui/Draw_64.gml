@@ -26,6 +26,7 @@
 	//1.75 1.15
 		#region Menu
 		if (!global.gamePaused) {
+			mouseOnButton(GW/1.25, GW/6, 55, sHudButton, 1.75, 1.5, menu_options);
 			draw_text_transformed(20,GH-50,"version DEMO 0.4.11072001 ported by Airgeadlamh", 1, 1, 0);
 		    var offset = 0;
 			var thiss=0;
@@ -56,6 +57,8 @@
 #region Character Select Room
 	var str = ""; var offset = 0;
 	if (room == Room2) {	
+		mouseOnButton(GW/3.10,GH/3.75, GW/13, sAmePortrait, 2, 2, array_create(Characters.Lenght, 0),, "horizontal");
+		NAME=CHARACTERS[selected][?"name"];
 		str="CHOOSE YOUR IDOL";
 		draw_text_transformed((GW/2)- string_width(str),50,str,2,2,0);
 	
@@ -210,6 +213,7 @@
 	        for (var i = 0; i < array_length(global.upgradeOptions); i++) {
 				var _xx = GW/1.52;
 				var _yy = GH/4.5;
+				mouseOnButton(_xx, _yy, GH/5.30, sUpgradeBackground, 2.1/1.30, 1.25/2, global.upgradeOptions);
 				draw_sprite_ext(sUpgradeBackground, 0, _xx, _yy + offset, 2.10, 1.25, 0, c_black, .75);//upgrade background
 				draw_sprite_ext(sUpgradeBackground, 2, _xx, _yy + 5 + offset, 2.10, 1.25, 0, c_white, .75);//upgrade line for the text
 	            if (i = selected) { //if select draw border
@@ -262,9 +266,14 @@
 		if (ANVIL) {
 			draw_text_transformed(GW/2, GH/7.25, "UPGRADE!", 4, 4, 0);
 			#region Weapons
+				for (var i = 0; i < array_length(UPGRADES); ++i) {
+				    mouseOnButton(GW/2.30 + (GW/12 * i), GH/3, GW/17.50, sItemSquare, 2, 2, array_create(2,0), "anvilSelectedCategory");
+				}
+				
 				var xoffset = 0;
 				var anvilIsSelected = 0;
 				for (var i = 0; i < array_length(UPGRADES); ++i){
+					mouseOnButton(GW/2.30, GH/3, GW/12, sItemSquare, 2, 2, UPGRADES, "anvilSelected", "horizontal");
 					if (anvilSelectedCategory == 0 and i == anvilSelected){
 						anvilIsSelected = 1
 					}else{
@@ -279,6 +288,7 @@
 			#region Items
 				xoffset = 0;
 				for (var i = 0; i < array_length(playerItems); ++i){
+					mouseOnButton(GW/2.30, GH/2.30, GW/12, sItemSquare, 2, 2, playerItems, "anvilSelected", "horizontal");
 					if (anvilSelectedCategory == 1 and i == anvilSelected){
 						anvilIsSelected = 1
 					}else{
@@ -420,7 +430,9 @@
 			}
 		}
 		
+		mouseOnButton(GW/2, (GH/2 - (sprite_get_height(sMenu) * pauseMenu[activeMenu][pM.yScale])/2) + 90, 45, sHudButton, bigString, 1, array_create(array_length(pauseMenu[activeMenu][pM.Options]),0), "selected");
 		for (var i = startOption; i < totaloptions; ++i) {
+			
 			var spr = (selected == i) ? 1 : 0;
 			draw_sprite_ext(sHudButton, spr, GW/2, 
 			//GH/2 - sprite_get_height(sMenu)/3.5+mOffset, 
@@ -447,6 +459,7 @@
 		draw_set_halign(fa_left);
 		draw_set_valign(fa_top);
 		draw_set_color(c_white);
+		
 	}
 #endregion
 

@@ -1,3 +1,4 @@
+mousein = false;
 guiOffset = 0;
 if (os_type == os_android) {
 	display_set_gui_size(display_get_width()/1.5, display_get_height()/1.5);

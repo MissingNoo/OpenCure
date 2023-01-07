@@ -2,7 +2,7 @@
 isP=global.gamePaused;
 if (global.GamePad) {
     zKey = keyboard_check_pressed(ord("Z")) or gamepad_button_check_pressed(global.GP_NUM, gp_face1);
-}else{zKey = keyboard_check_pressed(ord("Z"));}
+}else{zKey = keyboard_check_pressed(ord("Z")) or mousein and device_mouse_check_button_released(0,mb_left);}
 
 xKey = keyboard_check_pressed(ord("X")) or gamepad_button_check_pressed(global.GP_NUM, gp_face2);
 eKey = keyboard_check_pressed(vk_escape)  or gamepad_button_check_pressed(global.GP_NUM, gp_start);
@@ -242,13 +242,13 @@ if (global.gamePaused and !global.upgrade and !ANVIL) {
 		var lastmenu = activeMenu;
 		switch (pauseMenu[activeMenu][pM.Options][selected]) {
 			case "Skills":{
-		        show_message("a");
+		        
 		        break;}
 			case "????":{
-		        show_message("b");
+		        
 		        break;}
 			case "Resume":{
-		        show_message("c");
+		        PauseGame();
 		        break;}
 		    case "Settings":{
 		        activeMenu = PMenus.Settings;
