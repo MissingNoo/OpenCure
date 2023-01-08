@@ -98,10 +98,12 @@ function mouseOnButton(_startX, _startY, _off, _sprite, _scaleX, _scaleY, _array
 	    for (var i = 0; i < array_length(_array); ++i) {
 			if (global.debug) {
 			    randomize();
+				draw_set_alpha(.1);
 			    draw_set_color(make_color_rgb(random(255),random(255),random(255)));
 				draw_rectangle( menuX - ((sprite_get_width(_sprite) * _scaleX)/2), (menuY + off) - ((sprite_get_height(_sprite)*_scaleY)/2), menuX + ((sprite_get_width(_sprite) * _scaleX)/2), (menuY + off) + ((sprite_get_height(_sprite)*_scaleY)/2),false);
 				draw_set_color(c_white);
 				draw_circle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), 3, false);
+				draw_set_alpha(1);
 			}
 			if (point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), menuX - ((sprite_get_width(_sprite) * _scaleX)/2), (menuY + off) - ((sprite_get_height(_sprite)*_scaleY)/2), menuX + ((sprite_get_width(_sprite) * _scaleX)/2), (menuY + off) + ((sprite_get_height(_sprite)*_scaleY)/2))) {
 				variable_instance_set(self, _variable, i);
@@ -114,10 +116,12 @@ function mouseOnButton(_startX, _startY, _off, _sprite, _scaleX, _scaleY, _array
 	    for (var i = 0; i < array_length(_array); ++i) {
 			if (global.debug) {
 				randomize();
+				draw_set_alpha(.1);
 			    draw_set_color(make_color_rgb(random(255),random(255),random(255)));
 				draw_rectangle((menuX + off) - ((sprite_get_width(_sprite) * _scaleX)/2), menuY - ((sprite_get_height(_sprite)*_scaleY)/2), (menuX + off) + ((sprite_get_width(_sprite) * _scaleX)/2), menuY + ((sprite_get_height(_sprite)*_scaleY)/2),false);
 				draw_set_color(c_white);
 				draw_circle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), 3, false);
+				draw_set_alpha(1);
 			}
 			if (point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), (menuX + off) - ((sprite_get_width(_sprite) * _scaleX)/2), menuY - ((sprite_get_height(_sprite)*_scaleY)/2), (menuX + off) + ((sprite_get_width(_sprite) * _scaleX)/2), menuY + ((sprite_get_height(_sprite)*_scaleY)/2))) {
 				variable_instance_set(self, _variable, i);

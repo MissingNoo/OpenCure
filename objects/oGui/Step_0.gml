@@ -110,6 +110,7 @@ if (xKey and global.gamePaused) {
 #endregion
 
 #region Anvil
+//TODO: rankupgrades cost money
 if (ANVIL) {
 	var selectedThing;
 	if (anvilSelectedCategory == 0) {

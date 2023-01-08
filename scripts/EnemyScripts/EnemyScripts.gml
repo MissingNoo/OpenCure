@@ -169,6 +169,15 @@ function damageCalculation(baseDmg)
 		    damage = damage * Bonuses[BonusType.TakeDamage][i];
 		}
 	}
+	for (var i = 0; i < array_length(playerItems); ++i) {
+	    if (playerItems[i][?"id"] == ItemIds.Headphones) {
+		    randomize();
+			if (irandom_range(1, 100) <= playerItems[i][?"dodgeChance"]) {
+			    damage = 0;
+			}
+		}
+	}
+	
 	if (global.debug) {
 	    show_debug_message("baseDmg:" + string(baseDmg) + " after calculation: " + string(damage));
 	}	

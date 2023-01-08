@@ -31,7 +31,7 @@ if (other.canattack and other.image_alpha == 1 and !global.gamePaused) {
 	//alarm[1]=60;
 	other.canattack=false;
 	other.alarm[0]=15;
-	var inst = instance_create_layer(x,y,"DamageLayer",oDamageText);
+	var inst = instance_create_layer(x,y - sprite_get_height(sprite_index)/2,"DamageLayer",oDamageText);
 	with (inst)
 	{
 	    dmg=round(damage);

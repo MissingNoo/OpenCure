@@ -97,30 +97,30 @@ function newCreateItem(_data){
 
 	enum ItemIds
 	{
-		Body_Pillow,
-		Chicken_Feather,//TODO: defeat enemies
-		//Credit_Card,
-		Energy_Drink,
-		Face_Mask,
-		Full_Meal, //TODO: double heal
-		Gorilla_Paw, //TODO: minus crit damage
+		Body_Pillow, //TODO: convert item format
+		Chicken_Feather, //TODO: convert item format
+		CreditCard,
+		Energy_Drink, //TODO: convert item format
+		Face_Mask, //TODO: convert item format
+		Full_Meal, //TODO: actually double the heal amount
+		Gorilla_Paw, //TODO: lower the crit damage
 		//GWS_Pill,
 		//Halu,
-		//Headphones,
+		Headphones, //TODO: add knockback
 		//Idol_Costume,
-		Injection_Type_Asacoco,
+		Injection_Type_Asacoco, //TODO: convert item format
 		//Just_Bandage,
-		Knightly_Milk, //TODO: pickup range
+		Knightly_Milk, //TODO: convert item format
 		//Limiter,
 		//Membership,
-		NurseHorn,
+		NurseHorn, //TODO: convert item format
 		//Piki_Piki_Piman, 
 		//Plushie,
 		//Sake,
 		//Stolen_Piggy_Bank,
-		Study_Glasses,
+		Study_Glasses, //TODO: see if the +% is actually accurate
 		//Super_Chatto_Time,
-		Uber_Sheep//TODO: More food from enemies
+		Uber_Sheep//TODO: fix drop chance from enemies and convert item format
 	}
 	global.bonuses[0] = 0;
 	enum BonusType {
@@ -139,6 +139,8 @@ function newCreateItem(_data){
 		UberSheep,
 		PickupRange,
 		XPBonus,
+		AnvilDrop,
+		EnhancingCost,
 		lenght
 	}
 #endregion
@@ -161,6 +163,32 @@ function populateItems(){
 				createItem(ItemIds.Chicken_Feather, "Chicken's Feather", 2, 3, 2, sChickenFeather, 1, "Gain [2] revive. When you reach 0 HP, you automatically recover 50% HP and all current targets except bosses will be defeated. ");
 				createItem(ItemIds.Chicken_Feather, "Chicken's Feather", 3, 3, 2, sChickenFeather, 1, "Gain [3] revive. When you reach 0 HP, you automatically recover 50% HP and all current targets except bosses will be defeated. ");
 				Bonuses[BonusType.ChickenFeather] = 0;
+			#endregion
+			
+			#region Credit Card
+			newCreateItem(
+			{
+				id : [ItemIds.CreditCard],
+				name : ["Credit Card"],
+				maxlevel : [5],
+				weight : [4],
+				thumb : [sCreditCard],
+				cooldown : [1],
+				type : ["yellow"],
+				desc : [
+				"Cost of enhancing is reduced by [20%] and anvils appear [20%] more often.", 
+				"Cost of enhancing is reduced by [25%] and anvils appear [40%] more often.",
+				"Cost of enhancing is reduced by [30%] and anvils appear [60%] more often.",
+				"Cost of enhancing is reduced by [35%] and anvils appear [80%] more often.",
+				"Cost of enhancing is reduced by [40%] and anvils appear [twice] as often.",
+				],
+				perk : [false],
+				AnvilDropBonus: [.18, .28, .38, .45, .5],
+				EnhancingCost : [20, 25, 30, 35, 40]
+			}
+			)
+			Bonuses[BonusType.AnvilDrop][ItemIds.CreditCard] = 0;
+			Bonuses[BonusType.EnhancingCost][ItemIds.CreditCard] = 0;
 			#endregion
 		
 			#region Energy Drink
@@ -190,6 +218,29 @@ function populateItems(){
 				createItem(ItemIds.Gorilla_Paw, "Gorilla's Paw", 3, 3, 3, sGorillaPaw, 1, "Increase normal attack damage by [50%], but lose [20%] critical chance.");
 				Bonuses[BonusType.Damage][ItemIds.Gorilla_Paw] = 0;
 				Bonuses[BonusType.loseCritical][ItemIds.Gorilla_Paw] = 0;
+			#endregion
+			
+			#region Headphones
+			newCreateItem(
+			{
+				id : [ItemIds.Headphones],
+				name : ["Headphones"],
+				maxlevel : [5],
+				weight : [4],
+				thumb : [sHeadPhones],
+				cooldown : [1],
+				type : ["yellow"],
+				desc : [
+				"[15%] chance to negate [1] hit, and create a shockwave that knocks back all targets.", 
+				"[20%] chance to negate [1] hit, and create a shockwave that knocks back all targets.", 
+				"[25%] chance to negate [1] hit, and create a shockwave that knocks back all targets.", 
+				"[30%] chance to negate [1] hit, and create a shockwave that knocks back all targets.", 
+				"[35%] chance to negate [1] hit, and create a shockwave that knocks back all targets.", 
+				],
+				perk : [false],
+				dodgeChance: [15, 20, 25, 30, 35]
+			}
+			)
 			#endregion
 		
 			#region Injection Type Asacoco
@@ -330,7 +381,6 @@ function tickItems()
 				case ItemIds.Full_Meal:{
 					Bonuses[BonusType.Healing][ItemIds.Full_Meal] = 2;
 					break;}
-				
 				case ItemIds.Gorilla_Paw:{
 					switch (playerItems[i][?"level"]) {
 					    case 1:
@@ -347,7 +397,6 @@ function tickItems()
 					        break;
 					}
 					break;}
-					
 				case ItemIds.Injection_Type_Asacoco:{
 					HP = HP - (HP * 0.05); 
 					switch (playerItems[i][?"level"]) {
@@ -362,7 +411,6 @@ function tickItems()
 					        break;
 					}
 					break;}
-					
 				case ItemIds.Knightly_Milk:{
 					switch (playerItems[i][?"level"]) {
 					    case 1:
@@ -379,8 +427,7 @@ function tickItems()
 					        break;
 					}
 					break;}
-					
-				case ItemIds.Uber_Sheep:{
+				case ItemIds.Uber_Sheep:{ //TODO: fix chance and convert to new itemtype
 					do{
 						random_set_seed(current_time);
 						a = irandom_range(-1,1)
@@ -411,11 +458,14 @@ function tickItems()
 					        break;}
 					}
 					break;}
-					
-					case ItemIds.Study_Glasses:{
-						Bonuses[BonusType.XPBonus][ItemIds.Study_Glasses] = playerItems[i][?"XPBonus"];
-						//show_message(string(playerItems[i][?"XPBonus"]));
-						break;}
+				case ItemIds.Study_Glasses:{
+					Bonuses[BonusType.XPBonus][ItemIds.Study_Glasses] = playerItems[i][?"XPBonus"];
+					//show_message(string(playerItems[i][?"XPBonus"]));
+					break;}
+				case ItemIds.CreditCard:{
+					Bonuses[BonusType.AnvilDrop][ItemIds.CreditCard] = playerItems[i][?"AnvilDropBonus"];
+					Bonuses[BonusType.EnhancingCost][ItemIds.CreditCard] = playerItems[i][?"EnhancingCost"];
+					break;}
 			}
 		}
 	}

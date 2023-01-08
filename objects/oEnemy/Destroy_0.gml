@@ -25,19 +25,22 @@ random_set_seed(current_time);
 		}
 	}
 #endregion
-
+randomize();
 if (random_range(1,200) <= (1 * Bonuses[BonusType.UberSheep])) {
     instance_create_layer(x,y,"Instances", oBurguer);
 }
-
+randomize();
 if (irandom_range(1,90) == 1) {
     //TODO: code here for 10 holocoin drop
 }
 
-if (irandom_range(1,1301) == 1) {
+randomize();
+var range = floor(1300 * (1 - Bonuses[BonusType.AnvilDrop][ItemIds.CreditCard])) + 1;
+if (irandom_range(1,range) == 1) {
 	instance_create_layer(x,y,"Instances", oAnvil);
 }
 
+randomize();
 if (irandom_range(1,3000) == 1) {
     //TODO: code here for exp magnet
 }
