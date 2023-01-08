@@ -23,6 +23,57 @@ global.itemCooldown[0] = 0;
 #endregion
 
 #region Item Functions
+function newCreateItem(_data){
+	ItemList[_data.id[0]][0] = global.nullitem;
+	for (var i = 1; i <= _data.maxlevel[0]; ++i) {	    
+		ItemList[_data.id[0]][i] = ds_map_create();
+		var m = ItemList[_data.id[0]][i];
+		//ds_map_add(m, "id", _data.id);
+		//ds_map_add(m, "name", _data.name);
+		ds_map_add(m, "level", i);
+		//ds_map_add(m, "sprite", _data.sprite);
+		//ds_map_add(m, "thumb", _data.thumb);
+		//ds_map_add(m, "mindmg", _data.mindmg[i-1]);
+		//ds_map_add(m, "maxdmg", _data.maxdmg[i-1]);
+		//ds_map_add(m, "cooldown", _data.cooldown[i-1]);
+		//ds_map_add(m, "duration", _data.duration[i-1]);
+		//ds_map_add(m, "hitCooldown", _data.hitCooldown[i-1]);
+		//ds_map_add(m, "canBeHasted", _data.canBeHasted);
+		//ds_map_add(m, "speed", _data.speed[i-1]);
+		//ds_map_add(m, "hits", _data.hits[i-1]);	
+		//ds_map_add(m, "type", _data.type);	
+		//ds_map_add(m, "shoots", _data.shoots[i-1]);	
+		//ds_map_add(m, "desc", _data.desc[i-1]);
+		ds_map_add(m, "style", ItemTypes.Item);	
+		//ds_map_add(m, "knockbackSpeed", _data.knockbackSpeed[i-1]);
+		//ds_map_add(m, "knockbackDuration", _data.knockbackDuration[i-1]);
+		//ds_map_add(m, "perk", _data.perk);
+		//ds_map_add(m, "characterid", _data.character);
+		//ds_map_add(m, "maxlevel", _data.maxlevel);
+		
+		
+
+		var keys = variable_struct_get_names(_data);
+		for (var j = array_length(keys)-1; j >= 0; --j) {
+		    var k = keys[j];
+		    var v = _data[$ k];
+			if (array_length(v) > 1) {
+			    ds_map_add(m, k, v[i-1]);
+			}
+			else
+			{
+				ds_map_add(m, k, v[0]);
+			}
+		    
+		}
+
+
+		
+		global.itemCooldown[_data.id[0]] = 0;
+	}
+}
+
+
 
 	function createItem(_id, _name, _level, _maxLevel, _weight, _sprite, _cooldown, _desc, _unlocked = true, _type = "yellow", _perk = 0)
 	{
@@ -67,7 +118,7 @@ global.itemCooldown[0] = 0;
 		//Plushie,
 		//Sake,
 		//Stolen_Piggy_Bank,
-		//Study_Glasses,
+		Study_Glasses,
 		//Super_Chatto_Time,
 		Uber_Sheep//TODO: More food from enemies
 	}
@@ -86,7 +137,9 @@ global.itemCooldown[0] = 0;
 		weaponSize,
 		Bubba,
 		UberSheep,
-		PickupRange
+		PickupRange,
+		XPBonus,
+		lenght
 	}
 #endregion
 
@@ -159,6 +212,30 @@ function populateItems(){
 				createItem(ItemIds.NurseHorn, "Nurse's Horn", 2, 3, 3, sNurseHorn, 1, "When a target is defeated, there is a [30%] chance to heal for [4 HP].");
 				createItem(ItemIds.NurseHorn, "Nurse's Horn", 3, 3, 3, sNurseHorn, 1, "When a target is defeated, there is a [30%] chance to heal for [6 HP].");
 			#endregion		
+			
+			#region Study Glasses
+			newCreateItem(
+			{
+				id : [ItemIds.Study_Glasses],
+				name : ["Study Glasses"],
+				maxlevel : [5],
+				weight : [3],
+				thumb : [sStudyGlasses],
+				cooldown : [1],
+				type : ["yellow"],
+				desc : [
+				"Increase EXP gain by [10%].", 
+				"Increase EXP gain by [15%].",
+				"Increase EXP gain by [20%].",
+				"Increase EXP gain by [25%].",
+				"Increase EXP gain by [30%].",
+				],
+				perk : [false],
+				XPBonus: [1.10, 1.15, 1.20, 1.25, 1.30]
+			}
+			)
+			Bonuses[BonusType.XPBonus][ItemIds.Study_Glasses] = 0;
+			#endregion
 		
 			#region UberSheep
 				createItem(ItemIds.Uber_Sheep, "Uber Sheep", 1, 5 , 4, sUberSheep, 10, "Every [10] seconds, food will drop close by. Also increase food drop chance from defeated targets by [10%]. ");
@@ -245,17 +322,16 @@ function tickItems()
 							break;
 					}
 					break;}
-				case ItemIds.Face_Mask:
+				case ItemIds.Face_Mask:{
 					Bonuses[BonusType.Damage][ItemIds.Face_Mask] = 1.50;
 					Bonuses[BonusType.Haste][ItemIds.Face_Mask] = 1.10;
 					Bonuses[BonusType.TakeDamage][ItemIds.Face_Mask] = 1.30;
-					break;
-					
-				case ItemIds.Full_Meal:
+					break;}
+				case ItemIds.Full_Meal:{
 					Bonuses[BonusType.Healing][ItemIds.Full_Meal] = 2;
-					break;
+					break;}
 				
-				case ItemIds.Gorilla_Paw:
+				case ItemIds.Gorilla_Paw:{
 					switch (playerItems[i][?"level"]) {
 					    case 1:
 					        Bonuses[BonusType.Damage][ItemIds.Gorilla_Paw] = 1.30;
@@ -270,9 +346,9 @@ function tickItems()
 							Bonuses[BonusType.loseCritical][ItemIds.Gorilla_Paw] = 0.80;
 					        break;
 					}
-					break;
+					break;}
 					
-				case ItemIds.Injection_Type_Asacoco:
+				case ItemIds.Injection_Type_Asacoco:{
 					HP = HP - (HP * 0.05); 
 					switch (playerItems[i][?"level"]) {
 					    case 1:
@@ -285,8 +361,9 @@ function tickItems()
 					        Bonuses[BonusType.Damage][ItemIds.Injection_Type_Asacoco] = 1.80;
 					        break;
 					}
+					break;}
 					
-				case ItemIds.Knightly_Milk:
+				case ItemIds.Knightly_Milk:{
 					switch (playerItems[i][?"level"]) {
 					    case 1:
 					        Bonuses[BonusType.weaponSize][ItemIds.Knightly_Milk] = 1.10;
@@ -301,9 +378,9 @@ function tickItems()
 							Bonuses[BonusType.PickupRange][ItemIds.Knightly_Milk] = 1.50;
 					        break;
 					}
-					break;
+					break;}
 					
-				case ItemIds.Uber_Sheep:
+				case ItemIds.Uber_Sheep:{
 					do{
 						random_set_seed(current_time);
 						a = irandom_range(-1,1)
@@ -333,7 +410,12 @@ function tickItems()
 					        Bonuses[BonusType.UberSheep] = 1.20;
 					        break;}
 					}
-					break;			
+					break;}
+					
+					case ItemIds.Study_Glasses:{
+						Bonuses[BonusType.XPBonus][ItemIds.Study_Glasses] = playerItems[i][?"XPBonus"];
+						//show_message(string(playerItems[i][?"XPBonus"]));
+						break;}
 			}
 		}
 	}

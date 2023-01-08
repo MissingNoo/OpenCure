@@ -97,6 +97,7 @@
     {"id":{"name":"spr_minerals_gold","path":"sprites/spr_minerals_gold/spr_minerals_gold.yy",},"order":5,},
     {"id":{"name":"spr_cutlery_table_spoon","path":"sprites/spr_cutlery_table_spoon/spr_cutlery_table_spoon.yy",},"order":3,},
     {"id":{"name":"spr_bookopen_pink","path":"sprites/spr_bookopen_pink/spr_bookopen_pink.yy",},"order":12,},
+    {"id":{"name":"Sprite269","path":"sprites/Sprite269/Sprite269.yy",},"order":26,},
     {"id":{"name":"sFaceMask","path":"sprites/sFaceMask/sFaceMask.yy",},"order":3,},
     {"id":{"name":"spr_minerals_coal","path":"sprites/spr_minerals_coal/spr_minerals_coal.yy",},"order":0,},
     {"id":{"name":"sSaplingB","path":"sprites/sSaplingB/sSaplingB.yy",},"order":19,},

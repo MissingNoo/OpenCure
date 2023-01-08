@@ -308,9 +308,9 @@ if (global.gamePaused and !global.upgrade and !ANVIL) {
 	if (global.debug) {
 		if(keyboard_check(ord("L"))) game_restart();
 		//if(keyboard_check(ord("Q"))) a -=1;
-		if(keyboard_check(ord("Q"))) a -=0.005;
+		if(keyboard_check(ord("Q"))) a -=0.25;
 		//if(keyboard_check(ord("W"))) a +=1;
-		if(keyboard_check(ord("W"))) a += 0.005;
+		if(keyboard_check(ord("W"))) a += 0.25;
 		if(keyboard_check(ord("E"))) b -=.5;
 		//if(keyboard_check(ord("E"))) b -=1;
 		if(keyboard_check(ord("R"))) b +=.5;

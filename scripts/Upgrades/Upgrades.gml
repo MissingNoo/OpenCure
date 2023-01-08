@@ -736,7 +736,7 @@ function randomUpgrades(){
 		
 	//global.upgradeOptions[3] = global.null;
 	#endregion
-	
+	//global.upgradeOptions[0] = ItemList[ItemIds.Study_Glasses][1];
 	#region old	
 	//for (var i=0; i<4; i++) {
 	//	do {
