@@ -51,22 +51,26 @@ if (other.hittedcooldown[upg[?"id"]] <= 0  and !global.gamePaused and other.imag
 	for (var i = 0; i < array_length(Bonuses[BonusType.Damage]); ++i) {
 	    if (Bonuses[BonusType.Damage][i] != 0) {
 			//show_message(string(dmg) + " : " + string(Bonuses[BonusType.Damage][i]) + " = " +  string(dmg*Bonuses[BonusType.Damage][i]));
-		    dmg = dmg * Bonuses[BonusType.Damage][i];			
+		    bdmg = bdmg * Bonuses[BonusType.Damage][i];
 		}
 	}
 	for (var i = 0; i < array_length(PerkBonuses[BonusType.Damage]); ++i) {
 	    if (PerkBonuses[BonusType.Damage][i] != 0) {
 			//show_message(string(dmg) + " : " + string(Bonuses[BonusType.Damage][i]) + " = " +  string(dmg*Bonuses[BonusType.Damage][i]));
-		    dmg = dmg * PerkBonuses[BonusType.Damage][i];			
+		    bdmg = bdmg * PerkBonuses[BonusType.Damage][i];
 		}
 	}
 	for (var i = 0; i < array_length(other.debuffs); ++i) {
 	    if (other.debuffs[i].id == BuffNames.SharkBite) {
 			for (var j = 0; j < other.debuffs[i].marks; ++j) {
-			    dmg = dmg * other.debuffs[i].damage[other.debuffs[i].level];
+			   bdmg = bdmg * other.debuffs[i].damage[other.debuffs[i].level];
 			}
 		}
 	}
+	bdmg = bdmg - dmg;
+	//show_message(string(bdmg));
+	dmg = dmg + bdmg;
+	//show_message(string(dmg));
 	other.hp-= dmg * global.player[?"atk"];
 	if (global.DamageNumbers) {
 	    var _inst = instance_create_layer(other.x,other.y,"DamageLayer",oDamageText);
@@ -94,8 +98,3 @@ if (other.hittedcooldown[upg[?"id"]] <= 0  and !global.gamePaused and other.imag
 	}
 	hits-=1;
 }
-
-
-
-
-
