@@ -26,6 +26,10 @@ if (xKey and global.gamePaused) {
 					PauseGame();					
 					activeMenu = PMenus.Settings;
 					break;
+				case "Shop":
+					keyboard_clear(ord("Z"));
+					room_goto(rShop);
+					break;
 	            case "Quit":	
 	                game_end();
 	                break;
@@ -172,14 +176,16 @@ if (ANVIL) {
 			released = false;
 			//alarm[0]=30;
 			keyboard_key_press(ord("X"));
+			keyboard_key_press(vk_escape);
 			//oGui.xKey = true;
 			keyboard_key_release(ord("X"));
+			keyboard_key_release(vk_escape);
 			//oGui.xKey = false;
 			keyboard_clear(ord("X"));
 			show_debug_message("Pressed X");
-			instance_create_layer(oPlayer.x+100, oPlayer.y, "Instances", oAnvil);
-			var inst = instance_create_layer(oPlayer.x-100, oPlayer.y, "Instances", oXP);
-			inst.xp = oPlayer.neededxp;
+			//instance_create_layer(oPlayer.x+100, oPlayer.y, "Instances", oAnvil);
+			//var inst = instance_create_layer(oPlayer.x-100, oPlayer.y, "Instances", oXP);
+			//inst.xp = oPlayer.neededxp;
 			//game_restart();
 		}
 	
@@ -309,12 +315,12 @@ if (global.gamePaused and !global.upgrade and !ANVIL) {
 	if (global.debug) {
 		if(keyboard_check(ord("L"))) game_restart();
 		//if(keyboard_check(ord("Q"))) a -=1;
-		if(keyboard_check(ord("Q"))) a -=0.25;
+		if(keyboard_check(ord("Q"))) a -=0.05;
 		//if(keyboard_check(ord("W"))) a +=1;
-		if(keyboard_check(ord("W"))) a += 0.25;
-		if(keyboard_check(ord("E"))) b -=.5;
+		if(keyboard_check(ord("W"))) a += 0.05;
+		if(keyboard_check(ord("E"))) b -=.05;
 		//if(keyboard_check(ord("E"))) b -=1;
-		if(keyboard_check(ord("R"))) b +=.5;
+		if(keyboard_check(ord("R"))) b +=.05;
 		//if(keyboard_check(ord("R"))) b +=1;
 		if(keyboard_check(ord("T"))) c -=.1;
 		if(keyboard_check(ord("Y"))) c +=.1;

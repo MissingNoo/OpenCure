@@ -474,6 +474,7 @@ if (keyboard_check_pressed(ord("M"))) {
 	var debugy=170;
 	offset = 0;
 	if (global.debug) {
+		draw_set_color(c_grey);
 		draw_set_alpha(.5);
 		draw_set_color(c_white)
 		var variables = ["a","b","c","d","e", "dir", "revives", "event"];

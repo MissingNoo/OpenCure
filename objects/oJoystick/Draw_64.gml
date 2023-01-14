@@ -63,7 +63,7 @@ draw_set_alpha(.5);
 #endregion
 draw_set_alpha(1);
 #region Menu Mode
-if (mode == "menua") {
+if (mode == "menu") {
 	#region UpButton
 		draw_set_alpha(0.5);
 		draw_set_color(c_white);
