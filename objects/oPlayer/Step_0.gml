@@ -44,7 +44,9 @@ if (!global.gamePaused) {
 	if (global.hp <= 0) {
 		if (revives <= 0) {
 			global.mode = "menu";
-		    game_restart();
+			global.holocoins += global.newcoins;
+			room_goto(rInicio);
+		    //game_restart();
 		}
 		else {
 		    HP = MAXHP/2;

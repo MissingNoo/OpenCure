@@ -150,7 +150,11 @@ if (!variable_global_exists("ShopUpgrades")) {
 	}
 }
 global.ShopUpgradesJSON = json_stringify(global.ShopUpgrades);
+global.holocoins = 0;
 Load_Data_Structs();
+if (global.holocoins == undefined) {
+    global.holocoins = 0;
+}
 global.Font = font_add_sprite(sPixelFont, ord("!"), true, 2);
 draw_set_font(global.Font);
 //draw_set_font(global.Font); //draw_set_font(fnt_font1);

@@ -1,4 +1,20 @@
-
+if (mouse_check_button(mb_left)) {
+    var _xx = GW;
+	var _xn = 1;
+	var _yy = GH;
+	var _yn = 1;
+	while (_xx > TouchX1) {
+	    _xn += .005;
+		_xx = GW/_xn;
+	}
+	while (_yy > TouchY1) {
+	    _yn += .005;
+		_yy = GH/_yn;
+	}
+	a = _xn;
+	b = _yn;
+	//show_message(string(_xn));
+}
 isP=global.gamePaused;
 if (global.GamePad) {
     zKey = keyboard_check_pressed(ord("Z")) or gamepad_button_check_pressed(global.GP_NUM, gp_face1);

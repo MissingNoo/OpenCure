@@ -30,8 +30,8 @@ if (random_range(1,200) <= (1 * Bonuses[BonusType.UberSheep])) {
     instance_create_layer(x,y,"Instances", oBurguer);
 }
 randomize();
-if (irandom_range(1,90) == 1) {
-    //TODO: code here for 10 holocoin drop
+if (irandom_range(1,1) == 1) {
+    instance_create_layer(x,y,"Instances", oHolocoin);
 }
 
 randomize();

@@ -311,6 +311,7 @@
     {"id":{"name":"spr_lock_open_bronze","path":"sprites/spr_lock_open_bronze/spr_lock_open_bronze.yy",},"order":5,},
     {"id":{"name":"spr_book_green","path":"sprites/spr_book_green/spr_book_green.yy",},"order":2,},
     {"id":{"name":"sPlushie","path":"sprites/sPlushie/sPlushie.yy",},"order":21,},
+    {"id":{"name":"oHolocoin","path":"objects/oHolocoin/oHolocoin.yy",},"order":6,},
     {"id":{"name":"spr_potion_green","path":"sprites/spr_potion_green/spr_potion_green.yy",},"order":2,},
     {"id":{"name":"sHudGrowthIcon","path":"sprites/sHudGrowthIcon/sHudGrowthIcon.yy",},"order":8,},
     {"id":{"name":"spr_rossette_cyan","path":"sprites/spr_rossette_cyan/spr_rossette_cyan.yy",},"order":2,},

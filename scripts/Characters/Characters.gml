@@ -4,6 +4,7 @@
 #macro NAME global.name
 function initializePlayer(_p){
 	attacktick=true;
+	global.newcoins = 0;
 	#region shop hp upgrade
 	var _hpBonus = 4 * global.ShopUpgrades[$ "Hp"][$ "level"];
 	#endregion

@@ -110,6 +110,7 @@
 #region Inside Stage
 	if (instance_exists(oPlayer))
 	{	
+		draw_text(GW/1.05, GH/16, "Coins:" + string(global.newcoins));
 		#region Character Portrait
 			draw_sprite_ext(ui_portrait_bg,0,60,90,2,2,0,c_white,1);
 			draw_sprite_ext(global.player[?"portrait"],0,60,90,2,2,0,c_white,1);

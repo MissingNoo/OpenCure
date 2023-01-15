@@ -1,6 +1,6 @@
 // Feather disable GM2017
 global.Data = [
-    "Money","musicVolume","soundVolume", "damageNumbers", "ShopUpgradesJSON"
+    "holocoins","musicVolume","soundVolume", "damageNumbers", "ShopUpgradesJSON"
     ];
 
 #macro DATA (working_directory + "Save_Data.bin")
@@ -29,8 +29,7 @@ function Load_Data_Structs () {
           ds_map_destroy(Map);} 
 		  if (is_string(global.ShopUpgradesJSON)) {
 		      global.ShopUpgrades = json_parse(global.ShopUpgradesJSON);
-		  }
-		  
+		  }  
      };
     
 function Save_Reserve () { var Data = {};
