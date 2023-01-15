@@ -1,4 +1,5 @@
 event_inherited();
+healSeconds = 0;
 initializePlayer(global.player);
 pickupRadius = 35;
 originalPickupRadius = pickupRadius;

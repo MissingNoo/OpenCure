@@ -1,7 +1,11 @@
 #region AChan
 draw_sprite_stretched(sAChan, -1, GW/-9, GH/46, 850, 850);
 #endregion
-
+//#region shop upgrades
+//if (condition) {
+//    // code here
+//}
+//#endregion
 #region shop items
 draw_text(GW/2, GH/2, string(array_length(variable_struct_get_names(global.ShopUpgrades))));
 hoffset = 0;

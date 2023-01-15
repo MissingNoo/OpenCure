@@ -239,6 +239,9 @@ if (canspawn == true and global.gamePaused == false and room == Room1 and global
 					    down = 1 * Bonuses[BonusType.Haste][i];
 					}				    
 				}
+				for (var i = 0; i < global.ShopUpgrades[$ "Haste"][$ "level"]; ++i) {
+				    down = down + ((down * 4) / 100);
+				}
 			#endregion
 			for (var i = 0; i < array_length(global.perkCooldown); ++i) {
 				global.perkCooldown[i] -= .5;

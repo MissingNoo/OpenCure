@@ -27,7 +27,7 @@ if (!variable_global_exists("ShopUpgrades")) {
 			maxlevel : 10,
 			costs : [200, 500, 1200, 2750, 6000, 12000, 18000, 24000, 30000, 36000]
 		},
-		Crit : {
+		Crit : { //TODO: Crit damage up
 			name:"Crit Up",
 			desc : "Increase critical hit chance by 2% per level. (max 10%) ",
 			sprite : sHudCrtIcon,
@@ -59,7 +59,7 @@ if (!variable_global_exists("ShopUpgrades")) {
 			maxlevel : 5,
 			costs : [200, 500, 1200, 2750, 6000]
 		},
-		SpecialAtk : {
+		SpecialAtk : {//TODO: add special attacks
 			name:"Special Attack",
 			desc : "Unlocks the Special Attack for all characters. Press the secondary button (default: X) to use. ",
 			sprite : sHudSpecialUnlockIcon,
@@ -67,7 +67,7 @@ if (!variable_global_exists("ShopUpgrades")) {
 			maxlevel : 1,
 			costs : [500]
 		},
-		SpecialCooldown : {
+		SpecialCooldown : {//TODO: add special attacks
 			name:"Special Cooldown Reduction",
 			desc : "Reduces the cooldown time of special attack by 3% per level. (Max 15%) ",
 			sprite : sHudSpecialCooldownIcon,
@@ -75,7 +75,7 @@ if (!variable_global_exists("ShopUpgrades")) {
 			maxlevel : 5,
 			costs : [500, 1250, 3000, 6900, 15000 ]
 		},
-		Growth : {
+		Growth : {//TODO: too bored to make this work
 			name:"Growth",
 			desc : "Increase the damage of Character Main Weapons and Special Attacks by 2% per in-game level. ",
 			sprite : sHudGrowthIcon,
@@ -91,7 +91,7 @@ if (!variable_global_exists("ShopUpgrades")) {
 			maxlevel : 5,
 			costs : [300, 750, 1800, 4100, 9100 ]
 		},
-		FoodDrop : {
+		FoodDrop : {//TODO: calculate properly the rates and not make Lithusei mad with me for probably asking again
 			name:"Food Drops Up",
 			desc : "Increases the rate that food is dropped by 4% per level. (max 20%) ",
 			sprite : sHamburger,
@@ -99,7 +99,7 @@ if (!variable_global_exists("ShopUpgrades")) {
 			maxlevel : 5,
 			costs : [150, 375, 900, 2000, 4500 ]
 		},
-		MoneyGain : {
+		MoneyGain : {//TODO: Make the holocoin physical item and list option (and actual holocoins) before
 			name:"Money Gain Up",
 			desc : "Increases the amount of HoloCoins gained by 20% per level. (Max 200%) ",
 			sprite : sHolocoin,
@@ -107,7 +107,7 @@ if (!variable_global_exists("ShopUpgrades")) {
 			maxlevel : 10,
 			costs : [400, 1000, 2400, 5500, 12000, 20000, 30000, 40000, 50000, 60000 ]
 		},
-		Reroll : {
+		Reroll : {//TODO: yeah fuck this
 			name:"Reroll",
 			desc : "Grants a use of Reroll when leveling up. ",
 			sprite : sHudRerollIcon,
@@ -115,7 +115,7 @@ if (!variable_global_exists("ShopUpgrades")) {
 			maxlevel : 5,
 			costs : [2500, 5000, 7500, 10000, 12500 ]
 		},
-		EnhacementRate : {
+		EnhacementRate : {//TODO: yeah....
 			name:"Enhancement Rate Up",
 			desc : "Increases the chance of success during enhancements by 3% per level. (Max 15%) ",
 			sprite : sHudHPIcon,
@@ -131,7 +131,7 @@ if (!variable_global_exists("ShopUpgrades")) {
 			maxlevel : 5,
 			costs : [500, 1250, 3000, 6900, 15000 ]
 		},
-		GRankOff : {
+		GRankOff : {//TODO: maybe implement G-ranks before...
 			name:"G Rank Off",
 			desc : "Turn off bonuses gained from G Ranks on all characters. ",
 			sprite : sHudHPIcon,
@@ -139,7 +139,7 @@ if (!variable_global_exists("ShopUpgrades")) {
 			maxlevel : 1,
 			costs : [0]
 		},
-		Hardcore : {
+		Hardcore : {//TODO: score system and bonus score
 			name:"Hardcore",
 			desc : "Ultimate challenge! HP is set to 1. Gain massive bonus score the longer you survive in Endless Mode. ",
 			sprite : sHudHPIcon,

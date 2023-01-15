@@ -47,19 +47,28 @@ if (other.hittedcooldown[upg[?"id"]] <= 0  and !global.gamePaused and other.imag
 	    maxdmg = 0;
 	}
 	var dmg = irandom_range(mindmg, maxdmg);
-	var bdmg = dmg;
+	var originalDamage = dmg;
+	var bdmg = originalDamage;
 	for (var i = 0; i < array_length(Bonuses[BonusType.Damage]); ++i) {
 	    if (Bonuses[BonusType.Damage][i] != 0) {
 			//show_message(string(dmg) + " : " + string(Bonuses[BonusType.Damage][i]) + " = " +  string(dmg*Bonuses[BonusType.Damage][i]));
 		    bdmg = bdmg * Bonuses[BonusType.Damage][i];
 		}
 	}
+	bdmg = bdmg - originalDamage;
+	dmg = dmg + bdmg;
+	bdmg = originalDamage;
+	
 	for (var i = 0; i < array_length(PerkBonuses[BonusType.Damage]); ++i) {
 	    if (PerkBonuses[BonusType.Damage][i] != 0) {
 			//show_message(string(dmg) + " : " + string(Bonuses[BonusType.Damage][i]) + " = " +  string(dmg*Bonuses[BonusType.Damage][i]));
 		    bdmg = bdmg * PerkBonuses[BonusType.Damage][i];
 		}
 	}
+	bdmg = bdmg - originalDamage;
+	dmg = dmg + bdmg;
+	bdmg = originalDamage;
+	
 	for (var i = 0; i < array_length(other.debuffs); ++i) {
 	    if (other.debuffs[i].id == BuffNames.SharkBite) {
 			for (var j = 0; j < other.debuffs[i].marks; ++j) {
@@ -67,10 +76,16 @@ if (other.hittedcooldown[upg[?"id"]] <= 0  and !global.gamePaused and other.imag
 			}
 		}
 	}
-	bdmg = bdmg - dmg;
-	//show_message(string(bdmg));
+	bdmg = bdmg - originalDamage;
 	dmg = dmg + bdmg;
-	//show_message(string(dmg));
+	bdmg = originalDamage;
+	
+	for (var i = 0; i < global.ShopUpgrades[$ "Atk"][$ "level"]; ++i) {
+	    bdmg = bdmg + ((bdmg * 6) / 100);
+	}
+	bdmg = bdmg - originalDamage;
+	dmg = dmg + bdmg;
+	//show_message(string(originalDamage) + "/" + string(dmg));
 	other.hp-= dmg * global.player[?"atk"];
 	if (global.DamageNumbers) {
 	    var _inst = instance_create_layer(other.x,other.y,"DamageLayer",oDamageText);

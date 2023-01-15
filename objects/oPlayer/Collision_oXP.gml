@@ -8,4 +8,7 @@ for (var i = 0; i < array_length(Bonuses[BonusType.XPBonus]); ++i) {
 	    newxp = newxp * Bonuses[BonusType.XPBonus][i];
 	}
 }
+for (var i = 0; i < global.ShopUpgrades[$ "ExpGain"][$ "level"]; ++i) {
+	newxp = newxp + ((newxp * 4) / 100);
+}
 global.xp += newxp;

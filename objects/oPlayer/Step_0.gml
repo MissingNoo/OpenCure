@@ -79,16 +79,25 @@ if (HP > MAXHP) {
 		    calc += PerkBonuses[BonusType.Speed][i];
 		}    
 	}
+	for (var i = 0; i < global.ShopUpgrades[$ "Spd"][$ "level"]; ++i) {
+	    calc = calc + ((calc * 6) / 100);
+	}
 	if (calc == 0) {
 	    calc = 1;
 	}
-	if (calc != 0) {
-	    spd = ospd * calc;
+	var shopBonus = ospd;
+	for (var i = 0; i < global.ShopUpgrades[$ "Spd"][$ "level"]; ++i) {
+	    shopBonus = shopBonus + ((shopBonus* 6) / 100);
 	}
+	shopBonus = shopBonus - ospd;
+	//if (calc != 0) {
+	    spd = (ospd + shopBonus) * calc;
+		//show_message(shopBonus);
+	//}
 #endregion
 
 #region pickup calc
-	calc = 0;
+	calc = 1;
 	for (var i = 0; i < array_length(Bonuses[BonusType.PickupRange]); ++i) {
 		if (Bonuses[BonusType.PickupRange][i] != 0) {
 		    calc += Bonuses[BonusType.PickupRange][i];
@@ -99,8 +108,13 @@ if (HP > MAXHP) {
 	//	    calc += PerkBonuses[BonusType.PickupRange][i];
 	//	}    
 	//}//TODO: if there is a pickuprange bonus perk
+	shopBonus = originalPickupRadius;
+	for (var i = 0; i < global.ShopUpgrades[$ "PickUp"][$ "level"]; ++i) {
+	    shopBonus = shopBonus + ((shopBonus* 10) / 100);
+	}
+	shopBonus = shopBonus - originalPickupRadius;
 	if (calc != 0) {
-	    pickupRadius = originalPickupRadius * calc;
+	    pickupRadius = (originalPickupRadius + shopBonus) * calc;
 	}
 #endregion
 if (global.gamePaused) {
@@ -108,3 +122,14 @@ if (global.gamePaused) {
 }else{
 	image_speed=1;
 }
+
+#region heal every five seconds if shop upgrade
+if (global.ShopUpgrades[$ "Regeneration"][$ "level"] > 0 and !global.gamePaused) {
+    healSeconds+=1/60;
+	if (healSeconds > 5) {
+	    HP += 1 * global.ShopUpgrades[$ "Regeneration"][$ "level"];
+		healSeconds = 0;
+		//show_message("healed: " + string(1 * global.ShopUpgrades[$ "Regeneration"][$ "level"]));
+	}
+}
+#endregion

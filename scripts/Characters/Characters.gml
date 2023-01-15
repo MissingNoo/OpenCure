@@ -4,8 +4,14 @@
 #macro NAME global.name
 function initializePlayer(_p){
 	attacktick=true;
-	HP=_p[?"hp"];
-	MAXHP=_p[?"hp"];
+	#region shop hp upgrade
+	var _hpBonus = 4 * global.ShopUpgrades[$ "Hp"][$ "level"];
+	#endregion
+	HP=_p[?"hp"] + _hpBonus;
+	MAXHP=_p[?"hp"] + _hpBonus;
+	if (global.ShopUpgrades[$ "Hardcore"][$ "level"] == 1) {
+		MAXHP=1;
+	}
 	NAME=_p[?"name"];
 	for (var i=0; i<6; i++) {
 		UPGRADES[i]=global.null;
