@@ -384,6 +384,8 @@
 
 #region PauseMenu
 	if (global.gamePaused and !global.upgrade and !ANVIL) {
+		if (instance_exists(oPlayer)) { drawStats(); }
+		
 		//pauseMenu[PMenus.Pause][pM.xScale] = a;
 		//pauseMenu[PMenus.Pause][pM.yScale] = b;
 		//pauseMenu[PMenus.Pause][pM.yScale] = array_length(pauseMenu[activeMenu][pM.Options])/(3 - (array_length(pauseMenu[activeMenu][pM.Options])*1.5));
@@ -527,7 +529,9 @@ if (keyboard_check_pressed(ord("M"))) {
 		#region Stats
 			var str
 			draw_set_halign(fa_center);
-			draw_text_transformed(GW/5, GH/3.40, "LevelUP", 3, 3, 0);
+			if (global.upgrade) {
+			    draw_text_transformed(GW/5, GH/3.40, "LevelUP", 3, 3, 0);
+			}
 			draw_text_transformed(GW/5, GH/2.70, NAME, 2, 2, 0);
 			var stats_offset=0;
 			
