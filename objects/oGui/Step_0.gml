@@ -176,10 +176,10 @@ if (ANVIL) {
 			released = false;
 			//alarm[0]=30;
 			keyboard_key_press(ord("X"));
-			keyboard_key_press(vk_escape);
+			//keyboard_key_press(vk_escape);
 			//oGui.xKey = true;
 			keyboard_key_release(ord("X"));
-			keyboard_key_release(vk_escape);
+			//keyboard_key_release(vk_escape);
 			//oGui.xKey = false;
 			keyboard_clear(ord("X"));
 			show_debug_message("Pressed X");

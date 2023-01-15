@@ -2,13 +2,15 @@ var _left = (keyboard_check_pressed(LEFTKEY) or gamepad_button_check_pressed(glo
 var _right = (keyboard_check_pressed(RIGHTKEY) or gamepad_button_check_pressed(global.GP_NUM,gp_padr));
 var _up = (keyboard_check_pressed(UPKEY) or gamepad_button_check_pressed(global.GP_NUM,gp_padu));
 var _down = (keyboard_check_pressed(DOWNKEY) or gamepad_button_check_pressed(global.GP_NUM, gp_padd));
-var eKey = keyboard_check_pressed(vk_escape)  or gamepad_button_check_pressed(global.GP_NUM, gp_start);
-var xKey = keyboard_check_pressed(ord("X")) or gamepad_button_check_pressed(global.GP_NUM, gp_face2);
+var xKey = keyboard_check_pressed(vk_escape)  or keyboard_check_pressed(ord("X")) or gamepad_button_check_pressed(global.GP_NUM, gp_face2);
 var zKey;
 if (global.GamePad) {
     zKey = keyboard_check_pressed(ord("Z")) or gamepad_button_check_pressed(global.GP_NUM, gp_face1);
 }else{zKey = keyboard_check_pressed(ord("Z"))}
 if (!interact) {
+	if (xKey) {
+	    room_goto(rInicio);
+	}
 	if (_left) {
 	    if (selected == 0) {
 		    selected = variable_struct_names_count(global.ShopUpgrades) - 1;

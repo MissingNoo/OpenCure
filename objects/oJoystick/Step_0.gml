@@ -1,7 +1,7 @@
-mode = global.mode;
 if (!instance_exists(oPlayer)) {
     global.mode = "menu";
 }
+mode = global.mode;
 /// @description Insert description here
 // You can write your code in this editor
 #region Touch1
