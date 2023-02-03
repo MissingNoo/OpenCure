@@ -1,11 +1,30 @@
 #region AChan
-draw_sprite_stretched(sAChan, -1, GW/-9, GH/46, 850, 850);
+if (!variable_instance_exists(self, "achansubimage")) {
+   achansubimage = 0; // code here
+}
+if (achansubimage < 20) {
+    achansubimage += 7.10/game_get_speed(gamespeed_fps);
+}
+else{achansubimage = 0;}
+draw_sprite_stretched(sAChan, achansubimage, GW/-9, GH/46, 850, 850);
 #endregion
-//#region shop upgrades
-//if (condition) {
-//    // code here
-//}
-//#endregion
+
+#region Holocoins
+if (!variable_instance_exists(self, "holocoinsubimage")) {
+   holocoinsubimage= 0;
+}
+if (holocoinsubimage < 8) {
+    holocoinsubimage += 12/game_get_speed(gamespeed_fps);
+}
+else{holocoinsubimage = 0;}
+
+draw_sprite_ext(sHolocoin, holocoinsubimage, GW/1.41, GH/19.70, 3.30, 3.30, 0, c_white, 1);
+draw_sprite_ext(sHudButton, 0, GW/1.16, GH/19.70, 2, 2, 0, c_white, 1);
+draw_set_halign(fa_right);
+draw_text_transformed(GW/1.01 - oGui.guiOffset, GH/48, global.holocoins, 4.30, 4.30, 0);
+draw_set_halign(fa_left);
+#endregion
+
 #region shop items
 draw_text(GW/2, GH/2, string(array_length(variable_struct_get_names(global.ShopUpgrades))));
 hoffset = 0;
@@ -46,7 +65,20 @@ for (var i = 0; i < array_length(ups); ++i) {
 				draw_text_transformed(_xx - 385, _yy - 59.50 , string(selectedThing[?"name"]), 1, 1, 0); // draw the name
 				draw_sprite_ext(selectedThing[$ "sprite"],0, _xx - 350, _yy, 2, 2,0,c_white,1); // item thumb
 				draw_sprite_ext(sItemType, 0, _xx - 350, _yy, 2, 2,0,c_white,1); // item thumb type	
-				drawDesc(_xx - 290,_yy - 35, selectedThing[$ "desc"], GW/2, 2);
+				drawDesc(_xx - 290,_yy - 35, selectedThing[$ "desc"], GW/2 - oGui.guiOffset, 2);
+				LEVEL = selectedThing[$ "level"];
+				MAXLEVEL = selectedThing[$ "maxlevel"];
+				draw_set_color(c_yellow);
+				draw_set_halign(fa_right);
+				if (LEVEL < MAXLEVEL) {
+				    draw_text_transformed(GW/1.05, GH/1.28, "Cost: " + string(selectedThing[$ "costs"][selectedThing[$ "level"]]), 2, 2, 0);	
+				}
+				else{
+					draw_text_transformed(GW/1.05, GH/1.28, "SOLD OUT!", 2, 2, 0);	
+				}
+				draw_set_halign(fa_left);
+				draw_set_color(c_white);
+				
 				
 			#endregion
 if (interact) {

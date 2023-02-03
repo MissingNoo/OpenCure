@@ -1,3 +1,7 @@
+if (instance_number(oTitleRunning) == 0 and room == rInicio) {
+    instance_create_layer(0,0, "Instances", oTitleRunning);
+}
+
 if (mouse_check_button(mb_left)) {
     var _xx = GW;
 	var _xn = 1;
@@ -47,6 +51,7 @@ if (xKey and global.gamePaused) {
 					room_goto(rShop);
 					break;
 	            case "Quit":	
+					Save_Data_Structs();
 	                game_end();
 	                break;
 	        }

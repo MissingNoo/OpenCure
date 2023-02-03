@@ -62,13 +62,22 @@ else{
 	}
 	
 	if (zKey) {
-		if (interactSelected == 0) {
-		    if (selectedThing[$ "level"] < selectedThing[$ "maxlevel"]) {
+		
+		
+		if (interactSelected == 0) {	
+		    if (selectedThing[$ "level"] < selectedThing[$ "maxlevel"] and selectedThing[$ "costs"][selectedThing[$ "level"]] < global.holocoins) {
+				global.holocoins -= selectedThing[$ "costs"][selectedThing[$ "level"]];
 				selectedThing[$ "level"] += 1;
 			}
 		}
+		
 		if (interactSelected == 1) {
 		    if (selectedThing[$ "level"] > 0) {
+				var upgradecost = selectedThing[$ "costs"][selectedThing[$ "level"] - 1];
+				if (selectedThing[$ "level"] == selectedThing[$ "maxlevel"]) {
+				    upgradecost = selectedThing[$ "costs"][selectedThing[$ "maxlevel"] - 1];
+				}
+				global.holocoins += upgradecost;
 				selectedThing[$ "level"] -= 1;
 			}
 		}
