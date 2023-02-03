@@ -116,6 +116,16 @@
 			draw_sprite_ext(global.player[?"portrait"],0,60,90,2,2,0,c_white,1);
 			draw_sprite_ext(ui_portrait_frame,0,60,90,2,2,0,c_white,1);
 		#endregion
+		
+		#region Special
+		var _sx = GW/91.07;
+		var _sy = GH/4.92;
+		var casesize = 45.20;
+		draw_sprite_ext(sHudSpecialCase, 0, _sx, _sy, 2, 2, 0, c_white, 1);
+		draw_sprite_ext(sHudSpecial,0, _sx + casesize, _sy, 2, 2, 0, c_white, 1);
+		draw_sprite_ext(sHudSpecial,1, _sx + casesize, _sy, 2, 2, 0, c_white, 1);
+		#endregion
+		
 		#region Upgrades
 			#region Weapons
 				offset=0;			
@@ -185,15 +195,15 @@
 				yoffset = 80;
 			    for (var i = 0; i < array_length(PLAYER_PERKS); i++) //for the size of the upgrade arrays
 				{
-					draw_sprite_ext(ui_empty_slot_item,0,GW/10+offset,GH/7+yoffset,1.5,1.5,0,c_white,.5); //draw empty slots background
-					if (PLAYER_PERKS[i]!=global.nullperk) //if there is a upgrade in the slot
-					{
-						var activated = PLAYER_PERKS[i][?"level"] > 0  ? 1 : .5;
-						draw_sprite_ext(PLAYER_PERKS[i][? "thumb"],0,GW/10+offset,GH/7+yoffset,2,2,0,c_white, activated); //draw weapon sprite
-						if (global.debug) {draw_text(GW/10+offset, GH/7-15+yoffset,string(global.perkCooldown[PLAYER_PERKS[i][?"id"]]));}
-						draw_sprite_ext(ui_level_header_pink,0,GW/10+offset,GH/7+yoffset,2,2,0,c_white,1); //draw type sprite
-						draw_sprite_ext(uiDigitPink,PLAYER_PERKS[i][? "level"],GW/10+5+offset,GH/7+yoffset,2,2,0,c_white,1); //draw level					        
-					}		
+					//draw_sprite_ext(ui_empty_slot_item,0,GW/10+offset,GH/7+yoffset,1.5,1.5,0,c_white,.5); //draw empty slots background
+					//if (PLAYER_PERKS[i]!=global.nullperk) //if there is a upgrade in the slot
+					//{
+					//	var activated = PLAYER_PERKS[i][?"level"] > 0  ? 1 : .5;
+					//	draw_sprite_ext(PLAYER_PERKS[i][? "thumb"],0,GW/10+offset,GH/7+yoffset,2,2,0,c_white, activated); //draw weapon sprite
+					//	if (global.debug) {draw_text(GW/10+offset, GH/7-15+yoffset,string(global.perkCooldown[PLAYER_PERKS[i][?"id"]]));}
+					//	draw_sprite_ext(ui_level_header_pink,0,GW/10+offset,GH/7+yoffset,2,2,0,c_white,1); //draw type sprite
+					//	draw_sprite_ext(uiDigitPink,PLAYER_PERKS[i][? "level"],GW/10+5+offset,GH/7+yoffset,2,2,0,c_white,1); //draw level					        
+					//}		
 			        offset+=50;
 			    }
 			#endregion

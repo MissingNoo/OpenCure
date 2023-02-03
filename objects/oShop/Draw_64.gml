@@ -1,3 +1,4 @@
+// Feather disable GM2016
 #region AChan
 if (!variable_instance_exists(self, "achansubimage")) {
    achansubimage = 0; // code here

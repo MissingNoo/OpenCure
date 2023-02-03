@@ -30,7 +30,7 @@ if (random_range(1,200) <= (1 * Bonuses[BonusType.UberSheep])) {
     instance_create_layer(x,y,"Instances", oBurguer);
 }
 randomize();
-if (irandom_range(1,1) == 1) {
+if (irandom_range(1,90) == 1) {
     instance_create_layer(x,y,"Instances", oHolocoin);
 }
 

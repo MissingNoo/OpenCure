@@ -1,5 +1,5 @@
 if (!variable_global_exists("padset")) {
-    global.padset = true;
+    global.padset = false;
 }
 
 

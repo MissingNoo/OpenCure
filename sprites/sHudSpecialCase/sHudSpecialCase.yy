@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
-  "name": "sGun1",
+  "name": "sHudSpecialCase",
   "HTile": false,
   "VTile": false,
   "For3D": false,
@@ -9,17 +9,17 @@
   "edgeFiltering": false,
   "collisionTolerance": 0,
   "bbox_left": 0,
-  "bbox_right": 12,
+  "bbox_right": 20,
   "bbox_top": 0,
-  "bbox_bottom": 7,
+  "bbox_bottom": 21,
   "origin": 0,
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
   "swfPrecision": 2.525,
   "DynamicTexturePage": false,
-  "width": 13,
-  "height": 8,
+  "width": 21,
+  "height": 22,
   "textureGroupId": {
     "name": "Default",
     "path": "texturegroups/Default",
@@ -28,15 +28,15 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"35dfa370-a5cb-490b-b292-974839a9eb80",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"78c7b340-8510-455a-9f99-b78b7c7fb1d3",},
   ],
   "sequence": {
     "resourceType": "GMSequence",
     "resourceVersion": "1.4",
-    "name": "sGun1",
+    "name": "sHudSpecialCase",
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","id":"11b495a7-a4c0-4513-b3cf-59496f1fa7fb","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"35dfa370-a5cb-490b-b292-974839a9eb80","path":"sprites/sGun1/sGun1.yy",},},},},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","id":"bdeb3cf2-d722-4809-adb2-e73679dc2ea0","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"78c7b340-8510-455a-9f99-b78b7c7fb1d3","path":"sprites/sHudSpecialCase/sHudSpecialCase.yy",},},},},
           ],},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,},
     ],
     "timeUnits": 1,
@@ -64,11 +64,11 @@
     "eventStubScript": null,
   },
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"8045e501-0a81-4b78-8188-f4f595d86d2d","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"846cef1b-2f7b-48f2-91bc-bfb5a395a18e","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Guns",
-    "path": "folders/Sprites/Guns.yy",
+    "name": "Hud",
+    "path": "folders/Sprites/Hud.yy",
   },
 }
