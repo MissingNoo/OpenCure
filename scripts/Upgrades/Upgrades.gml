@@ -763,7 +763,7 @@ function tickPowers(){
 }
 
 function defaultBehaviour(){
-	if (oPlayer.image_xscale==1) 
+	if (owner.image_xscale==1) 
 	{
 		direction = point_direction(x,y,x+100,y+diroffset);
 	}
@@ -771,13 +771,13 @@ function defaultBehaviour(){
 	{
 		direction = point_direction(x,y,x-100,y-diroffset);
 	}
-	image_xscale=oPlayer.image_xscale;
+	image_xscale=owner.image_xscale;
 	image_speed=1;
 	image_alpha=1;
 }
 
 function spawnUpgrade(_upg = upg, _speed = upg[?"speed"], _hits = upg[?"hits"], _shoots = 0, _mindmg = upg[?"mindmg"], _maxdmg = upg[?"maxdmg"], _sprite = upg[?"sprite"]){
-	var instancecreated = instance_create_layer(oPlayer.x,oPlayer.y-8,"Upgrades",oUpgrade,{
+	var instancecreated = instance_create_layer(owner.x,owner.y-8,"Upgrades",oUpgrade,{
 					upg : _upg,
 					speed : _speed,
 					hits : _hits,

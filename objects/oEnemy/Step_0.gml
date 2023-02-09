@@ -3,22 +3,22 @@
 if(global.gamePaused == false){
 	
 	if (boss) {
-	    if(oPlayer.x < x) image_xscale=-2;
-		if(oPlayer.x > x) image_xscale=2;
+	    if(target.x < x) image_xscale=-2;
+		if(target.x > x) image_xscale=2;
 		image_yscale = 2;
 	}
 	else{
-		if(oPlayer.x < x) image_xscale=-1;
-		if(oPlayer.x > x) image_xscale=1;
+		if(target.x < x) image_xscale=-1;
+		if(target.x > x) image_xscale=1;
 		image_yscale = 1;
 	}
 	
-	//if(oPlayer.y < y) y-=.5;
-		//if(oPlayer.y > y) y+=.5;
+	//if(target.y < y) y-=.5;
+		//if(target.y > y) y+=.5;
 		var _is_colliding = collision_point(x,y, oUpgrade,false, true)
 	if (_is_colliding != noone and _is_colliding.upg[?"name"] == "Power of Atlantis") {
 	    direction=point_direction(x,y,_is_colliding.x,_is_colliding.y + (sprite_get_height(sWaterPoolStart) / 2));
-	}	else {direction=point_direction(x,y,oPlayer.x,oPlayer.y);}
+	}	else {direction=point_direction(x,y,target.x,target.y);}
 	
 	if (hp<=0) {
 		image_alpha-=.05;

@@ -4,7 +4,10 @@ keyboard_key_release(vk_escape);
 keyboard_clear(ord("Z"));
 keyboard_clear(ord("X"));
 keyboard_clear(vk_escape);
-resetTimer();
+if (global.server) {
+    resetTimer();
+}
+
 if (global.musicPlaying != undefined) {
     audio_stop_all();
 }

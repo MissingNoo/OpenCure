@@ -1,4 +1,5 @@
 event_inherited();
+socket = 0;
 healSeconds = 0;
 initializePlayer(global.player);
 pickupRadius = 35;

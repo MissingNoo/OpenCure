@@ -16,7 +16,7 @@
   "option_linux_interpolate_pixels": false,
   "option_linux_display_cursor": true,
   "option_linux_sync": false,
-  "option_linux_resize_window": false,
+  "option_linux_resize_window": true,
   "option_linux_scale": 1,
   "option_linux_texture_page": "8192x8192",
   "option_linux_enable_steam": false,

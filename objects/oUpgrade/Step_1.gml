@@ -1,4 +1,8 @@
-
+if (socket == oPlayer.socket) {
+    owner = instance_nearest(x,y,oPlayer) 
+}else{
+	owner = instance_nearest(x,y, oSlave);
+}
 #region Start
 // Feather disable GM2016
 if (a==0) {	
@@ -24,7 +28,7 @@ if (a==0) {
 			break;}
 			
 		case "GuraTrident":{
-			image_angle = global.arrowDir + diroffset;
+			image_angle = arrowDir + diroffset;
 			//defaultBehaviour();			
 			if (upg[?"level"] >= 6) {
 			    var dirr = (image_xscale > 0) ? .25 : -.25;
@@ -36,7 +40,7 @@ if (a==0) {
 		case "InaTentacle":{
 			//defaultBehaviour();
 			if (shoots > 0) {
-			    image_angle = global.arrowDir;
+			    image_angle = arrowDir;
 			}
 			else image_angle=diroffset;
 			
@@ -59,7 +63,7 @@ if (a==0) {
 				image_angle = point_direction(x,y-50.75,CE.x, CE.y)
 				if (shoots>0) {
 					for (var i = 1; i < shoots; ++i) {
-						//inst = (instance_create_layer(oPlayer.x,oPlayer.y-8,"Upgrades",oUpgrade));
+						//inst = (instance_create_layer(owner.x,owner.y-8,"Upgrades",oUpgrade));
 						//inst.upg=upg;
 						//inst.speed=upg[?"speed"];
 						//inst.hits=999;
@@ -108,11 +112,11 @@ if (a==0) {
 		case "Elite Lava Bucket":{	
 			level = upg[?"level"];
 			random_set_seed(current_time);
-			x = oPlayer.x + irandom_range(-100,100)
+			x = owner.x + irandom_range(-100,100)
 			random_set_seed(current_time);
-			y = oPlayer.y + (irandom_range(-100,100)*-1)
+			y = owner.y + (irandom_range(-100,100)*-1)
 			alarm[0] = 1;
-			depth=oPlayer.depth;
+			depth=owner.depth;
 			for (var i = 0; i < array_length(Bonuses[BonusType.weaponSize]); ++i) {
 				if (Bonuses[BonusType.weaponSize][i] != 0) {
 				    image_xscale = image_xscale * Bonuses[BonusType.weaponSize][i];
@@ -130,9 +134,9 @@ if (a==0) {
 			break;}
 		case "Power of Atlantis":{	
 			random_set_seed(current_time);
-			x = oPlayer.x + irandom_range(-200,200)
+			x = owner.x + irandom_range(-200,200)
 			random_set_seed(current_time);
-			y = oPlayer.y + (irandom_range(-200,200)*-1)
+			y = owner.y + (irandom_range(-200,200)*-1)
 			alarm[0] = 1;
 			image_xscale = 1.3;
 			image_yscale = 1.3;
@@ -149,10 +153,39 @@ if (a==0) {
 		}
 	}
 	
+
+
+
+vars = variable_instance_get_names(self);
+savedvars = {};
+for (var i = 0; i < array_length(vars); ++i) {
+    variable_struct_set(savedvars, vars[i], variable_instance_get(self, vars[i]));
+}
+sendvars = json_stringify(savedvars);
+//show_message(sendvars);
+buffer_seek(oClient.clientBuffer, buffer_seek_start, 0);
+buffer_write(oClient.clientBuffer, buffer_u8, Network.SpawnUpgrade);
+buffer_write(oClient.clientBuffer, buffer_u8, oPlayer.socket);
+buffer_write(oClient.clientBuffer, buffer_u16, x);
+buffer_write(oClient.clientBuffer, buffer_u16, y);
+buffer_write(oClient.clientBuffer, buffer_u16, sprite_index);
+buffer_write(oClient.clientBuffer, buffer_u16, speed);
+buffer_write(oClient.clientBuffer, buffer_s16, direction);
+buffer_write(oClient.clientBuffer, buffer_s16, image_angle);
+buffer_write(oClient.clientBuffer, buffer_string, sendvars);
+//var sidevars = ["upg", "speed", "hits", "sprite_index", "level", "mindmg", "maxdmg"];
+//for (var i = 0; i < array_length(sidevars); ++i) {
+//    buffer_write(oClient.clientBuffer, buffer_s16, variable_instance_get(self, sidevars[i]));
+//}
+//if (global.debug) {
+//    show_message(sendvars);
+//}
+
+if (!variable_instance_exists(self, "sent")) {
+    network_send_packet(oClient.client, oClient.clientBuffer, buffer_tell(oClient.clientBuffer));
+}
+
+
+
 }
 #endregion
-
-
-
-
-

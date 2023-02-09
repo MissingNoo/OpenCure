@@ -7,14 +7,21 @@ if (keyboard_check_pressed(ord("H")) and global.debug) {
 	global.xp=neededxp;
 	//98
 }
-if (keyboard_check_pressed(vk_shift)) {
-//show_message(array_length(global.upgrades))
-}
 if (!global.gamePaused) {
 	tickPowers();
 	tickItems();
 	tickPerks();
 	Movement();
+	
+	buffer_seek(oClient.clientBuffer, buffer_seek_start, 0);
+	buffer_write(oClient.clientBuffer, buffer_u8, Network.Move);
+	buffer_write(oClient.clientBuffer, buffer_u8, socket);
+	buffer_write(oClient.clientBuffer, buffer_u16, x);
+	buffer_write(oClient.clientBuffer, buffer_u16, y);
+	buffer_write(oClient.clientBuffer, buffer_u16, sprite_index);
+	buffer_write(oClient.clientBuffer, buffer_s8, image_xscale);
+	network_send_packet(oClient.client, oClient.clientBuffer, buffer_tell(oClient.clientBuffer));
+	
 	
 	#region XP Range
 		inRange = collision_circle(x,y-16,pickupRadius, oXP, false, true);

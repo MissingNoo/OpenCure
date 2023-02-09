@@ -206,10 +206,11 @@ if (global.GamePad) {
 	
 	global.strafe = pressed;
 #region Spawn
-if (canspawn == true and global.gamePaused == false and room == Room1 and global.SpawnEnemies == 1) {
-	if (!instance_exists(oEvents)) {
+if (!instance_exists(oEvents)) {
 	    instance_create_layer(0,0,"Instances",oEvents);
 	}	
+if (instance_exists(oPlayer) and global.server and canspawn == true and global.gamePaused == false and room == Room1 and global.SpawnEnemies == 1 and oPlayer.socket == 1) {
+	
 	var a = irandom_range(-1,1)
 	if (a=0) a = 1;
 	var b = irandom_range(-1,1)

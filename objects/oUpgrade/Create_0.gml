@@ -1,5 +1,5 @@
 event_inherited();
-
+arrowDir = global.arrowDir;
 CE=0;
 image_alpha=0;
 image_speed=0;	
@@ -20,5 +20,5 @@ image_alpha=0;
 //lava
 loops = 0;
 changeSprite=false;
-
-
+socket = oPlayer.socket;
+owner = instance_nearest(x,y, oPlayer);

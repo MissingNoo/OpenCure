@@ -11,9 +11,3 @@ with (oDepthParent) {
 }
 
 ds_grid_sort(grid, 1, true);
-
-
-
-
-
-

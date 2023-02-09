@@ -1,7 +1,7 @@
 if (!variable_global_exists("padset")) {
     global.padset = false;
 }
-
+global.server = true;
 
 if (!variable_global_exists("mode")) {
 	global.mode = "menu";

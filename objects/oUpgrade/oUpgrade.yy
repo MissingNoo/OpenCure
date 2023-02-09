@@ -2,7 +2,10 @@
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
   "name": "oUpgrade",
-  "spriteId": null,
+  "spriteId": {
+    "name": "blank",
+    "path": "sprites/blank/blank.yy",
+  },
   "spriteMaskId": null,
   "visible": true,
   "solid": false,
