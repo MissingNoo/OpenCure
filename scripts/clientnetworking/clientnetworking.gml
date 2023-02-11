@@ -47,6 +47,7 @@ function clientReceivedPacket(_buffer){
 				_upg.speed = _spd;
 				_upg.direction = _dir;
 				_upg.image_angle = _angle;
+				_upg.ghost = true;
 				//var sidevars = ["upg", "speed", "hits", "sprite_index", "level", "mindmg", "maxdmg"];
 				//for (var i = 0; i < array_length(sidevars); ++i) {
 				//	variable_instance_set(_upg, sidevars[i], buffer_read(_buffer, buffer_u16));

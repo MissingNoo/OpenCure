@@ -1,4 +1,5 @@
 event_inherited();
+ghost = false;
 arrowDir = global.arrowDir;
 CE=0;
 image_alpha=0;
