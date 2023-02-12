@@ -37,7 +37,13 @@ if (xKey and global.gamePaused) {
 	if (room = rInicio and !global.gamePaused) {
 	    if (zKey) {
 	        switch (menu_options[selected]) {
-	            case "Play":
+	            case "Singleplayer":
+					global.server = true;
+					selected=0;
+	                room_goto(Room2);
+	                break;
+				case "Multiplayer":
+					global.server = false;
 					selected=0;
 	                room_goto(Room2);
 	                break;
@@ -162,6 +168,7 @@ if (ANVIL) {
 	if (room = Room2) {
 	    if (zKey) {
 	        global.player=CHARACTERS[selected];
+			//show_message(global.player[? "name"]);
 			//show_message(string(Characters.Amelia));
 			//show_message(string(CHARACTERS[selected][?"id"]));
 			PLAYER_PERKS = global.characterPerks[CHARACTERS[selected][?"id"]];
@@ -333,8 +340,9 @@ if (global.gamePaused and !global.upgrade and !ANVIL) {
 
 
 #region Debug
+if(keyboard_check(ord("L"))) {global.server = false; show_message("Client");}
 	if (global.debug) {
-		if(keyboard_check(ord("L"))) game_restart();
+		
 		//if(keyboard_check(ord("Q"))) a -=1;
 		if(keyboard_check(ord("Q"))) a -=0.05;
 		//if(keyboard_check(ord("W"))) a +=1;

@@ -1,7 +1,7 @@
 /// @description 
 
 
-if (other.hittedcooldown[upg[?"id"]] <= 0  and !global.gamePaused and other.image_alpha == 1 and image_alpha == 1) {
+if (other.hittedcooldown[upg[?"id"]] <= 0  and !global.gamePaused and other.image_alpha == 1 and image_alpha == 1 and ghost == false) {
 	
 	#region debuffs
 		#region Gura

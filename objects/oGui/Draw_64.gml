@@ -376,7 +376,7 @@
 			var _xx = 55;
 			var _yy = GH - 55;
 			for (var i = 0; i < array_length(Buffs); ++i) {
-			    if (Buffs[i].enabled == true) {
+			    if (variable_struct_exists(Buffs[i],"enabled") and Buffs[i].enabled == true) {
 				    draw_set_alpha(.5);
 					draw_rectangle(_xx - 32, _yy - 32, _xx + 32, _yy + 32, false);
 					draw_set_alpha(1);
