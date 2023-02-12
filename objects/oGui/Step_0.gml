@@ -37,7 +37,13 @@ if (xKey and global.gamePaused) {
 	if (room = rInicio and !global.gamePaused) {
 	    if (zKey) {
 	        switch (menu_options[selected]) {
-	            case "Play":
+	            case "Singleplayer":
+					global.server = true;
+					selected=0;
+	                room_goto(Room2);
+	                break;
+				case "Multiplayer":
+					global.server = false;
 					selected=0;
 	                room_goto(Room2);
 	                break;

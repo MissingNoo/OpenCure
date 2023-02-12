@@ -152,40 +152,36 @@ if (a==0) {
 			image_yscale = image_yscale * Bonuses[BonusType.weaponSize][i];
 		}
 	}
-	
+	if (instance_exists(oClient)) {
+		vars = variable_instance_get_names(self);
+		savedvars = {};
+		for (var i = 0; i < array_length(vars); ++i) {
+		    variable_struct_set(savedvars, vars[i], variable_instance_get(self, vars[i]));
+		}
+		sendvars = json_stringify(savedvars);
+		//show_message(sendvars);
+		buffer_seek(oClient.clientBuffer, buffer_seek_start, 0);
+		buffer_write(oClient.clientBuffer, buffer_u8, Network.SpawnUpgrade);
+		buffer_write(oClient.clientBuffer, buffer_u8, oPlayer.socket);
+		buffer_write(oClient.clientBuffer, buffer_u16, x);
+		buffer_write(oClient.clientBuffer, buffer_u16, y);
+		buffer_write(oClient.clientBuffer, buffer_u16, sprite_index);
+		buffer_write(oClient.clientBuffer, buffer_u16, speed);
+		buffer_write(oClient.clientBuffer, buffer_s16, direction);
+		buffer_write(oClient.clientBuffer, buffer_s16, image_angle);
+		buffer_write(oClient.clientBuffer, buffer_string, sendvars);
+		//var sidevars = ["upg", "speed", "hits", "sprite_index", "level", "mindmg", "maxdmg"];
+		//for (var i = 0; i < array_length(sidevars); ++i) {
+		//    buffer_write(oClient.clientBuffer, buffer_s16, variable_instance_get(self, sidevars[i]));
+		//}
+		//if (global.debug) {
+		//    show_message(sendvars);
+		//}
 
-
-
-vars = variable_instance_get_names(self);
-savedvars = {};
-for (var i = 0; i < array_length(vars); ++i) {
-    variable_struct_set(savedvars, vars[i], variable_instance_get(self, vars[i]));
+		if (!variable_instance_exists(self, "sent")) {
+		    network_send_packet(oClient.client, oClient.clientBuffer, buffer_tell(oClient.clientBuffer));
+		}
+	}	
 }
-sendvars = json_stringify(savedvars);
-//show_message(sendvars);
-buffer_seek(oClient.clientBuffer, buffer_seek_start, 0);
-buffer_write(oClient.clientBuffer, buffer_u8, Network.SpawnUpgrade);
-buffer_write(oClient.clientBuffer, buffer_u8, oPlayer.socket);
-buffer_write(oClient.clientBuffer, buffer_u16, x);
-buffer_write(oClient.clientBuffer, buffer_u16, y);
-buffer_write(oClient.clientBuffer, buffer_u16, sprite_index);
-buffer_write(oClient.clientBuffer, buffer_u16, speed);
-buffer_write(oClient.clientBuffer, buffer_s16, direction);
-buffer_write(oClient.clientBuffer, buffer_s16, image_angle);
-buffer_write(oClient.clientBuffer, buffer_string, sendvars);
-//var sidevars = ["upg", "speed", "hits", "sprite_index", "level", "mindmg", "maxdmg"];
-//for (var i = 0; i < array_length(sidevars); ++i) {
-//    buffer_write(oClient.clientBuffer, buffer_s16, variable_instance_get(self, sidevars[i]));
-//}
-//if (global.debug) {
-//    show_message(sendvars);
-//}
 
-if (!variable_instance_exists(self, "sent")) {
-    network_send_packet(oClient.client, oClient.clientBuffer, buffer_tell(oClient.clientBuffer));
-}
-
-
-
-}
 #endregion

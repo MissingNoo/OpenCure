@@ -1,4 +1,4 @@
-if (!global.server) {
+if (global.server) {
 			    instance_destroy();
 			}
 global.px = array_create(3,0);

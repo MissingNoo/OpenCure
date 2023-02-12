@@ -24,7 +24,7 @@ debug=false;
 selected=0;
 maxselected = selected;
 color=c_white;
-menu_options = ["Play", "Shop", "Leaderboard", "Achievements", "Settings", "Credits", "Quit"];
+menu_options = ["Singleplayer", "Multiplayer", "Shop", "Leaderboard", "Achievements", "Settings", "Credits", "Quit"];
 resetTimer()
 global.upgrades=ds_map_create();
 show_debug_message(string(Characters.Lenght));

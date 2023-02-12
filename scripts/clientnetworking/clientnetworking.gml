@@ -27,6 +27,13 @@ function clientReceivedPacket(_buffer){
 			//}
 			break;
 			
+		case Network.HostDisconnected:
+			network_destroy(oClient.client);
+			network_destroy(oClient.connected);
+			instance_destroy(oClient);
+			game_restart();
+			break;
+			
 		case Network.SpawnUpgrade:
 			var _s = buffer_read(_buffer, buffer_u8);
 			var _x = buffer_read(_buffer, buffer_u16);
