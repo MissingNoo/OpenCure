@@ -1,8 +1,10 @@
 event_inherited();
 /// @description Insert description here	
 // You can write your code in this editor
-draw_text(x,y-60, global.player[? "name"]);
-draw_text(x,y-80, ds_list_size(global.enemyPool));
+//draw_text(x,y-60, global.player[? "name"]);
+draw_text(x,y-80, instance_number(oUpgrade));
+draw_text(x,y-100, instance_number(oEnemy));
+draw_text(x,y-120, global.testvar);
 if (instance_exists(oEvents)) {
     draw_text(x,y-100, oEvents.event);
 }

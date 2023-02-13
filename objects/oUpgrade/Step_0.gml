@@ -1,3 +1,6 @@
+if (global.testvar == "") {
+    global.testvar = upg;
+}
 if (socket == oPlayer.socket) {
     owner = instance_nearest(x,y,oPlayer) 
 }else{

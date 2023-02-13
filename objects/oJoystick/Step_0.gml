@@ -1,6 +1,9 @@
 if (!instance_exists(oPlayer)) {
     global.mode = "menu";
 }
+if (!global.gamePaused and instance_exists(oPlayer)) {
+    global.mode = "stage";
+}
 mode = global.mode;
 /// @description Insert description here
 // You can write your code in this editor

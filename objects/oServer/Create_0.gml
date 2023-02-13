@@ -1,5 +1,5 @@
 if (global.server) {
-			    instance_destroy();
+			    //instance_destroy();
 			}
 global.px = array_create(3,0);
 global.py = array_create(3,0);

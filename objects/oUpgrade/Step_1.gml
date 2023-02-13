@@ -152,7 +152,7 @@ if (a==0) {
 			image_yscale = image_yscale * Bonuses[BonusType.weaponSize][i];
 		}
 	}
-	if (instance_exists(oClient)) {
+	//if (instance_exists(oClient)) {
 		vars = variable_instance_get_names(self);
 		savedvars = {};
 		for (var i = 0; i < array_length(vars); ++i) {
@@ -170,6 +170,7 @@ if (a==0) {
 		buffer_write(oClient.clientBuffer, buffer_s16, direction);
 		buffer_write(oClient.clientBuffer, buffer_s16, image_angle);
 		buffer_write(oClient.clientBuffer, buffer_string, sendvars);
+		buffer_write(oClient.clientBuffer, buffer_string, json_stringify(upg));
 		//var sidevars = ["upg", "speed", "hits", "sprite_index", "level", "mindmg", "maxdmg"];
 		//for (var i = 0; i < array_length(sidevars); ++i) {
 		//    buffer_write(oClient.clientBuffer, buffer_s16, variable_instance_get(self, sidevars[i]));
@@ -181,7 +182,7 @@ if (a==0) {
 		if (!variable_instance_exists(self, "sent")) {
 		    network_send_packet(oClient.client, oClient.clientBuffer, buffer_tell(oClient.clientBuffer));
 		}
-	}	
+	//}	
 }
 
 #endregion

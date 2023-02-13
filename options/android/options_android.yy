@@ -42,7 +42,7 @@
   "option_android_launchscreen_fill": 2,
   "option_android_lint": true,
   "option_android_logcat": "yoyo:V DEBUG:V AndroidRuntime:V",
-  "option_android_minimum_sdk": "16",
+  "option_android_minimum_sdk": "30",
   "option_android_orient_landscape": true,
   "option_android_orient_landscape_flipped": true,
   "option_android_orient_portrait": false,
