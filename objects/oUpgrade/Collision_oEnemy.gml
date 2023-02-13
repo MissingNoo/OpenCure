@@ -1,7 +1,7 @@
 /// @description 
 
 
-if (other.hittedcooldown[upg[?"id"]] <= 0  and !global.gamePaused and other.image_alpha == 1 and image_alpha == 1 and ghost == false) {
+if (other.hittedcooldown[upg[$"id"]] <= 0  and !global.gamePaused and other.image_alpha == 1 and image_alpha == 1 and ghost == false) {
 	
 	#region debuffs
 		#region Gura
@@ -35,7 +35,7 @@ if (other.hittedcooldown[upg[?"id"]] <= 0  and !global.gamePaused and other.imag
 	#endregion
 
 	
-	other.hittedcooldown[upg[?"id"]] = upg[?"hitCooldown"];
+	other.hittedcooldown[upg[$"id"]] = upg[$"hitCooldown"];
 	other.damaged = true;
 	random_set_seed(current_time);
 	if (!variable_instance_exists(self, "mindmg")) {
@@ -93,9 +93,9 @@ if (other.hittedcooldown[upg[?"id"]] <= 0  and !global.gamePaused and other.imag
 	}
 	
 	other.alarm[1]=15;	
-	switch (upg[?"name"]) {
+	switch (upg[$"name"]) {
 	    case "AmePistol":
-	        if (hits == 1 and !AmePistolLastHit and upg[?"level"] >= 4) {
+	        if (hits == 1 and !AmePistolLastHit and upg[$"level"] >= 4) {
 			    AmePistolLastHit=true;
 				hits+=5;
 				switch (direction) {

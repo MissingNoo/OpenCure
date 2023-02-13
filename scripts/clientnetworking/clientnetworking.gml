@@ -44,7 +44,7 @@ function clientReceivedPacket(_buffer){
 				var _dir = buffer_read(_buffer, buffer_s16);
 				var _angle = buffer_read(_buffer, buffer_s16);
 				var _vars = buffer_read(_buffer, buffer_string);
-				var _upginfo = buffer_read(_buffer, buffer_string);
+				//var _upginfo = buffer_read(_buffer, buffer_string);
 				if (_s != oPlayer.socket) {
 					var upgvars = json_parse(_vars);
 					var upgvarnames = variable_struct_get_names(upgvars)
@@ -71,7 +71,7 @@ function clientReceivedPacket(_buffer){
 							//show_message(_upg);
 							//show_message(json_parse(_upginfo));
 							
-							upg = json_parse(_upginfo);
+							//upg = json_parse(_upginfo);
 						
 							event_perform(ev_step, ev_step_begin);
 						}

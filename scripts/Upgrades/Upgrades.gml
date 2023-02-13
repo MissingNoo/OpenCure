@@ -5,26 +5,26 @@
 global.upgrade = false;
 global.upgradeCooldown[0] = 0;
 #region Null Upgrade
-	global.null=ds_map_create()
+	global.null={};
 	var m = global.null;
-	ds_map_add(m, "id", 0);
-	ds_map_add(m, "name", "null");
-	ds_map_add(m, "level", 0);
-	ds_map_add(m, "maxlevel", 0);
-	ds_map_add(m, "sprite", blank);
-	ds_map_add(m, "thumb", blank);
-	ds_map_add(m, "mindmg", 0);
-	ds_map_add(m, "maxdmg", 1);
-	ds_map_add(m, "cooldown", 1);
-	ds_map_add(m, "duration", 0);
-	ds_map_add(m, "hitCooldown", 0);
-	ds_map_add(m, "canBeHasted", false);
-	ds_map_add(m, "speed", 0);
-	ds_map_add(m, "hits", 0);	
-	ds_map_add(m, "type", "white");	
-	ds_map_add(m, "shoots", 0);	
-	ds_map_add(m, "desc", "");
-	ds_map_add(m, "style", ItemTypes.Weapon);	
+	variable_struct_set(m, "id", 0);
+	variable_struct_set(m, "name", "null");
+	variable_struct_set(m, "level", 0);
+	variable_struct_set(m, "maxlevel", 0);
+	variable_struct_set(m, "sprite", blank);
+	variable_struct_set(m, "thumb", blank);
+	variable_struct_set(m, "mindmg", 0);
+	variable_struct_set(m, "maxdmg", 1);
+	variable_struct_set(m, "cooldown", 1);
+	variable_struct_set(m, "duration", 0);
+	variable_struct_set(m, "hitCooldown", 0);
+	variable_struct_set(m, "canBeHasted", false);
+	variable_struct_set(m, "speed", 0);
+	variable_struct_set(m, "hits", 0);	
+	variable_struct_set(m, "type", "white");	
+	variable_struct_set(m, "shoots", 0);	
+	variable_struct_set(m, "desc", "");
+	variable_struct_set(m, "style", ItemTypes.Weapon);	
 	global.upgradesAvaliable=[0];
 	for (i=0; i<4; i++) {
 	    global.upgradeOptions[i]=global.null;
@@ -41,20 +41,20 @@ enum ItemTypes {
 function newCreateUpgrade(_data){
 	global.upgradesAvaliable[_data.id[0]][0] = global.null;
 	for (var i = 1; i <= _data.maxlevel[0]; ++i) {	    
-		global.upgradesAvaliable[_data.id[0]][i] = ds_map_create();
+		global.upgradesAvaliable[_data.id[0]][i] = {};
 		var m = global.upgradesAvaliable[_data.id[0]][i];
-		ds_map_add(m, "level", i);
-		ds_map_add(m, "style", ItemTypes.Weapon);
+		variable_struct_set(m, "level" ,i);
+		variable_struct_set(m, "style", ItemTypes.Weapon);
 		var keys = variable_struct_get_names(_data);
 		for (var j = array_length(keys)-1; j >= 0; --j) {
 		    var k = keys[j];
 		    var v = _data[$ k];
 			if (array_length(v) > 1) {
-			    ds_map_add(m, k, v[i-1]);
+			    variable_struct_set(m, k, v[i-1]);
 			}
 			else
 			{
-				ds_map_add(m, k, v[0]);
+				variable_struct_set(m, k, v[0]);
 			}   
 		}
 		global.upgradeCooldown[_data.id[0]] = 0;
@@ -64,35 +64,35 @@ function newCreateUpgrade(_data){
 function createUpgrade(_id, _name, _level, _sprite, _thumb, _mindmg, _maxdmg, _cooldown, _duration, _hitCooldown, _canBeHasted, _speed, _hits, _type, _shoots, _desc = "")
 {
 	global.upgradesAvaliable[_id][0]=global.null;
-	global.upgradesAvaliable[_id][_level]=ds_map_create();
+	global.upgradesAvaliable[_id][_level]={};
 	var m = global.upgradesAvaliable[_id][_level];
-	ds_map_add(m, "id", _id);
-	ds_map_add(m, "name", _name);
-	ds_map_add(m, "level", _level);
-	ds_map_add(m, "sprite", _sprite);
-	ds_map_add(m, "thumb", _thumb);
-	ds_map_add(m, "mindmg", _mindmg);
-	ds_map_add(m, "maxdmg", _maxdmg);
-	ds_map_add(m, "cooldown", _cooldown);
-	ds_map_add(m, "duration", _duration);
-	ds_map_add(m, "hitCooldown", _hitCooldown);
-	ds_map_add(m, "canBeHasted", _canBeHasted);
-	ds_map_add(m, "speed", _speed);
-	ds_map_add(m, "hits", _hits);	
-	ds_map_add(m, "type", _type);	
-	ds_map_add(m, "shoots", _shoots);	
-	ds_map_add(m, "desc", _desc);
-	ds_map_add(m, "style", ItemTypes.Weapon);	
+	variable_struct_set(m, "id", _id);
+	variable_struct_set(m, "name", _name);
+	variable_struct_set(m, "level", _level);
+	variable_struct_set(m, "sprite", _sprite);
+	variable_struct_set(m, "thumb", _thumb);
+	variable_struct_set(m, "mindmg", _mindmg);
+	variable_struct_set(m, "maxdmg", _maxdmg);
+	variable_struct_set(m, "cooldown", _cooldown);
+	variable_struct_set(m, "duration", _duration);
+	variable_struct_set(m, "hitCooldown", _hitCooldown);
+	variable_struct_set(m, "canBeHasted", _canBeHasted);
+	variable_struct_set(m, "speed", _speed);
+	variable_struct_set(m, "hits", _hits);	
+	variable_struct_set(m, "type", _type);	
+	variable_struct_set(m, "shoots", _shoots);	
+	variable_struct_set(m, "desc", _desc);
+	variable_struct_set(m, "style", ItemTypes.Weapon);	
 	global.upgradeCooldown[_id] = 0;
 }
 function createUpgradeP2(_id, _level, _maxlevel, _knockbackSpeed, _knockbackDuration, _perk = 0, _character = -1)
 {
 	var m = global.upgradesAvaliable[_id][_level];
-	ds_map_add(m, "knockbackSpeed", _knockbackSpeed);
-	ds_map_add(m, "knockbackDuration", _knockbackDuration);
-	ds_map_add(m, "perk", _perk);
-	ds_map_add(m, "characterid", _character);
-	ds_map_add(m, "maxlevel", _maxlevel);
+	variable_struct_set(m, "knockbackSpeed", _knockbackSpeed);
+	variable_struct_set(m, "knockbackDuration", _knockbackDuration);
+	variable_struct_set(m, "perk", _perk);
+	variable_struct_set(m, "characterid", _character);
+	variable_struct_set(m, "maxlevel", _maxlevel);
 }
 
 enum Weapons
@@ -737,9 +737,9 @@ function randomUpgrades(){
 }	
 
 function tickPowers(){
-	if (attacktick == true and UPGRADES[0][?"name"]!="") {
+	if (attacktick == true and UPGRADES[0][$"name"]!="") {
 		for (i=0; i < array_length(UPGRADES); i++) {
-			if (UPGRADES[i] != global.null and global.upgradeCooldown[UPGRADES[i][?"id"]] <= 0) {
+			if (UPGRADES[i] != global.null and global.upgradeCooldown[UPGRADES[i][$"id"]] <= 0) {
 			    //inst = (instance_create_layer(x,y-8,"Upgrades",oUpgrade));
 				//inst.upg=UPGRADES[i];
 				//inst.speed=UPGRADES[i][?"speed"];
@@ -748,13 +748,13 @@ function tickPowers(){
 				//inst.sprite_index=UPGRADES[i][?"sprite"];
 				instance_create_layer(x,y-8,"Upgrades",oUpgrade,{
 					upg : UPGRADES[i],
-					speed : UPGRADES[i][?"speed"],
-					hits : UPGRADES[i][?"hits"],
-					shoots : UPGRADES[i][?"shoots"],
-					sprite_index : UPGRADES[i][?"sprite"],
-					level : UPGRADES[i][?"level"],
-					mindmg: UPGRADES[i][?"mindmg"],
-					maxdmg: UPGRADES[i][?"maxdmg"]
+					speed : UPGRADES[i][$"speed"],
+					hits : UPGRADES[i][$"hits"],
+					shoots : UPGRADES[i][$"shoots"],
+					sprite_index : UPGRADES[i][$"sprite"],
+					level : UPGRADES[i][$"level"],
+					mindmg: UPGRADES[i][$"mindmg"],
+					maxdmg: UPGRADES[i][$"maxdmg"]
 				});
 				
 			}			
@@ -776,7 +776,7 @@ function defaultBehaviour(){
 	image_alpha=1;
 }
 
-function spawnUpgrade(_upg = upg, _speed = upg[?"speed"], _hits = upg[?"hits"], _shoots = 0, _mindmg = upg[?"mindmg"], _maxdmg = upg[?"maxdmg"], _sprite = upg[?"sprite"]){
+function spawnUpgrade(_upg = upg, _speed = upg[$"speed"], _hits = upg[$"hits"], _shoots = 0, _mindmg = upg[$"mindmg"], _maxdmg = upg[$"maxdmg"], _sprite = upg[$"sprite"]){
 	var instancecreated = instance_create_layer(owner.x,owner.y-8,"Upgrades",oUpgrade,{
 					upg : _upg,
 					speed : _speed,

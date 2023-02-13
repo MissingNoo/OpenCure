@@ -94,13 +94,14 @@
 			_ww = GW / 3.85;
 			drawWindow(_x,_y,_ww,_hh,"ATTACK");
 			var weaponID = CHARACTERS[selected][?"weapon"];
+			
 			//show_message(string(weaponID[1][?"name"]));
-			var weaponSprite = weaponID[1][?"thumb"];
+			var weaponSprite = weaponID[1][$"thumb"];
 			draw_sprite_ext(weaponSprite, 0,_x+30, _y+50,1.5,1.5,0,c_white,1);
 			draw_set_valign(fa_middle); draw_set_color(c_white);
-			draw_text(_x + 60, _y + 50, weaponID[1][?"name"]);
+			draw_text(_x + 60, _y + 50, weaponID[1][$"name"]);
 			//draw_text(_x + 8, _y + 85, weaponID[1][?"desc"]);
-			drawDesc(_x + 8, _y + 85, weaponID[1][?"desc"], GW/3.35);
+			drawDesc(_x + 8, _y + 85, weaponID[1][$"desc"], GW/3.35);
 			draw_set_valign(0);
 		
 		#endregion
@@ -134,23 +135,23 @@
 					draw_sprite_ext(ui_empty_slot_weapon,0,GW/10+offset,GH/12,1.5,1.5,0,c_white,.5); //draw empty slots background
 					if (UPGRADES[i]!=global.null) //if there is a upgrade in the slot
 					{
-						var awakened = (UPGRADES[i][?"level"] < 7) ? 0 : 1; //check if weapon is awakened
-						draw_sprite_ext(UPGRADES[i][? "thumb"],awakened,GW/10+offset,GH/12,2,2,0,c_white,1); //draw weapon sprite
-						if (global.debug) {draw_text(GW/10+offset, GH/12-15,string(global.upgradeCooldown[UPGRADES[i][?"id"]]));}
+						var awakened = (UPGRADES[i][$"level"] < 7) ? 0 : 1; //check if weapon is awakened
+						draw_sprite_ext(UPGRADES[i][$ "thumb"],awakened,GW/10+offset,GH/12,2,2,0,c_white,1); //draw weapon sprite
+						if (global.debug) {draw_text(GW/10+offset, GH/12-15,string(global.upgradeCooldown[UPGRADES[i][$"id"]]));}
 					
-						switch (UPGRADES[i][? "type"]) //detect the type of upgrade
+						switch (UPGRADES[i][$ "type"]) //detect the type of upgrade
 						{
 						    case "red":
 						        draw_sprite_ext(ui_level_header_pink,0,GW/10+offset,GH/12,2,2,0,c_white,1); //draw type sprite
-								draw_sprite_ext(uiDigitPink,UPGRADES[i][? "level"],GW/10+5+offset,GH/12,2,2,0,c_white,1); //draw level
+								draw_sprite_ext(uiDigitPink,UPGRADES[i][$ "level"],GW/10+5+offset,GH/12,2,2,0,c_white,1); //draw level
 						        break;
 						    case "yellow":
 						        draw_sprite_ext(ui_level_header_yellow,0,GW/10+offset,GH/12,2,2,0,c_white,1); //draw type sprite
-								draw_sprite_ext(uiDigitYellow,UPGRADES[i][? "level"],GW/10+5+offset,GH/12,2,2,0,c_white,1); //draw level
+								draw_sprite_ext(uiDigitYellow,UPGRADES[i][$ "level"],GW/10+5+offset,GH/12,2,2,0,c_white,1); //draw level
 						        break;
 							case "white":
 						        draw_sprite_ext(ui_level_header_white,0,GW/10+offset,GH/12,2,2,0,c_white,1); //draw type sprite
-								draw_sprite_ext(uiDigitWhite,UPGRADES[i][? "level"],GW/10+5+offset,GH/12,2,2,0,c_white,1); //draw level
+								draw_sprite_ext(uiDigitWhite,UPGRADES[i][$ "level"],GW/10+5+offset,GH/12,2,2,0,c_white,1); //draw level
 						        break;
 						}
 					}		

@@ -8,7 +8,7 @@ if (socket == oPlayer.socket) {
 }
 #region Connected to Character
 if (!global.gamePaused) {
-	switch (upg[?"name"]) {
+	switch (upg[$"name"]) {
 		case "GuraTrident":{
 			x=owner.x;
 			y=owner.y-8;

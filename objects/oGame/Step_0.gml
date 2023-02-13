@@ -249,12 +249,12 @@ if (instance_exists(oPlayer) and canspawn == true and global.gamePaused == false
 			}
 			for (var i = 0; i < array_length(UPGRADES); ++i) {
 				if (UPGRADES[i] != global.null) {
-					if (UPGRADES[i][?"canBeHasted"] == true) {
-					    global.upgradeCooldown[UPGRADES[i][?"id"]] -= down;
+					if (UPGRADES[i][$"canBeHasted"] == true) {
+					    global.upgradeCooldown[UPGRADES[i][$"id"]] -= down;
 						//show_message(string(round(UPGRADES[i][?"cooldown"] / (1 + (1.50/100)))))
 					}   
 					else{
-						global.upgradeCooldown[UPGRADES[i][?"id"]] -= 1;
+						global.upgradeCooldown[UPGRADES[i][$"id"]] -= 1;
 					}
 				}
 			}

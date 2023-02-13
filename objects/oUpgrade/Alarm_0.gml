@@ -6,7 +6,7 @@
 
 
 var inst = noone;
-switch (upg[?"name"]) {
+switch (upg[$"name"]) {
 	default:
 		break;
 	case "AmePistol":
@@ -40,7 +40,7 @@ switch (upg[?"name"]) {
 			inst = spawnUpgrade();
 			inst.orbit_place = orbitoffset;
 			inst.orbit_length = orbit_length;
-			switch (upg[?"level"]) {
+			switch (upg[$"level"]) {
 				    case 1:
 				        orbitoffset -= 120;
 				        break;
