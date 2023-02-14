@@ -5,20 +5,20 @@ global.upgrade=false;
 global.items=[0];
 global.itemCooldown[0] = 0;
 #region Null item
-	global.nullitem=ds_map_create()
+	global.nullitem={};
 	var item = global.nullitem;
-		ds_map_add(item, "id", 0);
-		ds_map_add(item, "name", "");
-		ds_map_add(item, "level", 1);
-		ds_map_add(item, "maxlevel", 1);
-		ds_map_add(item, "weight", 1);
-		ds_map_add(item, "thumb", blank);
-		ds_map_add(item, "cooldown", 1);
-		ds_map_add(item, "desc", "null");
-		ds_map_add(item, "unlocked", true);
-		ds_map_add(item, "type", "white");
-		ds_map_add(item, "perk", 0);
-		ds_map_add(item, "style", ItemTypes.Item);
+		variable_struct_set(item, "id", 0);
+		variable_struct_set(item, "name", "");
+		variable_struct_set(item, "level", 1);
+		variable_struct_set(item, "maxlevel", 1);
+		variable_struct_set(item, "weight", 1);
+		variable_struct_set(item, "thumb", blank);
+		variable_struct_set(item, "cooldown", 1);
+		variable_struct_set(item, "desc", "null");
+		variable_struct_set(item, "unlocked", true);
+		variable_struct_set(item, "type", "white");
+		variable_struct_set(item, "perk", 0);
+		variable_struct_set(item, "style", ItemTypes.Item);
 	global.itemList=[0];
 #endregion
 
@@ -26,11 +26,11 @@ global.itemCooldown[0] = 0;
 function newCreateItem(_data){
 	ItemList[_data.id[0]][0] = global.nullitem;
 	for (var i = 1; i <= _data.maxlevel[0]; ++i) {	    
-		ItemList[_data.id[0]][i] = ds_map_create();
+		ItemList[_data.id[0]][i] = {};
 		var m = ItemList[_data.id[0]][i];
 		//ds_map_add(m, "id", _data.id);
 		//ds_map_add(m, "name", _data.name);
-		ds_map_add(m, "level", i);
+		variable_struct_set(m, "level", i);
 		//ds_map_add(m, "sprite", _data.sprite);
 		//ds_map_add(m, "thumb", _data.thumb);
 		//ds_map_add(m, "mindmg", _data.mindmg[i-1]);
@@ -44,7 +44,7 @@ function newCreateItem(_data){
 		//ds_map_add(m, "type", _data.type);	
 		//ds_map_add(m, "shoots", _data.shoots[i-1]);	
 		//ds_map_add(m, "desc", _data.desc[i-1]);
-		ds_map_add(m, "style", ItemTypes.Item);	
+		variable_struct_set(m, "style", ItemTypes.Item);	
 		//ds_map_add(m, "knockbackSpeed", _data.knockbackSpeed[i-1]);
 		//ds_map_add(m, "knockbackDuration", _data.knockbackDuration[i-1]);
 		//ds_map_add(m, "perk", _data.perk);
@@ -58,11 +58,11 @@ function newCreateItem(_data){
 		    var k = keys[j];
 		    var v = _data[$ k];
 			if (array_length(v) > 1) {
-			    ds_map_add(m, k, v[i-1]);
+			    variable_struct_set(m, k, v[i-1]);
 			}
 			else
 			{
-				ds_map_add(m, k, v[0]);
+				variable_struct_set(m, k, v[0]);
 			}
 		    
 		}
@@ -78,20 +78,20 @@ function newCreateItem(_data){
 	function createItem(_id, _name, _level, _maxLevel, _weight, _sprite, _cooldown, _desc, _unlocked = true, _type = "yellow", _perk = 0)
 	{
 		ItemList[_id][0]=global.nullitem;
-		ItemList[_id][_level]=ds_map_create();
+		ItemList[_id][_level]={};
 		var item = ItemList[_id][_level];
-		ds_map_add(item, "id", _id);
-		ds_map_add(item, "name", _name);
-		ds_map_add(item, "level", _level);
-		ds_map_add(item, "maxlevel", _maxLevel);
-		ds_map_add(item, "weight", _weight);
-		ds_map_add(item, "thumb", _sprite);
-		ds_map_add(item, "cooldown", _cooldown);
-		ds_map_add(item, "desc", _desc);
-		ds_map_add(item, "unlocked", _unlocked);
-		ds_map_add(item, "type", _type);
-		ds_map_add(item, "perk", _perk);
-		ds_map_add(item, "style", ItemTypes.Item);
+		variable_struct_set(item, "id", _id);
+		variable_struct_set(item, "name", _name);
+		variable_struct_set(item, "level", _level);
+		variable_struct_set(item, "maxlevel", _maxLevel);
+		variable_struct_set(item, "weight", _weight);
+		variable_struct_set(item, "thumb", _sprite);
+		variable_struct_set(item, "cooldown", _cooldown);
+		variable_struct_set(item, "desc", _desc);
+		variable_struct_set(item, "unlocked", _unlocked);
+		variable_struct_set(item, "type", _type);
+		variable_struct_set(item, "perk", _perk);
+		variable_struct_set(item, "style", ItemTypes.Item);
 		global.itemCooldown[_id] = _cooldown;
 	}
 
@@ -304,11 +304,11 @@ function populateItems(){
 function tickItems()
 {
 	for (var i = 0; i < array_length(playerItems); ++i) {
-		if (playerItems[i] != global.nullitem and global.itemCooldown[playerItems[i][?"id"]] <= 0) {
-			defaultItemBehaviour(playerItems[i][?"id"], playerItems[i][?"cooldown"]);
-		    switch (playerItems[i][?"id"]) {
+		if (playerItems[i] != global.nullitem and global.itemCooldown[playerItems[i][$"id"]] <= 0) {
+			defaultItemBehaviour(playerItems[i][$"id"], playerItems[i][$"cooldown"]);
+		    switch (playerItems[i][$"id"]) {
 				case ItemIds.Body_Pillow:{	
-					switch (playerItems[i][?"level"]) {
+					switch (playerItems[i][$"level"]) {
 					    case 1:
 					        Shield = 15;
 							MaxShield = 15;
@@ -340,13 +340,13 @@ function tickItems()
 					}
 					break;}
 				case ItemIds.Chicken_Feather:{
-					if (playerItems[i][?"level"] != Bonuses[BonusType.ChickenFeather]) {
-						Bonuses[BonusType.ChickenFeather] = playerItems[i][?"level"];
+					if (playerItems[i][$"level"] != Bonuses[BonusType.ChickenFeather]) {
+						Bonuses[BonusType.ChickenFeather] = playerItems[i][$"level"];
 						oPlayer.revives +=1 ;
 					}
 					break;}
 				case ItemIds.Energy_Drink:{
-					switch (playerItems[i][?"level"]) {
+					switch (playerItems[i][$"level"]) {
 					    case 1:
 							if (Bonuses[BonusType.EnergyDrinkHpMinus] == 0) {
 							    Bonuses[BonusType.EnergyDrinkHpMinus] = 1;
@@ -382,7 +382,7 @@ function tickItems()
 					Bonuses[BonusType.Healing][ItemIds.Full_Meal] = 2;
 					break;}
 				case ItemIds.Gorilla_Paw:{
-					switch (playerItems[i][?"level"]) {
+					switch (playerItems[i][$"level"]) {
 					    case 1:
 					        Bonuses[BonusType.Damage][ItemIds.Gorilla_Paw] = 1.30;
 							Bonuses[BonusType.loseCritical][ItemIds.Gorilla_Paw] = 0.80;
@@ -399,7 +399,7 @@ function tickItems()
 					break;}
 				case ItemIds.Injection_Type_Asacoco:{
 					HP = HP - (HP * 0.05); 
-					switch (playerItems[i][?"level"]) {
+					switch (playerItems[i][$"level"]) {
 					    case 1:
 					        Bonuses[BonusType.Damage][ItemIds.Injection_Type_Asacoco] = 1.40;
 					        break;
@@ -412,7 +412,7 @@ function tickItems()
 					}
 					break;}
 				case ItemIds.Knightly_Milk:{
-					switch (playerItems[i][?"level"]) {
+					switch (playerItems[i][$"level"]) {
 					    case 1:
 					        Bonuses[BonusType.weaponSize][ItemIds.Knightly_Milk] = 1.10;
 							Bonuses[BonusType.PickupRange][ItemIds.Knightly_Milk] = 1.30;
@@ -440,7 +440,7 @@ function tickItems()
 					"Instances",
 					oBurguer
 					)
-					switch (playerItems[i][?"level"]) {
+					switch (playerItems[i][$"level"]) {
 					    case 1:{
 					        Bonuses[BonusType.UberSheep] = 1.10;
 					        break;}
@@ -459,12 +459,12 @@ function tickItems()
 					}
 					break;}
 				case ItemIds.Study_Glasses:{
-					Bonuses[BonusType.XPBonus][ItemIds.Study_Glasses] = playerItems[i][?"XPBonus"];
-					//show_message(string(playerItems[i][?"XPBonus"]));
+					Bonuses[BonusType.XPBonus][ItemIds.Study_Glasses] = playerItems[i][$"XPBonus"];
+					//show_message(string(playerItems[i][$"XPBonus"]));
 					break;}
 				case ItemIds.CreditCard:{
-					Bonuses[BonusType.AnvilDrop][ItemIds.CreditCard] = playerItems[i][?"AnvilDropBonus"];
-					Bonuses[BonusType.EnhancingCost][ItemIds.CreditCard] = playerItems[i][?"EnhancingCost"];
+					Bonuses[BonusType.AnvilDrop][ItemIds.CreditCard] = playerItems[i][$"AnvilDropBonus"];
+					Bonuses[BonusType.EnhancingCost][ItemIds.CreditCard] = playerItems[i][$"EnhancingCost"];
 					break;}
 			}
 		}

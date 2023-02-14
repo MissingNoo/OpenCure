@@ -5,8 +5,8 @@ global.perks=[0];
 global.perkCooldown[0] = 0;
 global.perkBonuses[0] = 0;
 #region Null item
-	global.nullperk=ds_map_create()
-	ds_map_add(global.nullperk, "name", "");
+	global.nullperk={};
+	variable_struct_set(global.nullperk, "name", "");
 	global.perkList=[0];
 #endregion
 
@@ -14,19 +14,19 @@ global.perkBonuses[0] = 0;
 
 	function createPerk(_id, _name, _level, _maxLevel, _weight, _sprite, _cooldown, _desc, _character)
 	{
-		PERK_LIST[_id][_level]=ds_map_create();
+		PERK_LIST[_id][_level]={};
 		var item = PERK_LIST[_id][_level];
-		ds_map_add(item, "id", _id);
-		ds_map_add(item, "name", _name);
-		ds_map_add(item, "level", _level);
-		ds_map_add(item, "maxlevel", _maxLevel);
-		ds_map_add(item, "weight", _weight);
-		ds_map_add(item, "thumb", _sprite);
-		ds_map_add(item, "cooldown", _cooldown);
-		ds_map_add(item, "desc", _desc);
-		ds_map_add(item, "characterid", _character);
-		ds_map_add(item, "perk", 1);
-		ds_map_add(item, "style", ItemTypes.Perk);		
+		variable_struct_set(item, "id", _id);
+		variable_struct_set(item, "name", _name);
+		variable_struct_set(item, "level", _level);
+		variable_struct_set(item, "maxlevel", _maxLevel);
+		variable_struct_set(item, "weight", _weight);
+		variable_struct_set(item, "thumb", _sprite);
+		variable_struct_set(item, "cooldown", _cooldown);
+		variable_struct_set(item, "desc", _desc);
+		variable_struct_set(item, "characterid", _character);
+		variable_struct_set(item, "perk", 1);
+		variable_struct_set(item, "style", ItemTypes.Perk);		
 		global.perkCooldown[_id] = _cooldown;
 	}
 
@@ -107,12 +107,12 @@ function populatePerks(){
 function tickPerks()
 {
 	for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
-		//show_debug_message("Perk: " + PLAYER_PERKS[i][?"name"] + " cooldown: " + string(PLAYER_PERKS[i][?"cooldown"]) + ":" + string(global.perkCooldown[PLAYER_PERKS[i][?"id"]])   );
-		if (global.perkCooldown[PLAYER_PERKS[i][?"id"]] <= 0) {
-			defaultPerkBehaviour(PLAYER_PERKS[i][?"id"], PLAYER_PERKS[i][?"cooldown"]);
-			switch (PLAYER_PERKS[i][?"id"]) {
+		//show_debug_message("Perk: " + PLAYER_PERKS[i][$"name"] + " cooldown: " + string(PLAYER_PERKS[i][$"cooldown"]) + ":" + string(global.perkCooldown[PLAYER_PERKS[i][$"id"]])   );
+		if (global.perkCooldown[PLAYER_PERKS[i][$"id"]] <= 0) {
+			defaultPerkBehaviour(PLAYER_PERKS[i][$"id"], PLAYER_PERKS[i][$"cooldown"]);
+			switch (PLAYER_PERKS[i][$"id"]) {
 				case PerkIds.FpsMastery:{
-						switch (PLAYER_PERKS[i][?"level"]) {
+						switch (PLAYER_PERKS[i][$"level"]) {
 						    case 1:
 						        PerkBonuses[BonusType.Damage][PerkIds.FpsMastery] = 1.20;
 						        break;
@@ -125,7 +125,7 @@ function tickPerks()
 						}						
 					break;}
 				case PerkIds.DetectiveEye:{
-						switch (PLAYER_PERKS[i][?"level"]) {
+						switch (PLAYER_PERKS[i][$"level"]) {
 						    case 1:
 						        PerkBonuses[BonusType.Critical][PerkIds.DetectiveEye] = 1.10;
 						        break;
@@ -138,7 +138,7 @@ function tickPerks()
 						}						
 					break;}
 				case PerkIds.Bubba:{
-						switch (PLAYER_PERKS[i][?"level"]) {
+						switch (PLAYER_PERKS[i][$"level"]) {
 						    case 1:
 						        PerkBonuses[BonusType.Bubba] = global.player[?"atk"];
 						        break;
@@ -151,37 +151,37 @@ function tickPerks()
 						}						
 					break;}
 				case PerkIds.PowerofAtlantis:{
-						switch (PLAYER_PERKS[i][?"level"]) {
+						switch (PLAYER_PERKS[i][$"level"]) {
 						    case 1:{
 								inst = (instance_create_layer(x,y-8,"Upgrades",oUpgrade));
 								inst.upg=global.upgradesAvaliable[Weapons.PowerofAtlantis][1];
 								//show_message(string(global.upgradesAvaliable[Weapons.PowerofAtlantis][1][?"duration"]))
 								inst.speed=0;
-								inst.mindmg = UPGRADES[0][?"mindmg"] * 0.3;
-								inst.maxdmg = UPGRADES[0][?"maxdmg"] * 0.3;
+								inst.mindmg = UPGRADES[0][$"mindmg"] * 0.3;
+								inst.maxdmg = UPGRADES[0][$"maxdmg"] * 0.3;
 								inst.hits=999;
 								inst.shoots = 1;
-								inst.sprite_index=global.upgradesAvaliable[Weapons.PowerofAtlantis][1][?"sprite"];
+								inst.sprite_index=global.upgradesAvaliable[Weapons.PowerofAtlantis][1][$"sprite"];
 						        break;}
 						    case 2:{
 								inst = (instance_create_layer(x,y-8,"Upgrades",oUpgrade));
 								inst.upg=global.upgradesAvaliable[Weapons.PowerofAtlantis][1];
 								inst.speed=0;
-								inst.mindmg = UPGRADES[0][?"mindmg"] * 0.4;
-								inst.maxdmg = UPGRADES[0][?"maxdmg"] * 0.4;
+								inst.mindmg = UPGRADES[0][$"mindmg"] * 0.4;
+								inst.maxdmg = UPGRADES[0][$"maxdmg"] * 0.4;
 								inst.hits=999;
 								inst.shoots = 2;
-								inst.sprite_index=global.upgradesAvaliable[Weapons.PowerofAtlantis][1][?"sprite"];
+								inst.sprite_index=global.upgradesAvaliable[Weapons.PowerofAtlantis][1][$"sprite"];
 						        break;}
 							case 3:{
 								inst = (instance_create_layer(x,y-8,"Upgrades",oUpgrade));
 								inst.upg=global.upgradesAvaliable[Weapons.PowerofAtlantis][1];
 								inst.speed=0;
-								inst.mindmg = UPGRADES[0][?"mindmg"] * 0.5;
-								inst.maxdmg = UPGRADES[0][?"maxdmg"] * 0.5;
+								inst.mindmg = UPGRADES[0][$"mindmg"] * 0.5;
+								inst.maxdmg = UPGRADES[0][$"maxdmg"] * 0.5;
 								inst.hits=999;
 								inst.shoots = 3;
-								inst.sprite_index=global.upgradesAvaliable[Weapons.PowerofAtlantis][1][?"sprite"];
+								inst.sprite_index=global.upgradesAvaliable[Weapons.PowerofAtlantis][1][$"sprite"];
 						        break;}
 						}						
 					break;}

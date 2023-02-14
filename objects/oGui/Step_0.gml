@@ -72,24 +72,27 @@ if (xKey and global.gamePaused) {
 	    if (zKey) {
 			for (var i = 0; i < 6; i++) 
 			{	
-				if (global.upgradeOptions[selected][?"name"] == "null") {
+				if (global.upgradeOptions[selected][$"name"] == "null") {
 				    break;
 				}
-				if (global.upgradeOptions[selected][?"style"] == ItemTypes.Weapon) {
+				
+				if (global.upgradeOptions[selected][$"style"] == ItemTypes.Weapon) {
 					#region Upgrade existing weapon
-						if (UPGRADES[i][?"name"] == global.upgradeOptions[selected][?"name"] ) 
+						if (UPGRADES[i][$"name"] == global.upgradeOptions[selected][$"name"] ) 
 						{
-							UPGRADES[i] = global.upgradesAvaliable[UPGRADES[i][?"id"]][UPGRADES[i][?"level"]]+1;
+							//show_message(global.upgradesAvaliable[UPGRADES[i][$"id"]]);
+							var newlevel = UPGRADES[i][$"level"] + 1;
+							UPGRADES[i] = global.upgradesAvaliable[UPGRADES[i][$"id"]][newlevel];
 							break;
 						}			
 					#endregion
 			
 					#region new weapon
-						if (UPGRADES[i][?"name"] == "null") 
+						if (UPGRADES[i][$"name"] == "null") 
 						{
 						    for (var j=0; j<array_length(global.upgradesAvaliable); j++) 
 							{
-							    if (global.upgradesAvaliable[j][1][?"name"] == global.upgradeOptions[selected][?"name"]) 
+							    if (global.upgradesAvaliable[j][1][$"name"] == global.upgradeOptions[selected][$"name"]) 
 								{
 									UPGRADES[i]=global.upgradesAvaliable[j][1];
 								}
@@ -98,21 +101,23 @@ if (xKey and global.gamePaused) {
 						}
 					#endregion
 				}
-				else if (global.upgradeOptions[selected][?"style"] == ItemTypes.Item) {
+				else if (global.upgradeOptions[selected][$"style"] == ItemTypes.Item) {
 				    #region Upgrade existing item
-						if (playerItems[i][?"name"] == global.upgradeOptions[selected][?"name"] ) 
+						if (playerItems[i][$"name"] == global.upgradeOptions[selected][$"name"] ) 
 						{
-							playerItems[i] = ItemList[playerItems[i][?"id"]][playerItems[i][?"level"]]+1;
+							var newlevel = playerItems[i][$"level"] + 1;
+							playerItems[i] = ItemList[playerItems[i][$"id"]][newlevel];
 							break;
 						}
 					#endregion
 			
 					#region new item
-						if (playerItems[i][?"name"] == "") 
+					//show_message(playerItems[i][$"name"]);
+						if (playerItems[i][$"name"] == "") 
 						{
 						    for (var j=0; j<array_length(ItemList); j++) 
 							{
-							    if (ItemList[j][1][?"name"] == global.upgradeOptions[selected][?"name"]) 
+							    if (ItemList[j][1][$"name"] == global.upgradeOptions[selected][$"name"]) 
 								{
 									playerItems[i]=ItemList[j][1];
 								}
@@ -121,11 +126,12 @@ if (xKey and global.gamePaused) {
 						}
 					#endregion
 				}
-				else if (global.upgradeOptions[selected][?"style"] == ItemTypes.Perk) {
+				else if (global.upgradeOptions[selected][$"style"] == ItemTypes.Perk) {
 					#region Upgrade existing item
-							if (PLAYER_PERKS[i][?"name"] == global.upgradeOptions[selected][?"name"] ) 
+							if (PLAYER_PERKS[i][$"name"] == global.upgradeOptions[selected][$"name"] ) 
 							{
-								PLAYER_PERKS[i] = PERK_LIST[PLAYER_PERKS[i][?"id"]][PLAYER_PERKS[i][?"level"]]+1;
+								var newlevel = PLAYER_PERKS[i][$"level"]+1;
+								PLAYER_PERKS[i] = PERK_LIST[PLAYER_PERKS[i][$"id"]][newlevel];
 								break;
 							}
 						#endregion

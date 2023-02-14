@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-switch (upg[?"name"]) {
+switch (upg[$"name"]) {
     case "GuraTrident":
 		image_alpha=0;
 		if (shoots==1) {
@@ -15,7 +15,7 @@ switch (upg[?"name"]) {
 			image_index = 0;
 		    sprite_index = sLavaPoolLoop;			
 			changeSprite= true;
-			alarm[1]=upg[?"duration"] * 0.25;
+			alarm[1]=upg[$"duration"] * 0.25;
 		}
 		if (sprite_index == sLavaPoolLoop and changeSprite == false) {
 			changeSprite=true;

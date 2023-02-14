@@ -6,17 +6,17 @@ if (socket == oPlayer.socket) {
 #region Start
 // Feather disable GM2016
 if (a==0) {	
-	global.upgradeCooldown[upg[?"id"]] = upg[?"cooldown"];
-	alarm[1] = upg[?"duration"];
+	global.upgradeCooldown[upg[$"id"]] = upg[$"cooldown"];
+	alarm[1] = upg[$"duration"];
 	image_speed=1;
 	image_alpha=1;		
 	a=1;
 	//if (shoots > 0) {
-	//    show_debug_message("Spawned: " + string(upg[?"id"]) + " Name: " + upg[?"name"] + " Level: " + string(upg[?"level"]) + " shoots: " + string(shoots) + " cooldown: " + string(upg[?"cooldown"]) );
+	//    show_debug_message("Spawned: " + string(upg[$"id"]) + " Name: " + upg[$"name"] + " Level: " + string(upg[$"level"]) + " shoots: " + string(shoots) + " cooldown: " + string(upg[$"cooldown"]) );
 	//}
 	
 	//show_message(string(image_xscale));
-	switch (upg[?"name"]) {
+	switch (upg[$"name"]) {
 		default:{
 			defaultBehaviour();
 			break;}
@@ -30,7 +30,7 @@ if (a==0) {
 		case "GuraTrident":{
 			image_angle = arrowDir + diroffset;
 			//defaultBehaviour();			
-			if (upg[?"level"] >= 6) {
+			if (upg[$"level"] >= 6) {
 			    var dirr = (image_xscale > 0) ? .25 : -.25;
 				image_xscale += dirr;
 			}
@@ -44,7 +44,7 @@ if (a==0) {
 			}
 			else image_angle=diroffset;
 			
-			if (upg[?"level"] >= 4) {
+			if (upg[$"level"] >= 4) {
 			    var dirr = (image_xscale > 0) ? .25 : -.25;
 				image_xscale += dirr;
 			}
@@ -65,10 +65,10 @@ if (a==0) {
 					for (var i = 1; i < shoots; ++i) {
 						//inst = (instance_create_layer(owner.x,owner.y-8,"Upgrades",oUpgrade));
 						//inst.upg=upg;
-						//inst.speed=upg[?"speed"];
+						//inst.speed=upg[$"speed"];
 						//inst.hits=999;
 						//inst.shoots = 0;
-						//inst.sprite_index=upg[?"sprite"];
+						//inst.sprite_index=upg[$"sprite"];
 						spawnUpgrade();
 						alarm[0]=1;
 					}
@@ -82,7 +82,7 @@ if (a==0) {
 		case "BL Book":{
 			orbit_length = 50;
 			if (shoots > 0) {	
-				switch (upg[?"level"]) {
+				switch (upg[$"level"]) {
 				    case 1:
 				        orbitoffset = -120;
 				        break;
@@ -110,7 +110,7 @@ if (a==0) {
 			break;}
 			
 		case "Elite Lava Bucket":{	
-			level = upg[?"level"];
+			level = upg[$"level"];
 			random_set_seed(current_time);
 			x = owner.x + irandom_range(-100,100)
 			random_set_seed(current_time);
