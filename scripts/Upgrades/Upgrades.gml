@@ -333,17 +333,17 @@ function randomUpgrades(){
 		perks_list = [];
 	
 		#region Weapons List
-			//show_message(UPGRADES[5][?"name"]);	
+			//show_message(UPGRADES[5][$"name"]);	
 			if (UPGRADES[5] == global.null) {
 				for (var i = 0; i < array_length(WEAPONS_LIST); ++i) {
 					var maxed = false;
 					var found = false;
 					for (var j = 0; j < array_length(UPGRADES); ++j) {
-						//show_message("A:" + string(UPGRADES[j][?"name"]));
-						//show_message("B:" + string(global.upgradesAvaliable[i][1][?"name"]));
-						if (UPGRADES[j][?"name"] == WEAPONS_LIST[i][1][?"name"]) {
+						//show_message("A:" + string(UPGRADES[j][$"name"]));
+						//show_message("B:" + string(global.upgradesAvaliable[i][1][$"name"]));
+						if (UPGRADES[j][$"name"] == WEAPONS_LIST[i][1][$"name"]) {
 							found = true;
-						    if (UPGRADES[j][?"level"] != WEAPONS_LIST[i][1][?"maxlevel"]){
+						    if (UPGRADES[j][$"level"] != WEAPONS_LIST[i][1][$"maxlevel"]){
 								maxed = false;
 							}
 							else maxed = true;
@@ -355,7 +355,8 @@ function randomUpgrades(){
 						    array_push(weapons_list, WEAPONS_LIST[i]);
 						}
 					} else {
-						if (WEAPONS_LIST[i][1][?"characterid"] == -1 or WEAPONS_LIST[i][1][?"characterid"] == global.player[?"id"]) {
+						if (WEAPONS_LIST[i][1][$"characterid"] == -1 or WEAPONS_LIST[i][1][$"characterid"] == global.player[?"id"]) {
+							//show_message("test");
 						    array_push(weapons_list, WEAPONS_LIST[i]);
 						}						
 					}
@@ -363,9 +364,9 @@ function randomUpgrades(){
 			}else{
 				//var str = "";
 				for (var i = 0; i < array_length(UPGRADES); ++i) {
-				    if (UPGRADES[i][?"level"] != UPGRADES[i][?"maxlevel"] and UPGRADES[i] != global.null) {
-					    array_push(weapons_list, WEAPONS_LIST[UPGRADES[i][?"id"]]);
-						//str = str + ":" + UPGRADES[i][?"name"];
+				    if (UPGRADES[i][$"level"] != UPGRADES[i][$"maxlevel"] and UPGRADES[i] != global.null) {
+					    array_push(weapons_list, WEAPONS_LIST[UPGRADES[i][$"id"]]);
+						//str = str + ":" + UPGRADES[i][$"name"];
 					}
 				}	
 				//show_message(str);
@@ -379,9 +380,9 @@ function randomUpgrades(){
 					var maxed = false;
 					var found = false;
 					for (var j = 0; j < array_length(playerItems); ++j) {
-						if (playerItems[j][?"name"] == ItemList[i][1][?"name"]) {
+						if (playerItems[j][$"name"] == ItemList[i][1][$"name"]) {
 							found = true;
-						    if (playerItems[j][?"level"] != ItemList[i][1][?"maxlevel"]){
+						    if (playerItems[j][$"level"] != ItemList[i][1][$"maxlevel"]){
 								maxed = false;
 							}
 							else maxed = true;
@@ -390,26 +391,26 @@ function randomUpgrades(){
 					}	    
 					if (found) {
 					    if (!maxed) {
-							for (var k = 0; k < ItemList[i][1][?"weight"]; ++k) {
+							for (var k = 0; k < ItemList[i][1][$"weight"]; ++k) {
 							    array_push(items_list, ItemList[i]);
 							}				    
 						}
 					} else {
-						for (var k = 0; k < ItemList[i][1][?"weight"]; ++k) {
+						for (var k = 0; k < ItemList[i][1][$"weight"]; ++k) {
 							    array_push(items_list, ItemList[i]);
 							}
 						}
 				}
 				//var str = "";
 				//for (var i = 0; i < array_length(items_list); ++i) {
-				//    str = str + " : " + items_list[i][1][?"name"];
+				//    str = str + " : " + items_list[i][1][$"name"];
 				//}
 				//show_message(str);
 			}else{
 				for (var i = 0; i < array_length(playerItems); ++i) {
-				    if (playerItems[i][?"level"] != playerItems[i][?"maxlevel"]) {
-					    for (var k = 0; k < ItemList[playerItems[i][?"id"]][1][?"weight"]; ++k) {
-							    array_push(items_list, ItemList[playerItems[i][?"id"]]);
+				    if (playerItems[i][$"level"] != playerItems[i][$"maxlevel"]) {
+					    for (var k = 0; k < ItemList[playerItems[i][$"id"]][1][$"weight"]; ++k) {
+							    array_push(items_list, ItemList[playerItems[i][$"id"]]);
 						}
 					}
 				}
@@ -418,14 +419,14 @@ function randomUpgrades(){
 	
 		#region Perks
 			for (var i = 0; i < array_length(PERK_LIST); ++i) {
-				if (PERK_LIST[i][0][?"characterid"] == global.player[?"id"]) {
+				if (PERK_LIST[i][0][$"characterid"] == global.player[?"id"]) {
 				    //	array_push(ups, PERK_LIST[i]);
 					var maxed = false;
 					var found = false;
 					for (var j = 0; j < array_length(PLAYER_PERKS); ++j) {
-						if (PLAYER_PERKS[j][?"name"] == PERK_LIST[i][1][?"name"]) {
+						if (PLAYER_PERKS[j][$"name"] == PERK_LIST[i][1][$"name"]) {
 							found = true;
-						    if (PLAYER_PERKS[j][?"level"] != PERK_LIST[i][1][?"maxlevel"]){
+						    if (PLAYER_PERKS[j][$"level"] != PERK_LIST[i][1][$"maxlevel"]){
 								maxed = false;
 							}
 							else maxed = true;
@@ -437,7 +438,7 @@ function randomUpgrades(){
 						    array_push(perks_list, PERK_LIST[i]);	
 						}
 					} else {array_push(perks_list, PERK_LIST[i]);}
-					//show_debug_message("Added: " + string( PERK_LIST[i][0][?"name"]));
+					//show_debug_message("Added: " + string( PERK_LIST[i][0][$"name"]));
 				}	    
 			}
 		#endregion
@@ -451,22 +452,22 @@ function randomUpgrades(){
 				is_what = "";
 				can_be_weapon = false;
 				for (var i = 0; i < array_length(UPGRADES); ++i) {
-					if (UPGRADES[i][?"level"] != UPGRADES[i][?"maxlevel"] or UPGRADES[i] == global.null) {
+					if (UPGRADES[i][$"level"] != UPGRADES[i][$"maxlevel"] or UPGRADES[i] == global.null) {
 						can_be_weapon = true;
 					}
 				}
 				
 				can_be_item = false;
 				for (var i = 0; i < array_length(playerItems); ++i) {
-					//show_message(string(playerItems[i][?"level"]) + ":" + string(playerItems[i][?"maxlevel"]));
-					if (playerItems[i][?"level"] != playerItems[i][?"maxlevel"] or playerItems[i] == global.nullitem) {
+					//show_message(string(playerItems[i][$"level"]) + ":" + string(playerItems[i][$"maxlevel"]));
+					if (playerItems[i][$"level"] != playerItems[i][$"maxlevel"] or playerItems[i] == global.nullitem) {
 						can_be_item = true;
 					}
 				}
 				
 				can_be_perk = false;
 				for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
-					if (PLAYER_PERKS[i][?"level"] != PLAYER_PERKS[i][?"maxlevel"]) {
+					if (PLAYER_PERKS[i][$"level"] != PLAYER_PERKS[i][$"maxlevel"]) {
 						can_be_perk = true;
 					}
 				}
@@ -494,11 +495,11 @@ function randomUpgrades(){
 			    //TODO: change item type to statup
 				}
 				var str = "Weapons";
-				for (var i = 0; i < array_length(weapons_list); ++i) { str = str + " : " + weapons_list[i][1][?"name"]; }
+				for (var i = 0; i < array_length(weapons_list); ++i) { str = str + " : " + weapons_list[i][1][$"name"]; }
 				str = str + "\n\nItems"; 
-				for (var i = 0; i < array_length(items_list); ++i) { str = str + " : " + items_list[i][1][?"name"]; }
+				for (var i = 0; i < array_length(items_list); ++i) { str = str + " : " + items_list[i][1][$"name"]; }
 				str = str + "\n\nPerks"; 
-				for (var i = 0; i < array_length(perks_list); ++i) { str = str + " : " + perks_list[i][1][?"name"]; }
+				for (var i = 0; i < array_length(perks_list); ++i) { str = str + " : " + perks_list[i][1][$"name"]; }
 				str = str + "\n\ncanbe: weapon:" + string(can_be_weapon) + " item:" + string(can_be_item) + " perk:" + string(can_be_perk); 
 				if (keyboard_check(ord("G"))) {
 				    show_message(str);
@@ -519,10 +520,10 @@ function randomUpgrades(){
 						case ItemTypes.Item:{
 							rdn = irandom_range(0,array_length(items_list)-1);
 					        global.upgradeOptions[m] = items_list[rdn][1];
-							var item_name = items_list[rdn][1][?"id"];
+							var item_name = items_list[rdn][1][$"id"];
 							var maxI = array_length(items_list);
 							for (var i = 0; i < maxI; ++i) {
-							    if (items_list[i][1][?"id"] == item_name) {
+							    if (items_list[i][1][$"id"] == item_name) {
 								    array_delete(items_list, i, 1);
 									maxI = array_length(items_list);
 									i=0;
@@ -553,21 +554,21 @@ function randomUpgrades(){
 				is_what = "";
 				can_be_weapon = false;
 				for (var i = 0; i < array_length(UPGRADES); ++i) {
-					if (UPGRADES[i][?"level"] != UPGRADES[i][?"maxlevel"] or UPGRADES[i] == global.null) {
+					if (UPGRADES[i][$"level"] != UPGRADES[i][$"maxlevel"] or UPGRADES[i] == global.null) {
 						can_be_weapon = true;
 					}
 				}
 				
 				can_be_item = false;
 				for (var i = 0; i < array_length(playerItems); ++i) {
-					if (playerItems[i][?"level"] != playerItems[i][?"maxlevel"] or playerItems[i] == global.nullitem) {
+					if (playerItems[i][$"level"] != playerItems[i][$"maxlevel"] or playerItems[i] == global.nullitem) {
 						can_be_item = true;
 					}
 				}
 				
 				can_be_perk = false;
 				for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
-					if (PLAYER_PERKS[i][?"level"] != PLAYER_PERKS[i][?"maxlevel"]) {
+					if (PLAYER_PERKS[i][$"level"] != PLAYER_PERKS[i][$"maxlevel"]) {
 						can_be_perk = true;
 					}
 				}
@@ -612,10 +613,10 @@ function randomUpgrades(){
 					case ItemTypes.Item:{
 				        rdn = irandom_range(0,array_length(items_list)-1);
 				        global.upgradeOptions[2] = items_list[rdn][1];
-						var item_name = items_list[rdn][1][?"id"];
+						var item_name = items_list[rdn][1][$"id"];
 							var maxI = array_length(items_list);
 							for (var i = 0; i < maxI; ++i) {
-							    if (items_list[i][1][?"id"] == item_name) {
+							    if (items_list[i][1][$"id"] == item_name) {
 								    array_delete(items_list, i, 1);
 									maxI = array_length(items_list);
 									i=0;
