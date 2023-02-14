@@ -1,3 +1,4 @@
+
 playerSpawn = [1895, 1880];
 if (global.server) {
 	instance_create_layer(playerSpawn[0], playerSpawn[1], "Instances", oPlayer);

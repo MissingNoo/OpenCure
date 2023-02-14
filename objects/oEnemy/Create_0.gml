@@ -42,4 +42,4 @@ buffer_write(oClient.clientBuffer, buffer_string, sendvars);
 if (oPlayer.socket == 1) {
     network_send_packet(oClient.client, oClient.clientBuffer, buffer_tell(oClient.clientBuffer));
 }
-show_debug_overlay(true);
+//show_debug_overlay(true);

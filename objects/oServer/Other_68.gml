@@ -29,6 +29,7 @@ switch (type_event) {
 			i += 1;
 		}
 		
+		// Feather disable once GM2044
 		var i = 0;
 		//show_message_async(ds_list_size(socketList));
 		repeat (ds_list_size(socketList)) {

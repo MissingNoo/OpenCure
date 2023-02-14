@@ -1,6 +1,6 @@
-// Script assets have changed for v2.3.0 see
-// https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
-function clientReceivedPacket(_buffer){
+// Feather disable GM2044
+function clientReceivedPacket(_buffer)
+{
 	if (!global.server) {
 		var msgid = buffer_read(_buffer, buffer_u8);
 	
@@ -117,6 +117,7 @@ function clientReceivedPacket(_buffer){
 				break;
 		    case Network.PlayerJoined:
 				resetTimer();
+				ResetPool();
 				with (oEnemy) {
 				    instance_destroy();
 				}
