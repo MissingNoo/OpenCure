@@ -65,10 +65,10 @@ event = 0;
 #region PauseMenu
 	
 	activeMenu = PMenus.Pause;
-	enum pM{	
+	enum PM{	
 		Title,
-		xScale,
-		yScale,
+		XScale,
+		YScale,
 		Options,
 		Bool,
 		BoolValue,
@@ -82,42 +82,42 @@ event = 0;
 	for (var i = 0; i < PMenus.Lenght; ++i) {
 		pauseMenu[i] = array_create(PMenus.Lenght, 0);
 		//show_message(string(pauseMenu));
-	    for (var j = 0; j < pM.Lenght; ++j) {
+	    for (var j = 0; j < PM.Lenght; ++j) {
 		    pauseMenu[i][j] = 0;
 		}
 	}
 	
-	pauseMenu[PMenus.Pause][pM.Title] = "PAUSED";
-	pauseMenu[PMenus.Pause][pM.xScale] = 2;
-	pauseMenu[PMenus.Pause][pM.Options] = ["Skills", "????", "Resume", "Settings", "Quit"];
-	//pauseMenu[PMenus.Pause][pM.Options] = ["Skills"];
-	pauseMenu[PMenus.Pause][pM.yScale] = 0.75;
+	pauseMenu[PMenus.Pause][PM.Title] = "PAUSED";
+	pauseMenu[PMenus.Pause][PM.XScale] = 2;
+	pauseMenu[PMenus.Pause][PM.Options] = ["Skills", "????", "Resume", "Settings", "Quit"];
+	//pauseMenu[PMenus.Pause][PM.Options] = ["Skills"];
+	pauseMenu[PMenus.Pause][PM.YScale] = 0.75;
 	#region Settings
-		pauseMenu[PMenus.Settings][pM.Title] = "SETTINGS";
-		pauseMenu[PMenus.Settings][pM.xScale] = 2.5;
+		pauseMenu[PMenus.Settings][PM.Title] = "SETTINGS";
+		pauseMenu[PMenus.Settings][PM.XScale] = 2.5;
 	
 		function loadSettingValues(){
-			pauseMenu[PMenus.Settings][pM.Options][0] = "Music Volume: " + string(round(global.musicVolume*100)) + "%";
-			pauseMenu[PMenus.Settings][pM.Options][1] = "Sound Volume: " + string(round(global.soundVolume*100)) + "%";
-			pauseMenu[PMenus.Settings][pM.Bool][2] = true;
-			pauseMenu[PMenus.Settings][pM.BoolValue][2] = global.DamageNumbers;
-			pauseMenu[PMenus.Settings][pM.Options][2] = "Damage Numbers: ";
-			pauseMenu[PMenus.Settings][pM.Bool][3] = true;
-			pauseMenu[PMenus.Settings][pM.BoolValue][3] = global.ScreenShake;
-			pauseMenu[PMenus.Settings][pM.Options][3] = "Screen Shake: ";
-			pauseMenu[PMenus.Settings][pM.Bool][4] = true;
-			pauseMenu[PMenus.Settings][pM.BoolValue][4] = global.SpawnEnemies;
-			pauseMenu[PMenus.Settings][pM.Options][4] = "SpawnEnemies: ";
-			pauseMenu[PMenus.Settings][pM.Options][5] = "GamePad: ";
-			pauseMenu[PMenus.Settings][pM.Bool][5] = true;
-			pauseMenu[PMenus.Settings][pM.BoolValue][5] = global.GamePad;
+			pauseMenu[PMenus.Settings][PM.Options][0] = "Music Volume: " + string(round(global.musicVolume*100)) + "%";
+			pauseMenu[PMenus.Settings][PM.Options][1] = "Sound Volume: " + string(round(global.soundVolume*100)) + "%";
+			pauseMenu[PMenus.Settings][PM.Bool][2] = true;
+			pauseMenu[PMenus.Settings][PM.BoolValue][2] = global.DamageNumbers;
+			pauseMenu[PMenus.Settings][PM.Options][2] = "Damage Numbers: ";
+			pauseMenu[PMenus.Settings][PM.Bool][3] = true;
+			pauseMenu[PMenus.Settings][PM.BoolValue][3] = global.ScreenShake;
+			pauseMenu[PMenus.Settings][PM.Options][3] = "Screen Shake: ";
+			pauseMenu[PMenus.Settings][PM.Bool][4] = true;
+			pauseMenu[PMenus.Settings][PM.BoolValue][4] = global.SpawnEnemies;
+			pauseMenu[PMenus.Settings][PM.Options][4] = "SpawnEnemies: ";
+			pauseMenu[PMenus.Settings][PM.Options][5] = "GamePad: ";
+			pauseMenu[PMenus.Settings][PM.Bool][5] = true;
+			pauseMenu[PMenus.Settings][PM.BoolValue][5] = global.GamePad;
 		}
 		loadSettingValues();
-		//pauseMenu[PMenus.Pause][pM.Options] = ["Skills"];
-		pauseMenu[PMenus.Settings][pM.yScale] = 0.75;
+		//pauseMenu[PMenus.Pause][PM.Options] = ["Skills"];
+		pauseMenu[PMenus.Settings][PM.YScale] = 0.75;
 		#endregion
 	startOption = 0;
-	totaloptions = array_length(pauseMenu[activeMenu][pM.Options]);
+	totaloptions = array_length(pauseMenu[activeMenu][PM.Options]);
 #endregion
 
 if (instance_number(oTitleRunning) < 15 and room == rInicio) {

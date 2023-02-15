@@ -22,7 +22,7 @@ if (a==0) {
 			break;}
 			
 		case "AmePistol":{
-			audio_play_sound(snd_Bullet,0,0);
+			audio_play_sound(snd_bullet,0,0);
 			defaultBehaviour();
 			alarm[0] = 10;
 			break;}
@@ -117,10 +117,10 @@ if (a==0) {
 			y = owner.y + (irandom_range(-100,100)*-1)
 			alarm[0] = 1;
 			depth=owner.depth;
-			for (var i = 0; i < array_length(Bonuses[BonusType.weaponSize]); ++i) {
-				if (Bonuses[BonusType.weaponSize][i] != 0) {
-				    image_xscale = image_xscale * Bonuses[BonusType.weaponSize][i];
-					image_yscale = image_yscale * Bonuses[BonusType.weaponSize][i];
+			for (var i = 0; i < array_length(Bonuses[BonusType.WeaponSize]); ++i) {
+				if (Bonuses[BonusType.WeaponSize][i] != 0) {
+				    image_xscale = image_xscale * Bonuses[BonusType.WeaponSize][i];
+					image_yscale = image_yscale * Bonuses[BonusType.WeaponSize][i];
 				}			    
 			}
 			if (level >= 2 and level < 7) {
@@ -145,11 +145,11 @@ if (a==0) {
 		if (sprite_index==blank) {
 			instance_destroy();
 	}
-	for (var i = 0; i < array_length(Bonuses[BonusType.weaponSize]); ++i) {
-	    if (Bonuses[BonusType.weaponSize][i] != 0) {
-			if (image_xscale > 0) { image_xscale = image_xscale * Bonuses[BonusType.weaponSize][i]; }
-			else { image_xscale = image_xscale * (Bonuses[BonusType.weaponSize][i] * -1); }
-			image_yscale = image_yscale * Bonuses[BonusType.weaponSize][i];
+	for (var i = 0; i < array_length(Bonuses[BonusType.WeaponSize]); ++i) {
+	    if (Bonuses[BonusType.WeaponSize][i] != 0) {
+			if (image_xscale > 0) { image_xscale = image_xscale * Bonuses[BonusType.WeaponSize][i]; }
+			else { image_xscale = image_xscale * (Bonuses[BonusType.WeaponSize][i] * -1); }
+			image_yscale = image_yscale * Bonuses[BonusType.WeaponSize][i];
 		}
 	}
 	//if (instance_exists(oClient)) {

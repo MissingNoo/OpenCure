@@ -94,13 +94,13 @@ if (room == room2) {
 		{
 			if (selected == 0)
 			{ 
-				selected = array_length(pauseMenu[activeMenu][pM.Options]) - 1; 
+				selected = array_length(pauseMenu[activeMenu][PM.Options]) - 1; 
 				maxselected = selected; 
 				} else selected -= 1;
 			}
 	    if (_down)
 		{
-			if (selected < (array_length(pauseMenu[activeMenu][pM.Options])) - 1)
+			if (selected < (array_length(pauseMenu[activeMenu][PM.Options])) - 1)
 			{
 				selected += 1; 
 			

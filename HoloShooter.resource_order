@@ -134,7 +134,7 @@
     {"name":"sUberSheep","order":9,"path":"sprites/sUberSheep/sUberSheep.yy",},
     {"name":"sHudSpecial","order":18,"path":"sprites/sHudSpecial/sHudSpecial.yy",},
     {"name":"sHeadPhones","order":15,"path":"sprites/sHeadPhones/sHeadPhones.yy",},
-    {"name":"bgm_sss","order":4,"path":"sounds/bgm_sss/bgm_sss.yy",},
+    {"name":"snd_bgm_sss","order":4,"path":"sounds/snd_bgm_sss/snd_bgm_sss.yy",},
     {"name":"BG_yagoohead","order":3,"path":"sprites/BG_yagoohead/BG_yagoohead.yy",},
     {"name":"sBubba","order":5,"path":"sprites/sBubba/sBubba.yy",},
     {"name":"sEnergyDrink","order":2,"path":"sprites/sEnergyDrink/sEnergyDrink.yy",},

@@ -399,28 +399,28 @@
 	if (global.gamePaused and !global.upgrade and !ANVIL) {
 		if (instance_exists(oPlayer)) { drawStats(); }
 		
-		//pauseMenu[PMenus.Pause][pM.xScale] = a;
-		//pauseMenu[PMenus.Pause][pM.yScale] = b;
-		//pauseMenu[PMenus.Pause][pM.yScale] = array_length(pauseMenu[activeMenu][pM.Options])/(3 - (array_length(pauseMenu[activeMenu][pM.Options])*1.5));
-		//pauseMenu[PMenus.Pause][pM.yScale] = b;
+		//pauseMenu[PMenus.Pause][PM.XScale] = a;
+		//pauseMenu[PMenus.Pause][PM.YScale] = b;
+		//pauseMenu[PMenus.Pause][PM.YScale] = array_length(pauseMenu[activeMenu][PM.Options])/(3 - (array_length(pauseMenu[activeMenu][PM.Options])*1.5));
+		//pauseMenu[PMenus.Pause][PM.YScale] = b;
 		draw_sprite_ext(sMenu, 0,
 		GW/2,
 		GH/2,
-		pauseMenu[activeMenu][pM.xScale],
-		pauseMenu[activeMenu][pM.yScale],
+		pauseMenu[activeMenu][PM.XScale],
+		pauseMenu[activeMenu][PM.YScale],
 		0,c_white,1);
 		draw_set_halign(fa_center);
 		draw_set_valign(fa_top);
 		
 		draw_text_transformed(GW/2, 
-		(GH/2 - (sprite_get_height(sMenu) * pauseMenu[activeMenu][pM.yScale])/2) + 20,
-		pauseMenu[activeMenu][pM.Title], 
+		(GH/2 - (sprite_get_height(sMenu) * pauseMenu[activeMenu][PM.YScale])/2) + 20,
+		pauseMenu[activeMenu][PM.Title], 
 		3, 3, 0);
 		var mOffset = 0;
 		draw_set_valign(fa_middle);
 		//draw options
 		var startOption = 0;
-		var totaloptions = array_length(pauseMenu[activeMenu][pM.Options]);
+		var totaloptions = array_length(pauseMenu[activeMenu][PM.Options]);
 		if (totaloptions >= 6) {
 		    totaloptions=6;
 		}
@@ -431,7 +431,7 @@
 		
 		
 		//draw_text(300, 200,
-		//"totaloptions = " + string(array_length(pauseMenu[activeMenu][pM.Options])) +
+		//"totaloptions = " + string(array_length(pauseMenu[activeMenu][PM.Options])) +
 		//" \n totalOptionsNow= " + string(totaloptions) +
 		//" \n startOption= " + string(startOption) +
 		//" \n selected= " + string(selected) +
@@ -439,32 +439,32 @@
 		//" \n totaloptions = " + string("a")	
 		//);
 		var bigString = 0;
-		for (var i = 0; i < array_length(pauseMenu[activeMenu][pM.Options]); ++i) {
-		    if (string_length(pauseMenu[activeMenu][pM.Options][i])/11 > bigString) {
-			    bigString = string_length(pauseMenu[activeMenu][pM.Options][i])/11;
+		for (var i = 0; i < array_length(pauseMenu[activeMenu][PM.Options]); ++i) {
+		    if (string_length(pauseMenu[activeMenu][PM.Options][i])/11 > bigString) {
+			    bigString = string_length(pauseMenu[activeMenu][PM.Options][i])/11;
 			}
 		}
 		
-		mouseOnButton(GW/2, (GH/2 - (sprite_get_height(sMenu) * pauseMenu[activeMenu][pM.yScale])/2) + 90, 45, sHudButton, bigString, 1, array_create(array_length(pauseMenu[activeMenu][pM.Options]),0), "selected");
+		mouseOnButton(GW/2, (GH/2 - (sprite_get_height(sMenu) * pauseMenu[activeMenu][PM.YScale])/2) + 90, 45, sHudButton, bigString, 1, array_create(array_length(pauseMenu[activeMenu][PM.Options]),0), "selected");
 		for (var i = startOption; i < totaloptions; ++i) {
 			
 			var spr = (selected == i) ? 1 : 0;
 			draw_sprite_ext(sHudButton, spr, GW/2, 
 			//GH/2 - sprite_get_height(sMenu)/3.5+mOffset, 
-			(GH/2 - (sprite_get_height(sMenu) * pauseMenu[activeMenu][pM.yScale])/2) + 90 + mOffset,
+			(GH/2 - (sprite_get_height(sMenu) * pauseMenu[activeMenu][PM.YScale])/2) + 90 + mOffset,
 			bigString,
 			1.35,0,c_white,1);
 			
 			draw_set_color(selected == i ? c_black : c_white);
 			draw_text_transformed(GW/2,
-			(GH/2 - (sprite_get_height(sMenu) * pauseMenu[activeMenu][pM.yScale])/2) + 90 + mOffset,
-			pauseMenu[activeMenu][pM.Options][i], 1.5, 1.5, 0);	
-			if (activeMenu == PMenus.Settings and pauseMenu[activeMenu][pM.Bool][i] == true) {
+			(GH/2 - (sprite_get_height(sMenu) * pauseMenu[activeMenu][PM.YScale])/2) + 90 + mOffset,
+			pauseMenu[activeMenu][PM.Options][i], 1.5, 1.5, 0);	
+			if (activeMenu == PMenus.Settings and pauseMenu[activeMenu][PM.Bool][i] == true) {
 				var boolselected = (selected == i) ? 2 : 0;
-				var boolv = (pauseMenu[activeMenu][pM.BoolValue][i]) ? 1 : 0;
+				var boolv = (pauseMenu[activeMenu][PM.BoolValue][i]) ? 1 : 0;
 			    draw_sprite_ext(sToggleButton, boolselected + boolv, GW/1.72, 
 				//GH/2 - sprite_get_height(sMenu)/3.5+mOffset, 
-				(GH/2 - (sprite_get_height(sMenu) * pauseMenu[activeMenu][pM.yScale])/2) + 90 + mOffset,
+				(GH/2 - (sprite_get_height(sMenu) * pauseMenu[activeMenu][PM.YScale])/2) + 90 + mOffset,
 				1,
 				1,0,c_white,1);
 			}

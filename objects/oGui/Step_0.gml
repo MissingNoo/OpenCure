@@ -241,26 +241,26 @@ if (ANVIL) {
 
 #region PauseMenu
 if (global.gamePaused and !global.upgrade and !ANVIL) {
-	pauseMenu[activeMenu][pM.yScale] = 0.75;
-	for (var i = 1; i < array_length(pauseMenu[activeMenu][pM.Options]); ++i) {
+	pauseMenu[activeMenu][PM.YScale] = 0.75;
+	for (var i = 1; i < array_length(pauseMenu[activeMenu][PM.Options]); ++i) {
 		if (i < 5) {
-		    pauseMenu[activeMenu][pM.yScale] += .1 * i;
+		    pauseMenu[activeMenu][PM.YScale] += .1 * i;
 		}			
 	}
 	
 	if (keyboard_check_pressed(ord("K"))){
-		//pauseMenu[activeMenu][pM.Options][array_length(pauseMenu[activeMenu][pM.Options])] = "teste " + string(irandom_range(0,99));
+		//pauseMenu[activeMenu][PM.Options][array_length(pauseMenu[activeMenu][PM.Options])] = "teste " + string(irandom_range(0,99));
 	}
     if (zKey){
 		var optionIs = "";
-		for (var i = 1; i < string_length(pauseMenu[activeMenu][pM.Options][selected]); ++i) {
-			if (string_copy(pauseMenu[activeMenu][pM.Options][selected],i,1) == ":") {
+		for (var i = 1; i < string_length(pauseMenu[activeMenu][PM.Options][selected]); ++i) {
+			if (string_copy(pauseMenu[activeMenu][PM.Options][selected],i,1) == ":") {
 			    break;
 			}
-			if (string_copy(pauseMenu[activeMenu][pM.Options][selected],i,1) == " ") {
+			if (string_copy(pauseMenu[activeMenu][PM.Options][selected],i,1) == " ") {
 				i++;
 			}
-		    optionIs = optionIs + string_copy(pauseMenu[activeMenu][pM.Options][selected],i,1);
+		    optionIs = optionIs + string_copy(pauseMenu[activeMenu][PM.Options][selected],i,1);
 		}
 		
 		variable_global_set(optionIs, !variable_global_get(optionIs));
@@ -281,7 +281,7 @@ if (global.gamePaused and !global.upgrade and !ANVIL) {
 		//}
 		
 		var lastmenu = activeMenu;
-		switch (pauseMenu[activeMenu][pM.Options][selected]) {
+		switch (pauseMenu[activeMenu][PM.Options][selected]) {
 			case "Skills":{
 		        
 		        break;}
@@ -306,17 +306,17 @@ if (global.gamePaused and !global.upgrade and !ANVIL) {
 			loadSettingValues();
 		    selected=0;
 			startOption = 0;
-			totaloptions = array_length(pauseMenu[activeMenu][pM.Options]);
+			totaloptions = array_length(pauseMenu[activeMenu][PM.Options]);
 		}		
 		
 	}		
 	if (leftKey or rightKey){
 		var optionIs = "";
-		for (var i = 1; i < string_length(pauseMenu[activeMenu][pM.Options][selected]); ++i) {
-			if (string_copy(pauseMenu[activeMenu][pM.Options][selected],i,1) == ":") {
+		for (var i = 1; i < string_length(pauseMenu[activeMenu][PM.Options][selected]); ++i) {
+			if (string_copy(pauseMenu[activeMenu][PM.Options][selected],i,1) == ":") {
 			    break;
 			}
-		    optionIs = optionIs + string_copy(pauseMenu[activeMenu][pM.Options][selected],i,1);
+		    optionIs = optionIs + string_copy(pauseMenu[activeMenu][PM.Options][selected],i,1);
 		}
 		switch (optionIs) {
 		    case "Music Volume":{

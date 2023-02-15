@@ -109,7 +109,7 @@ function newCreateItem(_data){
 		ChickenFeather,
 		EnergyDrinkHpMinus,
 		Healing,
-		weaponSize,
+		WeaponSize,
 		Bubba,
 		UberSheep,
 		PickupRange,
@@ -250,7 +250,7 @@ function populateItems(){
 				createItem(ItemIds.Knightly_Milk, "Knightly Milk", 1, 3, 1, sKnightlyMilk, 1, "Increases attack size of weapons by [10%]. Also increase Pick Up Range by [30%].");
 				createItem(ItemIds.Knightly_Milk, "Knightly Milk", 2, 3, 1, sKnightlyMilk, 1, "Increases attack size of weapons by [15%]. Also increase Pick Up Range by [40%].");
 				createItem(ItemIds.Knightly_Milk, "Knightly Milk", 3, 3, 1, sKnightlyMilk, 1, "Increases attack size of weapons by [20%]. Also increase Pick Up Range by [50%].");
-				Bonuses[BonusType.weaponSize][ItemIds.Knightly_Milk] = 1;
+				Bonuses[BonusType.WeaponSize][ItemIds.Knightly_Milk] = 1;
 				Bonuses[BonusType.PickupRange][ItemIds.Knightly_Milk] = 0;
 			#endregion
 		
@@ -410,15 +410,15 @@ function tickItems()
 				case ItemIds.Knightly_Milk:{
 					switch (playerItems[i][$"level"]) {
 					    case 1:
-					        Bonuses[BonusType.weaponSize][ItemIds.Knightly_Milk] = 1.10;
+					        Bonuses[BonusType.WeaponSize][ItemIds.Knightly_Milk] = 1.10;
 							Bonuses[BonusType.PickupRange][ItemIds.Knightly_Milk] = 1.30;
 					        break;
 						case 2:
-					        Bonuses[BonusType.weaponSize][ItemIds.Knightly_Milk] = 1.15;
+					        Bonuses[BonusType.WeaponSize][ItemIds.Knightly_Milk] = 1.15;
 							Bonuses[BonusType.PickupRange][ItemIds.Knightly_Milk] = 1.40;
 					        break;
 						case 3:
-					        Bonuses[BonusType.weaponSize][ItemIds.Knightly_Milk] = 1.20;
+					        Bonuses[BonusType.WeaponSize][ItemIds.Knightly_Milk] = 1.20;
 							Bonuses[BonusType.PickupRange][ItemIds.Knightly_Milk] = 1.50;
 					        break;
 					}
