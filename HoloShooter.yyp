@@ -239,6 +239,7 @@
     {"id":{"name":"sShortHeight","path":"sprites/sShortHeight/sShortHeight.yy",},"order":3,},
     {"id":{"name":"sAmeClock","path":"sprites/sAmeClock/sAmeClock.yy",},"order":8,},
     {"id":{"name":"Path1","path":"paths/Path1/Path1.yy",},"order":0,},
+    {"id":{"name":"part_GuraRed","path":"particles/part_GuraRed/part_GuraRed.yy",},"order":25,},
     {"id":{"name":"sGWSPill","path":"sprites/sGWSPill/sGWSPill.yy",},"order":14,},
     {"id":{"name":"Specials","path":"scripts/Specials/Specials.yy",},"order":11,},
     {"id":{"name":"oPillarBroken","path":"objects/oPillarBroken/oPillarBroken.yy",},"order":1,},

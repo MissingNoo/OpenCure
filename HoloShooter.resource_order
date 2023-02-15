@@ -186,6 +186,7 @@
     {"name":"sHoloCursor","order":1,"path":"sprites/sHoloCursor/sHoloCursor.yy",},
     {"name":"sShortHeight","order":3,"path":"sprites/sShortHeight/sShortHeight.yy",},
     {"name":"sAmeClock","order":8,"path":"sprites/sAmeClock/sAmeClock.yy",},
+    {"name":"part_GuraRed","order":25,"path":"particles/part_GuraRed/part_GuraRed.yy",},
     {"name":"sGWSPill","order":14,"path":"sprites/sGWSPill/sGWSPill.yy",},
     {"name":"Specials","order":11,"path":"scripts/Specials/Specials.yy",},
     {"name":"oPillarBroken","order":1,"path":"objects/oPillarBroken/oPillarBroken.yy",},
