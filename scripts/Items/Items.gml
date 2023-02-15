@@ -24,57 +24,32 @@ global.itemCooldown[0] = 0;
 
 #region Item Functions
 function newCreateItem(_data){
-	ItemList[_data.id[0]][0] = global.nullitem;
-	for (var i = 1; i <= _data.maxlevel[0]; ++i) {	    
-		ItemList[_data.id[0]][i] = {};
-		var m = ItemList[_data.id[0]][i];
-		//ds_map_add(m, "id", _data.id);
-		//ds_map_add(m, "name", _data.name);
+	ItemList[_data.id][0] = global.nullitem;	
+	for (var i = 1; i <= _data.maxlevel; ++i) {
+		ItemList[_data.id][i] = {};
+		var m = ItemList[_data.id][i];		
 		variable_struct_set(m, "level", i);
-		//ds_map_add(m, "sprite", _data.sprite);
-		//ds_map_add(m, "thumb", _data.thumb);
-		//ds_map_add(m, "mindmg", _data.mindmg[i-1]);
-		//ds_map_add(m, "maxdmg", _data.maxdmg[i-1]);
-		//ds_map_add(m, "cooldown", _data.cooldown[i-1]);
-		//ds_map_add(m, "duration", _data.duration[i-1]);
-		//ds_map_add(m, "hitCooldown", _data.hitCooldown[i-1]);
-		//ds_map_add(m, "canBeHasted", _data.canBeHasted);
-		//ds_map_add(m, "speed", _data.speed[i-1]);
-		//ds_map_add(m, "hits", _data.hits[i-1]);	
-		//ds_map_add(m, "type", _data.type);	
-		//ds_map_add(m, "shoots", _data.shoots[i-1]);	
-		//ds_map_add(m, "desc", _data.desc[i-1]);
 		variable_struct_set(m, "style", ItemTypes.Item);	
-		//ds_map_add(m, "knockbackSpeed", _data.knockbackSpeed[i-1]);
-		//ds_map_add(m, "knockbackDuration", _data.knockbackDuration[i-1]);
-		//ds_map_add(m, "perk", _data.perk);
-		//ds_map_add(m, "characterid", _data.character);
-		//ds_map_add(m, "maxlevel", _data.maxlevel);
-		
-		
-
 		var keys = variable_struct_get_names(_data);
 		for (var j = array_length(keys)-1; j >= 0; --j) {
 		    var k = keys[j];
 		    var v = _data[$ k];
-			if (array_length(v) > 1) {
-			    variable_struct_set(m, k, v[i-1]);
+			if (is_array(v)) {
+			    if (array_length(v) > 1) {
+				    variable_struct_set(m, k, v[i-1]);
+				}
+				else
+				{
+					variable_struct_set(m, k, v[0]);
+				}
+			}else{
+				variable_struct_set(m, k, v);
 			}
-			else
-			{
-				variable_struct_set(m, k, v[0]);
-			}
-		    
+			
 		}
-
-
-		
-		global.itemCooldown[_data.id[0]] = 0;
+		global.itemCooldown[_data.id] = 0;
 	}
 }
-
-
-
 	function createItem(_id, _name, _level, _maxLevel, _weight, _sprite, _cooldown, _desc, _unlocked = true, _type = "yellow", _perk = 0)
 	{
 		ItemList[_id][0]=global.nullitem;
@@ -107,7 +82,7 @@ function newCreateItem(_data){
 		//GWS_Pill,
 		//Halu,
 		Headphones, //TODO: add knockback
-		//Idol_Costume,
+		Idol_Costume,
 		Injection_Type_Asacoco, //TODO: convert item format
 		//Just_Bandage,
 		Knightly_Milk, //TODO: convert item format
@@ -168,13 +143,13 @@ function populateItems(){
 			#region Credit Card
 			newCreateItem(
 			{
-				id : [ItemIds.CreditCard],
-				name : ["Credit Card"],
-				maxlevel : [5],
-				weight : [4],
-				thumb : [sCreditCard],
-				cooldown : [1],
-				type : ["yellow"],
+				id : ItemIds.CreditCard,
+				name : "Credit Card",
+				maxlevel : 5,
+				weight : 4,
+				thumb : sCreditCard,
+				cooldown : 1,
+				type : "yellow",
 				desc : [
 				"Cost of enhancing is reduced by [20%] and anvils appear [20%] more often.", 
 				"Cost of enhancing is reduced by [25%] and anvils appear [40%] more often.",
@@ -182,13 +157,34 @@ function populateItems(){
 				"Cost of enhancing is reduced by [35%] and anvils appear [80%] more often.",
 				"Cost of enhancing is reduced by [40%] and anvils appear [twice] as often.",
 				],
-				perk : [false],
+				perk : false,
 				AnvilDropBonus: [.18, .28, .38, .45, .5],
 				EnhancingCost : [20, 25, 30, 35, 40]
 			}
 			)
 			Bonuses[BonusType.AnvilDrop][ItemIds.CreditCard] = 0;
 			Bonuses[BonusType.EnhancingCost][ItemIds.CreditCard] = 0;
+			#endregion
+		
+			#region Idol Costume
+				newCreateItem({
+					id : ItemIds.Idol_Costume,
+					name : "Idol Costume",
+					maxlevel : 5,
+					weight : 1,
+					thumb : sIdolCostume,
+					cooldown : 1,
+					type : "yellow",
+					desc : [
+					"Reduce Special cooldown by 20%.", 
+					"Reduce Special cooldown by 25%.",
+					"Reduce Special cooldown by 30%.",
+					"Reduce Special cooldown by 35%.",
+					"Reduce Special cooldown by 40%.",],
+					perk : false,
+					SpecialCooldown: [.20, .25, .30, .35, .40],
+				}
+				);
 			#endregion
 		
 			#region Energy Drink
@@ -223,13 +219,13 @@ function populateItems(){
 			#region Headphones
 			newCreateItem(
 			{
-				id : [ItemIds.Headphones],
-				name : ["Headphones"],
-				maxlevel : [5],
-				weight : [4],
-				thumb : [sHeadPhones],
-				cooldown : [1],
-				type : ["yellow"],
+				id : ItemIds.Headphones,
+				name : "Headphones",
+				maxlevel : 5,
+				weight : 4,
+				thumb : sHeadPhones,
+				cooldown : 1,
+				type : "yellow",
 				desc : [
 				"[15%] chance to negate [1] hit, and create a shockwave that knocks back all targets.", 
 				"[20%] chance to negate [1] hit, and create a shockwave that knocks back all targets.", 
@@ -237,7 +233,7 @@ function populateItems(){
 				"[30%] chance to negate [1] hit, and create a shockwave that knocks back all targets.", 
 				"[35%] chance to negate [1] hit, and create a shockwave that knocks back all targets.", 
 				],
-				perk : [false],
+				perk : false,
 				dodgeChance: [15, 20, 25, 30, 35]
 			}
 			)
@@ -267,13 +263,13 @@ function populateItems(){
 			#region Study Glasses
 			newCreateItem(
 			{
-				id : [ItemIds.Study_Glasses],
-				name : ["Study Glasses"],
-				maxlevel : [5],
-				weight : [3],
-				thumb : [sStudyGlasses],
-				cooldown : [1],
-				type : ["yellow"],
+				id : ItemIds.Study_Glasses,
+				name : "Study Glasses",
+				maxlevel : 5,
+				weight : 3,
+				thumb : sStudyGlasses,
+				cooldown : 1,
+				type : "yellow",
 				desc : [
 				"Increase EXP gain by [10%].", 
 				"Increase EXP gain by [15%].",
@@ -281,7 +277,7 @@ function populateItems(){
 				"Increase EXP gain by [25%].",
 				"Increase EXP gain by [30%].",
 				],
-				perk : [false],
+				perk : false,
 				XPBonus: [1.10, 1.15, 1.20, 1.25, 1.30]
 			}
 			)
@@ -465,6 +461,12 @@ function tickItems()
 				case ItemIds.CreditCard:{
 					Bonuses[BonusType.AnvilDrop][ItemIds.CreditCard] = playerItems[i][$"AnvilDropBonus"];
 					Bonuses[BonusType.EnhancingCost][ItemIds.CreditCard] = playerItems[i][$"EnhancingCost"];
+					break;}
+				case ItemIds.Idol_Costume:{
+					if (oPlayer.idolCostumeLevel != playerItems[i][$"level"]) {
+					    oPlayer.idolCostumeLevel = playerItems[i][$"level"];
+						oPlayer. specialcooldown = oPlayer.specialcooldown - (oPlayer.specialcooldown * playerItems[i][$"SpecialCooldown"]);
+					}
 					break;}
 			}
 		}
