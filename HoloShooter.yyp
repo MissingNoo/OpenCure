@@ -116,7 +116,7 @@
     {"id":{"name":"Tileset","path":"sprites/Tileset/Tileset.yy",},"order":1,},
     {"id":{"name":"network","path":"scripts/network/network.yy",},"order":10,},
     {"id":{"name":"Sprite11","path":"sprites/Sprite11/Sprite11.yy",},"order":0,},
-    {"id":{"name":"Room2","path":"rooms/Room2/Room2.yy",},"order":2,},
+    {"id":{"name":"room2","path":"rooms/room2/room2.yy",},"order":2,},
     {"id":{"name":"sInaTentacle","path":"sprites/sInaTentacle/sInaTentacle.yy",},"order":1,},
     {"id":{"name":"sInvestigator","path":"sprites/sInvestigator/sInvestigator.yy",},"order":8,},
     {"id":{"name":"sGuraPortrait","path":"sprites/sGuraPortrait/sGuraPortrait.yy",},"order":1,},
@@ -295,7 +295,7 @@
   "RoomOrderNodes": [
     {"roomId":{"name":"rInicio","path":"rooms/rInicio/rInicio.yy",},},
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
-    {"roomId":{"name":"Room2","path":"rooms/Room2/Room2.yy",},},
+    {"roomId":{"name":"room2","path":"rooms/room2/room2.yy",},},
     {"roomId":{"name":"rShop","path":"rooms/rShop/rShop.yy",},},
   ],
   "TextureGroups": [

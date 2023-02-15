@@ -72,7 +72,6 @@ function initializePlayer(_p){
 			}
 		}
 	#endregion
-	
 	_gx = 0;
 	_gy =0;
 }
@@ -149,13 +148,13 @@ function Movement()
 // if the variable _vspd does not equal zero
 
 if can_move == true{
-	gamepad_set_axis_deadzone(global.GP_NUM, 0.7);
+	gamepad_set_axis_deadzone(global.gPnum, 0.7);
 	var _left, _right, _up, _down;
 	if (global.GamePad) {
-	     _left = gamepad_axis_value(global.GP_NUM, gp_axislh) < 0 ? 1 : 0;
-	    _right = gamepad_axis_value(global.GP_NUM, gp_axislh) > 0 ? 1 : 0;
-	    _up = gamepad_axis_value(global.GP_NUM, gp_axislv) < 0 ? 1 : 0;
-	    _down = gamepad_axis_value(global.GP_NUM, gp_axislv) > 0 ? 1 : 0;
+	     _left = gamepad_axis_value(global.gPnum, gp_axislh) < 0 ? 1 : 0;
+	    _right = gamepad_axis_value(global.gPnum, gp_axislh) > 0 ? 1 : 0;
+	    _up = gamepad_axis_value(global.gPnum, gp_axislv) < 0 ? 1 : 0;
+	    _down = gamepad_axis_value(global.gPnum, gp_axislv) > 0 ? 1 : 0;
 	}
 	else{
 		_left = keyboard_check(LEFTKEY);
@@ -166,9 +165,9 @@ if can_move == true{
     
 
 	if (!instance_exists(oJoystick) and !global.strafe) {
-		if (gamepad_axis_value(global.GP_NUM, gp_axisrh) != 0 or gamepad_axis_value(global.GP_NUM, gp_axisrv) != 0) {
-			_gx = gamepad_axis_value(global.GP_NUM, gp_axisrh);
-			_gy = gamepad_axis_value(global.GP_NUM, gp_axisrv);
+		if (gamepad_axis_value(global.gPnum, gp_axisrh) != 0 or gamepad_axis_value(global.gPnum, gp_axisrv) != 0) {
+			_gx = gamepad_axis_value(global.gPnum, gp_axisrh);
+			_gy = gamepad_axis_value(global.gPnum, gp_axisrv);
 		}
 		
 		if (!global.GamePad) {

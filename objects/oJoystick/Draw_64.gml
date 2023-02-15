@@ -1,7 +1,4 @@
-
-/// @description Insert description here
-// You can write your code in this editor
-///Joystick
+// Feather disable GM2017
 draw_set_alpha(.5);
 #macro TouchX1 device_mouse_x_to_gui(0)
 #macro MOUSEX device_mouse_x_to_gui(0)

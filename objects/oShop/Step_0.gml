@@ -1,11 +1,11 @@
-var _left = (keyboard_check_pressed(LEFTKEY) or gamepad_button_check_pressed(global.GP_NUM,gp_padl));
-var _right = (keyboard_check_pressed(RIGHTKEY) or gamepad_button_check_pressed(global.GP_NUM,gp_padr));
-var _up = (keyboard_check_pressed(UPKEY) or gamepad_button_check_pressed(global.GP_NUM,gp_padu));
-var _down = (keyboard_check_pressed(DOWNKEY) or gamepad_button_check_pressed(global.GP_NUM, gp_padd));
-var xKey = keyboard_check_pressed(vk_escape)  or keyboard_check_pressed(ord("X")) or gamepad_button_check_pressed(global.GP_NUM, gp_face2);
+var _left = (keyboard_check_pressed(LEFTKEY) or gamepad_button_check_pressed(global.gPnum,gp_padl));
+var _right = (keyboard_check_pressed(RIGHTKEY) or gamepad_button_check_pressed(global.gPnum,gp_padr));
+var _up = (keyboard_check_pressed(UPKEY) or gamepad_button_check_pressed(global.gPnum,gp_padu));
+var _down = (keyboard_check_pressed(DOWNKEY) or gamepad_button_check_pressed(global.gPnum, gp_padd));
+var xKey = keyboard_check_pressed(vk_escape)  or keyboard_check_pressed(ord("X")) or gamepad_button_check_pressed(global.gPnum, gp_face2);
 var zKey;
 if (global.GamePad) {
-    zKey = keyboard_check_pressed(ord("Z")) or gamepad_button_check_pressed(global.GP_NUM, gp_face1);
+    zKey = keyboard_check_pressed(ord("Z")) or gamepad_button_check_pressed(global.gPnum, gp_face1);
 }else{zKey = keyboard_check_pressed(ord("Z"))}
 if (!interact) {
 	if (xKey) {

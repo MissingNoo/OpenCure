@@ -21,13 +21,13 @@ if (mouse_check_button(mb_left)) {
 }
 isP=global.gamePaused;
 if (global.GamePad) {
-    zKey = keyboard_check_pressed(ord("Z")) or gamepad_button_check_pressed(global.GP_NUM, gp_face1);
+    zKey = keyboard_check_pressed(ord("Z")) or gamepad_button_check_pressed(global.gPnum, gp_face1);
 }else{zKey = keyboard_check_pressed(ord("Z")) or mousein and device_mouse_check_button_released(0,mb_left);}
 
-xKey = keyboard_check_pressed(ord("X")) or gamepad_button_check_pressed(global.GP_NUM, gp_face2);
-eKey = keyboard_check_pressed(vk_escape)  or gamepad_button_check_pressed(global.GP_NUM, gp_start);
-leftKey = keyboard_check_pressed(LEFTKEY)  or gamepad_button_check_pressed(global.GP_NUM, gp_padl);
-rightKey = keyboard_check_pressed(RIGHTKEY)  or gamepad_button_check_pressed(global.GP_NUM, gp_padr);
+xKey = keyboard_check_pressed(ord("X")) or gamepad_button_check_pressed(global.gPnum, gp_face2);
+eKey = keyboard_check_pressed(vk_escape)  or gamepad_button_check_pressed(global.gPnum, gp_start);
+leftKey = keyboard_check_pressed(LEFTKEY)  or gamepad_button_check_pressed(global.gPnum, gp_padl);
+rightKey = keyboard_check_pressed(RIGHTKEY)  or gamepad_button_check_pressed(global.gPnum, gp_padr);
 
 if (xKey and global.gamePaused) {
     PauseGame();
@@ -40,12 +40,12 @@ if (xKey and global.gamePaused) {
 	            case "Singleplayer":
 					global.server = true;
 					selected=0;
-	                room_goto(Room2);
+	                room_goto(room2);
 	                break;
 				case "Multiplayer":
 					global.server = false;
 					selected=0;
-	                room_goto(Room2);
+	                room_goto(room2);
 	                break;
 				case "Settings":
 					keyboard_clear(ord("Z"));
@@ -171,7 +171,7 @@ if (ANVIL) {
 #endregion
 
 #region Select Character room
-	if (room = Room2) {
+	if (room = room2) {
 	    if (zKey) {
 	        global.player=CHARACTERS[selected];
 			//show_message(global.player[? "name"]);
@@ -363,7 +363,7 @@ if(keyboard_check(ord("L"))) {global.server = false; show_message("Client");}
 		if(keyboard_check(ord("I"))) d +=.1;
 		if(keyboard_check_pressed(ord("O"))) e -=.5;
 		if(keyboard_check(ord("P"))) e +=1;
-		if((keyboard_check(vk_escape) and room == Room2)) {room_goto(rInicio)}
+		if((keyboard_check(vk_escape) and room == room2)) {room_goto(rInicio)}
 		//if (keyboard_check_pressed(ord("V"))) {
 		//    display_set_gui_size(640,360);
 		//}

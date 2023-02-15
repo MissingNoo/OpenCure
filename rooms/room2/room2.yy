@@ -1,7 +1,7 @@
 {
   "resourceType": "GMRoom",
   "resourceVersion": "1.0",
-  "name": "Room2",
+  "name": "room2",
   "creationCodeFile": "${project_dir}/rooms/Room2/RoomCreationCode.gml",
   "inheritCode": false,
   "inheritCreationOrder": false,

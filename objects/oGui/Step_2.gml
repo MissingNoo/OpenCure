@@ -1,8 +1,8 @@
 // Feather disable GM2016
-var _left = (keyboard_check_pressed(LEFTKEY) or gamepad_button_check_pressed(global.GP_NUM,gp_padl));
-var _right = (keyboard_check_pressed(RIGHTKEY) or gamepad_button_check_pressed(global.GP_NUM,gp_padr));
-var _up = (keyboard_check_pressed(UPKEY) or gamepad_button_check_pressed(global.GP_NUM,gp_padu));
-var _down = (keyboard_check_pressed(DOWNKEY) or gamepad_button_check_pressed(global.GP_NUM, gp_padd));
+var _left = (keyboard_check_pressed(LEFTKEY) or gamepad_button_check_pressed(global.gPnum,gp_padl));
+var _right = (keyboard_check_pressed(RIGHTKEY) or gamepad_button_check_pressed(global.gPnum,gp_padr));
+var _up = (keyboard_check_pressed(UPKEY) or gamepad_button_check_pressed(global.gPnum,gp_padu));
+var _down = (keyboard_check_pressed(DOWNKEY) or gamepad_button_check_pressed(global.gPnum, gp_padd));
 //if (keyboard_check_pressed(LEFTKEY)) {
 //    show_message_async("left");
 //}
@@ -26,7 +26,7 @@ if (room = rInicio) {
 	}
 }
 
-if (room = Room2) {
+if (room = room2) {
     if (_left) {
         if (selected == 0) {
             selected = Characters.Lenght - 1;
@@ -81,7 +81,7 @@ if (instance_exists(oPlayer) and ANVIL) {
 }
 #endregion
 
-if (room == Room2) {
+if (room == room2) {
     if (sprindex < sprite_get_number(CHARACTERS[selected][?"sprite"])) {
 		sprindex+=1/10;
 	}

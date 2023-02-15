@@ -1,7 +1,7 @@
 if (keyboard_check_pressed(RIGHTKEY) or keyboard_check_pressed(LEFTKEY) or keyboard_check_pressed(UPKEY)  or keyboard_check_pressed(DOWNKEY) or device_mouse_check_button_pressed(0,mb_left)) {
 	global.GamePad = false;
 }
-if (gamepad_button_check_pressed(global.GP_NUM, gp_start)) {
+if (gamepad_button_check_pressed(global.gPnum, gp_start)) {
 	global.GamePad = true;
 }
 if (!global.padset) {
@@ -11,8 +11,8 @@ if (!global.padset) {
 
 for (var i = 0; i < gamepad_get_device_count(); i++) {
 	if(gamepad_is_connected(i)){
-		global.GP_NUM = i;
-		gamepad_set_axis_deadzone(global.GP_NUM, 0.7);
+		global.gPnum = i;
+		gamepad_set_axis_deadzone(global.gPnum, 0.7);
 	}
 	if (os_type == os_android) {
 		if (device_mouse_check_button(0,mb_left)) {
@@ -201,7 +201,7 @@ if (shake_magnitude > 0)
 }
 var pressed;
 if (global.GamePad) {
-    pressed = (keyboard_check(ord("Z")) or gamepad_button_check(global.GP_NUM, gp_face1) and !global.gamePaused) ? true : false
+    pressed = (keyboard_check(ord("Z")) or gamepad_button_check(global.gPnum, gp_face1) and !global.gamePaused) ? true : false
 }else{ pressed = (keyboard_check(ord("Z")) and !global.gamePaused) ? true : false}
 	
 	global.strafe = pressed;

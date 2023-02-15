@@ -81,7 +81,7 @@
     {"name":"sJustBandage","order":17,"path":"sprites/sJustBandage/sJustBandage.yy",},
     {"name":"Tileset","order":1,"path":"sprites/Tileset/Tileset.yy",},
     {"name":"network","order":10,"path":"scripts/network/network.yy",},
-    {"name":"Room2","order":2,"path":"rooms/Room2/Room2.yy",},
+    {"name":"room2","order":2,"path":"rooms/room2/room2.yy",},
     {"name":"sInaTentacle","order":1,"path":"sprites/sInaTentacle/sInaTentacle.yy",},
     {"name":"sInvestigator","order":8,"path":"sprites/sInvestigator/sInvestigator.yy",},
     {"name":"sGuraPortrait","order":1,"path":"sprites/sGuraPortrait/sGuraPortrait.yy",},
