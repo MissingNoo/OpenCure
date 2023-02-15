@@ -1,6 +1,9 @@
 event_inherited();
+global.P_System = part_type_create();
 skilltimer = 0;
 special = SPECIAL_LIST[global.player[?"special"]];
+specialcooldown = special.cooldown;
+idolCostumeLevel = 0;
 global.lastsequence = undefined;
 global.testvar = "";
 socket = 1;

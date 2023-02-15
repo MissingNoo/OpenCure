@@ -128,9 +128,13 @@
 			draw_sprite_ext(special[$"thumb"], 0, _sx, _sy, 2, 2, 0, c_white, 1);
 			draw_sprite_ext(sHudSpecial,0, _sx + casesize, _sy + 7.50, 2, 2, 0, c_white, 1);
 			var chargeColor = c_white;
-			if (oPlayer.skilltimer > special.cooldown) { chargeColor = c_red; }
-			draw_sprite_part_ext(sHudSpecial,2, 0, 0, ((oPlayer.skilltimer / special.cooldown) * sprite_get_width(sHudSpecial)), sprite_get_height(sHudSpecial), _sx + casesize, _sy + 7.50, 2, 2, chargeColor, 1);
+			if (oPlayer.skilltimer > oPlayer.specialcooldown) { chargeColor = c_red; }
+			draw_sprite_part_ext(sHudSpecial,2, 0, 0, ((oPlayer.skilltimer / oPlayer.specialcooldown) * sprite_get_width(sHudSpecial)), sprite_get_height(sHudSpecial), _sx + casesize, _sy + 7.50, 2, 2, chargeColor, 1);
 			draw_sprite_ext(sHudSpecial,1, _sx + casesize, _sy + 7.50, 2, 2, 0, c_white, 1);
+			if (oPlayer.skilltimer > oPlayer.specialcooldown) { draw_text(_sx+oGui.a, _sy + casesize, "READY"); }
+			if (global.debug) {
+			    draw_text(_sx + 90, _sy + casesize / 2,string(oPlayer.skilltimer) + "/" + string(oPlayer.specialcooldown));
+			}			
 		}
 		#endregion
 		
