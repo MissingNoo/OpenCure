@@ -85,7 +85,7 @@ function populatePerks(){
 					createPerk(PerkIds.PowerofAtlantis, "Power of Atlantis", 3, 3, 1, sPowerofAtlantisThumb, 600, "Every [10] seconds, create a whirlpool that draws in targets and takes [50%] more damage, lasting 6 seconds and deals [50%] damage every [0.5] seconds.", Characters.Gura);
 				#endregion
 				
-				#region SharkBite
+				#region SharkBite //TODO: add animation again
 					createPerk(PerkIds.SharkBite, "Shark Bite", 0, 3, 1, sSharkBite, 1, "Do nothing.", Characters.Gura);
 					createPerk(PerkIds.SharkBite, "Shark Bite", 1, 3, 1, sSharkBite, 600, "Attacks have a [10%] chance to place 1 'Bite Mark' (max 5). Per stack, Target takes [6%] more damage, and a [20%] chance to heal you [1%] when defeated.", Characters.Gura);
 					createPerk(PerkIds.SharkBite, "Shark Bite", 2, 3, 1, sSharkBite, 600, "Attacks have a [15%] chance to place 1 'Bite Mark' (max 5). Per stack, Target takes [9%] more damage, and a [20%] chance to heal you [1%] when defeated.", Characters.Gura);

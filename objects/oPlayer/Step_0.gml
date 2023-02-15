@@ -19,8 +19,8 @@ if (!global.gamePaused) {
 	
 	//if (keyboard_check_pressed(ord("X")) and skilltimer > special.cooldown) {
 	if (keyboard_check_pressed(ord("X"))) {
-	    //useSpecial(special);
-		global.lastsequence = layer_sequence_create("Specials", x, y, seq_SlowTIme);
+	    useSpecial(special);
+		
 		//layer_sequence_play(seq_SlowTIme);
 	}
 	

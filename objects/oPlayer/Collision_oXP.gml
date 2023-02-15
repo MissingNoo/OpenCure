@@ -1,6 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 var newxp = other.xp;
+audio_play_sound(sfx_getxp,0,0);
 instance_destroy(other);
 for (var i = 0; i < array_length(Bonuses[BonusType.XPBonus]); ++i) {
 	if (Bonuses[BonusType.XPBonus][i] != 0) {
