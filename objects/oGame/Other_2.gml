@@ -164,3 +164,28 @@ populateUpgrades();
 populateCharacters();
 populatePerks();
 populateSpecials();
+
+
+#region name here
+
+
+		global.ShopUpgrades.Hp.sprite = sHudHPIcon;
+		global.ShopUpgrades.Atk.sprite =sHudAtkIcon;
+		global.ShopUpgrades.Spd.sprite =sHudSpdIcon;
+		global.ShopUpgrades.Crit.sprite =sHudCrtIcon;
+		global.ShopUpgrades.PickUp.sprite =sHudPickupIcon;
+		global.ShopUpgrades.Haste.sprite =sHudCooldownIcon;
+		global.ShopUpgrades.Regeneration.sprite =sHudRegenerationIcon;
+		global.ShopUpgrades.SpecialAtk.sprite =sHudSpecialUnlockIcon;
+		global.ShopUpgrades.SpecialCooldown.sprite =sHudSpecialCooldownIcon;
+		global.ShopUpgrades.Growth.sprite =sHudGrowthIcon;
+		global.ShopUpgrades.ExpGain.sprite =sXP;
+		global.ShopUpgrades.FoodDrop.sprite =sHamburger;
+		global.ShopUpgrades.MoneyGain.sprite =sHolocoin;
+		global.ShopUpgrades.Reroll.sprite =sHudRerollIcon;
+		global.ShopUpgrades.EnhacementRate.sprite =sHudHPIcon;
+		global.ShopUpgrades.Defense.sprite =sHudDefenseIcon;
+		global.ShopUpgrades.GRankOff.sprite =sHudHPIcon;
+		global.ShopUpgrades.Hardcore.sprite =sHudHPIcon;
+
+#endregion

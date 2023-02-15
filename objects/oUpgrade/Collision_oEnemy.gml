@@ -9,7 +9,8 @@ if (other.hittedcooldown[upg[$"id"]] <= 0  and !global.gamePaused and other.imag
 				for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
 					var found = false;
 					randomize();
-					if (PLAYER_PERKS[i][?"id"] == PerkIds.SharkBite and PLAYER_PERKS[i][?"level"] > 0 and irandom_range(1,100) <= Buffs[BuffNames.SharkBite].chance[PLAYER_PERKS[i][?"level"]]) {
+					if (PLAYER_PERKS[i][$"id"] == PerkIds.SharkBite and PLAYER_PERKS[i][$"level"] > 0 and irandom_range(1,100) <= Buffs[BuffNames.SharkBite].chance[PLAYER_PERKS[i][$"level"]]) {
+						instance_create_layer(other.x, other.y, "Instances", oDebuffAnimation, {sprite_index : sSharkBiteAnimation});
 						for (var j = 0; j < array_length(other.debuffs); ++j) {
 							if (other.debuffs[j].id == BuffNames.SharkBite) {
 								found = true;
@@ -21,8 +22,8 @@ if (other.hittedcooldown[upg[$"id"]] <= 0  and !global.gamePaused and other.imag
 						if (!found) {
 							var _lv=0;
 							for (var k = 0; k < array_length(PLAYER_PERKS); ++k) {
-								if (PLAYER_PERKS[k][?"id"] == PerkIds.SharkBite) {
-									_lv = PLAYER_PERKS[k][?"level"];
+								if (PLAYER_PERKS[k][$"id"] == PerkIds.SharkBite) {
+									_lv = PLAYER_PERKS[k][$"level"];
 								}
 							}
 							Buffs[BuffNames.SharkBite].level = _lv;

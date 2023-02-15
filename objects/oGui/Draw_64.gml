@@ -119,17 +119,19 @@
 		#endregion
 		
 		#region Special
-		var _sx = GW/91.07;
-		var _sy = GH/4.92;
-		var casesize = 45.20;
-		var special = SPECIAL_LIST[global.player[?"special"]];
-		draw_sprite_ext(sHudSpecialCase, 0, _sx, _sy, 2, 2, 0, c_white, 1);
-		draw_sprite_ext(special[$"thumb"], 0, _sx, _sy, 2, 2, 0, c_white, 1);
-		draw_sprite_ext(sHudSpecial,0, _sx + casesize, _sy + 7.50, 2, 2, 0, c_white, 1);
-		var chargeColor = c_white;
-		if (oPlayer.skilltimer > special.cooldown) { chargeColor = c_red; }
-		draw_sprite_part_ext(sHudSpecial,2, 0, 0, ((oPlayer.skilltimer / special.cooldown) * sprite_get_width(sHudSpecial)), sprite_get_height(sHudSpecial), _sx + casesize, _sy + 7.50, 2, 2, chargeColor, 1);
-		draw_sprite_ext(sHudSpecial,1, _sx + casesize, _sy + 7.50, 2, 2, 0, c_white, 1);
+		if (global.ShopUpgrades[$ "SpecialAtk"][$ "level"] == 1) {
+			var _sx = GW/91.07;
+			var _sy = GH/4.92;
+			var casesize = 45.20;
+			var special = SPECIAL_LIST[global.player[?"special"]];
+			draw_sprite_ext(sHudSpecialCase, 0, _sx, _sy, 2, 2, 0, c_white, 1);
+			draw_sprite_ext(special[$"thumb"], 0, _sx, _sy, 2, 2, 0, c_white, 1);
+			draw_sprite_ext(sHudSpecial,0, _sx + casesize, _sy + 7.50, 2, 2, 0, c_white, 1);
+			var chargeColor = c_white;
+			if (oPlayer.skilltimer > special.cooldown) { chargeColor = c_red; }
+			draw_sprite_part_ext(sHudSpecial,2, 0, 0, ((oPlayer.skilltimer / special.cooldown) * sprite_get_width(sHudSpecial)), sprite_get_height(sHudSpecial), _sx + casesize, _sy + 7.50, 2, 2, chargeColor, 1);
+			draw_sprite_ext(sHudSpecial,1, _sx + casesize, _sy + 7.50, 2, 2, 0, c_white, 1);
+		}
 		#endregion
 		
 		#region Upgrades
