@@ -163,3 +163,4 @@ populateItems();
 populateUpgrades();
 populateCharacters();
 populatePerks();
+populateSpecials();

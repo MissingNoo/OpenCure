@@ -8,10 +8,22 @@ if (keyboard_check_pressed(ord("H")) and global.debug) {
 	//98
 }
 if (!global.gamePaused) {
+	if (skilltimer < special.cooldown + 10) {
+	    skilltimer+=1/60;
+	}
+	
 	tickPowers();
 	tickItems();
 	tickPerks();
 	Movement();
+	
+	//if (keyboard_check_pressed(ord("X")) and skilltimer > special.cooldown) {
+	if (keyboard_check_pressed(ord("X"))) {
+	    //useSpecial(special);
+		global.lastsequence = layer_sequence_create("Specials", x, y, seq_SlowTIme);
+		//layer_sequence_play(seq_SlowTIme);
+	}
+	
 	//if (instance_exists(oClient)) {
 		buffer_seek(oClient.clientBuffer, buffer_seek_start, 0);
 		buffer_write(oClient.clientBuffer, buffer_u8, Network.Move);

@@ -1,10 +1,10 @@
 {
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
-  "name": "sAmeSpecial",
-  "bbox_bottom": 19,
+  "name": "sAmeHourHand",
+  "bbox_bottom": 64,
   "bbox_left": 0,
-  "bbox_right": 17,
+  "bbox_right": 12,
   "bbox_top": 0,
   "bboxMode": 0,
   "collisionKind": 1,
@@ -13,17 +13,17 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"ecf39519-f00d-4223-b18e-d50200e48288",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"637a4549-d1f2-4e28-8c67-6d14df19de5e",},
   ],
   "gridX": 0,
   "gridY": 0,
-  "height": 20,
+  "height": 65,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"4ebcb515-decd-42cb-884c-09a0ea21ef38","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"54daee96-eeca-4414-b30d-ce7e278cf7c5","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
-  "origin": 0,
+  "origin": 9,
   "parent": {
     "name": "Amelia",
     "path": "folders/Sprites/Characters/Amelia.yy",
@@ -32,7 +32,7 @@
   "sequence": {
     "resourceType": "GMSequence",
     "resourceVersion": "1.4",
-    "name": "sAmeSpecial",
+    "name": "sAmeHourHand",
     "autoRecord": true,
     "backdropHeight": 768,
     "backdropImageOpacity": 0.5,
@@ -54,13 +54,13 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"ecf39519-f00d-4223-b18e-d50200e48288","path":"sprites/sAmeSpecial/sAmeSpecial.yy",},},},"Disabled":false,"id":"9d2ad467-38e8-436c-b11c-985cc90dd513","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"637a4549-d1f2-4e28-8c67-6d14df19de5e","path":"sprites/sAmeHourHand/sAmeHourHand.yy",},},},"Disabled":false,"id":"a616ece6-c2ee-425c-83c3-7004136a9389","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,
     "volume": 1.0,
-    "xorigin": 0,
-    "yorigin": 0,
+    "xorigin": 6,
+    "yorigin": 59,
   },
   "swatchColours": null,
   "swfPrecision": 2.525,
@@ -70,5 +70,5 @@
   },
   "type": 0,
   "VTile": false,
-  "width": 18,
+  "width": 13,
 }

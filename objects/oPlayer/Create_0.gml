@@ -1,4 +1,7 @@
 event_inherited();
+skilltimer = 0;
+special = SPECIAL_LIST[global.player[?"special"]];
+global.lastsequence = undefined;
 global.testvar = "";
 socket = 1;
 healSeconds = 0;
