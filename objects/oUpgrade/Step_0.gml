@@ -33,6 +33,15 @@ if (!global.gamePaused) {
 			y = owner.y - 16 + lengthdir_y(orbit_length, orbit_place);
 			orbit_place-=3;
 			break;}
+		case Weapons.CuttingBoard:{
+			if (distance_to_point(originalX, originalY) > oGui.a) {
+				speed -= oGui.b;
+				if (speed < 0) {
+				    speed = 0;
+				}
+			}
+			break;
+		}
 	}
 }
 #endregion

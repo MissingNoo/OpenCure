@@ -107,7 +107,8 @@ enum Weapons
 	//InaTentacle,
 	BlBook, //TODO: area
 	CEOTears,
-	//CuttingBoard,
+	CuttingBoard, //TODO: add bonus for flat characters, knockback, Shoot additional walls from sides, Walls travel farther
+	//If a flat character uses the Cutting Board weapon, the spawned Cutting Board projectile will be 30% bigger than normal, and will also deal 30% more damage.
 	EliteLavaBucket, //TODO: lava area
 	//FanBean,
 	//Glowstick,
@@ -215,6 +216,39 @@ function populateUpgrades(){
 		createUpgradeP2(Weapons.BlBook, 7, 7, 3, 5);
 	#endregion
 	
+	#region Cutting Board
+	newCreateUpgrade({
+				id : Weapons.CuttingBoard,
+				name : "Cutting Board",
+				maxlevel : 7,
+				sprite : sCuttingBoard,
+				thumb : sCuttingBoardThumb,
+				mindmg : [11, 11, 14, 14, 23, 23, 23],
+				maxdmg : [15, 15, 18, 18, 28, 28, 28],
+				cooldown : [180, 180, 180, 180, 180, 150, 150],
+				duration : 120, 
+				hitCooldown : 20, 
+				canBeHasted : true,
+				speed : [7, 7, 7, 10, 10, 10, 10],
+				hits : 1,
+				type : "white",
+				shoots : [1, 1, 1, 1, 1, 1, 3],
+				area : [1, 1.30, 1.30, 1.30, 1.30, 1.30, 1.30],
+				desc : [
+				"Create a defensive wall that damages targets behind you. Effectiveness is increased on certain characters.",
+				"Increase size of wall by 30%.",
+				"Increase damage by 30%.",
+				"Walls travel farther.",
+				"Increase damage by 50%.",
+				"Reduce the time between attacks by 0.5 seconds.",
+				"Shoot additional walls from sides.",
+				],
+				knockbackSpeed : 7,
+				knockbackDuration : 20,
+				perk : false,
+			});
+	#endregion
+	
 	#region CEO Tears
 	newCreateUpgrade({
 				id : Weapons.CEOTears,
@@ -245,24 +279,6 @@ function populateUpgrades(){
 				knockbackDuration : 0,
 				perk : false,
 			});
-			//for (var i = 0; i < array_length(global.upgradesAvaliable[Weapons.CEOTears]); ++i) {
-			//    show_message(global.upgradesAvaliable[Weapons.CEOTears][i]);
-			//}
-		//Damage: 	100% (7 – 13)
-		//Attack time: 	30 (0.5 s)
-		//Attack count: 	1
-		//Hit limit: 	1
-		//Hit cooldown: 	30 (0.5 s)
-		//Area: 	100%
-		//Duration: 	90 (1.5 s)
-		//Projectile speed: 	4 
-		//Level 1 	Fires rapid tears at random targets.
-		//Level 2 	Increases damage by 20%.
-		//Level 3 	Shoot 2 tears.
-		//Level 4 	Reduce the time between attacks by 33%.
-		//Level 5 	Tears are 25% faster and increase damage by 20%.
-		//Level 6 	Reduce the time between attacks by 50%.
-		//Level MAX 	Shoot 4 tears. 
 	#endregion
 	
 	#region EliteLavaBucket
@@ -730,7 +746,7 @@ function randomUpgrades(){
 	//global.upgradeOptions[3] = global.null;
 	#endregion
 	//global.upgradeOptions[0] = ItemList[ItemIds.CreditCard][1];
-	global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.CEOTears][1];
+	global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.CuttingBoard][1];
 	#region old	
 	//for (var i=0; i<4; i++) {
 	//	do {

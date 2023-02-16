@@ -1,4 +1,6 @@
 event_inherited();
+originalX = x;
+originalY = y; 
 ghost = false;
 arrowDir = global.arrowDir;
 CE=0;

@@ -159,6 +159,12 @@ if (a==0) {
 			} else instance_destroy();
 			break;
 		}
+		case Weapons.CuttingBoard:{
+			direction = arrowDir + 180;
+			speed = upg[$"speed"];
+			image_angle = arrowDir + diroffset;
+			break;
+		}
 	}
 		if (sprite_index==blank) {
 			instance_destroy();
