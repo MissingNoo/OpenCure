@@ -34,8 +34,8 @@ if (!global.gamePaused) {
 			orbit_place-=3;
 			break;}
 		case Weapons.CuttingBoard:{
-			if (distance_to_point(originalX, originalY) > oGui.a) {
-				speed -= oGui.b;
+			if (distance_to_point(originalX, originalY) > 5) {
+				speed -= .30;
 				if (speed < 0) {
 				    speed = 0;
 				}

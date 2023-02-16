@@ -230,7 +230,7 @@ function populateUpgrades(){
 				hitCooldown : 20, 
 				canBeHasted : true,
 				speed : [7, 7, 7, 10, 10, 10, 10],
-				hits : 1,
+				hits : 9999,
 				type : "white",
 				shoots : [1, 1, 1, 1, 1, 1, 3],
 				area : [1, 1.30, 1.30, 1.30, 1.30, 1.30, 1.30],

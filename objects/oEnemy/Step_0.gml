@@ -16,7 +16,7 @@ if(global.gamePaused == false){
 	//if(target.y < y) y-=.5;
 		//if(target.y > y) y+=.5;
 		var _is_colliding = collision_point(x,y, oUpgrade,false, true)
-	if (_is_colliding != noone and _is_colliding.upg[?"name"] == "Power of Atlantis") {
+	if (_is_colliding != noone and _is_colliding.upg[?"id"] == Weapons.PowerofAtlantis) {
 	    direction=point_direction(x,y,_is_colliding.x,_is_colliding.y + (sprite_get_height(sWaterPoolStart) / 2));
 	}	else {direction=point_direction(x,y,target.x,target.y);}
 	
