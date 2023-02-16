@@ -29,7 +29,8 @@ function newCreateItem(_data){
 		ItemList[_data.id][i] = {};
 		var m = ItemList[_data.id][i];		
 		variable_struct_set(m, "level", i);
-		variable_struct_set(m, "style", ItemTypes.Item);	
+		variable_struct_set(m, "style", ItemTypes.Item);
+		variable_struct_set(m, "type", "yellow");
 		var keys = variable_struct_get_names(_data);
 		for (var j = array_length(keys)-1; j >= 0; --j) {
 		    var k = keys[j];
@@ -79,22 +80,22 @@ function newCreateItem(_data){
 		Face_Mask, //TODO: convert item format
 		Full_Meal, //TODO: actually double the heal amount
 		Gorilla_Paw, //TODO: lower the crit damage
-		//GWS_Pill,
-		//Halu,
+		GWS_Pill, //TODO: add crit effects
+		Halu,//TODO: add all effects
 		Headphones, //TODO: add knockback
 		Idol_Costume,
 		Injection_Type_Asacoco, //TODO: convert item format
-		//Just_Bandage,
+		Just_Bandage, //TODO: add all effects
 		Knightly_Milk, //TODO: convert item format
-		//Limiter,
-		//Membership,
+		Limiter, //TODO: add all effects
+		Membership, //TODO: add all effects
 		NurseHorn, //TODO: convert item format
-		//Piki_Piki_Piman, 
-		//Plushie,
-		//Sake,
-		//Stolen_Piggy_Bank,
+		Piki_Piki_Piman, //TODO: add all effects
+		Plushie, //TODO: add all effects
+		Sake, //TODO: add all effects
+		Stolen_Piggy_Bank, //TODO: add all effects
 		Study_Glasses, //TODO: see if the +% is actually accurate
-		//Super_Chatto_Time,
+		Super_Chatto_Time, //TODO: add all effects
 		Uber_Sheep//TODO: fix drop chance from enemies and convert item format
 	}
 	global.bonuses[0] = 0;
@@ -149,7 +150,7 @@ function populateItems(){
 				weight : 4,
 				thumb : sCreditCard,
 				cooldown : 1,
-				type : "yellow",
+				
 				desc : [
 				"Cost of enhancing is reduced by [20%] and anvils appear [20%] more often.", 
 				"Cost of enhancing is reduced by [25%] and anvils appear [40%] more often.",
@@ -166,6 +167,174 @@ function populateItems(){
 			Bonuses[BonusType.EnhancingCost][ItemIds.CreditCard] = 0;
 			#endregion
 		
+			#region GWS Pill
+			newCreateItem({
+				id : ItemIds.GWS_Pill,
+				name : "GWS Pill",
+				maxlevel : 3,
+				weight : 2,
+				thumb : sGWSPill,
+				cooldown : 1,
+				
+				desc : [
+				"While the Special meter is still charging, increase crit by 15%.", 
+				"While the Special meter is still charging, increase crit by 20%.", 
+				"While the Special meter is still charging, increase crit by 25%."],
+				perk : false});
+			#endregion
+			
+			#region Just Bandage 
+			newCreateItem({
+				id : ItemIds.Just_Bandage,
+				name : "Just Bandage",
+				maxlevel : 3,
+				weight : 4,
+				thumb : sJustBandage,
+				cooldown : 1,
+				desc : [
+				"Increase Max HP by 10. After being hit, heal 10% HP every 3 seconds until 80% of the damage taken is recovered (recovers minimum 1 HP).",
+				"Increase Max HP by 20. After being hit, heal 10% HP every 3 seconds until 90% of the damage taken is recovered (recovers minimum 1 HP).",
+				"Increase Max HP by 30. After being hit, heal 10% HP every 3 seconds until 100% of the damage taken is recovered (recovers minimum 1 HP).", 
+				],
+				perk : false});
+			#endregion
+			
+			#region Limiter
+			newCreateItem({
+				id : ItemIds.Limiter,
+				name : "Limiter",
+				maxlevel : 3,
+				weight : 4,
+				thumb : sLimiter,
+				cooldown : 1,
+				desc : [
+				"Gain 100% Pick Up Range. ",
+				"Gain 200% Pick Up Range. ",
+				"Gain 300% Pick Up Range. ",				
+				],
+				perk : false});
+			#endregion
+			
+			#region Super Chatto Time
+			newCreateItem({
+				id : ItemIds.Super_Chatto_Time,
+				name : "Super Chatto Time",
+				maxlevel : 5,
+				weight : 2,
+				thumb : sSuperChattoTime,
+				cooldown : 1,
+				desc : [
+				"Targets drop 20% more HoloCoins. All HoloCoins are picked automatically.",
+				"Targets drop 40% more HoloCoins. All HoloCoins are picked automatically.",
+				"Targets drop 60% more HoloCoins. All HoloCoins are picked automatically.",
+				"Targets drop 80% more HoloCoins. All HoloCoins are picked automatically.",
+				"Targets drop 100% more HoloCoins. All HoloCoins are picked automatically.",
+				],
+				perk : false});
+			#endregion
+			
+			#region Stolen Piggy Bank
+			newCreateItem({
+				id : ItemIds.Stolen_Piggy_Bank,
+				name : "Stolen Piggy Bank",
+				maxlevel : 1,
+				weight : 2,
+				thumb : sStolenPiggyBank,
+				cooldown : 1,
+				desc : [
+				"Gain 1 coin for every 100px traveled and increase SPD by 20%. However, reduce Pick Up Range by 30%.",
+				"Gain 1 coin for every 75px traveled and increase SPD by 30%. However, reduce Pick Up Range by 30%.",
+				"Gain 1 coin for every 50px traveled and increase SPD by 40%. However, reduce Pick Up Range by 30%.",
+				],
+				perk : false});
+			#endregion
+		
+			#region Sake
+			newCreateItem({
+				id : ItemIds.Sake,
+				name : "Sake",
+				maxlevel : 3,
+				weight : 4,
+				thumb : sSake,
+				cooldown : 1,
+				desc : [
+				"Gain 1% crit buff every second up to 10%. If taking damage by a target, lose half the buff. If eating food, +5% crit for 10 seconds.",
+				"Gain 1% crit buff every second up to 15%. If taking damage by a target, lose half the buff. If eating food, +5% crit for 10 seconds.",
+				"Gain 1% crit buff every second up to 20%. If taking damage by a target, lose half the buff. If eating food, +5% crit for 10 seconds.",
+				],
+				perk : false});
+			#endregion
+			
+			#region Plushie
+			newCreateItem({
+				id : ItemIds.Plushie,
+				name : "Plushie",
+				maxlevel : 3,
+				weight : 3,
+				thumb : sPlushie,
+				cooldown : 1,
+				desc : [
+				"Delays taken damage. On any hit by a target, take only [30%] of the damage initially, then take the remaining damage gradually.",
+				"Delays taken damage. On any hit by a target, take only [20%] of the damage initially, then take the remaining damage gradually.",
+				"Delays taken damage. On any hit by a target, take only [10%] of the damage initially, then take the remaining damage gradually.",
+				],
+				perk : false});
+			#endregion
+			
+			#region Piki Piki Piman
+			newCreateItem({
+				id : ItemIds.Piki_Piki_Piman,
+				name : "Piki Piki Piman",
+				maxlevel : 3,
+				weight : 4,
+				thumb : sPikiPikiPiman,
+				cooldown : 1,
+				desc : [
+				"Gain 15 Max HP. After receiving damage, increase the special meter by 2%. There is a 0.2 second cooldown.",
+				"Gain 20 Max HP. After receiving damage, increase the special meter by 3%. There is a 0.2 second cooldown.",
+				"Gain 25 Max HP. After receiving damage, increase the special meter by 4%. There is a 0.2 second cooldown.",
+				],
+				perk : false});
+			#endregion
+			
+			#region Membership
+			newCreateItem({
+				id : ItemIds.Membership,
+				name : "Membership",
+				maxlevel : 3,
+				weight : 3,
+				thumb : sMembership,
+				cooldown : 1,
+				desc : [
+				"Lose 3 Holo Coins per second. If Holo Coins is more than 0, increase damage by 30% and take 10% less damage.",
+				"Lose 3 Holo Coins per second. If Holo Coins is more than 0, increase damage by 40% and take 18% less damage.",
+				"Lose 3 Holo Coins per second. If Holo Coins is more than 0, increase damage by 50% and take 25% less damage.",
+				],
+				perk : false});
+			#endregion
+			
+			#region Halu 
+			newCreateItem({
+				id : ItemIds.Halu,
+				name : "Halu",
+				maxlevel : 5,
+				weight : 3,
+				thumb : sHalu,
+				cooldown : 1,				
+				desc : [
+				"Increase regular fan spawns, and fans become 5% stronger. Gain 1 HoloCoin for every 5 targets defeated since taking this item.",
+				"Increase regular fan spawns more, and fans become 15% stronger. Gain 1 HoloCoin for every 4 targets defeated since taking this item.",
+				"Increase regular fan spawns further, and fans become 25% stronger. Gain 1 HoloCoin for every 3 targets defeated since taking this item.",
+				"Increase regular fan spawns even further beyond, and fans become 33% stronger. Are you sure about this?",
+				"Don't do it. ",
+				],
+				perk : false});
+				/*
+				Each upgrade adds 2 to the enemy spawn rate, resulting in an increase in the effective spawn rate of new enemies by between 15% to 70% of the base spawn rate at most times, depending on how long the player is into the game. Each upgrade also buffs the HP, ATK, and SPD of each enemy by 10%/15%/20%/25%/30% (incorrect tooltip), depending on the upgrade level. When Halu is selected or upgraded, the buff is immediately applied to future spawns and all enemies on screen that have not been damaged.
+				HoloCoin bonus only affects enemies that were defeated after Halu was first selected; however, the number of coins gained is applied retroactively to this total using the coin per kill rate of the item's upgrade level when the stage ends. Although not listed in the item description, level 4 grants the player 1 HoloCoin for every 2 targets defeated since taking the item, and level 5 gains 1 HoloCoin for every target defeated since taking the item. The amount of coins gained from Halu is only affected by the stage coin multiplier. 
+				*/
+			#endregion
+		
 			#region Idol Costume
 				newCreateItem({
 					id : ItemIds.Idol_Costume,
@@ -174,7 +343,7 @@ function populateItems(){
 					weight : 1,
 					thumb : sIdolCostume,
 					cooldown : 1,
-					type : "yellow",
+					
 					desc : [
 					"Reduce Special cooldown by 20%.", 
 					"Reduce Special cooldown by 25%.",
@@ -225,7 +394,7 @@ function populateItems(){
 				weight : 4,
 				thumb : sHeadPhones,
 				cooldown : 1,
-				type : "yellow",
+				
 				desc : [
 				"[15%] chance to negate [1] hit, and create a shockwave that knocks back all targets.", 
 				"[20%] chance to negate [1] hit, and create a shockwave that knocks back all targets.", 
@@ -269,7 +438,7 @@ function populateItems(){
 				weight : 3,
 				thumb : sStudyGlasses,
 				cooldown : 1,
-				type : "yellow",
+				
 				desc : [
 				"Increase EXP gain by [10%].", 
 				"Increase EXP gain by [15%].",
