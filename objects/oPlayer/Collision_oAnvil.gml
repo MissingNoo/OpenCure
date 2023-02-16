@@ -1,13 +1,14 @@
+// Feather disable GM2016
 var possible_upgrade = false;
 
 for (var i = 0; i < array_length(UPGRADES); ++i) {
-	if (UPGRADES[i][?"level"] < UPGRADES[i][?"maxlevel"]) {
+	if (UPGRADES[i][$"level"] < UPGRADES[i][$"maxlevel"]) {
 		possible_upgrade = true;
 	}
 }
 
 for (var i = 0; i < array_length(playerItems); ++i) {
-	if (playerItems[i][?"level"] < playerItems[i][?"maxlevel"]) {
+	if (playerItems[i][$"level"] < playerItems[i][$"maxlevel"]) {
 		possible_upgrade = true;
 	}
 }
