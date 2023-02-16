@@ -73,23 +73,23 @@ function newCreateItem(_data){
 
 	enum ItemIds
 	{
-		Body_Pillow, //TODO: convert item format
-		Chicken_Feather, //TODO: convert item format
+		Body_Pillow,
+		Chicken_Feather,
 		CreditCard,
-		Energy_Drink, //TODO: convert item format
-		Face_Mask, //TODO: convert item format
+		Energy_Drink,
+		Face_Mask,
 		Full_Meal, //TODO: actually double the heal amount
 		Gorilla_Paw, //TODO: lower the crit damage
 		GWS_Pill, //TODO: add crit effects
 		Halu,//TODO: add all effects
 		Headphones, //TODO: add knockback
 		Idol_Costume,
-		Injection_Type_Asacoco, //TODO: convert item format
+		Injection_Type_Asacoco,
 		Just_Bandage, //TODO: add all effects
-		Knightly_Milk, //TODO: convert item format
+		Knightly_Milk,
 		Limiter, //TODO: add all effects
 		Membership, //TODO: add all effects
-		NurseHorn, //TODO: convert item format
+		NurseHorn,
 		Piki_Piki_Piman, //TODO: add all effects
 		Plushie, //TODO: add all effects
 		Sake, //TODO: add all effects
