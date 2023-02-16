@@ -8,8 +8,8 @@ if (socket == oPlayer.socket) {
 }
 #region Connected to Character
 if (!global.gamePaused) {
-	switch (upg[$"name"]) {
-		case "GuraTrident":{
+	switch (upg[$"id"]) {
+		case Weapons.GuraTrident:{
 			x=owner.x;
 			y=owner.y-8;
 			break;}
@@ -19,7 +19,7 @@ if (!global.gamePaused) {
 			x=owner.x;
 			y=owner.y-8;
 			break;}
-		case "Plug-type Asacoco":{
+		case Weapons.PlugAsaCoco:{
 			if (alarm_get(0) > 0) {
 			    y-=1.75;
 				if (instance_exists(CE)) {
@@ -28,7 +28,7 @@ if (!global.gamePaused) {
 				}				
 			}else {image_alpha = 1;}		
 			break;}
-		case "BL Book":{
+		case Weapons.BlBook:{
 			x = owner.x + lengthdir_x(orbit_length, orbit_place);
 			y = owner.y - 16 + lengthdir_y(orbit_length, orbit_place);
 			orbit_place-=3;
