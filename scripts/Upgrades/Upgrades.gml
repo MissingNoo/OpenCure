@@ -39,25 +39,29 @@ enum ItemTypes {
 
 #region Upgrades
 function newCreateUpgrade(_data){
-	global.upgradesAvaliable[_data.id[0]][0] = global.null;
-	for (var i = 1; i <= _data.maxlevel[0]; ++i) {	    
-		global.upgradesAvaliable[_data.id[0]][i] = {};
-		var m = global.upgradesAvaliable[_data.id[0]][i];
+	global.upgradesAvaliable[_data.id][0] = global.null;
+	for (var i = 1; i <= _data.maxlevel; ++i) {	    
+		global.upgradesAvaliable[_data.id][i] = {};
+		var m = global.upgradesAvaliable[_data.id][i];
 		variable_struct_set(m, "level" ,i);
 		variable_struct_set(m, "style", ItemTypes.Weapon);
 		var keys = variable_struct_get_names(_data);
 		for (var j = array_length(keys)-1; j >= 0; --j) {
 		    var k = keys[j];
 		    var v = _data[$ k];
-			if (array_length(v) > 1) {
-			    variable_struct_set(m, k, v[i-1]);
+			if (is_array(v)) {
+			    if (array_length(v) > 1) {
+				    variable_struct_set(m, k, v[i-1]);
+				}
+				else
+				{
+					variable_struct_set(m, k, v[0]);
+				}   
+			}else{
+				variable_struct_set(m, k, v);
 			}
-			else
-			{
-				variable_struct_set(m, k, v[0]);
-			}   
 		}
-		global.upgradeCooldown[_data.id[0]] = 0;
+		global.upgradeCooldown[_data.id] = 0;
 	}
 }
 
@@ -102,7 +106,7 @@ enum Weapons
 	PowerofAtlantis, //TODO: water area, more damage
 	//InaTentacle,
 	BlBook, //TODO: area
-	//CEOTears,
+	CEOTears,
 	//CuttingBoard,
 	EliteLavaBucket, //TODO: lava area
 	//FanBean,
@@ -118,39 +122,22 @@ enum Weapons
 function populateUpgrades(){
 	#region Character Perks
 		#region Amelia Perks
-			#region AmePistol old
-				//createUpgrade(Weapons.AmePistol, "AmePistol", 1, sAmeShoot, sAmePistol, 7, 13, 80, 120, 10, true, 5, 1, "red", 3, "Shoots 3 Projectiles forward. Horizontal only.");
-				//createUpgradeP2(Weapons.AmePistol, 1, 7, 0, 0, 1, Characters.Amelia);
-				//createUpgrade(Weapons.AmePistol, "AmePistol", 2, sAmeShoot, sAmePistol, 7, 13, 80, 120, 10, true, 5, 2, "red", 4, "Shoot [1] additional shot, and each bullet can pierce [+1]  times.");
-				//createUpgradeP2(Weapons.AmePistol, 2, 7, 0, 0, 1, Characters.Amelia);
-				//createUpgrade(Weapons.AmePistol, "AmePistol", 3, sAmeShoot, sAmePistol, 7*1.25, 13*1.25, 80, 120, 10, true, 5, 2, "red", 4, "Increase damage by [25%] .");
-				//createUpgradeP2(Weapons.AmePistol, 3, 7, 0, 0, 1, Characters.Amelia);
-				//createUpgrade(Weapons.AmePistol, "AmePistol", 4, sAmeShoot, sAmePistol, 7*1.25, 13*1.25, 80, 120, 10, true, 5, 2, "red", 4, "Bullets ricochet if hit limit is reached.");
-				//createUpgradeP2(Weapons.AmePistol, 4, 7, 0, 0, 1, Characters.Amelia);
-				//createUpgrade(Weapons.AmePistol, "AmePistol", 5, sAmeShoot, sAmePistol, 7*1.25, 13*1.25, 80*0.75, 120, 10, true, 5, 3, "red", 4, "Each bullet can pierce [+1]  times. Reduce the time between attacks by [25%] .");
-				//createUpgradeP2(Weapons.AmePistol, 5, 7, 0, 0, 1, Characters.Amelia);
-				//createUpgrade(Weapons.AmePistol, "AmePistol", 6, sAmeShoot, sAmePistol, 7*1.25*1.40, 13*1.25*1.40, 80*0.75, 120, 10, true, 5, 3, "red", 4, "Increase damage by [40%] .");
-				//createUpgradeP2(Weapons.AmePistol, 6, 7, 0, 0, 1, Characters.Amelia);
-				//createUpgrade(Weapons.AmePistol, "AmePistol", 7, sAmeShoot, sAmePistol, 7*1.25*1.40, 13*1.25*1.40, 80*0.75, 120, 10, true, 5, 3, "red", 6, "Shoot [2]  additional shots, and pistol becomes spread type.");
-				//createUpgradeP2(Weapons.AmePistol, 7, 7, 0, 0, 1, Characters.Amelia);
-			#endregion
 			#region AmePistol 
-			newCreateUpgrade(
-			{
-				id : [Weapons.AmePistol],
-				name : ["AmePistol"],
-				maxlevel : [7],
-				sprite : [sAmeShoot],
-				thumb : [sAmePistol],
+			newCreateUpgrade({
+				id : Weapons.AmePistol,
+				name : "AmePistol",
+				maxlevel : 7,
+				sprite : sAmeShoot,
+				thumb : sAmePistol,
 				mindmg : [7, 7, 7*1.25, 7*1.25, 7*1.25, 7*1.25*1.40, 7*1.25*1.40],
 				maxdmg : [13, 13, 13*1.25, 13*1.25, 13*1.25, 13*1.20*1.40, 13*1.20*1.40],
 				cooldown : [80, 80, 80, 80, 80*0.75, 80*0.75, 80*0.75],
 				duration : [120, 120, 120, 120, 120, 120, 120], 
 				hitCooldown : [10, 10, 10, 10, 10, 10, 10], 
-				canBeHasted : [true],
+				canBeHasted : true,
 				speed : [5, 5, 5, 5, 5, 5, 5],
 				hits : [1, 2, 2, 2, 3, 3, 3],
-				type : ["red"],
+				type : "red",
 				shoots : [3, 4, 4, 4, 4, 4, 6],
 				desc : [
 				"Shoots 3 Projectiles forward. Horizontal only.", 
@@ -163,11 +150,9 @@ function populateUpgrades(){
 				],
 				knockbackSpeed : [0, 0, 0, 0, 0, 0, 0],
 				knockbackDuration : [0, 0, 0, 0, 0, 0, 0],
-				perk : [true],
-				character : [Characters.Amelia]
-			}
-			
-			)
+				perk : true,
+				characterid : Characters.Amelia
+			});
 			#endregion
 		#endregion	
 	
@@ -231,6 +216,38 @@ function populateUpgrades(){
 	#endregion
 	
 	#region CEO Tears
+	newCreateUpgrade({
+				id : Weapons.CEOTears,
+				name : "CEO's Tears",
+				maxlevel : 7,
+				sprite : sCeoTears,
+				thumb : sCeoTearsThumb,
+				mindmg : [7, 7*1.20, 7*1.20, 7*1.20, 7*1.40, 7*1.40, 7*1.40],
+				maxdmg : [13, 13*1.20, 13*1.20, 13*1.20, 13*1.40, 13*1.40, 13*1.40],
+				cooldown : [30, 30, 30, 30 * 0.67, 30 * 0.67, 30 * 0.67 * 0.50, 30 * 0.67 * 0.50],
+				duration : 90, 
+				hitCooldown : 30, 
+				canBeHasted : true,
+				speed : [4, 4, 4, 4, 4 * 0.75, 4 * 0.75, 4 * 0.75],
+				hits : 1,
+				type : "white",
+				shoots : [1, 1, 2, 2, 2, 2, 4],
+				desc : [
+				"Fires rapid tears at random targets.",
+				"Increases damage by 20%.",
+				"Shoot 2 tears.",
+				"Reduce the time between attacks by 33%.",
+				"Tears are 25% faster and increase damage by 20%.",
+				"Reduce the time between attacks by 50%.",
+				"Shoot 4 tears.", 
+				],
+				knockbackSpeed : 0,
+				knockbackDuration : 0,
+				perk : false,
+			});
+			//for (var i = 0; i < array_length(global.upgradesAvaliable[Weapons.CEOTears]); ++i) {
+			//    show_message(global.upgradesAvaliable[Weapons.CEOTears][i]);
+			//}
 		//Damage: 	100% (7 – 13)
 		//Attack time: 	30 (0.5 s)
 		//Attack count: 	1
@@ -355,7 +372,8 @@ function randomUpgrades(){
 						    array_push(weapons_list, WEAPONS_LIST[i]);
 						}
 					} else {
-						if (WEAPONS_LIST[i][1][$"characterid"] == -1 or WEAPONS_LIST[i][1][$"characterid"] == global.player[?"id"]) {
+						//if (WEAPONS_LIST[i][1][$"characterid"] == -1 or WEAPONS_LIST[i][1][$"characterid"] == global.player[?"id"]) {
+						if (!variable_struct_exists(WEAPONS_LIST[i][1], "characterid") or WEAPONS_LIST[i][1][$"characterid"] == -1 or WEAPONS_LIST[i][1][$"characterid"] == global.player[?"id"]) {
 							//show_message("test");
 						    array_push(weapons_list, WEAPONS_LIST[i]);
 						}						
@@ -366,6 +384,7 @@ function randomUpgrades(){
 				for (var i = 0; i < array_length(UPGRADES); ++i) {
 				    if (UPGRADES[i][$"level"] != UPGRADES[i][$"maxlevel"] and UPGRADES[i] != global.null) {
 					    array_push(weapons_list, WEAPONS_LIST[UPGRADES[i][$"id"]]);
+						
 						//str = str + ":" + UPGRADES[i][$"name"];
 					}
 				}	
@@ -711,6 +730,7 @@ function randomUpgrades(){
 	//global.upgradeOptions[3] = global.null;
 	#endregion
 	//global.upgradeOptions[0] = ItemList[ItemIds.CreditCard][1];
+	global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.CEOTears][1];
 	#region old	
 	//for (var i=0; i<4; i++) {
 	//	do {
