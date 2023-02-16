@@ -37,7 +37,7 @@ global.perkBonuses[0] = 0;
 		DetectiveEye,//TODO: chance to kill in one hit
 		Bubba,//TODO: Everythingq
 		ShortSize,//TODO: not work with shield, dodge, 
-		PowerofAtlantis,
+		PowerofAtlantis, //TODO: fix enemies not stuck in water
 		SharkBite//TODO: everything
 		
 	}
