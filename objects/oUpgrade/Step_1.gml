@@ -6,6 +6,7 @@ if (socket == oPlayer.socket) {
 #region Start
 // Feather disable GM2016
 if (a==0) {	
+	var randomEnemy;
 	global.upgradeCooldown[upg[$"id"]] = upg[$"cooldown"];
 	alarm[1] = upg[$"duration"];
 	image_speed=1;
@@ -16,18 +17,18 @@ if (a==0) {
 	//}
 	
 	//show_message(string(image_xscale));
-	switch (upg[$"name"]) {
+	switch (upg[$"id"]) {
 		default:{
 			defaultBehaviour();
 			break;}
 			
-		case "AmePistol":{
+		case Weapons.AmePistol:{
 			audio_play_sound(snd_bullet,0,0);
 			defaultBehaviour();
 			alarm[0] = 10;
 			break;}
 			
-		case "GuraTrident":{
+		case Weapons.GuraTrident:{
 			image_angle = arrowDir + diroffset;
 			//defaultBehaviour();			
 			if (upg[$"level"] >= 6) {
@@ -51,7 +52,7 @@ if (a==0) {
 			alarm[0]=1;
 			break;}
 			
-		case "Plug-type Asacoco":{
+		case Weapons.PlugAsaCoco:{
 			originaly=y;
 			image_alpha = .99;
 			if (instance_exists(oEnemy)) {
@@ -79,7 +80,7 @@ if (a==0) {
 			alarm[0]=30;
 			break;}
 			
-		case "BL Book":{
+		case Weapons.BlBook:{
 			orbit_length = 50;
 			if (shoots > 0) {	
 				switch (upg[$"level"]) {
@@ -109,7 +110,7 @@ if (a==0) {
 			alarm[0]=1;
 			break;}
 			
-		case "Elite Lava Bucket":{	
+		case Weapons.EliteLavaBucket:{	
 			level = upg[$"level"];
 			random_set_seed(current_time);
 			x = owner.x + irandom_range(-100,100)
@@ -132,7 +133,7 @@ if (a==0) {
 				image_yscale = image_yscale * 1.40;
 			}
 			break;}
-		case "Power of Atlantis":{	
+		case Weapons.PowerofAtlantis:{	
 			random_set_seed(current_time);
 			x = owner.x + irandom_range(-200,200)
 			random_set_seed(current_time);
@@ -141,6 +142,23 @@ if (a==0) {
 			image_xscale = 1.3;
 			image_yscale = 1.3;
 			break;}
+		case Weapons.CEOTears:{
+			if (instance_exists(oEnemy)) {
+				random_set_seed(current_time * global.upgradeCooldown[0]);
+				var enemies = instance_number(oEnemy);
+				//var CE = instance_nearest(x,y-50.75,oEnemy);
+				CE = instance_find(oEnemy, irandom_range(0,enemies-1));
+				direction = point_direction(x,y,CE.x, CE.y)
+				image_angle = point_direction(x,y,CE.x, CE.y)
+				if (shoots>0) {
+					for (var i = 1; i < shoots; ++i) {
+						spawnUpgrade();
+						alarm[0]=1;
+					}
+				}
+			} else instance_destroy();
+			break;
+		}
 	}
 		if (sprite_index==blank) {
 			instance_destroy();
@@ -152,7 +170,7 @@ if (a==0) {
 			image_yscale = image_yscale * Bonuses[BonusType.WeaponSize][i];
 		}
 	}
-	//if (instance_exists(oClient)) {
+	{ //online code
 		vars = variable_instance_get_names(self);
 		savedvars = {};
 		for (var i = 0; i < array_length(vars); ++i) {
@@ -182,7 +200,7 @@ if (a==0) {
 		if (!variable_instance_exists(self, "sent")) {
 		    network_send_packet(oClient.client, oClient.clientBuffer, buffer_tell(oClient.clientBuffer));
 		}
-	//}	
+	}	
 }
 
 #endregion
