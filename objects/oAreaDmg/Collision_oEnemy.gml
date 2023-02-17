@@ -1,0 +1,1 @@
+other.hp -= UPGRADES[0][$"mindmg"];
