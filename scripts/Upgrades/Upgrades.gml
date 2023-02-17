@@ -103,12 +103,12 @@ enum Weapons
 	GuraTrident,
 	PowerofAtlantis, //TODO: water area, more damage
 	//InaTentacle,
-	BlBook, //TODO: area
+	BlBook, //TODO: area, knockback
 	CEOTears,
 	CuttingBoard, //TODO: add bonus for flat characters, knockback, Shoot additional walls from sides, Walls travel farther
 	//If a flat character uses the Cutting Board weapon, the spawned Cutting Board projectile will be 30% bigger than normal, and will also deal 30% more damage.
 	EliteLavaBucket, //TODO: lava area
-	FanBeam,
+	FanBeam, //TODO: knockback
 	//Glowstick,
 	HoloBomb, //TODO: explosion radius
 	//IdolSong,
@@ -206,11 +206,11 @@ function populateUpgrades(){
 		createUpgradeP2(Weapons.BlBook, 3, 7, 3, 5);
 		createUpgrade(Weapons.BlBook, "BL Book", 4, sBLBook, sBLBookThumb, 10*1.30, 18*1.30, 360, 180, 20, 1, 3, 7, "white", 5, "Add [1]  additional book.");
 		createUpgradeP2(Weapons.BlBook, 4, 7, 3, 5);
-		createUpgrade(Weapons.BlBook, "BL Book", 5, sBLBook, sBLBookThumb, 10*1.30*1.40, 18*1.30*1.40, 360, 180, 20, 1, 3, 7, "white", 5, "Increase Damage by [40%] .");
+		createUpgrade(Weapons.BlBook, "BL Book", 5, sBLBook, sBLBookThumb, 10*1.30*1.40, 18*1.30*1.40, 360, 180, 20, 1, 5, 7, "white", 5, "Increase Damage by [40%] .");
 		createUpgradeP2(Weapons.BlBook, 5, 7, 3, 5);
-		createUpgrade(Weapons.BlBook, "BL Book", 6, sBLBook, sBLBookThumb, 10*1.30*1.40, 18*1.30*1.40, 360, 180, 20, 1, 3, 7, "white", 6, "Add [1]  additional book. ");
+		createUpgrade(Weapons.BlBook, "BL Book", 6, sBLBook, sBLBookThumb, 10*1.30*1.40, 18*1.30*1.40, 360, 180, 20, 1, 5, 7, "white", 6, "Add [1]  additional book. ");
 		createUpgradeP2(Weapons.BlBook, 6, 7, 3, 5);
-		createUpgrade(Weapons.BlBook, "BL Book", 7, sBLBook, sBLBookThumb, 10*1.30*1.40*1.40, 18*1.30*1.40*1.40, 360, 180, 20, 1, 3, 7, "white", 6, "Increase damage by [40%] .");
+		createUpgrade(Weapons.BlBook, "BL Book", 7, sBLBook, sBLBookThumb, 10*1.30*1.40*1.40, 18*1.30*1.40*1.40, 360, 180, 20, 1, 5, 7, "white", 6, "Increase damage by [40%] .");
 		createUpgradeP2(Weapons.BlBook, 7, 7, 3, 5);
 	#endregion
 	
