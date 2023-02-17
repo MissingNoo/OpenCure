@@ -1,5 +1,3 @@
-
-// Feather disable GM2017
 // Feather disable GM2017
 #macro UPGRADES global.upgrades
 global.upgrade = false;
@@ -779,43 +777,13 @@ function randomUpgrades(){
 	//global.upgradeOptions[3] = global.null;
 	#endregion
 	//global.upgradeOptions[0] = ItemList[ItemIds.CreditCard][1];
-	global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.FanBeam][1];
-	#region old	
-	//for (var i=0; i<4; i++) {
-	//	do {
-	//		rdnnumber = irandom_range(0,array_length(ups)-1);
-	//		pickedupgrade = ups[rdnnumber][1];
-	//		isperk = pickedupgrade[?"perk"];
-	//		if (pickedupgrade[?"perk"] == 1) {
-	//			show_debug_message("picked a perk: " + string(pickedupgrade[?"name"]));
-	//		    if (pickedupgrade[?"characterid"] == global.player[?"id"]) {
-	//			    isperk = 0;
-	//			}
-	//		}			
-	//		array_delete(ups, rdnnumber, 1);
-	//	} until (isperk != 1);
-	//	array_delete(ups, rdnnumber, 1);
-	//	global.upgradeOptions[i] = pickedupgrade;
-	//}
-		
-	//global.upgradeOptions[0] = global.player[?"weapon"][1];
-	//global.upgradeOptions[1] = ItemList[ItemIds.Uber_Sheep][1];
-	//global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.BlBook][1];
-	//global.upgradeOptions[1] = global.upgradesAvaliable[Weapons.HoloBomb][1];
-	//global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.EliteLavaBucket][1];
-	#endregion
+	//global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.FanBeam][1];
 }	
 
 function tickPowers(){
 	if (attacktick == true and UPGRADES[0][$"name"]!="") {
 		for (i=0; i < array_length(UPGRADES); i++) {
 			if (UPGRADES[i] != global.null and global.upgradeCooldown[UPGRADES[i][$"id"]] <= 0) {
-			    //inst = (instance_create_layer(x,y-8,"Upgrades",oUpgrade));
-				//inst.upg=UPGRADES[i];
-				//inst.speed=UPGRADES[i][?"speed"];
-				//inst.hits=UPGRADES[i][?"hits"];
-				//inst.shoots = UPGRADES[i][?"shoots"];
-				//inst.sprite_index=UPGRADES[i][?"sprite"];
 				instance_create_layer(x,y-8,"Upgrades",oUpgrade,{
 					upg : UPGRADES[i],
 					speed : UPGRADES[i][$"speed"],
