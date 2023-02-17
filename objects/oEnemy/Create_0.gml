@@ -1,4 +1,5 @@
 event_inherited();
+debuffs = [];
 damaged=false;
 target = oPlayer;
 enemynum = 1;

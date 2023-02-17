@@ -31,8 +31,27 @@ if(global.gamePaused == false){
 		}
 	}
 	atk = (baseATK + (2 * global.timeA)) * (1 + (global.timeB / 25));
-	
 	speed = (baseSPD + (0.12 * global.timeA)) * (1 + (global.timeB / 25));
+	
+	var debuffLenght = array_length(debuffs);
+	for (var i = 0; i < debuffLenght; ++i) {
+	    if (debuffs[i].id == BuffNames.Slowness) {
+		    speed = speed * 0.2;
+		}
+	}
+	
+	#region debuff cooldown
+		for (var i = 0; i < debuffLenght; ++i) {
+		    if (debuffs[i].time > 0) {
+			    debuffs[i].time -= 1/60;
+				//show_message(debuffs[i].cooldown);
+			}
+			else {
+			    array_delete(debuffs, i, 1);
+			}
+		}
+	#endregion
+	
 }
 var pausedamaged = false;
 

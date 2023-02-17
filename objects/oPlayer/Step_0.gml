@@ -2,7 +2,7 @@
 if (keyboard_check_pressed(ord("H")) and global.debug) {	global.xp=neededxp; }
 if (!global.gamePaused) {
 	if (skilltimer < special.cooldown + 10) { skilltimer+=1/60; }
-	
+	if (skilltimer < special.cooldown + 10) { skilltimer+=100; }
 	tickPowers();
 	tickItems();
 	tickPerks();

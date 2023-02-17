@@ -20,7 +20,7 @@ global.specialBonuses[0] = 0;
 
 	enum SpecialIds
 	{
-		Amelia,
+		Amelia, //TODO: speed bonus for weapon
 		Gura,
 	}
 #endregion
@@ -33,5 +33,16 @@ function useSpecial(_special)
 {
 	skilltimer = 0;
 	global.lastsequence = layer_sequence_create("Specials", x, y, _special.seq);
-	//show_message("used special id: " + string(_special.name));
+	switch (_special.id) {
+	    case SpecialIds.Amelia:{
+			if (!instance_exists(oEnemy)) { break; }
+	        with (oEnemy) {
+			    array_push(debuffs, copyStruct(Buffs[BuffNames.Slowness]));
+				//show_message(Buffs[BuffNames.Slowness]);
+			}
+	        break;}
+	    default:
+	        // code here
+	        break;
+	}
 }

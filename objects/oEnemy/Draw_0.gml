@@ -16,8 +16,13 @@ if (global.debug) {
 	}
 }
 //draw_text(x,y-32,string(atk));
+var offset = 0;
 for (var i = 0; i < array_length(debuffs); ++i) {
-    draw_sprite(debuffs[i].icon,0,x,y+30);
-	draw_text(x,y+35, debuffs[i].marks);
+	var iconsize = sprite_get_width(debuffs[i].icon);
+    draw_sprite(debuffs[i].icon,0,x+offset,y+30);
+	if (variable_struct_exists(debuffs[i], "marks")) {
+	    draw_text(x+offset, y+35, debuffs[i].marks);
+	}
+	offset += iconsize + 5;
 }
 

@@ -95,7 +95,8 @@ function createCharacter(_id, _name, _portrait, _sprite, _runningsprite, _hp, _s
 
 enum BuffNames{
 	ShortHeight,
-	SharkBite
+	SharkBite,
+	Slowness
 }
 
 function populateCharacters(){
@@ -120,6 +121,12 @@ function populateCharacters(){
 		level : 1,
 		damage : [1,1.6,1.9,1.12],
 		chance : [0,10,15,20]
+	}
+	Buffs[BuffNames.Slowness] = {
+		id : BuffNames.Slowness,
+		name : "Slowness",
+		icon : sShortHeight, //TODO: add slow speed icon
+		time : 15,
 	}
 	//createCharacter(Characters.Ina,"Ninomae Ina'nis",sInaPortrait,sInaIdle,sInaRunning,75,1.50,0.90,u[Weapons.InaTentacle]);
 	//createCharacter(Characters.Kiara,"Takanashi Kiara",sAmePortrait,sAmeIdle,sAmeRunning,30,1.35,10,u[Weapons.AmePistol]);
