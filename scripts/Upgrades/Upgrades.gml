@@ -110,7 +110,7 @@ enum Weapons
 	CuttingBoard, //TODO: add bonus for flat characters, knockback, Shoot additional walls from sides, Walls travel farther
 	//If a flat character uses the Cutting Board weapon, the spawned Cutting Board projectile will be 30% bigger than normal, and will also deal 30% more damage.
 	EliteLavaBucket, //TODO: lava area
-	//FanBean,
+	FanBeam,
 	//Glowstick,
 	HoloBomb, //TODO: explosion radius
 	//IdolSong,
@@ -245,6 +245,39 @@ function populateUpgrades(){
 				],
 				knockbackSpeed : 7,
 				knockbackDuration : 20,
+				perk : false,
+			});
+	#endregion
+	
+	#region Fan Beam
+	newCreateUpgrade({
+				id : Weapons.FanBeam,
+				name : "Fan Beam",
+				maxlevel : 7,
+				sprite : sFanBeam,
+				thumb : sFanBeamThumb,
+				mindmg : [27, 27, 27, 36, 36, 36, 36],
+				maxdmg : [33, 33, 33, 44, 44, 44, 44],
+				cooldown : [180, 180, 150, 150, 120, 120, 120],
+				duration : 999, 
+				hitCooldown : 60, 
+				canBeHasted : true,
+				speed : 0,
+				hits : 9999,
+				type : "white",
+				shoots : 1,
+				area : [1, 1.30, 1.30, 1.30, 1.30, 2, 2],
+				desc : [
+				"Shoot a powerful laser beam from the microphone. Horizontal only.",
+				"Increase size by 30%.",
+				"Reduce attack cooldown by 0.5 seconds.",
+				"Increase damage by 50%.",
+				"Reduce attack cooldown by 0.5 seconds.",
+				"Increase size by 50%.",
+				"Fire an additional beam from behind ",
+				],
+				knockbackSpeed : 15,
+				knockbackDuration : 10,
 				perk : false,
 			});
 	#endregion
@@ -746,7 +779,7 @@ function randomUpgrades(){
 	//global.upgradeOptions[3] = global.null;
 	#endregion
 	//global.upgradeOptions[0] = ItemList[ItemIds.CreditCard][1];
-	global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.CuttingBoard][1];
+	global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.FanBeam][1];
 	#region old	
 	//for (var i=0; i<4; i++) {
 	//	do {
