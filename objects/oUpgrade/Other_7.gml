@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-switch (upg[$"ids"]) {
+switch (upg[$"id"]) {
     case Weapons.GuraTrident:
 		image_alpha=0;
 		if (shoots==1) {
@@ -30,6 +30,11 @@ switch (upg[$"ids"]) {
 			instance_destroy();
 		}
 		break;}
+	case Weapons.FanBeam:{
+		image_alpha = 0;
+		instance_destroy();
+		break;
+	}
     default:
         // code here
         break;
