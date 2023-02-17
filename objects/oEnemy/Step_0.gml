@@ -15,10 +15,14 @@ if(global.gamePaused == false){
 	
 	//if(target.y < y) y-=.5;
 		//if(target.y > y) y+=.5;
-		var _is_colliding = collision_point(x,y, oUpgrade,false, true)
-	if (_is_colliding != noone and _is_colliding.upg[?"id"] == Weapons.PowerofAtlantis) {
-	    direction=point_direction(x,y,_is_colliding.x,_is_colliding.y + (sprite_get_height(sWaterPoolStart) / 2));
-	}	else {direction=point_direction(x,y,target.x,target.y);}
+		var nearupgrade = instance_nearest(x,y,oUpgrade)
+		if (instance_exists(oUpgrade) and nearupgrade.upg[$"id"] == Weapons.PowerofAtlantis and distance_to_object(nearupgrade) < 100) {
+		    var _is_colliding = collision_point(x,y, oUpgrade,false, true)
+			if (_is_colliding != noone and _is_colliding.upg[$"id"] == Weapons.PowerofAtlantis) {
+			    direction=point_direction(x,y,_is_colliding.x,_is_colliding.y + (sprite_get_height(sWaterPoolStart) / 2));
+			}	
+		}else {direction=point_direction(x,y,target.x,target.y);}
+		
 	
 	if (hp<=0) {
 		image_alpha-=.05;
@@ -42,6 +46,7 @@ if(global.gamePaused == false){
 	
 	#region debuff cooldown
 		for (var i = 0; i < debuffLenght; ++i) {
+			if (!variable_struct_exists(debuffs[i], "time")) { break; }
 		    if (debuffs[i].time > 0) {
 			    debuffs[i].time -= 1/60;
 				//show_message(debuffs[i].cooldown);
