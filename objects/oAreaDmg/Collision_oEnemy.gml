@@ -1,1 +1,1 @@
-other.hp -= UPGRADES[0][$"mindmg"];
+other.hp -= (UPGRADES[0][$"mindmg"] * 500) / 100;
