@@ -35,6 +35,7 @@ if (other.canattack and other.image_alpha == 1 and !global.gamePaused) {
 	with (inst)
 	{
 	    dmg=round(damage);
+		depth = oPlayer.depth-1;
 	}
 }
 
