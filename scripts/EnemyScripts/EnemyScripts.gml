@@ -173,9 +173,9 @@ function damageCalculation(baseDmg)
 		}
 	}
 	for (var i = 0; i < array_length(playerItems); ++i) {
-	    if (playerItems[i][?"id"] == ItemIds.Headphones) {
+	    if (playerItems[i][$"id"] == ItemIds.Headphones) {
 		    randomize();
-			if (irandom_range(1, 100) <= playerItems[i][?"dodgeChance"]) {
+			if (irandom_range(1, 100) <= playerItems[i][$"dodgeChance"]) {
 			    damage = 0;
 			}
 		}
