@@ -103,7 +103,7 @@ if (HP > MAXHP) {
 	for (var i = 0; i < array_length(Bonuses[BonusType.PickupRange]); ++i) {
 		if (Bonuses[BonusType.PickupRange][i] != 0) {
 		    calc += Bonuses[BonusType.PickupRange][i];
-		}    
+		}
 	}
 	//for (var i = 0; i < array_length(PerkBonuses[BonusType.PickupRange]); ++i) {
 	//	if (PerkBonuses[BonusType.PickupRange][i] != 0) {

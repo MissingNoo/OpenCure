@@ -776,7 +776,7 @@ function randomUpgrades(){
 		
 	//global.upgradeOptions[3] = global.null;
 	#endregion
-	//global.upgradeOptions[0] = ItemList[ItemIds.CreditCard][1];
+	global.upgradeOptions[0] = ItemList[ItemIds.Stolen_Piggy_Bank][1];
 	//global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.FanBeam][1];
 }	
 

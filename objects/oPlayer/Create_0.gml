@@ -1,4 +1,5 @@
 event_inherited();
+// show_debug_overlay(true);
 global.P_System = part_type_create();
 skilltimer = 0;
 special = SPECIAL_LIST[global.player[?"special"]];

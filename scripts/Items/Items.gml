@@ -732,9 +732,20 @@ function tickItems()
 				case ItemIds.Idol_Costume:{
 					if (oPlayer.idolCostumeLevel != playerItems[i][$"level"]) {
 					    oPlayer.idolCostumeLevel = playerItems[i][$"level"];
-						oPlayer. specialcooldown = oPlayer.specialcooldown - (oPlayer.specialcooldown * playerItems[i][$"SpecialCooldown"]);
+						oPlayer.specialcooldown = oPlayer.specialcooldown - (oPlayer.specialcooldown * playerItems[i][$"SpecialCooldown"]);
 					}
 					break;}
+				case ItemIds.Stolen_Piggy_Bank:
+					Bonuses[BonusType.PickupRange][ItemIds.Stolen_Piggy_Bank] = -0.30;
+					Bonuses[BonusType.Speed][ItemIds.Stolen_Piggy_Bank] = 1.15;
+					if(variable_global_exists("pig") and time_source_exists(global.pig)) {break;}
+					global.pigfunction = function()
+					{
+					    global.newcoins += 1;
+					}
+					global.pig = time_source_create(time_source_game, 1, time_source_units_seconds,global.pigfunction, [], -1, time_source_expire_after);
+					time_source_start(global.pig);
+					break;
 			}
 		}
 	}
