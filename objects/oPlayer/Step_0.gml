@@ -13,6 +13,19 @@ if (!global.gamePaused) {
 	//if (keyboard_check_pressed(ord("X"))) {
 	    useSpecial(special);
 	}
+	#region RedGura
+	if(redgura){
+		if(part_red == undefined) { part_red = part_system_create(part_GuraRed); }
+		part_system_position(part_red, x, y);
+		// show_debug_message(time_source_get_time_remaining(redtime));
+		var _timestate = time_source_get_state(redtime);
+		if(_timestate == time_source_state_initial or _timestate == time_source_state_stopped){
+			time_source_start(redtime);
+		}
+	}
+	#endregion
+	
+	
 	
 	buffer_seek(oClient.clientBuffer, buffer_seek_start, 0);
 	buffer_write(oClient.clientBuffer, buffer_u8, Network.Move);
@@ -32,13 +45,13 @@ if (!global.gamePaused) {
 		global.level += 1;
 		global.xp-=neededxp;
 		neededxp += round((4*(global.level + 1)) *2.1) - round((4*global.level)*2.1);
-		randomUpgrades()
+		randomUpgrades();
 		keyboard_clear(ord("Z"));
 		audio_play_sound(snd_LvlUp,0,0);
 		//if (instance_exists(oJoystick)) { global.mode = "menu"; }
 		global.upgrade=1;	
 		oGui.selected=0;		
-		PauseGame()
+		PauseGame();
 	}
 	
 	if (global.hp <= 0) {

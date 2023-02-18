@@ -34,13 +34,17 @@ function useSpecial(_special)
 	skilltimer = 0;
 	global.lastsequence = layer_sequence_create("Specials", x, y, _special.seq);
 	switch (_special.id) {
-	    case SpecialIds.Amelia:{
+	    case SpecialIds.Amelia:
 			if (!instance_exists(oEnemy)) { break; }
 	        with (oEnemy) {
 			    array_push(debuffs, copyStruct(Buffs[BuffNames.Slowness]));
 				//show_message(Buffs[BuffNames.Slowness]);
 			}
-	        break;}
+	        break;
+	        
+	    case SpecialIds.Gura:
+	    	redgura = true;
+	    	break;
 	    default:
 	        // code here
 	        break;

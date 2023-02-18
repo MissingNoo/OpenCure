@@ -1,6 +1,11 @@
 event_inherited();
+#region redgura
+	redgura = false;
+	part_red = undefined;
+	redstop = function(){redgura = false; part_system_destroy(part_red); part_red = undefined;}
+	redtime = time_source_create(time_source_game, 10, time_source_units_seconds,redstop);
+#endregion
 // show_debug_overlay(true);
-global.P_System = part_type_create();
 skilltimer = 0;
 special = SPECIAL_LIST[global.player[?"special"]];
 specialcooldown = special.cooldown;
