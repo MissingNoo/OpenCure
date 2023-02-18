@@ -549,10 +549,11 @@ function randomUpgrades(){
 							     is_what = ItemTypes.Perk;
 					}
 				} until (is_what != "");
-				if (is_what == ItemTypes.Weapon and !can_be_weapon or array_length(weapons_list) == 0) {
+				// show_debug_message("type: {0}, weapon : {1}, array : {2}", is_what, can_be_weapon, array_length(weapons_list));
+				if (is_what == ItemTypes.Weapon and !can_be_weapon or is_what == ItemTypes.Weapon and array_length(weapons_list) == 0) {
 				    is_what = ItemTypes.Item;
 				}
-				if (is_what == ItemTypes.Item and !can_be_item or array_length(items_list) == 0) {
+				if (is_what == ItemTypes.Item and !can_be_item or is_what == ItemTypes.Item and array_length(items_list) == 0) {
 					is_what = "null";
 				    //TODO: change item type to statup
 				}
