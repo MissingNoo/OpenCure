@@ -72,9 +72,9 @@ if (xKey and global.gamePaused) {
 	    if (zKey) {
 			for (var i = 0; i < 6; i++) 
 			{	
-				if (global.upgradeOptions[selected][$"name"] == "null") {
-				    break;
-				}
+				if (global.upgradeOptions[selected][$"name"] == "null") { break; }
+				if (global.upgradeOptions[selected][$"id"] == ItemIds.Holocoin){ global.newcoins += 50; break; }
+				if (global.upgradeOptions[selected][$"id"] == ItemIds.Hamburguer){ HP += 10; break; }
 				
 				if (global.upgradeOptions[selected][$"style"] == ItemTypes.Weapon) {
 					#region Upgrade existing weapon

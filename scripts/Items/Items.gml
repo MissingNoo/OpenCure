@@ -93,10 +93,12 @@ function newCreateItem(_data){
 		Piki_Piki_Piman, //TODO: add all effects
 		Plushie, //TODO: add all effects
 		Sake, //TODO: add all effects
-		Stolen_Piggy_Bank, //TODO: add all effects
+		Stolen_Piggy_Bank,
 		Study_Glasses, //TODO: see if the +% is actually accurate
 		Super_Chatto_Time, //TODO: add all effects
-		Uber_Sheep//TODO: fix drop chance from enemies and convert item format
+		Uber_Sheep,//TODO: fix drop chance from enemies and convert item format
+		Holocoin,
+		Hamburguer,
 	}
 	global.bonuses[0] = 0;
 	enum BonusType {
@@ -142,6 +144,38 @@ function populateItems(){
 				perk : false});			
 				Bonuses[BonusType.Defense][ItemIds.Body_Pillow] = 0;
 				//super createItem(ItemIds.Body_Pillow, "Body Pillow", 6, 5, 3, sBodyPillow, 15, "Gain a shield that absorbs up to 35 damage. Every 15 seconds, this shield refreshes. Also reduces damage taken by 25%.")
+			#endregion
+			
+			#region Holocoin
+			newCreateItem({
+				id : ItemIds.Holocoin,
+				name : "Holocoin",
+				maxlevel : 1,
+				weight : 0,
+				thumb : sHolocoin,
+				cooldown : 15,
+				desc : [
+				"Gain 50 Holocoins",
+				],
+				perk : true,
+				characterid : 99,
+			});
+			#endregion
+			
+			#region Hamburger
+			newCreateItem({
+				id : ItemIds.Hamburguer,
+				name : "Hamburguer",
+				maxlevel : 1,
+				weight : 0,
+				thumb : sHamburger,
+				cooldown : 15,
+				desc : [
+				"Recover 10 Health",
+				],
+				perk : true,
+				characterid : 99,
+			});
 			#endregion
 		
 			#region Chicken's Feather

@@ -662,7 +662,7 @@ function randomUpgrades(){
 					}
 				}
 				if (is_what == "null") {
-				    is_what = "null" //TODO: Change to Food option
+				    is_what = "food";
 				}
 			}
 			rdn = 0;
@@ -695,11 +695,11 @@ function randomUpgrades(){
 								global.upgradeOptions[2] = perks_list[rdn][1];
 								array_delete(perks_list, rdn, 1);
 							}else{
-								global.upgradeOptions[2] = global.null; //TODO Change to food
+								global.upgradeOptions[2] = ItemList[ItemIds.Hamburguer][1];
 							}
 					        break;}				
-					case "null":{
-				        global.upgradeOptions[2] = global.null;
+					case "food":{
+				        global.upgradeOptions[2] = ItemList[ItemIds.Hamburguer][1];
 				        break;}
 					}
 			#endregion		
@@ -740,8 +740,8 @@ function randomUpgrades(){
 					    break;
 					}
 				}
-				if (is_what == "null") {					
-				    is_what = "null" //TODO: Change to holocoin
+				if (is_what == "null") {
+				    is_what = "holocoin";
 				}
 			}
 			rdn = 0;
@@ -768,15 +768,15 @@ function randomUpgrades(){
 								}
 							}
 				        break;}	
-					case "null":{
-				        global.upgradeOptions[3] = global.null;
+					case "holocoin":{
+				        global.upgradeOptions[3] = ItemList[ItemIds.Holocoin][1];
 				        break;}
 					}
 			#endregion		
 		
 	//global.upgradeOptions[3] = global.null;
 	#endregion
-	global.upgradeOptions[0] = ItemList[ItemIds.Stolen_Piggy_Bank][1];
+	//global.upgradeOptions[0] = ItemList[ItemIds.Stolen_Piggy_Bank][1];
 	//global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.FanBeam][1];
 }	
 
