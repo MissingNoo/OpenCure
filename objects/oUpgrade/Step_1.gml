@@ -161,6 +161,17 @@ if (a==0) {
 			} else instance_destroy();
 			break;
 		}
+		case Weapons.FanBeam:
+			if(shoots == 0){
+				image_xscale = image_xscale * -1;
+			}
+			if (shoots>0) {
+				for (var i = 1; i < shoots; ++i) {
+					spawnUpgrade();
+					alarm[0]=1;
+				}
+			}
+			break;
 		case Weapons.CuttingBoard:{
 			direction = arrowDir + 180;
 			speed = upg[$"speed"];

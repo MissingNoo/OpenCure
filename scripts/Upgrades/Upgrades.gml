@@ -263,7 +263,7 @@ function populateUpgrades(){
 				speed : 0,
 				hits : 9999,
 				type : "white",
-				shoots : 1,
+				shoots : [1, 1, 1, 1, 1, 1, 2],
 				area : [1, 1.30, 1.30, 1.30, 1.30, 2, 2],
 				desc : [
 				"Shoot a powerful laser beam from the microphone. Horizontal only.",
