@@ -141,7 +141,10 @@ function populateItems(){
 				"Gain a shield that absorbs up to [30] damage. Every [15] seconds, this shield refreshes. Also reduces damage taken by [20%].",
 				"Gain a shield that absorbs up to [35] damage. Every [15] seconds, this shield refreshes. Also reduces damage taken by [25%].",
 				],
-				perk : false});			
+				perk : false,
+				shield : [15, 20, 25, 30, 35],
+				bonus : [0.95, 0.90, 0.85, 0.80, 0.75],
+			});			
 				Bonuses[BonusType.Defense][ItemIds.Body_Pillow] = 0;
 				//super createItem(ItemIds.Body_Pillow, "Body Pillow", 6, 5, 3, sBodyPillow, 15, "Gain a shield that absorbs up to 35 damage. Every 15 seconds, this shield refreshes. Also reduces damage taken by 25%.")
 			#endregion
@@ -215,7 +218,7 @@ function populateItems(){
 				AnvilDropBonus: [.18, .28, .38, .45, .5],
 				EnhancingCost : [20, 25, 30, 35, 40]
 			}
-			)
+			);
 			Bonuses[BonusType.AnvilDrop][ItemIds.CreditCard] = 0;
 			Bonuses[BonusType.EnhancingCost][ItemIds.CreditCard] = 0;
 			#endregion
@@ -472,7 +475,10 @@ function populateItems(){
 				"Increase normal attack damage by [40%], but lose [20%] critical chance.",
 				"Increase normal attack damage by [50%], but lose [20%] critical chance.",
 				],
-				perk : false});				
+				perk : false,
+				damageBonus : [1.30, 1.40, 1.50],
+				loseCritical : 0.80,
+			});
 				Bonuses[BonusType.Damage][ItemIds.Gorilla_Paw] = 0;
 				Bonuses[BonusType.loseCritical][ItemIds.Gorilla_Paw] = 0;
 			#endregion
@@ -513,7 +519,9 @@ function populateItems(){
 				"Lose [5%] HP every second (until 1 HP remains), but gain [60%] damage.",
 				"Lose [5%] HP every second (until 1 HP remains), but gain [80%] damage.",
 				],
-				perk : false});
+				perk : false,
+				bonus : [1.40, 1.60, 1.80],
+			});
 				Bonuses[BonusType.Damage][ItemIds.Injection_Type_Asacoco] = 0;
 			#endregion
 		
@@ -530,7 +538,10 @@ function populateItems(){
 				"Increases attack size of weapons by [15%]. Also increase Pick Up Range by [40%].",
 				"Increases attack size of weapons by [20%]. Also increase Pick Up Range by [50%].",
 				],
-				perk : false});				
+				perk : false,
+				weaponSize : [1.10, 1.15, 1.20],
+				pickupRange : [1.30, 1.40, 1.50],
+			});				
 				Bonuses[BonusType.WeaponSize][ItemIds.Knightly_Milk] = 1;
 				Bonuses[BonusType.PickupRange][ItemIds.Knightly_Milk] = 0;
 			#endregion
@@ -600,51 +611,23 @@ function populateItems(){
 	#endregion
 }
 
-function tickItems()
-{
+function tickItems(){
 	for (var i = 0; i < array_length(playerItems); ++i) {
 		if (playerItems[i] != global.nullitem and global.itemCooldown[playerItems[i][$"id"]] <= 0) {
 			defaultItemBehaviour(playerItems[i][$"id"], playerItems[i][$"cooldown"]);
 		    switch (playerItems[i][$"id"]) {
-				case ItemIds.Body_Pillow:{	
-					switch (playerItems[i][$"level"]) {
-					    case 1:
-					        Shield = 15;
-							MaxShield = 15;
-							Bonuses[BonusType.Defense][ItemIds.Body_Pillow] = 0.95;
-					        break;
-						case 2:
-					        Shield = 20;
-							MaxShield = 20;
-							Bonuses[BonusType.Defense][ItemIds.Body_Pillow] = 0.90;
-					        break;
-						case 3:
-					        Shield = 25;
-							MaxShield = 25;
-							Bonuses[BonusType.Defense][ItemIds.Body_Pillow] = 0.85;
-					        break;
-						case 4:
-					        Shield = 30;
-							MaxShield = 30;
-							Bonuses[BonusType.Defense][ItemIds.Body_Pillow] = 0.80;
-					        break;
-						case 5:
-					        Shield = 35;
-							MaxShield = 35;
-							Bonuses[BonusType.Defense][ItemIds.Body_Pillow] = 0.75;
-					        break;
-					    default:
-					        // code here
-					        break;
-					}
-					break;}
-				case ItemIds.Chicken_Feather:{
+				case ItemIds.Body_Pillow:
+					Shield = playerItems[i][$"shield"];
+					MaxShield = playerItems[i][$"shield"];
+					Bonuses[BonusType.Defense][ItemIds.Body_Pillow] = playerItems[i][$"bonus"];
+					break;
+				case ItemIds.Chicken_Feather:
 					if (playerItems[i][$"level"] != Bonuses[BonusType.ChickenFeather]) {
 						Bonuses[BonusType.ChickenFeather] = playerItems[i][$"level"];
 						oPlayer.revives +=1 ;
 					}
-					break;}
-				case ItemIds.Energy_Drink:{
+					break;
+				case ItemIds.Energy_Drink:
 					switch (playerItems[i][$"level"]) {
 					    case 1:
 							if (Bonuses[BonusType.EnergyDrinkHpMinus] == 0) {
@@ -671,62 +654,28 @@ function tickItems()
 							Bonuses[BonusType.Speed][ItemIds.Energy_Drink] = 1.50;
 							break;
 					}
-					break;}
-				case ItemIds.Face_Mask:{
+					break;
+				case ItemIds.Face_Mask:
 					Bonuses[BonusType.Damage][ItemIds.Face_Mask] = 1.50;
 					Bonuses[BonusType.Haste][ItemIds.Face_Mask] = 1.10;
 					Bonuses[BonusType.TakeDamage][ItemIds.Face_Mask] = 1.30;
-					break;}
-				case ItemIds.Full_Meal:{
+					break;
+				case ItemIds.Full_Meal:
 					Bonuses[BonusType.Healing][ItemIds.Full_Meal] = 2;
-					break;}
-				case ItemIds.Gorilla_Paw:{
-					switch (playerItems[i][$"level"]) {
-					    case 1:
-					        Bonuses[BonusType.Damage][ItemIds.Gorilla_Paw] = 1.30;
-							Bonuses[BonusType.loseCritical][ItemIds.Gorilla_Paw] = 0.80;
-					        break;
-						case 2:
-					        Bonuses[BonusType.Damage][ItemIds.Gorilla_Paw] = 1.40;
-							Bonuses[BonusType.loseCritical][ItemIds.Gorilla_Paw] = 0.80;
-					        break;
-						case 3:
-					        Bonuses[BonusType.Damage][ItemIds.Gorilla_Paw] = 1.50;
-							Bonuses[BonusType.loseCritical][ItemIds.Gorilla_Paw] = 0.80;
-					        break;
-					}
-					break;}
-				case ItemIds.Injection_Type_Asacoco:{
-					HP = HP - (HP * 0.05); 
-					switch (playerItems[i][$"level"]) {
-					    case 1:
-					        Bonuses[BonusType.Damage][ItemIds.Injection_Type_Asacoco] = 1.40;
-					        break;
-					    case 2:
-					        Bonuses[BonusType.Damage][ItemIds.Injection_Type_Asacoco] = 1.60;
-					        break;
-						case 3:
-					        Bonuses[BonusType.Damage][ItemIds.Injection_Type_Asacoco] = 1.80;
-					        break;
-					}
-					break;}
-				case ItemIds.Knightly_Milk:{
-					switch (playerItems[i][$"level"]) {
-					    case 1:
-					        Bonuses[BonusType.WeaponSize][ItemIds.Knightly_Milk] = 1.10;
-							Bonuses[BonusType.PickupRange][ItemIds.Knightly_Milk] = 1.30;
-					        break;
-						case 2:
-					        Bonuses[BonusType.WeaponSize][ItemIds.Knightly_Milk] = 1.15;
-							Bonuses[BonusType.PickupRange][ItemIds.Knightly_Milk] = 1.40;
-					        break;
-						case 3:
-					        Bonuses[BonusType.WeaponSize][ItemIds.Knightly_Milk] = 1.20;
-							Bonuses[BonusType.PickupRange][ItemIds.Knightly_Milk] = 1.50;
-					        break;
-					}
-					break;}
-				case ItemIds.Uber_Sheep:{ //TODO: fix chance
+					break;
+				case ItemIds.Gorilla_Paw:
+					Bonuses[BonusType.Damage][ItemIds.Gorilla_Paw] = playerItems[i][$"damageBonus"];
+					Bonuses[BonusType.loseCritical][ItemIds.Gorilla_Paw] = playerItems[i][$"loseCritical"];
+					break;
+				case ItemIds.Injection_Type_Asacoco:
+					HP = HP - (HP * 0.05);
+					Bonuses[BonusType.Damage][ItemIds.Injection_Type_Asacoco] = playerItems[i][$"bonus"];
+					break;
+				case ItemIds.Knightly_Milk:
+					Bonuses[BonusType.WeaponSize][ItemIds.Knightly_Milk] = playerItems[i][$"weaponSize"];
+					Bonuses[BonusType.PickupRange][ItemIds.Knightly_Milk] = playerItems[i][$"pickupRange"];
+					break;
+				case ItemIds.Uber_Sheep: //TODO: fix chance
 					do{
 						a = irandom_range(-1,1);
 						b = irandom_range(-1,1);
@@ -738,21 +687,21 @@ function tickItems()
 					oBurguer
 					);
 					Bonuses[BonusType.UberSheep] = playerItems[i][$"bonus"];
-					break;}
-				case ItemIds.Study_Glasses:{
+					break;
+				case ItemIds.Study_Glasses:
 					Bonuses[BonusType.XPBonus][ItemIds.Study_Glasses] = playerItems[i][$"XPBonus"];
 					//show_message(string(playerItems[i][$"XPBonus"]));
-					break;}
-				case ItemIds.CreditCard:{
+					break;
+				case ItemIds.CreditCard:
 					Bonuses[BonusType.AnvilDrop][ItemIds.CreditCard] = playerItems[i][$"AnvilDropBonus"];
 					Bonuses[BonusType.EnhancingCost][ItemIds.CreditCard] = playerItems[i][$"EnhancingCost"];
-					break;}
-				case ItemIds.Idol_Costume:{
+					break;
+				case ItemIds.Idol_Costume:
 					if (oPlayer.idolCostumeLevel != playerItems[i][$"level"]) {
 					    oPlayer.idolCostumeLevel = playerItems[i][$"level"];
 						oPlayer.specialcooldown = oPlayer.specialcooldown - (oPlayer.specialcooldown * playerItems[i][$"SpecialCooldown"]);
 					}
-					break;}
+					break;
 				case ItemIds.Stolen_Piggy_Bank:
 					Bonuses[BonusType.PickupRange][ItemIds.Stolen_Piggy_Bank] = -0.30;
 					Bonuses[BonusType.Speed][ItemIds.Stolen_Piggy_Bank] = 1.15;
