@@ -571,7 +571,7 @@ function populateItems(){
 				perk : false,
 				XPBonus: [1.10, 1.15, 1.20, 1.25, 1.30]
 			}
-			)
+			);
 			Bonuses[BonusType.XPBonus][ItemIds.Study_Glasses] = 0;
 			#endregion
 		
@@ -582,7 +582,7 @@ function populateItems(){
 				maxlevel : 5,
 				weight : 4,
 				thumb : sUberSheep,
-				cooldown : 1,
+				cooldown : [10, 9, 8, 7, 6],
 				desc : [
 				"Every [10] seconds, food will drop close by. Also increase food drop chance from defeated targets by [10%].",
 				"Every [9] seconds, food will drop close by. Also increase food drop chance from defeated targets by [10%].",
@@ -724,19 +724,17 @@ function tickItems()
 					        break;
 					}
 					break;}
-				case ItemIds.Uber_Sheep:{ //TODO: fix chance and convert to new itemtype
+				case ItemIds.Uber_Sheep:{ //TODO: fix chance
 					do{
-						random_set_seed(current_time);
-						a = irandom_range(-1,1)
-						random_set_seed(current_time);
-						b = irandom_range(-1,1)
+						a = irandom_range(-1,1);
+						b = irandom_range(-1,1);
 					} until (a != b)
 					instance_create_layer(
 					oPlayer.x+(128*a),
 					oPlayer.y+(128*b),
 					"Instances",
 					oBurguer
-					)
+					);
 					switch (playerItems[i][$"level"]) {
 					    case 1:{
 					        Bonuses[BonusType.UberSheep] = 1.10;

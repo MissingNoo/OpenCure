@@ -30,7 +30,7 @@ random_set_seed(current_time);
 	}
 #endregion
 // randomize;
-if (random_range(1,200) <= (1 * Bonuses[BonusType.UberSheep])) {
+if (random_range(1,200) <= (1 * Bonuses[BonusType.UberSheep])) { // TODO: fix chance calculation (200*Bonuses[BonusType.UberSheep])
     instance_create_layer(x,y,"Instances", oBurguer);
 }
 // randomize;
