@@ -71,8 +71,7 @@ function newCreateItem(_data){
 		global.itemCooldown[_id] = _cooldown;
 	}
 
-	enum ItemIds
-	{
+	enum ItemIds{
 		Body_Pillow,
 		Chicken_Feather,
 		CreditCard,
@@ -96,12 +95,12 @@ function newCreateItem(_data){
 		Stolen_Piggy_Bank,
 		Study_Glasses, //TODO: see if the +% is actually accurate
 		Super_Chatto_Time, //TODO: add all effects
-		Uber_Sheep,//TODO: fix drop chance from enemies and convert item format
+		Uber_Sheep,//TODO: fix drop chance from enemies
 		Holocoin,
 		Hamburguer,
 	}
 	global.bonuses[0] = 0;
-	enum BonusType {
+	enum BonusType{
 		Damage,
 		Critical,
 		loseCritical,
@@ -119,6 +118,7 @@ function newCreateItem(_data){
 		XPBonus,
 		AnvilDrop,
 		EnhancingCost,
+		SuperChattoTime,
 		lenght
 	}
 #endregion
@@ -285,7 +285,10 @@ function populateItems(){
 				"Targets drop 80% more HoloCoins. All HoloCoins are picked automatically.",
 				"Targets drop 100% more HoloCoins. All HoloCoins are picked automatically.",
 				],
-				perk : false});
+				perk : false,
+				bonus : [1.20, 1.40, 1.60, 1.80, 2]
+			});
+			Bonuses[BonusType.SuperChattoTime] = 0;
 			#endregion
 			
 			#region Stolen Piggy Bank
@@ -502,8 +505,7 @@ function populateItems(){
 				],
 				perk : false,
 				dodgeChance: [15, 20, 25, 30, 35]
-			}
-			)
+			});
 			#endregion
 		
 			#region Injection Type Asacoco
@@ -690,11 +692,13 @@ function tickItems(){
 					break;
 				case ItemIds.Study_Glasses:
 					Bonuses[BonusType.XPBonus][ItemIds.Study_Glasses] = playerItems[i][$"XPBonus"];
-					//show_message(string(playerItems[i][$"XPBonus"]));
 					break;
 				case ItemIds.CreditCard:
 					Bonuses[BonusType.AnvilDrop][ItemIds.CreditCard] = playerItems[i][$"AnvilDropBonus"];
 					Bonuses[BonusType.EnhancingCost][ItemIds.CreditCard] = playerItems[i][$"EnhancingCost"];
+					break;
+				case ItemIds.Super_Chatto_Time:
+					Bonuses[BonusType.SuperChattoTime] = playerItems[i][$"bonus"];
 					break;
 				case ItemIds.Idol_Costume:
 					if (oPlayer.idolCostumeLevel != playerItems[i][$"level"]) {

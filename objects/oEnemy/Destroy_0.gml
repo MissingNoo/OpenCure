@@ -34,8 +34,13 @@ if (random_range(1,200) <= (1 * Bonuses[BonusType.UberSheep])) { // TODO: fix ch
     instance_create_layer(x,y,"Instances", oBurguer);
 }
 // randomize;
-if (irandom_range(1,90) == 1) {
-    instance_create_layer(x,y,"Instances", oHolocoin);
+if (irandom_range(1, 90) == 1) {
+	if(Bonuses[BonusType.SuperChattoTime] > 0){
+		global.newcoins += round(10 * Bonuses[BonusType.SuperChattoTime]);
+	}else{
+		instance_create_layer(x,y,"Instances", oHolocoin);
+	}
+    
 }
 
 // randomize;
