@@ -71,9 +71,9 @@ switch (upg[$"name"]) {
 		if (shoots > 1) {			
 			spawnUpgrade();
 			random_set_seed(current_time);
-			x = oPlayer.x + irandom_range(-200,200)
+			x = oPlayer.x + irandom_range(-200,200);
 			random_set_seed(current_time);
-			y = oPlayer.y + irandom_range(-200,200)
+			y = oPlayer.y + irandom_range(-200,200);
 		    shoots-=1;
 			alarm[0]=1;
 		}
@@ -82,9 +82,9 @@ switch (upg[$"name"]) {
 		if (shoots > 1) {			
 			spawnUpgrade();
 			random_set_seed(current_time);
-			x = oPlayer.x + irandom_range(-200,200)
+			x = oPlayer.x + irandom_range(-200,200);
 			random_set_seed(current_time);
-			y = oPlayer.y + irandom_range(-200,200)
+			y = oPlayer.y + irandom_range(-200,200);
 		    shoots-=1;
 			alarm[0]=1;
 		}

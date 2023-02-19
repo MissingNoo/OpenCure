@@ -2,7 +2,7 @@ if (global.testvar == "") {
     global.testvar = upg;
 }
 if (socket == oPlayer.socket) {
-    owner = instance_nearest(x,y,oPlayer) 
+    owner = instance_nearest(x,y,oPlayer);
 }else{
 	owner = instance_nearest(x,y, oSlave);
 }
@@ -23,8 +23,8 @@ if (!global.gamePaused) {
 			if (alarm_get(0) > 0) {
 			    y-=1.75;
 				if (instance_exists(CE)) {
-					direction = point_direction(x,y,CE.x, CE.y)
-					image_angle = point_direction(x,y,CE.x, CE.y)    
+					direction = point_direction(x,y,CE.x, CE.y);
+					image_angle = point_direction(x,y,CE.x, CE.y);
 				}				
 			}else {image_alpha = 1;}		
 			break;}

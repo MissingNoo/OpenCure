@@ -1,5 +1,5 @@
 if (socket == oPlayer.socket) {
-    owner = instance_nearest(x,y,oPlayer) 
+    owner = instance_nearest(x,y,oPlayer);
 }else{
 	owner = instance_nearest(x,y, oSlave);
 }
@@ -114,9 +114,9 @@ if (a==0) {
 		case Weapons.EliteLavaBucket:{	
 			level = upg[$"level"];
 			random_set_seed(current_time);
-			x = owner.x + irandom_range(-100,100)
+			x = owner.x + irandom_range(-100,100);
 			random_set_seed(current_time);
-			y = owner.y + (irandom_range(-100,100)*-1)
+			y = owner.y + (irandom_range(-100,100)*-1);
 			alarm[0] = 1;
 			depth=owner.depth;
 			for (var i = 0; i < array_length(Bonuses[BonusType.WeaponSize]); ++i) {
@@ -136,9 +136,9 @@ if (a==0) {
 			break;}
 		case Weapons.PowerofAtlantis:{	
 			random_set_seed(current_time);
-			x = owner.x + irandom_range(-200,200)
+			x = owner.x + irandom_range(-200,200);
 			random_set_seed(current_time);
-			y = owner.y + (irandom_range(-200,200)*-1)
+			y = owner.y + (irandom_range(-200,200)*-1);
 			alarm[0] = 1;
 			image_xscale = 1.3;
 			image_yscale = 1.3;
