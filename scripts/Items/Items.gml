@@ -590,7 +590,9 @@ function populateItems(){
 				"Every [7] seconds, food will drop close by. Also increase food drop chance from defeated targets by [10%].",
 				"Every [6] seconds, food will drop close by. Also increase food drop chance from defeated targets by [10%].",
 				],
-				perk : false});
+				perk : false,
+				bonus : [1.10, 1.12, 1.15, 1.18, 1.20],
+			});
 				Bonuses[BonusType.UberSheep] = 1;
 			#endregion
 		
@@ -735,23 +737,7 @@ function tickItems()
 					"Instances",
 					oBurguer
 					);
-					switch (playerItems[i][$"level"]) {
-					    case 1:{
-					        Bonuses[BonusType.UberSheep] = 1.10;
-					        break;}
-					    case 2:{
-					        Bonuses[BonusType.UberSheep] = 1.12;
-					        break;}
-						case 3:{
-					        Bonuses[BonusType.UberSheep] = 1.15;
-					        break;}
-						case 4:{
-					        Bonuses[BonusType.UberSheep] = 1.18;
-					        break;}
-						case 5:{
-					        Bonuses[BonusType.UberSheep] = 1.20;
-					        break;}
-					}
+					Bonuses[BonusType.UberSheep] = playerItems[i][$"bonus"];
 					break;}
 				case ItemIds.Study_Glasses:{
 					Bonuses[BonusType.XPBonus][ItemIds.Study_Glasses] = playerItems[i][$"XPBonus"];
