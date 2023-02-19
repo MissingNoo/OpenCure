@@ -155,7 +155,7 @@ function populateItems(){
 				thumb : sHolocoin,
 				cooldown : 15,
 				desc : [
-				"Gain 50 Holocoins",
+				"Gain 50 Holocoins.",
 				],
 				perk : true,
 				characterid : 99,
@@ -171,7 +171,7 @@ function populateItems(){
 				thumb : sHamburger,
 				cooldown : 15,
 				desc : [
-				"Recover 10 Health",
+				"Recover 10 Health.",
 				],
 				perk : true,
 				characterid : 99,

@@ -35,7 +35,7 @@ else{
 	var VIEW_HEIGHT = min(base_h, max_h);
 	var VIEW_WIDTH = VIEW_HEIGHT * aspect;
 }
-camera_set_view_size(view_camera[0], floor(VIEW_WIDTH), floor(VIEW_HEIGHT))
+camera_set_view_size(view_camera[0], floor(VIEW_WIDTH), floor(VIEW_HEIGHT));
 view_wport[0] = max_w;
 view_hport[0] = max_h;
 surface_resize(application_surface, view_wport[0], view_hport[0]);
@@ -47,15 +47,15 @@ function drawDesc(_xx, _yy, _string, maxX, _size = 1){
 	var xt=0;
 	var yt=0;
 	var char = "";
-	for (var i = 1; i < string_length(_string); ++i) {
+	for (var i = 1; i <= string_length(_string); ++i) {
 		char = string_copy(_string, i, 1);
 		if (_xx + xt >= _xx + maxX) { // past max x jump line
 		    xt = 0;
-			yt+=20
+			yt+=20;
 		}
 		if (char == " ") { //if word wont fit jump line
-			var totalx = 0
-			for (var j = i+1; j < string_length(_string); ++j) {
+			var totalx = 0;
+			for (var j = i+1; j <= string_length(_string); ++j) {
 				char2 = string_copy(_string, j, 1);
 				if (char2 != " ") {
 					totalx += 10.5;
@@ -66,17 +66,17 @@ function drawDesc(_xx, _yy, _string, maxX, _size = 1){
 			}
 			if (_xx + xt + totalx >= _xx + maxX) {
 				xt = -10.5;
-				yt+=20
+				yt+=20;
 			}
 		}
 		switch (char) {
 		    case "[":
 				draw_set_color(c_green);
-				i++
+				i++;
 				break;
 		    case "]":
 				draw_set_color(c_white);
-				i++
+				i++;
 				break;
 		}
 		char = string_copy(_string, i, 1);
