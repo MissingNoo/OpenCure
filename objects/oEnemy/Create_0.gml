@@ -24,7 +24,7 @@ if (room != rInicio) {
 	hp = (baseHP + (baseHP * 0.05 + global.timeA)) * ( 1 + (global.timeB/50));
 	canattack=true;
 }
-randomize();
+// randomize;
 enemyID = irandom(9999);
 
 vars = variable_instance_get_names(self);

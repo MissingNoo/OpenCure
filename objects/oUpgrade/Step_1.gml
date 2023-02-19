@@ -59,7 +59,7 @@ if (a==0) {
 				random_set_seed(current_time * global.upgradeCooldown[0]);
 				var enemies = instance_number(oEnemy);
 				//var CE = instance_nearest(x,y-50.75,oEnemy);
-				randomize();
+				// randomize;
 				CE = instance_find(oEnemy, irandom_range(0,enemies-1));
 				direction = point_direction(x,y-50.75,CE.x, CE.y);
 				image_angle = point_direction(x,y-50.75,CE.x, CE.y);
@@ -145,10 +145,10 @@ if (a==0) {
 			break;}
 		case Weapons.CEOTears:{
 			if (instance_exists(oEnemy)) {
-				random_set_seed(current_time * global.upgradeCooldown[0]);
+				// random_set_seed(current_time * global.upgradeCooldown[0]);
 				var enemies = instance_number(oEnemy);
 				//var CE = instance_nearest(x,y-50.75,oEnemy);
-				randomize();
+				// // randomize;
 				CE = instance_find(oEnemy, irandom_range(0,enemies-1));
 				direction = point_direction(x,y,CE.x, CE.y);
 				image_angle = point_direction(x,y,CE.x, CE.y);

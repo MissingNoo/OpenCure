@@ -158,7 +158,7 @@ if (global.holocoins == undefined) {
 global.Font = font_add_sprite(sPixelFont, ord("!"), true, 2);
 draw_set_font(global.Font);
 //draw_set_font(global.Font); //draw_set_font(fnt_font1);
-randomize();
+// randomize;
 populateItems();
 populateUpgrades();
 populateCharacters();

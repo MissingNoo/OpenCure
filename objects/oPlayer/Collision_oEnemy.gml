@@ -8,7 +8,7 @@ if (other.canattack and other.image_alpha == 1 and !global.gamePaused) {
 		#region Gura
 			if (global.player == CHARACTERS[Characters.Gura]) {
 			    for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
-					randomize();
+					// randomize;
 				    if (PLAYER_PERKS[i][$"id"] == PerkIds.ShortSize and PLAYER_PERKS[i][$"level"] > 0 and irandom_range(1, 100) <= Buffs[BuffNames.ShortHeight].chance[PLAYER_PERKS[i][$"level"]]) {
 					    Buffs[BuffNames.ShortHeight].enabled = true;
 						Buffs[BuffNames.ShortHeight].cooldown = Buffs[BuffNames.ShortHeight].baseCooldown;

@@ -97,7 +97,7 @@ function mouseOnButton(_startX, _startY, _off, _sprite, _scaleX, _scaleY, _array
 	if (_direction == "vertical") {
 	    for (var i = 0; i < array_length(_array); ++i) {
 			if (global.debug) {
-			    randomize();
+			    // randomize;
 				draw_set_alpha(.1);
 			    draw_set_color(make_color_rgb(random(255),random(255),random(255)));
 				draw_rectangle( menuX - ((sprite_get_width(_sprite) * _scaleX)/2), (menuY + off) - ((sprite_get_height(_sprite)*_scaleY)/2), menuX + ((sprite_get_width(_sprite) * _scaleX)/2), (menuY + off) + ((sprite_get_height(_sprite)*_scaleY)/2),false);
@@ -115,7 +115,7 @@ function mouseOnButton(_startX, _startY, _off, _sprite, _scaleX, _scaleY, _array
 	if (_direction == "horizontal") {
 	    for (var i = 0; i < array_length(_array); ++i) {
 			if (global.debug) {
-				randomize();
+				// randomize;
 				draw_set_alpha(.1);
 			    draw_set_color(make_color_rgb(random(255),random(255),random(255)));
 				draw_rectangle((menuX + off) - ((sprite_get_width(_sprite) * _scaleX)/2), menuY - ((sprite_get_height(_sprite)*_scaleY)/2), (menuX + off) + ((sprite_get_width(_sprite) * _scaleX)/2), menuY + ((sprite_get_height(_sprite)*_scaleY)/2),false);

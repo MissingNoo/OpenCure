@@ -1,5 +1,5 @@
 
-randomize();
+// randomize;
 image_xscale = 3.75;
 image_yscale = 3.75;
 color = make_color_rgb(irandom(255),irandom(255),irandom(255));

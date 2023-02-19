@@ -514,7 +514,7 @@ function randomUpgrades(){
 		is_what = "";
 		#region 1&2
 			function slotRandomizer12() {
-				randomize();
+				// randomize;
 				is_what = "";
 				can_be_weapon = false;
 				for (var i = 0; i < array_length(UPGRADES); ++i) {
@@ -617,7 +617,7 @@ function randomUpgrades(){
 		
 		#region 3
 			function slotRandomizer3() {
-				randomize();
+				// randomize;
 				is_what = "";
 				can_be_weapon = false;
 				for (var i = 0; i < array_length(UPGRADES); ++i) {
@@ -708,7 +708,7 @@ function randomUpgrades(){
 		
 		#region 4
 			function slotRandomizer4() {
-				randomize();
+				// randomize;
 				is_what = "";
 				can_be_weapon = false;
 				for (var i = 0; i < array_length(UPGRADES); ++i) {
@@ -778,7 +778,7 @@ function randomUpgrades(){
 	//global.upgradeOptions[3] = global.null;
 	#endregion
 	//global.upgradeOptions[0] = ItemList[ItemIds.Stolen_Piggy_Bank][1];
-	//global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.FanBeam][1];
+	global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.CEOTears][1];
 }	
 
 function tickPowers(){
