@@ -50,6 +50,7 @@ function initializePlayer(_p){
 				Bonuses[i]=0;
 			}
 		}
+		if(variable_global_exists("pig") and time_source_exists(global.pig)) {time_source_destroy(global.pig);}
 	#endregion
 	
 	#region reset perk bonuses
