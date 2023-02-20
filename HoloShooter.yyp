@@ -274,6 +274,7 @@
     {"id":{"name":"sGuraIdle","path":"sprites/sGuraIdle/sGuraIdle.yy",},"order":0,},
     {"id":{"name":"sAmeShoot","path":"sprites/sAmeShoot/sAmeShoot.yy",},"order":0,},
     {"id":{"name":"sSmolAmeGroundpound","path":"sprites/sSmolAmeGroundpound/sSmolAmeGroundpound.yy",},"order":2,},
+    {"id":{"name":"oLobby","path":"objects/oLobby/oLobby.yy",},"order":13,},
     {"id":{"name":"sBodyPillow","path":"sprites/sBodyPillow/sBodyPillow.yy",},"order":0,},
     {"id":{"name":"sInaRunning","path":"sprites/sInaRunning/sInaRunning.yy",},"order":2,},
     {"id":{"name":"oPlayertest","path":"objects/oPlayertest/oPlayertest.yy",},"order":11,},

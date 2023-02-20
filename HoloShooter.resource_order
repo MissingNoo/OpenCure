@@ -215,6 +215,7 @@
     {"name":"sAmeGear","order":9,"path":"sprites/sAmeGear/sAmeGear.yy",},
     {"name":"sHudSpdIcon","order":1,"path":"sprites/sHudSpdIcon/sHudSpdIcon.yy",},
     {"name":"sSmolAmeGroundpound","order":2,"path":"sprites/sSmolAmeGroundpound/sSmolAmeGroundpound.yy",},
+    {"name":"oLobby","order":13,"path":"objects/oLobby/oLobby.yy",},
     {"name":"sInaRunning","order":2,"path":"sprites/sInaRunning/sInaRunning.yy",},
     {"name":"oPlayertest","order":11,"path":"objects/oPlayertest/oPlayertest.yy",},
     {"name":"oEnemy","order":1,"path":"objects/oEnemy/oEnemy.yy",},

@@ -15,7 +15,7 @@ if (!global.gamePaused) {
 	}
 	#region RedGura
 	if(redgura){
-		if(part_red == undefined) { part_red = part_system_create(part_GuraRed); }
+		part_red ??= part_system_create(part_GuraRed);
 		part_system_position(part_red, x, y);
 		// show_debug_message(time_source_get_time_remaining(redtime));
 		var _timestate = time_source_get_state(redtime);
