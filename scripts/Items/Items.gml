@@ -94,7 +94,7 @@ function newCreateItem(_data){
 		Sake, //TODO: add all effects
 		Stolen_Piggy_Bank,
 		Study_Glasses, //TODO: see if the +% is actually accurate
-		Super_Chatto_Time, //TODO: add all effects
+		Super_Chatto_Time,
 		Uber_Sheep,//TODO: fix drop chance from enemies
 		Holocoin,
 		Hamburguer,
