@@ -58,11 +58,11 @@ if (ds_list_size(coordsx) > 0) {
 //draw_circle(x+7,y-7,5,1)
 */
 #region Items
-for (var i = 0; i < array_length(playerItems); ++i) {
-    if (playerItems[i][?"id"] == ItemIds.Study_Glasses) {
-	    draw_sprite_ext(sStudyGlasses, 0, x, y - 18, 1 * image_xscale, 1, 0, c_white, 1);
-	}
-}
+//for (var i = 0; i < array_length(playerItems); ++i) {
+//    if (playerItems[i][?"id"] == ItemIds.Study_Glasses) {
+//	    draw_sprite_ext(sStudyGlasses, 0, x, y - 18, 1 * image_xscale, 1, 0, c_white, 1);
+//	}
+//}
 #endregion
 
 
