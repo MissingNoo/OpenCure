@@ -33,7 +33,7 @@ switch (upg[$"name"]) {
 			alarm[0]=1;
 		}
 	case "Plug-type Asacoco":{
-		speed = originalspeed;			
+		speed = originalspeed;
 		break;}
 	case "BL Book":{
 		if (shoots > 1) {			

@@ -1,8 +1,3 @@
-buffer_seek(oClient.clientBuffer, buffer_seek_start, 0);
-buffer_write(oClient.clientBuffer, buffer_u8, Network.Destroy);
-buffer_write(oClient.clientBuffer, buffer_u16, enemyID);
-network_send_packet(oClient.client, oClient.clientBuffer, buffer_tell(oClient.clientBuffer));
-
 instance_create_layer(x,y,"Instances",oXP, {xp : xp});
 //global.lastxp = xp;
 //layer_sequence_create("Instances", x, y, seq_xp);

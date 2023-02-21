@@ -47,5 +47,17 @@ if (!global.gamePaused) {
 #endregion
 if (hits <= 0) {
 	image_alpha=0;
+	instance_destroy();
+}
+if (socket == oPlayer.socket) {
+	buffer_seek(oClient.clientBuffer, buffer_seek_start, 0);
+	buffer_write(oClient.clientBuffer, buffer_u8, Network.UpdateUpgrade);
+	buffer_write(oClient.clientBuffer, buffer_u8, oPlayer.socket);
+	buffer_write(oClient.clientBuffer, buffer_u16, upgID);
+	buffer_write(oClient.clientBuffer, buffer_u16, x);
+	buffer_write(oClient.clientBuffer, buffer_u16, y);
+	buffer_write(oClient.clientBuffer, buffer_u16, direction);
+	buffer_write(oClient.clientBuffer, buffer_u16, image_angle);
+	network_send_packet(oClient.client, oClient.clientBuffer, buffer_tell(oClient.clientBuffer));
 }
 
