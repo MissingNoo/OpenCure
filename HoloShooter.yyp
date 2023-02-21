@@ -142,6 +142,7 @@
     {"id":{"name":"oXP","path":"objects/oXP/oXP.yy",},"order":0,},
     {"id":{"name":"Sprite269","path":"sprites/Sprite269/Sprite269.yy",},"order":26,},
     {"id":{"name":"sFaceMask","path":"sprites/sFaceMask/sFaceMask.yy",},"order":3,},
+    {"id":{"name":"rLobby","path":"rooms/rLobby/rLobby.yy",},"order":4,},
     {"id":{"name":"sSaplingB","path":"sprites/sSaplingB/sSaplingB.yy",},"order":19,},
     {"id":{"name":"sMembership","path":"sprites/sMembership/sMembership.yy",},"order":19,},
     {"id":{"name":"sFanBeam","path":"sprites/sFanBeam/sFanBeam.yy",},"order":23,},
@@ -290,7 +291,6 @@
     {"id":{"name":"snd_bullet","path":"sounds/snd_bullet/snd_bullet.yy",},"order":0,},
     {"id":{"name":"sPlushie","path":"sprites/sPlushie/sPlushie.yy",},"order":21,},
     {"id":{"name":"oHolocoin","path":"objects/oHolocoin/oHolocoin.yy",},"order":6,},
-    {"id":{"name":"oServer","path":"objects/oServer/oServer.yy",},"order":12,},
     {"id":{"name":"sHudGrowthIcon","path":"sprites/sHudGrowthIcon/sHudGrowthIcon.yy",},"order":8,},
     {"id":{"name":"sHudButton","path":"sprites/sHudButton/sHudButton.yy",},"order":10,},
     {"id":{"name":"sAreaDmgMask","path":"sprites/sAreaDmgMask/sAreaDmgMask.yy",},"order":6,},
@@ -306,6 +306,7 @@
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"roomId":{"name":"room2","path":"rooms/room2/room2.yy",},},
     {"roomId":{"name":"rShop","path":"rooms/rShop/rShop.yy",},},
+    {"roomId":{"name":"rLobby","path":"rooms/rLobby/rLobby.yy",},},
   ],
   "TextureGroups": [
     {"resourceType":"GMTextureGroup","resourceVersion":"1.3","name":"Default","autocrop":true,"border":2,"compressFormat":"bz2","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"targets":-1,},

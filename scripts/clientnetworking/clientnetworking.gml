@@ -1,13 +1,29 @@
 // Feather disable GM2044
+enum Network {
+	Move,
+	Message,
+	PlayerMoved,
+	PlayerConnect,
+	PlayerJoined,
+	PlayerDisconnect,
+	Spawn,
+	SpawnUpgrade,
+	DestroyUpgrade,
+	UpdateUpgrade,
+	Destroy,
+	HostDisconnected,
+	LobbyConnect,
+	IsHost,
+	StartGame
+}
 function clientReceivedPacket(_buffer)
 {
 	if (!global.server) {
 		var msgid = buffer_read(_buffer, buffer_u8);
 	
 		switch (msgid) {
-			case Network.Destroy:
+			case Network.Destroy:{
 				var _id = buffer_read(_buffer, buffer_u16);
-				//show_message("destroying: " + string(_id));
 				var total = instance_number(oEnemy);
 				for (var i = 0; i < total; ++i) {
 					var ftotal = instance_number(oEnemy);
@@ -18,24 +34,64 @@ function clientReceivedPacket(_buffer)
 				    var inst = instance_find(oEnemy, i);
 					if (inst.enemyID == _id) {
 						//show_message("destroyed");
+					    //instance_destroy(inst);
+						inst.hp = 0;
+					}
+				}
+				break;}
+				
+			case Network.DestroyUpgrade:{
+				var _id = buffer_read(_buffer, buffer_u16);
+				var total = instance_number(oUpgrade);
+				for (var i = 0; i < total; ++i) {
+					var ftotal = instance_number(oUpgrade);
+					if (ftotal != total) {
+					    i = 0;
+						total = ftotal;
+					}
+				    var inst = instance_find(oUpgrade, i);
+					if (inst.upgID == _id) {
+						//show_message("destroyed");
 					    instance_destroy(inst);
 					}
 				}
-				//with (oEnemy) {
-				//    if (enemyID == _id) {
-				//	    instance_destroy();
-				//	}
-				//}
-				break;
+				break;}
 			
-			case Network.HostDisconnected:
+			case Network.UpdateUpgrade:{
+				var _owner = buffer_read(_buffer, buffer_u8);
+				if (oPlayer.socket == _owner) { break; }
+				var _id = buffer_read(_buffer, buffer_u16);
+				var _x = buffer_read(_buffer, buffer_u16);
+				var _y = buffer_read(_buffer, buffer_u16);
+				var _dir = buffer_read(_buffer, buffer_u16);
+				var _angle = buffer_read(_buffer, buffer_u16);
+				var total = instance_number(oUpgrade);
+				for (var i = 0; i < total; ++i) {
+					var ftotal = instance_number(oUpgrade);
+					if (ftotal != total) {
+					    i = 0;
+						total = ftotal;
+					}
+				    var inst = instance_find(oUpgrade, i);
+					if (inst.upgID == _id) {
+						//show_message("destroyed");
+					    inst.x = _x;
+						inst.y = _y;
+						inst.speed=0;
+						inst.direction = _dir;
+						inst.image_angle = _angle;
+					}
+				}
+				break;}
+			
+			case Network.HostDisconnected:{
 				network_destroy(oClient.client);
 				network_destroy(oClient.connected);
 				instance_destroy(oClient);
 				game_restart();
-				break;
+				break;}
 			
-			case Network.SpawnUpgrade:
+			case Network.SpawnUpgrade:{
 				var _s = buffer_read(_buffer, buffer_u8);
 				var _x = buffer_read(_buffer, buffer_u16);
 				var _y = buffer_read(_buffer, buffer_u16);
@@ -81,9 +137,9 @@ function clientReceivedPacket(_buffer)
 					
 					}
 				}
-				break;
+				break;}
 		
-		    case Network.Spawn:
+		    case Network.Spawn:{
 				var _s = buffer_read(_buffer, buffer_u8);
 				var _x = buffer_read(_buffer, buffer_u16);
 				var _y = buffer_read(_buffer, buffer_u16);
@@ -106,35 +162,35 @@ function clientReceivedPacket(_buffer)
 					
 					}
 				}
-				break;
-		    case Network.PlayerConnect:
+				break;}
+				
+		    case Network.PlayerConnect:{
 				resetTimer();
 				var _socket = buffer_read(_buffer, buffer_u8);
-				var _x = buffer_read(_buffer, buffer_u16);
-				var _y = buffer_read(_buffer, buffer_u16);
-				var _player = instance_create_layer(_x, _y, "Instances", oPlayer);
+				var _player = instance_create_layer(playerSpawn[0], playerSpawn[1], "Instances", oPlayer);
 				_player.socket = _socket;
-				break;
-		    case Network.PlayerJoined:
+				break;}
+				
+		    case Network.PlayerJoined:{
 				resetTimer();
 				ResetPool();
 				with (oEnemy) {
 				    instance_destroy();
 				}
 				var _socket = buffer_read(_buffer, buffer_u8);
-				var _x = buffer_read(_buffer, buffer_u16);
-				var _y = buffer_read(_buffer, buffer_u16);
-				var _slave = instance_create_layer(_x, _y, "Instances", oSlave);
+				var _slave = instance_create_layer(playerSpawn[0], playerSpawn[1], "Instances", oSlave);
 				ds_map_add(socketToInstanceID, _socket, _slave.id);
 				//show_message(_socket);
 				_slave.socket = _socket;
-				break;
-			case Network.Message:
+				break;}
+				
+			case Network.Message:{
 				var _s = buffer_read(_buffer, buffer_u8);
 				var message = buffer_read(_buffer, buffer_string);
 				show_message(message + string(_s));
-				break;
-			case Network.PlayerMoved:
+				break;}
+				
+			case Network.PlayerMoved:{
 				var _s = buffer_read(_buffer, buffer_u8);
 				var _x = buffer_read(_buffer, buffer_u16);
 				var _y = buffer_read(_buffer, buffer_u16);
@@ -157,12 +213,29 @@ function clientReceivedPacket(_buffer)
 				//		y = _y;
 				//	}
 				//}
-				break;
-			case Network.PlayerDisconnect:
+				break;}
+				
+			case Network.PlayerDisconnect:{
 				var _socket = buffer_read(_buffer, buffer_u8);
 				show_message(_socket);
 				instance_destroy(ds_map_find_value(socketToInstanceID, _socket));
-				break;
+				break;}
+				
+			case Network.IsHost:{
+				var _host = buffer_read(_buffer, buffer_string);
+				//show_message_async(_host);
+				oLobby.ishost = _host;
+				break;}
+			
+			case Network.LobbyConnect:{
+				var _json = buffer_read(_buffer, buffer_string);
+				oLobby.players = json_parse(_json);
+				//show_message_async("socket:" + string(_socket) + " username:" + string(_username) + " id:" + string(_playerID));
+				break;}
+				
+			case Network.StartGame:{
+				room_goto(Room1);
+				break;}
 		}
 	}
 }

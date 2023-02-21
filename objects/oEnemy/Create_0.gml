@@ -25,22 +25,21 @@ if (room != rInicio) {
 	canattack=true;
 }
 // randomize;
+deathSent = false;
 enemyID = irandom(9999);
-
-vars = variable_instance_get_names(self);
-savedvars = {};
-for (var i = 0; i < array_length(vars); ++i) {
-    variable_struct_set(savedvars, vars[i], variable_instance_get(self, vars[i]));
-}
-sendvars = json_stringify(savedvars);
-buffer_seek(oClient.clientBuffer, buffer_seek_start, 0);
-buffer_write(oClient.clientBuffer, buffer_u8, Network.Spawn);
-buffer_write(oClient.clientBuffer, buffer_u8, oPlayer.socket);
-buffer_write(oClient.clientBuffer, buffer_u16, x);
-buffer_write(oClient.clientBuffer, buffer_u16, y);
-buffer_write(oClient.clientBuffer, buffer_string, sendvars);
-//show_message(sendvars);
 if (oPlayer.socket == 1) {
+	vars = variable_instance_get_names(self);
+	savedvars = {};
+	for (var i = 0; i < array_length(vars); ++i) {
+	    variable_struct_set(savedvars, vars[i], variable_instance_get(self, vars[i]));
+	}
+	sendvars = json_stringify(savedvars);
+	buffer_seek(oClient.clientBuffer, buffer_seek_start, 0);
+	buffer_write(oClient.clientBuffer, buffer_u8, Network.Spawn);
+	buffer_write(oClient.clientBuffer, buffer_u8, oPlayer.socket);
+	buffer_write(oClient.clientBuffer, buffer_u16, x);
+	buffer_write(oClient.clientBuffer, buffer_u16, y);
+	buffer_write(oClient.clientBuffer, buffer_string, sendvars);
     network_send_packet(oClient.client, oClient.clientBuffer, buffer_tell(oClient.clientBuffer));
 }
 //show_debug_overlay(true);

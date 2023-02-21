@@ -1,7 +1,13 @@
 if (instance_number(oTitleRunning) == 0 and room == rInicio) {
     instance_create_layer(0,0, "Instances", oTitleRunning);
 }
-
+if (room == rInicio and instance_exists(oClient)) {
+    instance_destroy(oClient);
+}
+if (room == Room1 and !instance_exists(oClient)) {
+	instance_create_layer(1895, 1880, "Instances", oClient);
+    instance_create_layer(1895, 1880, "Instances", oPlayer);
+}
 if (mouse_check_button(mb_left)) {
     var _xx = GW;
 	var _xn = 1;
@@ -178,9 +184,20 @@ if (ANVIL) {
 			//show_message(string(Characters.Amelia));
 			//show_message(string(CHARACTERS[selected][?"id"]));
 			PLAYER_PERKS = global.characterPerks[CHARACTERS[selected][?"id"]];
-			global.mode = "stage";
 			audio_stop_sound(global.musicPlaying);
-			room_goto(Room1);
+			switch (global.server) {
+			    case true:
+			        global.mode = "stage";
+					room_goto(Room1);
+			        break;
+			    case false:
+			        global.mode = "menu";
+					global.username = global.player[?"name"]; //TODO: Remove
+					room_goto(rLobby);
+			        break;
+			}
+			
+			
 	    }
 	}
 #endregion

@@ -1,4 +1,5 @@
 event_inherited();
+upgID = irandom(9999);
 originalX = x;
 originalY = y; 
 ghost = false;
