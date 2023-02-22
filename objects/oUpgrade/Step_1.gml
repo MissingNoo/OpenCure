@@ -15,7 +15,7 @@ if (a==0) {
 	//if (shoots > 0) {
 	//    show_debug_message("Spawned: " + string(upg[$"id"]) + " Name: " + upg[$"name"] + " Level: " + string(upg[$"level"]) + " shoots: " + string(shoots) + " cooldown: " + string(upg[$"cooldown"]) );
 	//}
-	if (variable_struct_exists(upg, "sound") and upg[$"sound"] != undefined) {
+	if (variable_struct_exists(upg, "sound") and upg[$"sound"] != "") {
 		if (is_array(upg[$"sound"])) {
 			var snd = irandom_range(0, array_length(upg[$"sound"])-1);
 		    audio_play_sound(upg[$"sound"][snd],0,0);
@@ -216,11 +216,11 @@ if (a==0) {
 		buffer_write(oClient.clientBuffer, buffer_u16, x);
 		buffer_write(oClient.clientBuffer, buffer_u16, y);
 		buffer_write(oClient.clientBuffer, buffer_u16, sprite_index);
-		buffer_write(oClient.clientBuffer, buffer_u16, speed);
+		//buffer_write(oClient.clientBuffer, buffer_u16, speed);
 		buffer_write(oClient.clientBuffer, buffer_s16, direction);
 		buffer_write(oClient.clientBuffer, buffer_s16, image_angle);
 		buffer_write(oClient.clientBuffer, buffer_string, sendvars);
-		buffer_write(oClient.clientBuffer, buffer_string, json_stringify(upg));
+		buffer_write(oClient.clientBuffer, buffer_u8, upg[$"id"]);
 		//var sidevars = ["upg", "speed", "hits", "sprite_index", "level", "mindmg", "maxdmg"];
 		//for (var i = 0; i < array_length(sidevars); ++i) {
 		//    buffer_write(oClient.clientBuffer, buffer_s16, variable_instance_get(self, sidevars[i]));

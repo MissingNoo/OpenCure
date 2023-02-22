@@ -96,13 +96,16 @@ function clientReceivedPacket(_buffer)
 				var _x = buffer_read(_buffer, buffer_u16);
 				var _y = buffer_read(_buffer, buffer_u16);
 				var _spr = buffer_read(_buffer, buffer_u16);
-				var _spd = buffer_read(_buffer, buffer_u16);
+				//var _spd = buffer_read(_buffer, buffer_u16);
 				var _dir = buffer_read(_buffer, buffer_s16);
 				var _angle = buffer_read(_buffer, buffer_s16);
 				var _vars = buffer_read(_buffer, buffer_string);
-				//var _upginfo = buffer_read(_buffer, buffer_string);
+				var _upgid = buffer_read(_buffer, buffer_u8);
 				if (_s != oPlayer.socket) {
+					//show_message(_vars);
 					var upgvars = json_parse(_vars);
+					//show_message(upgvars[$"upg"]);
+					//show_debug_message(upgvars[]);
 					var upgvarnames = variable_struct_get_names(upgvars)
 					var _upg = instance_create_layer(_x, _y, "Instances", oUpgrade);
 					for (var i = 0; i < variable_struct_names_count(upgvars); ++i) {
@@ -111,10 +114,11 @@ function clientReceivedPacket(_buffer)
 						}
 					}
 					_upg.sprite_index = _spr;
-					_upg.speed = _spd;
+					//_upg.speed = _spd;
 					_upg.direction = _dir;
 					_upg.image_angle = _angle;
 					_upg.ghost = true;
+					//_upg.upg = global.upgradesAvaliable[_upgid];
 					//var sidevars = ["upg", "speed", "hits", "sprite_index", "level", "mindmg", "maxdmg"];
 					//for (var i = 0; i < array_length(sidevars); ++i) {
 					//	variable_instance_set(_upg, sidevars[i], buffer_read(_buffer, buffer_u16));

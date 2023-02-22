@@ -14,7 +14,7 @@ client = network_create_socket(network_socket_tcp);
 //}
 
 //show_message_async("Client: " + string(connected));
-clientBuffer = buffer_create(1024, buffer_fixed, 1);
+clientBuffer = buffer_create(4098, buffer_fixed, 1);
 if (room == rLobby) {
     instance_create_depth(x,y,depth,oLobby);
 }

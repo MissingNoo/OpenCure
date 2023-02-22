@@ -36,7 +36,7 @@ enum ItemTypes {
 }
 
 #region Upgrades
-function newCreateUpgrade(_data, _sounds = undefined){
+function newCreateUpgrade(_data, _sounds = ""){
 	global.upgradesAvaliable[_data.id][0] = global.null;
 	for (var i = 1; i <= _data.maxlevel; ++i) {
 		global.upgradesAvaliable[_data.id][i] = {};
