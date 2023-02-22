@@ -36,10 +36,11 @@ enum ItemTypes {
 }
 
 #region Upgrades
-function newCreateUpgrade(_data){
+function newCreateUpgrade(_data, _sounds = undefined){
 	global.upgradesAvaliable[_data.id][0] = global.null;
-	for (var i = 1; i <= _data.maxlevel; ++i) {	    
+	for (var i = 1; i <= _data.maxlevel; ++i) {
 		global.upgradesAvaliable[_data.id][i] = {};
+		global.upgradesAvaliable[_data.id][i].sound = _sounds;
 		var m = global.upgradesAvaliable[_data.id][i];
 		variable_struct_set(m, "level" ,i);
 		variable_struct_set(m, "style", ItemTypes.Weapon);
@@ -151,12 +152,13 @@ function populateUpgrades(){
 				knockbackDuration : [0, 0, 0, 0, 0, 0, 0],
 				perk : true,
 				characterid : Characters.Amelia
-			});
+			},[snd_bullet, snd_bullet2, snd_bullet3]);
 			#endregion
 		#endregion	
 	
 		#region Gura Perks
-			#region GuraTrident
+			#region GuraTrident 
+				//TODO: add snd_woosh and snd_woosh2
 				createUpgrade(Weapons.GuraTrident,"GuraTrident",1, sGuraTridentShoot, sGuraTrident,11,21,70,100,20,true,0,999, "red", 1,"Mid ranged stab attack in front.");
 				createUpgradeP2(Weapons.GuraTrident, 1, 7, 0, 0, 1, Characters.Gura);
 				createUpgrade(Weapons.GuraTrident,"GuraTrident",2, sGuraTridentShoot, sGuraTrident,11*1.20,21*1.20,70,100,20,true,0,999, "red", 1,"Increase damage by 20%. ");

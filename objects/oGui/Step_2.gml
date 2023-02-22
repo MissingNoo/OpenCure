@@ -32,6 +32,7 @@ if (room = room2) {
             selected = Characters.Lenght - 1;
         } else selected -= 1;
 		NAME=CHARACTERS[selected][?"name"];
+		audio_play_sound(snd_charSelectWoosh,0,0);
     }
     if (_right) {
         if (selected < Characters.Lenght - 1) {
@@ -39,6 +40,7 @@ if (room = room2) {
         } else selected = 0;
 		//mouseOnButton(GW/3.10,GH/3.75, GW/13, sAmePortrait, 2, 2, array_create(Characters.Lenght, 0), "horizontal");
 		NAME=CHARACTERS[selected][?"name"];
+		audio_play_sound(snd_charSelectWoosh,0,0);
     }
 }
 

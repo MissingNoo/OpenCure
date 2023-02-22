@@ -15,7 +15,15 @@ if (a==0) {
 	//if (shoots > 0) {
 	//    show_debug_message("Spawned: " + string(upg[$"id"]) + " Name: " + upg[$"name"] + " Level: " + string(upg[$"level"]) + " shoots: " + string(shoots) + " cooldown: " + string(upg[$"cooldown"]) );
 	//}
-	
+	if (variable_struct_exists(upg, "sound") and upg[$"sound"] != undefined) {
+		if (is_array(upg[$"sound"])) {
+			var snd = irandom_range(0, array_length(upg[$"sound"])-1);
+		    audio_play_sound(upg[$"sound"][snd],0,0);
+		}else{
+			audio_play_sound(upg[$"sound"],0,0);
+		}
+	    
+	}
 	//show_message(string(image_xscale));
 	switch (upg[$"id"]) {
 		default:{
@@ -23,7 +31,6 @@ if (a==0) {
 			break;}
 			
 		case Weapons.AmePistol:{
-			audio_play_sound(snd_bullet,0,0);
 			defaultBehaviour();
 			alarm[0] = 10;
 			break;}

@@ -2,7 +2,7 @@
 
 
 if (other.hittedcooldown[upg[$"id"]] <= 0  and !global.gamePaused and other.image_alpha == 1 and image_alpha == 1 and ghost == false) {
-	
+	audio_play_sound(choose(snd_hit1, snd_hit2, snd_hit3), 0, 0, .5);
 	#region debuffs
 		#region Gura
 			if (global.player == CHARACTERS[Characters.Gura]) {

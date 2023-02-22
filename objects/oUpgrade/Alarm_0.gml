@@ -34,6 +34,7 @@ switch (upg[$"name"]) {
 		}
 	case "Plug-type Asacoco":{
 		speed = originalspeed;
+		audio_play_sound(choose(snd_tailplug, snd_tailplug2, snd_tailplug3),0,0);
 		break;}
 	case "BL Book":{
 		if (shoots > 1) {			

@@ -185,6 +185,7 @@ if (ANVIL) {
 			//show_message(string(CHARACTERS[selected][?"id"]));
 			PLAYER_PERKS = global.characterPerks[CHARACTERS[selected][?"id"]];
 			audio_stop_sound(global.musicPlaying);
+			audio_play_sound(snd_charSelected,0,0);
 			switch (global.server) {
 			    case true:
 			        global.mode = "stage";
@@ -196,8 +197,6 @@ if (ANVIL) {
 					room_goto(rLobby);
 			        break;
 			}
-			
-			
 	    }
 	}
 #endregion

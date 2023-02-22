@@ -19,5 +19,6 @@ if (possible_upgrade) {
 	oGui.anvilSelected = 0;
 	oGui.anvilSelectedCategory = 0;
 	instance_destroy(other);
+	audio_play_sound(snd_anvil,0,0);
 	PauseGame();
 }

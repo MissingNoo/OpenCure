@@ -78,7 +78,7 @@ function clientReceivedPacket(_buffer)
 					    inst.x = _x;
 						inst.y = _y;
 						inst.speed=0;
-						inst.direction = _dir;
+						inst.image_alpha = _dir;
 						inst.image_angle = _angle;
 					}
 				}
@@ -106,7 +106,9 @@ function clientReceivedPacket(_buffer)
 					var upgvarnames = variable_struct_get_names(upgvars)
 					var _upg = instance_create_layer(_x, _y, "Instances", oUpgrade);
 					for (var i = 0; i < variable_struct_names_count(upgvars); ++i) {
-					    variable_instance_set(_upg, upgvarnames[i], variable_struct_get(upgvars, upgvarnames[i]));
+						if (upgvarnames[i] != "id") {
+							variable_instance_set(_upg, upgvarnames[i], variable_struct_get(upgvars, upgvarnames[i]));
+						}
 					}
 					_upg.sprite_index = _spr;
 					_upg.speed = _spd;

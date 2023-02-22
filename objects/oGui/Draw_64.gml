@@ -101,7 +101,11 @@
 #region Inside Stage
 	if (instance_exists(oPlayer))
 	{	
-		draw_text(GW/1.05, GH/16, "Coins:" + string(global.newcoins));
+		draw_sprite_stretched(sHolocoin, 0, GW/1.25, GH/25, 55, 55);
+		draw_text_transformed(GW/1.18, GH/16.35, string(global.newcoins), 2, 2, 0);
+		draw_sprite_stretched(sHuddefeatedEnemies, 0, GW/1.25, GH/9, 55, 55);
+		draw_text_transformed(GW/1.18, GH/7.60, string(global.defeatedEnemies), 2, 2, 0);
+		
 		#region Character Portrait
 			draw_sprite_ext(ui_portrait_bg,0,60,90,2,2,0,c_white,1);
 			draw_sprite_ext(global.player[?"portrait"],0,60,90,2,2,0,c_white,1);
