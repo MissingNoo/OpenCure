@@ -15,13 +15,13 @@ random_set_seed(current_time);
 			if (rdn <= 30) {
 			    switch (playerItems[i][?"level"]) {
 				    case 1:
-				        HP+=2;
+				        healPlayer(2);
 				        break;
 					case 2:
-				        HP+=4;
+				        healPlayer(4);
 				        break;
 					case 3:
-				        HP+=6;
+				        healPlayer(6);
 				        break;
 				}
 			}

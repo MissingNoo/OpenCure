@@ -121,3 +121,6 @@ function copyStruct(struct){
     return newCopy;
 }
 
+function healPlayer(amount){
+	HP += amount * Bonuses[BonusType.Healing][ItemIds.Full_Meal];
+}

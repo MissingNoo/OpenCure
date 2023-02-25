@@ -77,7 +77,7 @@ function newCreateItem(_data){
 		CreditCard,
 		Energy_Drink,
 		Face_Mask,
-		Full_Meal, //TODO: actually double the heal amount
+		Full_Meal,
 		Gorilla_Paw, //TODO: lower the crit damage
 		GWS_Pill, //TODO: add crit effects
 		Halu,//TODO: add all effects
@@ -93,9 +93,9 @@ function newCreateItem(_data){
 		Plushie, //TODO: add all effects
 		Sake, //TODO: add all effects
 		Stolen_Piggy_Bank,
-		Study_Glasses, //TODO: see if the +% is actually accurate
+		Study_Glasses, 
 		Super_Chatto_Time,
-		Uber_Sheep,//TODO: fix drop chance from enemies
+		Uber_Sheep,
 		Holocoin,
 		Hamburguer,
 	}
@@ -464,7 +464,7 @@ function populateItems(){
 				"All healing is doubled."
 				],
 				perk : false});
-				Bonuses[BonusType.Healing][ItemIds.Full_Meal] = 0;
+				Bonuses[BonusType.Healing][ItemIds.Full_Meal] = 1;
 			#endregion
 		
 			#region Gorilla's Paw
