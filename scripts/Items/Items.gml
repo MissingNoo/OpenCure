@@ -86,7 +86,7 @@ function newCreateItem(_data){
 		Injection_Type_Asacoco,
 		Just_Bandage, //TODO: add all effects
 		Knightly_Milk,
-		Limiter, //TODO: add all effects
+		Limiter,
 		Membership, //TODO: add all effects
 		NurseHorn,
 		Piki_Piki_Piman, //TODO: add all effects
@@ -267,7 +267,9 @@ function populateItems(){
 				"Gain 200% Pick Up Range. ",
 				"Gain 300% Pick Up Range. ",				
 				],
+				bonus : [2, 3, 4],
 				perk : false});
+				Bonuses[BonusType.PickupRange][ItemIds.Limiter] = 0;
 			#endregion
 			
 			#region Super Chatto Time
@@ -716,6 +718,9 @@ function tickItems(){
 					}
 					global.pig = time_source_create(time_source_game, 1, time_source_units_seconds,global.pigfunction, [], -1, time_source_expire_after);
 					time_source_start(global.pig);
+					break;
+				case ItemIds.Limiter:
+					Bonuses[BonusType.PickupRange][ItemIds.Limiter] = playerItems[i][$"bonus"];
 					break;
 			}
 		}
