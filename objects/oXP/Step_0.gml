@@ -3,7 +3,7 @@
 
 if (onArea) {
 	direction=point_direction(x,y,oPlayer.x,oPlayer.y);
-	speed=oPlayer.spd*1.2;
+	speed=oPlayer.spd*1.3;
 }
 else speed=0;
 if (!global.gamePaused) {
@@ -18,9 +18,12 @@ if (!global.gamePaused) {
 		} else {dir = 0}
 	}
 }
-otherxp = collision_circle(x,y, 30, oXP,false,true);
-if (otherxp != noone) {
-    
+var nearestxp = instance_nearest(x,y, oXP);
+if (distance_to_point(nearestxp.x, nearestxp.y) < 40) {
+    otherxp = collision_circle(x,y, 30, oXP,false,true);
+}
+
+if (otherxp != noone and !onArea) {    
 	direction = point_direction(x,y,otherxp.x,otherxp.y);
 	speed = 1;
 	if (collision_circle(x,y, 3, oXP,false,true)) {
