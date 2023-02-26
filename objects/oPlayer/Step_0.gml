@@ -25,6 +25,10 @@ if (!global.gamePaused) {
 	}
 	#endregion
 	
+	if (global.lastsequence != undefined) {
+	    layer_sequence_x(global.lastsequence, oPlayer.x);
+	    layer_sequence_y(global.lastsequence, oPlayer.y);
+	}
 	
 	
 	buffer_seek(oClient.clientBuffer, buffer_seek_start, 0);

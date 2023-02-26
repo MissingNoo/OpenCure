@@ -45,12 +45,11 @@ if (a==0) {
 			alarm[0] = 1;
 			break;}
 			
-		case "InaTentacle":{
-			//defaultBehaviour();
+		case Weapons.InaTentacle:{
 			if (shoots > 0) {
 			    image_angle = arrowDir;
 			}
-			else image_angle=diroffset;
+			else {image_angle=random(360);}
 			
 			if (upg[$"level"] >= 4) {
 			    var dirr = (image_xscale > 0) ? .25 : -.25;

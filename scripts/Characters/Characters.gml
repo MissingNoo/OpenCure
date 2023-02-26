@@ -103,6 +103,7 @@ enum BuffNames{
 function populateCharacters(){
 	createCharacter(Characters.Amelia,"Watson Amelia",sAmePortrait,sAmeIdle,sAmeRunning,75,1.35,1.30,u[Weapons.AmePistol]);
 	createCharacter(Characters.Gura,"Gawr Gura",sGuraPortrait,sGuraIdle,sGuraRunning,65,1.40,1.10,u[Weapons.GuraTrident]);
+	createCharacter(Characters.Ina,"Ninomae Ina'nis",sInaPortrait,sInaIdle,sInaRunning,75,1.50,0.90,u[Weapons.InaTentacle]);
 	Buffs[BuffNames.ShortHeight] = {
 		id : BuffNames.ShortHeight,
 		name : "Short Height",
@@ -139,7 +140,7 @@ function populateCharacters(){
 enum Characters {
 	Amelia,
 	Gura,
-	//Ina,
+	Ina,
 	//Kiara,
 	//Calli,
 	Lenght

@@ -99,6 +99,7 @@ function populatePerks(){
 				#region 
 			
 				#endregion
+				global.characterPerks[Characters.Ina] = [PERK_LIST[PerkIds.FpsMastery][0], PERK_LIST[PerkIds.DetectiveEye][0], PERK_LIST[PerkIds.Bubba][0]];
 			#endregion
 		#endregion
 	#endregion

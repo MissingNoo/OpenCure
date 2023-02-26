@@ -15,7 +15,7 @@ if (!global.gamePaused) {
 			x=owner.x;
 			y=owner.y-8;
 			break;}
-		case "InaTentacle":{
+		case Weapons.InaTentacle:{
 			//var dirr = (image_xscale > 0) ? 32 : -32;
 			//x=owner.x+dirr;
 			x=owner.x;

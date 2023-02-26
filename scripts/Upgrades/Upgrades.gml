@@ -103,7 +103,7 @@ enum Weapons
 	AmePistol,
 	GuraTrident,
 	PowerofAtlantis, //TODO: water area, more damage
-	//InaTentacle,
+	InaTentacle, //TODO: add knockback
 	BlBook, //TODO: area, knockback
 	CEOTears,
 	CuttingBoard, //TODO: add bonus for flat characters, knockback, Shoot additional walls from sides, Walls travel farther
@@ -187,15 +187,37 @@ function populateUpgrades(){
 		#endregion
 	
 		#region Ina Perks
-			#region InaTentacle
-				//createUpgrade(Weapons.InaTentacle,"InaTentacle",1, sInaTentacleShoot, sInaTentacle,8,16,90,true,0,999, "red", 1,1,"");
-				//createUpgrade(Weapons.InaTentacle,"InaTentacle",2, sInaTentacleShoot, sInaTentacle,8*1.20,16*1.20,90,true,0,999, "red", 1,1,"");
-				//createUpgrade(Weapons.InaTentacle,"InaTentacle",3, sInaTentacleShoot, sInaTentacle,8*1.20,16*1.20,90*0.80,true,0,999, "red", 1,1,"");
-				//createUpgrade(Weapons.InaTentacle,"InaTentacle",4, sInaTentacleShoot, sInaTentacle,8*1.20,16*1.20,90*0.80,true,0,999, "red", 1,1,""); //atkarea *1.25
-				//createUpgrade(Weapons.InaTentacle,"InaTentacle",5, sInaTentacleShoot, sInaTentacle,8*1.20*1.5,16*1.20*1.5,90*0.80,true,0,999, "red", 1,1,""); //atkarea *1.25
-				//createUpgrade(Weapons.InaTentacle,"InaTentacle",6, sInaTentacleShoot, sInaTentacle,8*1.20*1.5,16*1.20*1.5,90*0.80,true,0,999, "red", 1,1,""); //atkarea *1.25, knockback small
-				//createUpgrade(Weapons.InaTentacle,"InaTentacle",7, sInaTentacleShoot, sInaTentacle,8*1.20*1.5,16*1.20*1.5,90*0.80,true,0,999, "red", 2,1,""); //atkarea *1.25, knockback small
-			#endregion
+			#region Ina tentacle
+			newCreateUpgrade({
+				id : Weapons.InaTentacle,
+				name : "Summon Tentacle",
+				maxlevel : 7,
+				sprite : sInaTentacleShoot,
+				thumb : sInaTentacle,
+				mindmg : [10, 12, 12, 12, 19, 19, 19],
+				maxdmg : [14, 16, 16, 16, 24, 24, 24],
+				cooldown : [90, 90, 78, 78, 78, 78, 78],
+				duration : 120,
+				hitCooldown : 20,
+				canBeHasted : true,
+				speed : 0,
+				hits : 999,
+				type : "white",
+				shoots : [1, 1, 1, 1, 1, 1, 4],
+				desc : [
+				"A tentacle shoots out in front.",
+				"Increase damage by 20%.",
+				"Reduce the time between attacks by 20%.",
+				"Increase attack area by 25%.",
+				"Increase damage by 50%.",
+				"Adds small knockback on hit.",
+				"Chain another three tentacles in a chain at a random direction.",
+				],
+				knockbackSpeed : 0,
+				knockbackDuration : 0,
+				perk : false
+			});
+	#endregion
 		#endregion
 	#endregion
 	
@@ -954,7 +976,7 @@ function randomUpgrades(){
 	//global.upgradeOptions[3] = global.null;
 	#endregion
 	 //global.upgradeOptions[0] = ItemList[ItemIds.Limiter][1];
-	 global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.WamyWater][1];
+	 //global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.WamyWater][1];
 }	
 
 function tickPowers(){

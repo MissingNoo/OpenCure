@@ -7,7 +7,7 @@ switch (upg[$"id"]) {
 		    instance_destroy();
 		}
         break;
-	case "InaTentacle":
+	case Weapons.InaTentacle:
 		instance_destroy();
 		break;
 	case Weapons.EliteLavaBucket:{
