@@ -861,7 +861,7 @@ function randomUpgrades(){
 	//global.upgradeOptions[3] = global.null;
 	#endregion
 	 //global.upgradeOptions[0] = ItemList[ItemIds.Limiter][1];
-	 global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.IdolSong][1];
+	 //global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.IdolSong][1];
 }	
 
 function tickPowers(){

@@ -7,10 +7,10 @@ if (global.server) {
 
 client = network_create_socket(network_socket_tcp);
 //if (global.server) {
-    //connected = network_connect(client, "127.0.0.1", 64198);
+    connected = network_connect(client, "127.0.0.1", 64198);
 //}
 //else {
-    connected = network_connect(client, "192.168.15.3", 64198);
+    //connected = network_connect(client, "192.168.15.3", 64198);
 //}
 
 //show_message_async("Client: " + string(connected));
