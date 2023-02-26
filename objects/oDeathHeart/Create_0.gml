@@ -1,0 +1,1 @@
+ospd = image_speed;

@@ -8,7 +8,7 @@
 #endregion
 
 #region black screen below gui
-	if (global.upgrade == 1 or global.gamePaused and room != rInicio) {
+	if (global.upgrade == 1 or global.gamePaused and room != rInicio and HP > 0) {
 		draw_set_alpha(.75);
 		draw_rectangle_color(0, 0, display_get_gui_width(), display_get_gui_height(), c_black, c_black, c_black, c_black, false); // Darken the screen
 		draw_set_alpha(1)
@@ -401,7 +401,7 @@
 #endregion
 
 #region PauseMenu
-	if (global.gamePaused and !global.upgrade and !ANVIL) {
+	if (global.gamePaused and !global.upgrade and !ANVIL and HP > 0) {
 		if (instance_exists(oPlayer)) { drawStats(); }
 		
 		//pauseMenu[PMenus.Pause][PM.XScale] = a;

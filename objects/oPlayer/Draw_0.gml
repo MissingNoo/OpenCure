@@ -30,8 +30,10 @@ draw_self();
 //	gpu_set_fog(false,c_white,0,0)
 //}
 //draw_sprite_ext(Arrow,0,x,y,.25,.25,arrow_dir,c_red,1);
-draw_healthbar((x - 13), ((y - 16) - 20), (x + 13), ((y - 16) - 23), ((HP / MAXHP) * 100), c_red, c_lime, c_lime, 0, 1, 0);
-if (Shield > 0) {
+if (HP > 0) {
+    draw_healthbar((x - 13), ((y - 16) - 20), (x + 13), ((y - 16) - 23), ((HP / MAXHP) * 100), c_red, c_lime, c_lime, 0, 1, 0);
+}
+if (Shield > 0 and HP > 0) {
     draw_healthbar((x - 13), ((y - 19) - 20), (x + 13), ((y - 19) - 23), ((Shield / MaxShield) * 100), c_red, c_blue, c_blue, 0, 1, 0);
 }
 

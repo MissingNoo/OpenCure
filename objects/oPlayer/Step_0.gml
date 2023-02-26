@@ -59,13 +59,23 @@ if (!global.gamePaused) {
 	}
 	
 	if (global.hp <= 0) {
-		if (revives <= 0) {
+		if (revives <= 0 and !dead) {
+			can_move = false;
+			dead = true;
 			global.mode = "menu";
 			global.holocoins += global.newcoins;
-			room_goto(rInicio);
+			image_alpha = 0;
+			var heartOff = 0;
+			for (var i = 0; i < 8; ++i) {
+				var inst = instance_create_depth(x,y,depth, oDeathHeart,{direction : heartOff});
+				heartOff += 45;
+			}
+			if (alarm_get(3) == -1) {
+			    alarm[3] = 60;
+			}
 		    //game_restart();
 		}
-		else {
+		else if (revives > 0){
 		    HP = MAXHP/2;
 			revives -= 1;
 			with (oEnemy) {

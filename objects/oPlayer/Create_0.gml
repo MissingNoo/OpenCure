@@ -12,6 +12,7 @@ special = SPECIAL_LIST[global.player[?"special"]];
 specialcooldown = special.cooldown;
 pimanLevel = 0;
 pimanUsable = false;
+dead = false;
 resetTimer();
 ResetPool();
 idolCostumeLevel = 0;
