@@ -89,7 +89,7 @@ function newCreateItem(_data){
 		Limiter,
 		Membership, //TODO: add all effects
 		NurseHorn,
-		Piki_Piki_Piman, //TODO: add all effects
+		Piki_Piki_Piman,
 		Plushie, //TODO: add all effects
 		Sake, //TODO: add all effects
 		Stolen_Piggy_Bank,
@@ -372,6 +372,8 @@ function populateItems(){
 				"Lose 3 Holo Coins per second. If Holo Coins is more than 0, increase damage by 40% and take 18% less damage.",
 				"Lose 3 Holo Coins per second. If Holo Coins is more than 0, increase damage by 50% and take 25% less damage.",
 				],
+				bonusATK : [1.30, 1.40, 1.50],
+				bonusLessDamage : [0.90, 0.82, 0.75],
 				perk : false});
 			#endregion
 			
@@ -732,6 +734,19 @@ function tickItems(){
 					}
 					pimanUsable = true;
 					break;
+				case ItemIds.Membership:{
+					if (global.newcoins > 0) {
+					    global.newcoins -= 3;
+						Bonuses[BonusType.Damage][ItemIds.Membership] = playerItems[i][$"bonusATK"];
+						Bonuses[BonusType.TakeDamage][ItemIds.Membership] = playerItems[i][$"bonusLessDamage"];
+					}
+					if (global.newcoins <= 0) {
+					    global.newcoins = 0;
+						Bonuses[BonusType.Damage][ItemIds.Membership] = 1;
+						Bonuses[BonusType.TakeDamage][ItemIds.Membership] = 1;
+					}
+					
+					break;}
 			}
 		}
 	}
