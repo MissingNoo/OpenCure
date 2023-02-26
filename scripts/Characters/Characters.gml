@@ -14,7 +14,7 @@ function initializePlayer(_p){
 		MAXHP=1;
 	}
 	NAME=_p[?"name"];
-	for (var i=0; i<5; i++) {
+	for (var i=0; i<6; i++) {
 		UPGRADES[i]=global.null;
 	}
 	for (var i=0; i<6; i++) {
