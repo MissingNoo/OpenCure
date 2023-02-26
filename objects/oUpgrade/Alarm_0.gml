@@ -6,17 +6,17 @@
 
 
 var inst = noone;
-switch (upg[$"name"]) {
+switch (upg[$"id"]) {
 	default:
 		break;
-	case "AmePistol":
+	case Weapons.AmePistol:
 		if (shoots > 1) {			
 			spawnUpgrade();
 		    shoots-=1;
 			alarm[0]=10;
 		}
 		break;
-	case "GuraTrident":
+	case Weapons.GuraTrident:
 		if (shoots > 1) {			
 			inst = spawnUpgrade();
 			inst.diroffset=offset;
@@ -32,11 +32,11 @@ switch (upg[$"name"]) {
 		    shoots-=1;			
 			alarm[0]=1;
 		}
-	case "Plug-type Asacoco":{
+	case Weapons.PlugAsaCoco:{
 		speed = originalspeed;
 		audio_play_sound(choose(snd_tailplug, snd_tailplug2, snd_tailplug3),0,0);
 		break;}
-	case "BL Book":{
+	case Weapons.BlBook:{
 		if (shoots > 1) {			
 			inst = spawnUpgrade();
 			inst.orbit_place = orbitoffset;
@@ -68,7 +68,7 @@ switch (upg[$"name"]) {
 			alarm[0]=1;
 		}
 		break;}
-	case "Elite Lava Bucket":{
+	case Weapons.EliteLavaBucket:{
 		if (shoots > 1) {			
 			spawnUpgrade();
 			random_set_seed(current_time);
@@ -79,13 +79,24 @@ switch (upg[$"name"]) {
 			alarm[0]=1;
 		}
 		break;}
-	case "Power of Atlantis":{
+	case Weapons.PowerofAtlantis:{
 		if (shoots > 1) {			
 			spawnUpgrade();
 			random_set_seed(current_time);
 			x = oPlayer.x + irandom_range(-200,200);
 			random_set_seed(current_time);
 			y = oPlayer.y + irandom_range(-200,200);
+		    shoots-=1;
+			alarm[0]=1;
+		}
+		break;}
+	case Weapons.HoloBomb:{
+		if (shoots > 1) {			
+			spawnUpgrade();
+			//random_set_seed(current_time);
+			x = oPlayer.x + irandom_range(-50,50);
+			//random_set_seed(current_time);
+			y = oPlayer.y + irandom_range(-50,50);
 		    shoots-=1;
 			alarm[0]=1;
 		}

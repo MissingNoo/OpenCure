@@ -111,7 +111,7 @@ enum Weapons
 	EliteLavaBucket, //TODO: lava area
 	FanBeam, //TODO: knockback
 	//Glowstick,
-	HoloBomb, //TODO: explosion radius
+	HoloBomb, //TODO: correct scale
 	//IdolSong,
 	PlugAsaCoco, //TODO: afterimage, knockback lv 6
 	//PsychoAxe,
@@ -332,20 +332,35 @@ function populateUpgrades(){
 	#endregion
 
 	#region Holobomb
-	createUpgrade(Weapons.HoloBomb, "Holo Bomb", 1, sHolobomb, sHolobomb, 12, 22, 120, 630, 20, true, 7, 1,"white", 1, "A bomb that explodes, dealing damage to all nearby targets.");
-	createUpgradeP2(Weapons.HoloBomb, 1, 7, 0, 0);
-	createUpgrade(Weapons.HoloBomb, "Holo Bomb", 2, sHolobomb, sHolobomb, 12, 22, 120, 630, 20, true, 7, 1,"white", 1, "Increase explosion size by [15%].");
-	createUpgradeP2(Weapons.HoloBomb, 2, 7, 0, 0);
-	createUpgrade(Weapons.HoloBomb, "Holo Bomb", 3, sHolobomb, sHolobomb, 12*1.20, 22*1.20, 120, 630, 20, true, 7, 1,"white", 1, "Increase damage by [20%].");
-	createUpgradeP2(Weapons.HoloBomb, 3, 7, 0, 0);
-	createUpgrade(Weapons.HoloBomb, "Holo Bomb", 4, sHolobomb, sHolobomb, 12*1.20, 22*1.20, 120, 630, 20, true, 7, 1,"white", 2, "Throw [2] bombs.");
-	createUpgradeP2(Weapons.HoloBomb, 4, 7, 0, 0);
-	createUpgrade(Weapons.HoloBomb, "Holo Bomb", 5, sHolobomb, sHolobomb, 12*1.20, 22*1.20, 120*0.80, 630, 20, true, 7, 1,"white", 2, "Reduce the time between attacks by [20%].");
-	createUpgradeP2(Weapons.HoloBomb, 5, 7, 0, 0);
-	createUpgrade(Weapons.HoloBomb, "Holo Bomb", 6, sHolobomb, sHolobomb, 12*1.20, 22*1.20, 120*0.80, 630, 20, true, 7, 1,"white", 2, "Increase explosion size by [20%].");
-	createUpgradeP2(Weapons.HoloBomb, 6, 7, 0, 0);
-	createUpgrade(Weapons.HoloBomb, "Holo Bomb", 7, sHolobomb, sHolobomb, 12*1.20, 22*1.20, 120*0.80, 630, 20, true, 7, 1,"white", 3, "Throw [3] bombs.");
-	createUpgradeP2(Weapons.HoloBomb, 7, 7, 0, 0);
+	newCreateUpgrade({
+				id : Weapons.HoloBomb,
+				name : "Holo Bomb",
+				maxlevel : 7,
+				sprite : sHolobomb,
+				thumb : sHolobomb,
+				mindmg : [15, 15, 15, 15, 15, 18, 18],
+				maxdmg : [19, 19, 19, 19, 19, 22, 22],
+				cooldown : [120, 120, 120, 120, 96, 96, 96],
+				duration : 630,
+				hitCooldown : 20, 
+				canBeHasted : true,
+				speed : 0,
+				hits : 999,
+				type : "white",
+				shoots : [1, 1, 1, 2, 2, 2, 3],
+				desc : [
+				"A bomb that explodes, dealing damage to all nearby targets.",
+				"Increase explosion size by 15%.",
+				"Increase damage by 20%.",
+				"Throw 2 bombs.",
+				"Reduce the time between attacks by 20%.",
+				"Increase explosion size by 20%.",
+				"Throw 3 bombs.",
+				],
+				knockbackSpeed : 0,
+				knockbackDuration : 0,
+				perk : false,
+			});
 		//Damage: 	170% (12 – 22)
 		//Attack time: 	120 (2 s)
 		//Attack count: 	1
@@ -779,8 +794,8 @@ function randomUpgrades(){
 		
 	//global.upgradeOptions[3] = global.null;
 	#endregion
-	// global.upgradeOptions[0] = ItemList[ItemIds.Super_Chatto_Time][1];
-	// global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.CEOTears][1];
+	 //global.upgradeOptions[0] = ItemList[ItemIds.Limiter][1];
+	 global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.HoloBomb][1];
 }	
 
 function tickPowers(){

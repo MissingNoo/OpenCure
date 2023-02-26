@@ -38,7 +38,7 @@ if (other.hittedcooldown[upg[$"id"]] <= 0  and !global.gamePaused and other.imag
 	
 	other.hittedcooldown[upg[$"id"]] = upg[$"hitCooldown"];
 	other.damaged = true;
-	random_set_seed(current_time);
+	//random_set_seed(current_time);
 	if (!variable_instance_exists(self, "mindmg")) {
 		mindmg = 0;
 	}
@@ -82,8 +82,8 @@ if (other.hittedcooldown[upg[$"id"]] <= 0  and !global.gamePaused and other.imag
 	}
 	
 	other.alarm[1]=15;	
-	switch (upg[$"name"]) {
-	    case "AmePistol":
+	switch (upg[$"id"]) {
+	    case Weapons.AmePistol:
 	        if (hits == 1 and !AmePistolLastHit and upg[$"level"] >= 4) {
 			    AmePistolLastHit=true;
 				hits+=5;
@@ -97,6 +97,26 @@ if (other.hittedcooldown[upg[$"id"]] <= 0  and !global.gamePaused and other.imag
 				}
 			}
 	        break;
+		case Weapons.HoloBomb:
+			image_xscale = originalSize[0];
+			image_yscale = originalSize[1];
+			sprite_index = sBombExplosion;
+			level = upg[$"level"];
+				for (var i = 0; i < array_length(Bonuses[BonusType.WeaponSize]); ++i) {
+					if (Bonuses[BonusType.WeaponSize][i] != 0) {
+					    image_xscale = image_xscale * Bonuses[BonusType.WeaponSize][i];
+						image_yscale = image_yscale * Bonuses[BonusType.WeaponSize][i];
+					}			    
+				}
+				if (level >= 2 and level < 6) {
+				    image_xscale = image_xscale * 1.15;
+					image_yscale = image_yscale * 1.15;
+				}
+				if (level >= 6) {
+				    image_xscale = image_xscale * 1.35;
+					image_yscale = image_yscale * 1.35;
+				}
+			break;
 	    default:
 	        break;
 	}

@@ -293,6 +293,7 @@
     {"id":{"name":"sHudHPIcon","path":"sprites/sHudHPIcon/sHudHPIcon.yy",},},
     {"id":{"name":"sBLBook","path":"sprites/sBLBook/sBLBook.yy",},},
     {"id":{"name":"oClient","path":"objects/oClient/oClient.yy",},},
+    {"id":{"name":"sBombExplosion","path":"sprites/sBombExplosion/sBombExplosion.yy",},},
     {"id":{"name":"sCreditCard","path":"sprites/sCreditCard/sCreditCard.yy",},},
     {"id":{"name":"BG_newgrass_0","path":"sprites/BG_newgrass_0/BG_newgrass_0.yy",},},
     {"id":{"name":"snd_tailplug3","path":"sounds/snd_tailplug3/snd_tailplug3.yy",},},

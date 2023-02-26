@@ -26,3 +26,4 @@ loops = 0;
 changeSprite=false;
 socket = oPlayer.socket;
 owner = instance_nearest(x,y, oPlayer);
+originalSize = [0, 0];

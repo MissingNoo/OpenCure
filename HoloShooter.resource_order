@@ -237,6 +237,7 @@
     {"name":"sHungryTakodachi","order":7,"path":"sprites/sHungryTakodachi/sHungryTakodachi.yy",},
     {"name":"sBLBook","order":9,"path":"sprites/sBLBook/sBLBook.yy",},
     {"name":"oClient","order":10,"path":"objects/oClient/oClient.yy",},
+    {"name":"sBombExplosion","order":24,"path":"sprites/sBombExplosion/sBombExplosion.yy",},
     {"name":"sCreditCard","order":13,"path":"sprites/sCreditCard/sCreditCard.yy",},
     {"name":"snd_tailplug3","order":8,"path":"sounds/snd_tailplug3/snd_tailplug3.yy",},
     {"name":"sAmeGear","order":9,"path":"sprites/sAmeGear/sAmeGear.yy",},

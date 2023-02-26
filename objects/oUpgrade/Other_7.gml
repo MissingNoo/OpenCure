@@ -35,6 +35,11 @@ switch (upg[$"id"]) {
 		instance_destroy();
 		break;
 	}
+	case Weapons.HoloBomb:{
+		if (sprite_index == sBombExplosion) {
+		    instance_destroy();
+		}
+		break;}
     default:
         // code here
         break;

@@ -129,12 +129,12 @@ if (a==0) {
 			y = owner.y + (irandom_range(-100,100)*-1);
 			alarm[0] = 1;
 			depth=owner.depth;
-			for (var i = 0; i < array_length(Bonuses[BonusType.WeaponSize]); ++i) {
-				if (Bonuses[BonusType.WeaponSize][i] != 0) {
-				    image_xscale = image_xscale * Bonuses[BonusType.WeaponSize][i];
-					image_yscale = image_yscale * Bonuses[BonusType.WeaponSize][i];
-				}			    
-			}
+			//for (var i = 0; i < array_length(Bonuses[BonusType.WeaponSize]); ++i) {
+			//	if (Bonuses[BonusType.WeaponSize][i] != 0) {
+			//	    image_xscale = image_xscale * Bonuses[BonusType.WeaponSize][i];
+			//		image_yscale = image_yscale * Bonuses[BonusType.WeaponSize][i];
+			//	}			    
+			//}
 			if (level >= 2 and level < 7) {
 			    image_xscale = image_xscale * 1.20;
 				image_yscale = image_yscale * 1.20;
@@ -173,7 +173,7 @@ if (a==0) {
 			} else instance_destroy();
 			break;
 		}
-		case Weapons.FanBeam:
+		case Weapons.FanBeam:{
 			image_xscale = oPlayer.image_xscale;
 			if(shoots == 0){
 				image_xscale = image_xscale * -1;
@@ -184,19 +184,26 @@ if (a==0) {
 					alarm[0]=1;
 				}
 			}
-			break;
+			break;}
 		case Weapons.CuttingBoard:{
 			direction = arrowDir + 180;
 			speed = upg[$"speed"];
 			image_angle = arrowDir + diroffset;
 			break;
 		}
+		case Weapons.HoloBomb:{	
+			x = owner.x + irandom_range(-50,50);			
+			y = owner.y + (irandom_range(-50,50)*-1);
+			alarm[0] = 1;
+			depth=owner.depth;
+			break;}
 	}
 		if (sprite_index==blank) {
 			instance_destroy();
 	}
+	originalSize = [image_xscale, image_yscale];
 	for (var i = 0; i < array_length(Bonuses[BonusType.WeaponSize]); ++i) {
-	    if (Bonuses[BonusType.WeaponSize][i] != 0) {
+	    if (Bonuses[BonusType.WeaponSize][i] != 0 and upg[$"id"] != Weapons.HoloBomb) {
 			if (image_xscale > 0) { image_xscale = image_xscale * Bonuses[BonusType.WeaponSize][i]; }
 			else { image_xscale = image_xscale * (Bonuses[BonusType.WeaponSize][i] * -1); }
 			image_yscale = image_yscale * Bonuses[BonusType.WeaponSize][i];
