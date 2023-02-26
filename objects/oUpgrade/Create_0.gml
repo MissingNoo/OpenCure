@@ -1,7 +1,12 @@
 event_inherited();
+partSystem = part_system_create();
+part = part_type_create();
+part_type_life(part, oGui.a, oGui.b);
 upgID = irandom(9999);
 originalX = x;
-originalY = y; 
+originalY = y;
+xpreviousprevious = 0;
+ypreviousprevious = 0;
 ghost = false;
 arrowDir = global.arrowDir;
 CE=0;

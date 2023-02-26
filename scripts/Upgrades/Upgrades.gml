@@ -114,7 +114,7 @@ enum Weapons
 	HoloBomb, //TODO: correct scale
 	IdolSong,
 	PlugAsaCoco, //TODO: afterimage, knockback lv 6
-	//PsychoAxe,
+	PsychoAxe,
 	//SpiderCooking,
 	//WamyWater,
 	//X-Potato
@@ -463,6 +463,39 @@ function populateUpgrades(){
 				knockbackSpeed : 0,
 				knockbackDuration : 0,
 				perk : false,
+			});
+			#endregion
+	#region Psycho Axe
+			newCreateUpgrade({
+				id : Weapons.PsychoAxe,
+				name : "Psycho Axe",
+				maxlevel : 7,
+				sprite : sPsychoAxe,
+				thumb : sPsychoAxeThumb,
+				mindmg : [10, 14, 14, 19, 19, 19, 28],
+				maxdmg : [14, 18, 18, 23, 23, 23, 34],
+				cooldown : [240, 240, 192, 192, 192, 192, 192],
+				duration : [180, 180, 180, 180, 240, 240, 240],
+				hitCooldown : 50, 
+				canBeHasted : true,
+				speed : 10,
+				hits : [10, 10, 10, 10, 999, 999, 999],
+				type : "white",
+				shoots : [2, 2, 2, 2, 2, 4, 4],
+				desc : [
+				"Throw an axe that spirals outward from the player.",
+				"Increase size of axe by 20%. Increase damage of axe by 20%.",
+				"Reduce delay between attacks by 20%.",
+				"Increase damage by 33%, and size by 20%.",
+				"Remove hit limit, and lasts 1 second longer.",
+				"Increase attack size by 50%.",
+				"Increase damage by 50%.",
+				],
+				knockbackSpeed : 0,
+				knockbackDuration : 0,
+				perk : false,
+				afterimage : true,
+				afterimageColor : c_yellow,
 			});
 			#endregion
 }
@@ -861,7 +894,7 @@ function randomUpgrades(){
 	//global.upgradeOptions[3] = global.null;
 	#endregion
 	 //global.upgradeOptions[0] = ItemList[ItemIds.Limiter][1];
-	 //global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.IdolSong][1];
+	 global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.PsychoAxe][1];
 }	
 
 function tickPowers(){

@@ -1,3 +1,5 @@
+xpreviousprevious = x - (x - xprevious);
+ypreviousprevious = y - (y - yprevious);
 if (global.testvar == "") {
     global.testvar = upg;
 }
@@ -33,6 +35,14 @@ if (!global.gamePaused) {
 			y = owner.y - 16 + lengthdir_y(orbit_length, orbit_place);
 			orbit_place-=3;
 			break;}
+		case Weapons.PsychoAxe:{
+			//part_type_sprite(part, upg[$"sprite"], false, false, image_index);
+			x = originalX + lengthdir_x(orbit_length, orbit_place);
+			y = originalY + lengthdir_y(orbit_length, orbit_place);
+			orbit_place-=4;
+			orbit_length += 0.75;
+			//part_particles_create_colour(partSystem, xprevious, yprevious, part, c_yellow, 1);
+			break;}
 		case Weapons.CuttingBoard:{
 			if (distance_to_point(originalX, originalY) > 5) {
 				speed -= .30;
@@ -64,4 +74,3 @@ if (socket == oPlayer.socket) {
 	buffer_write(oClient.clientBuffer, buffer_u16, image_angle);
 	network_send_packet(oClient.client, oClient.clientBuffer, buffer_tell(oClient.clientBuffer));
 }
-

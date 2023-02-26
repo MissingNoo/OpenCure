@@ -223,6 +223,9 @@ if (a==0) {
 				alarm[0] = 1;
 			}
 			break;}
+		case Weapons.PsychoAxe:{
+			orbit_length = 0;
+			break;}
 	}
 		if (sprite_index==blank) {
 			instance_destroy();
