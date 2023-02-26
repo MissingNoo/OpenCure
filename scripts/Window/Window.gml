@@ -88,7 +88,18 @@ function drawDesc(_xx, _yy, _string, maxX, _size = 1){
 	}
 	draw_set_halign(fa_left);
 }
-	
+/**
+ * Function Makes buttons clickable
+ * @param {any*} _startX Start position of the button 
+ * @param {any*} _startY  Start position of the button 
+ * @param {real} _off Offset between buttons
+ * @param {asset.gmsprite} _sprite button Sprite
+ * @param {real} _scaleX Scale of the button
+ * @param {real} _scaleY Scale of the button
+ * @param {array} _array Array of options
+ * @param {string} _variable Selected item variable between ""
+ * @param {string} _direction vertical/horizontal
+ */
 function mouseOnButton(_startX, _startY, _off, _sprite, _scaleX, _scaleY, _array, _variable = "selected", _direction = "vertical"){
 	variable_instance_set(self, "mousein", false);
 	var menuX = _startX;
