@@ -3,7 +3,7 @@ if (global.server) {
     port = 64198;
 	maxClients = 1;
 	try{
-		server = network_create_server(network_socket_tcp, port, maxClients);
+		//server = network_create_server(network_socket_tcp, port, maxClients);
 	}
 	catch(error){
 		//i don't care bro
