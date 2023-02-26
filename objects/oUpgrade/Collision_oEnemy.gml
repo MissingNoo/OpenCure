@@ -87,14 +87,15 @@ if (other.hittedcooldown[upg[$"id"]] <= 0  and !global.gamePaused and other.imag
 	        if (hits == 1 and !AmePistolLastHit and upg[$"level"] >= 4) {
 			    AmePistolLastHit=true;
 				hits+=5;
-				switch (direction) {
-				    case 0:
-				        direction = 180;
-				        break;
-				    case 180:
-				        direction = 0;
-				        break;
-				}
+				direction = random(360);
+				//switch (direction) {
+				//    case 0:
+				//        direction = 180;
+				//        break;
+				//    case 180:
+				//        direction = 0;
+				//        break;
+				//}
 			}
 	        break;
 		case Weapons.HoloBomb:
