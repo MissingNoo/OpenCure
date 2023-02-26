@@ -40,6 +40,11 @@ switch (upg[$"id"]) {
 		    instance_destroy();
 		}
 		break;}
+	case Weapons.Glowstick:{
+		if (sprite_index == sGlowstickThumbExplosion) {
+		    instance_destroy();
+		}
+		break;}
     default:
         // code here
         break;

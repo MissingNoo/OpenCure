@@ -197,6 +197,19 @@ if (a==0) {
 			alarm[0] = 1;
 			depth=owner.depth;
 			break;}
+			
+		case Weapons.Glowstick:{
+			if (instance_exists(oEnemy)) {
+				var enemies = instance_number(oEnemy);
+				CE = instance_find(oEnemy, irandom_range(0,enemies-1));
+				direction = point_direction(x,y,CE.x, CE.y);
+				image_angle = point_direction(x,y,CE.x, CE.y);
+				if (shoots>0) {
+					for (var i = 1; i < shoots; ++i) { spawnUpgrade(); }
+				}
+			} else instance_destroy();
+			alarm[0]=30;
+			break;}
 	}
 		if (sprite_index==blank) {
 			instance_destroy();

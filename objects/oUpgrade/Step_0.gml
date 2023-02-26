@@ -40,12 +40,17 @@ if (!global.gamePaused) {
 				    speed = 0;
 				}
 			}
-			break;
-		}
+			break;}
+		case Weapons.Glowstick:{
+			if (hits <= 0) {
+			    sprite_index = sGlowstickThumbExplosion;
+				speed = 0;
+			}			
+			break;}
 	}
 }
 #endregion
-if (hits <= 0) {
+if (hits <= 0 and upg[$"id"] != Weapons.Glowstick) {
 	image_alpha=0;
 }
 if (socket == oPlayer.socket) {

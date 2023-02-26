@@ -110,12 +110,12 @@ enum Weapons
 	//If a flat character uses the Cutting Board weapon, the spawned Cutting Board projectile will be 30% bigger than normal, and will also deal 30% more damage.
 	EliteLavaBucket, //TODO: lava area
 	FanBeam, //TODO: knockback
-	//Glowstick,
+	Glowstick,
 	HoloBomb, //TODO: correct scale
 	//IdolSong,
 	PlugAsaCoco, //TODO: afterimage, knockback lv 6
 	//PsychoAxe,
-	SpiderCooking,
+	//SpiderCooking,
 	//WamyWater,
 	//X-Potato
 }
@@ -399,6 +399,41 @@ function populateUpgrades(){
 	#region SpiderCooking
 		//createUpgrade(Weapons.SpiderCooking, "Spider Cooking", )
 	#endregion
+	
+	#region Glowstick
+			newCreateUpgrade({
+				id : Weapons.Glowstick,
+				name : "Glowstick",
+				maxlevel : 7,
+				sprite : sGlowstick,
+				thumb : sGlowstickThumb,
+				mindmg : [10, 12, 12, 12, 12, 17, 17],
+				maxdmg : [14, 16, 16, 16, 16, 21, 21],
+				explosionMinDmg : [16, 19, 19, 19, 19, 26, 26],
+				explosionMaxDmg : [20, 24, 24, 24, 24, 32, 32],
+				cooldown : 240,
+				duration : 180, 
+				hitCooldown : [30], 
+				hitCooldownExplosion : [60], 
+				canBeHasted : true,
+				speed : 8,
+				hits : [3, 3, 8, 8, 8, 8, 8],
+				type : "red",
+				shoots : [1, 1, 2, 2, 3, 3, 4],
+				desc : [
+				"Throw a glowstick to a nearby target and then spins back to player.",
+				"Increases damage by 20%.",
+				"Increase hit limit by 10 and throw one additional glowstick.",
+				"Increase size of glowstick by 25%.",
+				"Throw one additional glowstick.",
+				"Increase damage by 33%.",
+				"Throw one additional glowstick.",
+				],
+				knockbackSpeed : 0,
+				knockbackDuration : 0,
+				perk : false,
+			});
+			#endregion
 }
 
 #endregion
@@ -795,7 +830,7 @@ function randomUpgrades(){
 	//global.upgradeOptions[3] = global.null;
 	#endregion
 	 //global.upgradeOptions[0] = ItemList[ItemIds.Limiter][1];
-	 global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.HoloBomb][1];
+	 global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.Glowstick][1];
 }	
 
 function tickPowers(){
