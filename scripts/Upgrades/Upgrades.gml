@@ -116,7 +116,7 @@ enum Weapons
 	PlugAsaCoco, //TODO: afterimage, knockback lv 6
 	PsychoAxe,
 	SpiderCooking,
-	//WamyWater,
+	WamyWater,
 	//X-Potato
 }
 function populateUpgrades(){
@@ -526,7 +526,38 @@ function populateUpgrades(){
 				afterimage : true,
 				afterimageColor : c_yellow,
 			});
-			#endregion
+	#endregion
+	#region Wamy Water
+			newCreateUpgrade({
+				id : Weapons.WamyWater,
+				name : "Wamy Water",
+				maxlevel : 7,
+				sprite : sWamyWater,
+				thumb : sWamyWaterThumb,
+				mindmg : [9, 9, 9, 9, 9, 15, 15],
+				maxdmg : [13, 13, 13, 13, 13, 19, 19],
+				cooldown : [120, 120, 120, 120, 96, 96, 96],
+				duration : 999,
+				hitCooldown : 30, 
+				canBeHasted : true,
+				speed : 0,
+				hits : 999,
+				type : "white",
+				shoots : 1,
+				desc : [
+				"Create a splash of unknown water in front, knocking targets back.",
+				"Increase damage by 20%.",
+				"Increase attack area by 30%.",
+				"Increase splash knockback.",
+				"Reduce time between attacks by 20%.",
+				"Increase damage by 30%.",
+				"Increase attack area by 30% and stops targets for a short moment after knockback.",
+				],
+				knockbackSpeed : [5, 5, 5, 8, 8, 8 ,8],
+				knockbackDuration : 10,
+				perk : false
+			});
+	#endregion
 }
 
 #endregion
@@ -923,7 +954,7 @@ function randomUpgrades(){
 	//global.upgradeOptions[3] = global.null;
 	#endregion
 	 //global.upgradeOptions[0] = ItemList[ItemIds.Limiter][1];
-	 global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.SpiderCooking][1];
+	 global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.WamyWater][1];
 }	
 
 function tickPowers(){

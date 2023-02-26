@@ -224,7 +224,11 @@ if (a==0) {
 			}
 			break;}
 		case Weapons.PsychoAxe:{
+			orbitoffset = 0;
 			orbit_length = 0;
+			break;}
+		case Weapons.WamyWater:{
+			image_angle = arrowDir + diroffset;
 			break;}
 	}
 		if (sprite_index==blank) {
