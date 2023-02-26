@@ -218,7 +218,7 @@ if (instance_exists(oPlayer) and canspawn == true and global.gamePaused == false
 	
 	random_set_seed(current_time);
     canspawn=false;
-	alarm[0]=120;
+	alarm[0]=60;
 	instance_create_layer(
 	oPlayer.x+(225*a),
 	oPlayer.y+(225*b),
