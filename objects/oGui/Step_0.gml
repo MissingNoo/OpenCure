@@ -161,14 +161,14 @@ if (ANVIL) {
 	}else{
 		selectedThing = playerItems[anvilSelected];
 	}
-	var level = selectedThing[?"level"];
-	var maxlevel = selectedThing[?"maxlevel"];
+	var level = selectedThing[$"level"];
+	var maxlevel = selectedThing[$"maxlevel"];
 	if (zKey and level < maxlevel) {
 		if (anvilSelectedCategory == 0) {
-			UPGRADES[anvilSelected] = global.upgradesAvaliable[UPGRADES[anvilSelected][?"id"]][UPGRADES[anvilSelected][?"level"] + 1];
+			UPGRADES[anvilSelected] = global.upgradesAvaliable[UPGRADES[anvilSelected][$"id"]][UPGRADES[anvilSelected][$"level"] + 1];
 		}
 		if (anvilSelectedCategory == 1) {
-			playerItems[anvilSelected] = global.itemList[playerItems[anvilSelected][?"id"]][playerItems[anvilSelected][?"level"] + 1];
+			playerItems[anvilSelected] = global.itemList[playerItems[anvilSelected][$"id"]][playerItems[anvilSelected][$"level"] + 1];
 		}
 	ANVIL = false;//TODO: Cost money
 	PauseGame();
