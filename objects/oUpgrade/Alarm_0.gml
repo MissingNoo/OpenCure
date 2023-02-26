@@ -94,9 +94,9 @@ switch (upg[$"id"]) {
 		if (shoots > 1) {			
 			spawnUpgrade();
 			//random_set_seed(current_time);
-			x = oPlayer.x + irandom_range(-50,50);
+			x = owner.x + irandom_range(-50,50);
 			//random_set_seed(current_time);
-			y = oPlayer.y + irandom_range(-50,50);
+			y = owner.y + irandom_range(-50,50);
 		    shoots-=1;
 			alarm[0]=1;
 		}

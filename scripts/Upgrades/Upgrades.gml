@@ -115,7 +115,7 @@ enum Weapons
 	IdolSong,
 	PlugAsaCoco, //TODO: afterimage, knockback lv 6
 	PsychoAxe,
-	//SpiderCooking,
+	SpiderCooking,
 	//WamyWater,
 	//X-Potato
 }
@@ -397,7 +397,36 @@ function populateUpgrades(){
 	#endregion
 		
 	#region SpiderCooking
-		//createUpgrade(Weapons.SpiderCooking, "Spider Cooking", )
+		newCreateUpgrade({
+				id : Weapons.SpiderCooking,
+				name : "Spider Cooking",
+				maxlevel : 7,
+				sprite : sSpiderCooking,
+				thumb : sSpiderCookingThumb,
+				mindmg : [7, 7, 10, 10, 10, 12, 12],
+				maxdmg : [11, 11, 14, 14, 14, 16, 16],
+				cooldown : 600,
+				duration : 601, 
+				hitCooldown : [45, 45, 45, 45, 36, 36, 36], 
+				canBeHasted : false,
+				speed : 0,
+				hits : 9999,
+				type : "white",
+				shoots : [1, 1, 2, 2, 3, 3, 4],
+				desc : [
+				"Create an area of miasma around, dealing slow damage to enemies inside.",
+				"Increase area by 15%.",
+				"Increase damage by 30%.",
+				"Increase area by 25%.",
+				"Increase frequency of hits by 20%.",
+				"Increase damage by 60%.",
+				"Add small knockback on hit.",
+				],
+				knockbackSpeed : [0, 0, 0, 0, 0, 0, 3],
+				knockbackDuration : [0, 0, 0, 0, 0, 0, 8],
+				perk : false,
+				area: [1, 1.15, 1.15, 1.40, 1.40, 1.40, 1.40],
+			});
 	#endregion
 	
 	#region Glowstick
@@ -894,7 +923,7 @@ function randomUpgrades(){
 	//global.upgradeOptions[3] = global.null;
 	#endregion
 	 //global.upgradeOptions[0] = ItemList[ItemIds.Limiter][1];
-	 global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.PsychoAxe][1];
+	 global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.SpiderCooking][1];
 }	
 
 function tickPowers(){

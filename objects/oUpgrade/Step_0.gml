@@ -57,6 +57,10 @@ if (!global.gamePaused) {
 				speed = 0;
 			}			
 			break;}
+		case Weapons.SpiderCooking:{
+			x = owner.x;
+			y = owner.y - (sprite_get_height(global.player[?"sprite"]) / 3);
+			break;}
 	}
 }
 #endregion

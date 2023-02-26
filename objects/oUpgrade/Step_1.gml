@@ -174,7 +174,7 @@ if (a==0) {
 			break;
 		}
 		case Weapons.FanBeam:{
-			image_xscale = oPlayer.image_xscale;
+			image_xscale = owner.image_xscale;
 			if(shoots == 0){
 				image_xscale = image_xscale * -1;
 			}
