@@ -208,7 +208,20 @@ if (a==0) {
 					for (var i = 1; i < shoots; ++i) { spawnUpgrade(); }
 				}
 			} else instance_destroy();
-			alarm[0]=30;
+			break;}
+			
+		case Weapons.IdolSong:{
+			if (idolDir == 0) {
+			    idolDir = 180;
+				direction = idolDir;
+			}else{
+				idolDir = 0;
+				direction = idolDir;
+				image_xscale = image_xscale * -1;
+			}		
+			if (shoots>0) {
+				alarm[0] = 1;
+			}
 			break;}
 	}
 		if (sprite_index==blank) {

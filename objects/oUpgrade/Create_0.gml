@@ -27,3 +27,6 @@ changeSprite=false;
 socket = oPlayer.socket;
 owner = instance_nearest(x,y, oPlayer);
 originalSize = [0, 0];
+if (!variable_instance_exists(self, "idolDir")) {
+    idolDir = 0;
+}

@@ -112,7 +112,7 @@ enum Weapons
 	FanBeam, //TODO: knockback
 	Glowstick,
 	HoloBomb, //TODO: correct scale
-	//IdolSong,
+	IdolSong,
 	PlugAsaCoco, //TODO: afterimage, knockback lv 6
 	//PsychoAxe,
 	//SpiderCooking,
@@ -413,12 +413,12 @@ function populateUpgrades(){
 				explosionMaxDmg : [20, 24, 24, 24, 24, 32, 32],
 				cooldown : 240,
 				duration : 180, 
-				hitCooldown : [30], 
-				hitCooldownExplosion : [60], 
+				hitCooldown : 30, 
+				hitCooldownExplosion : 60, 
 				canBeHasted : true,
 				speed : 8,
 				hits : [3, 3, 8, 8, 8, 8, 8],
-				type : "red",
+				type : "white",
 				shoots : [1, 1, 2, 2, 3, 3, 4],
 				desc : [
 				"Throw a glowstick to a nearby target and then spins back to player.",
@@ -428,6 +428,37 @@ function populateUpgrades(){
 				"Throw one additional glowstick.",
 				"Increase damage by 33%.",
 				"Throw one additional glowstick.",
+				],
+				knockbackSpeed : 0,
+				knockbackDuration : 0,
+				perk : false,
+			});
+			#endregion
+	#region Idol Song
+			newCreateUpgrade({
+				id : Weapons.IdolSong,
+				name : "Idol Song",
+				maxlevel : 7,
+				sprite : sIdolSong,
+				thumb : sIdolSongThumb,
+				mindmg : [11, 14, 14, 14, 14, 14, 22],
+				maxdmg : [15, 18, 18, 18, 18, 18, 27],
+				cooldown : [200, 200, 200, 200, 160, 160, 160],
+				duration : 150, 
+				hitCooldown : 20, 
+				canBeHasted : true,
+				speed : [1, 1, 1.2, 1.2, 1.2, 1.2, 1.2],
+				hits : 999,
+				type : "white",
+				shoots : [2, 2, 2, 2, 2, 4, 4],
+				desc : [
+				"Magical music notes that float vertically in both directions.",
+				"Increase damage by 25%.",
+				"Increase speed and travel width.",
+				"Increase music note size by 25%.",
+				"Reduce the time between attacks by 20%.",
+				"Increase music note size by 25%.",
+				"Increase damage by 50%.",
 				],
 				knockbackSpeed : 0,
 				knockbackDuration : 0,
@@ -830,7 +861,7 @@ function randomUpgrades(){
 	//global.upgradeOptions[3] = global.null;
 	#endregion
 	 //global.upgradeOptions[0] = ItemList[ItemIds.Limiter][1];
-	 global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.Glowstick][1];
+	 global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.IdolSong][1];
 }	
 
 function tickPowers(){
