@@ -76,6 +76,7 @@ function initializePlayer(_p){
 	#endregion
 	_gx = 0;
 	_gy =0;
+	pimanLevel = 0;
 }
 
 global.characters=[];

@@ -18,6 +18,11 @@ if (other.canattack and other.image_alpha == 1 and !global.gamePaused) {
 		#endregion
 	#endregion
 	
+	if (pimanUsable) {
+	    pimanUsable = false;
+		var calc = (specialcooldown * pimanBonus) / 100;
+		skilltimer += calc;
+	}
 	//damaged=true;
 	audio_play_sound(snd_hurt,0,0);
 	var damage = damageCalculation(other.atk);

@@ -348,12 +348,14 @@ function populateItems(){
 				maxlevel : 3,
 				weight : 4,
 				thumb : sPikiPikiPiman,
-				cooldown : 1,
+				cooldown : 0.2,
 				desc : [
 				"Gain 15 Max HP. After receiving damage, increase the special meter by 2%. There is a 0.2 second cooldown.",
 				"Gain 20 Max HP. After receiving damage, increase the special meter by 3%. There is a 0.2 second cooldown.",
 				"Gain 25 Max HP. After receiving damage, increase the special meter by 4%. There is a 0.2 second cooldown.",
 				],
+				bonus : [15, 20, 25],
+				bonusPercentage : [2, 3, 4],
 				perk : false});
 			#endregion
 			
@@ -721,6 +723,14 @@ function tickItems(){
 					break;
 				case ItemIds.Limiter:
 					Bonuses[BonusType.PickupRange][ItemIds.Limiter] = playerItems[i][$"bonus"];
+					break;
+				case ItemIds.Piki_Piki_Piman:
+					if (oPlayer.pimanLevel != playerItems[i][$"level"]) {
+					    oPlayer.pimanLevel = playerItems[i][$"level"];
+					    oPlayer.pimanBonus = playerItems[i][$"bonusPercentage"];
+						MAXHP += playerItems[i][$"bonus"];
+					}
+					pimanUsable = true;
 					break;
 			}
 		}
