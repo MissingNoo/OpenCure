@@ -78,10 +78,10 @@ function PauseGame(){
 	
 function summonCircle(){
 	var coordsx = ds_list_create();
-	var coordsy = ds_list_create()	
+	var coordsy = ds_list_create();
 	var r=270;
-	ds_list_clear(coordsy)
-	ds_list_clear(coordsx)			
+	ds_list_clear(coordsy);
+	ds_list_clear(coordsx);	
     var N = 2*r+1;
     for (var i = 0; i < N; i+=3)
     {
@@ -89,8 +89,8 @@ function summonCircle(){
         {
 			var xx = i-r;
             var yy = j-r;
-			show_debug_message(string(r*r+1) )
-			var v=xx*xx + yy*yy 			
+			//show_debug_message(string(r*r+1) )
+			var v=xx*xx + yy*yy;
             if (v <= r*r+1 and v>72800)	
 			{	
 				ds_list_add(coordsx, xx);
@@ -100,9 +100,9 @@ function summonCircle(){
     }	
 	var c = ds_list_size(coordsx);
 	for (var i = 0; i < c; ++i) {
-		var a=oPlayer.x + ds_list_find_value(coordsx,i)
-		var b=oPlayer.y + ds_list_find_value(coordsy,i)
-		instance_create_layer(a,b,"Instances",oEnemy)
+		var a=oPlayer.x + ds_list_find_value(coordsx,i);
+		var b=oPlayer.y + ds_list_find_value(coordsy,i);
+		instance_create_layer(a,b,"Instances",oEnemy);
 	}	
 }
 

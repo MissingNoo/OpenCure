@@ -47,12 +47,15 @@ if (a==0) {
 			
 		case Weapons.InaTentacle:{
 			if (shoots > 1) {
-			    image_angle = arrowDir;
 				for (var i = 0; i < shoots; ++i) {
 				    spawnUpgrade();
 				}
 			}
-			else {image_angle=random(360);}
+			if (shoots > 0) {
+			    image_angle = arrowDir;
+			}else{
+				image_angle=random(360);
+			}
 			
 			if (upg[$"level"] >= 4) {
 			    var dirr = (image_xscale > 0) ? .25 : -.25;

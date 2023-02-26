@@ -14,12 +14,13 @@ function initializePlayer(_p){
 		MAXHP=1;
 	}
 	NAME=_p[?"name"];
-	for (var i=0; i<6; i++) {
+	for (var i=0; i<5; i++) {
 		UPGRADES[i]=global.null;
 	}
 	for (var i=0; i<6; i++) {
 		playerItems[i]=global.nullitem;
 	}
+	show_debug_overlay(true);
 	global.upgrade=0;
 	global.xp=0;
 	global.level = 1;

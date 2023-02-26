@@ -203,7 +203,7 @@ function populateUpgrades(){
 				speed : 0,
 				hits : 999,
 				type : "white",
-				shoots : [1, 1, 1, 1, 1, 1, 4],
+				shoots : [1, 1, 1, 1, 1, 1, 3],
 				desc : [
 				"A tentacle shoots out in front.",
 				"Increase damage by 20%.",
@@ -596,7 +596,7 @@ function randomUpgrades(){
 	
 		#region Weapons List
 			//show_message(UPGRADES[5][$"name"]);	
-			if (UPGRADES[5] == global.null) {
+			if (UPGRADES[array_length(UPGRADES) -1] == global.null) {
 				for (var i = 0; i < array_length(WEAPONS_LIST); ++i) {
 					var maxed = false;
 					var found = false;
@@ -976,7 +976,7 @@ function randomUpgrades(){
 	//global.upgradeOptions[3] = global.null;
 	#endregion
 	 //global.upgradeOptions[0] = ItemList[ItemIds.Limiter][1];
-	 //global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.WamyWater][1];
+	 //global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.InaTentacle][1];
 }	
 
 function tickPowers(){
