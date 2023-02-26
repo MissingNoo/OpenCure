@@ -49,7 +49,7 @@
 
 #region Character Select Room
 	var str = ""; var offset = 0;
-	if (room == room2) {	
+	if (room == rCharacterSelect) {
 		mouseOnButton(GW/3.10,GH/3.75, GW/13, sAmePortrait, 2, 2, array_create(Characters.Lenght, 0),, "horizontal");
 		NAME=CHARACTERS[selected][?"name"];
 		str="CHOOSE YOUR IDOL";

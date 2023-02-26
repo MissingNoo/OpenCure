@@ -46,12 +46,12 @@ if (xKey and global.gamePaused) {
 	            case "Singleplayer":
 					global.server = true;
 					selected=0;
-	                room_goto(room2);
+	                room_goto(rCharacterSelect);
 	                break;
 				case "Multiplayer":
 					global.server = false;
 					selected=0;
-	                room_goto(room2);
+	                room_goto(rCharacterSelect);
 	                break;
 				case "Settings":
 					keyboard_clear(ord("Z"));
@@ -177,7 +177,7 @@ if (ANVIL) {
 #endregion
 
 #region Select Character room
-	if (room = room2) {
+	if (room = rCharacterSelect) {
 	    if (zKey) {
 	        global.player=CHARACTERS[selected];
 			//show_message(global.player[? "name"]);
@@ -379,7 +379,7 @@ if(keyboard_check(ord("L"))) {global.server = false; show_message("Client");}
 		if(keyboard_check(ord("I"))) d +=.1;
 		if(keyboard_check_pressed(ord("O"))) e -=.5;
 		if(keyboard_check(ord("P"))) e +=1;
-		if((keyboard_check(vk_escape) and room == room2)) {room_goto(rInicio)}
+		if((keyboard_check(vk_escape) and room == rCharacterSelect)) {room_goto(rInicio)}
 		//if (keyboard_check_pressed(ord("V"))) {
 		//    display_set_gui_size(640,360);
 		//}

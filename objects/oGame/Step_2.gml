@@ -4,7 +4,7 @@ if (keyboard_check_pressed(vk_escape) or gamepad_button_check_pressed(global.gPn
 	}
 	
 	switch (room) {
-	    case room2:
+	    case rCharacterSelect:
 	        room_goto(rInicio);
 	        break;
 		case rShop:

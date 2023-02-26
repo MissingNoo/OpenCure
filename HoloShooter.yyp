@@ -127,7 +127,7 @@
     {"id":{"name":"Tileset","path":"sprites/Tileset/Tileset.yy",},},
     {"id":{"name":"network","path":"scripts/network/network.yy",},},
     {"id":{"name":"Sprite11","path":"sprites/Sprite11/Sprite11.yy",},},
-    {"id":{"name":"room2","path":"rooms/room2/room2.yy",},},
+    {"id":{"name":"rCharacterSelect","path":"rooms/rCharacterSelect/rCharacterSelect.yy",},},
     {"id":{"name":"sInaTentacle","path":"sprites/sInaTentacle/sInaTentacle.yy",},},
     {"id":{"name":"sInvestigator","path":"sprites/sInvestigator/sInvestigator.yy",},},
     {"id":{"name":"sGuraPortrait","path":"sprites/sGuraPortrait/sGuraPortrait.yy",},},
@@ -352,7 +352,7 @@
   "RoomOrderNodes": [
     {"roomId":{"name":"rInicio","path":"rooms/rInicio/rInicio.yy",},},
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
-    {"roomId":{"name":"room2","path":"rooms/room2/room2.yy",},},
+    {"roomId":{"name":"rCharacterSelect","path":"rooms/rCharacterSelect/rCharacterSelect.yy",},},
     {"roomId":{"name":"rShop","path":"rooms/rShop/rShop.yy",},},
     {"roomId":{"name":"rLobby","path":"rooms/rLobby/rLobby.yy",},},
   ],

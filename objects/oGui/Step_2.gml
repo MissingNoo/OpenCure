@@ -26,7 +26,7 @@ if (room = rInicio) {
 	}
 }
 
-if (room = room2) {
+if (room = rCharacterSelect) {
     if (_left) {
         if (selected == 0) {
             selected = Characters.Lenght - 1;
@@ -83,7 +83,7 @@ if (instance_exists(oPlayer) and ANVIL) {
 }
 #endregion
 
-if (room == room2) {
+if (room == rCharacterSelect) {
     if (sprindex < sprite_get_number(CHARACTERS[selected][?"sprite"])) {
 		sprindex+=1/10;
 	}

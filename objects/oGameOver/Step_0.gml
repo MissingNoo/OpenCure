@@ -36,7 +36,7 @@ if (zKey) {
 	    case 1:
 			PauseGame();
 			global.gamePaused = false;
-	        room_goto(room2);
+	        room_goto(rCharacterSelect);
 	        break;
 	    case 2:
 			PauseGame();
