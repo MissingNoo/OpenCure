@@ -25,6 +25,23 @@ if (mouse_check_button(mb_left)) {
 	b = _yn;
 	//show_message(string(_xn));
 }
+if (mouse_check_button(mb_right)) {
+    var _xx = GW;
+	var _xn = 1;
+	var _yy = GH;
+	var _yn = 1;
+	while (_xx > TouchX1) {
+	    _xn += .005;
+		_xx = GW/_xn;
+	}
+	while (_yy > TouchY1) {
+	    _yn += .005;
+		_yy = GH/_yn;
+	}
+	c = _xn;
+	d = _yn;
+	//show_message(string(_xn));
+}
 isP=global.gamePaused;
 if (global.GamePad) {
     zKey = keyboard_check_pressed(ord("Z")) or gamepad_button_check_pressed(global.gPnum, gp_face1);
@@ -44,11 +61,13 @@ if (xKey and global.gamePaused) {
 	    if (zKey) {
 	        switch (menu_options[selected]) {
 	            case "Singleplayer":
+					characterSelected = false;
 					global.server = true;
 					selected=0;
 	                room_goto(rCharacterSelect);
 	                break;
 				case "Multiplayer":
+					characterSelected = false;
 					global.server = false;
 					selected=0;
 	                room_goto(rCharacterSelect);
@@ -179,23 +198,26 @@ if (ANVIL) {
 #region Select Character room
 	if (room = rCharacterSelect) {
 	    if (zKey) {
-	        global.player=CHARACTERS[selected];
-			//show_message(global.player[? "name"]);
-			//show_message(string(Characters.Amelia));
-			//show_message(string(CHARACTERS[selected][?"id"]));
-			PLAYER_PERKS = global.characterPerks[CHARACTERS[selected][?"id"]];
-			audio_stop_sound(global.musicPlaying);
-			audio_play_sound(snd_charSelected,0,0);
-			switch (global.server) {
-			    case true:
-			        global.mode = "stage";
-					room_goto(Room1);
-			        break;
-			    case false:
-			        global.mode = "menu";
-					global.username = global.player[?"name"]; //TODO: Remove
-					room_goto(rLobby);
-			        break;
+			if (!characterSelected) {
+		        global.player=CHARACTERS[selectedCharacter];
+				//show_message(global.player[? "name"]);
+				//show_message(string(Characters.Amelia));
+				//show_message(string(CHARACTERS[selected][?"id"]));
+				PLAYER_PERKS = global.characterPerks[CHARACTERS[selectedCharacter][?"id"]];
+				audio_stop_sound(global.musicPlaying);
+				audio_play_sound(snd_charSelected,0,0);
+				switch (global.server) {
+				    case true:
+				        global.mode = "stage";
+						//room_goto(Room1);
+						characterSelected = true;
+				        break;
+				    case false:
+				        global.mode = "menu";
+						global.username = global.player[?"name"]; //TODO: Remove
+						room_goto(rLobby);
+				        break;
+				}
 			}
 	    }
 	}

@@ -3,20 +3,21 @@
 // Feather disable GM2017
 #macro GW display_get_gui_width()
 #macro GH display_get_gui_height()
-function drawWindow(x, y, w, h, title){
+function drawWindow(x, y, xx, yy, title, titlesize = 25,titlePos = 15, fontsize = 1){
 	//background
 	draw_set_alpha(.35);
 	draw_set_color(c_black);
-	draw_rectangle(x,y,x+w,y+h,false);
+	draw_rectangle(x,y,xx, yy,false);
 	//
 	draw_set_alpha(1);
 	draw_set_color(c_white);
 	//title
-	draw_rectangle(x,y,x+w,y+25,false);
+	draw_rectangle(x,y,xx,titlesize,false);
 	//window
-	draw_rectangle(x,y,x+w,y+h,true);
-	draw_set_color(c_black);
-	draw_text(x+5,y+5,title);
+	draw_rectangle(x,y,xx,yy,true);
+	draw_set_color(c_teal);
+	draw_text_transformed(x+5,y + titlePos, title, fontsize,fontsize,0);
+	draw_set_color(c_white)
 }
 function gameWindow(){
 //window_set_size( 960, 540 );

@@ -50,50 +50,96 @@
 #region Character Select Room
 	var str = ""; var offset = 0;
 	if (room == rCharacterSelect) {
-		mouseOnButton(GW/3.10,GH/3.75, GW/13, sAmePortrait, 2, 2, array_create(Characters.Lenght, 0),, "horizontal");
-		NAME=CHARACTERS[selected][?"name"];
+	#region Lines
+		var linesoff = 0;
+		if (alarm_get(0) == -1) {
+			alarm[0]=1;
+		}
+		for (var i = 0; i < 130; ++i) {
+			draw_sprite_ext(menuCharselectBar,0,oGame.linespos+linesoff,display_get_gui_height()+60,1.5,2.15,0,c_white,.25);
+			linesoff +=16;
+		}	
+	#endregion
+}
+
+	if (room == rCharacterSelect) {
+		if (!characterSelected) {
+		    mouseOnButton(GW/3.10,GH/3.75, GW/13, sAmePortrait, 2, 2, array_create(Characters.Lenght, 0),"selectedCharacter", "horizontal");
+		}		
+		NAME=CHARACTERS[selectedCharacter][?"name"];
 		str="CHOOSE YOUR IDOL";
 		draw_text_transformed((GW/2)- string_width(str),50,str,2,2,0);
 	
 		#region Character window
-			var _x = GW / 64;
-			var _y = GH / 6;
-			var _hh = GH / 1.5;
-			var _ww = GW / 4;
-			drawWindow(_x,_y,_ww,_hh,string_upper(global.name));
-			draw_sprite_ext(CHARACTERS[selected][?"sprite"], sprindex,_x+(_hh/3), _y+190,3,3,0,c_white,1);
+			var _x = GW / 48.79;
+			var _y = GH / 5.95;
+			var _xx = GW / 3.36;
+			var _yy = GH / 1.07;
+			var _titleY = GH/4.24;
+			var _titlePos = 18.50;
+			var _fontSize = 2;
+			drawWindow(_x,_y,_xx,_yy,string_upper(global.name), _titleY, _titlePos, _fontSize);
+			draw_sprite_ext(CHARACTERS[selectedCharacter][?"sprite"], sprindex,GW/6.18, GH/1.79, 4, 4, 0,c_white,1);
+			drawStatsSelect(CHARACTERS[selectedCharacter]);
 		#endregion
 	
 		#region CharacterList
+		if (!characterSelected) {
 			draw_set_color(c_white);
-			draw_text_transformed(GW/3.5, GH/5.7,"Characters",.75,.75,0);
-			draw_line(GW/3.5, GH/5, GW/1.4,GH/5);	
+			draw_text_transformed(GW/3.12, GH/5.82,"MYTH",2,2,0);
+			draw_line(GW/3.12, GH/5, GW/1.46,GH/5);	
 			offset=0
 			//characters
-			draw_text(10,10,selected);
+			//draw_text(10,10,selectedCharacter);
+			_x = GW/2.83;
+			_y = GH/3.80;
 			for (var i=0; i < Characters.Lenght; i++) {
-				draw_sprite_ext(CHARACTERS[i][?"portrait"],0,GW/3.10 + offset,GH/3.75,2,2,0,c_white,1);
-				if (selected == i) {
-					draw_sprite_ext(menu_carselec_cursor,-1,GW/3.10 + offset, GH/3.75,2,2,0,c_white,1);
+				draw_sprite_ext(CHARACTERS[i][?"portrait"],0,_x + offset,_y,2.20,2.20,0,c_white,1);
+				if (selectedCharacter == i) {
+					draw_sprite_ext(menu_carselec_cursor,-1,_x + offset, _y,2.20,2.20,0,c_white,1);
 				}
 			    offset+=GW/13;
 			}
+		}
 		#endregion	
 	
 		#region Weapon window
-			_x = GW / 1.37;
-			_y = GH / 6;
-			_hh = GH / 3;
-			_ww = GW / 3.85;
-			drawWindow(_x,_y,_ww,_hh,"ATTACK");
-			var weaponID = CHARACTERS[selected][?"weapon"];
+			 _x = GW / 1.42;
+			_y = GH / 5.95;
+			_xx = GW / 1.02;
+			_yy = GH / 1.88;
+			_titleY = GH/4.22;
+			_titlePos = 18;
+			_fontSize = 2;
+			drawWindow(_x,_y,_xx,_yy,"ATTACK", _titleY, _titlePos, _fontSize);
+			var weaponID = CHARACTERS[selectedCharacter][?"weapon"];
 			var weaponSprite = weaponID[1][$"thumb"];
-			draw_sprite_ext(weaponSprite, 0,_x+30, _y+50,1.5,1.5,0,c_white,1);
+			draw_sprite_ext(weaponSprite, 0,GW/1.37, GH/3.52,2,2,0,c_white,1);
 			draw_set_valign(fa_middle); draw_set_color(c_white);
-			draw_text(_x + 60, _y + 50, weaponID[1][$"name"]);
-			drawDesc(_x + 8, _y + 85, weaponID[1][$"desc"], GW/3.35);
+			draw_text_transformed(GW/1.32, GH/3.52, weaponID[1][$"name"], 2, 2, 0);
+			drawDesc(GW/1.39, GH/2.97, weaponID[1][$"desc"], GW/4.10, 2);
 			draw_set_valign(0);
-		
+		#endregion
+		#region Special window
+			 _x = GW / 1.42;
+			_y = GH / 1.88;
+			_xx = GW / 1.02;
+			_yy = GH / 1.07;
+			_titleY = GH/1.67;
+			_titlePos = 18;
+			_fontSize = 2;
+			drawWindow(_x,_y,_xx,_yy,"SPECIAL", _titleY, _titlePos, _fontSize);
+			_x = GW/1.37;
+			_y = GH/1.55;
+			var specialID = CHARACTERS[selectedCharacter][?"special"];
+			var specialSprite = SPECIAL_LIST[specialID][$"thumb"];
+			var specialName = SPECIAL_LIST[specialID][$"name"];
+			var specialDesc = SPECIAL_LIST[specialID][$"desc"];
+			draw_sprite_ext(specialSprite, 0,_x-sprite_get_width(specialSprite), _y-sprite_get_height(specialSprite),2,2,0,c_white,1);
+			draw_set_valign(fa_middle); draw_set_color(c_white);
+			draw_text_transformed(_x + 38, _y, specialName, 2, 2, 0);
+			drawDesc(_x-18.50, _y + 42, specialDesc, GW/4.10, 2);
+			draw_set_valign(0);
 		#endregion
 	}
 #endregion
@@ -676,6 +722,58 @@ if (keyboard_check_pressed(ord("M"))) {
 				#endregion
 				draw_set_halign(fa_left);
 			#endregion
+	}
+	function drawStatsSelect(character){
+		var stats_offset = 0;
+		var _xt = GW/3.75;
+		var _x = GW/12.77;
+		var _xx = GW/19;
+		var _yt = GH/1.54;
+		var _yy = GH/1.46;
+		draw_set_color(c_white);
+		#region HP
+			draw_sprite_stretched(heart_shaded, 0, _xx, _yt, 25, 25);
+			draw_text_transformed(_x, _yt, "HP", 1.5, 1.5, 0);
+			draw_line(_xx, _yy, _xt, _yy);
+			str = string(character[?"hp"]);
+			draw_set_halign(fa_right);
+			draw_text_transformed(_xt, _yt, str, 1.5, 1.5, 0);
+			draw_set_halign(fa_left);
+		#endregion
+			
+			#region ATK
+				stats_offset += 35;
+				draw_sprite_stretched(sword_blue, 0, _xx, _yt + stats_offset, 25, 25);
+				draw_text_transformed(_x, _yt + stats_offset, "ATK", 1.5, 1.5, 0);
+				draw_line(_xx, _yy + stats_offset, _xt, _yy + stats_offset);
+				str = character[?"atk"];
+				draw_set_halign(fa_right);
+				draw_text_transformed(_xt, _yt + stats_offset, str, 1.5, 1.5, 0);
+				draw_set_halign(fa_left);
+			#endregion
+				
+			#region SPD
+				stats_offset += 35;
+				draw_sprite_stretched(sHudSpdIcon, 0, _xx, _yt + stats_offset, 25, 25);
+				draw_text_transformed(_x, _yt + stats_offset, "SPD", 1.5, 1.5, 0);
+				draw_line(_xx, _yy + stats_offset, _xt, _yy + stats_offset);
+				str = character[?"speed"];
+				draw_set_halign(fa_right);
+				draw_text_transformed(_xt, _yt + stats_offset, str, 1.5, 1.5, 0);
+				draw_set_halign(fa_left);
+			#endregion
+				
+				#region CRT
+					//stats_offset += 35;
+					//draw_sprite_stretched(sHudCrtIcon, 0, GW/11, GH/2.15 + stats_offset, 25, 25);
+					//draw_text_transformed(GW/8, GH/2.15 + stats_offset, "CRT", 1.5, 1.5, 0);
+					//draw_line(GW/8.80, GH/2 + stats_offset, GW/3.40, GH/2 + stats_offset);
+					//str = "+" + string(calc) + "%";
+					//draw_set_halign(fa_right);
+					//draw_text_transformed(GW/3.40, GH/2.15 + stats_offset, str, 1.5, 1.5, 0);
+					//draw_set_halign(fa_left);
+				#endregion
+
 	}
 #endregion
 
