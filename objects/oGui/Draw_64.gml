@@ -145,7 +145,7 @@
 				draw_text_transformed(GW/2, GH/1.40, "GO!", 2, 2, 0);
 				draw_set_color(c_white);
 			}
-			draw_set_valign(fa_bottom);
+			draw_set_valign(fa_top);
 			draw_set_halign(fa_left);
 		}
 		#endregion
