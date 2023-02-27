@@ -21,8 +21,16 @@ if(global.gamePaused == false){
 			if (_is_colliding != noone and _is_colliding.upg[$"id"] == Weapons.PowerofAtlantis) {
 			    direction=point_direction(x,y,_is_colliding.x,_is_colliding.y + (sprite_get_height(sWaterPoolStart) / 2));
 			}	
-		}else {direction=point_direction(x,y,target.x,target.y);}
+		}else {
+			if (pattern != Patterns.Horde and pattern != Patterns.WallBoth) {
+				    direction=point_direction(x,y,target.x,target.y);
+				}
+			}
 		
+		if (distance_to_point(dieX, y) < 10) {
+			dropxp = false;
+		    hp = 0;			
+		}
 	
 	if (hp<=0) {
 		if (!deathSent) {
@@ -44,7 +52,13 @@ if(global.gamePaused == false){
 	}
 	// Feather disable once GM2016
 	atk = (baseATK + (2 * global.timeA)) * (1 + (global.timeB / 25));
-	speed = (baseSPD + (0.12 * global.timeA)) * (1 + (global.timeB / 25));
+	if (canwalk) {
+	    speed = (baseSPD + (0.12 * global.timeA)) * (1 + (global.timeB / 25));
+	}
+	else{
+		speed = 0;
+	}
+	
 	
 	var debuffLenght = array_length(debuffs);
 	for (var i = 0; i < debuffLenght; ++i) {

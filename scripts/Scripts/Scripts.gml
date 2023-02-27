@@ -76,12 +76,12 @@ function PauseGame(){
 		}
 }		
 	
-function summonCircle(){
+function summonCircle(walk = true){
 	var coordsx = ds_list_create();
 	var coordsy = ds_list_create();
 	var r=270;
 	ds_list_clear(coordsy);
-	ds_list_clear(coordsx);	
+	ds_list_clear(coordsx);
     var N = 2*r+1;
     for (var i = 0; i < N; i+=3)
     {
@@ -102,8 +102,67 @@ function summonCircle(){
 	for (var i = 0; i < c; ++i) {
 		var a=oPlayer.x + ds_list_find_value(coordsx,i);
 		var b=oPlayer.y + ds_list_find_value(coordsy,i);
-		instance_create_layer(a,b,"Instances",oEnemy);
+		instance_create_layer(a,b,"Instances",oEnemy,{canwalk : walk});
 	}	
+}
+enum Patterns{
+	Cluster,
+	Horde,
+	Ring,
+	WallRight,
+	WallLeft,
+	WallBoth,
+	Stampede,
+	Wave,
+	Airdrop,
+	Fastball,
+	Ambush
+}
+
+function spawnEvent(monster, quantity, type, hp = 0, spd = 0, xp = 0){
+	var enemy = global.enemies[monster];
+	var wallSprOffset = sprite_get_height(enemy[?"sprite"]);
+	var aa, bb;
+	switch (type) {
+		case Patterns.WallBoth:
+			aa = oPlayer.x + 400;
+			var ab = oPlayer.x - 400;
+			bb = oPlayer.y;
+			var part = quantity / 4;
+			var dieAtX = oPlayer.x + 50;
+			for (var i = 0; i < part; ++i) {
+				instance_create_layer(aa,bb,"Instances",oEnemy,{customSpawn : true, selectedEnemy : enemy, pattern : type, customHP : hp, customSPD : spd, dieX : dieAtX, customXP : xp});
+				bb -= wallSprOffset;
+			}
+			bb = oPlayer.y;
+			for (var i = 0; i < part; ++i) {
+				instance_create_layer(aa,bb,"Instances",oEnemy,{customSpawn : true, selectedEnemy : enemy, pattern : type, customHP : hp, customSPD : spd, dieX : dieAtX, customXP : xp});
+				bb += wallSprOffset;
+			}
+			bb = oPlayer.y;
+			dieAtX = oPlayer.x - 50;
+			for (var i = 0; i < part; ++i) {
+				instance_create_layer(ab,bb,"Instances",oEnemy,{customSpawn : true, selectedEnemy : enemy, pattern : type, customHP : hp, customSPD : spd, dieX : dieAtX, customXP : xp});
+				bb -= wallSprOffset;
+			}
+			bb = oPlayer.y;
+			for (var i = 0; i < part; ++i) {
+				instance_create_layer(ab,bb,"Instances",oEnemy,{customSpawn : true, selectedEnemy : enemy, pattern : type, customHP : hp, customSPD : spd, dieX : dieAtX, customXP : xp});
+				bb += wallSprOffset;
+			}
+		        
+		    break;
+		default:
+			var a = oPlayer.x + choose(-400, 400);
+			var b = oPlayer.y + choose(-400, 400);
+			for (var i = 0; i < quantity; ++i) {
+			    aa = a + irandom_range(-16,16);
+				bb = b + irandom_range(-16,16);
+				instance_create_layer(aa,bb,"Instances",oEnemy,{customSpawn : true, selectedEnemy : enemy, pattern : type, customHP : hp, customSPD : spd});
+			}
+		    break;
+			
+	}		
 }
 
 

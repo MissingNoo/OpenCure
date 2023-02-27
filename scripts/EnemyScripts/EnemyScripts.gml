@@ -91,6 +91,7 @@ enum Enemies
 		createEnemy(Enemies.DarkShrimp,"DarkShrimp",sDarkShrimp,125,.6,5,12,1);		
 		createEnemy(Enemies.MegaDarkShrimp,"MegaDarkShrimp",sDarkShrimp,2500,.9,10,1000,1, true);
 		createEnemy(Enemies.DeadBeat,"DeadBeat",sDeadBeat,40,.4,4,7,1);
+		createEnemy(Enemies.DeadBeatLV3,"DeadBeatLV3",sDeadBeatLV3,380,.65,5,8,1);
 		createEnemy(Enemies.DeadBatter,"DeadBeatLV2",sDeadBatter,150,.6,7,9,1);
 		createEnemy(Enemies.GiantDeadBatter,"GiantDeadBeatLV2",sDeadBatter,3500,1,11,1500,1, true);
 		createEnemy(Enemies.Takodachi,"TakoDachi",sTakodachi,50,.4,4,1,1);

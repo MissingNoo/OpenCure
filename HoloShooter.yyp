@@ -56,9 +56,9 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"InaTentacle","folderPath":"folders/Sprites/Powers/CharacterPerks/InaTentacle.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Shop","folderPath":"folders/Sprites/Shop.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"icons","folderPath":"folders/Sprites/Shop/icons.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Stages","folderPath":"folders/Sprites/Stages.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tile Sets","folderPath":"folders/Tile Sets.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Timelines","folderPath":"folders/Timelines.yy",},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Stages","folderPath":"folders/Sprites/Stages.yy",},
   ],
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"blocks-16bit.ttf","CopyToMask":-1,"filePath":"datafiles",},
@@ -280,6 +280,7 @@
     {"id":{"name":"snd_summonShark1","path":"sounds/snd_summonShark1/snd_summonShark1.yy",},},
     {"id":{"name":"sShortHeight","path":"sprites/sShortHeight/sShortHeight.yy",},},
     {"id":{"name":"sAmeClock","path":"sprites/sAmeClock/sAmeClock.yy",},},
+    {"id":{"name":"sDeadBeatLV3","path":"sprites/sDeadBeatLV3/sDeadBeatLV3.yy",},},
     {"id":{"name":"Path1","path":"paths/Path1/Path1.yy",},},
     {"id":{"name":"part_GuraRed","path":"particles/part_GuraRed/part_GuraRed.yy",},},
     {"id":{"name":"sGWSPill","path":"sprites/sGWSPill/sGWSPill.yy",},},

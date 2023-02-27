@@ -8,7 +8,31 @@ if (room != rInicio) {
 	    random_set_seed(current_time);
 	if (ds_list_size(global.enemyPool) > 0 ) {
 		enemynum = irandom_range(0,ds_list_size(global.enemyPool)-1);
-	    initiateEnemy(ds_list_find_value(global.enemyPool, enemynum));
+		if (!customSpawn) {
+		    initiateEnemy(ds_list_find_value(global.enemyPool, enemynum));
+		}else{
+			initiateEnemy(selectedEnemy);
+			if (customHP != 0) {
+				hp = customHP;
+			}
+			if (customSPD != 0) {
+				speed = customSPD;
+			}
+			if (customXP != 0) {
+				xp = customXP;
+			}
+			switch (pattern) {
+			    case Patterns.Horde:
+			        direction = point_direction(x,y, oPlayer.x, oPlayer.y);
+			        break;
+				case Patterns.WallBoth:
+					    direction = point_direction(x,y, oPlayer.x, y);
+					break;
+			    default:
+			        // code here
+			        break;
+			}
+		}
 	}
 	else {
 	    instance_destroy();
@@ -25,7 +49,6 @@ if (room != rInicio) {
 	hp = (baseHP + (baseHP * 0.05 + global.timeA)) * ( 1 + (global.timeB/50));
 	canattack=true;
 }
-// randomize;
 deathSent = false;
 enemyID = irandom(9999);
 if (oPlayer.socket == 1) {
@@ -43,4 +66,4 @@ if (oPlayer.socket == 1) {
 	buffer_write(oClient.clientBuffer, buffer_string, sendvars);
     network_send_packet(oClient.client, oClient.clientBuffer, buffer_tell(oClient.clientBuffer));
 }
-//show_debug_overlay(true);
+dropxp = true;

@@ -2,7 +2,10 @@ if (boss) {
     audio_play_sound(snd_bossdefeated,0,0);
 }
 global.defeatedEnemies += 1;
-instance_create_layer(x,y,"Instances",oXP, {xp : xp});
+if (dropxp) {
+    instance_create_layer(x,y,"Instances",oXP, {xp : xp});
+}
+
 //global.lastxp = xp;
 //layer_sequence_create("Instances", x, y, seq_xp);
 random_set_seed(current_time);

@@ -42,9 +42,9 @@
     {"name":"InaTentacle","order":2,"path":"folders/Sprites/Powers/CharacterPerks/InaTentacle.yy",},
     {"name":"Shop","order":12,"path":"folders/Sprites/Shop.yy",},
     {"name":"icons","order":2,"path":"folders/Sprites/Shop/icons.yy",},
+    {"name":"Stages","order":17,"path":"folders/Sprites/Stages.yy",},
     {"name":"Tile Sets","order":9,"path":"folders/Tile Sets.yy",},
     {"name":"Timelines","order":15,"path":"folders/Timelines.yy",},
-    {"name":"Stages","order":17,"path":"folders/Sprites/Stages.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"oBurguer","order":6,"path":"objects/oBurguer/oBurguer.yy",},
@@ -227,6 +227,7 @@
     {"name":"snd_summonShark1","order":25,"path":"sounds/snd_summonShark1/snd_summonShark1.yy",},
     {"name":"sShortHeight","order":3,"path":"sprites/sShortHeight/sShortHeight.yy",},
     {"name":"sAmeClock","order":8,"path":"sprites/sAmeClock/sAmeClock.yy",},
+    {"name":"sDeadBeatLV3","order":28,"path":"sprites/sDeadBeatLV3/sDeadBeatLV3.yy",},
     {"name":"part_GuraRed","order":25,"path":"particles/part_GuraRed/part_GuraRed.yy",},
     {"name":"sGWSPill","order":14,"path":"sprites/sGWSPill/sGWSPill.yy",},
     {"name":"sCeoTears","order":19,"path":"sprites/sCeoTears/sCeoTears.yy",},
