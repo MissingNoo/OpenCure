@@ -67,8 +67,7 @@
 		    mouseOnButton(GW/3.10,GH/3.75, GW/13, sAmePortrait, 2, 2, array_create(Characters.Lenght, 0),"selectedCharacter", "horizontal");
 		}		
 		NAME=CHARACTERS[selectedCharacter][?"name"];
-		str="CHOOSE YOUR IDOL";
-		draw_text_transformed((GW/2)- string_width(str),50,str,2,2,0);
+		
 	
 		#region Character window
 			var _x = GW / 48.79;
@@ -85,6 +84,8 @@
 	
 		#region CharacterList
 		if (!characterSelected) {
+			str="CHOOSE YOUR IDOL";
+			draw_text_transformed((GW/2)- string_width(str),50,str,2,2,0);
 			draw_set_color(c_white);
 			draw_text_transformed(GW/3.12, GH/5.82,"MYTH",2,2,0);
 			draw_line(GW/3.12, GH/5, GW/1.46,GH/5);	
@@ -102,6 +103,52 @@
 			}
 		}
 		#endregion	
+		
+		#region Stage
+		if (characterSelected) {
+			_x = GW/3.27;
+			_y = 0;
+			_xx = GW/1.43;
+			_yy = GH;
+			draw_set_color(c_black);
+			draw_set_alpha(.55);
+			draw_rectangle(_x, _y, _xx, _yy, false);
+			draw_set_color(c_white);
+			draw_set_alpha(1);
+		    str="CHOOSE MODE";
+			draw_set_halign(fa_center);
+			draw_text_transformed(GW/2,50,str,4,4,0);
+			draw_set_halign(fa_left);
+			_x = GW/2;
+			_y = GH/2.35;
+			if (!stageSelected) {
+				offset = 0;
+				draw_set_halign(fa_center);
+				for (var i = 0; i < array_length(stageModes); ++i) {
+				    draw_sprite_ext(sUpgradeBackground, 0, _x, _y + offset, 1.55, 1.35, 0, c_black, .75);
+					draw_sprite_ext(sUpgradeBackground, 2, _x, _y + 5 + offset, 1.55, 1.35, 0, c_white, .75);
+					draw_text(_x, _y - 61 + offset, stageModes[i]);
+					draw_text_ext_transformed(_x, _y - 40 + offset, modesDescription[i], 11, 160, 3,3 ,0);
+					if (i = selected) {
+						draw_sprite_ext(sUpgradeBackground, 1, _x, _y + offset, 1.55, 1.35, 0, c_white, 1);
+					}
+					offset += 170;
+				}
+			}
+			if (stageSelected) {
+				draw_set_halign(fa_center);
+				draw_set_valign(fa_middle);
+				draw_text_transformed(GW/2, GH/3.61, string_upper(stages[0].name), 4, 4, 0);
+			    draw_sprite_ext(stages[0].port, 0, GW/2, GH/2, 2.30, 2.30, 0 ,c_white, 1);
+				draw_sprite_ext(sHudButton, 1, GW/2, GH/1.40, 1, 2, 0, c_white, 1);
+				draw_set_color(c_black);
+				draw_text_transformed(GW/2, GH/1.40, "GO!", 2, 2, 0);
+				draw_set_color(c_white);
+			}
+			draw_set_valign(fa_bottom);
+			draw_set_halign(fa_left);
+		}
+		#endregion
 	
 		#region Weapon window
 			 _x = GW / 1.42;
@@ -120,6 +167,7 @@
 			drawDesc(GW/1.39, GH/2.97, weaponID[1][$"desc"], GW/4.10, 2);
 			draw_set_valign(0);
 		#endregion
+		
 		#region Special window
 			 _x = GW / 1.42;
 			_y = GH / 1.88;

@@ -22,6 +22,14 @@ global.musicPlaying = undefined;
 	alarm[1] = 1;
 	linesoff = 0;
 #endregion
+
+#region stages
+enum StageTypes{
+	Stage,
+	Endless
+}
+#endregion
+
 #region SaveLoad
 
 

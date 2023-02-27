@@ -44,6 +44,7 @@
     {"name":"icons","order":2,"path":"folders/Sprites/Shop/icons.yy",},
     {"name":"Tile Sets","order":9,"path":"folders/Tile Sets.yy",},
     {"name":"Timelines","order":15,"path":"folders/Timelines.yy",},
+    {"name":"Stages","order":17,"path":"folders/Sprites/Stages.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"oBurguer","order":6,"path":"objects/oBurguer/oBurguer.yy",},

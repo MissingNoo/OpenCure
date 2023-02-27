@@ -198,6 +198,14 @@ if (ANVIL) {
 #region Select Character room
 	if (room = rCharacterSelect) {
 	    if (zKey) {
+			if (stageSelected) {
+			    room_goto(stages[0].roomname);
+			}
+			if (!stageSelected and characterSelected) {
+			    stageSelected = true;
+				if (selected == 0) { global.stageType = StageTypes.Stage; }
+				if (selected == 1) { global.stageType = StageTypes.Endless; }
+			}
 			if (!characterSelected) {
 		        global.player=CHARACTERS[selectedCharacter];
 				//show_message(global.player[? "name"]);

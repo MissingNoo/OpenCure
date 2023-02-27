@@ -44,7 +44,20 @@ if (room = rCharacterSelect) {
 			audio_play_sound(snd_charSelectWoosh,0,0);
 	    }
 	}
+	if (!stageSelected and characterSelected) {
+	    if (_up) {
+	        if (selected == 0) {
+	            selected = array_length(stageModes) - 1;
+	        } else selected -= 1
+	    }
+	    if (_down) {
+	        if (selected < array_length(stageModes) - 1) {
+	            selected += 1;
+	        } else selected = 0
+	    }
+	}
 }
+
 
 if (instance_exists(oPlayer) and global.upgrade==1) {
     if (_up) {

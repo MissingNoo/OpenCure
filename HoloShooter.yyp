@@ -58,6 +58,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"icons","folderPath":"folders/Sprites/Shop/icons.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tile Sets","folderPath":"folders/Tile Sets.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Timelines","folderPath":"folders/Timelines.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Stages","folderPath":"folders/Sprites/Stages.yy",},
   ],
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"blocks-16bit.ttf","CopyToMask":-1,"filePath":"datafiles",},
@@ -179,6 +180,7 @@
     {"id":{"name":"sInaTentacleShoot","path":"sprites/sInaTentacleShoot/sInaTentacleShoot.yy",},},
     {"id":{"name":"Items","path":"scripts/Items/Items.yy",},},
     {"id":{"name":"sGuraTridentShoot","path":"sprites/sGuraTridentShoot/sGuraTridentShoot.yy",},},
+    {"id":{"name":"sStage1Port","path":"sprites/sStage1Port/sStage1Port.yy",},},
     {"id":{"name":"sHudPickupIcon","path":"sprites/sHudPickupIcon/sHudPickupIcon.yy",},},
     {"id":{"name":"sAsaCocoShoot","path":"sprites/sAsaCocoShoot/sAsaCocoShoot.yy",},},
     {"id":{"name":"oJoystick","path":"objects/oJoystick/oJoystick.yy",},},
