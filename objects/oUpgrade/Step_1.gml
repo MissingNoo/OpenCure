@@ -68,16 +68,10 @@ if (a==0) {
 			originaly=y;
 			image_alpha = .99;
 			if (instance_exists(oEnemy)) {
-				random_set_seed(current_time * global.upgradeCooldown[0]);
 				var enemies = instance_number(oEnemy);
-				//var CE = instance_nearest(x,y-50.75,oEnemy);
-				// randomize;
-				//if (CE != 0) {
-				    CE = instance_find(oEnemy, irandom_range(0,enemies-1));
-					direction = point_direction(x,y-50.75,CE.x, CE.y);
-					image_angle = point_direction(x,y-50.75,CE.x, CE.y);
-				//}
-				
+				CE = instance_find(oEnemy, irandom_range(0,enemies-1));
+				direction = point_direction(x,y-50.75,CE.x, CE.y);
+				image_angle = point_direction(x,y-50.75,CE.x, CE.y);				
 				if (shoots>0) {
 					for (var i = 1; i < shoots; ++i) {
 						//inst = (instance_create_layer(owner.x,owner.y-8,"Upgrades",oUpgrade));
