@@ -1,4 +1,4 @@
-if (instance_exists(oPlayer)) {
+if (instance_exists(oPlayer)) { //TODO: finish adding stage 1 events
 	var _seconds = round(Seconds);
 	if (_seconds == 5 and Minutes == 0 and event) {
 		event = false;
