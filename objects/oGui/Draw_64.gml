@@ -778,6 +778,7 @@ if (keyboard_check_pressed(ord("M"))) {
 		var _xx = GW/19;
 		var _yt = GH/1.54;
 		var _yy = GH/1.46;
+		var str;
 		draw_set_color(c_white);
 		#region HP
 			draw_sprite_stretched(heart_shaded, 0, _xx, _yt, 25, 25);
