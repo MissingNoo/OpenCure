@@ -202,7 +202,7 @@ function populateUpgrades(){
 				canBeHasted : true,
 				speed : 0,
 				hits : 999,
-				type : "white",
+				type : "red",
 				shoots : [1, 1, 1, 1, 1, 1, 3],
 				desc : [
 				"A tentacle shoots out in front.",
@@ -215,8 +215,9 @@ function populateUpgrades(){
 				],
 				knockbackSpeed : 0,
 				knockbackDuration : 0,
-				perk : false
-			});
+				perk : true,
+				characterid : Characters.Ina,
+			}, [snd_tailswipe]);
 	#endregion
 		#endregion
 	#endregion
