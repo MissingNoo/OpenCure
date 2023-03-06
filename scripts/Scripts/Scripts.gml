@@ -77,33 +77,7 @@ function PauseGame(){
 }		
 	
 function summonCircle(walk = true){
-	var coordsx = ds_list_create();
-	var coordsy = ds_list_create();
-	var r=270;
-	ds_list_clear(coordsy);
-	ds_list_clear(coordsx);
-    var N = 2*r+1;
-    for (var i = 0; i < N; i+=3)
-    {
-        for (var j = 0; j < N; j+=3)
-        {
-			var xx = i-r;
-            var yy = j-r;
-			//show_debug_message(string(r*r+1) )
-			var v=xx*xx + yy*yy;
-            if (v <= r*r+1 and v>72800)	
-			{	
-				ds_list_add(coordsx, xx);
-				ds_list_add(coordsy, yy);
-			}					
-        }
-    }	
-	var c = ds_list_size(coordsx);
-	for (var i = 0; i < c; ++i) {
-		var a=oPlayer.x + ds_list_find_value(coordsx,i);
-		var b=oPlayer.y + ds_list_find_value(coordsy,i);
-		instance_create_layer(a,b,"Instances",oEnemy,{canwalk : walk});
-	}	
+
 }
 enum Patterns{
 	Cluster,
@@ -119,12 +93,13 @@ enum Patterns{
 	Ambush
 }
 
-function spawnEvent(monster, quantity, type, hp = 0, spd = 0, xp = 0){
+function spawnEvent(monster, type, hp, atk, spd, xp, lifetime, quantity){
+//function spawnEvent(monster, quantity, type, hp = 0, spd = 0, xp = 0){
 	var enemy = global.enemies[monster];
 	var wallSprOffset = sprite_get_height(enemy[?"sprite"]);
 	var aa, bb;
 	switch (type) {
-		case Patterns.WallBoth:
+		case Patterns.WallBoth:{
 			aa = oPlayer.x + 400;
 			var ab = oPlayer.x - 400;
 			bb = oPlayer.y;
@@ -150,8 +125,36 @@ function spawnEvent(monster, quantity, type, hp = 0, spd = 0, xp = 0){
 				instance_create_layer(ab,bb,"Instances",oEnemy,{customSpawn : true, selectedEnemy : enemy, pattern : type, customHP : hp, customSPD : spd, dieX : dieAtX, customXP : xp});
 				bb += wallSprOffset;
 			}
-		        
-		    break;
+		    break;}
+		case Patterns.Ring:{
+			var coordsx = ds_list_create();
+			var coordsy = ds_list_create();
+			var r=270;
+			ds_list_clear(coordsy);
+			ds_list_clear(coordsx);
+			var N = 2*r+1;
+			for (var i = 0; i < N; i+=3)
+			{
+				for (var j = 0; j < N; j+=3)
+				{
+					var xx = i-r;
+				    var yy = j-r;
+					//show_debug_message(string(r*r+1) )
+					var v=xx*xx + yy*yy;
+				    if (v <= r*r+1 and v>72800)	
+					{	
+						ds_list_add(coordsx, xx);
+						ds_list_add(coordsy, yy);
+					}					
+				}
+			}	
+			var c = ds_list_size(coordsx);
+			for (var i = 0; i < c; ++i) {
+				var a=oPlayer.x + ds_list_find_value(coordsx,i);
+				var b=oPlayer.y + ds_list_find_value(coordsy,i);
+				instance_create_layer(a,b,"Instances",oEnemy,{customSpawn : true, selectedEnemy : enemy, pattern : type, customHP : hp, customSPD : spd, customXP : xp});
+			}
+			break;}
 		default:
 			var a = oPlayer.x + choose(-400, 400);
 			var b = oPlayer.y + choose(-400, 400);

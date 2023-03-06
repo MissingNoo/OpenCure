@@ -22,7 +22,7 @@ global.upgradeCooldown[0] = 0;
 	variable_struct_set(m, "type", "white");	
 	variable_struct_set(m, "shoots", 0);	
 	variable_struct_set(m, "desc", "");
-	variable_struct_set(m, "style", ItemTypes.Weapon);	
+	variable_struct_set(m, "style", ItemTypes.Weapon);
 	global.upgradesAvaliable=[0];
 	for (i=0; i<4; i++) {
 	    global.upgradeOptions[i]=global.null;

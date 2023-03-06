@@ -12,13 +12,13 @@ if (room != rInicio) {
 		    initiateEnemy(ds_list_find_value(global.enemyPool, enemynum));
 		}else{
 			initiateEnemy(selectedEnemy);
-			if (customHP != 0) {
+			if (customHP != "-") {
 				hp = customHP;
 			}
-			if (customSPD != 0) {
+			if (customSPD != "-") {
 				speed = customSPD;
 			}
-			if (customXP != 0) {
+			if (customXP != "-") {
 				xp = customXP;
 			}
 			switch (pattern) {

@@ -48,9 +48,11 @@ function drawDesc(_xx, _yy, _string, maxX, _size = 1){
 	var xt=0;
 	var yt=0;
 	var char = "";
+	var newline;
 	for (var i = 1; i <= string_length(_string); ++i) {
+		newline = false;
 		char = string_copy(_string, i, 1);
-		if (_xx + xt >= _xx + maxX) { // past max x jump line
+		if (_xx + xt >= _xx + maxX and char != ".") { // past max x jump line
 		    xt = 0;
 			yt+=20;
 		}
@@ -79,6 +81,9 @@ function drawDesc(_xx, _yy, _string, maxX, _size = 1){
 				draw_set_color(c_white);
 				i++;
 				break;
+			case ".":
+				newline = true;
+				break;
 		}
 		char = string_copy(_string, i, 1);
 		if (xt == 0 and char == " ") {
@@ -86,6 +91,10 @@ function drawDesc(_xx, _yy, _string, maxX, _size = 1){
 		}
 	    draw_text_transformed(_xx+xt, _yy+yt, char, _size, _size, 0);
 		xt+=10.5;
+		if (newline) {
+		    xt = -10.5;
+			yt+=20;
+		}
 	}
 	draw_set_halign(fa_left);
 }
