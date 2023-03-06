@@ -14,10 +14,10 @@ if (dropxp) {
 	for (var i = 0; i < array_length(playerItems); ++i) {
 		//show_message(string(playerItems[i][?"id"]));
 		//show_message(string(ItemIds.NurseHorn));
-	    if (playerItems[i][?"id"] == ItemIds.NurseHorn) {
+	    if (playerItems[i][$"id"] == ItemIds.NurseHorn) {
 		    var rdn = irandom_range(0,100);
 			if (rdn <= 30) {
-			    switch (playerItems[i][?"level"]) {
+			    switch (playerItems[i][$"level"]) {
 				    case 1:
 				        healPlayer(2);
 				        break;

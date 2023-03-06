@@ -184,5 +184,9 @@ function copyStruct(struct){
 }
 
 function healPlayer(amount){
-	HP += amount * Bonuses[BonusType.Healing][ItemIds.Full_Meal];
+	if (Bonuses[BonusType.Healing][ItemIds.Full_Meal] != 0) {
+	    HP += amount * Bonuses[BonusType.Healing][ItemIds.Full_Meal];
+	}else{
+		HP += amount;
+	}
 }

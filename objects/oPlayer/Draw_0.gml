@@ -2,7 +2,7 @@ event_inherited();
 /// @description Insert description here	
 // You can write your code in this editor
 //draw_text(x,y-80, instance_number(oUpgrade));
-draw_text(x,y-100, "Enemy Count: " + string(instance_number(oEnemy)));
+
 //draw_text(x,y-120, global.testvar);
 //if (instance_exists(oEvents)) {
 //    draw_text(x,y-100, oEvents.event);
@@ -11,6 +11,7 @@ draw_text(x,y-100, "Enemy Count: " + string(instance_number(oEnemy)));
 //draw_sprite_ext(spr_shadow, 0, x, y, 1, 1, 0, c_white, 0.8)
 
 if (global.debug) {
+	draw_text(x,y-100, "Enemy Count: " + string(instance_number(oEnemy)));
 	//draw_text(x,y-60, "lh: " + string(gamepad_axis_value(global.GP_NUM, gp_axislh)));
 	//draw_text(x,y-80, "lv: " + string(gamepad_axis_value(global.GP_NUM, gp_axislv)));
 	draw_text(x,y-60, "left: " + string(spd));

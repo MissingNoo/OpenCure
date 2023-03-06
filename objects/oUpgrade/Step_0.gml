@@ -55,7 +55,10 @@ if (!global.gamePaused) {
 			if (hits <= 0) {
 			    sprite_index = sGlowstickThumbExplosion;
 				speed = 0;
-			}			
+			}
+			if (distance_to_object(owner) > 200) {
+			    direction = point_direction(x,y,owner.x, owner.y);
+			}
 			break;}
 		case Weapons.SpiderCooking:{
 			x = owner.x;
