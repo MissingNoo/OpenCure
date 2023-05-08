@@ -2,52 +2,52 @@ if (instance_exists(oPlayer)) { //TODO: finish adding stage 1 events
 	var _seconds = round(Seconds);
 	if (_seconds == 5 and Minutes == 0 and event) {
 		event = false;
-		alarm[0] = 60;
+		//alarm[0] = 60;
 		spawnEvent(Enemies.Shrimp,Patterns.Cluster,"-", "-", "-", "-", "-", 15);
 		
 	}
 
 	if (_seconds == 30 and Minutes == 0 and event) {
 		event = false;
-		alarm[0] = 60;
+		//alarm[0] = 60;
 		//shtimp e deadbeat
 		addEnemyToPool(Enemies.DeadBeat);
 	}
 
 	if (_seconds == 5 and Minutes == 1 and event) {
 		event = false;
-		alarm[0] = 60;
+		//alarm[0] = 60;
 		//shtimp e deadbeat
 		spawnEvent(Enemies.KFPEmployee,Patterns.Horde, 25, "-", "-", "-", "-", 30);
 	}
 
 	if (_seconds == 30 and Minutes == 1 and event) {
 		event = false;
-		alarm[0] = 60;
+		//alarm[0] = 60;
 		spawnEvent(Enemies.DeadBeatLV3,Patterns.WallBoth,120, "-", "-", 4, 8.3, 140);
 	}
 
 	if (_seconds == 0 and Minutes == 2 and event) {
 		event = false;
-		alarm[0] = 60;
+		//alarm[0] = 60;
 		addEnemyToPool(Enemies.MegaShrimp);
 	}
 	
 	if (_seconds == 35 and Minutes == 2 and event) {
 		event = false;
-		alarm[0] = 60;
+		//alarm[0] = 60;
 		spawnEvent(Enemies.DeadBeat,Patterns.Ring, "-", "-", "-", "-", "-", 50);
 	}
 
 	if (_seconds == 45 and Minutes == 2 and event) {
 		event = false;
-		alarm[0] = 60;
+		//alarm[0] = 60;
 		spawnEvent(Enemies.DeadBeatLV3,Patterns.Stampede, 500, "-", "-", 8, 20, 10); //TODO: Add 20 seconds of lifetime
 	}
 
 	if (_seconds == 0 and Minutes == 3 and event) {
 		event = false;
-		alarm[0] = 60;	
+		//alarm[0] = 60;	
 		//remove shrimp
 		//deadbeat takodachi
 		removeEnemyFromPool(Enemies.Shrimp);
@@ -56,38 +56,38 @@ if (instance_exists(oPlayer)) { //TODO: finish adding stage 1 events
 
 	if (_seconds == 15 and Minutes == 3 and event) {
 		event = false;
-		alarm[0] = 60;	
+		//alarm[0] = 60;	
 		spawnEvent(Enemies.Takodachi, Patterns.WallRight, 200, "-", 0.55, 5, 8.3, 140);//TODO: Tako knight
 	}
 
 	if (_seconds == 18 and Minutes == 3 and event) {
 		event = false;
-		alarm[0] = 60;	
+		//alarm[0] = 60;	
 		spawnEvent(Enemies.KFPEmployee, Patterns.Horde, 25, "-", "-", "-", "-", 30);
 	}
 
 	if (_seconds == 40 and Minutes == 3 and event) {
 		event = false;
-		alarm[0] = 60;	
+		//alarm[0] = 60;	
 		//TODO: takoknight Stampede	500	-	1.6	8	20	20
 	}
 
 	if (_seconds == 0 and Minutes == 4 and event) {
 		event = false;
-		alarm[0] = 60;	
+		//alarm[0] = 60;	
 		addEnemyToPool(Enemies.KFPEmployee);
 		addEnemyToPool(Enemies.TakoGrande);
 	}
 
 	if (_seconds == 15 and Minutes == 4 and event) {
 		event = false;
-		alarm[0] = 60;	
+		//alarm[0] = 60;	
 		//TODO: takoknight Ring	200	-	-	5	26	50
 	}
 
 	if (_seconds == 0 and Minutes == 5 and event) {
 		event = false;
-		alarm[0] = 60;	
+		//alarm[0] = 60;	
 		removeEnemyFromPool(Enemies.DeadBeat);
 		removeEnemyFromPool(Enemies.Takodachi);
 		addEnemyToPool(Enemies.DarkShrimp);
@@ -97,31 +97,31 @@ if (instance_exists(oPlayer)) { //TODO: finish adding stage 1 events
 
 	if (_seconds == 0 and Minutes == 5 and event) {
 		event = false;
-		alarm[0] = 60;	
+		//alarm[0] = 60;	
 		spawnEvent(Enemies.KFPEmployee, Patterns.Horde, 25, "-", "-", "-", "-", 100);
 	}
 
 	if (_seconds == 5 and Minutes == 5 and event) {
 		event = false;
-		alarm[0] = 60;	
+		//alarm[0] = 60;	
 		spawnEvent(Enemies.KFPEmployee, Patterns.Horde, 25, "-", "-", "-", "-", 100);
 	}
 
 	if (_seconds == 10 and Minutes == 5 and event) {
 		event = false;
-		alarm[0] = 60;	
+		//alarm[0] = 60;	
 		spawnEvent(Enemies.KFPEmployee, Patterns.Horde, 25, "-", "-", "-", "-", 100);
 	}
 
 	if (_seconds == 30 and Minutes == 5 and event) {
 		event = false;
-		alarm[0] = 60;	
+		//alarm[0] = 60;	
 		//TODO: takoknight Stampede	800	-	2.0	8	20	40
 	}
 
 	if (_seconds == 0 and Minutes == 6 and event) {
 		event = false;
-		alarm[0] = 60;	
+		//alarm[0] = 60;	
 		removeEnemyFromPool(Enemies.KFPEmployee);
 		addEnemyToPool(Enemies.DeadBatter);
 		addEnemyToPool(Enemies.MegaDarkShrimp);
@@ -129,50 +129,50 @@ if (instance_exists(oPlayer)) { //TODO: finish adding stage 1 events
 
 	if (_seconds == 30 and Minutes == 6 and event) {
 		event = false;
-		alarm[0] = 60;	
+		//alarm[0] = 60;	
 		addEnemyToPool(Enemies.InvestiGator)
 	}
 
 	if (_seconds == 0 and Minutes == 7 and event) {
 		event = false;
-		alarm[0] = 60;	
+		//alarm[0] = 60;	
 		//TODO: darkshrimp Ring	500	5	0.05	10	25	120
 	}
 	
 	if (_seconds == 35 and Minutes == 7 and event) {
 		event = false;
-		alarm[0] = 60;	
+		//alarm[0] = 60;	
 		addEnemyToPool(Enemies.HungryTakodachi);
 	}
 
 	if (_seconds == 0 and Minutes == 8 and event) {
 		event = false;
-		alarm[0] = 60;	
+		//alarm[0] = 60;	
 		addEnemyToPool(Enemies.GiantDeadBatter);
 	}
 
 	if (_seconds == 30 and Minutes == 8 and event) {
 		event = false;
-		alarm[0] = 60;	
+		//alarm[0] = 60;	
 		removeEnemyFromPool(Enemies.DarkShrimp);
 		removeEnemyFromPool(Enemies.DeadBatter);
 	}
 
 	if (_seconds == 30 and Minutes == 9 and event) {
 		event = false;
-		alarm[0] = 60;	
+		//alarm[0] = 60;	
 		addEnemyToPool(Enemies.DisgruntledEmployee);
 	}
 
 	if (_seconds == 0 and Minutes == 10 and event) {
 		event = false;
-		alarm[0] = 60;	
+		//alarm[0] = 60;	
 		addEnemyToPool(Enemies.FubuZilla);
 	}
 
 	if (_seconds == 0 and Minutes == 11 and event) {
 		event = false;
-		alarm[0] = 60;	
+		//alarm[0] = 60;	
 		removeEnemyFromPool(Enemies.Bloom);
 		removeEnemyFromPool(Enemies.Gloom);
 		removeEnemyFromPool(Enemies.HungryTakodachi);
@@ -183,20 +183,20 @@ if (instance_exists(oPlayer)) { //TODO: finish adding stage 1 events
 
 	if (_seconds == 0 and Minutes == 12 and event) {
 		event = false;
-		alarm[0] = 60;	
+		//alarm[0] = 60;	
 		addEnemyToPool(Enemies.KronieA);
 		addEnemyToPool(Enemies.KronieB);
 	}
 
 	if (_seconds == 0 and Minutes == 13 and event) {
 		event = false;
-		alarm[0] = 60;	
+		//alarm[0] = 60;	
 		addEnemyToPool(Enemies.KingKronie);
 	}
 
 	if (_seconds == 0 and Minutes == 14 and event) {
 		event = false;
-		alarm[0] = 60;	
+		//alarm[0] = 60;	
 		removeEnemyFromPool(Enemies.BaeRat);
 		removeEnemyFromPool(Enemies.KronieA);
 		removeEnemyFromPool(Enemies.KronieB);
@@ -206,14 +206,14 @@ if (instance_exists(oPlayer)) { //TODO: finish adding stage 1 events
 
 	if (_seconds == 0 and Minutes == 15 and event) {
 		event = false;
-		alarm[0] = 60;	
+		//alarm[0] = 60;	
 		addEnemyToPool(Enemies.GiantQDeadbeat);
 		addEnemyToPool(Enemies.MegaQShrimp);
 	}
 
 	if (_seconds == 45 and Minutes == 15 and event) {
 		event = false;
-		alarm[0] = 60;	
+		//alarm[0] = 60;	
 		addEnemyToPool(Enemies.SaplingA);
 		addEnemyToPool(Enemies.SaplingB);
 		addEnemyToPool(Enemies.SaplingC);
@@ -223,26 +223,26 @@ if (instance_exists(oPlayer)) { //TODO: finish adding stage 1 events
 
 	if (_seconds == 0 and Minutes == 16 and event) {
 		event = false;
-		alarm[0] = 60;	
+		//alarm[0] = 60;	
 		removeEnemyFromPool(Enemies.QDeadBeat);
 		removeEnemyFromPool(Enemies.QShrimp);
 	}
 
 	if (_seconds == 30 and Minutes == 17 and event) {
 		event = false;
-		alarm[0] = 60;	
+		//alarm[0] = 60;	
 		addEnemyToPool(Enemies.OvergrownSapling);
 	}
 
 	if (_seconds == 0 and Minutes == 18 and event) {
 		event = false;
-		alarm[0] = 60;	
+		//alarm[0] = 60;	
 		addEnemyToPool(Enemies.Sanallite);
 	}
 
 	if (_seconds == 0 and Minutes == 19 and event) {
 		event = false;
-		alarm[0] = 60;	
+		//alarm[0] = 60;	
 		addEnemyToPool(Enemies.SwarmingKingKronie);
 		addEnemyToPool(Enemies.SwarmingOvergrownSapling);
 		removeEnemyFromPool(Enemies.SaplingA);
@@ -255,7 +255,7 @@ if (instance_exists(oPlayer)) { //TODO: finish adding stage 1 events
 
 	if (_seconds == 0 and Minutes == 20 and event) {
 		event = false;
-		alarm[0] = 60;	
+		//alarm[0] = 60;	
 		addEnemyToPool(Enemies.ThiccBubba);
 		addEnemyToPool(Enemies.SmolAme);
 		removeEnemyFromPool(Enemies.SwarmingKingKronie);
@@ -264,7 +264,7 @@ if (instance_exists(oPlayer)) { //TODO: finish adding stage 1 events
 
 	if (_seconds == 0 and Minutes == 23 and event) {
 		event = false;
-		alarm[0] = 60;	
+		//alarm[0] = 60;	
 		removeEnemyFromPool(Enemies.ThiccBubba);	
 	}
 }

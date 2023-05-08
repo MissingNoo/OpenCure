@@ -44,36 +44,19 @@ if (instance_exists(oPlayer)) {
 		py = oPlayer.y;
 	    oPlayer.x = 1280 * 2;
 		oCam.x = oPlayer.x + xx;
-		with (oEnemy) {
-		    xx = x - px;
-			yy = y - py;
-			x = oPlayer.x + xx;
-			y = oPlayer.y + yy;
+		
+		var insts = [oEnemy, oXP, oAnvil, oBurguer, oUpgrade]
+		for (var i = 0; i < array_length(insts); ++i) {
+		    with (insts[i]) {
+			    xx = x - px;
+				yy = y - py;
+				x = oPlayer.x + xx;
+				y = oPlayer.y + yy;
+			}
 		}
-		with (oXP) {
-		    xx = x - px;
-			yy = y - py;
-			x = oPlayer.x + xx;
-			y = oPlayer.y + yy;
-		}
-		with (oAnvil) {
-		    xx = x - px;
-			yy = y - py;
-			x = oPlayer.x + xx;
-			y = oPlayer.y + yy;
-		}
-		with (oBurguer) {
-		    xx = x - px;
-			yy = y - py;
-			x = oPlayer.x + xx;
-			y = oPlayer.y + yy;
-		}
-		with (oUpgrade) {
-		    xx = x - px;
-			yy = y - py;
-			x = oPlayer.x + xx;
-			y = oPlayer.y + yy;
-		}
+		
+		
+		
 	}
 	if (oPlayer.x > 1280 * 2) {
 		xx = oCam.x - oPlayer.x;
@@ -81,35 +64,14 @@ if (instance_exists(oPlayer)) {
 		py = oPlayer.y;
 	    oPlayer.x = 1280;
 		oCam.x = oPlayer.x + xx;
-		with (oXP) {
-		    xx = x - px;
-			yy = y - py;
-			x = oPlayer.x + xx;
-			y = oPlayer.y + yy;
-		}
-		with (oEnemy) {
-		    xx = x - px;
-			yy = y - py;
-			x = oPlayer.x + xx;
-			y = oPlayer.y + yy;
-		}
-		with (oAnvil) {
-		    xx = x - px;
-			yy = y - py;
-			x = oPlayer.x + xx;
-			y = oPlayer.y + yy;
-		}
-		with (oBurguer) {
-		    xx = x - px;
-			yy = y - py;
-			x = oPlayer.x + xx;
-			y = oPlayer.y + yy;
-		}
-		with (oUpgrade) {
-		    xx = x - px;
-			yy = y - py;
-			x = oPlayer.x + xx;
-			y = oPlayer.y + yy;
+		var insts = [oEnemy, oXP, oAnvil, oBurguer, oUpgrade]
+		for (var i = 0; i < array_length(insts); ++i) {
+		    with (insts[i]) {
+			    xx = x - px;
+				yy = y - py;
+				x = oPlayer.x + xx;
+				y = oPlayer.y + yy;
+			}
 		}
 	}
 	if (oPlayer.y < 1280) {

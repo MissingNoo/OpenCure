@@ -37,7 +37,6 @@ function PauseGame(){
 		
 		if(global.gamePaused)
 		{	
-			
 				with(all)
 				{
 					if (speed != 0 and image_speed != 0) {
@@ -98,6 +97,9 @@ function spawnEvent(monster, type, hp, atk, spd, xp, lifetime, quantity){
 	var enemy = global.enemies[monster];
 	var wallSprOffset = sprite_get_height(enemy[?"sprite"]);
 	var aa, bb;
+	if (xp == "-") {
+	    xp = EnemyList[enemy][? "exp"];
+	}
 	switch (type) {
 		case Patterns.WallBoth:{
 			aa = oPlayer.x + 400;
@@ -161,7 +163,7 @@ function spawnEvent(monster, type, hp, atk, spd, xp, lifetime, quantity){
 			for (var i = 0; i < quantity; ++i) {
 			    aa = a + irandom_range(-16,16);
 				bb = b + irandom_range(-16,16);
-				instance_create_layer(aa,bb,"Instances",oEnemy,{customSpawn : true, selectedEnemy : enemy, pattern : type, customHP : hp, customSPD : spd});
+				instance_create_layer(aa,bb,"Instances",oEnemy,{customSpawn : true, selectedEnemy : enemy, pattern : type, customHP : hp, customSPD : spd, customXP : xp});
 			}
 		    break;
 			

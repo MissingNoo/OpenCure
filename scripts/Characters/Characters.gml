@@ -150,13 +150,6 @@ enum Characters {
 
 function Movement()
 {
-
-// if the variable _hspd does not equal zero
-
-// or
-
-// if the variable _vspd does not equal zero
-
 if can_move == true{
 	gamepad_set_axis_deadzone(global.gPnum, 0.7);
 	var _left, _right, _up, _down;

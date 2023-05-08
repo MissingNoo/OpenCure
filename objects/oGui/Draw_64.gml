@@ -63,9 +63,9 @@
 }
 
 	if (room == rCharacterSelect) {
-		if (!characterSelected) {
-		    mouseOnButton(GW/3.10,GH/3.75, GW/13, sAmePortrait, 2, 2, array_create(Characters.Lenght, 0),"selectedCharacter", "horizontal");
-		}		
+		//if (!characterSelected) {
+		//    mouseOnButton(GW/3.10,GH/3.75, GW/13, sAmePortrait, 2, 2, array_create(Characters.Lenght, 0),"selectedCharacter", "horizontal");
+		//}		
 		NAME=CHARACTERS[selectedCharacter][?"name"];
 		
 	
@@ -94,6 +94,7 @@
 			//draw_text(10,10,selectedCharacter);
 			_x = GW/2.83;
 			_y = GH/3.80;
+			mouseOnButton(_x,_y, GW/13, sAmePortrait, 2.20, 2.20, array_create(Characters.Lenght, 0),"selectedCharacter", "horizontal");
 			for (var i=0; i < Characters.Lenght; i++) {
 				draw_sprite_ext(CHARACTERS[i][?"portrait"],0,_x + offset,_y,2.20,2.20,0,c_white,1);
 				if (selectedCharacter == i) {
