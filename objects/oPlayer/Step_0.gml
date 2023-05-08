@@ -51,7 +51,7 @@ if (!global.gamePaused) {
 		neededxp += round((4*(global.level + 1)) *2.1) - round((4*global.level)*2.1);
 		randomUpgrades();
 		keyboard_clear(ord("Z"));
-		audio_play_sound(snd_lvlUp,0,0);
+		audio_play_sound(snd_lvl_up,0,0);
 		//if (instance_exists(oJoystick)) { global.mode = "menu"; }
 		global.upgrade=1;	
 		oGui.selected=0;		

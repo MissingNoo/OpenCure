@@ -33,7 +33,7 @@ if (room = rCharacterSelect) {
 	            selectedCharacter = Characters.Lenght - 1;
 	        } else selectedCharacter -= 1;
 			NAME=CHARACTERS[selectedCharacter][?"name"];
-			audio_play_sound(snd_charSelectWoosh,0,0);
+			audio_play_sound(snd_char_select_woosh,0,0);
 	    }
 	    if (_right) {
 	        if (selectedCharacter < Characters.Lenght - 1) {
@@ -41,7 +41,7 @@ if (room = rCharacterSelect) {
 	        } else selectedCharacter = 0;
 			//mouseOnButton(GW/3.10,GH/3.75, GW/13, sAmePortrait, 2, 2, array_create(Characters.Lenght, 0), "horizontal");
 			NAME=CHARACTERS[selectedCharacter][?"name"];
-			audio_play_sound(snd_charSelectWoosh,0,0);
+			audio_play_sound(snd_char_select_woosh,0,0);
 	    }
 	}
 	if (!stageSelected and characterSelected) {

@@ -213,7 +213,7 @@ if (ANVIL) {
 				//show_message(string(CHARACTERS[selected][?"id"]));
 				PLAYER_PERKS = global.characterPerks[CHARACTERS[selectedCharacter][?"id"]];
 				audio_stop_sound(global.musicPlaying);
-				audio_play_sound(snd_charSelected,0,0);
+				audio_play_sound(snd_char_selected,0,0);
 				switch (global.server) {
 				    case true:
 				        global.mode = "stage";

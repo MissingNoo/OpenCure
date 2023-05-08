@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSound",
   "resourceVersion": "1.0",
-  "name": "snd_charSelected",
+  "name": "snd_char_selected",
   "audioGroupId": {
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
@@ -17,7 +17,7 @@
   },
   "preload": false,
   "sampleRate": 44100,
-  "soundFile": "snd_charSelected.wav",
+  "soundFile": "snd_char_selected.wav",
   "type": 0,
   "volume": 1.0,
 }
