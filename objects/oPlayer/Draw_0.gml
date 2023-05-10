@@ -11,6 +11,8 @@ event_inherited();
 //draw_sprite_ext(spr_shadow, 0, x, y, 1, 1, 0, c_white, 0.8)
 
 if (global.debug) {
+	draw_text(x,y-50, $"X: {x}");
+	draw_text(x,y-30, $"Y: {y}");
 	draw_text(x,y-100, "Enemy Count: " + string(instance_number(oEnemy)));
 	//draw_text(x,y-60, "lh: " + string(gamepad_axis_value(global.GP_NUM, gp_axislh)));
 	//draw_text(x,y-80, "lv: " + string(gamepad_axis_value(global.GP_NUM, gp_axislv)));

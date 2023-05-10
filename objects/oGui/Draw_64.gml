@@ -591,8 +591,9 @@ if (keyboard_check_pressed(ord("M"))) {
 	if (global.debug) {
 		draw_set_color(c_grey);
 		draw_set_alpha(.5);
-		draw_set_color(c_white)
-		var variables = ["a","b","c","d","e", "dir", "revives", "event"];
+		draw_set_color(c_white);
+		g = time_source_get_state(oEvents._time_source);
+		var variables = ["a","b","c","d","e", "dir", "revives", "event", "g"];
 		var boxsize=0;
 		for (var i = 0; i < array_length(variables); ++i) {
 		    boxsize += 20;

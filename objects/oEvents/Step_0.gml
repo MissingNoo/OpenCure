@@ -1,3 +1,8 @@
+if (time_source_get_state(_time_source) == time_source_state_stopped) {
+    time_source_reset(_time_source);
+	time_source_start(_time_source);
+}
+
 if (instance_exists(oPlayer)) { //TODO: finish adding stage 1 events
 	var _seconds = round(Seconds);
 	if (_seconds == 5 and Minutes == 0 and event) {
