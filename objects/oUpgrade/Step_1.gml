@@ -32,6 +32,7 @@ if (a==0) {
 			
 		case Weapons.AmePistol:{
 			defaultBehaviour();
+			direction = global.arrowDir;
 			alarm[0] = 10;
 			break;}
 			
