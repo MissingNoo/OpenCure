@@ -97,9 +97,9 @@ function spawnEvent(monster, type, hp, atk, spd, xp, lifetime, quantity){
 	var enemy = global.enemies[monster];
 	var wallSprOffset = sprite_get_height(enemy[?"sprite"]);
 	var aa, bb;
-	if (xp == "-") {
-	    xp = EnemyList[enemy][? "exp"];
-	}
+	//if (xp == "-") {
+	//    xp = EnemyList[enemy][? "exp"];
+	//}
 	switch (type) {
 		case Patterns.WallBoth:{
 			aa = oPlayer.x + 400;
