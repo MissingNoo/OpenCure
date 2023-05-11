@@ -38,23 +38,20 @@ if (instance_exists(oPlayer)) {
 	var px;
 	var py;
 	//yy = oCam.y - oPlayer.y;
+	var insts = [oEnemy, oXP, oAnvil, oBurguer, oUpgrade, oHolocoin];
     if (oPlayer.x < 1280) {
 		xx = oCam.x - oPlayer.x;
 		px = oPlayer.x;
 		py = oPlayer.y;
 	    oPlayer.x = 1280 * 2;
 		oCam.x = oPlayer.x + xx;
-		var insts = [oEnemy, oXP, oAnvil, oBurguer, oUpgrade]
 		for (var i = 0; i < array_length(insts); ++i) {
 		    with (insts[i]) {
 			    xx = x - px;
 				yy = y - py;
 				x = oPlayer.x + xx;
 				y = oPlayer.y + yy;
-				if (variable_instance_exists(self, "originalX")) {
-					originalX = originalX + xx;
-					originalY = originalY + yy;
-				}
+				xstart = xstart + 1280;
 			}
 		}
 	}
@@ -64,17 +61,14 @@ if (instance_exists(oPlayer)) {
 		py = oPlayer.y;
 	    oPlayer.x = 1280;
 		oCam.x = oPlayer.x + xx;
-		var insts = [oEnemy, oXP, oAnvil, oBurguer, oUpgrade]
 		for (var i = 0; i < array_length(insts); ++i) {
 		    with (insts[i]) {
 			    xx = x - px;
 				yy = y - py;
 				x = oPlayer.x + xx;
 				y = oPlayer.y + yy;
-				if (variable_instance_exists(self, "originalX")) {
-					originalX = originalX + xx;
-					originalY = originalY + yy;
-				}
+				xstart = xstart - 1280;
+				ystart = ystart + yy;
 			}
 		}
 	}
@@ -85,17 +79,13 @@ if (instance_exists(oPlayer)) {
 		py = oPlayer.y;
 	    oPlayer.y = 1280 * 2;
 		oCam.y = oPlayer.y + yy;
-		var insts = [oEnemy, oXP, oAnvil, oBurguer, oUpgrade]
 		for (var i = 0; i < array_length(insts); ++i) {
 		    with (insts[i]) {
 			    xx = x - px;
 				yy = y - py;
 				x = oPlayer.x + xx;
 				y = oPlayer.y + yy;
-				if (variable_instance_exists(self, "originalX")) {
-					originalX = originalX + xx;
-					originalY = originalY + yy;
-				}
+				ystart = ystart + 1280;
 			}
 		}
 	}
@@ -106,17 +96,13 @@ if (instance_exists(oPlayer)) {
 		py = oPlayer.y;
 	    oPlayer.y = 1280;
 		oCam.y = oPlayer.y + yy;
-		var insts = [oEnemy, oXP, oAnvil, oBurguer, oUpgrade]
 		for (var i = 0; i < array_length(insts); ++i) {
 		    with (insts[i]) {
 			    xx = x - px;
 				yy = y - py;
 				x = oPlayer.x + xx;
 				y = oPlayer.y + yy;
-				if (variable_instance_exists(self, "originalX")) {
-					originalX = originalX + xx;
-					originalY = originalY + yy;
-				}
+				ystart = ystart - 1280;
 			}
 		}
 	}

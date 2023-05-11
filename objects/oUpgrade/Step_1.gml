@@ -233,6 +233,11 @@ if (a==0) {
 		if (sprite_index==blank) {
 			instance_destroy();
 	}
+	if (variable_struct_exists(upg, "size")) {
+	    image_xscale = upg[$"size"];
+	    image_yscale = upg[$"size"];
+	}
+	
 	originalSize = [image_xscale, image_yscale];
 	for (var i = 0; i < array_length(Bonuses[BonusType.WeaponSize]); ++i) {
 	    if (Bonuses[BonusType.WeaponSize][i] != 0 and upg[$"id"] != Weapons.HoloBomb) {

@@ -543,6 +543,7 @@ function populateUpgrades(){
 				"Increase attack size by 50%.",
 				"Increase damage by 50%.",
 				],
+				size : [1, 1.20, 1.20, 1.40, 1.40, 1.90, 1.90],
 				knockbackSpeed : 0,
 				knockbackDuration : 0,
 				perk : false,
@@ -977,7 +978,7 @@ function randomUpgrades(){
 	//global.upgradeOptions[3] = global.null;
 	#endregion
 	 //global.upgradeOptions[0] = ItemList[ItemIds.Limiter][1];
-	 //global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.InaTentacle][1];
+	 global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.PsychoAxe][1];
 }	
 
 function tickPowers(){

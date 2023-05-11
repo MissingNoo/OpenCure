@@ -37,14 +37,14 @@ if (!global.gamePaused) {
 			break;}
 		case Weapons.PsychoAxe:{
 			//part_type_sprite(part, upg[$"sprite"], false, false, image_index);
-			x = originalX + lengthdir_x(orbit_length, orbit_place);
-			y = originalY + lengthdir_y(orbit_length, orbit_place);
+			x = xstart + lengthdir_x(orbit_length, orbit_place);
+			y = ystart + lengthdir_y(orbit_length, orbit_place);
 			orbit_place-=4;
 			orbit_length += 0.75;
 			//part_particles_create_colour(partSystem, xprevious, yprevious, part, c_yellow, 1);
 			break;}
 		case Weapons.CuttingBoard:{
-			if (distance_to_point(originalX, originalY) > 5) {
+			if (distance_to_point(xstart, ystart) > 5) {
 				speed -= .30;
 				if (speed < 0) {
 				    speed = 0;
