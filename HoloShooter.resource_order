@@ -7,6 +7,7 @@
     {"name":"Objects","order":8,"path":"folders/Objects.yy",},
     {"name":"Game","order":2,"path":"folders/Objects/Game.yy",},
     {"name":"MapItems","order":5,"path":"folders/Objects/MapItems.yy",},
+    {"name":"Flowers","order":3,"path":"folders/Objects/MapItems/Flowers.yy",},
     {"name":"Player","order":1,"path":"folders/Objects/Player.yy",},
     {"name":"Upgrades","order":2,"path":"folders/Objects/Player/Upgrades.yy",},
     {"name":"Particles","order":18,"path":"folders/Particles.yy",},
@@ -45,7 +46,6 @@
     {"name":"Stages","order":17,"path":"folders/Sprites/Stages.yy",},
     {"name":"Tile Sets","order":1,"path":"folders/Tile Sets.yy",},
     {"name":"Timelines","order":7,"path":"folders/Timelines.yy",},
-    {"name":"Flowers","order":3,"path":"folders/Objects/MapItems/Flowers.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"oBurguer","order":6,"path":"objects/oBurguer/oBurguer.yy",},

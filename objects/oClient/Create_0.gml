@@ -14,7 +14,7 @@ client = network_create_socket(network_socket_tcp);
 //if (global.server) {
 try{
 	if (!global.server) {
-		connected = network_connect(client, "127.0.0.1", 64198);
+		connected = network_connect(client, "192.168.15.9", 64198);
 	}
 	else{
 		connected = 0;

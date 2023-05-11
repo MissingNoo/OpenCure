@@ -19,6 +19,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Enemies","folderPath":"folders/Objects/Enemies.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Game","folderPath":"folders/Objects/Game.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"MapItems","folderPath":"folders/Objects/MapItems.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Flowers","folderPath":"folders/Objects/MapItems/Flowers.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Player","folderPath":"folders/Objects/Player.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Upgrades","folderPath":"folders/Objects/Player/Upgrades.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Particles","folderPath":"folders/Particles.yy",},
@@ -60,7 +61,6 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Stages","folderPath":"folders/Sprites/Stages.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tile Sets","folderPath":"folders/Tile Sets.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Timelines","folderPath":"folders/Timelines.yy",},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Flowers","folderPath":"folders/Objects/MapItems/Flowers.yy",},
   ],
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"blocks-16bit.ttf","CopyToMask":-1,"filePath":"datafiles",},
