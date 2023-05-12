@@ -1,3 +1,4 @@
+// Feather disable GM1003
 #macro __INPUT_VERSION "6.0.1 Beta"
 #macro __INPUT_DATE    "2023-05-11"
 #macro __INPUT_DEBUG   false
@@ -230,7 +231,7 @@ enum INPUT_TRIGGER_STATE
     EFFECT_WEAPON_FIRED      = ps5_gamepad_trigger_effect_state_weapon_fired,
     EFFECT_VIBRATION_STANDBY = ps5_gamepad_trigger_effect_state_vibration_standby,
     EFFECT_VIBRATION_ACTIVE  = ps5_gamepad_trigger_effect_state_vibration_active,
-    EFFECT_INTERCEPTED       = ps5_gamepad_trigger_effect_state_intercepted,
+    EFFECT_INTERCEPTED      = ps5_gamepad_trigger_effect_state_intercepted,
 }
 
 enum INPUT_GYRO

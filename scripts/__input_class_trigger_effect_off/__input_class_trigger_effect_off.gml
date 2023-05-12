@@ -1,3 +1,5 @@
+// Feather disable GM1014
+// Feather disable GM2017
 function __input_class_trigger_effect_off() constructor
 {
     static __mode_name = "off";

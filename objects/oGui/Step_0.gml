@@ -43,14 +43,16 @@ if (mouse_check_button(mb_right)) {
 	//show_message(string(_xn));
 }
 isP=global.gamePaused;
-if (global.GamePad) {
-    zKey = keyboard_check_pressed(ord("Z")) or gamepad_button_check_pressed(global.gPnum, gp_face1);
-}else{zKey = keyboard_check_pressed(ord("Z")) or mousein and device_mouse_check_button_released(0,mb_left);}
-
-xKey = keyboard_check_pressed(ord("X")) or gamepad_button_check_pressed(global.gPnum, gp_face2);
-eKey = keyboard_check_pressed(vk_escape)  or gamepad_button_check_pressed(global.gPnum, gp_start);
-leftKey = keyboard_check_pressed(LEFTKEY)  or gamepad_button_check_pressed(global.gPnum, gp_padl);
-rightKey = keyboard_check_pressed(RIGHTKEY)  or gamepad_button_check_pressed(global.gPnum, gp_padr);
+//if (global.GamePad) {
+//    zKey = keyboard_check_pressed(ord("Z")) or gamepad_button_check_pressed(global.gPnum, gp_face1);
+//}else{zKey = keyboard_check_pressed(ord("Z")) or mousein and device_mouse_check_button_released(0,mb_left);}
+zKey = input_check("accept");
+xKey = input_check("cancel");
+eKey = input_check("action");
+leftKey = input_check_pressed("left");
+rightKey = input_check_pressed("right");
+upKey = input_check_pressed("up");
+downKey = input_check_pressed("down");
 
 if (xKey and global.gamePaused) {
     PauseGame();

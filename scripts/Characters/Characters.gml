@@ -153,20 +153,11 @@ function Movement()
 if can_move == true{
 	gamepad_set_axis_deadzone(global.gPnum, 0.7);
 	var _left, _right, _up, _down;
-	if (global.GamePad) {
-	     _left = gamepad_axis_value(global.gPnum, gp_axislh) < 0 ? 1 : 0;
-	    _right = gamepad_axis_value(global.gPnum, gp_axislh) > 0 ? 1 : 0;
-	    _up = gamepad_axis_value(global.gPnum, gp_axislv) < 0 ? 1 : 0;
-	    _down = gamepad_axis_value(global.gPnum, gp_axislv) > 0 ? 1 : 0;
-	}
-	else{
-		_left = keyboard_check(LEFTKEY);
-	    _right = keyboard_check(RIGHTKEY);
-	    _up = keyboard_check(UPKEY);
-	    _down = keyboard_check(DOWNKEY);
-	}
-    
-
+	     _left = input_check("left");
+	    _right = input_check("right");
+	    _up = input_check("up");
+	    _down = input_check("down");
+	
 	if (!instance_exists(oJoystick) and !global.strafe) {
 		if (gamepad_axis_value(global.gPnum, gp_axisrh) != 0 or gamepad_axis_value(global.gPnum, gp_axisrv) != 0) {
 			_gx = gamepad_axis_value(global.gPnum, gp_axisrh);
@@ -174,6 +165,7 @@ if can_move == true{
 		}
 		
 		if (!global.GamePad) {
+			//TODO: fix
 			if (_down) { global.arrowDir=270; }
 			if (_up) { global.arrowDir=90; }
 			if (_right) { global.arrowDir=0; }

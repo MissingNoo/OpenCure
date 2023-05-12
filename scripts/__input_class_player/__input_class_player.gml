@@ -1,3 +1,5 @@
+// Feather disable GM2047
+// Feather disable GM2017
 function __input_class_player() constructor
 {
     __INPUT_GLOBAL_STATIC_VARIABLE  //Set static __global
@@ -404,7 +406,7 @@ function __input_class_player() constructor
         if (__INPUT_DEBUG_SOURCES) __input_trace("Assigned source ", _source, " to player ", __index);
     }
     
-    /// @param source
+    /// @param _source
     static __source_remove = function(_source)
     {
         //Ensure we're targeting the right source for our platform / configuration
@@ -442,7 +444,7 @@ function __input_class_player() constructor
         }
     }
     
-    /// @param source
+    /// @param _source
     static __source_contains = function(_source, _touch_remap = true)
     {
         //Ensure we're targeting the right source for our platform / configuration
@@ -524,10 +526,10 @@ function __input_class_player() constructor
     
     #region Bindings
     
-    /// @param profileName
-    /// @param verb
-    /// @param alternate
-    /// @param allowFallback
+    /// @param _profileName
+    /// @param _verb
+    /// @param _alternate
+    /// @param _allowFallback
     static __binding_get = function(_profile_name, _verb, _alternate, _allowFallback)
     {
         static _empty_binding = input_binding_empty();
@@ -573,7 +575,7 @@ function __input_class_player() constructor
     }
     
     /// @param profileName
-    /// @param verb
+    /// @param _verb
     /// @param alternate
     /// @param bindingStruct
     static __binding_set = function(_profile_name, _verb, _alternate, _binding_struct)
@@ -685,7 +687,7 @@ function __input_class_player() constructor
     }
     
     /// @param profileName
-    /// @param verb
+    /// @param _verb
     /// @param alternate
     static __binding_remove = function(_profile_name, _verb, _alternate)
     {
@@ -702,7 +704,7 @@ function __input_class_player() constructor
     }
     
     /// @param profileName
-    /// @param verb
+    /// @param _verb
     /// @param alternate
     static __binding_reset = function(_profile_name, _verb, _alternate)
     {
@@ -798,7 +800,7 @@ function __input_class_player() constructor
         return __verb_group_state_dict[$ _verb_group];
     }
     
-    /// @param verbName
+    /// @param _verbName
     static __verb_ensure = function(_profile_name, _verb_name)
     {
         if (_verb_name == "")
@@ -838,7 +840,7 @@ function __input_class_player() constructor
         }
     }
     
-    /// @param verbName
+    /// @param _verbName
     static __add_chord = function(_verb_name)
     {
         //Set up a verb container on the player separate from the bindings
@@ -901,7 +903,7 @@ function __input_class_player() constructor
         }
     }
     
-    /// @param verb
+    /// @param _verb
     /// @param forceValue
     /// @param forceAnalogue
     static __verb_set = function(_verb_name, _value, _analogue)
@@ -913,7 +915,7 @@ function __input_class_player() constructor
         }
     }
     
-    /// @param verb
+    /// @param _verb
     /// @param forceRawValue
     /// @param forceValue
     /// @param forceAnalogue
