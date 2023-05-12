@@ -1,3 +1,4 @@
+// Feather disable all
 // Feather disable GM2017
 #macro HP global.hp
 #macro MAXHP global.maxhp

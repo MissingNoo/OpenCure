@@ -6,7 +6,7 @@ if (!global.gamePaused) {
 	//if (skilltimer < special.cooldown + 10) { skilltimer+=100; }
 	tickPowers();
 	tickItems();
-	tickPerks();
+	tick_perks();
 	Movement();
 	
 	if (keyboard_check_pressed(ord("X")) and skilltimer > specialcooldown and global.ShopUpgrades[$ "SpecialAtk"][$ "level"] == 1) {

@@ -110,10 +110,3 @@ if (room == rCharacterSelect) {
 		}	
 	}
 #endregion
-
-
-
-
-
-
-

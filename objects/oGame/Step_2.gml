@@ -1,4 +1,5 @@
-if (input_check("pause") and !global.upgrade and !ANVIL) {
+// Feather disable GM1044
+if (input_check_pressed("pause") and !global.upgrade and !ANVIL) {
 	if (global.gamePaused and room == rInicio ) {
 	    PauseGame();
 	}

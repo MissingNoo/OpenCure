@@ -1,3 +1,4 @@
+// Feather disable all
 // Feather disable GM1003
 #macro __INPUT_VERSION "6.0.1 Beta"
 #macro __INPUT_DATE    "2023-05-11"

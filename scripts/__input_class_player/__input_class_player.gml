@@ -1,4 +1,6 @@
+// Feather disable all
 // Feather disable GM2047
+// Feather disable GM2043
 // Feather disable GM2017
 function __input_class_player() constructor
 {
@@ -864,10 +866,7 @@ function __input_class_player() constructor
     #endregion
     
     
-    
-    /// @param axisName
-    /// @param min
-    /// @param max
+ 
     static __axis_threshold_set = function(_axis_name, _min, _max)
     {
         var _axis_struct = __axis_thresholds_dict[$ _axis_name];
@@ -903,9 +902,9 @@ function __input_class_player() constructor
         }
     }
     
-    /// @param _verb
-    /// @param forceValue
-    /// @param forceAnalogue
+    /// @param _verb_name
+    /// @param _value
+    /// @param _analogue
     static __verb_set = function(_verb_name, _value, _analogue)
     {
         with(__verb_state_dict[$ _verb_name])
@@ -915,10 +914,8 @@ function __input_class_player() constructor
         }
     }
     
-    /// @param _verb
-    /// @param forceRawValue
-    /// @param forceValue
-    /// @param forceAnalogue
+    
+    
     static __verb_set_from_virtual = function(_verb_name, _raw_value, _value, _analogue)
     {
         if (is_string(_verb_name))

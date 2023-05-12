@@ -1,6 +1,8 @@
+// Feather disable all
 /// @param source
 /// @param gamepad
-
+// Feather disable GM2017
+// Feather disable GM2047
 function __input_class_source(_source, _gamepad = undefined) constructor
 {
     __INPUT_GLOBAL_STATIC_VARIABLE  //Set static __global

@@ -1,3 +1,4 @@
+// Feather disable GM2017
 function __input_class_vibration_adsr(_peak_strength, _sustain_level, _pan, _attack, _decay, _sustain, _release, _force) constructor
 {
     __force = _force;

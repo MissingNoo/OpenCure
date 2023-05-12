@@ -162,7 +162,7 @@ randomize();
 populateItems();
 populateUpgrades();
 populateCharacters();
-populatePerks();
+populate_perks();
 populateSpecials();
 
 

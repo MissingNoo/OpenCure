@@ -1,3 +1,4 @@
+// Feather disable GM1044
 if (instance_number(oTitleRunning) == 0 and room == rInicio) {
     instance_create_layer(0,0, "Instances", oTitleRunning);
 }
@@ -46,9 +47,10 @@ isP=global.gamePaused;
 //if (global.GamePad) {
 //    zKey = keyboard_check_pressed(ord("Z")) or gamepad_button_check_pressed(global.gPnum, gp_face1);
 //}else{zKey = keyboard_check_pressed(ord("Z")) or mousein and device_mouse_check_button_released(0,mb_left);}
-zKey = input_check("accept");
-xKey = input_check("cancel");
-eKey = input_check("action");
+// Feather disable 2016
+zKey = input_check_pressed("accept");
+xKey = input_check_pressed("cancel");
+eKey = input_check_pressed("action");
 leftKey = input_check_pressed("left");
 rightKey = input_check_pressed("right");
 upKey = input_check_pressed("up");

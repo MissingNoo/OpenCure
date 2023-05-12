@@ -1,3 +1,5 @@
+// Feather disable all
+// Feather disable GM2017
 function __input_class_trigger_effect_feedback(_position, _strength) constructor
 {
     static __mode_name = "feedback";

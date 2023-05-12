@@ -1,3 +1,4 @@
+// Feather disable GM2017
 function __input_class_verb_state() constructor
 {
     __INPUT_GLOBAL_STATIC_VARIABLE  //Set static __global
