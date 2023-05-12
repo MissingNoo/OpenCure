@@ -7,6 +7,12 @@ if (socket == oPlayer.socket) {
 // Feather disable GM2016
 if (a==0) {	
 	var randomEnemy;
+	if (upg[$"perk"] and global.ShopUpgrades.Growth.level == 1) {
+	    for (var i = 0; i < global.level; ++i) {
+		    mindmg = mindmg + (mindmg* 2 / 100);
+			maxdmg = maxdmg+ (maxdmg* 2 / 100);
+		}
+	}
 	global.upgradeCooldown[upg[$"id"]] = upg[$"cooldown"];
 	alarm[1] = upg[$"duration"];
 	image_speed=1;

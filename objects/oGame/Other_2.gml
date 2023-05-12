@@ -59,7 +59,7 @@ if (!variable_global_exists("ShopUpgrades")) {
 			maxlevel : 5,
 			costs : [200, 500, 1200, 2750, 6000]
 		},
-		SpecialAtk : {//TODO: add special attacks
+		SpecialAtk : {
 			name:"Special Attack",
 			desc : "Unlocks the Special Attack for all characters. Press the secondary button (default: X) to use. ",
 			sprite : sHudSpecialUnlockIcon,
@@ -67,7 +67,7 @@ if (!variable_global_exists("ShopUpgrades")) {
 			maxlevel : 1,
 			costs : [500]
 		},
-		SpecialCooldown : {//TODO: add special attacks
+		SpecialCooldown : {
 			name:"Special Cooldown Reduction",
 			desc : "Reduces the cooldown time of special attack by 3% per level. (Max 15%) ",
 			sprite : sHudSpecialCooldownIcon,
@@ -75,7 +75,7 @@ if (!variable_global_exists("ShopUpgrades")) {
 			maxlevel : 5,
 			costs : [500, 1250, 3000, 6900, 15000 ]
 		},
-		Growth : {//TODO: too bored to make this work
+		Growth : {//TODO: Special attacks
 			name:"Growth",
 			desc : "Increase the damage of Character Main Weapons and Special Attacks by 2% per in-game level. ",
 			sprite : sHudGrowthIcon,
@@ -99,7 +99,7 @@ if (!variable_global_exists("ShopUpgrades")) {
 			maxlevel : 5,
 			costs : [150, 375, 900, 2000, 4500 ]
 		},
-		MoneyGain : {//TODO: Make the holocoin physical item and list option (and actual holocoins) before
+		MoneyGain : {//TODO: Make the holocoin list option
 			name:"Money Gain Up",
 			desc : "Increases the amount of HoloCoins gained by 20% per level. (Max 200%) ",
 			sprite : sHolocoin,
@@ -152,9 +152,7 @@ if (!variable_global_exists("ShopUpgrades")) {
 global.ShopUpgradesJSON = json_stringify(global.ShopUpgrades);
 global.holocoins = 0;
 Load_Data_Structs();
-if (global.holocoins == undefined) {
-    global.holocoins = 0;
-}
+global.holocoins ??= 0;
 global.Font = font_add_sprite(sPixelFont, ord("!"), true, 2);
 draw_set_font(global.Font);
 //draw_set_font(global.Font); //draw_set_font(fnt_font1);
