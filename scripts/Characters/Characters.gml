@@ -167,14 +167,24 @@ if can_move == true{
 		
 		if (!global.GamePad) {
 			//TODO: fix
-			if (_down) { global.arrowDir=270; }
-			if (_up) { global.arrowDir=90; }
-			if (_right) { global.arrowDir=0; }
-			if (_left) { global.arrowDir=180; }
-			if (_up and _right) { global.arrowDir=45; }
-			if (_up and _left) { global.arrowDir=135; }
-			if (_down and _right) { global.arrowDir=315; }
-			if (_down and _left) { global.arrowDir=225; }
+			if (os_type != os_android) {
+				if (_down) { global.arrowDir=270; }
+				if (_up) { global.arrowDir=90; }
+				if (_right) { global.arrowDir=0; }
+				if (_left) { global.arrowDir=180; }
+				if (_up and _right) { global.arrowDir=45; }
+				if (_up and _left) { global.arrowDir=135; }
+				if (_down and _right) { global.arrowDir=315; }
+				if (_down and _left) { global.arrowDir=225; }
+			}
+			else{
+				_x1 = GW/1.20;
+				_y1 = GH/1.25;
+				_x2 = TouchX2;
+				_y2 = TouchY2;
+				
+				global.arrowDir = point_direction(_x1, _y1, _x2, _y2);
+			}
 		}
 		else{
 			global.arrowDir = point_direction(x,y, x + _gx, y + _gy)

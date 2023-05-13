@@ -1,5 +1,11 @@
 event_inherited();
 global.defeatedEnemies = 0;
+
+_x1 = 0;
+_x1 = 0;
+_y2 = 0;
+_y2 = 0;
+
 #region redgura
 	redgura = false;
 	part_red = undefined;

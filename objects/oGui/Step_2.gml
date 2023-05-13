@@ -90,23 +90,44 @@ if (room == rCharacterSelect) {
 }
 
 #region PausedMenu
-	if (global.gamePaused and !global.upgrade) {
-		if (upKey)
+if (global.gamePaused and !global.upgrade and !ANVIL and !editOption) {
+	if (upKey)
+	{
+		if (selected == 0)
+		{ 
+			selected = array_length(pauseMenu[activeMenu][PM.Options]) - 1; 
+			maxselected = selected; 
+			} else selected -= 1;
+		}
+	if (downKey)
+	{
+		if (selected < (array_length(pauseMenu[activeMenu][PM.Options])) - 1)
 		{
-			if (selected == 0)
-			{ 
-				selected = array_length(pauseMenu[activeMenu][PM.Options]) - 1; 
-				maxselected = selected; 
-				} else selected -= 1;
+			selected += 1; 
+		} 
+		else {selected = 0; maxselected = selected; }
+	}	
+	var maxopt = array_length(pauseMenu[activeMenu][PM.Options]) - 1;
+	if (maxopt > 5) {
+		var newpos = 0;
+		if (leftKey) {
+			newpos = selected - 6;
+			if (newpos < 0) {
+			    selected = 0;
 			}
-	    if (downKey)
-		{
-			if (selected < (array_length(pauseMenu[activeMenu][PM.Options])) - 1)
-			{
-				selected += 1; 
-			
-				} 
-			else {selected = 0; maxselected = selected; }
-		}	
+			else{
+				selected = newpos;
+			}
+		}
+		if (rightKey) {
+			newpos = selected + 6;
+			if (newpos > maxopt) {
+			    selected = maxopt;
+			}
+			else{
+				selected = newpos;
+			}
+		}
 	}
+}
 #endregion

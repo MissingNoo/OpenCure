@@ -497,20 +497,21 @@
 
 #region PauseMenu
 	if (global.gamePaused and !global.upgrade and !ANVIL and HP > 0) {
-		if (instance_exists(oPlayer)) { drawStats(); }
+		if (instance_exists(oPlayer) and activeMenu == PMenus.Pause) { drawStats(); }
 		
 		//pauseMenu[PMenus.Pause][PM.XScale] = a;
 		//pauseMenu[PMenus.Pause][PM.YScale] = b;
 		//pauseMenu[PMenus.Pause][PM.YScale] = array_length(pauseMenu[activeMenu][PM.Options])/(3 - (array_length(pauseMenu[activeMenu][PM.Options])*1.5));
 		//pauseMenu[PMenus.Pause][PM.YScale] = b;
-		draw_sprite_ext(sMenu, 0,
-		GW/2,
-		GH/2,
-		pauseMenu[activeMenu][PM.XScale],
-		pauseMenu[activeMenu][PM.YScale],
-		0,c_white,1);
+		var startOption = 0;
+		var totaloptions = array_length(pauseMenu[activeMenu][PM.Options]);
+		var _scaleoff = 0;
+		if (totaloptions > 6) {
+		    _scaleoff = 3;
+		}
+		draw_sprite_ext(sMenu, 0, GW/2, GH/2, pauseMenu[activeMenu][PM.XScale] + _scaleoff, pauseMenu[activeMenu][PM.YScale], 0,c_white,1);
 		draw_set_halign(fa_center);
-		draw_set_valign(fa_top);
+		draw_set_valign(fa_top);		
 		
 		draw_text_transformed(GW/2, 
 		(GH/2 - (sprite_get_height(sMenu) * pauseMenu[activeMenu][PM.YScale])/2) + 20,
@@ -519,62 +520,63 @@
 		var mOffset = 0;
 		draw_set_valign(fa_middle);
 		//draw options
-		var startOption = 0;
-		var totaloptions = array_length(pauseMenu[activeMenu][PM.Options]);
-		if (totaloptions >= 6) {
-		    totaloptions=6;
-		}
-		for (var i = selected; i >= totaloptions - startOption; --i) {
-		    startOption++;
-			totaloptions++;
+		
+		if (global.debug) {
+			draw_text(300, 200,
+			"totaloptions = " + string(array_length(pauseMenu[activeMenu][PM.Options])) +
+			" \n totalOptionsNow= " + string(totaloptions) +
+			" \n startOption= " + string(startOption) +
+			" \n selected= " + string(selected) +
+			" \n t-s= " + string(totaloptions - startOption) +
+			" \n totaloptions = " + string("a")	
+			);
 		}
 		
-		
-		//draw_text(300, 200,
-		//"totaloptions = " + string(array_length(pauseMenu[activeMenu][PM.Options])) +
-		//" \n totalOptionsNow= " + string(totaloptions) +
-		//" \n startOption= " + string(startOption) +
-		//" \n selected= " + string(selected) +
-		//" \n t-s= " + string(totaloptions - startOption) +
-		//" \n totaloptions = " + string("a")	
-		//);
 		var bigString = 0;
 		for (var i = 0; i < array_length(pauseMenu[activeMenu][PM.Options]); ++i) {
 		    if (string_length(pauseMenu[activeMenu][PM.Options][i])/11 > bigString) {
 			    bigString = string_length(pauseMenu[activeMenu][PM.Options][i])/11;
 			}
 		}
-		
-		mouseOnButton(GW/2, (GH/2 - (sprite_get_height(sMenu) * pauseMenu[activeMenu][PM.YScale])/2) + 90, 45, sHudButton, bigString, 1, array_create(array_length(pauseMenu[activeMenu][PM.Options]),0), "selected");
+		//mouseOnButton(GW/2, (GH/2 - (sprite_get_height(sMenu) * pauseMenu[activeMenu][PM.YScale])/2) + 90, 45, sHudButton, bigString, 1, array_create(array_length(pauseMenu[activeMenu][PM.Options]),0), "selected");
 		for (var i = startOption; i < totaloptions; ++i) {
-			
+			var _xoff = 0;
+			if (totaloptions > 6) {
+				if (i <= 5) {
+					_xoff = sprite_get_width(sHudButton) * -1;
+				}
+			    else{
+					_xoff = sprite_get_width(sHudButton);
+				}
+			}
 			var spr = (selected == i) ? 1 : 0;
-			draw_sprite_ext(sHudButton, spr, GW/2, 
-			//GH/2 - sprite_get_height(sMenu)/3.5+mOffset, 
+			//draw_text(GW/2, GH/2, bigString);
+			draw_sprite_ext(sHudButton, spr, GW/2 + _xoff,
 			(GH/2 - (sprite_get_height(sMenu) * pauseMenu[activeMenu][PM.YScale])/2) + 90 + mOffset,
 			bigString,
 			1.35,0,c_white,1);
 			
 			draw_set_color(selected == i ? c_black : c_white);
-			draw_text_transformed(GW/2,
+			draw_text_transformed(GW/2 + _xoff,
 			(GH/2 - (sprite_get_height(sMenu) * pauseMenu[activeMenu][PM.YScale])/2) + 90 + mOffset,
 			pauseMenu[activeMenu][PM.Options][i], 1.5, 1.5, 0);	
-			if (activeMenu == PMenus.Settings and pauseMenu[activeMenu][PM.Bool][i] == true) {
+			if (activeMenu == PMenus.Settings  and pauseMenu[activeMenu][PM.Bool][i] == true) {
 				var boolselected = (selected == i) ? 2 : 0;
 				var boolv = (pauseMenu[activeMenu][PM.BoolValue][i]) ? 1 : 0;
-			    draw_sprite_ext(sToggleButton, boolselected + boolv, GW/1.72, 
+			    draw_sprite_ext(sToggleButton, boolselected + boolv, GW/1.72 + _xoff, 
 				//GH/2 - sprite_get_height(sMenu)/3.5+mOffset, 
 				(GH/2 - (sprite_get_height(sMenu) * pauseMenu[activeMenu][PM.YScale])/2) + 90 + mOffset,
 				1,
 				1,0,c_white,1);
 			}
-			
+			if (i == 5) {
+			    mOffset=-45;
+			}
 		    mOffset+=45;
 		}
 		draw_set_halign(fa_left);
 		draw_set_valign(fa_top);
-		draw_set_color(c_white);
-		
+		draw_set_color(c_white);		
 	}
 #endregion
 
@@ -637,7 +639,13 @@ if (keyboard_check_pressed(ord("M"))) {
 		draw_rectangle(pButtonX, pButtonY, pButtonXEnd, pButtonYEnd, true);
 		draw_text(pButtonX + 70, pButtonY + 22.5, "P");
 		draw_set_color(c_white);
+		
 	}
+	pad.debug_draw();
+	aim.debug_draw();
+	zB.debug_draw();
+	xB.debug_draw();
+	pB.debug_draw();
 #endregion
 
 #region Functions
@@ -773,6 +781,10 @@ if (keyboard_check_pressed(ord("M"))) {
 				draw_set_halign(fa_left);
 			#endregion
 	}
+	/**
+	 * Function Description
+	 * @param {any*} character Description
+	 */
 	function drawStatsSelect(character){
 		var stats_offset = 0;
 		var _xt = GW/3.75;
@@ -827,5 +839,3 @@ if (keyboard_check_pressed(ord("M"))) {
 
 	}
 #endregion
-
-

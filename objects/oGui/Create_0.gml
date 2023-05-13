@@ -1,3 +1,5 @@
+lastmenu = PMenus.Pause;
+editOption = false;
 mousein = false;
 guiOffset = 0;
 characterSelected = false;
@@ -61,6 +63,27 @@ pButtonY = GH/14;
 pButtonXEnd = pButtonX + 120;
 pButtonYEnd =  pButtonY + 45;
 
+zB = input_virtual_create();
+zB.rectangle(zButtonX, zButtonY, zButtonXEnd, zButtonYEnd);
+zB.button("accept");
+
+xB = input_virtual_create();
+xB.rectangle(xButtonX, xButtonY, xButtonXEnd, xButtonYEnd);
+xB.button("cancel");
+
+pB = input_virtual_create();
+pB.rectangle(pButtonX, pButtonY, pButtonXEnd, pButtonYEnd);
+pB.button("pause");
+
+pad = input_virtual_create();
+pad.circle(GW/6, GH/1.25, 60);
+pad.follow(false);
+pad.release_behavior(INPUT_VIRTUAL_RELEASE.RESET_POSITION);
+pad.dpad("", "left", "right", "up", "down");
+
+aim = input_virtual_create();
+aim.circle(GW/1.2, GH/1.25, 60);
+
 #region debug
 revives = 0;
 event = 0;
@@ -116,6 +139,16 @@ event = 0;
 			pauseMenu[PMenus.Settings][PM.Options][5] = "GamePad: ";
 			pauseMenu[PMenus.Settings][PM.Bool][5] = true;
 			pauseMenu[PMenus.Settings][PM.BoolValue][5] = global.GamePad;
+			pauseMenu[PMenus.Settings][PM.Options][6] = "GamePad: ";
+			pauseMenu[PMenus.Settings][PM.Bool][6] = false;
+			pauseMenu[PMenus.Settings][PM.Options][7] = "GamePad: ";
+			pauseMenu[PMenus.Settings][PM.Bool][7] = false;
+			pauseMenu[PMenus.Settings][PM.Options][8] = "GamePad: ";
+			pauseMenu[PMenus.Settings][PM.Bool][8] = false;
+			pauseMenu[PMenus.Settings][PM.Options][9] = "GamePad: ";
+			pauseMenu[PMenus.Settings][PM.Bool][9] = false;
+			pauseMenu[PMenus.Settings][PM.Options][10] = "GamePad: ";
+			pauseMenu[PMenus.Settings][PM.Bool][10] = false;
 		}
 		loadSettingValues();
 		//pauseMenu[PMenus.Pause][PM.Options] = ["Skills"];

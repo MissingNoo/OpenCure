@@ -57,7 +57,17 @@ upKey = input_check_pressed("up");
 downKey = input_check_pressed("down");
 
 if (xKey and global.gamePaused) {
-    PauseGame();
+	if (!editOption) {
+		if (activeMenu != PMenus.Pause) {
+		    activeMenu = PMenus.Pause;
+		}
+		else{
+			PauseGame();
+		}
+	}
+	else{
+		editOption = false;
+	}
 }
 
 #region Start Menu
@@ -237,55 +247,48 @@ if (ANVIL) {
 
 #region Android buttons
 	if (os_type == os_android) {
-		//if (global.gamePaused and !released and alarm_get(0) == -1 and !device_mouse_check_button(0, mb_left)) {
-		//	released = false;
-		//	if (!alarm_get(0) > 0) {
-		//	    alarm[0] = 60;
-		//	}
-		//	//released=true;
-		//}
 		
-		if (TouchY1 > zButtonY and TouchY1 < zButtonYEnd and TouchX1 > zButtonX and TouchX1 < zButtonXEnd and device_mouse_check_button(0,mb_left) and released) {
-			released = false;
-			//alarm[0]=30;
-			keyboard_key_press(ord("Z"));
-			//oGui.zKey = true;
-			keyboard_key_release(ord("Z"));
-			//oGui.zKey = false;
-			keyboard_clear(ord("Z"));
-			show_debug_message("Pressed Z");
-		}
+		//if (TouchY1 > zButtonY and TouchY1 < zButtonYEnd and TouchX1 > zButtonX and TouchX1 < zButtonXEnd and device_mouse_check_button(0,mb_left) and released) {
+		//	released = false;
+		//	//alarm[0]=30;
+		//	keyboard_key_press(ord("Z"));
+		//	//oGui.zKey = true;
+		//	keyboard_key_release(ord("Z"));
+		//	//oGui.zKey = false;
+		//	keyboard_clear(ord("Z"));
+		//	show_debug_message("Pressed Z");
+		//}
 
-		if (TouchY1 > xButtonY and TouchY1 < xButtonYEnd and TouchX1 > xButtonX and TouchX1 < xButtonXEnd and device_mouse_check_button(0,mb_left) and released) {
-			released = false;
-			//alarm[0]=30;
-			keyboard_key_press(ord("X"));
-			//keyboard_key_press(vk_escape);
-			//oGui.xKey = true;
-			keyboard_key_release(ord("X"));
-			//keyboard_key_release(vk_escape);
-			//oGui.xKey = false;
-			keyboard_clear(ord("X"));
-			show_debug_message("Pressed X");
-			//instance_create_layer(oPlayer.x+100, oPlayer.y, "Instances", oAnvil);
-			//var inst = instance_create_layer(oPlayer.x-100, oPlayer.y, "Instances", oXP);
-			//inst.xp = oPlayer.neededxp;
-			//game_restart();
-		}
+		//if (TouchY1 > xButtonY and TouchY1 < xButtonYEnd and TouchX1 > xButtonX and TouchX1 < xButtonXEnd and device_mouse_check_button(0,mb_left) and released) {
+		//	released = false;
+		//	//alarm[0]=30;
+		//	keyboard_key_press(ord("X"));
+		//	//keyboard_key_press(vk_escape);
+		//	//oGui.xKey = true;
+		//	keyboard_key_release(ord("X"));
+		//	//keyboard_key_release(vk_escape);
+		//	//oGui.xKey = false;
+		//	keyboard_clear(ord("X"));
+		//	show_debug_message("Pressed X");
+		//	//instance_create_layer(oPlayer.x+100, oPlayer.y, "Instances", oAnvil);
+		//	//var inst = instance_create_layer(oPlayer.x-100, oPlayer.y, "Instances", oXP);
+		//	//inst.xp = oPlayer.neededxp;
+		//	//game_restart();
+		//}
 	
-		if (TouchY1 > pButtonY and TouchY1 < pButtonYEnd and TouchX1 > pButtonX and TouchX1 < pButtonXEnd and device_mouse_check_button(0,mb_left)  and released) {
-			released = false;
-			//alarm[0]=30;
-			keyboard_key_press(vk_escape);
-			//oGui.eKey = true;
-			keyboard_key_release(vk_escape);
-			//oGui.eKey = false;
-			keyboard_clear(vk_escape);
-			show_debug_message("Pressed Escape");
-		}
-		if (!device_mouse_check_button(0, mb_left) and !released) {
-			released = true;
-		}
+		//if (TouchY1 > pButtonY and TouchY1 < pButtonYEnd and TouchX1 > pButtonX and TouchX1 < pButtonXEnd and device_mouse_check_button(0,mb_left)  and released) {
+		//	released = false;
+		//	//alarm[0]=30;
+		//	keyboard_key_press(vk_escape);
+		//	//oGui.eKey = true;
+		//	keyboard_key_release(vk_escape);
+		//	//oGui.eKey = false;
+		//	keyboard_clear(vk_escape);
+		//	show_debug_message("Pressed Escape");
+		//}
+		//if (!device_mouse_check_button(0, mb_left) and !released) {
+		//	released = true;
+		//}
 }
 #endregion
 
@@ -298,10 +301,12 @@ if (global.gamePaused and !global.upgrade and !ANVIL) {
 		}			
 	}
 	
-	if (keyboard_check_pressed(ord("K"))){
-		//pauseMenu[activeMenu][PM.Options][array_length(pauseMenu[activeMenu][PM.Options])] = "teste " + string(irandom_range(0,99));
-	}
     if (zKey){
+		if (activeMenu == PMenus.Settings) {
+			if (!pauseMenu[PMenus.Settings][PM.Bool][selected]) {
+				editOption = true;
+			}
+		}
 		var optionIs = "";
 		for (var i = 1; i < string_length(pauseMenu[activeMenu][PM.Options][selected]); ++i) {
 			if (string_copy(pauseMenu[activeMenu][PM.Options][selected],i,1) == ":") {
@@ -315,22 +320,8 @@ if (global.gamePaused and !global.upgrade and !ANVIL) {
 		
 		variable_global_set(optionIs, !variable_global_get(optionIs));
 		loadSettingValues();
-		//switch (optionIs) {
-		//	case "Damage Numbers":{
-		//        global.DamageNumbers = !global.DamageNumbers;
-		//		loadSettingValues();
-		//        break;} 
-		//	case "Screen Shake":{
-		//        global.ScreenShake= !global.ScreenShake;
-		//		loadSettingValues();
-		//        break;} 
-		//	case "SpawnEnemies":{
-		//        global.SpawnEnemies= !global.SpawnEnemies;
-		//		loadSettingValues();
-		//        break;} 
-		//}
 		
-		var lastmenu = activeMenu;
+		lastmenu = activeMenu;
 		switch (pauseMenu[activeMenu][PM.Options][selected]) {
 			case "Skills":{
 		        
@@ -357,10 +348,9 @@ if (global.gamePaused and !global.upgrade and !ANVIL) {
 		    selected=0;
 			startOption = 0;
 			totaloptions = array_length(pauseMenu[activeMenu][PM.Options]);
-		}		
-		
-	}		
-	if (leftKey or rightKey){
+		}
+	}	
+	if (editOption and (leftKey or rightKey)){
 		var optionIs = "";
 		for (var i = 1; i < string_length(pauseMenu[activeMenu][PM.Options][selected]); ++i) {
 			if (string_copy(pauseMenu[activeMenu][PM.Options][selected],i,1) == ":") {
