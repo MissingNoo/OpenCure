@@ -150,6 +150,7 @@ function populateItems(){
 			#endregion
 			
 			#region Holocoin
+			
 			newCreateItem({
 				id : ItemIds.Holocoin,
 				name : "Holocoin",

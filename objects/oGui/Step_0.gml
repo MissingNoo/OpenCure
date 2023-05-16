@@ -112,7 +112,14 @@ if (xKey and global.gamePaused) {
 			for (var i = 0; i < 6; i++) 
 			{	
 				if (global.upgradeOptions[selected][$"name"] == "null") { break; }
-				if (global.upgradeOptions[selected][$"id"] == ItemIds.Holocoin){ global.newcoins += 100; break; }
+				if (global.upgradeOptions[selected][$"id"] == ItemIds.Holocoin){ 
+					var coins = 50;
+					for (var i = 1; i < global.ShopUpgrades.MoneyGain.level; ++i) {
+						coins = coins + ((coins * 20) / 100);
+					}
+					global.newcoins += coins;
+					break; 
+				}
 				if (global.upgradeOptions[selected][$"id"] == ItemIds.Hamburguer){ HP += 10; break; }
 				
 				if (global.upgradeOptions[selected][$"style"] == ItemTypes.Weapon) {

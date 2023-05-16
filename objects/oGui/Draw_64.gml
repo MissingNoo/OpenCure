@@ -639,13 +639,13 @@ if (keyboard_check_pressed(ord("M"))) {
 		draw_rectangle(pButtonX, pButtonY, pButtonXEnd, pButtonYEnd, true);
 		draw_text(pButtonX + 70, pButtonY + 22.5, "P");
 		draw_set_color(c_white);
-		
+		pad.debug_draw();
+		aim.debug_draw();
+		zB.debug_draw();
+		xB.debug_draw();
+		pB.debug_draw();
 	}
-	pad.debug_draw();
-	aim.debug_draw();
-	zB.debug_draw();
-	xB.debug_draw();
-	pB.debug_draw();
+	
 #endregion
 
 #region Functions
