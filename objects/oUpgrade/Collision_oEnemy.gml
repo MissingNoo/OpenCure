@@ -74,6 +74,16 @@ if (other.hittedcooldown[upg[$"id"]] <= 0  and !global.gamePaused and other.imag
 	}
 
 	dmg = dmg + bdmg;
+	if (global.player == CHARACTERS[Characters.Amelia]) {
+	    for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
+		    if (PLAYER_PERKS[i][$"id"] == PerkIds.DetectiveEye and PLAYER_PERKS[i][$"level"] == 3) {
+				randomize();
+				if (irandom_range(0, 100) <= 2) {
+				    dmg = dmg * 999;
+				}			    
+			}
+		}
+	}
 	//show_message(string(originalDamage) + "/" + string(dmg));
 	other.hp-= dmg * global.player[?"atk"];
 	if (global.DamageNumbers) {

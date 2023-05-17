@@ -34,11 +34,11 @@ global.perkBonuses[0] = 0;
 	{
 		//Amelia
 		FpsMastery,
-		DetectiveEye,//TODO: chance to kill in one hit
+		DetectiveEye,//TODO: critical
 		Bubba,//TODO: Everythingq
-		ShortSize,//TODO: not work with shield, dodge, 
-		PowerofAtlantis, //TODO: fix enemies not stuck in water
-		SharkBite//TODO: everything
+		ShortSize,
+		PowerofAtlantis,
+		SharkBite
 		
 	}
 #endregion
