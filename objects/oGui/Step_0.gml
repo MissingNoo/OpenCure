@@ -109,6 +109,13 @@ if (xKey and global.gamePaused) {
 	{
 		if (holoarrowspr <= 8) { holoarrowspr+=.25; } else { holoarrowspr=0; } // arrow sprite index
 	    if (zKey) {
+			if (selected == 4) {
+				if (global.rerolls > 0) {
+					randomUpgrades();
+					global.rerolls--;
+				}
+			    return;				
+			}
 			for (var i = 0; i < 6; i++) 
 			{	
 				if (global.upgradeOptions[selected][$"name"] == "null") { break; }

@@ -7,8 +7,7 @@ event_inherited();
 //if (instance_exists(oEvents)) {
 //    draw_text(x,y-100, oEvents.event);
 //}
-//TODO: fix shadow
-//draw_sprite_ext(spr_shadow, 0, x, y, 1, 1, 0, c_white, 0.8)
+draw_sprite_ext(sCharShadow, 0, x, y, 1, 1, 0, c_white, 0.8)
 
 if (global.debug) {
 	draw_text(x,y-50, $"X: {x}");

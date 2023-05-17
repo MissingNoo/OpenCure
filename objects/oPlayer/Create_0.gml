@@ -45,3 +45,4 @@ lef =0;
 dow=0;
 rig=0;
 upp=0;
+global.rerolls = global.ShopUpgrades.Reroll.level;

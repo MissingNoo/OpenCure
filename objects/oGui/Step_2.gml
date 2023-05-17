@@ -41,16 +41,20 @@ if (room = rCharacterSelect) {
 	    }
 	}
 }
-
+global.holocoins = 99999;
 
 if (instance_exists(oPlayer) and global.upgrade==1) {
-    if (upKey) {
+	var istherererolls = -1;
+	if (global.rerolls > 0) {
+		    istherererolls = 0;
+	}
+    if (upKey) {		
         if (selected == 0) {
-            selected = array_length(global.upgradeOptions) - 1;
+            selected = array_length(global.upgradeOptions) + istherererolls;
         } else selected -= 1
     }
     if (downKey) {
-        if (selected < array_length(global.upgradeOptions) - 1) {
+        if (selected < array_length(global.upgradeOptions) + istherererolls) {
             selected += 1;
         } else selected = 0
     }

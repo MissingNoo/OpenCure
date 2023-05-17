@@ -99,7 +99,7 @@ if (!variable_global_exists("ShopUpgrades")) {
 			maxlevel : 5,
 			costs : [150, 375, 900, 2000, 4500 ]
 		},
-		MoneyGain : {//TODO: Make the holocoin list option
+		MoneyGain : {
 			name:"Money Gain Up",
 			desc : "Increases the amount of HoloCoins gained by 20% per level. (Max 200%) ",
 			sprite : sHolocoin,
@@ -107,7 +107,7 @@ if (!variable_global_exists("ShopUpgrades")) {
 			maxlevel : 10,
 			costs : [400, 1000, 2400, 5500, 12000, 20000, 30000, 40000, 50000, 60000 ]
 		},
-		Reroll : {//TODO: yeah fuck this
+		Reroll : {
 			name:"Reroll",
 			desc : "Grants a use of Reroll when leveling up. ",
 			sprite : sHudRerollIcon,

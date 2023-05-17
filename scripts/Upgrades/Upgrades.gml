@@ -176,13 +176,33 @@ function populateUpgrades(){
 			#endregion
 			
 			#region PowerofAtlantis
-				//var pdmg = global.player[?"atk"];
-				createUpgrade(Weapons.PowerofAtlantis, "Power of Atlantis", 1, sWaterPoolStart, sPowerofAtlantisThumb, 6, 10, 600, 360, 45, true, 0, 999, "white", 1, "Every 10 seconds, create a whirlpool that draws in targets and takes 15% more damage, lasting 6 seconds and deals 30% damage every 0.5 seconds.");
-				createUpgradeP2(Weapons.PowerofAtlantis, 1, 3, 0 ,0,1,-2);
-				createUpgrade(Weapons.PowerofAtlantis, "Power of Atlantis", 2, sWaterPoolStart, sPowerofAtlantisThumb, 6, 10, 600, 360, 45, true, 0, 999, "white", 2, "Every 10 seconds, create a whirlpool that draws in targets and takes 30% more damage, lasting 6 seconds and deals 40% damage every 0.5 seconds.");
-				createUpgradeP2(Weapons.PowerofAtlantis, 2, 3, 0 ,0,1,-2);
-				createUpgrade(Weapons.PowerofAtlantis, "Power of Atlantis", 3, sWaterPoolStart, sPowerofAtlantisThumb, 6, 10, 600, 360, 45, true, 0, 999, "white", 3, "Every 10 seconds, create a whirlpool that draws in targets and takes 50% more damage, lasting 6 seconds and deals 50% damage every 0.5 seconds.");
-				createUpgradeP2(Weapons.PowerofAtlantis, 3, 3, 0 ,0,1,-2);
+				//var pdmg = global.player[?"atk"];				
+				newCreateUpgrade({
+				id : Weapons.PowerofAtlantis,
+				name : "Power of Atlantis",
+				maxlevel : 3,
+				sprite : sWaterPoolStart,
+				thumb : sPowerofAtlantisThumb,
+				mindmg : 6,
+				maxdmg : 10,
+				cooldown : 600,
+				duration : 360,
+				hitCooldown : 45,
+				canBeHasted : true,
+				speed : 0,
+				hits : 999,
+				type : "red",
+				shoots : [1, 2, 3],
+				desc : [
+				"Every 10 seconds, create a whirlpool that draws in targets and takes 15% more damage, lasting 6 seconds and deals 30% damage every 0.5 seconds.",
+				"Every 10 seconds, create a whirlpool that draws in targets and takes 30% more damage, lasting 6 seconds and deals 40% damage every 0.5 seconds.",
+				"Every 10 seconds, create a whirlpool that draws in targets and takes 50% more damage, lasting 6 seconds and deals 50% damage every 0.5 seconds."
+				],
+				knockbackSpeed : 0,
+				knockbackDuration : 0,
+				perk : true,
+				characterid : Characters.Lenght,
+			});
 			#endregion
 		#endregion
 	
@@ -266,6 +286,7 @@ function populateUpgrades(){
 				"Reduce the time between attacks by 0.5 seconds.",
 				"Shoot additional walls from sides.",
 				],
+				size : [1, 1.30, 1.30, 1.30, 1.30, 1.30, 1.30],
 				knockbackSpeed : 7,
 				knockbackDuration : 20,
 				perk : false,

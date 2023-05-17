@@ -18,6 +18,9 @@ function resetTimer(){
 	
 	
 function PauseGame(){
+	if (instance_exists(oGameOver)) {
+	    return;
+	}
 		oGui.activeMenu=PMenus.Pause;
 		oGui.selected=0;
 		maxselected = 0;

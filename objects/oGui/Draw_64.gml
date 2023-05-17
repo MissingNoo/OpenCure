@@ -293,7 +293,7 @@
 			#endregion
 		
 			#region Perks
-				offset=0;			
+				offset=150;			
 				yoffset = 80;
 			    for (var i = 0; i < array_length(PLAYER_PERKS); i++) //for the size of the upgrade arrays
 				{
@@ -371,6 +371,17 @@
 				offset += GH/5.30;
 				draw_set_color(c_white);
 	        }
+			if (global.ShopUpgrades.Reroll.level > 0) {
+			    var _rerollX = GW/2;
+				var _rerollY = GH/1.05;
+				draw_sprite_ext(sHudButton, selected == 4 ? 1 : 0, _rerollX, _rerollY, 1.15, 2, 0, c_white, 1);
+				var color = selected == 4 ? c_black : c_white;
+				draw_set_halign(fa_center);
+				draw_set_valign(fa_middle);
+				draw_text_transformed_color(_rerollX, _rerollY, $"Reroll ({global.rerolls})",2,2,0,color, color, color, color, 1);
+				draw_set_halign(fa_left);
+				draw_set_valign(fa_top);
+			}			
 			#endregion
 			 drawStats();
 	    }
@@ -555,6 +566,17 @@
 			(GH/2 - (sprite_get_height(sMenu) * pauseMenu[activeMenu][PM.YScale])/2) + 90 + mOffset,
 			bigString,
 			1.35,0,c_white,1);
+			var _arrowoff = 160;
+			if (editOption and selected == i) {
+			    draw_sprite_ext(sMenuArrow, 0, GW/2 + _xoff - _arrowoff,
+				(GH/2 - (sprite_get_height(sMenu) * pauseMenu[activeMenu][PM.YScale])/2) + 90 + mOffset,
+				oGui.a,
+				oGui.a,180,c_white,1);
+				draw_sprite_ext(sMenuArrow, 0, GW/2 + _xoff + _arrowoff,
+				(GH/2 - (sprite_get_height(sMenu) * pauseMenu[activeMenu][PM.YScale])/2) + 90 + mOffset,
+				oGui.a,
+				oGui.a,0,c_white,1);
+			}
 			
 			draw_set_color(selected == i ? c_black : c_white);
 			draw_text_transformed(GW/2 + _xoff,
