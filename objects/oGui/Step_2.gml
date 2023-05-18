@@ -41,7 +41,7 @@ if (room = rCharacterSelect) {
 	    }
 	}
 }
-global.holocoins = 99999;
+//global.holocoins = 99999;
 
 if (instance_exists(oPlayer) and global.upgrade==1) {
 	var istherererolls = -1;

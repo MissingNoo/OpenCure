@@ -201,7 +201,7 @@ function populateUpgrades(){
 				knockbackSpeed : 0,
 				knockbackDuration : 0,
 				perk : true,
-				characterid : Characters.Lenght,
+				characterid : Characters.Lenght
 			});
 			#endregion
 		#endregion
