@@ -38,6 +38,8 @@ enum ItemTypes {
 #region Upgrades
 function newCreateUpgrade(_data, _sounds = ""){
 	global.upgradesAvaliable[_data.id][0] = global.null;
+	_data.z = "z";
+	//show_message(_data);
 	for (var i = 1; i <= _data.maxlevel; ++i) {
 		global.upgradesAvaliable[_data.id][i] = {};
 		global.upgradesAvaliable[_data.id][i].sound = _sounds;
@@ -45,9 +47,11 @@ function newCreateUpgrade(_data, _sounds = ""){
 		variable_struct_set(m, "level" ,i);
 		variable_struct_set(m, "style", ItemTypes.Weapon);
 		var keys = variable_struct_get_names(_data);
+		//show_message(keys);
 		for (var j = array_length(keys)-1; j >= 0; --j) {
 		    var k = keys[j];
 		    var v = _data[$ k];
+			if (k == "dduration") { k = "duration"; } //TODO: remove after next beta
 			if (is_array(v)) {
 			    if (array_length(v) > 1) {
 				    variable_struct_set(m, k, v[i-1]);
@@ -132,7 +136,7 @@ function populateUpgrades(){
 				mindmg : [7, 7, 7*1.25, 7*1.25, 7*1.25, 7*1.25*1.40, 7*1.25*1.40],
 				maxdmg : [13, 13, 13*1.25, 13*1.25, 13*1.25, 13*1.20*1.40, 13*1.20*1.40],
 				cooldown : [80, 80, 80, 80, 80*0.75, 80*0.75, 80*0.75],
-				duration : [120, 120, 120, 120, 120, 120, 120], 
+				dduration : [120, 120, 120, 120, 120, 120, 120], 
 				hitCooldown : [10, 10, 10, 10, 10, 10, 10], 
 				canBeHasted : true,
 				speed : [5, 5, 5, 5, 5, 5, 5],
@@ -186,7 +190,7 @@ function populateUpgrades(){
 				mindmg : 6,
 				maxdmg : 10,
 				cooldown : 600,
-				duration : 360,
+				dduration : 360,
 				hitCooldown : 45,
 				canBeHasted : true,
 				speed : 0,
@@ -217,7 +221,7 @@ function populateUpgrades(){
 				mindmg : [10, 12, 12, 12, 19, 19, 19],
 				maxdmg : [14, 16, 16, 16, 24, 24, 24],
 				cooldown : [90, 90, 78, 78, 78, 78, 78],
-				duration : 120,
+				dduration : 120,
 				hitCooldown : 20,
 				canBeHasted : true,
 				speed : 0,
@@ -269,7 +273,7 @@ function populateUpgrades(){
 				mindmg : [11, 11, 14, 14, 23, 23, 23],
 				maxdmg : [15, 15, 18, 18, 28, 28, 28],
 				cooldown : [180, 180, 180, 180, 180, 150, 150],
-				duration : 120, 
+				dduration : 120, 
 				hitCooldown : 20, 
 				canBeHasted : true,
 				speed : [7, 7, 7, 10, 10, 10, 10],
@@ -303,7 +307,7 @@ function populateUpgrades(){
 				mindmg : [27, 27, 27, 36, 36, 36, 36],
 				maxdmg : [33, 33, 33, 44, 44, 44, 44],
 				cooldown : [180, 180, 150, 150, 120, 120, 120],
-				duration : 999, 
+				dduration : 999, 
 				hitCooldown : 60, 
 				canBeHasted : true,
 				speed : 0,
@@ -336,7 +340,7 @@ function populateUpgrades(){
 				mindmg : [7, 7*1.20, 7*1.20, 7*1.20, 7*1.40, 7*1.40, 7*1.40],
 				maxdmg : [13, 13*1.20, 13*1.20, 13*1.20, 13*1.40, 13*1.40, 13*1.40],
 				cooldown : [30, 30, 30, 30 * 0.67, 30 * 0.67, 30 * 0.67 * 0.50, 30 * 0.67 * 0.50],
-				duration : 90, 
+				dduration : 90, 
 				hitCooldown : 30, 
 				canBeHasted : true,
 				speed : [4, 4, 4, 4, 4 * 0.75, 4 * 0.75, 4 * 0.75],
@@ -385,7 +389,7 @@ function populateUpgrades(){
 				mindmg : [15, 15, 15, 15, 15, 18, 18],
 				maxdmg : [19, 19, 19, 19, 19, 22, 22],
 				cooldown : [120, 120, 120, 120, 96, 96, 96],
-				duration : 630,
+				dduration : 630,
 				hitCooldown : 20, 
 				canBeHasted : true,
 				speed : 0,
@@ -450,7 +454,7 @@ function populateUpgrades(){
 				mindmg : [7, 7, 10, 10, 10, 12, 12],
 				maxdmg : [11, 11, 14, 14, 14, 16, 16],
 				cooldown : 600,
-				duration : 601, 
+				dduration : 601, 
 				hitCooldown : [45, 45, 45, 45, 36, 36, 36], 
 				canBeHasted : false,
 				speed : 0,
@@ -485,7 +489,7 @@ function populateUpgrades(){
 				explosionMinDmg : [16, 19, 19, 19, 19, 26, 26],
 				explosionMaxDmg : [20, 24, 24, 24, 24, 32, 32],
 				cooldown : 240,
-				duration : 180, 
+				dduration : 180, 
 				hitCooldown : 30, 
 				hitCooldownExplosion : 60, 
 				canBeHasted : true,
@@ -517,7 +521,7 @@ function populateUpgrades(){
 				mindmg : [11, 14, 14, 14, 14, 14, 22],
 				maxdmg : [15, 18, 18, 18, 18, 18, 27],
 				cooldown : [200, 200, 200, 200, 160, 160, 160],
-				duration : 150, 
+				dduration : 150, 
 				hitCooldown : 20, 
 				canBeHasted : true,
 				speed : [1, 1, 1.2, 1.2, 1.2, 1.2, 1.2],
@@ -548,7 +552,7 @@ function populateUpgrades(){
 				mindmg : [10, 14, 14, 19, 19, 19, 28],
 				maxdmg : [14, 18, 18, 23, 23, 23, 34],
 				cooldown : [240, 240, 192, 192, 192, 192, 192],
-				duration : [180, 180, 180, 180, 240, 240, 240],
+				dduration : [180, 180, 180, 180, 240, 240, 240],
 				hitCooldown : 50, 
 				canBeHasted : true,
 				speed : 10,
@@ -582,7 +586,7 @@ function populateUpgrades(){
 				mindmg : [9, 9, 9, 9, 9, 15, 15],
 				maxdmg : [13, 13, 13, 13, 13, 19, 19],
 				cooldown : [120, 120, 120, 120, 96, 96, 96],
-				duration : 999,
+				dduration : 999,
 				hitCooldown : 30, 
 				canBeHasted : true,
 				speed : 0,

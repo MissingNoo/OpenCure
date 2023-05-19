@@ -1,6 +1,6 @@
 event_inherited();
 global.defeatedEnemies = 0;
-
+show_debug_overlay(true);
 _x1 = 0;
 _x1 = 0;
 _y2 = 0;

@@ -8,7 +8,7 @@ if (damaged) {
 }
 else{draw_self();}
 var _vars = ["speed", "atk", "hp"]
-if (global.debug) {
+if (global.debug and distance_to_point(mouse_x, mouse_y) < 10) {
 	for (var i = 0; i < array_length(_vars); ++i) {
 		if (variable_instance_exists(self, _vars[i])) {
 		    draw_text(x - 20, y - 30 + (i * 10),_vars[i] + ": " +  string(variable_instance_get(self, _vars[i])));
