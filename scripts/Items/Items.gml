@@ -684,7 +684,7 @@ function tickItems(){
 					Bonuses[BonusType.WeaponSize][ItemIds.Knightly_Milk] = playerItems[i][$"weaponSize"];
 					Bonuses[BonusType.PickupRange][ItemIds.Knightly_Milk] = playerItems[i][$"pickupRange"];
 					break;
-				case ItemIds.Uber_Sheep: //TODO: fix chance
+				case ItemIds.Uber_Sheep: 
 					do{
 						a = irandom_range(-1,1);
 						b = irandom_range(-1,1);
