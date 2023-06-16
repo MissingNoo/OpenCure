@@ -1,3 +1,6 @@
+window_set_fullscreen(true);
+display_set_gui_size(display_get_width(), display_get_height());
+window_set_size(display_get_width(),display_get_height());
 lastmenu = PMenus.Pause;
 editOption = false;
 mousein = false;
@@ -5,6 +8,8 @@ guiOffset = 0;
 characterSelected = false;
 selectedCharacter = 0;
 HP = 1;
+guiOffset = round((display_get_width()/1.5) - display_get_width()) / 6.50;
+	show_message_async(string(guiOffset));
 if (os_type == os_android) {
 	display_set_gui_size(display_get_width()/1.5, display_get_height()/1.5);
 	window_set_size(display_get_width(),display_get_height());
