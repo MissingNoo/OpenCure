@@ -1,0 +1,23 @@
+{
+    "language": "English",
+    "locale": "en-US",
+    "text": {
+        "dialogue.NPCBob.Greeting": "Hello there %player%!",
+        "Items": {
+            "Body Pillow": {
+                "1": "Gain a shield that absorbs up to [15] damage. Every [15] seconds, this shield refreshes. Also reduces damage taken by [5%].",
+                "2": "Gain a shield that absorbs up to [20] damage. Every [15] seconds, this shield refreshes. Also reduces damage taken by [10%].",
+                "3": "Gain a shield that absorbs up to [25] damage. Every [15] seconds, this shield refreshes. Also reduces damage taken by [15%].",
+                "4": "Gain a shield that absorbs up to [30] damage. Every [15] seconds, this shield refreshes. Also reduces damage taken by [20%].",
+                "5": "Gain a shield that absorbs up to [35] damage. Every [15] seconds, this shield refreshes. Also reduces damage taken by [25%].",
+            },
+            "Credit Card": {
+				"1": "Cost of enhancing is reduced by [20%] and anvils appear [20%] more often.", 
+				"2": "Cost of enhancing is reduced by [25%] and anvils appear [40%] more often.",
+				"3": "Cost of enhancing is reduced by [30%] and anvils appear [60%] more often.",
+				"4": "Cost of enhancing is reduced by [35%] and anvils appear [80%] more often.",
+				"5": "Cost of enhancing is reduced by [40%] and anvils appear [twice] as often.",
+            }
+        }
+    }
+}

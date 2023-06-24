@@ -38,8 +38,11 @@ global.perkBonuses[0] = 0;
 		Bubba,//TODO: Everythingq
 		ShortSize,
 		PowerofAtlantis,
-		SharkBite
-		
+		SharkBite,
+		//Modded
+		HeavyArtillery,
+		MoldySoul,
+		SodaFueled
 	}
 #endregion
 function populate_perks(){
@@ -100,6 +103,17 @@ function populate_perks(){
 			
 				#endregion
 				global.characterPerks[Characters.Ina] = [PERK_LIST[PerkIds.FpsMastery][0], PERK_LIST[PerkIds.DetectiveEye][0], PERK_LIST[PerkIds.Bubba][0]];
+			#endregion
+			#region Modded
+			#region Pipkin Pippa
+			create_perk(PerkIds.HeavyArtillery, "Heavy Artillery", 0, 1, 1, spr_Pipmod_Pippa_Icon_Perk_HeavyArtillery, 1, "Do nothing.", Characters.Pippa);
+			create_perk(PerkIds.HeavyArtillery, "Heavy Artillery", 1, 1, 1, spr_Pipmod_Pippa_Icon_Perk_HeavyArtillery, 1, "Do nothing.", Characters.Pippa);
+			create_perk(PerkIds.MoldySoul, "Moldy Soul", 0, 1, 1, spr_Pipmod_Pippa_Icon_Perk_MoldySoul, 1, "Do nothing.", Characters.Pippa);
+			create_perk(PerkIds.MoldySoul, "Moldy Soul", 1, 1, 1, spr_Pipmod_Pippa_Icon_Perk_MoldySoul, 1, "Do nothing.", Characters.Pippa);
+			create_perk(PerkIds.SodaFueled, "Soda Fueled", 0, 1, 1, spr_Pipmod_Pippa_Icon_Perk_SodaFueled, 1, "Do nothing.", Characters.Pippa);
+			create_perk(PerkIds.SodaFueled, "Soda Fueled", 1, 1, 1, spr_Pipmod_Pippa_Icon_Perk_SodaFueled, 1, "Do nothing.", Characters.Pippa);
+			global.characterPerks[Characters.Pippa] = [PERK_LIST[PerkIds.HeavyArtillery][0], PERK_LIST[PerkIds.MoldySoul][0], PERK_LIST[PerkIds.SodaFueled][0]];
+			#endregion
 			#endregion
 		#endregion
 	#endregion

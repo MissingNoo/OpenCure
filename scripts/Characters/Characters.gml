@@ -106,6 +106,12 @@ function populateCharacters(){
 	createCharacter(Characters.Amelia,"Watson Amelia",sAmePortrait,sAmeIdle,sAmeRunning,75,1.35,1.30,u[Weapons.AmePistol]);
 	createCharacter(Characters.Gura,"Gawr Gura",sGuraPortrait,sGuraIdle,sGuraRunning,65,1.40,1.10,u[Weapons.GuraTrident]);
 	createCharacter(Characters.Ina,"Ninomae Ina'nis",sInaPortrait,sInaIdle,sInaRunning,75,1.50,0.90,u[Weapons.InaTentacle]);
+	#region Modded
+	#region Pipkin Pippa
+	createCharacter(Characters.Pippa,"Pipkin Pippa",spr_Pipmod_Pippa_Portrait,spr_Pipmod_Pippa_idle,spr_Pipmod_Pippa_run,60,1.50,0.95,u[Weapons.PipiPilstol]);
+	#endregion
+	#endregion
+	
 	Buffs[BuffNames.ShortHeight] = {
 		id : BuffNames.ShortHeight,
 		name : "Short Height",
@@ -145,6 +151,7 @@ enum Characters {
 	Ina,
 	//Kiara,
 	//Calli,
+	Pippa,
 	Lenght
 }
 

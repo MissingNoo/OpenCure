@@ -45,11 +45,13 @@ function newCreateUpgrade(_data, _sounds = ""){
 		global.upgradesAvaliable[_data.id][i].sound = _sounds;
 		var m = global.upgradesAvaliable[_data.id][i];
 		variable_struct_set(m, "level" ,i);
+		//variable_struct_set(m, "desc", lexicon_text("Weapons." + _data.name + "." + string(i)));
 		variable_struct_set(m, "style", ItemTypes.Weapon);
 		var keys = variable_struct_get_names(_data);
 		//show_message(keys);
 		for (var j = array_length(keys)-1; j >= 0; --j) {
 		    var k = keys[j];
+			//if (k == "desc") { break; }
 		    var v = _data[$ k];
 			if (is_array(v)) {
 			    if (array_length(v) > 1) {
@@ -121,6 +123,7 @@ enum Weapons
 	SpiderCooking,
 	WamyWater,
 	//X-Potato
+	PipiPilstol,
 }
 function populateUpgrades(){
 	#region Character Perks
@@ -605,6 +608,41 @@ function populateUpgrades(){
 				knockbackDuration : 10,
 				perk : false
 			});
+	#endregion
+	
+	#region Modded
+	#region Pipkin Pippa
+	newCreateUpgrade({
+				id : Weapons.PipiPilstol,
+				name : "PiPiPilstols",
+				maxlevel : 7,
+				sprite : spr_Pipmod_Pippa_bullet_rifle_pink,
+				thumb : spr_Pipmod_Pippa_Icon_Weapon,
+				mindmg : [7, 7, 7*1.25, 7*1.25, 7*1.25, 7*1.25*1.40, 7*1.25*1.40],
+				maxdmg : [13, 13, 13*1.25, 13*1.25, 13*1.25, 13*1.20*1.40, 13*1.20*1.40],
+				cooldown : [80, 80, 80, 80, 80*0.75, 80*0.75, 80*0.75],
+				duration : [120, 120, 120, 120, 120, 120, 120], 
+				hitCooldown : [10, 10, 10, 10, 10, 10, 10], 
+				canBeHasted : true,
+				speed : 5,
+				hits : [1, 2, 2, 2, 3, 3, 3],
+				type : "red",
+				shoots : 2,
+				desc : [
+				"Shoots 3 Projectiles forward. Horizontal only.", 
+				"Shoot [1] additional shot, and each bullet can pierce [+1] times.",
+				"Increase damage by [25%].",
+				"Bullets ricochet if hit limit is reached.",
+				"Each bullet can pierce [+1] times. Reduce the time between attacks by [25%].",
+				"Increase damage by [40%].",
+				"Shoot [2] additional shots, and pistol becomes spread type."
+				],
+				knockbackSpeed : [0, 0, 0, 0, 0, 0, 0],
+				knockbackDuration : [0, 0, 0, 0, 0, 0, 0],
+				perk : true,
+				characterid : Characters.Pippa
+			},[snd_bullet, snd_bullet2, snd_bullet3]);
+	#endregion
 	#endregion
 }
 

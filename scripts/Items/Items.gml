@@ -29,11 +29,13 @@ function newCreateItem(_data){
 		ItemList[_data.id][i] = {};
 		var m = ItemList[_data.id][i];		
 		variable_struct_set(m, "level", i);
+		//variable_struct_set(m, "desc", lexicon_text("Items." + _data.name + "." + string(i)));
 		variable_struct_set(m, "style", ItemTypes.Item);
 		variable_struct_set(m, "type", "yellow");
 		var keys = variable_struct_get_names(_data);
 		for (var j = array_length(keys)-1; j >= 0; --j) {
 		    var k = keys[j];
+			//if (k == "desc") { break; }
 		    var v = _data[$ k];
 			if (is_array(v)) {
 			    if (array_length(v) > 1) {
@@ -134,13 +136,6 @@ function populateItems(){
 				weight : 3,
 				thumb : sBodyPillow,
 				cooldown : 15,
-				desc : [
-				"Gain a shield that absorbs up to [15] damage. Every [15] seconds, this shield refreshes. Also reduces damage taken by [5%]."  ,
-				"Gain a shield that absorbs up to [20] damage. Every [15] seconds, this shield refreshes. Also reduces damage taken by [10%].",
-				"Gain a shield that absorbs up to [25] damage. Every [15] seconds, this shield refreshes. Also reduces damage taken by [15%].",
-				"Gain a shield that absorbs up to [30] damage. Every [15] seconds, this shield refreshes. Also reduces damage taken by [20%].",
-				"Gain a shield that absorbs up to [35] damage. Every [15] seconds, this shield refreshes. Also reduces damage taken by [25%].",
-				],
 				perk : false,
 				shield : [15, 20, 25, 30, 35],
 				bonus : [0.95, 0.90, 0.85, 0.80, 0.75],
@@ -207,14 +202,7 @@ function populateItems(){
 				maxlevel : 5,
 				weight : 4,
 				thumb : sCreditCard,
-				cooldown : 1,				
-				desc : [
-				"Cost of enhancing is reduced by [20%] and anvils appear [20%] more often.", 
-				"Cost of enhancing is reduced by [25%] and anvils appear [40%] more often.",
-				"Cost of enhancing is reduced by [30%] and anvils appear [60%] more often.",
-				"Cost of enhancing is reduced by [35%] and anvils appear [80%] more often.",
-				"Cost of enhancing is reduced by [40%] and anvils appear [twice] as often.",
-				],
+				cooldown : 1,
 				perk : false,
 				AnvilDropBonus: [.18, .28, .38, .45, .5],
 				EnhancingCost : [20, 25, 30, 35, 40]

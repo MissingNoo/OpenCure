@@ -165,7 +165,8 @@
 			draw_sprite_ext(weaponSprite, 0,GW/1.37, GH/3.52,2,2,0,c_white,1);
 			draw_set_valign(fa_middle); draw_set_color(c_white);
 			draw_text_transformed(GW/1.32, GH/3.52, weaponID[1][$"name"], 2, 2, 0);
-			drawDesc(GW/1.39, GH/2.97, weaponID[1][$"desc"], GW/4.10, 2);
+			//drawDesc(GW/1.39, GH/2.97, weaponID[1][$"desc"], GW/4.10, 2);
+			drawDesc(GW/1.39, GH/2.97, lexicon_text("Weapons." + weaponID[1][$"name"] + ".1") , GW/4.10, 2);
 			draw_set_valign(0);
 		#endregion
 		
@@ -360,12 +361,31 @@
 						foundlv = UPGRADES[j][$"level"] + 1;
 					}
 				}			
+				var uptype = "";
+				switch (global.upgradeOptions[i][$"style"]) { // type of upgrade
+				    case ItemTypes.Weapon:
+				        uptype = "Weapons.";
+				        break;
+				    case ItemTypes.Item:
+				        uptype = "Items.";
+				        break;
+					case ItemTypes.Perk:
+				        uptype = "Perks.";
+				        break;
+				}
 				if (foundup) {
-					var idd = global.upgradeOptions[i][$"id"];
-				    drawDesc(GW/2.20+(guiOffset/2),GH/5.5+offset, global.upgradesAvaliable[idd][foundlv][$"desc"], GW/2.20, 2);
+					var idd = global.upgradeOptions[i][$"id"];	
+				    //drawDesc(GW/2.20+(guiOffset/2),GH/5.5+offset, global.upgradesAvaliable[idd][foundlv][$"desc"], GW/2.20, 2);
+					//try{
+				    drawDesc(GW/2.20+(guiOffset/2),GH/5.5+offset, lexicon_text(uptype + global.upgradeOptions[i][$"name"] + "." + string(foundlv)), GW/2.20, 2);
+					//}
+					//catch (err){
+					//	show_message(err);
+					//	show_message(global.upgradeOptions[i][$"name"]);
+					//}
 				}
 				else{
-					drawDesc(GW/2.20+(guiOffset/2),GH/5.5+offset, global.upgradeOptions[i][$"desc"], GW/2.20, 2);
+					drawDesc(GW/2.20+(guiOffset/2),GH/5.5+offset, lexicon_text(uptype + global.upgradeOptions[i][$"name"] + ".1"), GW/2.20, 2);
 				}
 	            //offset += 165;
 				offset += GH/5.30;

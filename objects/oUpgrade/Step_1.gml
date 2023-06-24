@@ -40,6 +40,7 @@ if (a==0) {
 			defaultBehaviour();
 			direction = global.arrowDir;
 			alarm[0] = 10;
+			image_angle = global.arrowDir;
 			break;}
 			
 		case Weapons.GuraTrident:{
@@ -236,6 +237,20 @@ if (a==0) {
 		case Weapons.WamyWater:{
 			image_angle = arrowDir + diroffset;
 			break;}
+		case Weapons.PipiPilstol:{
+			defaultBehaviour();
+			direction = global.arrowDir;
+			image_angle = global.arrowDir;
+			alarm[0] = 10;
+			if (shoots == 0) {
+				sprite_index = spr_Pipmod_Pippa_bullet_rifle_blue;
+				var enemies = instance_number(oEnemy);
+			    CE = instance_find(oEnemy, irandom_range(0,enemies-1));
+				direction = point_direction(x,y,CE.x, CE.y);
+				image_angle = point_direction(x,y,CE.x, CE.y);
+			}
+			break;
+		}
 	}
 		if (sprite_index==blank) {
 			instance_destroy();
