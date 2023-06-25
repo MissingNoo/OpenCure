@@ -1,35 +1,35 @@
-if (keyboard_check_pressed(RIGHTKEY) or keyboard_check_pressed(LEFTKEY) or keyboard_check_pressed(UPKEY)  or keyboard_check_pressed(DOWNKEY) or device_mouse_check_button_pressed(0,mb_left)) {
-	global.GamePad = false;
-}
-if (gamepad_button_check_pressed(global.gPnum, gp_start)) {
-	global.GamePad = true;
-}
-if (!global.padset) {
-	global.GamePad = false;
-    global.padset = true;
-}
+//if (keyboard_check_pressed(RIGHTKEY) or keyboard_check_pressed(LEFTKEY) or keyboard_check_pressed(UPKEY)  or keyboard_check_pressed(DOWNKEY) or device_mouse_check_button_pressed(0,mb_left)) {
+//	global.GamePad = false;
+//}
+//if (gamepad_button_check_pressed(global.gPnum, gp_start)) {
+//	global.GamePad = true;
+//}
+//if (!global.padset) {
+//	global.GamePad = false;
+//    global.padset = true;
+//}
 
-for (var i = 0; i < gamepad_get_device_count(); i++) {
-	if(gamepad_is_connected(i)){
-		global.gPnum = i;
-		gamepad_set_axis_deadzone(global.gPnum, 0.7);
-	}
-	if (os_type == os_android) {
-		if (device_mouse_check_button(0,mb_left)) {
-		    global.GamePad = false;
-		}
-	    if(global.GamePad){
-			if (instance_exists(oJoystick)) {
-				instance_destroy(oJoystick);
-			}
-		}
-		else{
-			if (!instance_exists(oJoystick)) {
-				instance_create_depth(0,0,0,oJoystick);
-			}
-		}
-	}
-}
+//for (var i = 0; i < gamepad_get_device_count(); i++) {
+//	if(gamepad_is_connected(i)){
+//		global.gPnum = i;
+//		gamepad_set_axis_deadzone(global.gPnum, 0.7);
+//	}
+//	if (os_type == os_android) {
+//		if (device_mouse_check_button(0,mb_left)) {
+//		    global.GamePad = false;
+//		}
+//	    if(global.GamePad){
+//			if (instance_exists(oJoystick)) {
+//				instance_destroy(oJoystick);
+//			}
+//		}
+//		else{
+//			if (!instance_exists(oJoystick)) {
+//				instance_create_depth(0,0,0,oJoystick);
+//			}
+//		}
+//	}
+//}
 
 #region room limit, TODO: redo all this crap
 if (instance_exists(oPlayer)) {
@@ -220,15 +220,15 @@ if (instance_exists(oPlayer) and canspawn == true and global.gamePaused == false
 	global.timeB = global.minutesPast30 + 60 * global.hoursPast1;
 #endregion
 
-if (keyboard_check_pressed(ord("V"))) {
-    window_set_size(640,360);
-}
-if (keyboard_check_pressed(ord("B"))) {
-    window_set_size(1280,720);
-}
-if (keyboard_check_pressed(ord("N"))) {
-    window_set_size(1920,1080);
-}
+//if (keyboard_check_pressed(ord("V"))) {
+//    window_set_size(640,360);
+//}
+//if (keyboard_check_pressed(ord("B"))) {
+//    window_set_size(1280,720);
+//}
+//if (keyboard_check_pressed(ord("N"))) {
+//    window_set_size(1920,1080);
+//}
 
 
 

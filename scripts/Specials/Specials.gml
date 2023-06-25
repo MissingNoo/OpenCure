@@ -23,6 +23,7 @@ global.specialBonuses[0] = 0;
 		Amelia, //TODO: speed bonus for weapon
 		Gura,
 		Ina,
+		//Modded
 		Walmart_Form
 	}
 #endregion

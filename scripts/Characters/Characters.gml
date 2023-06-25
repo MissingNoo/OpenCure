@@ -167,10 +167,9 @@ if can_move == true{
 	    _down = input_check("down");
 	
 	if (!instance_exists(oJoystick) and !global.strafe) {
-		if (gamepad_axis_value(global.gPnum, gp_axisrh) != 0 or gamepad_axis_value(global.gPnum, gp_axisrv) != 0) {
-			_gx = gamepad_axis_value(global.gPnum, gp_axisrh);
-			_gy = gamepad_axis_value(global.gPnum, gp_axisrv);
-		}
+		//if (gamepad_axis_value(global.gPnum, gp_axisrh) != 0 or gamepad_axis_value(global.gPnum, gp_axisrv) != 0) {
+			
+		//}
 		
 		if (!global.GamePad) {
 			//TODO: fix
@@ -194,7 +193,9 @@ if can_move == true{
 			}
 		}
 		else{
-			global.arrowDir = point_direction(x,y, x + _gx, y + _gy)
+			_gx = - input_check("aim_left") + input_check("aim_right"); 
+			_gy = - input_check("aim_up") + input_check("aim_down");
+			global.arrowDir = point_direction(0,0, _gx, _gy);
 		}
 	}
 	

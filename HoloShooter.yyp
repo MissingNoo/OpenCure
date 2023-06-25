@@ -80,6 +80,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Amelia","folderPath":"folders/Sprites/Characters/Amelia.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Gura","folderPath":"folders/Sprites/Characters/Gura.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Inanis","folderPath":"folders/Sprites/Characters/Inanis.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Pipkin Pippa","folderPath":"folders/Sprites/Characters/Pipkin Pippa.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"debuffAnimations","folderPath":"folders/Sprites/debuffAnimations.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"fonts","folderPath":"folders/Sprites/fonts.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Hud","folderPath":"folders/Sprites/Hud.yy",},
@@ -106,7 +107,6 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Stages","folderPath":"folders/Sprites/Stages.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tile Sets","folderPath":"folders/Tile Sets.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Timelines","folderPath":"folders/Timelines.yy",},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Pipkin Pippa","folderPath":"folders/Sprites/Characters/Pipkin Pippa.yy",},
   ],
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"blocks-16bit.ttf","CopyToMask":-1,"filePath":"datafiles",},

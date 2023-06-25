@@ -66,6 +66,7 @@
     {"name":"Characters","order":4,"path":"folders/Sprites/Characters.yy",},
     {"name":"Gura","order":1,"path":"folders/Sprites/Characters/Gura.yy",},
     {"name":"Inanis","order":2,"path":"folders/Sprites/Characters/Inanis.yy",},
+    {"name":"Pipkin Pippa","order":5,"path":"folders/Sprites/Characters/Pipkin Pippa.yy",},
     {"name":"debuffAnimations","order":14,"path":"folders/Sprites/debuffAnimations.yy",},
     {"name":"fonts","order":10,"path":"folders/Sprites/fonts.yy",},
     {"name":"Hud","order":6,"path":"folders/Sprites/Hud.yy",},
@@ -90,7 +91,6 @@
     {"name":"Stages","order":16,"path":"folders/Sprites/Stages.yy",},
     {"name":"Tile Sets","order":1,"path":"folders/Tile Sets.yy",},
     {"name":"Timelines","order":7,"path":"folders/Timelines.yy",},
-    {"name":"Pipkin Pippa","order":5,"path":"folders/Sprites/Characters/Pipkin Pippa.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"input_gamepad_check_released","order":2,"path":"scripts/input_gamepad_check_released/input_gamepad_check_released.yy",},

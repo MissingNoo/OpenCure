@@ -88,7 +88,7 @@ if (!variable_global_exists("ShopUpgrades")) {
 			maxlevel : 5,
 			costs : [300, 750, 1800, 4100, 9100 ]
 		},
-		FoodDrop : {//TODO: calculate properly the rates and not make Lithusei mad with me for probably asking again
+		FoodDrop : {
 			name:"Food Drops Up",
 			desc : "Increases the rate that food is dropped by 4% per level. (max 20%) ",
 			sprite : sHamburger,

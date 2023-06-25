@@ -1,6 +1,6 @@
-window_set_fullscreen(true);
-display_set_gui_size(display_get_width(), display_get_height());
-window_set_size(display_get_width(),display_get_height());
+//window_set_fullscreen(true);
+//display_set_gui_size(display_get_width(), display_get_height());
+//window_set_size(display_get_width(),display_get_height());
 lastmenu = PMenus.Pause;
 editOption = false;
 mousein = false;
@@ -21,6 +21,7 @@ released=false;
 /// @description Insert description here
 // You can write your code in this editor
 // Feather disable GM1043
+global.showhpui = true;
 zKey = 0;
 xKey = 0;
 eKey = 0;
@@ -109,6 +110,7 @@ event = 0;
 	enum PMenus{
 		Pause,
 		Settings,
+		Graphics,
 		Lenght
 	}
 	for (var i = 0; i < PMenus.Lenght; ++i) {
@@ -143,16 +145,9 @@ event = 0;
 			pauseMenu[PMenus.Settings][PM.Options][5] = "GamePad: ";
 			pauseMenu[PMenus.Settings][PM.Bool][5] = true;
 			pauseMenu[PMenus.Settings][PM.BoolValue][5] = global.GamePad;
-			pauseMenu[PMenus.Settings][PM.Options][6] = "GamePad: ";
-			pauseMenu[PMenus.Settings][PM.Bool][6] = false;
-			pauseMenu[PMenus.Settings][PM.Options][7] = "GamePad: ";
-			pauseMenu[PMenus.Settings][PM.Bool][7] = false;
-			pauseMenu[PMenus.Settings][PM.Options][8] = "GamePad: ";
-			pauseMenu[PMenus.Settings][PM.Bool][8] = false;
-			pauseMenu[PMenus.Settings][PM.Options][9] = "GamePad: ";
-			pauseMenu[PMenus.Settings][PM.Bool][9] = false;
-			pauseMenu[PMenus.Settings][PM.Options][10] = "GamePad: ";
-			pauseMenu[PMenus.Settings][PM.Bool][10] = false;
+			pauseMenu[PMenus.Settings][PM.Options][6] = "showhpui: ";
+			pauseMenu[PMenus.Settings][PM.Bool][6] = true;
+			pauseMenu[PMenus.Settings][PM.BoolValue][6] = global.showhpui;			
 		}
 		loadSettingValues();
 		//pauseMenu[PMenus.Pause][PM.Options] = ["Skills"];

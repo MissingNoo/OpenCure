@@ -203,40 +203,60 @@
 		draw_text_transformed(GW/1.18, GH/7.60, string(global.defeatedEnemies), 2, 2, 0);
 		
 		#region Character Portrait
-			draw_sprite_ext(ui_portrait_bg,0,60,90,2,2,0,c_white,1);
-			draw_sprite_ext(global.player[?"portrait"],0,60,90,2,2,0,c_white,1);
-			draw_sprite_ext(ui_portrait_frame,0,60,90,2,2,0,c_white,1);
+		var _portraitx = GW/30, _portraity = GH/10;
+		var _portraithalf = sprite_get_height(ui_portrait_frame);
+		if (global.showhpui) {
+		    draw_rectangle_color(_portraitx, _portraity - _portraithalf, _portraitx + 85, _portraity - _portraithalf + 15, c_white, c_white, c_white, c_white, false);		
+			draw_text_transformed_color(GW/14, GH/20, "HP", 2, 1.5, 0, c_black, c_black, c_black, c_black, 1);		
+		}		
+		draw_sprite_ext(ui_portrait_bg,0, _portraitx, _portraity, 2,2,0,c_white,1);
+		draw_sprite_ext(global.player[?"portrait"],0,_portraitx, _portraity,2,2,0,c_white,1);
+		draw_sprite_ext(ui_portrait_frame,0,_portraitx, _portraity,2,2,0,c_white,1);
+		
+		
 		#endregion
 		
 		#region Special
 		if (global.ShopUpgrades[$ "SpecialAtk"][$ "level"] == 1) {
-			var _sx = GW/91.07;
-			var _sy = GH/4.92;
-			var casesize = 45.20;
+			var _sx = GW/273;
+			var _sy = GH/6;
+			var casesize = 27;
 			var special = SPECIAL_LIST[global.player[?"special"]];
-			draw_sprite_ext(sHudSpecialCase, 0, _sx, _sy, 2, 2, 0, c_white, 1);
-			draw_sprite_ext(special[$"thumb"], 0, _sx, _sy, 2, 2, 0, c_white, 1);
-			draw_sprite_ext(sHudSpecial,0, _sx + casesize, _sy + 7.50, 2, 2, 0, c_white, 1);
+			draw_sprite_ext(sHudSpecial,0, _sx + casesize, _sy, 1, 2, 0, c_white, 1);
 			var chargeColor = c_white;
 			if (oPlayer.skilltimer > oPlayer.specialcooldown) { chargeColor = c_red; }
-			draw_sprite_part_ext(sHudSpecial,2, 0, 0, ((oPlayer.skilltimer / oPlayer.specialcooldown) * sprite_get_width(sHudSpecial)), sprite_get_height(sHudSpecial), _sx + casesize, _sy + 7.50, 2, 2, chargeColor, 1);
-			draw_sprite_ext(sHudSpecial,1, _sx + casesize, _sy + 7.50, 2, 2, 0, c_white, 1);
+			draw_sprite_part_ext(sHudSpecial,2, 0, 0, ((oPlayer.skilltimer / oPlayer.specialcooldown) * sprite_get_width(sHudSpecial)), sprite_get_height(sHudSpecial), _sx + casesize, _sy, 1, 2, chargeColor, 1);
+			draw_sprite_ext(sHudSpecial,1, _sx + casesize, _sy, 1, 2, 0, c_white, 1);
 			if (oPlayer.skilltimer > oPlayer.specialcooldown) { draw_text(_sx+oGui.a, _sy + casesize, "READY"); }
+			//draw_sprite_ext(sHudSpecialCase, 0, _sx, _sy, 2.1, 2.1, 0, c_white, 1);
+			draw_sprite_ext(special[$"thumb"], 0, _sx + 4, _sy, 2, 2, 0, c_white, .5);
 			if (global.debug) { draw_text(_sx + 90, _sy + casesize / 2,string(oPlayer.skilltimer) + "/" + string(oPlayer.specialcooldown)); }			
 		}
 		#endregion
 		
 		#region Upgrades
 			#region Weapons
-				offset=0;			
+				offset=0;
+				var yoffset = 0;
+				var _itemsx;
+				var _itemsy;
+				if (global.showhpui) {
+				    _itemsx = GW/11;
+					_itemsy = GH/9;
+				}
+				else{
+					_itemsx = GW/12;
+					_itemsy = GH/13;
+				}
+				
 			    for (var i = 0; i < array_length(UPGRADES); i++) //for the size of the upgrade arrays
 				{
-					draw_sprite_ext(ui_empty_slot_weapon,0,GW/10+offset,GH/12,1.5,1.5,0,c_white,.5); //draw empty slots background
+					draw_sprite_ext(ui_empty_slot_weapon,0,_itemsx+offset,_itemsy,1.5,1.5,0,c_white,.5); //draw empty slots background
 					if (UPGRADES[i]!=global.null) //if there is a upgrade in the slot
 					{
 						var awakened = (UPGRADES[i][$"level"] < 7) ? 0 : 1; //check if weapon is awakened
-						draw_sprite_ext(UPGRADES[i][$ "thumb"],awakened,GW/10+offset,GH/12,2,2,0,c_white,1); //draw weapon sprite
-						if (global.debug) {draw_text(GW/10+offset, GH/12-15,string(global.upgradeCooldown[UPGRADES[i][$"id"]]));}
+						draw_sprite_ext(UPGRADES[i][$ "thumb"],awakened,_itemsx+offset,_itemsy,2,2,0,c_white,1); //draw weapon sprite
+						if (global.debug) {draw_text(_itemsx+offset, _itemsy-15,string(global.upgradeCooldown[UPGRADES[i][$"id"]]));}
 						switch (UPGRADES[i][$ "type"]) //detect the type of upgrade
 						{
 						    case "red":
@@ -252,8 +272,8 @@
 								digit = uiDigitWhite;
 						        break;
 						}
-						draw_sprite_ext(header,0,GW/10+offset,GH/12,2,2,0,c_white,1); //draw type sprite
-						draw_sprite_ext(digit,UPGRADES[i][$ "level"],GW/10+5+offset,GH/12,2,2,0,c_white,1); //draw level
+						draw_sprite_ext(header,0,_itemsx+offset,_itemsy,2,2,0,c_white,1); //draw type sprite
+						draw_sprite_ext(digit,UPGRADES[i][$ "level"],_itemsx+5+offset,_itemsy,2,2,0,c_white,1); //draw level
 					}		
 			        offset+=50;
 			    }
@@ -261,15 +281,15 @@
 		
 			#region Items
 				offset=0;			
-				var yoffset = 16;
+				yoffset = 60;
 			    for (var i = 0; i < array_length(playerItems); i++) //for the size of the upgrade arrays
 				{
-					draw_sprite_ext(ui_empty_slot_item,0,GW/10+offset,GH/7+yoffset,1.5,1.5,0,c_white,.5); //draw empty slots background
+					draw_sprite_ext(ui_empty_slot_item,0,_itemsx+offset,_itemsy+yoffset,1.5,1.5,0,c_white,.5); //draw empty slots background
 					if (playerItems[i]!=global.nullitem) //if there is a upgrade in the slot
 					{
 						var awakened = (playerItems[i][$"level"] < 7) ? 0 : 1; //check if weapon is awakened
-						draw_sprite_ext(playerItems[i][$ "thumb"],awakened,GW/10+offset,GH/7+yoffset,2,2,0,c_white,1); //draw weapon sprite
-						if (global.debug) {draw_text(GW/10+offset, GH/7-15+yoffset,string(global.itemCooldown[playerItems[i][$"id"]]));}
+						draw_sprite_ext(playerItems[i][$ "thumb"],awakened,_itemsx+offset,_itemsy+yoffset,2,2,0,c_white,1); //draw weapon sprite
+						if (global.debug) {draw_text(_itemsx+offset, _itemsy-15+yoffset,string(global.itemCooldown[playerItems[i][$"id"]]));}
 					
 						switch (playerItems[i][$ "type"]) //detect the type of upgrade
 						{
@@ -286,8 +306,8 @@
 								digit = uiDigitWhite;
 						        break;
 						}
-						draw_sprite_ext(header,0,GW/10+offset,GH/7+yoffset,2,2,0,c_white,1); //draw type sprite
-						draw_sprite_ext(digit,playerItems[i][$ "level"],GW/10+5+offset,GH/7+yoffset,2,2,0,c_white,1); //draw level
+						draw_sprite_ext(header,0,_itemsx+offset,_itemsy+yoffset,2,2,0,c_white,1); //draw type sprite
+						draw_sprite_ext(digit,playerItems[i][$ "level"],_itemsx+5+offset,_itemsy+yoffset,2,2,0,c_white,1); //draw level
 					}		
 			        offset+=50;
 			    }
@@ -295,17 +315,17 @@
 		
 			#region Perks
 				offset=150;			
-				yoffset = 80;
+				yoffset = 120;
 			    for (var i = 0; i < array_length(PLAYER_PERKS); i++) //for the size of the upgrade arrays
 				{
-					draw_sprite_ext(ui_empty_slot_item,0,GW/10+offset,GH/7+yoffset,1.5,1.5,0,c_white,.5); //draw empty slots background
+					draw_sprite_ext(ui_empty_slot_item,0,_itemsx+offset,_itemsy+yoffset,1.5,1.5,0,c_white,.5); //draw empty slots background
 					if (PLAYER_PERKS[i]!=global.nullperk) //if there is a upgrade in the slot
 					{
 						var activated = PLAYER_PERKS[i][$"level"] > 0  ? 1 : .5;
-						draw_sprite_ext(PLAYER_PERKS[i][$ "thumb"],0,GW/10+offset,GH/7+yoffset,2,2,0,c_white, activated); //draw weapon sprite
-						if (global.debug) {draw_text(GW/10+offset, GH/7-15+yoffset,string(global.perkCooldown[PLAYER_PERKS[i][$"id"]]));}
-						draw_sprite_ext(ui_level_header_pink,0,GW/10+offset,GH/7+yoffset,2,2,0,c_white,1); //draw type sprite
-						draw_sprite_ext(uiDigitPink,PLAYER_PERKS[i][$ "level"],GW/10+5+offset,GH/7+yoffset,2,2,0,c_white,1); //draw level					        
+						draw_sprite_ext(PLAYER_PERKS[i][$ "thumb"],0,_itemsx+offset,_itemsy+yoffset,2,2,0,c_white, activated); //draw weapon sprite
+						if (global.debug) {draw_text(_itemsx+offset, _itemsy-15+yoffset,string(global.perkCooldown[PLAYER_PERKS[i][$"id"]]));}
+						draw_sprite_ext(ui_level_header_pink,0,_itemsx+offset,_itemsy+yoffset,2,2,0,c_white,1); //draw type sprite
+						draw_sprite_ext(uiDigitPink,PLAYER_PERKS[i][$ "level"],_itemsx+5+offset,_itemsy+yoffset,2,2,0,c_white,1); //draw level					        
 					}		
 			        offset+=50;
 			    }
@@ -647,7 +667,7 @@ if (keyboard_check_pressed(ord("M"))) {
 		for (var i = 0; i < array_length(variables); ++i) {
 			if (variable_instance_exists(self,variables[i])) {			
 				draw_set_color(c_red);
-			    draw_text(10,debugy+offset,string(variables[i]) + ": " + string(variable_instance_get(self,variables[i])));
+			    draw_text(10,debugy+offset,string(variables[i]) + ": " + string(round(variable_instance_get(self,variables[i]))));
 				draw_set_color(c_white);
 				offset += 20;
 			}		    

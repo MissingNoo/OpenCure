@@ -774,6 +774,9 @@ function randomUpgrades(){
 	#endregion
 	#region Generate the options
 		is_what = "";
+		var can_be_item;
+		var can_be_weapon;
+		var can_be_perk;
 		#region 1&2
 			function slotRandomizer12() {
 				// randomize;

@@ -1,8 +1,8 @@
 lexicon_index_declare_from_json("english.json");
 lexicon_language_set("English");
-if (!variable_global_exists("padset")) {
-    global.padset = false;
-}
+//if (!variable_global_exists("padset")) {
+//    global.padset = false;
+//}
 
 global.defeatedEnemies = 0;
 if (!variable_global_exists("mode")) {
