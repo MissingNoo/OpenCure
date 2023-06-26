@@ -1,3 +1,4 @@
+upg??=global.null;
 event_inherited();
 alarm[11] = 1;
 partSystem = part_system_create();

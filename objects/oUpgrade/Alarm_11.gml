@@ -89,7 +89,7 @@ if (socket == oPlayer.socket) {
 						//inst.shoots = 0;
 						//inst.sprite_index=upg[$"sprite"];
 						spawnUpgrade();
-						alarm[0]=1;
+						alarm[0]=10;
 					}
 				}
 			} else instance_destroy();
@@ -243,7 +243,7 @@ if (socket == oPlayer.socket) {
 			direction = global.arrowDir;
 			image_angle = global.arrowDir;
 			alarm[0] = 10;
-			if (shoots == 0) {
+			if (shoots % 2) {
 				sprite_index = spr_Pipmod_Pippa_bullet_rifle_blue;
 				var enemies = instance_number(oEnemy);
 			    CE = instance_find(oEnemy, irandom_range(0,enemies-1));

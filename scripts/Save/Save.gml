@@ -1,6 +1,6 @@
 // Feather disable GM2017
 global.Data = [
-    "holocoins","musicVolume","soundVolume", "damageNumbers", "ShopUpgradesJSON", "showhpui"
+    "holocoins","musicVolume","soundVolume", "damageNumbers", "ShopUpgradesJSON", "showhpui", "GamePad",
     ];
 
 #macro DATA (working_directory + "Save_Data.bin")

@@ -616,19 +616,19 @@ function populateUpgrades(){
 	newCreateUpgrade({
 				id : Weapons.PipiPilstol,
 				name : "PiPiPilstols",
-				maxlevel : 7,
+				maxlevel : 6,
 				sprite : spr_Pipmod_Pippa_bullet_rifle_pink,
 				thumb : spr_Pipmod_Pippa_Icon_Weapon,
-				mindmg : [7, 7, 7*1.25, 7*1.25, 7*1.25, 7*1.25*1.40, 7*1.25*1.40],
+				mindmg : [7, 7, 7*1.25, 7*1.25, 7*1.25*1.50, 7*1.25*1.50*1.75],
 				maxdmg : [13, 13, 13*1.25, 13*1.25, 13*1.25, 13*1.20*1.40, 13*1.20*1.40],
-				cooldown : [80, 80, 80, 80, 80*0.75, 80*0.75, 80*0.75],
+				cooldown : [80, 80, 80, 80*0.75, 80*0.75, 30],
 				duration : [120, 120, 120, 120, 120, 120, 120], 
 				hitCooldown : [10, 10, 10, 10, 10, 10, 10], 
 				canBeHasted : true,
 				speed : 5,
-				hits : [1, 2, 2, 2, 3, 3, 3],
+				hits : [1, 1, 2, 3, 3, 3],
 				type : "red",
-				shoots : 2,
+				shoots : [2, 4, 4, 4, 4, 4],
 				desc : [
 				"Shoots 3 Projectiles forward. Horizontal only.", 
 				"Shoot [1] additional shot, and each bullet can pierce [+1] times.",
@@ -1064,8 +1064,8 @@ function randomUpgrades(){
 		
 	//global.upgradeOptions[3] = global.null;
 	#endregion
-	 global.upgradeOptions[0] = PERK_LIST[PerkIds.HeavyArtillery][0];
-	 //global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.PsychoAxe][1];
+	 //global.upgradeOptions[0] = PERK_LIST[PerkIds.HeavyArtillery][0];
+	 //global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.PipiPilstol][1];
 }	
 
 function tickPowers(){
@@ -1102,7 +1102,8 @@ function defaultBehaviour(){
 	image_alpha=1;
 }
 
-function spawnUpgrade(_upg = upg, _speed = upg[$"speed"], _hits = upg[$"hits"], _shoots = 0, _mindmg = upg[$"mindmg"], _maxdmg = upg[$"maxdmg"], _sprite = upg[$"sprite"]){
+function spawnUpgrade(_upg = upg, _speed = upg[$"speed"], _hits = upg[$"hits"], _shoots = shoots, _mindmg = upg[$"mindmg"], _maxdmg = upg[$"maxdmg"], _sprite = upg[$"sprite"]){
+	if (_upg[$"id"] != Weapons.PipiPilstol) { _shoots = 0; }
 	var instancecreated = instance_create_layer(owner.x,owner.y-8,"Upgrades",oUpgrade,{
 					upg : _upg,
 					speed : _speed,

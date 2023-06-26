@@ -120,8 +120,9 @@ switch (upg[$"id"]) {
 		break;}
 		case Weapons.PipiPilstol:{
 			if (shoots > 1) {			
-				spawnUpgrade();
 				shoots-=1;
+				spawnUpgrade();
+				shoots=0;
 				alarm[0]=10;
 				}
 			break;
