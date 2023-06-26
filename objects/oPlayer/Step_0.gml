@@ -1,4 +1,7 @@
 // Feather disable GM2016
+if (keyboard_check_pressed(ord("R"))) {
+    instance_create_depth(x,y,depth,oUpgrade,{upg : global.upgradesAvaliable[Weapons.FanBeam][1]});
+}
 if (keyboard_check_pressed(ord("H")) and global.debug) {	global.xp=neededxp; }
 if (keyboard_check_pressed(ord("F")) and global.debug) {	spawnEvent(Enemies.KFPEmployee,Patterns.Horde, 25, "-", "-", "-", "-", 30); }
 if (!global.gamePaused) {

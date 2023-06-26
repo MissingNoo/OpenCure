@@ -106,8 +106,10 @@ function populate_perks(){
 			#endregion
 			#region Modded
 			#region Pipkin Pippa
-			create_perk(PerkIds.HeavyArtillery, "Heavy Artillery", 0, 1, 1, spr_Pipmod_Pippa_Icon_Perk_HeavyArtillery, 1, "Do nothing.", Characters.Pippa);
-			create_perk(PerkIds.HeavyArtillery, "Heavy Artillery", 1, 1, 1, spr_Pipmod_Pippa_Icon_Perk_HeavyArtillery, 1, "Do nothing.", Characters.Pippa);
+			create_perk(PerkIds.HeavyArtillery, "Heavy Artillery", 0, 3, 1, spr_Pipmod_Pippa_Icon_Perk_HeavyArtillery, 180, "Do nothing.", Characters.Pippa);
+			create_perk(PerkIds.HeavyArtillery, "Heavy Artillery", 1, 3, 1, spr_Pipmod_Pippa_Icon_Perk_HeavyArtillery, 174, "Do nothing.", Characters.Pippa);
+			create_perk(PerkIds.HeavyArtillery, "Heavy Artillery", 2, 3, 1, spr_Pipmod_Pippa_Icon_Perk_HeavyArtillery, 174, "Do nothing.", Characters.Pippa);
+			create_perk(PerkIds.HeavyArtillery, "Heavy Artillery", 3, 3, 1, spr_Pipmod_Pippa_Icon_Perk_HeavyArtillery, 174, "Do nothing.", Characters.Pippa);
 			create_perk(PerkIds.MoldySoul, "Moldy Soul", 0, 1, 1, spr_Pipmod_Pippa_Icon_Perk_MoldySoul, 1, "Do nothing.", Characters.Pippa);
 			create_perk(PerkIds.MoldySoul, "Moldy Soul", 1, 1, 1, spr_Pipmod_Pippa_Icon_Perk_MoldySoul, 1, "Do nothing.", Characters.Pippa);
 			create_perk(PerkIds.SodaFueled, "Soda Fueled", 0, 1, 1, spr_Pipmod_Pippa_Icon_Perk_SodaFueled, 1, "Do nothing.", Characters.Pippa);
@@ -197,6 +199,41 @@ function tick_perks()
 								inst.hits=999;
 								inst.shoots = 3;
 								inst.sprite_index=global.upgradesAvaliable[Weapons.PowerofAtlantis][1][$"sprite"];
+						        break;}
+						}						
+					break;}
+					case PerkIds.HeavyArtillery:{
+						switch (PLAYER_PERKS[i][$"level"]) {
+						    case 1:{
+								inst = (instance_create_layer(x,y-8,"Upgrades",oUpgrade));
+								inst.upg=global.upgradesAvaliable[Weapons.HeavyArtillery][1];
+								//show_message(string(global.upgradesAvaliable[Weapons.HeavyArtillery][1][?"duration"]))
+								inst.speed=0;
+								inst.mindmg = UPGRADES[0][$"mindmg"] * 333;
+								inst.maxdmg = UPGRADES[0][$"maxdmg"] * 333;
+								inst.hits=999;
+								inst.shoots = 1;
+								inst.sprite_index=global.upgradesAvaliable[Weapons.HeavyArtillery][1][$"sprite"];
+						        break;}
+						    case 2:{
+								inst = (instance_create_layer(x,y-8,"Upgrades",oUpgrade));
+								inst.upg=global.upgradesAvaliable[Weapons.HeavyArtillery][2];
+								inst.speed=0;
+								inst.mindmg = UPGRADES[0][$"mindmg"] * 333;
+								inst.maxdmg = UPGRADES[0][$"maxdmg"] * 333;
+								inst.hits=999;
+								inst.shoots = 1;
+								inst.sprite_index=global.upgradesAvaliable[Weapons.HeavyArtillery][1][$"sprite"];
+						        break;}
+							case 3:{
+								inst = (instance_create_layer(x,y-8,"Upgrades",oUpgrade));
+								inst.upg=global.upgradesAvaliable[Weapons.HeavyArtillery][3];
+								inst.speed=0;
+								inst.mindmg = UPGRADES[0][$"mindmg"] * 333;
+								inst.maxdmg = UPGRADES[0][$"maxdmg"] * 333;
+								inst.hits=999;
+								inst.shoots = 2;
+								inst.sprite_index=global.upgradesAvaliable[Weapons.HeavyArtillery][1][$"sprite"];
 						        break;}
 						}						
 					break;}

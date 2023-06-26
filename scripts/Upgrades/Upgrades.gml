@@ -124,6 +124,7 @@ enum Weapons
 	WamyWater,
 	//X-Potato
 	PipiPilstol,
+	HeavyArtillery,
 }
 function populateUpgrades(){
 	#region Character Perks
@@ -642,6 +643,27 @@ function populateUpgrades(){
 				perk : true,
 				characterid : Characters.Pippa
 			},[snd_bullet, snd_bullet2, snd_bullet3]);
+			newCreateUpgrade({
+				id : Weapons.HeavyArtillery,
+				name : "Heavy Artillery",
+				maxlevel : 3,
+				sprite : sBombExplosion,
+				thumb : spr_Pipmod_Pippa_Icon_Weapon,
+				mindmg : 2338,
+				maxdmg : 2338,
+				cooldown : [180, 174, 174],
+				duration : 100, 
+				hitCooldown : 10, 
+				canBeHasted : true,
+				speed : 0,
+				hits : 100,
+				type : "red",
+				shoots : [1, 1, 2],
+				knockbackSpeed : [0, 0, 0, 0, 0, 0, 0],
+				knockbackDuration : [0, 0, 0, 0, 0, 0, 0],
+				perk : true,
+				characterid : Characters.Lenght
+			});
 	#endregion
 	#endregion
 }
@@ -1042,7 +1064,7 @@ function randomUpgrades(){
 		
 	//global.upgradeOptions[3] = global.null;
 	#endregion
-	 //global.upgradeOptions[0] = ItemList[ItemIds.Limiter][1];
+	 global.upgradeOptions[0] = PERK_LIST[PerkIds.HeavyArtillery][0];
 	 //global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.PsychoAxe][1];
 }	
 

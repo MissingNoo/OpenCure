@@ -1,4 +1,5 @@
 event_inherited();
+alarm[11] = 1;
 partSystem = part_system_create();
 part = part_type_create();
 part_type_life(part, oGui.a, oGui.b);

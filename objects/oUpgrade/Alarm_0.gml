@@ -126,4 +126,11 @@ switch (upg[$"id"]) {
 				}
 			break;
 		}
+		case Weapons.HeavyArtillery:{
+			if (shoots > 1) {
+				spawnUpgrade();
+				shoots-=1;
+				}
+			break;
+		}
 }
