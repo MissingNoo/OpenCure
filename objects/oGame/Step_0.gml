@@ -33,8 +33,8 @@
 
 #region room limit, TODO: redo all this crap
 if (instance_exists(oPlayer)) {
-	if (keyboard_check_pressed(ord("I"))) { oPlayer.x = 640 - oGui.a; }
-	if (keyboard_check_pressed(ord("O"))) { oPlayer.x = 3170; }
+	if (keyboard_check_pressed(ord("I"))) { oPlayer.y = 610 - oGui.a; }
+	if (keyboard_check_pressed(ord("O"))) { oPlayer.y = 3170; }
 	var xx;
 	var yy;
 	var px;
@@ -74,12 +74,12 @@ if (instance_exists(oPlayer)) {
 			}
 		}
 	}
-	if (oPlayer.y < 1280) {
+	if (oPlayer.y < 610) {
 		xx = oCam.x - oPlayer.x;
 		yy = oCam.y - oPlayer.y;
 		px = oPlayer.x;
 		py = oPlayer.y;
-	    oPlayer.y = 1280 * 2;
+	    oPlayer.y = 3170;
 		oCam.y = oPlayer.y + yy;
 		for (var i = 0; i < array_length(insts); ++i) {
 		    with (insts[i]) {
@@ -87,16 +87,16 @@ if (instance_exists(oPlayer)) {
 				yy = y - py;
 				x = oPlayer.x + xx;
 				y = oPlayer.y + yy;
-				ystart = ystart + 1280;
+				ystart = ystart + yy;
 			}
 		}
 	}
-	if (oPlayer.y > 1280 * 2) {
+	if (oPlayer.y > 3170) {
 		xx = oCam.x - oPlayer.x;
 		yy = oCam.y - oPlayer.y;
 		px = oPlayer.x;
 		py = oPlayer.y;
-	    oPlayer.y = 1280;
+	    oPlayer.y = 610 - oGui.a;
 		oCam.y = oPlayer.y + yy;
 		for (var i = 0; i < array_length(insts); ++i) {
 		    with (insts[i]) {
@@ -104,7 +104,7 @@ if (instance_exists(oPlayer)) {
 				yy = y - py;
 				x = oPlayer.x + xx;
 				y = oPlayer.y + yy;
-				ystart = ystart - 1280;
+				ystart = ystart - yy;
 			}
 		}
 	}

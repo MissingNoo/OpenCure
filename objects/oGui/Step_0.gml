@@ -404,9 +404,9 @@ if(keyboard_check(ord("L"))) {global.server = false; show_message("Client");}
 	if (global.debug) {
 		
 		//if(keyboard_check(ord("Q"))) a -=1;
-		if(keyboard_check(ord("Q"))) a -=0.05;
+		if(keyboard_check_pressed(ord("Q"))) a -=1;
 		//if(keyboard_check(ord("W"))) a +=1;
-		if(keyboard_check(ord("W"))) a += 0.05;
+		if(keyboard_check_pressed(ord("W"))) a += 1;
 		if(keyboard_check(ord("E"))) b -=.05;
 		//if(keyboard_check(ord("E"))) b -=1;
 		if(keyboard_check(ord("R"))) b +=.05;
