@@ -98,6 +98,7 @@ enum Patterns{
 
 function spawnEvent(monster, type, hp, atk, spd, xp, lifetime, quantity){
 //function spawnEvent(monster, quantity, type, hp = 0, spd = 0, xp = 0){
+	if (!global.server) { return; }
 	var enemy = global.enemies[monster];
 	var wallSprOffset = sprite_get_height(enemy[?"sprite"]);
 	var aa, bb;
