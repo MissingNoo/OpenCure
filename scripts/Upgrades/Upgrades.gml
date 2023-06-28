@@ -649,8 +649,8 @@ function populateUpgrades(){
 				maxlevel : 3,
 				sprite : sBombExplosion,
 				thumb : spr_Pipmod_Pippa_Icon_Weapon,
-				mindmg : 2338,
-				maxdmg : 2338,
+				mindmg : (7*333)/100,
+				maxdmg : (13*333)/100,
 				cooldown : [180, 174, 174],
 				duration : 100, 
 				hitCooldown : 10, 
@@ -1064,6 +1064,7 @@ function randomUpgrades(){
 		
 	//global.upgradeOptions[3] = global.null;
 	#endregion
+	//first option
 	 //global.upgradeOptions[0] = PERK_LIST[PerkIds.HeavyArtillery][0];
 	 //global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.PipiPilstol][1];
 }	
@@ -1103,7 +1104,7 @@ function defaultBehaviour(){
 }
 
 function spawnUpgrade(_upg = upg, _speed = upg[$"speed"], _hits = upg[$"hits"], _shoots = shoots, _mindmg = upg[$"mindmg"], _maxdmg = upg[$"maxdmg"], _sprite = upg[$"sprite"]){
-	if (_upg[$"id"] != Weapons.PipiPilstol) { _shoots = 0; }
+	if (_upg[$"id"] != Weapons.PipiPilstol) { _shoots = -1; }
 	var instancecreated = instance_create_layer(owner.x,owner.y-8,"Upgrades",oUpgrade,{
 					upg : _upg,
 					speed : _speed,

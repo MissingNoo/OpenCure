@@ -6,6 +6,18 @@ if (socket == oPlayer.socket) {
 #region Start
 // Feather disable GM2016
 //if (a==0) {	
+speed=upg[$"speed"];
+mindmg = upg[$"mindmg"];
+maxdmg = upg[$"maxdmg"];
+hits=upg[$"hits"];
+if (shoots == 0) {
+    shoots = upg[$"shoots"];
+}
+if (keyboard_check(ord("C")) and upg != UPGRADES[0]) {show_message(upg[$"shoots"]);show_message(shoots)};
+sprite_index=upg[$"sprite"];
+
+
+
 	var randomEnemy;
 	if (upg[$"perk"] and global.ShopUpgrades.Growth.level == 1) {
 	    for (var i = 0; i < global.level; ++i) {
@@ -17,7 +29,7 @@ if (socket == oPlayer.socket) {
 	alarm[1] = upg[$"duration"];
 	image_speed=1;
 	image_alpha=1;		
-	a=1;
+	//a=1;
 	//if (shoots > 0) {
 	//    show_debug_message("Spawned: " + string(upg[$"id"]) + " Name: " + upg[$"name"] + " Level: " + string(upg[$"level"]) + " shoots: " + string(shoots) + " cooldown: " + string(upg[$"cooldown"]) );
 	//}
