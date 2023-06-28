@@ -195,3 +195,8 @@ function healPlayer(amount){
 		HP += amount;
 	}
 }
+	
+function propDraw(){
+	var alpha = oPlayer.y < y and distance_to_object(oPlayer) < sprite_get_height(sprite_index)/2 and distance_to_object(oPlayer) < sprite_get_width(sprite_index)/2 ? 0.35 : 1
+	draw_sprite_ext(sprite_index, 0, x, y, 1, 1, 0, c_white, alpha);
+}

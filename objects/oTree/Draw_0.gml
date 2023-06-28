@@ -1,5 +1,5 @@
 //var alpha = 1;
-//if (distance_to_object(oPlayer) < 100) {
+//if (distance_to_object(oPlayer) < 200) {
 //    if (oPlayer.y < y) {
 //	    alpha = .35;
 //	}

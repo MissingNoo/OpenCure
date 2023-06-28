@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "oDeadTree",
+  "name": "oTree",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,},
   ],
@@ -31,8 +31,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "sDeadTree",
-    "path": "sprites/sDeadTree/sDeadTree.yy",
+    "name": "Sprite201",
+    "path": "sprites/Sprite201/Sprite201.yy",
   },
   "spriteMaskId": null,
   "visible": true,

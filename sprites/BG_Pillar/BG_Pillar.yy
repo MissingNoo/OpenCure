@@ -23,7 +23,7 @@
     {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"ea932e5e-f12a-4b78-be6c-7cf85fb10dbc","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
-  "origin": 7,
+  "origin": 9,
   "parent": {
     "name": "Maps",
     "path": "folders/Sprites/Maps.yy",
@@ -60,7 +60,7 @@
     "visibleRange": null,
     "volume": 1.0,
     "xorigin": 14,
-    "yorigin": 45,
+    "yorigin": 38,
   },
   "swatchColours": null,
   "swfPrecision": 2.525,
