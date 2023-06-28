@@ -40,29 +40,6 @@ function create_perk(_data){
 	}
 }
 
-
-	function acreate_perk(_id, _name, _level, _maxLevel, _weight, _sprite, _cooldown, _desc, _character)
-	{
-		PERK_LIST[_id][_level]={};
-		var item = PERK_LIST[_id][_level];
-		variable_struct_set(item, "id", _id);
-		variable_struct_set(item, "name", _name);
-		variable_struct_set(item, "level", _level);
-		variable_struct_set(item, "maxlevel", _maxLevel);
-		variable_struct_set(item, "weight", _weight);
-		variable_struct_set(item, "thumb", _sprite);
-		variable_struct_set(item, "cooldown", _cooldown);
-		variable_struct_set(item, "desc", _desc);
-		variable_struct_set(item, "characterid", _character);
-		variable_struct_set(item, "perk", 1);
-		variable_struct_set(item, "style", ItemTypes.Perk);		
-		variable_struct_set(item, "bonus", _bonus);
-		variable_struct_set(item, "bonusid", _bonusid);
-		
-		variable_struct_set(item, "style", ItemTypes.Perk);		
-		global.perkCooldown[_id] = _cooldown;
-	}
-
 	enum PerkIds
 	{
 		//Amelia
@@ -75,7 +52,8 @@ function create_perk(_data){
 		//Modded
 		HeavyArtillery,
 		MoldySoul,
-		SodaFueled
+		SodaFueled,
+		lenght
 	}
 #endregion
 function populate_perks(){
@@ -93,7 +71,7 @@ function populate_perks(){
 						characterid : Characters.Amelia,
 						bonus : true,
 						bonustype : BonusType.Damage,
-						bonus : [1, 1.20, 1.40, 1.60]
+						bonusvalue : [1, 1.20, 1.40, 1.60]
 					});
 					//create_perk(PerkIds.FpsMastery, "FPS Mastery", 0, 3, 1, sFpsMastery, 1, "Do nothing.", Characters.Amelia);
 					//create_perk(PerkIds.FpsMastery, "FPS Mastery", 1, 3, 1, sFpsMastery, 1, "Weapons deal [20%] more damage.", Characters.Amelia);
@@ -112,7 +90,7 @@ function populate_perks(){
 						characterid : Characters.Amelia,
 						bonus : true,
 						bonustype : BonusType.Critical,
-						bonus : [1, 1.10, 1.20, 1.30]
+						bonusvalue : [1, 1.10, 1.20, 1.30]
 					});
 					//create_perk(PerkIds.DetectiveEye, "Detective Eye", 0, 3, 1, sDetectiveEye, 1, "Do nothing.", Characters.Amelia);
 					//create_perk(PerkIds.DetectiveEye, "Detective Eye", 1, 3, 1, sDetectiveEye, 1, "Increases critical hit chance by [10%].", Characters.Amelia);
@@ -150,13 +128,13 @@ function populate_perks(){
 						characterid : Characters.Gura,
 						bonus : true,
 						bonustype : BonusType.Speed,
-						bonus : [1, 1.30, 1.40, 1.50]
+						bonusvalue : [1, 1.30, 1.40, 1.50]
 					});
 					//create_perk(PerkIds.ShortSize, "Short Size", 0, 3, 1, sShortHeight, 1, "Do Nothing.", Characters.Gura);
 					//create_perk(PerkIds.ShortSize, "Short Size", 1, 3, 1, sShortHeight, 1, "Grants a [15%] chance to dodge an attack. After dodging, increase movement speed by [30%] and stay invulnerable for [0.5] second.", Characters.Gura);
 					//create_perk(PerkIds.ShortSize, "Short Size", 2, 3, 1, sShortHeight, 1, "Grants a [25%] chance to dodge an attack. After dodging, increase movement speed by [40%] and stay invulnerable for [0.5] second.", Characters.Gura);
 					//create_perk(PerkIds.ShortSize, "Short Size", 3, 3, 1, sShortHeight, 1, "Grants a [35%] chance to dodge an attack. After dodging, increase movement speed by [50%] and stay invulnerable for [0.5] second.", Characters.Gura);
-					PerkBonuses[BonusType.Speed][PerkIds.ShortSize] = 0;
+
 				#endregion
 				
 				#region PowerofAtlantis
@@ -251,10 +229,13 @@ function populate_perks(){
 function tick_perks()
 {
 	for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
+		if (keyboard_check(ord("A"))) {
+		    show_message(PerkBonuses);
+		}
 		if (PLAYER_PERKS[i][$"level"] != 0 and global.perkCooldown[PLAYER_PERKS[i][$"id"]] <= 0) {
 			defaultPerkBehaviour(PLAYER_PERKS[i][$"id"], PLAYER_PERKS[i][$"cooldown"]);
 			if (variable_struct_exists(PLAYER_PERKS[i], "bonus")) {
-				PerkBonuses[PLAYER_PERKS[i][$"bonustype"]][PLAYER_PERKS[i][$"id"]] = PLAYER_PERKS[i][$"bonus"];
+				PerkBonuses[PLAYER_PERKS[i][$"bonustype"]][PLAYER_PERKS[i][$"id"]] = PLAYER_PERKS[i][$"bonusvalue"];
 			}
 			if (variable_struct_exists(PLAYER_PERKS[i], "upgrade")) {
 				instance_create_layer(x,y-8,"Upgrades",oUpgrade,{upg : global.upgradesAvaliable[PLAYER_PERKS[i][$"upgradeid"]][PLAYER_PERKS[i][$"level"]]});
