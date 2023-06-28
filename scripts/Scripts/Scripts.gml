@@ -37,28 +37,28 @@ function PauseGame(){
 		else if (global.gamePaused and !ANVIL and !global.upgrade) {
 		    global.gamePaused = false;
 		}
-		
-		if(global.gamePaused)
-		{	
-				with(all)
-				{
-					if (speed != 0 and image_speed != 0) {
-						for (var i = 0; i < 12; i++)
-						{
-							if (alarm_get(i) > 0) {
-							    setalarms[i] = true;
-							}else {setalarms[i] = false;}
-							alarms[i] = alarm_get(i);
-							alarm_set(i,-1);
+		if (global.server) {
+			if(global.gamePaused)
+			{	
+					with(all)
+					{
+						if (speed != 0 and image_speed != 0) {
+							for (var i = 0; i < 12; i++)
+							{
+								if (alarm_get(i) > 0) {
+								    setalarms[i] = true;
+								}else {setalarms[i] = false;}
+								alarms[i] = alarm_get(i);
+								alarm_set(i,-1);
+							}
+							pausedSpeed = speed;
+							speed = 0;
+							gamePausedImageSpeed = image_speed;		
+							image_speed=0;
 						}
-						pausedSpeed = speed;
-						speed = 0;
-						gamePausedImageSpeed = image_speed;		
-						image_speed=0;
 					}
-				}
-		}
-		else
+			}
+			else
 		{
 				with(all)
 				{	
@@ -75,6 +75,7 @@ function PauseGame(){
 					    image_speed=gamePausedImageSpeed;
 					}					
 				}
+		}
 		}
 }		
 	

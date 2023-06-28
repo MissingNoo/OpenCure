@@ -57,7 +57,7 @@ function initializePlayer(_p){
 	#region reset perk bonuses
 		PerkBonuses = array_create(BonusType.lenght);
 		for (var i = 0; i < array_length(PerkBonuses); ++i) {
-			PerkBonuses[i]=array_create(PerkIds.lenght, 1);
+			PerkBonuses[i]=array_create(PerkIds.lenght, 0);
 			//if (is_array(PerkBonuses[i])) {
 			//    for (var j = 0; j < array_length(PerkBonuses[i]); ++j) {
 			//		PerkBonuses[i][j]=0;

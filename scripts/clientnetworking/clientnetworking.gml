@@ -42,14 +42,14 @@ function clientReceivedPacket(_buffer)
 				
 			case Network.DestroyUpgrade:{
 				var _id = buffer_read(_buffer, buffer_u16);
-				var total = instance_number(oUpgrade);
+				var total = instance_number(oSlaveUpgrade);
 				for (var i = 0; i < total; ++i) {
-					var ftotal = instance_number(oUpgrade);
+					var ftotal = instance_number(oSlaveUpgrade);
 					if (ftotal != total) {
 					    i = 0;
 						total = ftotal;
 					}
-				    var inst = instance_find(oUpgrade, i);
+				    var inst = instance_find(oSlaveUpgrade, i);
 					if (inst.upgID == _id) {
 						//show_message("destroyed");
 					    instance_destroy(inst);
@@ -67,12 +67,12 @@ function clientReceivedPacket(_buffer)
 				var _angle = buffer_read(_buffer, buffer_u16);
 				var total = instance_number(oUpgrade);
 				for (var i = 0; i < total; ++i) {
-					var ftotal = instance_number(oUpgrade);
+					var ftotal = instance_number(oSlaveUpgrade);
 					if (ftotal != total) {
 					    i = 0;
 						total = ftotal;
 					}
-				    var inst = instance_find(oUpgrade, i);
+				    var inst = instance_find(oSlaveUpgrade, i);
 					if (inst.upgID == _id) {
 						//show_message("destroyed");
 					    inst.x = _x;
@@ -107,7 +107,7 @@ function clientReceivedPacket(_buffer)
 					//show_message(upgvars[$"upg"]);
 					//show_debug_message(upgvars[]);
 					var upgvarnames = variable_struct_get_names(upgvars)
-					var _upg = instance_create_layer(_x, _y, "Instances", oUpgrade);
+					var _upg = instance_create_layer(_x, _y, "Instances", oSlaveUpgrade);
 					for (var i = 0; i < variable_struct_names_count(upgvars); ++i) {
 						if (upgvarnames[i] != "id") {
 							variable_instance_set(_upg, upgvarnames[i], variable_struct_get(upgvars, upgvarnames[i]));

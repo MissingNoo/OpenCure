@@ -455,6 +455,7 @@
     {"id":{"name":"spr_Pipmod_Pippa_Soda","path":"sprites/spr_Pipmod_Pippa_Soda/spr_Pipmod_Pippa_Soda.yy",},},
     {"id":{"name":"snd_woosh2","path":"sounds/snd_woosh2/snd_woosh2.yy",},},
     {"id":{"name":"input_xy","path":"scripts/input_xy/input_xy.yy",},},
+    {"id":{"name":"oSlaveUpgrade","path":"objects/oSlaveUpgrade/oSlaveUpgrade.yy",},},
     {"id":{"name":"input_icons_keyboard_and_mouse","path":"scripts/input_icons_keyboard_and_mouse/input_icons_keyboard_and_mouse.yy",},},
     {"id":{"name":"input_accessibility_global_toggle_set","path":"scripts/input_accessibility_global_toggle_set/input_accessibility_global_toggle_set.yy",},},
     {"id":{"name":"input_binding_gamepad_get","path":"scripts/input_binding_gamepad_get/input_binding_gamepad_get.yy",},},

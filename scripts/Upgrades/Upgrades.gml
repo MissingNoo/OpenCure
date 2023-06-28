@@ -1113,7 +1113,8 @@ function spawnUpgrade(_upg = upg, _speed = upg[$"speed"], _hits = upg[$"hits"], 
 					mindmg : _mindmg,
 					maxdmg : _maxdmg,
 					sprite_index : _sprite,
-					a : 0
+					a : 0,
+					owner : owner
 				});
 		return instancecreated;
 }
