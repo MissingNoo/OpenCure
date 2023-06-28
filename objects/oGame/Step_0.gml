@@ -33,17 +33,19 @@
 
 #region room limit, TODO: redo all this crap
 if (instance_exists(oPlayer)) {
+	if (keyboard_check_pressed(ord("I"))) { oPlayer.x = 640 - oGui.a; }
+	if (keyboard_check_pressed(ord("O"))) { oPlayer.x = 3170; }
 	var xx;
 	var yy;
 	var px;
 	var py;
 	//yy = oCam.y - oPlayer.y;
 	var insts = [oEnemy, oXP, oAnvil, oBurguer, oUpgrade, oHolocoin];
-    if (oPlayer.x < 1280) {
+    if (oPlayer.x < 610) {
 		xx = oCam.x - oPlayer.x;
 		px = oPlayer.x;
 		py = oPlayer.y;
-	    oPlayer.x = 1280 * 2;
+	    oPlayer.x = 3170;
 		oCam.x = oPlayer.x + xx;
 		for (var i = 0; i < array_length(insts); ++i) {
 		    with (insts[i]) {
@@ -51,15 +53,15 @@ if (instance_exists(oPlayer)) {
 				yy = y - py;
 				x = oPlayer.x + xx;
 				y = oPlayer.y + yy;
-				xstart = xstart + 1280;
+				xstart = xstart + xx;
 			}
 		}
 	}
-	if (oPlayer.x > 1280 * 2) {
+	if (oPlayer.x > 3170) {
 		xx = oCam.x - oPlayer.x;
 		px = oPlayer.x;
 		py = oPlayer.y;
-	    oPlayer.x = 1280;
+	    oPlayer.x = 610;
 		oCam.x = oPlayer.x + xx;
 		for (var i = 0; i < array_length(insts); ++i) {
 		    with (insts[i]) {
@@ -67,7 +69,7 @@ if (instance_exists(oPlayer)) {
 				yy = y - py;
 				x = oPlayer.x + xx;
 				y = oPlayer.y + yy;
-				xstart = xstart - 1280;
+				xstart = xstart - xx;
 				ystart = ystart + yy;
 			}
 		}
