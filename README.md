@@ -1,8 +1,8 @@
 # OpenCure
 Rewrite of Kay Yu's Holocure to make my own mods 
-![menu](https://user-images.githubusercontent.com/14853055/221382735-0a94401e-75ae-4d5e-a455-8d5e7c60e796.png)
-![selec](https://user-images.githubusercontent.com/14853055/221458853-178d0e53-6b87-498a-b969-2d12264aec17.png)
-![game](https://user-images.githubusercontent.com/14853055/221382742-1c13adeb-5a2b-4f5c-ab6d-9a7770dff652.png)
-![levelup](https://user-images.githubusercontent.com/14853055/221382743-d27c7a01-a0f5-4727-8ae7-97cb15b1d910.png)
-![Screenshot_20230225_193755](https://user-images.githubusercontent.com/14853055/221382887-85da0d1a-4cf3-494f-8090-a5e4a668ee0f.png)
-![Screenshot_20230225_195549](https://user-images.githubusercontent.com/14853055/221383470-995379a7-10a7-4aa9-ab6a-ad164e6ab50f.png)
+![1](https://github.com/MissingNoo/OpenCure/assets/14853055/14995f74-6bc2-4b5c-9a32-db0097ee7377)
+![2](https://github.com/MissingNoo/OpenCure/assets/14853055/fc9ff057-fda5-4eb3-bfa3-a25f1286d2e4)
+![3](https://github.com/MissingNoo/OpenCure/assets/14853055/0a46d8f5-cd66-42a2-b8c8-6793b1aa1290)
+![4](https://github.com/MissingNoo/OpenCure/assets/14853055/6dff356b-b233-448f-8084-7f8f2b9641dd)
+![5](https://github.com/MissingNoo/OpenCure/assets/14853055/16fd0d69-2ac3-4fb6-a3a7-4eb17815e8d2)
+![6](https://github.com/MissingNoo/OpenCure/assets/14853055/68b4ea05-d1a1-4176-90e1-a1a9d41e2a38)
