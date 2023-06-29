@@ -91,6 +91,7 @@ sprite_index=upg[$"sprite"];
 			image_alpha = .99;
 			if (instance_exists(oEnemy)) {
 				var enemies = instance_number(oEnemy);
+				if (enemies == 0) { instance_destroy(); }
 				CE = instance_find(oEnemy, irandom_range(0,enemies-1));
 				direction = point_direction(x,y-50.75,CE.x, CE.y);
 				image_angle = point_direction(x,y-50.75,CE.x, CE.y);				
@@ -178,6 +179,7 @@ sprite_index=upg[$"sprite"];
 			if (instance_exists(oEnemy)) {
 				// random_set_seed(current_time * global.upgradeCooldown[0]);
 				var enemies = instance_number(oEnemy);
+				if (enemies == 0) { instance_destroy(); }
 				//var CE = instance_nearest(x,y-50.75,oEnemy);
 				// // randomize;
 				//if (CE != 0) {
@@ -222,6 +224,7 @@ sprite_index=upg[$"sprite"];
 		case Weapons.Glowstick:{
 			if (instance_exists(oEnemy)) {
 				var enemies = instance_number(oEnemy);
+				if (enemies == 0) { instance_destroy(); }
 				CE = instance_find(oEnemy, irandom_range(0,enemies-1));
 				direction = point_direction(x,y,CE.x, CE.y);
 				image_angle = point_direction(x,y,CE.x, CE.y);
@@ -260,6 +263,7 @@ sprite_index=upg[$"sprite"];
 			if (shoots % 2) {
 				sprite_index = spr_Pipmod_Pippa_bullet_rifle_blue;
 				var enemies = instance_number(oEnemy);
+				if (enemies == 0) { instance_destroy(); }
 			    CE = instance_find(oEnemy, irandom_range(0,enemies-1));
 				direction = point_direction(x,y,CE.x, CE.y);
 				image_angle = point_direction(x,y,CE.x, CE.y);
@@ -304,15 +308,17 @@ sprite_index=upg[$"sprite"];
 		//show_message(sendvars);
 		buffer_seek(oClient.clientBuffer, buffer_seek_start, 0);
 		buffer_write(oClient.clientBuffer, buffer_u8, Network.SpawnUpgrade);
-		buffer_write(oClient.clientBuffer, buffer_u8, oPlayer.socket);
+		buffer_write(oClient.clientBuffer, buffer_u8, oClient.connected);
 		buffer_write(oClient.clientBuffer, buffer_u16, x);
 		buffer_write(oClient.clientBuffer, buffer_u16, y);
 		buffer_write(oClient.clientBuffer, buffer_u16, sprite_index);
 		//buffer_write(oClient.clientBuffer, buffer_u16, speed);
 		buffer_write(oClient.clientBuffer, buffer_s16, direction);
 		buffer_write(oClient.clientBuffer, buffer_s16, image_angle);
+		buffer_write(oClient.clientBuffer, buffer_u8, speed);
 		buffer_write(oClient.clientBuffer, buffer_string, sendvars);
 		buffer_write(oClient.clientBuffer, buffer_u8, upg[$"id"]);
+		buffer_write(oClient.clientBuffer, buffer_string, global.roomname);
 		//var sidevars = ["upg", "speed", "hits", "sprite_index", "level", "mindmg", "maxdmg"];
 		//for (var i = 0; i < array_length(sidevars); ++i) {
 		//    buffer_write(oClient.clientBuffer, buffer_s16, variable_instance_get(self, sidevars[i]));

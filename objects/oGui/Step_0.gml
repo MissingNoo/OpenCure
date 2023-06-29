@@ -4,6 +4,7 @@ if (instance_number(oTitleRunning) == 0 and room == rInicio) {
 }
 if (room == rInicio and instance_exists(oClient)) {
     instance_destroy(oClient);
+	global.IsHost = true;
 }
 if (room == Room1 and !instance_exists(oClient)) {
 	instance_create_layer(1895, 1880, "Instances", oClient);
@@ -81,8 +82,9 @@ if (xKey and global.gamePaused) {
 	                room_goto(rCharacterSelect);
 	                break;
 				case "Multiplayer":
-					characterSelected = false;
 					global.server = false;
+					//instance_create_layer(0, 0, "Instances", oClient);
+					characterSelected = false;					
 					selected=0;
 	                room_goto(rCharacterSelect);
 	                break;

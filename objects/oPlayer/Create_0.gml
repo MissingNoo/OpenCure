@@ -1,4 +1,9 @@
 event_inherited();
+if (global.server) {
+	global.roomname = "";
+	global.IsHost = true;
+}
+
 //show_debug_overlay(true);
 global.defeatedEnemies = 0;
 //show_debug_overlay(true);

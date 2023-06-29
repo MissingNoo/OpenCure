@@ -14,7 +14,10 @@ enum Network {
 	HostDisconnected,
 	LobbyConnect,
 	IsHost,
-	StartGame
+	StartGame,
+	CreateRoom,
+	ListRooms,
+	JoinRoom
 }
 function clientReceivedPacket(_buffer)
 {
@@ -59,7 +62,7 @@ function clientReceivedPacket(_buffer)
 			
 			case Network.UpdateUpgrade:{
 				var _owner = buffer_read(_buffer, buffer_u8);
-				if (oPlayer.socket == _owner) { break; }
+				if (instance_exists(oPlayer) and oPlayer.socket == _owner) { break; }
 				var _id = buffer_read(_buffer, buffer_u16);
 				var _x = buffer_read(_buffer, buffer_u16);
 				var _y = buffer_read(_buffer, buffer_u16);
@@ -99,9 +102,10 @@ function clientReceivedPacket(_buffer)
 				//var _spd = buffer_read(_buffer, buffer_u16);
 				var _dir = buffer_read(_buffer, buffer_s16);
 				var _angle = buffer_read(_buffer, buffer_s16);
+				var _speed = buffer_read(_buffer, buffer_u8);
 				var _vars = buffer_read(_buffer, buffer_string);
 				var _upgid = buffer_read(_buffer, buffer_u8);
-				if (_s != oPlayer.socket) {
+				if (_s != oClient.connected) {
 					//show_message(_vars);
 					var upgvars = json_parse(_vars);
 					//show_message(upgvars[$"upg"]);
@@ -117,6 +121,7 @@ function clientReceivedPacket(_buffer)
 					//_upg.speed = _spd;
 					_upg.direction = _dir;
 					_upg.image_angle = _angle;
+					_upg.speed = _speed;
 					_upg.ghost = true;
 					//_upg.upg = global.upgradesAvaliable[_upgid];
 					//var sidevars = ["upg", "speed", "hits", "sprite_index", "level", "mindmg", "maxdmg"];
@@ -150,7 +155,7 @@ function clientReceivedPacket(_buffer)
 				var _x = buffer_read(_buffer, buffer_u16);
 				var _y = buffer_read(_buffer, buffer_u16);
 				var _vars = buffer_read(_buffer, buffer_string);
-				if (_s != oPlayer.socket) {
+				//if (_s != oClient.connected) {
 					var enemyvars = json_parse(_vars);
 					var enemyvarnames = variable_struct_get_names(enemyvars)
 					var _enemy = instance_create_layer(_x, _y, "Instances", oEnemy);
@@ -167,14 +172,13 @@ function clientReceivedPacket(_buffer)
 						}
 					
 					}
-				}
+				//}
 				break;}
 				
 		    case Network.PlayerConnect:{
 				resetTimer();
 				var _socket = buffer_read(_buffer, buffer_u8);
-				var _player = instance_create_layer(playerSpawn[0], playerSpawn[1], "Instances", oPlayer);
-				_player.socket = _socket;
+				instance_create_layer(playerSpawn[0], playerSpawn[1], "Instances", oPlayer, {socket : _socket});
 				break;}
 				
 		    case Network.PlayerJoined:{
@@ -183,11 +187,11 @@ function clientReceivedPacket(_buffer)
 				with (oEnemy) {
 				    instance_destroy();
 				}
-				var _socket = buffer_read(_buffer, buffer_u8);
+				var _sockett = buffer_read(_buffer, buffer_u8);
 				var _slave = instance_create_layer(playerSpawn[0], playerSpawn[1], "Instances", oSlave);
-				ds_map_add(socketToInstanceID, _socket, _slave.id);
+				ds_map_add(socketToInstanceID, _sockett, _slave.id);
 				//show_message(_socket);
-				_slave.socket = _socket;
+				_slave.socket = _sockett;
 				break;}
 				
 			case Network.Message:{
@@ -202,9 +206,14 @@ function clientReceivedPacket(_buffer)
 				var _y = buffer_read(_buffer, buffer_u16);
 				var _spr = buffer_read(_buffer, buffer_u16);
 				var _scale = buffer_read(_buffer, buffer_s8);
+				var _sock = buffer_read(_buffer, buffer_u8);
+			
+				if (!instance_exists(oSlave)) {
+				    instance_create_layer(0,0, "Instances", oSlave,{socket : _sock});
+				}
 			
 				//show_debug_message("S:{0} X: {1} Y:{2}", _s, _x, _y);
-				if (_s != oPlayer.socket and instance_exists(oSlave)) {
+				if (instance_exists(oPlayer) and _sock != oClient.connected and instance_exists(oSlave)) {
 				    oSlave.x = _x;
 					oSlave.y = _y;
 					oSlave.sprite_index = _spr;
@@ -242,6 +251,20 @@ function clientReceivedPacket(_buffer)
 			case Network.StartGame:{
 				room_goto(Room1);
 				break;}
+				
+			case Network.ListRooms:{
+				var _json = buffer_read(_buffer, buffer_string);
+				oLobby.rooms = json_parse(_json);
+				break;
+			}
+			
+			case Network.JoinRoom:{
+				oLobby.roomname = buffer_read(_buffer, buffer_string);
+				oLobby.players = json_parse(buffer_read(_buffer, buffer_string));
+				oLobby.ishost = buffer_read(_buffer, buffer_u8);
+				oLobby.joinedRoom = true;
+				break;
+			}
 		}
 	}
 }
