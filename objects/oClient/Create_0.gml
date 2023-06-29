@@ -17,7 +17,8 @@ client = network_create_socket(network_socket_tcp);
 //if (global.server) {
 try{
 	if (!global.server) {
-		connected = network_connect(client, "opencure.ddns.net", 64198);
+		//connected = network_connect(client, "opencure.ddns.net", 64198);
+		connected = network_connect(client, "140.238.187.191", 64198);
 	}
 	else{
 		connected = 0;

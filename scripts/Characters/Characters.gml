@@ -83,7 +83,7 @@ function initializePlayer(_p){
 
 global.characters=[];
 #macro CHARACTERS global.characters
-function createCharacter(_id, _name, _portrait, _sprite, _runningsprite, _hp, _speed, _atk, _weapon)
+function createCharacter(_id, _name, _portrait, _sprite, _runningsprite, _hp, _speed, _atk, _crt, _ballsize, _weapon)
 {
 	global.characters[_id]=ds_map_create();
 	m = global.characters[_id];
@@ -105,12 +105,12 @@ enum BuffNames{
 }
 
 function populateCharacters(){
-	createCharacter(Characters.Amelia,"Watson Amelia",sAmePortrait,sAmeIdle,sAmeRunning,75,1.35,1.30,u[Weapons.AmePistol]);
-	createCharacter(Characters.Gura,"Gawr Gura",sGuraPortrait,sGuraIdle,sGuraRunning,65,1.40,1.10,u[Weapons.GuraTrident]);
-	createCharacter(Characters.Ina,"Ninomae Ina'nis",sInaPortrait,sInaIdle,sInaRunning,75,1.50,0.90,u[Weapons.InaTentacle]);
+	createCharacter(Characters.Amelia,"Watson Amelia",sAmePortrait,sAmeIdle,sAmeRunning,75,1.35,1.30, 1.10, 3,u[Weapons.AmePistol]);
+	createCharacter(Characters.Gura,"Gawr Gura",sGuraPortrait,sGuraIdle,sGuraRunning,65,1.40,1.10,1.05, 1, u[Weapons.GuraTrident]);
+	createCharacter(Characters.Ina,"Ninomae Ina'nis",sInaPortrait,sInaIdle,sInaRunning,75,1.50,0.90, 1.01, 1,u[Weapons.InaTentacle]);
 	#region Modded
 	#region Pipkin Pippa
-	createCharacter(Characters.Pippa,"Pipkin Pippa",spr_Pipmod_Pippa_Portrait,spr_Pipmod_Pippa_idle,spr_Pipmod_Pippa_run,60,1.50,0.95,u[Weapons.PipiPilstol]);
+	createCharacter(Characters.Pippa,"Pipkin Pippa",spr_Pipmod_Pippa_Portrait,spr_Pipmod_Pippa_idle,spr_Pipmod_Pippa_run,60,1.50,0.95, 1.10, 1,u[Weapons.PipiPilstol]);
 	#endregion
 	#endregion
 	
