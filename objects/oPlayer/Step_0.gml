@@ -1,4 +1,5 @@
 // Feather disable GM2016
+//HP=MAXHP;
 if (keyboard_check_pressed(ord("R"))) {
     instance_create_depth(x,y,depth,oUpgrade,{upg : global.upgradesAvaliable[Weapons.FanBeam][1]});
 }
@@ -41,6 +42,7 @@ if (!global.gamePaused) {
 	buffer_write(oClient.clientBuffer, buffer_u16, y);
 	buffer_write(oClient.clientBuffer, buffer_u16, sprite_index);
 	buffer_write(oClient.clientBuffer, buffer_s8, image_xscale);
+	buffer_write(oClient.clientBuffer, buffer_string, global.roomname);	
 	network_send_packet(oClient.client, oClient.clientBuffer, buffer_tell(oClient.clientBuffer));
 	
 	#region XP Range

@@ -1,20 +1,23 @@
 playerSpawn = [1895, 1880];
-if (global.server) {
-    port = 64198;
-	maxClients = 1;
-	try{
-		//server = network_create_server(network_socket_tcp, port, maxClients);
-	}
-	catch(error){
-		//i don't care bro
-	}
+if (instance_number(oClient) > 1) {
+    instance_destroy();
 }
+//if (global.server) {
+//    port = 64198;
+//	maxClients = 1;
+//	try{
+//		//server = network_create_server(network_socket_tcp, port, maxClients);
+//	}
+//	catch(error){
+//		//i don't care bro
+//	}
+//}
 
 client = network_create_socket(network_socket_tcp);
 //if (global.server) {
 try{
 	if (!global.server) {
-		connected = network_connect(client, "192.168.15.9", 64198);
+		connected = network_connect(client, "opencure.ddns.net", 64198);
 	}
 	else{
 		connected = 0;

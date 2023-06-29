@@ -51,7 +51,7 @@ if (room != rInicio) {
 }
 deathSent = false;
 enemyID = irandom(9999);
-if (oPlayer.socket == 1) {
+if (global.IsHost and !global.server) {
 	vars = variable_instance_get_names(self);
 	savedvars = {};
 	for (var i = 0; i < array_length(vars); ++i) {
@@ -60,10 +60,11 @@ if (oPlayer.socket == 1) {
 	sendvars = json_stringify(savedvars);
 	buffer_seek(oClient.clientBuffer, buffer_seek_start, 0);
 	buffer_write(oClient.clientBuffer, buffer_u8, Network.Spawn);
-	buffer_write(oClient.clientBuffer, buffer_u8, oPlayer.socket);
+	buffer_write(oClient.clientBuffer, buffer_u8, oClient.connected);
 	buffer_write(oClient.clientBuffer, buffer_u16, x);
 	buffer_write(oClient.clientBuffer, buffer_u16, y);
 	buffer_write(oClient.clientBuffer, buffer_string, sendvars);
+	buffer_write(oClient.clientBuffer, buffer_string, global.roomname);
     network_send_packet(oClient.client, oClient.clientBuffer, buffer_tell(oClient.clientBuffer));
 }
 dropxp = true;
