@@ -58,13 +58,13 @@ if (global.IsHost and !global.server) {
 	    variable_struct_set(savedvars, vars[i], variable_instance_get(self, vars[i]));
 	}
 	sendvars = json_stringify(savedvars);
-	buffer_seek(oClient.clientBuffer, buffer_seek_start, 0);
-	buffer_write(oClient.clientBuffer, buffer_u8, Network.Spawn);
-	buffer_write(oClient.clientBuffer, buffer_u8, oClient.connected);
-	buffer_write(oClient.clientBuffer, buffer_u16, x);
-	buffer_write(oClient.clientBuffer, buffer_u16, y);
-	buffer_write(oClient.clientBuffer, buffer_string, sendvars);
-	buffer_write(oClient.clientBuffer, buffer_string, global.roomname);
-    network_send_packet(oClient.client, oClient.clientBuffer, buffer_tell(oClient.clientBuffer));
+	sendMessage({
+		command : Network.Spawn,
+		socket : oClient.connected,
+		x,
+		y,
+		sendvars,
+		
+	});
 }
 dropxp = true;

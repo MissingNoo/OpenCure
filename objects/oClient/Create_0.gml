@@ -1,3 +1,6 @@
+global.serverip = "127.0.0.1";
+//global.serverip = "140.238.187.191";
+global.port = 64198;
 playerSpawn = [1895, 1880];
 if (instance_number(oClient) > 1) {
     instance_destroy();
@@ -13,12 +16,14 @@ if (instance_number(oClient) > 1) {
 //	}
 //}
 
-client = network_create_socket(network_socket_tcp);
+client = network_create_socket(network_socket_udp);
+clientBuffer = buffer_create(4098, buffer_fixed, 1);
 //if (global.server) {
 try{
 	if (!global.server) {
-		//connected = network_connect(client, "opencure.ddns.net", 64198);
-		connected = network_connect(client, "140.238.187.191", 64198);
+		connected = network_connect_raw(client, global.serverip, global.port);
+		//connected = network_connect_raw(client, "opencure.ddns.net", 64198);
+		//connected = network_connect(client, "140.238.187.191", 64198);
 	}
 	else{
 		connected = 0;
@@ -33,7 +38,7 @@ catch(error){
 //}
 
 //show_message_async("Client: " + string(connected));
-clientBuffer = buffer_create(4098, buffer_fixed, 1);
+
 if (room == rLobby) {
     instance_create_depth(x,y,depth,oLobby);
 }

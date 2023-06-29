@@ -1,6 +1,6 @@
-if (instance_number(oEnemy) == 0) {
-    instance_destroy();
-}
+//if (instance_number(oEnemy) == 0) {
+//    instance_destroy();
+//}
 if (socket == oPlayer.socket) {
     owner = instance_nearest(x,y,oPlayer);
 }else{
@@ -263,10 +263,16 @@ sprite_index=upg[$"sprite"];
 			if (shoots % 2) {
 				sprite_index = spr_Pipmod_Pippa_bullet_rifle_blue;
 				var enemies = instance_number(oEnemy);
-				if (enemies == 0) { instance_destroy(); }
 			    CE = instance_find(oEnemy, irandom_range(0,enemies-1));
-				direction = point_direction(x,y,CE.x, CE.y);
-				image_angle = point_direction(x,y,CE.x, CE.y);
+				try{
+					direction = point_direction(x,y,CE.x, CE.y);
+					image_angle = point_direction(x,y,CE.x, CE.y);
+				}
+				catch (err){
+					direction = point_direction(x,y, 0, 0);
+					image_angle = point_direction(x,y, 0, 0);
+				}
+				
 			}
 			break;
 		}
@@ -306,19 +312,22 @@ sprite_index=upg[$"sprite"];
 		}
 		sendvars = json_stringify(savedvars);
 		//show_message(sendvars);
-		buffer_seek(oClient.clientBuffer, buffer_seek_start, 0);
-		buffer_write(oClient.clientBuffer, buffer_u8, Network.SpawnUpgrade);
-		buffer_write(oClient.clientBuffer, buffer_u8, oClient.connected);
-		buffer_write(oClient.clientBuffer, buffer_u16, x);
-		buffer_write(oClient.clientBuffer, buffer_u16, y);
-		buffer_write(oClient.clientBuffer, buffer_u16, sprite_index);
-		//buffer_write(oClient.clientBuffer, buffer_u16, speed);
-		buffer_write(oClient.clientBuffer, buffer_s16, direction);
-		buffer_write(oClient.clientBuffer, buffer_s16, image_angle);
-		buffer_write(oClient.clientBuffer, buffer_u8, speed);
-		buffer_write(oClient.clientBuffer, buffer_string, sendvars);
-		buffer_write(oClient.clientBuffer, buffer_u8, upg[$"id"]);
-		buffer_write(oClient.clientBuffer, buffer_string, global.roomname);
+		if (!variable_instance_exists(self, "sent")) {
+			sendMessage({
+				command : Network.SpawnUpgrade,
+				socket : oClient.connected,
+				x,
+				y,
+				sprite_index,
+				direction,
+				image_angle,
+				//speed,
+				//sendvars,
+				//upg : upg[$"id"],
+				upgID,
+				
+			});
+		}
 		//var sidevars = ["upg", "speed", "hits", "sprite_index", "level", "mindmg", "maxdmg"];
 		//for (var i = 0; i < array_length(sidevars); ++i) {
 		//    buffer_write(oClient.clientBuffer, buffer_s16, variable_instance_get(self, sidevars[i]));
@@ -326,10 +335,6 @@ sprite_index=upg[$"sprite"];
 		//if (global.debug) {
 		//    show_message(sendvars);
 		//}
-
-		if (!variable_instance_exists(self, "sent")) {
-		    network_send_packet(oClient.client, oClient.clientBuffer, buffer_tell(oClient.clientBuffer));
-		}
 	}	
 }
 
