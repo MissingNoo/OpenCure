@@ -13,6 +13,7 @@ if (!joinedRoom) {
 
 if (joinedRoom) {
 	draw_text(20, display_get_gui_height() - 50, "Z to start game");
+	draw_text(20, display_get_gui_height() - 10, players);
     draw_set_color(c_white);
 	draw_text(200,50,"Connection: " + string(ishost));
 	//draw_text(10,100, players);

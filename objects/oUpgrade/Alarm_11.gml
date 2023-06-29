@@ -320,7 +320,7 @@
 //		//}
 
 //		if (!variable_instance_exists(self, "sent")) {
-//		    network_send_packet(oClient.client, oClient.clientBuffer, buffer_tell(oClient.clientBuffer));
+//		    network_send_udp_raw(oClient.client, global.serverip, global.port, oClient.clientBuffer, buffer_tell(oClient.clientBuffer));
 //		}
 //	}	
 ////}

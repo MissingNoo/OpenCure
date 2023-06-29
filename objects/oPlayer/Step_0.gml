@@ -34,16 +34,15 @@ if (!global.gamePaused) {
 	    layer_sequence_y(global.lastsequence, oPlayer.y);
 	}
 	
-	
-	buffer_seek(oClient.clientBuffer, buffer_seek_start, 0);
-	buffer_write(oClient.clientBuffer, buffer_u8, Network.Move);
-	buffer_write(oClient.clientBuffer, buffer_u8, socket);
-	buffer_write(oClient.clientBuffer, buffer_u16, x);
-	buffer_write(oClient.clientBuffer, buffer_u16, y);
-	buffer_write(oClient.clientBuffer, buffer_u16, sprite_index);
-	buffer_write(oClient.clientBuffer, buffer_s8, image_xscale);
-	buffer_write(oClient.clientBuffer, buffer_string, global.roomname);	
-	network_send_packet(oClient.client, oClient.clientBuffer, buffer_tell(oClient.clientBuffer));
+	sendMessage({
+		command : Network.Move,
+		socket : socket,
+		x : x,
+		y : y, 
+		image_xscale : image_xscale,
+		sprite : sprite_index,
+		
+	});
 	
 	#region XP Range
 		inRange = collision_circle(x,y-16,pickupRadius, oXP, false, true);

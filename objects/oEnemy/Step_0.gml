@@ -38,11 +38,10 @@ if(global.gamePaused == false and instance_exists(target)){
 	if (hp<=0) {
 		if (!deathSent) {
 		    deathSent = true;
-			buffer_seek(oClient.clientBuffer, buffer_seek_start, 0);
-			buffer_write(oClient.clientBuffer, buffer_u8, Network.Destroy);
-			buffer_write(oClient.clientBuffer, buffer_u16, enemyID);
-			buffer_write(oClient.clientBuffer, buffer_string, global.roomname);
-			network_send_packet(oClient.client, oClient.clientBuffer, buffer_tell(oClient.clientBuffer));
+			sendMessage({
+				command : Network.Destroy,
+				enemyID				
+			});
 		}
 		
 		image_alpha-=.05;

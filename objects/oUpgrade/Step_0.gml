@@ -70,7 +70,20 @@ if (!global.gamePaused) {
 if (hits <= 0 and upg[$"id"] != Weapons.Glowstick) {
 	image_alpha=0;
 }
+
 //if (socket == oPlayer.socket) {
+sendMessage({
+	command : Network.UpdateUpgrade,
+	socket,
+	upgID,
+	sprite_index,
+	direction,
+	x,
+	y,
+	image_alpha,
+	image_angle,
+	
+});
 //	buffer_seek(oClient.clientBuffer, buffer_seek_start, 0);
 //	buffer_write(oClient.clientBuffer, buffer_u8, Network.UpdateUpgrade);
 //	buffer_write(oClient.clientBuffer, buffer_u8, oPlayer.socket);
@@ -79,5 +92,5 @@ if (hits <= 0 and upg[$"id"] != Weapons.Glowstick) {
 //	buffer_write(oClient.clientBuffer, buffer_u16, y);
 //	buffer_write(oClient.clientBuffer, buffer_u16, image_alpha);
 //	buffer_write(oClient.clientBuffer, buffer_u16, image_angle);
-//	network_send_packet(oClient.client, oClient.clientBuffer, buffer_tell(oClient.clientBuffer));
+//	network_send_udp_raw(oClient.client, global.serverip, global.port, oClient.clientBuffer, buffer_tell(oClient.clientBuffer));
 //}
