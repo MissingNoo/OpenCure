@@ -1,5 +1,5 @@
-global.serverip = "127.0.0.1";
-//global.serverip = "140.238.187.191";
+//global.serverip = "127.0.0.1";
+global.serverip = "140.238.187.191";
 global.port = 64198;
 playerSpawn = [1895, 1880];
 if (instance_number(oClient) > 1) {
@@ -22,6 +22,7 @@ clientBuffer = buffer_create(4098, buffer_fixed, 1);
 try{
 	if (!global.server) {
 		connected = network_connect_raw(client, global.serverip, global.port);
+		sendMessage({command : Network.Connection});
 		//connected = network_connect_raw(client, "opencure.ddns.net", 64198);
 		//connected = network_connect(client, "140.238.187.191", 64198);
 	}

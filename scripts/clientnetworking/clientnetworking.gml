@@ -17,7 +17,10 @@ enum Network {
 	StartGame,
 	CreateRoom,
 	ListRooms,
-	JoinRoom
+	JoinRoom,
+	Disconnect,
+	Connection,
+	UpdateRoom,
 }
 function clientReceivedPacket2(_response)
 {
@@ -83,7 +86,7 @@ function clientReceivedPacket2(_response)
 			var _upg = instance_create_layer(r[$"x"], r[$"y"], "Instances", oSlaveUpgrade);
 			_upg.upgID = r[$"upgID"];
 			_upg.sprite_index = r[$"sprite_index"];
-			_upg.direction = r[$"direction"];;
+			_upg.direction = r[$"direction"];
 			_upg.image_angle = r[$"image_angle"];
 			_upg.speed = 0;
 			break;
@@ -149,6 +152,15 @@ function clientReceivedPacket2(_response)
 					    hp = 0;
 					}
 				}
+			}
+			break;
+		}
+		
+		case Network.UpdateRoom:{
+			show_debug_message("updating player list");
+			if (r[$"roomname"] == global.roomname) {
+			    oLobby.players = json_parse(r[$"players"]);
+				oLobby.IsHost = r[$"isHost"];
 			}
 			break;
 		}

@@ -722,6 +722,7 @@
     {"id":{"name":"sBodyPillow","path":"sprites/sBodyPillow/sBodyPillow.yy",},},
     {"id":{"name":"lexicon_locale_set","path":"scripts/lexicon_locale_set/lexicon_locale_set.yy",},},
     {"id":{"name":"input_verb_group_active","path":"scripts/input_verb_group_active/input_verb_group_active.yy",},},
+    {"id":{"name":"sCharacterselected","path":"sprites/sCharacterselected/sCharacterselected.yy",},},
     {"id":{"name":"sInaRunning","path":"sprites/sInaRunning/sInaRunning.yy",},},
     {"id":{"name":"__input_system_tick","path":"scripts/__input_system_tick/__input_system_tick.yy",},},
     {"id":{"name":"input_window_has_focus","path":"scripts/input_window_has_focus/input_window_has_focus.yy",},},

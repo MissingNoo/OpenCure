@@ -618,6 +618,7 @@
     {"name":"__input_ensure_unique_verb_name","order":10,"path":"scripts/__input_ensure_unique_verb_name/__input_ensure_unique_verb_name.yy",},
     {"name":"lexicon_locale_set","order":9,"path":"scripts/lexicon_locale_set/lexicon_locale_set.yy",},
     {"name":"input_verb_group_active","order":3,"path":"scripts/input_verb_group_active/input_verb_group_active.yy",},
+    {"name":"sCharacterselected","order":23,"path":"sprites/sCharacterselected/sCharacterselected.yy",},
     {"name":"sInaRunning","order":2,"path":"sprites/sInaRunning/sInaRunning.yy",},
     {"name":"__input_system_tick","order":3,"path":"scripts/__input_system_tick/__input_system_tick.yy",},
     {"name":"input_window_has_focus","order":5,"path":"scripts/input_window_has_focus/input_window_has_focus.yy",},

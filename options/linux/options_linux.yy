@@ -14,7 +14,7 @@
   "option_linux_long_desc": "",
   "option_linux_maintainer_email": "",
   "option_linux_resize_window": true,
-  "option_linux_scale": 1,
+  "option_linux_scale": 0,
   "option_linux_short_desc": "",
   "option_linux_splash_screen": "${base_options_dir}/linux/splash/splash.png",
   "option_linux_start_fullscreen": false,

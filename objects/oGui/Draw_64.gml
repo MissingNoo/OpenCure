@@ -667,7 +667,7 @@ if (keyboard_check_pressed(ord("M"))) {
 		for (var i = 0; i < array_length(variables); ++i) {
 			if (variable_instance_exists(self,variables[i])) {			
 				draw_set_color(c_red);
-			    draw_text(10,debugy+offset,string(variables[i]) + ": " + string(round(variable_instance_get(self,variables[i]))));
+			    draw_text(10,debugy+offset,string(variables[i]) + ": " + string(variable_instance_get(self,variables[i])));
 				draw_set_color(c_white);
 				offset += 20;
 			}		    

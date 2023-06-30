@@ -1,4 +1,13 @@
 // Feather disable GM1044
+if (device_mouse_check_button_pressed(0, ev_left_button)) {
+    x = device_mouse_x_to_gui(0);
+	y = device_mouse_y_to_gui(0);
+}
+if (device_mouse_check_button_released(0, ev_left_button)) {
+    x = 0;
+	y = 0;
+}
+
 if (instance_number(oTitleRunning) == 0 and room == rInicio) {
     instance_create_layer(0,0, "Instances", oTitleRunning);
 }
