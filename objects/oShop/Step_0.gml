@@ -1,12 +1,12 @@
-var _left = (keyboard_check_pressed(LEFTKEY) or gamepad_button_check_pressed(global.gPnum,gp_padl));
-var _right = (keyboard_check_pressed(RIGHTKEY) or gamepad_button_check_pressed(global.gPnum,gp_padr));
-var _up = (keyboard_check_pressed(UPKEY) or gamepad_button_check_pressed(global.gPnum,gp_padu));
-var _down = (keyboard_check_pressed(DOWNKEY) or gamepad_button_check_pressed(global.gPnum, gp_padd));
-var xKey = keyboard_check_pressed(vk_escape)  or keyboard_check_pressed(ord("X")) or gamepad_button_check_pressed(global.gPnum, gp_face2);
-var zKey;
-if (global.GamePad) {
-    zKey = keyboard_check_pressed(ord("Z")) or gamepad_button_check_pressed(global.gPnum, gp_face1);
-}else{zKey = keyboard_check_pressed(ord("Z"))}
+var _left = input_check_pressed("left");
+var _right = input_check_pressed("right");
+var _up = input_check_pressed("up");
+var _down = input_check_pressed("down");
+var xKey = input_check_pressed("cancel");
+var zKey= input_check_pressed("accept");
+//if (global.GamePad) {
+//    zKey = keyboard_check_pressed(ord("Z")) or gamepad_button_check_pressed(global.gPnum, gp_face1);
+//}else{zKey = keyboard_check_pressed(ord("Z"))}
 if (!interact) {
 	if (xKey) {
 	    room_goto(rInicio);

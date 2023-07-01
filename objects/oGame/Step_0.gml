@@ -1,3 +1,10 @@
+show_debug_message(string(input_profile_get(0)));
+if (input_profile_get(0) == "gamepad") {
+    global.GamePad = true;
+}
+else{
+	global.GamePad = false;
+}
 //if (keyboard_check_pressed(RIGHTKEY) or keyboard_check_pressed(LEFTKEY) or keyboard_check_pressed(UPKEY)  or keyboard_check_pressed(DOWNKEY) or device_mouse_check_button_pressed(0,mb_left)) {
 //	global.GamePad = false;
 //}
