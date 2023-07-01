@@ -68,15 +68,17 @@ downKey = input_check_pressed("down");
 
 if (xKey and global.gamePaused) {
 	if (!editOption) {
-		if (activeMenu != PMenus.Pause) {
+		if (activeMenu != PMenus.Pause and room != rInicio) {
 		    activeMenu = PMenus.Pause;
 		}
 		else{
 			PauseGame();
+			justopened = 0;
 		}
 	}
 	else{
 		editOption = false;
+		justopened = 1;
 	}
 }
 
@@ -327,11 +329,12 @@ if (global.gamePaused and !global.upgrade and !ANVIL) {
 	}
 	
     if (zKey){
-		if (activeMenu == PMenus.Settings) {
+		if (activeMenu == PMenus.Settings and justopened > 0) {
 			if (!pauseMenu[PMenus.Settings][PM.Bool][selected]) {
 				editOption = true;
 			}
 		}
+		justopened += 1;
 		var optionIs = "";
 		for (var i = 1; i < string_length(pauseMenu[activeMenu][PM.Options][selected]); ++i) {
 			if (string_copy(pauseMenu[activeMenu][PM.Options][selected],i,1) == ":") {
