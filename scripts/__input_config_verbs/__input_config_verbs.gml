@@ -13,14 +13,14 @@ return {
     
     keyboard_and_mouse:
     {
-        up:    [input_binding_key(vk_up),    input_binding_key("W")],
-        down:  [input_binding_key(vk_down),  input_binding_key("S")],
-        left:  [input_binding_key(vk_left),  input_binding_key("A")],
-        right: [input_binding_key(vk_right), input_binding_key("D")],
+        up:    [input_binding_key(vk_up)],
+        down:  [input_binding_key(vk_down)],
+        left:  [input_binding_key(vk_left)],
+        right: [input_binding_key(vk_right)],
         
-        accept:  [input_binding_key(vk_space), input_binding_key("Z")],
+        accept:  [input_binding_key(vk_enter), input_binding_key("Z")],
         cancel:  [input_binding_key(vk_backspace), input_binding_key("X")],
-        action:  input_binding_key(vk_enter),
+        action:  input_binding_key(vk_add),
         special: input_binding_key(vk_shift),
         
         //No aiming verbs since we use the mouse for that (see below for aiming verb examples)

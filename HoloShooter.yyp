@@ -676,6 +676,7 @@
     {"id":{"name":"__input_string_contains","path":"scripts/__input_string_contains/__input_string_contains.yy",},},
     {"id":{"name":"input_check_opposing_repeat","path":"scripts/input_check_opposing_repeat/input_check_opposing_repeat.yy",},},
     {"id":{"name":"__lexicon_init","path":"scripts/__lexicon_init/__lexicon_init.yy",},},
+    {"id":{"name":"sLockIcon","path":"sprites/sLockIcon/sLockIcon.yy",},},
     {"id":{"name":"sBLBook","path":"sprites/sBLBook/sBLBook.yy",},},
     {"id":{"name":"input_x","path":"scripts/input_x/input_x.yy",},},
     {"id":{"name":"Sprite201","path":"sprites/Sprite201/Sprite201.yy",},},

@@ -578,6 +578,7 @@
     {"name":"__input_string_contains","order":18,"path":"scripts/__input_string_contains/__input_string_contains.yy",},
     {"name":"input_check_opposing_repeat","order":8,"path":"scripts/input_check_opposing_repeat/input_check_opposing_repeat.yy",},
     {"name":"__lexicon_init","order":9,"path":"scripts/__lexicon_init/__lexicon_init.yy",},
+    {"name":"sLockIcon","order":13,"path":"sprites/sLockIcon/sLockIcon.yy",},
     {"name":"sBLBook","order":9,"path":"sprites/sBLBook/sBLBook.yy",},
     {"name":"input_x","order":3,"path":"scripts/input_x/input_x.yy",},
     {"name":"Sprite201","order":22,"path":"sprites/Sprite201/Sprite201.yy",},

@@ -1,4 +1,4 @@
-show_debug_message(string(input_profile_get(0)));
+//show_debug_message(string(input_profile_get(0)));
 if (input_profile_get(0) == "gamepad") {
     global.GamePad = true;
 }

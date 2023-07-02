@@ -6,7 +6,14 @@ selectedroom = 0;
 sprites=0;
 ishost = 0;
 players = "";
-
+creatingroom = false;
+creatingselected = 0;
+creatingselectedyesno = 1;
+password = "";
+typepassword = false;
+passwordselected = 0;
+passwordselectedyesno = 1;
+global.roomname = "";
 createx1 = GW/54.64;
 createy1 = GH/128;
 createx2 = GW/11.68;	
