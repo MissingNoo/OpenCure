@@ -1,5 +1,3 @@
-/// @description Insert description here
-// You can write your code in this editor
 if (string_length(keyboard_string) > 15)
 {
     keyboard_string = string_copy(keyboard_string, 1, 15);
@@ -79,12 +77,12 @@ if (creatingroom) {
 					command : Network.CreateRoom,
 					password
 				});
-				//sendMessage({
-				//	command : Network.JoinRoom,
-				//	username : global.username,
-				//	character : global.player[?"id"],
-				//	password
-				//});
+				sendMessage({
+					command : Network.JoinRoom,
+					username : global.username,
+					character : global.player[?"id"],
+					password
+				});
 			}
 			
 		}

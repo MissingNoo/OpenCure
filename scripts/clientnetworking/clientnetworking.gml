@@ -21,6 +21,7 @@ enum Network {
 	Disconnect,
 	Connection,
 	UpdateRoom,
+	KeepAlive,
 }
 function clientReceivedPacket2(_response)
 {
