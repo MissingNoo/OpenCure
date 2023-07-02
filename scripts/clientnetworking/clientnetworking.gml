@@ -426,6 +426,7 @@ function clientReceivedPacket(_buffer)
 /// @description             Data to send server
 /// @param {any}     data data to send
 function sendMessage(data){
+	if (!instance_exists(oClient)) { return; }
 	data.roomname = global.roomname;
 	buffer_seek(oClient.clientBuffer, buffer_seek_start, 0);
 	var _json = json_stringify(data);
