@@ -4,6 +4,9 @@ if (string_length(keyboard_string) > 15)
 }
 global.roomname = oLobby.roomname;
 if (!joinedRoom and !creatingroom and !typepassword) {
+	if (input_check_pressed("cancel") or input_check_pressed("pause")) {
+	    room_goto(rInicio);
+	}
 	if (point_in_rectangle(oGui.x, oGui.y, createx1, createy1, createx2, createy2) or keyboard_check_pressed(ord("C"))) {
 		roomname = "";
 		password = "";
@@ -32,7 +35,7 @@ if (!joinedRoom and !creatingroom and !typepassword) {
 				character : global.player[?"id"],			
 			});
 		}
-		else{keyboard_string = ""; passwordselected = 0; typepassword = true; if (os_type == os_android) { keyboard_virtual_show(kbv_type_default, kbv_returnkey_default, kbv_autocapitalize_none, false); }}
+		else{keyboard_string = ""; passwordselected = 0; typepassword = true; }
 	}
 }
 
@@ -43,7 +46,7 @@ if (creatingroom) {
 		    creatingselected++;
 			if (creatingselected == 1) {
 			    keyboard_string = password;
-				if (os_type == os_android) { keyboard_virtual_show(kbv_type_default, kbv_returnkey_default, kbv_autocapitalize_none, false); }
+				
 			}
 		}
 	}
@@ -52,11 +55,11 @@ if (creatingroom) {
 		    creatingselected--;
 			if (creatingselected == 1) {
 			    keyboard_string = password;
-				if (os_type == os_android) { keyboard_virtual_show(kbv_type_default, kbv_returnkey_default, kbv_autocapitalize_none, false); }
+				
 			}
 			if (creatingselected == 0) {
 			    keyboard_string = roomname;
-				if (os_type == os_android) { keyboard_virtual_show(kbv_type_default, kbv_returnkey_default, kbv_autocapitalize_none, false); }
+				
 			}
 		}
 	}
@@ -109,7 +112,7 @@ if (typepassword) {
 		    passwordselected = 0;
 			//if (passwordselected == 0) {
 			keyboard_string = password;
-			if (os_type == os_android) { keyboard_virtual_show(kbv_type_default, kbv_returnkey_default, kbv_autocapitalize_none, false); }
+			
 			//}
 		}
 	}
@@ -163,4 +166,8 @@ if (joinedRoom) {
 		if (ishost and input_check_pressed("accept")) {
 			sendMessage({command : Network.StartGame});
 		}
+}
+	
+if ((os_type == os_android) and input_check_pressed("accept") and (creatingroom and creatingselected != 2) or (typepassword and passwordselected == 0)) {
+    keyboard_virtual_show(kbv_type_default, kbv_returnkey_default, kbv_autocapitalize_none, false);
 }

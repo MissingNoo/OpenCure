@@ -185,11 +185,6 @@ function populateItems(){
 				weight : 2,
 				thumb : sChickenFeather,
 				cooldown : 1,
-				desc : [
-				"Gain [1] revive. When you reach 0 HP, you automatically recover 50% HP and all current targets except bosses will be defeated. ",
-				"Gain [2] revive. When you reach 0 HP, you automatically recover 50% HP and all current targets except bosses will be defeated. ",
-				"Gain [3] revive. When you reach 0 HP, you automatically recover 50% HP and all current targets except bosses will be defeated. ",
-				],
 				perk : false});				
 				Bonuses[BonusType.ChickenFeather] = 0;
 			#endregion
@@ -219,11 +214,7 @@ function populateItems(){
 				maxlevel : 3,
 				weight : 2,
 				thumb : sGWSPill,
-				cooldown : 1,				
-				desc : [
-				"While the Special meter is still charging, increase crit by 15%.", 
-				"While the Special meter is still charging, increase crit by 20%.", 
-				"While the Special meter is still charging, increase crit by 25%."],
+				cooldown : 1,
 				perk : false});
 			#endregion
 			
@@ -235,11 +226,6 @@ function populateItems(){
 				weight : 4,
 				thumb : sJustBandage,
 				cooldown : 1,
-				desc : [
-				"Increase Max HP by 10. After being hit, heal 10% HP every 3 seconds until 80% of the damage taken is recovered (recovers minimum 1 HP).",
-				"Increase Max HP by 20. After being hit, heal 10% HP every 3 seconds until 90% of the damage taken is recovered (recovers minimum 1 HP).",
-				"Increase Max HP by 30. After being hit, heal 10% HP every 3 seconds until 100% of the damage taken is recovered (recovers minimum 1 HP).", 
-				],
 				perk : false});
 			#endregion
 			
@@ -251,11 +237,6 @@ function populateItems(){
 				weight : 4,
 				thumb : sLimiter,
 				cooldown : 1,
-				desc : [
-				"Gain 100% Pick Up Range. ",
-				"Gain 200% Pick Up Range. ",
-				"Gain 300% Pick Up Range. ",				
-				],
 				bonus : [2, 3, 4],
 				perk : false});
 				Bonuses[BonusType.PickupRange][ItemIds.Limiter] = 0;
@@ -269,13 +250,6 @@ function populateItems(){
 				weight : 2,
 				thumb : sSuperChattoTime,
 				cooldown : 1,
-				desc : [
-				"Targets drop 20% more HoloCoins. All HoloCoins are picked automatically.",
-				"Targets drop 40% more HoloCoins. All HoloCoins are picked automatically.",
-				"Targets drop 60% more HoloCoins. All HoloCoins are picked automatically.",
-				"Targets drop 80% more HoloCoins. All HoloCoins are picked automatically.",
-				"Targets drop 100% more HoloCoins. All HoloCoins are picked automatically.",
-				],
 				perk : false,
 				bonus : [1.20, 1.40, 1.60, 1.80, 2]
 			});
@@ -290,11 +264,6 @@ function populateItems(){
 				weight : 2,
 				thumb : sStolenPiggyBank,
 				cooldown : 1,
-				desc : [
-				"Gain 1 coin for every 100px traveled and increase SPD by 20%. However, reduce Pick Up Range by 30%.",
-				"Gain 1 coin for every 75px traveled and increase SPD by 30%. However, reduce Pick Up Range by 30%.",
-				"Gain 1 coin for every 50px traveled and increase SPD by 40%. However, reduce Pick Up Range by 30%.",
-				],
 				perk : false});
 			#endregion
 		
@@ -306,11 +275,6 @@ function populateItems(){
 				weight : 4,
 				thumb : sSake,
 				cooldown : 1,
-				desc : [
-				"Gain 1% crit buff every second up to 10%. If taking damage by a target, lose half the buff. If eating food, +5% crit for 10 seconds.",
-				"Gain 1% crit buff every second up to 15%. If taking damage by a target, lose half the buff. If eating food, +5% crit for 10 seconds.",
-				"Gain 1% crit buff every second up to 20%. If taking damage by a target, lose half the buff. If eating food, +5% crit for 10 seconds.",
-				],
 				perk : false});
 			#endregion
 			
@@ -322,11 +286,6 @@ function populateItems(){
 				weight : 3,
 				thumb : sPlushie,
 				cooldown : 1,
-				desc : [
-				"Delays taken damage. On any hit by a target, take only [30%] of the damage initially, then take the remaining damage gradually.",
-				"Delays taken damage. On any hit by a target, take only [20%] of the damage initially, then take the remaining damage gradually.",
-				"Delays taken damage. On any hit by a target, take only [10%] of the damage initially, then take the remaining damage gradually.",
-				],
 				perk : false});
 			#endregion
 			
@@ -338,11 +297,6 @@ function populateItems(){
 				weight : 4,
 				thumb : sPikiPikiPiman,
 				cooldown : 0.2,
-				desc : [
-				"Gain 15 Max HP. After receiving damage, increase the special meter by 2%. There is a 0.2 second cooldown.",
-				"Gain 20 Max HP. After receiving damage, increase the special meter by 3%. There is a 0.2 second cooldown.",
-				"Gain 25 Max HP. After receiving damage, increase the special meter by 4%. There is a 0.2 second cooldown.",
-				],
 				bonus : [15, 20, 25],
 				bonusPercentage : [2, 3, 4],
 				perk : false});
@@ -356,11 +310,6 @@ function populateItems(){
 				weight : 3,
 				thumb : sMembership,
 				cooldown : 1,
-				desc : [
-				"Lose 3 Holo Coins per second. If Holo Coins is more than 0, increase damage by 30% and take 10% less damage.",
-				"Lose 3 Holo Coins per second. If Holo Coins is more than 0, increase damage by 40% and take 18% less damage.",
-				"Lose 3 Holo Coins per second. If Holo Coins is more than 0, increase damage by 50% and take 25% less damage.",
-				],
 				bonusATK : [1.30, 1.40, 1.50],
 				bonusLessDamage : [0.90, 0.82, 0.75],
 				perk : false});
@@ -373,14 +322,7 @@ function populateItems(){
 				maxlevel : 5,
 				weight : 3,
 				thumb : sHalu,
-				cooldown : 1,				
-				desc : [
-				"Increase regular fan spawns, and fans become 5% stronger. Gain 1 HoloCoin for every 5 targets defeated since taking this item.",
-				"Increase regular fan spawns more, and fans become 15% stronger. Gain 1 HoloCoin for every 4 targets defeated since taking this item.",
-				"Increase regular fan spawns further, and fans become 25% stronger. Gain 1 HoloCoin for every 3 targets defeated since taking this item.",
-				"Increase regular fan spawns even further beyond, and fans become 33% stronger. Are you sure about this?",
-				"Don't do it. ",
-				],
+				cooldown : 1,
 				perk : false});
 				/*
 				Each upgrade adds 2 to the enemy spawn rate, resulting in an increase in the effective spawn rate of new enemies by between 15% to 70% of the base spawn rate at most times, depending on how long the player is into the game. Each upgrade also buffs the HP, ATK, and SPD of each enemy by 10%/15%/20%/25%/30% (incorrect tooltip), depending on the upgrade level. When Halu is selected or upgraded, the buff is immediately applied to future spawns and all enemies on screen that have not been damaged.
@@ -396,13 +338,6 @@ function populateItems(){
 					weight : 1,
 					thumb : sIdolCostume,
 					cooldown : 1,
-					
-					desc : [
-					"Reduce Special cooldown by 20%.", 
-					"Reduce Special cooldown by 25%.",
-					"Reduce Special cooldown by 30%.",
-					"Reduce Special cooldown by 35%.",
-					"Reduce Special cooldown by 40%.",],
 					perk : false,
 					SpecialCooldown: [.20, .25, .30, .35, .40],
 				}
@@ -417,11 +352,6 @@ function populateItems(){
 				weight : 3,
 				thumb : sEnergyDrink,
 				cooldown : 1,
-				desc : [
-				"Increase Haste by [10%] and SPD by [30%], but reduce Max HP by [20%] as well.",
-				"Increase Haste by [15%] and SPD by [40%], but reduce Max HP by [20%] as well.",
-				"Increase Haste by [20%] and SPD by [50%], but reduce Max HP by [20%] as well.",
-				],
 				perk : false});				
 				Bonuses[BonusType.Haste][ItemIds.Energy_Drink] = 0;
 				Bonuses[BonusType.Speed][ItemIds.Energy_Drink] = 0;
@@ -436,9 +366,6 @@ function populateItems(){
 				weight : 1,
 				thumb : sFaceMask,
 				cooldown : 1,
-				desc : [
-				"Increase ATK by [50%] and Haste by [10%]. Take [30%] more damage."
-				],
 				perk : false});
 				Bonuses[BonusType.Damage][ItemIds.Face_Mask] = 0;
 				Bonuses[BonusType.Haste][ItemIds.Face_Mask] = 0;
@@ -453,9 +380,6 @@ function populateItems(){
 				weight : 1,
 				thumb : sFullMeal,
 				cooldown : 1,
-				desc : [
-				"All healing is doubled."
-				],
 				perk : false});
 				Bonuses[BonusType.Healing][ItemIds.Full_Meal] = 1;
 			#endregion
@@ -467,12 +391,7 @@ function populateItems(){
 				maxlevel : 3,
 				weight : 3,
 				thumb : sGorillaPaw,
-				cooldown : 1,
-				desc : [
-				"Increase normal attack damage by [30%], but lose [20%] critical chance.",
-				"Increase normal attack damage by [40%], but lose [20%] critical chance.",
-				"Increase normal attack damage by [50%], but lose [20%] critical chance.",
-				],
+				cooldown : 1,				
 				perk : false,
 				damageBonus : [1.30, 1.40, 1.50],
 				loseCritical : 0.80,
@@ -490,14 +409,6 @@ function populateItems(){
 				weight : 4,
 				thumb : sHeadPhones,
 				cooldown : 1,
-				
-				desc : [
-				"[15%] chance to negate [1] hit, and create a shockwave that knocks back all targets.", 
-				"[20%] chance to negate [1] hit, and create a shockwave that knocks back all targets.", 
-				"[25%] chance to negate [1] hit, and create a shockwave that knocks back all targets.", 
-				"[30%] chance to negate [1] hit, and create a shockwave that knocks back all targets.", 
-				"[35%] chance to negate [1] hit, and create a shockwave that knocks back all targets.", 
-				],
 				perk : false,
 				dodgeChance: [15, 20, 25, 30, 35]
 			});
@@ -511,11 +422,6 @@ function populateItems(){
 				weight : 2,
 				thumb : sInjectionAsacoco,
 				cooldown : 1,
-				desc : [
-				"Lose [5%] HP every second (until 1 HP remains), but gain [40%] damage.",
-				"Lose [5%] HP every second (until 1 HP remains), but gain [60%] damage.",
-				"Lose [5%] HP every second (until 1 HP remains), but gain [80%] damage.",
-				],
 				perk : false,
 				bonus : [1.40, 1.60, 1.80],
 			});
@@ -530,11 +436,6 @@ function populateItems(){
 				weight : 1,
 				thumb : sKnightlyMilk,
 				cooldown : 1,
-				desc : [
-				"Increases attack size of weapons by [10%]. Also increase Pick Up Range by [30%].",
-				"Increases attack size of weapons by [15%]. Also increase Pick Up Range by [40%].",
-				"Increases attack size of weapons by [20%]. Also increase Pick Up Range by [50%].",
-				],
 				perk : false,
 				weaponSize : [1.10, 1.15, 1.20],
 				pickupRange : [1.30, 1.40, 1.50],
@@ -551,11 +452,6 @@ function populateItems(){
 				weight : 3,
 				thumb : sNurseHorn,
 				cooldown : 1,
-				desc : [
-				"When a target is defeated, there is a [30%] chance to heal for [2 HP].",
-				"When a target is defeated, there is a [30%] chance to heal for [4 HP].",
-				"When a target is defeated, there is a [30%] chance to heal for [6 HP].",
-				],
 				perk : false});
 			#endregion		
 			
@@ -568,14 +464,6 @@ function populateItems(){
 				weight : 3,
 				thumb : sStudyGlasses,
 				cooldown : 1,
-				
-				desc : [
-				"Increase EXP gain by [10%].", 
-				"Increase EXP gain by [15%].",
-				"Increase EXP gain by [20%].",
-				"Increase EXP gain by [25%].",
-				"Increase EXP gain by [30%].",
-				],
 				perk : false,
 				XPBonus: [1.10, 1.15, 1.20, 1.25, 1.30]
 			}
@@ -591,13 +479,6 @@ function populateItems(){
 				weight : 4,
 				thumb : sUberSheep,
 				cooldown : [10, 9, 8, 7, 6],
-				desc : [
-				"Every [10] seconds, food will drop close by. Also increase food drop chance from defeated targets by [10%].",
-				"Every [9] seconds, food will drop close by. Also increase food drop chance from defeated targets by [10%].",
-				"Every [8] seconds, food will drop close by. Also increase food drop chance from defeated targets by [10%].",
-				"Every [7] seconds, food will drop close by. Also increase food drop chance from defeated targets by [10%].",
-				"Every [6] seconds, food will drop close by. Also increase food drop chance from defeated targets by [10%].",
-				],
 				perk : false,
 				bonus : [1.10, 1.12, 1.15, 1.18, 1.20],
 			});

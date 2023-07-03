@@ -95,4 +95,3 @@ global.arrowDir=0;
 //show_message(string(global.upgradesAvaliable[Weapons.AmePistol][1][?"name"]));
 
 
-

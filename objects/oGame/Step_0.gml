@@ -126,10 +126,10 @@ if (shake_magnitude > 0)
 {
 	shake_magnitude -= 0.2;
 }
-var pressed;
-if (global.GamePad) {
-    pressed = (keyboard_check(ord("Z")) or gamepad_button_check(global.gPnum, gp_face1) and !global.gamePaused) ? true : false
-}else{ pressed = (keyboard_check(ord("Z")) and !global.gamePaused) ? true : false}
+var pressed = (input_check("accept") and !global.gamePaused) ? true : false;
+//if (global.GamePad) {
+    //pressed = (input_check("accept") and !global.gamePaused) ? true : false
+//}else{ pressed = (keyboard_check(ord("Z")) and !global.gamePaused) ? true : false}
 	
 	global.strafe = pressed;
 #region Spawn

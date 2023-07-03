@@ -1,6 +1,6 @@
 // Feather disable GM1044
 if (input_check_pressed("pause") and !global.upgrade and !ANVIL) {
-	if (global.gamePaused and room == rInicio ) {
+	if (global.gamePaused and room == rInicio) {
 	    PauseGame();
 	}
 	
@@ -11,7 +11,7 @@ if (input_check_pressed("pause") and !global.upgrade and !ANVIL) {
 		case rShop:
 			break;
 	    default:
-	        if (room != rInicio) {
+	        if (room != rInicio and room != rLobby) {
 			    PauseGame();
 			}
 	        break;

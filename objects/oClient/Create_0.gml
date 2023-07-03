@@ -1,5 +1,5 @@
-global.serverip = "192.168.15.9";
-//global.serverip = "140.238.187.191";
+//global.serverip = "192.168.15.9";
+global.serverip = "140.238.187.191";
 global.port = 64198;
 playerSpawn = [1895, 1880];
 if (instance_number(oClient) > 1) {
