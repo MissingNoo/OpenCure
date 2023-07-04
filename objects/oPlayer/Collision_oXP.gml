@@ -13,4 +13,10 @@ for (var i = 0; i < global.ShopUpgrades[$ "ExpGain"][$ "level"]; ++i) {
 	newxp = newxp + ((newxp * 4) / 100);
 }
 
-global.xp += newxp;
+if (!global.singleplayer and global.shareXP) {
+	sendMessage({command : Network.ShareXP, xp : newxp / 2})
+	global.xp += newxp / 2;
+}
+else{
+	global.xp += newxp;
+}

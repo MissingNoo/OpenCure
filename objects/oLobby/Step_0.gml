@@ -77,7 +77,7 @@ if (creatingroom) {
 		    if (creatingselectedyesno == 0) {
 			    creatingroom = false;
 			}
-		    if (creatingselectedyesno == 1) {
+		    if (creatingselectedyesno == 1 and roomname != "") {
 				creatingroom = false;
 			    sendMessage({
 					command : Network.CreateRoom,

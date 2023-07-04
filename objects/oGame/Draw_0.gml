@@ -1,4 +1,4 @@
-if (room == rInicio) {
+if (room == rInicio or room == rLobby) {
 	#region Lines
 		var linesoff = 0;
 		if (alarm_get(0) == -1) {

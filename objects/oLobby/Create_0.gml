@@ -23,7 +23,7 @@ joinx1 = GW/11.02;
 joinx2 = GW/6.80;
 
 #region options
-shareXp = true;
+shareXP = true;
 shareItems = false;
 pauseGame = false;
 shareAnvils = false;
@@ -33,7 +33,7 @@ allowHalu = false;
 allowGrank = false;
 scaleMobs = false;
 options = [
-["Share XP", "shareXp"],
+["Share XP", "shareXP"],
 ["Share Items", "shareItems"],
 ["Share Anvils", "shareAnvils"],
 ["Share Stamps", "shareStamps"],

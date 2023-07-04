@@ -63,8 +63,7 @@ if (global.IsHost and !global.singleplayer) {
 		socket : oClient.connected,
 		x,
 		y,
-		sendvars,
-		
+		sendvars,		
 	});
 }
 dropxp = true;

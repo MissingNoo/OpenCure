@@ -46,6 +46,9 @@ function clientReceivedPacket2(_response)
 		}
 		
 		case Network.StartGame:{
+			for (var i = 0; i < array_length(oLobby.options); ++i) {
+				variable_global_set(oLobby.options[i][1], variable_instance_get(oLobby, oLobby.options[i][1]));
+			}
 			room_goto(Room1);
 			break;}
 			
@@ -149,9 +152,15 @@ function clientReceivedPacket2(_response)
 				break;}
 		
 		case Network.Destroy:{
+			//show_debug_message(string(r[$"owner"]) + ":" + string(oSlave.socket))
+			//var candrop = true;
+			//if (r[$"owner"] == oSlave.socket and global.shareXP) {
+			//    candrop = false;
+			//}
 			if (instance_exists(oEnemy)) {
 			    with (oEnemy) {
 				    if (enemyID == r[$"enemyID"]) {
+						//dropxp = candrop;
 					    hp = 0;
 					}
 				}
