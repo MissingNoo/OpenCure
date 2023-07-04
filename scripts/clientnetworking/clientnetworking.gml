@@ -188,7 +188,7 @@ function clientReceivedPacket2(_response)
 }
 function clientReceivedPacket(_buffer)
 {
-	if (!global.multiplayer) {
+	if (!global.singleplayer) {
 		var msgid = buffer_read(_buffer, buffer_u8);
 	
 		switch (msgid) {

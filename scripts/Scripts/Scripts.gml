@@ -37,7 +37,7 @@ function PauseGame(){
 		else if (global.gamePaused and !ANVIL and !global.upgrade) {
 		    global.gamePaused = false;
 		}
-		if (global.multiplayer) {
+		if (global.singleplayer) {
 			if(global.gamePaused)
 			{	
 					with(all)
@@ -98,7 +98,7 @@ enum Patterns{
 
 function spawnEvent(monster, type, hp, atk, spd, xp, lifetime, quantity){
 //function spawnEvent(monster, quantity, type, hp = 0, spd = 0, xp = 0){
-	if (!global.multiplayer) { return; }
+	if (!global.singleplayer) { return; }
 	var enemy = global.enemies[monster];
 	var wallSprOffset = sprite_get_height(enemy[?"sprite"]);
 	var aa, bb;

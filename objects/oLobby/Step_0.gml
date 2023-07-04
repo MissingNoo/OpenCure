@@ -174,7 +174,7 @@ if (joinedRoom) {
 		sprites += .25;
 		if (ishost and input_check_pressed("accept")) {
 			for (var i = 0; i < array_length(options); ++i) {
-				variable_instance_set(oClient, options[i][1], variable_instance_get(self, options[i][1]));
+				variable_global_set(options[i][1], variable_instance_get(self, options[i][1]));
 			}
 			sendMessage({command : Network.StartGame});			
 		}

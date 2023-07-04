@@ -91,12 +91,12 @@ if (xKey and global.gamePaused) {
 	        switch (menu_options[selected]) {
 	            case "Singleplayer":
 					characterSelected = false;
-					global.multiplayer = true;
+					global.singleplayer = true;
 					selected=0;
 	                room_goto(rCharacterSelect);
 	                break;
 				case "Multiplayer":
-					global.multiplayer = false;
+					global.singleplayer = false;
 					//instance_create_layer(0, 0, "Instances", oClient);
 					characterSelected = false;					
 					selected=0;
@@ -258,7 +258,7 @@ if (ANVIL) {
 				PLAYER_PERKS = global.characterPerks[CHARACTERS[selectedCharacter][?"id"]];
 				audio_stop_sound(global.musicPlaying);
 				audio_play_sound(snd_char_selected,0,0);
-				switch (global.multiplayer) {
+				switch (global.singleplayer) {
 				    case true:
 				        global.mode = "stage";
 						//room_goto(Room1);
@@ -417,7 +417,7 @@ if (global.gamePaused and !global.upgrade and !ANVIL) {
 
 
 #region Debug
-if(keyboard_check(ord("L"))) {global.multiplayer = false; show_message("Client");}
+if(keyboard_check(ord("L"))) {global.singleplayer = false; show_message("Client");}
 	if (global.debug) {
 		
 		//if(keyboard_check(ord("Q"))) a -=1;

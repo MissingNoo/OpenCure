@@ -1,5 +1,5 @@
 event_inherited();
-if (global.multiplayer) {
+if (global.singleplayer) {
 	global.roomname = "";
 	global.IsHost = true;
 }
