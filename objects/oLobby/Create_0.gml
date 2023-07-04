@@ -23,7 +23,7 @@ joinx1 = GW/11.02;
 joinx2 = GW/6.80;
 
 #region options
-shareXP = true;
+shareXP = false;
 shareItems = false;
 pauseGame = false;
 shareAnvils = false;
