@@ -40,7 +40,7 @@ if(global.gamePaused == false and instance_exists(target)){
 		    deathSent = true;
 			sendMessage({
 				command : Network.Destroy,
-				enemyID
+				enemyID,
 			});
 		}
 		

@@ -32,7 +32,8 @@ function clientReceivedPacket2(_response)
 	switch (r[$"command"]) {
 	    case Network.ListRooms:
 	        oLobby.rooms = r[$"rooms"];
-			//show_debug_message(oLobby.rooms);
+			global.socket = r[$"socket"];
+			show_debug_message(r[$"socket"]);
 	        break;
 			
 		case Network.JoinRoom:{
@@ -160,7 +161,10 @@ function clientReceivedPacket2(_response)
 			if (instance_exists(oEnemy)) {
 			    with (oEnemy) {
 				    if (enemyID == r[$"enemyID"]) {
-						//dropxp = candrop;
+						deathSent = true;
+						if (r[$"owner"] != oPlayer.socket) {
+						    dropxp = false;
+						}
 					    hp = 0;
 					}
 				}

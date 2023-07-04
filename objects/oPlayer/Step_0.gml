@@ -1,3 +1,4 @@
+socket = global.socket;
 // Feather disable GM2016
 //HP=MAXHP;
 if (keyboard_check_pressed(ord("H")) and global.debug) {	global.xp=neededxp; }

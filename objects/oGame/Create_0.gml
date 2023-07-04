@@ -1,3 +1,4 @@
+global.socket = 0;
 global.singleplayer = false;
 global.roomname="";
 lexicon_index_declare_from_json("english.json");
