@@ -26,7 +26,7 @@ if (!joinedRoom and !creatingroom and !typepassword) {
 		}
 	}
 
-	if (point_in_rectangle(oGui.x, oGui.y, joinx1, createy1, joinx2, createy2)  or input_check_pressed("accept")) {
+	if (point_in_rectangle(oGui.x, oGui.y, joinx1, createy1, joinx2, createy2)  or input_check_pressed("accept") and array_length(rooms) > 0) {
 		global.roomname = rooms[selectedroom][$"name"];
 		if (rooms[selectedroom][$"password"] == "") {
 		    sendMessage({
@@ -40,6 +40,9 @@ if (!joinedRoom and !creatingroom and !typepassword) {
 }
 
 if (creatingroom) {
+	if (input_check_pressed("cancel") or input_check_pressed("pause")) {
+	    creatingroom = false;
+	}
 	#region selected
     if (input_check_pressed("down")) {
 	    if (creatingselected < 2) {
@@ -101,6 +104,9 @@ if (creatingroom) {
 }
 
 if (typepassword) {
+	if (input_check_pressed("cancel") or input_check_pressed("pause")) {
+	    typepassword = false;
+	}
 	#region selected
     if (input_check_pressed("down")) {
 	    if (passwordselected == 0) {
@@ -161,13 +167,49 @@ if (typepassword) {
 }
 
 if (joinedRoom) {
+	if (input_check_pressed("cancel") or input_check_pressed("pause")) {
+	    room_goto(rInicio);
+	}
 		global.IsHost = ishost;
 		sprites += .25;
 		if (ishost and input_check_pressed("accept")) {
-			sendMessage({command : Network.StartGame});
+			for (var i = 0; i < array_length(options); ++i) {
+				variable_instance_set(oClient, options[i][1], variable_instance_get(self, options[i][1]));
+			}
+			sendMessage({command : Network.StartGame});			
 		}
+		
+		#region buttons			
+		#region options
+		if (ishost) {
+			var _x = GW/1.25;
+			var _tx = _x + 5;
+			var _y = GH/59.08;
+			var _yo = _y + 4;
+			var _xx = GW/1.01;
+			var _yy = GH/3.20;	
+			for (var i = 0; i < array_length(options); ++i) {
+				_yo += 22;
+				var _sy = _yo + 3.50;
+				if (point_in_rectangle(oGui.x, oGui.y, _xx - 45, _sy, _xx - 5, _sy + 17)) {
+					variable_instance_set(self, options[i][1], !variable_instance_get(self, options[i][1]));
+					sendMessage({
+						command : Network.UpdateOptions,
+						option : options[i][1],
+						value : variable_instance_get(self, options[i][1])
+						});
+				}
+			}
+		}
+		#endregion
+		#endregion
 }
 	
 if ((os_type == os_android) and input_check_pressed("accept") and (creatingroom and creatingselected != 2) or (typepassword and passwordselected == 0)) {
     keyboard_virtual_show(kbv_type_default, kbv_returnkey_default, kbv_autocapitalize_none, false);
 }
+
+//if (keyboard_check_pressed(vk_home)) {
+//    shareItems = !shareItems;
+//}
+

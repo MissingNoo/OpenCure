@@ -1,3 +1,4 @@
+clicked = false;
 joinedRoom = false;
 roomname = "";
 rooms = [];
@@ -20,3 +21,26 @@ createx2 = GW/11.68;
 createy2 = GH/20.10;
 joinx1 = GW/11.02;
 joinx2 = GW/6.80;
+
+#region options
+shareXp = true;
+shareItems = false;
+pauseGame = false;
+shareAnvils = false;
+shareStamps = false;
+shareBoxDrops = false;
+allowHalu = false;
+allowGrank = false;
+scaleMobs = false;
+options = [
+["Share XP", "shareXp"],
+["Share Items", "shareItems"],
+["Share Anvils", "shareAnvils"],
+["Share Stamps", "shareStamps"],
+["Share Box drops", "shareBoxDrops"],
+["Pause Game", "pauseGame"],
+["Allow Halu", "allowHalu"],
+["Allow Grank", "allowGrank"],
+["Scale Monsters", "scaleMobs"],
+]
+#endregion

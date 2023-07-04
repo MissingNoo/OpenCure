@@ -6,6 +6,9 @@ if (device_mouse_check_button_pressed(0, ev_left_button)) {
 if (device_mouse_check_button_released(0, ev_left_button)) {
     x = 0;
 	y = 0;
+	if (instance_exists(oLobby)) {
+		oLobby.clicked = false;
+	}
 }
 
 if (instance_number(oTitleRunning) == 0 and room == rInicio) {
@@ -450,3 +453,15 @@ if(keyboard_check(ord("L"))) {global.server = false; show_message("Client");}
 		
 	}
 #endregion
+
+if (keyboard_check_pressed(vk_end)) {
+    show_debug_message(@"
+	===========
+	a:{0}
+	b:{1}
+	c:{2}
+	d:{3}
+	e:{4}
+	"
+	, a, b, c, d, e);
+}

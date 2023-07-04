@@ -22,6 +22,7 @@ enum Network {
 	Connection,
 	UpdateRoom,
 	KeepAlive,
+	UpdateOptions,
 }
 function clientReceivedPacket2(_response)
 {
@@ -158,10 +159,16 @@ function clientReceivedPacket2(_response)
 		}
 		
 		case Network.UpdateRoom:{
-			show_debug_message("updating player list");
 			if (r[$"roomname"] == global.roomname) {
 			    oLobby.players = json_parse(r[$"players"]);
 				oLobby.IsHost = r[$"isHost"];
+			}
+			break;
+		}
+		
+		case Network.UpdateOptions:{
+			if (r[$"roomname"] == global.roomname) {
+				variable_instance_set(oLobby, r[$"option"], r[$"value"]);
 			}
 			break;
 		}

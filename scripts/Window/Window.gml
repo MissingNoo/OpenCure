@@ -43,9 +43,9 @@ surface_resize(application_surface, view_wport[0], view_hport[0]);
 }
 function drawDesc(_xx, _yy, _string, maxX, _size = 1){
 	//_originalSize = font_get_size(global.Font); 
-	if (os_type != os_android) {
+	//if (os_type != os_android) {
 	    draw_set_font(global.Font); //draw_set_font(fnt_font1);
-	}
+	//}
 	_originalSize = font_get_size(draw_get_font()); 	
 	draw_set_halign(fa_center);
 	var xt=0;

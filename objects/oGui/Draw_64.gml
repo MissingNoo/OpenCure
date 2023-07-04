@@ -1,8 +1,8 @@
 #region Start variables
 	// Feather disable GM2017
-	if (os_type != os_android) {
+	//if (os_type != os_android) {
 	    draw_set_font(global.Font); //draw_set_font(fnt_font1);
-	}	
+	//}	
 	draw_set_alpha(1);
 	draw_set_color(c_white);
 	var header;

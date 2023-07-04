@@ -138,7 +138,6 @@ if (typepassword) {
 	draw_set_halign(fa_left);
 }
 
-
 if (joinedRoom) {
 	draw_text(20, display_get_gui_height() - 50, "Z to start game");
 	draw_text(20, display_get_gui_height() - 10, players);
@@ -157,5 +156,34 @@ if (joinedRoom) {
 		draw_text_transformed(GW/10, GH/43+40+offset, CHARACTERS[players[i].character][?"name"], 3, 3, 0);
 		offset += 140;
 	}
+		
+	var _x = GW/1.25;
+	var _tx = _x + 5;
+	var _y = GH/59.08;
+	var _yo = _y + 4;
+	var _xx = GW/1.01;
+	var _yy = GH/3.20;
+	draw_set_alpha(0.35);
+	draw_rectangle_color(_x, _y, _xx, _yy, c_black, c_black, c_black, c_black, false);
+	draw_set_alpha(1);
+	draw_rectangle_color(_x, _y, _xx, _yy, c_white, c_white, c_white, c_white, true);
+	draw_set_halign(fa_center);
+	draw_text((_x + _xx) /2, _yo, "Options");
+	draw_set_halign(fa_left);
+	for (var i = 0; i < array_length(options); ++i) {
+		_yo += 22;
+		draw_text_transformed(_tx, _yo, options[i][0], 2, 2, 0);
+		var _sy = _yo + 3.50;
+		draw_rectangle_color(_xx - 45, _sy, _xx - 5, _sy + 17, c_white, c_white, c_white, c_white, true);
+		var _color = c_white;
+		if (variable_instance_get(self, options[i][1])) {
+			_color = c_green;
+		    draw_rectangle_color(_xx - 25, _sy + 1, _xx - 6 - 1 , _sy + 15, _color, _color, _color, _color, false);
+		}
+		else{			
+			_color = c_red;
+			draw_rectangle_color(_xx - 44, _sy + 1, _xx - 25 - 1, _sy + 15, _color, _color, _color, _color, false);
+		}		
+	}
+	
 }
-
