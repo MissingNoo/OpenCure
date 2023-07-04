@@ -23,6 +23,7 @@ enum Network {
 	UpdateRoom,
 	KeepAlive,
 	UpdateOptions,
+	ShareXP,
 }
 function clientReceivedPacket2(_response)
 {
@@ -173,6 +174,13 @@ function clientReceivedPacket2(_response)
 			break;
 		}
 		
+		case Network.ShareXP:{
+			if (r[$"roomname"] == global.roomname) {
+				global.xp += r[$"xp"];
+			}
+			break;
+		}
+		
 	    default:
 	        // code here
 	        break;
@@ -180,7 +188,7 @@ function clientReceivedPacket2(_response)
 }
 function clientReceivedPacket(_buffer)
 {
-	if (!global.server) {
+	if (!global.multiplayer) {
 		var msgid = buffer_read(_buffer, buffer_u8);
 	
 		switch (msgid) {

@@ -1,4 +1,4 @@
-if (!global.server) {
+if (!global.multiplayer) {
 	var _timestate = time_source_get_state(keepalive);
 	if(_timestate == time_source_state_initial or _timestate == time_source_state_stopped){
 		time_source_start(keepalive);

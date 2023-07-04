@@ -1,5 +1,5 @@
 event_inherited();
-if (global.server) {
+if (global.multiplayer) {
 	global.roomname = "";
 	global.IsHost = true;
 }

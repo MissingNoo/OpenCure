@@ -51,7 +51,7 @@ if (room != rInicio) {
 }
 deathSent = false;
 enemyID = irandom(9999);
-if (global.IsHost and !global.server) {
+if (global.IsHost and !global.multiplayer) {
 	vars = variable_instance_get_names(self);
 	savedvars = {};
 	for (var i = 0; i < array_length(vars); ++i) {
