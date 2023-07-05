@@ -8,9 +8,16 @@ if (global.singleplayer) {
 global.defeatedEnemies = 0;
 //show_debug_overlay(true);
 _x1 = 0;
-_x1 = 0;
+_x2 = 0;
+_y1 = 0;
 _y2 = 0;
-_y2 = 0;
+if (variable_global_exists("aim")) {
+    global.aim.destroy();
+}
+global.aim = input_virtual_create();
+global.aim.rectangle(GW/2, 0, GW, GH);
+//aim.circle(GW/1.2, GH/1.25, 60);
+global.aim.follow(false);
 
 #region redgura
 	redgura = false;

@@ -186,11 +186,12 @@ if can_move == true{
 				if (_down and _left) { global.arrowDir=225; }
 			}
 			else{
-				_x1 = GW/1.20;
-				_y1 = GH/1.25;
-				_x2 = TouchX2;
-				_y2 = TouchY2;
-				
+				if (global.aim.check() and global.aim.get_touch_x() != undefined and global.aim.get_touch_y() != undefined) {
+					_x1 = global.aim.get_touch_start_x();
+					_y1 = global.aim.get_touch_start_y();
+				    _x2 = global.aim.get_touch_x();
+					_y2 = global.aim.get_touch_y();
+				}				
 				global.arrowDir = point_direction(_x1, _y1, _x2, _y2);
 			}
 		}
