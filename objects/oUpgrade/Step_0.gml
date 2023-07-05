@@ -22,7 +22,7 @@ if (!global.gamePaused) {
 			y=owner.y-8;
 			break;}
 		case Weapons.PlugAsaCoco:{
-			if (alarm_get(0) > 0) {
+			if (alarm_get(1) > 0) {
 			    y-=1.75;
 				if (instance_exists(CE)) {
 					direction = point_direction(x,y,CE.x, CE.y);

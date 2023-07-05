@@ -108,23 +108,11 @@ sprite_index=upg[$"sprite"];
 				if (enemies == 0) { instance_destroy(); }
 				CE = instance_find(oEnemy, irandom_range(0,enemies-1));
 				direction = point_direction(x,y-50.75,CE.x, CE.y);
-				image_angle = point_direction(x,y-50.75,CE.x, CE.y);				
-				if (shoots>0) {
-					for (var i = 1; i < shoots; ++i) {
-						//inst = (instance_create_layer(owner.x,owner.y-8,"Upgrades",oUpgrade));
-						//inst.upg=upg;
-						//inst.speed=upg[$"speed"];
-						//inst.hits=999;
-						//inst.shoots = 0;
-						//inst.sprite_index=upg[$"sprite"];
-						spawnUpgrade();
-						alarm[0]=10;
-					}
-				}
+				image_angle = point_direction(x,y-50.75,CE.x, CE.y);
 			} else instance_destroy();
 			originalspeed = speed;
 			speed = 0;
-			alarm[0]=30;
+			alarm[1]=30;
 			break;}
 			
 		case Weapons.BlBook:{
@@ -154,7 +142,7 @@ sprite_index=upg[$"sprite"];
 				        break;
 				}
 			}
-			alarm[0]=1;
+			//alarm[0]=1;
 			break;}
 			
 		case Weapons.BounceBall:{
@@ -294,7 +282,8 @@ sprite_index=upg[$"sprite"];
 			direction = arrowDir;
 			image_angle = arrowDir;
 			//alarm[0] = 10;
-			if (shoots % 2) {
+			//if (shoots % 2) {
+			if (shoots == -1) {
 				sprite_index = spr_Pipmod_Pippa_bullet_rifle_blue;
 				var enemies = instance_number(oEnemy);
 			    CE = instance_find(oEnemy, irandom_range(0,enemies-1));
@@ -305,8 +294,7 @@ sprite_index=upg[$"sprite"];
 				catch (err){
 					direction = point_direction(x,y, 0, 0);
 					image_angle = point_direction(x,y, 0, 0);
-				}
-				
+				}				
 			}
 			break;
 		}

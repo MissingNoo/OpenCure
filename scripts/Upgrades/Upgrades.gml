@@ -66,7 +66,8 @@ enum ItemTypes {
 }
 enum ShotTypes {
 	Multishot,
-	Ranged
+	Ranged,
+	Melee
 }
 
 #region Upgrades
@@ -514,7 +515,7 @@ function populateUpgrades(){
 				cooldown : 150,
 				minimumcooldown : 1,
 				shoots : [1, 1, 2, 2, 3, 3, 4],
-				attackdelay : 5,
+				attackdelay : 10,
 				hits : 999,
 				hitCooldown : 10, 
 				duration : 45,
@@ -536,11 +537,12 @@ function populateUpgrades(){
 				id : Weapons.SpiderCooking,
 				name : "Spider Cooking",
 				maxlevel : 7,
+				weight : 4,
 				sprite : sSpiderCooking,
 				thumb : sSpiderCookingThumb,
 				mindmg : [7, 7, 10, 10, 10, 12, 12],
 				maxdmg : [11, 11, 14, 14, 14, 16, 16],
-				cooldown : 600,
+				cooldown : 10,
 				duration : 601, 
 				hitCooldown : [45, 45, 45, 45, 36, 36, 36], 
 				canBeHasted : false,
@@ -551,7 +553,7 @@ function populateUpgrades(){
 				knockbackSpeed : [0, 0, 0, 0, 0, 0, 3],
 				knockbackDuration : [0, 0, 0, 0, 0, 0, 8],
 				perk : false,
-				//area: [1, 1.15, 1.15, 1.40, 1.40, 1.40, 1.40],
+				shotType : ShotTypes.Melee,
 				size : [1, 1.15, 1.15, 1.40, 1.40, 1.40, 1.40],
 			});
 	#endregion
@@ -631,6 +633,7 @@ function populateUpgrades(){
 				knockbackSpeed : 0,
 				knockbackDuration : 0,
 				perk : false,
+				shotType : ShotTypes.Ranged,
 				afterimage : true,
 				afterimageColor : c_yellow,
 			});
@@ -640,6 +643,7 @@ function populateUpgrades(){
 				id : Weapons.WamyWater,
 				name : "Wamy Water",
 				maxlevel : 7,
+				weight : 3,
 				sprite : sWamyWater,
 				thumb : sWamyWaterThumb,
 				mindmg : [9, 9, 9, 9, 9, 15, 15],
@@ -652,6 +656,7 @@ function populateUpgrades(){
 				hits : 999,
 				type : "white",
 				shoots : 1,
+				shotType : ShotTypes.Melee,
 				knockbackSpeed : [5, 5, 5, 8, 8, 8 ,8],
 				knockbackDuration : 10,
 				perk : false
@@ -1107,7 +1112,10 @@ function randomUpgrades(){
 	#endregion
 	//first option
 	// global.upgradeOptions[0] = PERK_LIST[PerkIds.HeavyArtillery][0];
-	 global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.PlugAsaCoco][1];
+	 //global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.BlBook][1];
+	 global.upgradeOptions[0] = global.itemList[ItemIds.Gorilla_Paw][1];
+	 //global.upgradeOptions[2] = global.upgradesAvaliable[Weapons.PipiPilstol][1];
+	 //global.upgradeOptions[1] = global.upgradesAvaliable[Weapons.PlugAsaCoco][1];
 }	
 
 function tickPowers(){

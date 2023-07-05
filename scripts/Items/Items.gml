@@ -35,21 +35,30 @@ function newCreateItem(_data){
 		var keys = variable_struct_get_names(_data);
 		for (var j = array_length(keys)-1; j >= 0; --j) {
 		    var k = keys[j];
-			//if (k == "desc") { break; }
-		    var v = _data[$ k];
-			if (is_array(v)) {
-			    if (array_length(v) > 1) {
-				    variable_struct_set(m, k, v[i-1]);
-				}
-				else
-				{
-					variable_struct_set(m, k, v[0]);
-				}
-			}else{
-				variable_struct_set(m, k, v);
+			if (k == "bonusType") { 
+				variable_struct_set(m, "bonusType", _data.bonusType);
 			}
-			
+			else if (k == "bonusValue"){
+				variable_struct_set(m, "bonusValue", _data.bonusValue);
+			}
+			else{
+			    var v = _data[$ k];
+				if (is_array(v)) {
+				    if (array_length(v) > 1) {
+					    variable_struct_set(m, k, v[i-1]);
+					}
+					else
+					{
+						variable_struct_set(m, k, v[0]);
+					}
+				}else{
+					variable_struct_set(m, k, v);
+				}
+			}
 		}
+		if (variable_struct_exists(_data, "bonusType") and variable_struct_exists(_data, "bonusValue")) {
+		    
+		}		
 		global.itemCooldown[_data.id] = 0;
 	}
 }
@@ -137,8 +146,9 @@ function populateItems(){
 				thumb : sBodyPillow,
 				cooldown : 15,
 				perk : false,
-				shield : [15, 20, 25, 30, 35],
-				bonus : [0.95, 0.90, 0.85, 0.80, 0.75],
+				bonusType : BonusType.Defense,
+				bonusValue : [0.95, 0.90, 0.85, 0.80, 0.75],
+				shield : [15, 20, 25, 30, 35],				
 			});			
 				Bonuses[BonusType.Defense][ItemIds.Body_Pillow] = 0;
 				//super createItem(ItemIds.Body_Pillow, "Body Pillow", 6, 5, 3, sBodyPillow, 15, "Gain a shield that absorbs up to 35 damage. Every 15 seconds, this shield refreshes. Also reduces damage taken by 25%.")
@@ -199,15 +209,15 @@ function populateItems(){
 				thumb : sCreditCard,
 				cooldown : 1,
 				perk : false,
-				AnvilDropBonus: [.18, .28, .38, .45, .5],
-				EnhancingCost : [20, 25, 30, 35, 40]
+				bonusType : [BonusType.AnvilDrop, BonusType.EnhancingCost],
+				bonusValue : [[.18, .28, .38, .45, .5], [20, 25, 30, 35, 40]],
 			}
 			);
 			Bonuses[BonusType.AnvilDrop][ItemIds.CreditCard] = 0;
 			Bonuses[BonusType.EnhancingCost][ItemIds.CreditCard] = 0;
 			#endregion
 		
-			#region GWS Pill
+			#region GWS Pill //TODO
 			newCreateItem({
 				id : ItemIds.GWS_Pill,
 				name : "GWS Pill",
@@ -218,7 +228,7 @@ function populateItems(){
 				perk : false});
 			#endregion
 			
-			#region Just Bandage 
+			#region Just Bandage //TODO
 			newCreateItem({
 				id : ItemIds.Just_Bandage,
 				name : "Just Bandage",
@@ -237,7 +247,8 @@ function populateItems(){
 				weight : 4,
 				thumb : sLimiter,
 				cooldown : 1,
-				bonus : [2, 3, 4],
+				bonusType : [BonusType.PickupRange],
+				bonusValue : [2, 3, 4],
 				perk : false});
 				Bonuses[BonusType.PickupRange][ItemIds.Limiter] = 0;
 			#endregion
@@ -251,7 +262,8 @@ function populateItems(){
 				thumb : sSuperChattoTime,
 				cooldown : 1,
 				perk : false,
-				bonus : [1.20, 1.40, 1.60, 1.80, 2]
+				bonusType : [BonusType.SuperChattoTime],
+				bonusValue : [1.20, 1.40, 1.60, 1.80, 2]
 			});
 			Bonuses[BonusType.SuperChattoTime] = 0;
 			#endregion
@@ -298,7 +310,7 @@ function populateItems(){
 				thumb : sPikiPikiPiman,
 				cooldown : 0.2,
 				bonus : [15, 20, 25],
-				bonusPercentage : [2, 3, 4],
+				bonusPercentage: [2, 3, 4],
 				perk : false});
 			#endregion
 			
@@ -310,8 +322,8 @@ function populateItems(){
 				weight : 3,
 				thumb : sMembership,
 				cooldown : 1,
-				bonusATK : [1.30, 1.40, 1.50],
-				bonusLessDamage : [0.90, 0.82, 0.75],
+				bonusType : [BonusType.Damage, BonusType.Defense],
+				bonusValue : [[1.30, 1.40, 1.50], [0.90, 0.82, 0.75]],
 				perk : false});
 			#endregion
 			
@@ -352,7 +364,9 @@ function populateItems(){
 				weight : 3,
 				thumb : sEnergyDrink,
 				cooldown : 1,
-				perk : false});				
+				bonusType : [BonusType.Haste, BonusType.Speed],
+				bonusValue : [[1.10, 1.15, 1.20], [1.30, 1.40, 1.50]],
+				perk : false});
 				Bonuses[BonusType.Haste][ItemIds.Energy_Drink] = 0;
 				Bonuses[BonusType.Speed][ItemIds.Energy_Drink] = 0;
 				Bonuses[BonusType.EnergyDrinkHpMinus] = 0;
@@ -366,6 +380,8 @@ function populateItems(){
 				weight : 1,
 				thumb : sFaceMask,
 				cooldown : 1,
+				bonusType : [BonusType.Damage, BonusType.Haste, BonusType.TakeDamage],
+				bonusValue : [[1.3],[1.1],[1.3]],
 				perk : false});
 				Bonuses[BonusType.Damage][ItemIds.Face_Mask] = 0;
 				Bonuses[BonusType.Haste][ItemIds.Face_Mask] = 0;
@@ -393,8 +409,8 @@ function populateItems(){
 				thumb : sGorillaPaw,
 				cooldown : 1,				
 				perk : false,
-				damageBonus : [1.30, 1.40, 1.50],
-				loseCritical : 0.80,
+				bonusType : [BonusType.Damage, BonusType.loseCritical],
+				bonusValue : [[1.30, 1.40, 1.50], [0.8, 0.8, 0.8]]
 			});
 				Bonuses[BonusType.Damage][ItemIds.Gorilla_Paw] = 0;
 				Bonuses[BonusType.loseCritical][ItemIds.Gorilla_Paw] = 0;
@@ -423,7 +439,8 @@ function populateItems(){
 				thumb : sInjectionAsacoco,
 				cooldown : 1,
 				perk : false,
-				bonus : [1.40, 1.60, 1.80],
+				bonusType : BonusType.Damage,
+				bonusValue : [1.40, 1.60, 1.80],
 			});
 				Bonuses[BonusType.Damage][ItemIds.Injection_Type_Asacoco] = 0;
 			#endregion
@@ -437,8 +454,8 @@ function populateItems(){
 				thumb : sKnightlyMilk,
 				cooldown : 1,
 				perk : false,
-				weaponSize : [1.10, 1.15, 1.20],
-				pickupRange : [1.30, 1.40, 1.50],
+				bonusType : [BonusType.WeaponSize, BonusType.PickupRange],
+				bonusValue : [[1.10, 1.15, 1.20], [1.30, 1.40, 1.50]],
 			});				
 				Bonuses[BonusType.WeaponSize][ItemIds.Knightly_Milk] = 1;
 				Bonuses[BonusType.PickupRange][ItemIds.Knightly_Milk] = 0;
@@ -465,7 +482,8 @@ function populateItems(){
 				thumb : sStudyGlasses,
 				cooldown : 1,
 				perk : false,
-				XPBonus: [1.10, 1.15, 1.20, 1.25, 1.30]
+				bonusType : BonusType.XPBonus,
+				bonusValue : [1.10, 1.15, 1.20, 1.25, 1.30]
 			}
 			);
 			Bonuses[BonusType.XPBonus][ItemIds.Study_Glasses] = 0;
@@ -480,7 +498,8 @@ function populateItems(){
 				thumb : sUberSheep,
 				cooldown : [10, 9, 8, 7, 6],
 				perk : false,
-				bonus : [1.10, 1.12, 1.15, 1.18, 1.20],
+				bonusType : BonusType.UberSheep,
+				bonusValue : [1.10, 1.12, 1.15, 1.18, 1.20],
 			});
 				Bonuses[BonusType.UberSheep] = 1;
 			#endregion
@@ -493,11 +512,22 @@ function tickItems(){
 	for (var i = 0; i < array_length(playerItems); ++i) {
 		if (playerItems[i] != global.nullitem and global.itemCooldown[playerItems[i][$"id"]] <= 0) {
 			defaultItemBehaviour(playerItems[i][$"id"], playerItems[i][$"cooldown"]);
+			if (variable_struct_exists(playerItems[i], "bonusType")) {
+				if (is_array(playerItems[i][$"bonusType"])) {
+					for (var j = 0; j < array_length(playerItems[i][$"bonusType"]); ++j) {
+					    Bonuses[playerItems[i][$"bonusType"][j]][playerItems[i][$"id"]] = playerItems[i][$"bonusValue"][j][playerItems[i][$"level"] -1];
+					}				    
+				}
+				else{
+					Bonuses[playerItems[i][$"bonusType"]][playerItems[i][$"id"]] = playerItems[i][$"bonusValue"][playerItems[i][$"level"] -1];
+				}			    
+			}
+			//show_message(Bonuses);
 		    switch (playerItems[i][$"id"]) {
 				case ItemIds.Body_Pillow:
 					Shield = playerItems[i][$"shield"];
 					MaxShield = playerItems[i][$"shield"];
-					Bonuses[BonusType.Defense][ItemIds.Body_Pillow] = playerItems[i][$"bonus"];
+			//		Bonuses[BonusType.Defense][ItemIds.Body_Pillow] = playerItems[i][$"bonus"];
 					break;
 				case ItemIds.Chicken_Feather:
 					if (playerItems[i][$"level"] != Bonuses[BonusType.ChickenFeather]) {
@@ -512,70 +542,70 @@ function tickItems(){
 							    Bonuses[BonusType.EnergyDrinkHpMinus] = 1;
 								MAXHP = MAXHP * 0.80;
 							}
-					        Bonuses[BonusType.Haste][ItemIds.Energy_Drink] = 1.10;
-							Bonuses[BonusType.Speed][ItemIds.Energy_Drink] = 1.30;
+					        //Bonuses[BonusType.Haste][ItemIds.Energy_Drink] = 1.10;
+							//Bonuses[BonusType.Speed][ItemIds.Energy_Drink] = 1.30;
 					        break;
 					    case 2:
 							if (Bonuses[BonusType.EnergyDrinkHpMinus] == 1) {
 							    Bonuses[BonusType.EnergyDrinkHpMinus] = 2;
 								MAXHP = MAXHP * 0.80;
 							}
-					        Bonuses[BonusType.Haste][ItemIds.Energy_Drink] = 1.15;
-							Bonuses[BonusType.Speed][ItemIds.Energy_Drink] = 1.40;
+					        //Bonuses[BonusType.Haste][ItemIds.Energy_Drink] = 1.15;
+							//Bonuses[BonusType.Speed][ItemIds.Energy_Drink] = 1.40;
 					        break;
 						case 3:
 							if (Bonuses[BonusType.EnergyDrinkHpMinus] == 2) {
 							    Bonuses[BonusType.EnergyDrinkHpMinus] = 3;
 								MAXHP = MAXHP * 0.80;
 							}
-							Bonuses[BonusType.Haste][ItemIds.Energy_Drink] = 1.20;
-							Bonuses[BonusType.Speed][ItemIds.Energy_Drink] = 1.50;
+							//Bonuses[BonusType.Haste][ItemIds.Energy_Drink] = 1.20;
+							//Bonuses[BonusType.Speed][ItemIds.Energy_Drink] = 1.50;
 							break;
 					}
 					break;
-				case ItemIds.Face_Mask:
-					Bonuses[BonusType.Damage][ItemIds.Face_Mask] = 1.50;
-					Bonuses[BonusType.Haste][ItemIds.Face_Mask] = 1.10;
-					Bonuses[BonusType.TakeDamage][ItemIds.Face_Mask] = 1.30;
-					break;
-				case ItemIds.Full_Meal:
-					Bonuses[BonusType.Healing][ItemIds.Full_Meal] = 2;
-					break;
-				case ItemIds.Gorilla_Paw:
-					Bonuses[BonusType.Damage][ItemIds.Gorilla_Paw] = playerItems[i][$"damageBonus"];
-					Bonuses[BonusType.loseCritical][ItemIds.Gorilla_Paw] = playerItems[i][$"loseCritical"];
-					break;
+			//	case ItemIds.Face_Mask:
+			//		Bonuses[BonusType.Damage][ItemIds.Face_Mask] = 1.50;
+			//		Bonuses[BonusType.Haste][ItemIds.Face_Mask] = 1.10;
+			//		Bonuses[BonusType.TakeDamage][ItemIds.Face_Mask] = 1.30;
+			//		break;
+			//	case ItemIds.Full_Meal:
+			//		Bonuses[BonusType.Healing][ItemIds.Full_Meal] = 2;
+			//		break;
+			//	case ItemIds.Gorilla_Paw:
+			//		Bonuses[BonusType.Damage][ItemIds.Gorilla_Paw] = playerItems[i][$"damageBonus"];
+			//		Bonuses[BonusType.loseCritical][ItemIds.Gorilla_Paw] = playerItems[i][$"loseCritical"];
+			//		break;
 				case ItemIds.Injection_Type_Asacoco:
 					HP = HP - (HP * 0.05);
-					Bonuses[BonusType.Damage][ItemIds.Injection_Type_Asacoco] = playerItems[i][$"bonus"];
+			//		Bonuses[BonusType.Damage][ItemIds.Injection_Type_Asacoco] = playerItems[i][$"bonus"];
 					break;
-				case ItemIds.Knightly_Milk:
-					Bonuses[BonusType.WeaponSize][ItemIds.Knightly_Milk] = playerItems[i][$"weaponSize"];
-					Bonuses[BonusType.PickupRange][ItemIds.Knightly_Milk] = playerItems[i][$"pickupRange"];
-					break;
+			//	case ItemIds.Knightly_Milk:
+			//		Bonuses[BonusType.WeaponSize][ItemIds.Knightly_Milk] = playerItems[i][$"weaponSize"];
+			//		Bonuses[BonusType.PickupRange][ItemIds.Knightly_Milk] = playerItems[i][$"pickupRange"];
+			//		break;
 				case ItemIds.Uber_Sheep: 
 					do{
 						a = irandom_range(-1,1);
 						b = irandom_range(-1,1);
 					} until (a != b)
 					instance_create_layer(
-					oPlayer.x+(128*a),
-					oPlayer.y+(128*b),
+					oPlayer.x+ (irandom_range(64,128) *a),
+					oPlayer.y+(irandom_range(64,128)*b),
 					"Instances",
 					oBurguer
 					);
-					Bonuses[BonusType.UberSheep] = playerItems[i][$"bonus"];
+					//Bonuses[BonusType.UberSheep] = playerItems[i][$"bonus"];
 					break;
-				case ItemIds.Study_Glasses:
-					Bonuses[BonusType.XPBonus][ItemIds.Study_Glasses] = playerItems[i][$"XPBonus"];
-					break;
-				case ItemIds.CreditCard:
-					Bonuses[BonusType.AnvilDrop][ItemIds.CreditCard] = playerItems[i][$"AnvilDropBonus"];
-					Bonuses[BonusType.EnhancingCost][ItemIds.CreditCard] = playerItems[i][$"EnhancingCost"];
-					break;
-				case ItemIds.Super_Chatto_Time:
-					Bonuses[BonusType.SuperChattoTime] = playerItems[i][$"bonus"];
-					break;
+			//	case ItemIds.Study_Glasses:
+			//		Bonuses[BonusType.XPBonus][ItemIds.Study_Glasses] = playerItems[i][$"XPBonus"];
+			//		break;
+			//	case ItemIds.CreditCard:
+			//		Bonuses[BonusType.AnvilDrop][ItemIds.CreditCard] = playerItems[i][$"AnvilDropBonus"];
+			//		Bonuses[BonusType.EnhancingCost][ItemIds.CreditCard] = playerItems[i][$"EnhancingCost"];
+			//		break;
+			//	case ItemIds.Super_Chatto_Time:
+			//		Bonuses[BonusType.SuperChattoTime] = playerItems[i][$"bonus"];
+			//		break;
 				case ItemIds.Idol_Costume:
 					if (oPlayer.idolCostumeLevel != playerItems[i][$"level"]) {
 					    oPlayer.idolCostumeLevel = playerItems[i][$"level"];
@@ -583,8 +613,8 @@ function tickItems(){
 					}
 					break;
 				case ItemIds.Stolen_Piggy_Bank:
-					Bonuses[BonusType.PickupRange][ItemIds.Stolen_Piggy_Bank] = -0.30;
-					Bonuses[BonusType.Speed][ItemIds.Stolen_Piggy_Bank] = 1.15;
+			//		Bonuses[BonusType.PickupRange][ItemIds.Stolen_Piggy_Bank] = -0.30;
+			//		Bonuses[BonusType.Speed][ItemIds.Stolen_Piggy_Bank] = 1.15;
 					if(variable_global_exists("pig") and time_source_exists(global.pig)) {break;}
 					global.pigfunction = function()
 					{
@@ -593,9 +623,9 @@ function tickItems(){
 					global.pig = time_source_create(time_source_game, 1, time_source_units_seconds,global.pigfunction, [], -1, time_source_expire_after);
 					time_source_start(global.pig);
 					break;
-				case ItemIds.Limiter:
-					Bonuses[BonusType.PickupRange][ItemIds.Limiter] = playerItems[i][$"bonus"];
-					break;
+			//	case ItemIds.Limiter:
+			//		Bonuses[BonusType.PickupRange][ItemIds.Limiter] = playerItems[i][$"bonus"];
+			//		break;
 				case ItemIds.Piki_Piki_Piman:
 					if (oPlayer.pimanLevel != playerItems[i][$"level"]) {
 					    oPlayer.pimanLevel = playerItems[i][$"level"];
@@ -614,8 +644,7 @@ function tickItems(){
 					    global.newcoins = 0;
 						Bonuses[BonusType.Damage][ItemIds.Membership] = 1;
 						Bonuses[BonusType.TakeDamage][ItemIds.Membership] = 1;
-					}
-					
+					}		
 					break;}
 			}
 		}

@@ -41,10 +41,9 @@ switch (upg[$"id"]) {
 		inst = spawnUpgrade();
 		inst.diroffset -= 90;
 		break;
-	case Weapons.PlugAsaCoco:{
-		speed = originalspeed;
-		audio_play_sound(choose(snd_tailplug, snd_tailplug2, snd_tailplug3),0,0);
-		break;}
+	//case Weapons.PlugAsaCoco:{
+	//	//spawnUpgrade();
+	//	break;}
 	case Weapons.BlBook:{
 		//if (shoots > 1) {			
 			inst = spawnUpgrade();
@@ -139,8 +138,14 @@ switch (upg[$"id"]) {
 		case Weapons.PipiPilstol:{
 			//if (shoots > 1) {			
 				//shoots-=1;
-				spawnUpgrade();
-				shoots=0;
+				inst = spawnUpgrade();
+				if (shoots % 2) {
+					inst.shoots = -2;
+				}
+				else{
+					inst.shoots = -1;
+				}
+				//shoots=0;
 				//alarm[0]=10;
 				//}
 			break;
