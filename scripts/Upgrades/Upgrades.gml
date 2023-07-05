@@ -414,7 +414,8 @@ function populateUpgrades(){
 				knockbackSpeed : [0, 0, 0, 0, 0, 0, 3],
 				knockbackDuration : [0, 0, 0, 0, 0, 0, 8],
 				perk : false,
-				area: [1, 1.15, 1.15, 1.40, 1.40, 1.40, 1.40],
+				//area: [1, 1.15, 1.15, 1.40, 1.40, 1.40, 1.40],
+				size : [1, 1.15, 1.15, 1.40, 1.40, 1.40, 1.40],
 			});
 	#endregion
 	
@@ -958,8 +959,8 @@ function randomUpgrades(){
 	//global.upgradeOptions[3] = global.null;
 	#endregion
 	//first option
-	 //global.upgradeOptions[0] = PERK_LIST[PerkIds.HeavyArtillery][0];
-	 //global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.PipiPilstol][1];
+	// global.upgradeOptions[0] = PERK_LIST[PerkIds.HeavyArtillery][0];
+	 global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.SpiderCooking][1];
 }	
 
 function tickPowers(){

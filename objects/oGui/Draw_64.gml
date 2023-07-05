@@ -622,12 +622,12 @@
 			if (editOption and selected == i) {
 			    draw_sprite_ext(sMenuArrow, 0, GW/2 + _xoff - _arrowoff,
 				(GH/2 - (sprite_get_height(sMenu) * pauseMenu[activeMenu][PM.YScale])/2) + 90 + mOffset,
-				oGui.a,
-				oGui.a,180,c_white,1);
+				2,
+				2,180,c_white,1);
 				draw_sprite_ext(sMenuArrow, 0, GW/2 + _xoff + _arrowoff,
 				(GH/2 - (sprite_get_height(sMenu) * pauseMenu[activeMenu][PM.YScale])/2) + 90 + mOffset,
-				oGui.a,
-				oGui.a,0,c_white,1);
+				2,
+				2,0,c_white,1);
 			}
 			
 			draw_set_color(selected == i ? c_black : c_white);
@@ -714,7 +714,7 @@ if (keyboard_check_pressed(ord("M"))) {
 		draw_text(pButtonX + 70, pButtonY + 22.5, "P");
 		draw_set_color(c_white);
 		//draw_text(GW/2, GH/2, string(oGui.aim.check()) + ":" + string(oGui.aim.get_touch_start_x()) + ":" + string(oGui.aim.get_touch_x()));
-		//pad.debug_draw();
+		pad.debug_draw();
 		//aim.debug_draw();
 		//zB.debug_draw();
 		//xB.debug_draw();

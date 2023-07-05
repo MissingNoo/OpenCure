@@ -1,12 +1,10 @@
 event_inherited();
+//show_debug_overlay(true);
 if (global.singleplayer) {
 	global.roomname = "";
 	global.IsHost = true;
 }
-
-//show_debug_overlay(true);
 global.defeatedEnemies = 0;
-//show_debug_overlay(true);
 _x1 = 0;
 _x2 = 0;
 _y1 = 0;
