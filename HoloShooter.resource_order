@@ -243,6 +243,7 @@
     {"name":"snd_revive","order":22,"path":"sounds/snd_revive/snd_revive.yy",},
     {"name":"lexicon_get_os_locale","order":2,"path":"scripts/lexicon_get_os_locale/lexicon_get_os_locale.yy",},
     {"name":"input_gamepad_get_map","order":6,"path":"scripts/input_gamepad_get_map/input_gamepad_get_map.yy",},
+    {"name":"Pixelade","order":2,"path":"fonts/Pixelade/Pixelade.yy",},
     {"name":"sCharShadow","order":4,"path":"sprites/sCharShadow/sCharShadow.yy",},
     {"name":"input_player_verify","order":4,"path":"scripts/input_player_verify/input_player_verify.yy",},
     {"name":"sFaceMask","order":3,"path":"sprites/sFaceMask/sFaceMask.yy",},

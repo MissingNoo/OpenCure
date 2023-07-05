@@ -151,10 +151,14 @@ global.holocoins = 0;
 Load_Data_Structs();
 global.holocoins ??= 0;
 //if (os_type != os_android) {
-	global.Font = font_add_sprite(sPixelFont, ord("!"), true, 2);
-    draw_set_font(global.Font);
+	//font_add_enable_aa(false);
+	global.new_font = font_add("pixelade.ttf", 10, false, false, 32, 128);
+	draw_set_font(global.new_font);
+	
+	//global.Font = font_add_sprite(sPixelFont, ord("!"), false, 2);
+    //draw_set_font(global.Font);
 //}
-//draw_set_font(global.Font); //draw_set_font(fnt_font1);
+////draw_set_font(global.Font); //draw_set_font(fnt_font1);
 randomize();
 populateItems();
 populateUpgrades();

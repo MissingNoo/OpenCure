@@ -103,7 +103,7 @@ if (instance_exists(oPlayer)) {
 		yy = oCam.y - oPlayer.y;
 		px = oPlayer.x;
 		py = oPlayer.y;
-	    oPlayer.y = 610 - oGui.a;
+	    oPlayer.y = 610;
 		oCam.y = oPlayer.y + yy;
 		for (var i = 0; i < array_length(insts); ++i) {
 		    with (insts[i]) {

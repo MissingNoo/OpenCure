@@ -1,7 +1,7 @@
 #region Start variables
 	// Feather disable GM2017
 	//if (os_type != os_android) {
-	    draw_set_font(global.Font); //draw_set_font(fnt_font1);
+	    //draw_set_font(global.Font); //draw_set_font(fnt_font1);
 	//}	
 	draw_set_alpha(1);
 	draw_set_color(c_white);
@@ -357,7 +357,8 @@
 					draw_sprite_ext(sHoloCursor, holoarrowspr, _xx - 440, _yy + offset, 2.5, 2.5, 0, c_white, 1); 
 					} 
 				draw_set_halign(fa_left);
-	            draw_text_transformed(GW/2.60 + guiOffset, GH/6.65 + offset, string(global.upgradeOptions[i][$"name"]), 1.5, 1.5, 0); // draw the name
+								
+	            draw_text_transformed(GW/2.60 + guiOffset, GH/6.65 + offset - androidoffset, string(global.upgradeOptions[i][$"name"]), 1.5, 1.5, 0); // draw the name
 				var style = ""; 
 				switch (global.upgradeOptions[i][$"style"]) { // type of upgrade
 				    case ItemTypes.Weapon:
@@ -371,7 +372,7 @@
 				        break;
 				}
 				draw_set_halign(fa_right);
-				draw_text_transformed(GW/1.08 - guiOffset, GH/6.65 + offset, string(style), 1.5, 1.5, 0);  // draw type of upgrade
+				draw_text_transformed(GW/1.08 - guiOffset, GH/6.65 + offset - androidoffset, string(style), 1.5, 1.5, 0);  // draw type of upgrade
 				draw_set_halign(fa_left);
 				draw_sprite_ext(global.upgradeOptions[i][$ "thumb"],0,GW/2.45 + guiOffset, _yy + offset,2, 2,0,c_white,1); // item thumb			
 				draw_sprite_ext(sItemType, global.upgradeOptions[i][$"style"], GW/2.45 + guiOffset, _yy + offset,2, 2,0,c_white,1); // item thumb type
@@ -395,11 +396,18 @@
 				        uptype = "Perks.";
 				        break;
 				}
+				var maxx = 0;
+				if (os_type == os_android) {
+				    maxx = GW/2.50
+				}else{
+					maxx = GW/2.07;
+				}	
 				if (foundup) {
 					var idd = global.upgradeOptions[i][$"id"];	
 				    //drawDesc(GW/2.20+(guiOffset/2),GH/5.5+offset, global.upgradesAvaliable[idd][foundlv][$"desc"], GW/2.20, 2);
 					//try{
-				    drawDesc(GW/2.20+(guiOffset/2),GH/5.5+offset, lexicon_text(uptype + global.upgradeOptions[i][$"name"] + "." + string(foundlv)), GW/2.20, 2);
+					draw_text_ext_transformed(GW/2.20+(guiOffset/2) + 5,GH/5.5+offset, lexicon_text(uptype + global.upgradeOptions[i][$"name"] + "." + string(foundlv)), string_width("W"), 327.5, 2,2,0);
+				    //drawDesc(GW/2.20+(guiOffset/2) + 5,GH/5.5+offset, lexicon_text(uptype + global.upgradeOptions[i][$"name"] + "." + string(foundlv)), maxx, 2);
 					//}
 					//catch (err){
 					//	show_message(err);
@@ -407,7 +415,8 @@
 					//}
 				}
 				else{
-					drawDesc(GW/2.20+(guiOffset/2),GH/5.5+offset, lexicon_text(uptype + global.upgradeOptions[i][$"name"] + ".1"), GW/2.20, 2);
+					draw_text_ext_transformed(GW/2.20+(guiOffset/2) + 5,GH/5.5+offset, lexicon_text(uptype + global.upgradeOptions[i][$"name"] + ".1"), string_width("W"), 327.5, 2,2,0);
+					//drawDesc(GW/2.20+(guiOffset/2) + 5,GH/5.5+offset, lexicon_text(uptype + global.upgradeOptions[i][$"name"] + ".1"), maxx, 2);
 				}
 	            //offset += 165;
 				offset += GH/5.30;
@@ -550,6 +559,7 @@
 
 #region PauseMenu
 	if (global.gamePaused and !global.upgrade and !ANVIL and HP > 0) {
+		draw_set_halign(fa_left);
 		if (instance_exists(oPlayer) and activeMenu == PMenus.Pause) { drawStats(); }
 		
 		//pauseMenu[PMenus.Pause][PM.XScale] = a;
@@ -679,7 +689,7 @@ if (keyboard_check_pressed(ord("M"))) {
 
 #region Android Buttons
 	if (os_type == os_android) {
-		//draw_set_font(global.Font); //draw_set_font(fnt_font1);
+		////draw_set_font(global.Font); //draw_set_font(fnt_font1);
 		draw_set_alpha(0.5);
 		draw_set_color(c_white);
 		draw_rectangle(zButtonX, zButtonY, zButtonXEnd, zButtonYEnd, false);
@@ -703,11 +713,12 @@ if (keyboard_check_pressed(ord("M"))) {
 		draw_rectangle(pButtonX, pButtonY, pButtonXEnd, pButtonYEnd, true);
 		draw_text(pButtonX + 70, pButtonY + 22.5, "P");
 		draw_set_color(c_white);
-		pad.debug_draw();
-		aim.debug_draw();
-		zB.debug_draw();
-		xB.debug_draw();
-		pB.debug_draw();
+		//draw_text(GW/2, GH/2, string(oGui.aim.check()) + ":" + string(oGui.aim.get_touch_start_x()) + ":" + string(oGui.aim.get_touch_x()));
+		//pad.debug_draw();
+		//aim.debug_draw();
+		//zB.debug_draw();
+		//xB.debug_draw();
+		//pB.debug_draw();
 	}
 	
 #endregion
@@ -725,7 +736,8 @@ if (keyboard_check_pressed(ord("M"))) {
 			
 			#region HP
 				draw_sprite_stretched(heart_shaded, 0, GW/11, GH/2.15, 25, 25);
-				draw_text_transformed(GW/8, GH/2.15, "HP", 1.5, 1.5, 0);
+				draw_set_halign(fa_left);
+				draw_text_transformed(GW/8 - 15, GH/2.15, "HP", 1.5, 1.5, 0);
 				draw_line(GW/8.80, GH/2, GW/3.40, GH/2);
 				str = string(HP) + "/" + string(MAXHP);
 				draw_set_halign(fa_right);
@@ -736,7 +748,7 @@ if (keyboard_check_pressed(ord("M"))) {
 				#region ATK
 					stats_offset += 35;
 					draw_sprite_stretched(sword_blue, 0, GW/11, GH/2.15 + stats_offset, 25, 25);
-					draw_text_transformed(GW/8, GH/2.15 + stats_offset, "ATK", 1.5, 1.5, 0);
+					draw_text_transformed(GW/8 - 15, GH/2.15 + stats_offset, "ATK", 1.5, 1.5, 0);
 					draw_line(GW/8.80, GH/2 + stats_offset, GW/3.40, GH/2 + stats_offset);
 					var calc = 0;
 					for (var i = 0; i < array_length(Bonuses[BonusType.Damage]); ++i) {
@@ -780,7 +792,7 @@ if (keyboard_check_pressed(ord("M"))) {
 				#region CRT
 					stats_offset += 35;
 					draw_sprite_stretched(sHudCrtIcon, 0, GW/11, GH/2.15 + stats_offset, 25, 25);
-					draw_text_transformed(GW/8, GH/2.15 + stats_offset, "CRT", 1.5, 1.5, 0);
+					draw_text_transformed(GW/8 - 15, GH/2.15 + stats_offset, "CRT", 1.5, 1.5, 0);
 					draw_line(GW/8.80, GH/2 + stats_offset, GW/3.40, GH/2 + stats_offset);
 					calc = 0;
 					for (var i = 0; i < array_length(Bonuses[BonusType.Critical]); ++i) {
@@ -802,7 +814,7 @@ if (keyboard_check_pressed(ord("M"))) {
 				#region Pickup
 					stats_offset += 35;
 					draw_sprite_stretched(sHudPickupIcon, 0, GW/11, GH/2.15 + stats_offset, 25, 25);
-					draw_text_transformed(GW/8, GH/2.15 + stats_offset, "Pickup", 1.5, 1.5, 0);
+					draw_text_transformed(GW/8 - 15, GH/2.15 + stats_offset, "Pickup", 1.5, 1.5, 0);
 					draw_line(GW/8.80, GH/2 + stats_offset, GW/3.40, GH/2 + stats_offset);
 					calc = 0;
 					for (var i = 0; i < array_length(Bonuses[BonusType.PickupRange]); ++i) {
@@ -824,7 +836,7 @@ if (keyboard_check_pressed(ord("M"))) {
 				#region Haste
 					stats_offset += 35;
 					draw_sprite_stretched(sHudCooldownIcon, 0, GW/11, GH/2.15 + stats_offset, 25, 25);
-					draw_text_transformed(GW/8, GH/2.15 + stats_offset, "Haste", 1.5, 1.5, 0);
+					draw_text_transformed(GW/8 - 15, GH/2.15 + stats_offset, "Haste", 1.5, 1.5, 0);
 					draw_line(GW/8.80, GH/2 + stats_offset, GW/3.40, GH/2 + stats_offset);
 					calc = 0;
 					for (var i = 0; i < array_length(Bonuses[BonusType.Haste]); ++i) {
