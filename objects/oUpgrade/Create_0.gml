@@ -26,6 +26,7 @@ originaly=0;
 //bl
 orbitoffset = -90;
 orbit_place = 0;
+orbit_length = 0;
 image_speed=0;
 image_alpha=0;
 //lava
@@ -36,4 +37,17 @@ owner = instance_nearest(x,y, oPlayer);
 originalSize = [0, 0];
 if (!variable_instance_exists(self, "idolDir")) {
     idolDir = 0;
+}
+if (upg[$"id"] == Weapons.SpiderCooking) {
+	for (var i = 0; i < instance_number(oUpgrade); ++i) {
+		try{
+			var inst = instance_find(oUpgrade, i);
+			if (inst.upg[$"id"] == Weapons.SpiderCooking and inst.id != id) {
+			    instance_destroy(inst);
+			}
+		}
+		catch (err){ 
+			//dont care
+		}
+	}
 }

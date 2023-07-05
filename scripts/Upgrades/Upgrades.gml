@@ -1010,7 +1010,7 @@ function randomUpgrades(){
 	#endregion
 	//first option
 	// global.upgradeOptions[0] = PERK_LIST[PerkIds.HeavyArtillery][0];
-	 global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.CuttingBoard][1];
+	 global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.PsychoAxe][1];
 }	
 
 function tickPowers(){
