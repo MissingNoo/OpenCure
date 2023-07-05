@@ -113,17 +113,26 @@ switch (upg[$"id"]) {
 	case Weapons.IdolSong:{
 		//if (shoots > 1) {			
 			inst = spawnUpgrade();
-			
-			if (shoots % 2 == 1) {
-			    //alarm[0]=1;
-				idolDir = 0;
+			if (shoots % 2) {
+			//    //alarm[0]=1;
+			//	idolDir = 0;
+			//}
+			//else{
+			//	idolDir = 180;
+			//	alarm[0]=50;
+				if (idolDir == 90) {
+				    idolDir = 270;
+					direction = idolDir;
+				}else{
+					idolDir = 90;
+					direction = idolDir;
+					image_xscale = image_xscale * -1;
+				}
 			}
-			else{
-				idolDir = 180;
-				alarm[0]=50;
-			}
+			try{
 			inst.idolDir = idolDir;
-			
+			}
+			catch (err){}
 		//}
 		//shoots -= 1;
 		break;}

@@ -36,8 +36,26 @@ socket = oPlayer.socket;
 owner = instance_nearest(x,y, oPlayer);
 originalSize = [0, 0];
 if (!variable_instance_exists(self, "idolDir")) {
-    idolDir = 0;
+    idolDir = 90;
 }
+if (upg[$"id"] == Weapons.IdolSong) {
+	var totalidols = 0;
+    for (var i = 0; i < instance_number(oUpgrade); ++i) {
+		try{
+			var inst = instance_find(oUpgrade, i);
+			if (inst.upg[$"id"] == Weapons.IdolSong) {
+			    totalidols++;
+			}
+		}
+		catch (err){ 
+			//dont care
+		}
+	}
+	if (totalidols > upg[$"shoots"]) {
+	    instance_destroy();
+	}
+}
+
 if (upg[$"id"] == Weapons.SpiderCooking) {
 	for (var i = 0; i < instance_number(oUpgrade); ++i) {
 		try{

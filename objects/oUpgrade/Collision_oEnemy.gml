@@ -118,6 +118,20 @@ if (other.hittedcooldown[upg[$"id"]] <= 0  and !global.gamePaused and other.imag
 				//}
 			}
 	        break;
+		case Weapons.ENsCurse:
+			var chance = irandom_range(0, 100);
+			if (chance < upg[$"chance"]) {
+				var near = instance_nearest(x,y, oEnemy);
+			    if (distance_to_object(near) < upg[$"range"]) {
+				    hits = 2;
+					image_angle = point_direction(x,y, near.x, near.y - 8);
+					direction = point_direction(x,y, near.x, near.y - 8);
+				}
+				else{
+					instance_destroy();
+				}
+			}			
+			break;
 		case Weapons.HoloBomb:
 			image_xscale = originalSize[0];
 			image_yscale = originalSize[1];

@@ -65,7 +65,8 @@ enum ItemTypes {
 	Collab
 }
 enum ShotTypes {
-	Multishot
+	Multishot,
+	Ranged
 }
 
 #region Upgrades
@@ -146,9 +147,9 @@ enum Weapons
 	BlBook, //TODO: area, knockback
 	BounceBall,
 	CEOTears,
-	CuttingBoard, //TODO: add bonus for flat characters, knockback, Shoot additional walls from sides, Walls travel farther
-	//If a flat character uses the Cutting Board weapon, the spawned Cutting Board projectile will be 30% bigger than normal, and will also deal 30% more damage.
-	EliteLavaBucket, //TODO: lava area
+	CuttingBoard,
+	EliteLavaBucket,
+	ENsCurse,
 	FanBeam, //TODO: knockback
 	Glowstick,
 	HoloBomb, //TODO: correct scale
@@ -342,6 +343,7 @@ function populateUpgrades(){
 				size : [1, 1.30, 1.30, 1.30, 1.30, 1.30, 1.30],
 				knockbackSpeed : 7,
 				knockbackDuration : 20,				
+				shotType : ShotTypes.Multishot,
 				perk : false,
 			});
 	#endregion
@@ -350,6 +352,7 @@ function populateUpgrades(){
 	newCreateUpgrade({
 				id : Weapons.FanBeam,
 				name : "Fan Beam",
+				weight : 3,
 				maxlevel : 7,
 				sprite : sFanBeam,
 				thumb : sFanBeamThumb,
@@ -366,6 +369,7 @@ function populateUpgrades(){
 				area : [1, 1.30, 1.30, 1.30, 1.30, 2, 2],
 				knockbackSpeed : 15,
 				knockbackDuration : 10,
+				shotType : ShotTypes.Ranged,
 				perk : false,
 			});
 	#endregion
@@ -399,20 +403,61 @@ function populateUpgrades(){
 	#endregion
 	
 	#region EliteLavaBucket
-		createUpgrade(Weapons.EliteLavaBucket, "Elite Lava Bucket", 1, sLavaPoolStart, sEliteLavaBucketThumb, 6, 10, 300, 180, 45, true, 0, 999, "white", 1, "Drop lava on the ground, burning targets slowly.");
-		createUpgradeP2(Weapons.EliteLavaBucket, 1, 7, 0 ,0);
-		createUpgrade(Weapons.EliteLavaBucket, "Elite Lava Bucket", 2, sLavaPoolStart, sEliteLavaBucketThumb, 6, 10, 300, 180, 45, true, 0, 999, "white", 1, "Increase lava area by [20%]. ");
-		createUpgradeP2(Weapons.EliteLavaBucket, 2, 7, 0 ,0);
-		createUpgrade(Weapons.EliteLavaBucket, "Elite Lava Bucket", 3, sLavaPoolStart, sEliteLavaBucketThumb, 6, 10, 300, 180, 45, true, 0, 999, "white", 2, "Throw [2] lava buckets. ");
-		createUpgradeP2(Weapons.EliteLavaBucket, 3, 7, 0 ,0);
-		createUpgrade(Weapons.EliteLavaBucket, "Elite Lava Bucket", 4, sLavaPoolStart, sEliteLavaBucketThumb, 6*1.30, 10*1.30, 300, 240, 45, true, 0, 999, "white", 2, "Increase damage by [30%] and increase duration of lava by 1 second.");
-		createUpgradeP2(Weapons.EliteLavaBucket, 4, 7, 0 ,0);
-		createUpgrade(Weapons.EliteLavaBucket, "Elite Lava Bucket", 5, sLavaPoolStart, sEliteLavaBucketThumb, 6*1.30*1.30, 10*1.30*1.30, 300, 240, 45, true, 0, 999, "white", 2, "Increase damage by [30%].");
-		createUpgradeP2(Weapons.EliteLavaBucket, 5, 7, 0 ,0);
-		createUpgrade(Weapons.EliteLavaBucket, "Elite Lava Bucket", 6, sLavaPoolStart, sEliteLavaBucketThumb, 6*1.30*1.30, 10*1.30*1.30, 300, 240, 45, true, 0, 999, "white", 3, "Throw [3] lava buckets.");
-		createUpgradeP2(Weapons.EliteLavaBucket, 6, 7, 0 ,0);
-		createUpgrade(Weapons.EliteLavaBucket, "Elite Lava Bucket", 7, sLavaPoolStart, sEliteLavaBucketThumb, 6*1.30*1.30, 10*1.30*1.30, 300, 240, 45, true, 0, 999, "white", 4, "Throw [4] lava buckets and increase lava size by [20%].");
-		createUpgradeP2(Weapons.EliteLavaBucket, 7, 7, 0 ,0);
+		newCreateUpgrade({ 
+				id : Weapons.EliteLavaBucket,
+				weight : 3,
+				name : "Elite Lava Bucket",
+				maxlevel : 7,
+				sprite : sLavaPoolStart,
+				thumb : sEliteLavaBucketThumb,
+				mindmg : [6, 6, 6, 10, 14, 14, 14],
+				maxdmg : [10, 10, 10, 14, 18, 18, 18],
+				cooldown : 300,
+				minimumcooldown : 1,
+				shoots : [1, 1, 2, 2, 2, 3, 4],
+				attackdelay : 5,
+				hits : 9999,
+				hitCooldown : 45, 
+				duration : [180, 180, 180, 270, 270, 270, 270],
+				speed : 0,
+				knockbackDuration : 0,
+				knockbackSpeed : 0,
+				size : [.9, 1.1, 1.1, 1.1, 1.1, 1.1, 1.32],
+				canBeHasted : true,
+				type : "white",
+				shotType : ShotTypes.Multishot,
+				perk : false,
+			});
+	#endregion
+	
+	#region EN's Curse
+	newCreateUpgrade({ 
+			id : Weapons.ENsCurse,
+			weight : 2,
+			name : "EN's Curse",
+			maxlevel : 7,
+			sprite : sENCurse,
+			thumb : sENCurseThumb,
+			mindmg : [12, 12, 17, 17, 17, 17, 17],
+			maxdmg : [16, 16, 21, 21, 21, 21, 21],
+			cooldown : [110, 110, 110, 110, 110, 93, 93],
+			minimumcooldown : 1,
+			shoots : [1, 1, 1, 1, 2, 2, 3],
+			attackdelay : 10,
+			hits : 1,
+			hitCooldown : 20, 
+			duration : 90,
+			speed : 7,
+			knockbackDuration : 0,
+			knockbackSpeed : 0,
+			size : 1.5,
+			range : [100, 100, 100, 125, 125, 125, 125],
+			chance : [70, 80, 80, 80, 90, 90, 90],
+			canBeHasted : true,
+			type : "white",
+			shotType : ShotTypes.Multishot,
+			perk : false,
+		});
 	#endregion
 
 	#region Holobomb
@@ -420,6 +465,7 @@ function populateUpgrades(){
 				id : Weapons.HoloBomb,
 				name : "Holo Bomb",
 				maxlevel : 7,
+				weight : 3,
 				sprite : sHolobomb,
 				thumb : sHolobomb,
 				mindmg : [15, 15, 15, 15, 15, 18, 18],
@@ -434,6 +480,7 @@ function populateUpgrades(){
 				shoots : [1, 1, 1, 2, 2, 2, 3],
 				knockbackSpeed : 0,
 				knockbackDuration : 0,
+				shotType : ShotTypes.Multishot,
 				perk : false,
 			});
 		//Damage: 	170% (12 – 22)
@@ -454,21 +501,34 @@ function populateUpgrades(){
 		//Level MAX 	Throw 3 bombs. 
 	#endregion
 	
-	#region Asacoco
-		createUpgrade(Weapons.PlugAsaCoco,"Plug-type Asacoco",1,sAsaCocoShoot,sAsaCocoThumb, 10, 18, 150, 45, 10, true, 20, 999, "white", 1, "Fires a fast piercing tail at a random target.");
-		createUpgradeP2(Weapons.PlugAsaCoco, 1, 7, 7, 15);
-		createUpgrade(Weapons.PlugAsaCoco,"Plug-type Asacoco",2,sAsaCocoShoot,sAsaCocoThumb, 10*1.20, 18*1.20, 150, 45, 10, true, 20, 999, "white", 1, "Increase damage by [20%]. ");
-		createUpgradeP2(Weapons.PlugAsaCoco, 2, 7, 7, 15);
-		createUpgrade(Weapons.PlugAsaCoco,"Plug-type Asacoco",3,sAsaCocoShoot,sAsaCocoThumb, 10*1.20, 18*1.20, 150, 45, 10, true, 20, 999, "white", 2, "Fire an additional Asacoco. ");
-		createUpgradeP2(Weapons.PlugAsaCoco, 3, 7, 7, 15);
-		createUpgrade(Weapons.PlugAsaCoco,"Plug-type Asacoco",4,sAsaCocoShoot,sAsaCocoThumb, 10*1.20*1.30, 18*1.20*1.30, 150, 45, 10, true, 20, 999, "white", 2, "Increase damage by [30%]. ");
-		createUpgradeP2(Weapons.PlugAsaCoco, 4, 7, 7, 15);
-		createUpgrade(Weapons.PlugAsaCoco,"Plug-type Asacoco",5,sAsaCocoShoot,sAsaCocoThumb, 10*1.20*1.30, 18*1.20*1.30, 150, 45, 10, true, 20, 999, "white", 3, "Fire an additional Asacoco. ");
-		createUpgradeP2(Weapons.PlugAsaCoco, 5, 7, 7, 15);
-		createUpgrade(Weapons.PlugAsaCoco,"Plug-type Asacoco",6,sAsaCocoShoot,sAsaCocoThumb, 10*1.20*1.30, 18*1.20*1.30, 150, 45, 10, true, 20, 999, "white", 3, "Adds knockback on hit. ");
-		createUpgradeP2(Weapons.PlugAsaCoco, 6, 7, 7, 15); 
-		createUpgrade(Weapons.PlugAsaCoco,"Plug-type Asacoco",7,sAsaCocoShoot,sAsaCocoThumb, 10*1.20*1.30, 18*1.20*1.30, 150, 45, 10, true, 20, 999, "white", 4, "Fire an additional Asacoco. ");
-		createUpgradeP2(Weapons.PlugAsaCoco, 7, 7, 7, 15); 
+	#region asacoco
+	newCreateUpgrade({ 
+				id : Weapons.PlugAsaCoco,
+				weight : 4,
+				name : "Plug Type Asacoco",
+				maxlevel : 7,
+				sprite : sAsaCocoShoot,
+				thumb : sAsaCocoThumb,
+				mindmg : [12, 15, 15, 20, 20, 20, 20],
+				maxdmg : [16, 19, 19, 24, 24, 24, 24],
+				cooldown : 150,
+				minimumcooldown : 1,
+				shoots : [1, 1, 2, 2, 3, 3, 4],
+				attackdelay : 5,
+				hits : 999,
+				hitCooldown : 10, 
+				duration : 45,
+				speed : 20,
+				knockbackDuration : [0, 0, 0, 0, 0, 15, 15],
+				knockbackSpeed : [0, 0, 0, 0, 0, 7, 7],
+				size : 1,
+				canBeHasted : true,
+				type : "white",
+				shotType : ShotTypes.Multishot,
+				afterimage : true,
+				afterimageColor : c_yellow,
+				perk : false,
+			});
 	#endregion
 		
 	#region SpiderCooking
@@ -500,6 +560,7 @@ function populateUpgrades(){
 			newCreateUpgrade({
 				id : Weapons.Glowstick,
 				name : "Glowstick",
+				weight : 4,
 				maxlevel : 7,
 				sprite : sGlowstick,
 				thumb : sGlowstickThumb,
@@ -517,15 +578,19 @@ function populateUpgrades(){
 				type : "white",
 				shoots : [1, 1, 2, 2, 3, 3, 4],
 				knockbackSpeed : 0,
+				shotType : ShotTypes.Multishot,
 				knockbackDuration : 0,
 				perk : false,
 			});
 			#endregion
-	#region Idol Song
+	#region Idol Song //TODO FIX THIS
 			newCreateUpgrade({
 				id : Weapons.IdolSong,
 				name : "Idol Song",
+				afterimage : true,
+				afterimageColor : c_blue,
 				maxlevel : 7,
+				weight : 3,
 				sprite : sIdolSong,
 				thumb : sIdolSongThumb,
 				mindmg : [11, 14, 14, 14, 14, 14, 22],
@@ -534,12 +599,14 @@ function populateUpgrades(){
 				duration : 150, 
 				hitCooldown : 20, 
 				canBeHasted : true,
+				attackdelay : 30,
 				speed : [1, 1, 1.2, 1.2, 1.2, 1.2, 1.2],
 				hits : 999,
 				type : "white",
 				shoots : [2, 2, 2, 2, 2, 4, 4],
 				knockbackSpeed : 0,
 				knockbackDuration : 0,
+				shotType : ShotTypes.Ranged,
 				perk : false,
 			});
 			#endregion
@@ -1040,7 +1107,7 @@ function randomUpgrades(){
 	#endregion
 	//first option
 	// global.upgradeOptions[0] = PERK_LIST[PerkIds.HeavyArtillery][0];
-	 global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.CuttingBoard][1];
+	 global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.PlugAsaCoco][1];
 }	
 
 function tickPowers(){

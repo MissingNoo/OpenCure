@@ -270,16 +270,15 @@ sprite_index=upg[$"sprite"];
 			break;}
 			
 		case Weapons.IdolSong:{
-			if (idolDir == 0) {
-			    idolDir = 180;
+			if (idolDir == 90) {
+			    idolDir = 270;
+				xstart = xstart + 20;
 				direction = idolDir;
 			}else{
-				idolDir = 0;
+				idolDir = 90;
+				xstart = xstart - 20;
 				direction = idolDir;
 				image_xscale = image_xscale * -1;
-			}		
-			if (shoots>0) {
-				//alarm[0] = 1;
 			}
 			break;}
 		case Weapons.PsychoAxe:{

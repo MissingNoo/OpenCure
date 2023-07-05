@@ -204,3 +204,13 @@ function propDraw(){
 	var alpha = oPlayer.y < y and collision_rectangle(x- sprw,y - sprh, x + sprw, y, oPlayer, false, false) ? 0.35 : 1
 	draw_sprite_ext(sprite_index, 0, x, y, 1, 1, 0, c_white, alpha);
 }
+
+function sine_wave(time, period, amplitude, midpoint) {
+    return sin(time * 2 * pi / period) * amplitude + midpoint;
+}
+
+function sine_between(time, period, minimum, maximum) {
+    var midpoint = mean(minimum, maximum);
+    var amplitude = maximum - midpoint;
+    return sine_wave(time, period, amplitude, midpoint);
+}

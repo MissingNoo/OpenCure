@@ -1,9 +1,11 @@
 //switch (upg[?"name"]) {
 //default:
 if (variable_struct_exists(upg, "afterimage") and upg[$"afterimage"] and image_alpha == 1) {
-draw_sprite_ext(sprite_index, image_index-2, xpreviousprevious, ypreviousprevious, image_xscale, image_yscale, 0, upg[$"afterimageColor"], .5);
-draw_sprite_ext(sprite_index, image_index-1, xprevious, yprevious, image_xscale, image_yscale, 0, upg[$"afterimageColor"], .75);
+draw_sprite_ext(sprite_index, image_index-2, xpreviousprevious, ypreviousprevious, image_xscale, image_yscale, image_angle, upg[$"afterimageColor"], .5);
+draw_sprite_ext(sprite_index, image_index-1, xprevious, yprevious, image_xscale, image_yscale, image_angle, upg[$"afterimageColor"], .75);
 }
+
+
 
 if (upg[$"id"] != Weapons.SpiderCooking) {
     draw_self();
@@ -14,6 +16,9 @@ else{
 }
 
 if (global.debug) {
+	if (upg[$"id"] == Weapons.ENsCurse) {
+		draw_circle(x,y, upg[$"range"],true)
+	}
 	draw_text(x, y - 20, upgID);
 	//draw_text(x,y-30, string(alarm_get(1)));
 	//draw_text(x,y-60, string(upg[?"duration"]));
