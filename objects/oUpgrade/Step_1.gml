@@ -143,6 +143,17 @@ sprite_index=upg[$"sprite"];
 			alarm[0]=1;
 			break;}
 			
+		case Weapons.BounceBall:{
+			defaultBehaviour();
+			direction = point_direction(x,y,x,y+10);
+			y = oPlayer.y - 500;
+			//var _bx = irandom_range(-100, 100)
+			//x = oPlayer.x + _bx;			
+			x = oPlayer.x ;	
+			alarm[0] = upg[$"attackdelay"];
+			break;
+		}
+			
 		case Weapons.EliteLavaBucket:{	
 			level = upg[$"level"];
 			random_set_seed(current_time);
@@ -294,6 +305,13 @@ sprite_index=upg[$"sprite"];
 	if (variable_struct_exists(upg, "size")) {
 	    image_xscale = upg[$"size"];
 	    image_yscale = upg[$"size"];
+	}
+	
+	if (upg[$"id"] == Weapons.BounceBall) {
+	    for (var i = 0; i <= global.player[?"ballsize"]; ++i) {
+			image_xscale = image_xscale * 1.10;
+			image_yscale = image_yscale * 1.10;
+		}
 	}
 	
 	originalSize = [image_xscale, image_yscale];

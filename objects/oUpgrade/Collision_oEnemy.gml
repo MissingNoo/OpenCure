@@ -1,5 +1,19 @@
 /// @description 
 
+if (upg[$"id"] == Weapons.BounceBall) {
+		var _push = oGui.e;
+		var _dir = point_direction(other.x, other.y, x, y);
+		var _hspd = lengthdir_x(_push, _dir);
+		var _vspd = lengthdir_y(_push, _dir); 
+		 //x+=_hspd;
+		 //y+=_vspd;
+		 vspeed=_vspd;
+		 //direction = point_direction(x, y, x + _hspd, y + _vspd);
+		 //if (alarm_get(11) == -1) {
+		 //    alarm[11] = 20;
+		 //}
+		 
+}
 
 if (other.hittedcooldown[upg[$"id"]] <= 0  and !global.gamePaused and other.image_alpha == 1 and image_alpha == 1 and ghost == false) {
 	audio_play_sound(choose(snd_hit1, snd_hit2, snd_hit3), 0, 0, .5);

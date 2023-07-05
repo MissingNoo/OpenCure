@@ -34,6 +34,9 @@ enum ItemTypes {
 	Perk,
 	Collab
 }
+enum ShotTypes {
+	Multishot
+}
 
 #region Upgrades
 function newCreateUpgrade(_data, _sounds = ""){
@@ -111,6 +114,7 @@ enum Weapons
 	PowerofAtlantis, //TODO: water area, more damage
 	InaTentacle, //TODO: add knockback
 	BlBook, //TODO: area, knockback
+	BounceBall,
 	CEOTears,
 	CuttingBoard, //TODO: add bonus for flat characters, knockback, Shoot additional walls from sides, Walls travel farther
 	//If a flat character uses the Cutting Board weapon, the spawned Cutting Board projectile will be 30% bigger than normal, and will also deal 30% more damage.
@@ -233,20 +237,57 @@ function populateUpgrades(){
 	#endregion
 	
 	#region BLBook
-		createUpgrade(Weapons.BlBook, "BL Book", 1, sBLBook, sBLBookThumb, 10, 18, 360, 120, 20, 1, 3, 7, "white", 3, "Repels targets with orbiting BL Books.");
-		createUpgradeP2(Weapons.BlBook, 1, 7, 3, 5);
-		createUpgrade(Weapons.BlBook, "BL Book", 2, sBLBook, sBLBookThumb, 10, 18, 360, 120, 20, 1, 3, 7, "white", 4, "Add [1]  additional book. ");
-		createUpgradeP2(Weapons.BlBook, 2, 7, 3, 5);
-		createUpgrade(Weapons.BlBook, "BL Book", 3, sBLBook, sBLBookThumb, 10*1.30, 18*1.30, 360, 180, 20, 1, 3, 7, "white", 4, "Increase damage by [30%]  and increase duration by [1]  second. ");
-		createUpgradeP2(Weapons.BlBook, 3, 7, 3, 5);
-		createUpgrade(Weapons.BlBook, "BL Book", 4, sBLBook, sBLBookThumb, 10*1.30, 18*1.30, 360, 180, 20, 1, 3, 7, "white", 5, "Add [1]  additional book.");
-		createUpgradeP2(Weapons.BlBook, 4, 7, 3, 5);
-		createUpgrade(Weapons.BlBook, "BL Book", 5, sBLBook, sBLBookThumb, 10*1.30*1.40, 18*1.30*1.40, 360, 180, 20, 1, 5, 7, "white", 5, "Increase Damage by [40%] .");
-		createUpgradeP2(Weapons.BlBook, 5, 7, 3, 5);
-		createUpgrade(Weapons.BlBook, "BL Book", 6, sBLBook, sBLBookThumb, 10*1.30*1.40, 18*1.30*1.40, 360, 180, 20, 1, 5, 7, "white", 6, "Add [1]  additional book. ");
-		createUpgradeP2(Weapons.BlBook, 6, 7, 3, 5);
-		createUpgrade(Weapons.BlBook, "BL Book", 7, sBLBook, sBLBookThumb, 10*1.30*1.40*1.40, 18*1.30*1.40*1.40, 360, 180, 20, 1, 5, 7, "white", 6, "Increase damage by [40%] .");
-		createUpgradeP2(Weapons.BlBook, 7, 7, 3, 5);
+		newCreateUpgrade({
+				id : Weapons.BlBook,
+				weight : 3,
+				name : "BL Book",
+				maxlevel : 7,
+				sprite : sBLBook,
+				thumb : sBLBookThumb,
+				mindmg : [12, 12, 16, 16, 16, 16, 23],
+				maxdmg : [16, 16, 20, 20, 20, 20, 28],
+				cooldown : 360,
+				minimumcooldown : 300,
+				shoots : [3, 4, 4, 5, 5, 6, 6],
+				hits : 7,
+				hitCooldown : 20, 
+				duration : [120, 120, 300, 300, 300, 300, 300],
+				speed : [3, 3, 3, 3, 5, 5, 5],
+				knockbackDuration : 5,
+				knockbackSpeed : 2,
+				canBeHasted : true,
+				type : "white",
+				shotType : ShotTypes.Multishot,
+				perk : false,
+			});
+	#endregion
+	
+	#region Bounce Ball
+		newCreateUpgrade({ //TODO knockback depends on character
+				id : Weapons.BounceBall,
+				weight : 4,
+				name : "Bounce Ball",
+				maxlevel : 7,
+				sprite : sBounceBall,
+				thumb : sBounceBallThumb,
+				mindmg : [10, 12, 12, 12, 12, 12, 17],
+				maxdmg : [14, 16, 16, 16, 16, 16, 21],
+				cooldown : [120, 120, 120, 120, 120, 102, 102],
+				minimumcooldown : 1,
+				shoots : [1, 1, 2, 2, 3, 3, 4],
+				attackdelay : 5,
+				hits : 10,
+				hitCooldown : 30, 
+				duration : 180,
+				speed : 8,
+				knockbackDuration : [0, 0, 5, 5, 5, 5, 5],
+				knockbackSpeed : [0, 0, 3, 3, 3, 3, 3],
+				size : 0.6,
+				canBeHasted : true,
+				type : "white",
+				shotType : ShotTypes.Multishot,
+				perk : false,
+			});
 	#endregion
 	
 	#region Cutting Board
@@ -270,6 +311,7 @@ function populateUpgrades(){
 				size : [1, 1.30, 1.30, 1.30, 1.30, 1.30, 1.30],
 				knockbackSpeed : 7,
 				knockbackDuration : 20,
+				
 				perk : false,
 			});
 	#endregion
@@ -958,9 +1000,10 @@ function randomUpgrades(){
 		
 	//global.upgradeOptions[3] = global.null;
 	#endregion
+	#endregion
 	//first option
 	// global.upgradeOptions[0] = PERK_LIST[PerkIds.HeavyArtillery][0];
-	 global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.SpiderCooking][1];
+	 global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.BounceBall][1];
 }	
 
 function tickPowers(){

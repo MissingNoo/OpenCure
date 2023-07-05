@@ -64,9 +64,25 @@ if (!global.gamePaused) {
 			x = owner.x;
 			y = owner.y - (sprite_get_height(global.player[?"sprite"]) / 3);
 			break;}
+		case Weapons.BounceBall:{
+			//if (direction != 270) {
+			//    direction += 15 * (direction > 270) ? 1 : -1 ;
+			//}
+			if (direction < 270) {
+			    direction += 5;
+			}
+			if (direction > 270) {
+			    direction -= 5;
+			}
+			image_angle+=10;
+			break;
+		}
 	}
 }
 #endregion
+
+
+
 if (hits <= 0 and upg[$"id"] != Weapons.Glowstick) {
 	image_alpha=0;
 }
