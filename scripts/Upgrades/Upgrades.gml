@@ -140,6 +140,7 @@ function populateUpgrades(){
 				name : "AmePistol",
 				maxlevel : 7,
 				sprite : sAmeShoot,
+				attackdelay : 10,
 				thumb : sAmePistol,
 				mindmg : [7, 7, 7*1.25, 7*1.25, 7*1.25, 7*1.25*1.40, 7*1.25*1.40],
 				maxdmg : [13, 13, 13*1.25, 13*1.25, 13*1.25, 13*1.20*1.40, 13*1.20*1.40],
@@ -262,8 +263,8 @@ function populateUpgrades(){
 			});
 	#endregion
 	
-	#region Bounce Ball
-		newCreateUpgrade({ //TODO knockback depends on character
+	#region Bounce Ball //TODO: knockback depends on character
+		newCreateUpgrade({ 
 				id : Weapons.BounceBall,
 				weight : 4,
 				name : "Bounce Ball",
@@ -273,13 +274,13 @@ function populateUpgrades(){
 				mindmg : [10, 12, 12, 12, 12, 12, 17],
 				maxdmg : [14, 16, 16, 16, 16, 16, 21],
 				cooldown : [120, 120, 120, 120, 120, 102, 102],
-				minimumcooldown : 1,
+				minimumcooldown : 102,
 				shoots : [1, 1, 2, 2, 3, 3, 4],
 				attackdelay : 5,
 				hits : 10,
 				hitCooldown : 30, 
 				duration : 180,
-				speed : 8,
+				speed : 6,
 				knockbackDuration : [0, 0, 5, 5, 5, 5, 5],
 				knockbackSpeed : [0, 0, 3, 3, 3, 3, 3],
 				size : 0.6,
@@ -310,8 +311,7 @@ function populateUpgrades(){
 				area : [1, 1.30, 1.30, 1.30, 1.30, 1.30, 1.30],
 				size : [1, 1.30, 1.30, 1.30, 1.30, 1.30, 1.30],
 				knockbackSpeed : 7,
-				knockbackDuration : 20,
-				
+				knockbackDuration : 20,				
 				perk : false,
 			});
 	#endregion
@@ -343,22 +343,27 @@ function populateUpgrades(){
 	#region CEO Tears
 	newCreateUpgrade({
 				id : Weapons.CEOTears,
+				weight : 2,
 				name : "CEO's Tears",
 				maxlevel : 7,
 				sprite : sCeoTears,
 				thumb : sCeoTearsThumb,
-				mindmg : [7, 7*1.20, 7*1.20, 7*1.20, 7*1.40, 7*1.40, 7*1.40],
-				maxdmg : [13, 13*1.20, 13*1.20, 13*1.20, 13*1.40, 13*1.40, 13*1.40],
-				cooldown : [30, 30, 30, 30 * 0.67, 30 * 0.67, 30 * 0.67 * 0.50, 30 * 0.67 * 0.50],
-				duration : 90, 
-				hitCooldown : 30, 
-				canBeHasted : true,
-				speed : [4, 4, 4, 4, 4 * 0.75, 4 * 0.75, 4 * 0.75],
-				hits : 1,
-				type : "white",
+				mindmg : [8, 10, 10, 10, 12, 12, 12],
+				maxdmg : [12, 14, 14, 14, 16, 16, 16],
+				cooldown : [30, 30, 30, 20, 20, 10, 10],
+				minimumcooldown : 1,
 				shoots : [1, 1, 2, 2, 2, 2, 4],
-				knockbackSpeed : 0,
+				attackdelay : 1,
+				hits : 1,
+				hitCooldown : 30, 
+				size : 0.9,
+				duration : 90,
+				speed : [4, 4, 4, 4, 5, 5, 5],
 				knockbackDuration : 0,
+				knockbackSpeed : 0,
+				canBeHasted : true,
+				type : "white",
+				shotType : ShotTypes.Multishot,
 				perk : false,
 			});
 	#endregion
@@ -570,6 +575,7 @@ function populateUpgrades(){
 				duration : [120, 120, 120, 120, 120, 120, 120], 
 				hitCooldown : [10, 10, 10, 10, 10, 10, 10], 
 				canBeHasted : true,
+				attackdelay : 10,
 				speed : 5,
 				hits : [1, 1, 2, 3, 3, 3],
 				type : "red",
@@ -589,6 +595,7 @@ function populateUpgrades(){
 				maxdmg : (13*333)/100,
 				cooldown : [180, 174, 174],
 				duration : 100, 
+				attackdelay : 20,
 				hitCooldown : 10, 
 				canBeHasted : true,
 				speed : 0,
@@ -1003,7 +1010,7 @@ function randomUpgrades(){
 	#endregion
 	//first option
 	// global.upgradeOptions[0] = PERK_LIST[PerkIds.HeavyArtillery][0];
-	 global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.BounceBall][1];
+	 global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.CuttingBoard][1];
 }	
 
 function tickPowers(){
@@ -1040,7 +1047,7 @@ function defaultBehaviour(){
 	image_alpha=1;
 }
 
-function spawnUpgrade(_upg = upg, _speed = upg[$"speed"], _hits = upg[$"hits"], _shoots = shoots, _mindmg = upg[$"mindmg"], _maxdmg = upg[$"maxdmg"], _sprite = upg[$"sprite"]){
+function spawnUpgrade(_upg = upg, _speed = upg[$"speed"], _hits = upg[$"hits"], _shoots = shoots, _mindmg = upg[$"mindmg"], _maxdmg = upg[$"maxdmg"], _sprite = upg[$"sprite"], _lastdir = arrowDir){
 	if (_upg[$"id"] != Weapons.PipiPilstol) { _shoots = -1; }
 	var instancecreated = instance_create_layer(owner.x,owner.y-8,"Upgrades",oUpgrade,{
 					upg : _upg,
@@ -1051,7 +1058,8 @@ function spawnUpgrade(_upg = upg, _speed = upg[$"speed"], _hits = upg[$"hits"], 
 					maxdmg : _maxdmg,
 					sprite_index : _sprite,
 					a : 0,
-					owner : owner
+					owner : owner,
+					arrowDir : _lastdir
 				});
 		return instancecreated;
 }

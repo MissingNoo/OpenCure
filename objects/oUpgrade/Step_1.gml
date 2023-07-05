@@ -1,6 +1,7 @@
 //if (instance_number(oEnemy) == 0) {
 //    instance_destroy();
 //}
+
 if (socket == oPlayer.socket) {
     owner = instance_nearest(x,y,oPlayer);
 }else{
@@ -16,7 +17,16 @@ hits=upg[$"hits"];
 if (shoots == 0) {
     shoots = upg[$"shoots"];
 }
-if (keyboard_check(ord("C")) and upg != UPGRADES[0]) {show_message(upg[$"shoots"]);show_message(shoots)};
+if (shoots > 1) {
+	arrowDir = global.arrowDir;
+	if (variable_struct_exists(upg, "attackdelay")) {
+		alarm[0] = upg[$"attackdelay"];
+	}
+	else{
+		alarm[0] = 1;
+	}
+}
+//if (keyboard_check(ord("C")) and upg != UPGRADES[0]) {show_message(upg[$"shoots"]);show_message(shoots)};
 sprite_index=upg[$"sprite"];
 
 
@@ -52,9 +62,9 @@ sprite_index=upg[$"sprite"];
 			
 		case Weapons.AmePistol:{
 			defaultBehaviour();
-			direction = global.arrowDir;
-			alarm[0] = 10;
-			image_angle = global.arrowDir;
+			direction = arrowDir;
+			//alarm[0] = 10;
+			image_angle = arrowDir;
 			break;}
 			
 		case Weapons.GuraTrident:{
@@ -64,7 +74,7 @@ sprite_index=upg[$"sprite"];
 			    var dirr = (image_xscale > 0) ? .25 : -.25;
 				image_xscale += dirr;
 			}
-			alarm[0] = 1;
+			//alarm[0] = 1;
 			break;}
 			
 		case Weapons.InaTentacle:{
@@ -147,10 +157,9 @@ sprite_index=upg[$"sprite"];
 			defaultBehaviour();
 			direction = point_direction(x,y,x,y+10);
 			y = oPlayer.y - 500;
-			//var _bx = irandom_range(-100, 100)
-			//x = oPlayer.x + _bx;			
-			x = oPlayer.x ;	
-			alarm[0] = upg[$"attackdelay"];
+			var _bx = irandom_range(-100, 100)
+			x = oPlayer.x + _bx;
+			//alarm[0] = upg[$"attackdelay"];
 			break;
 		}
 			
@@ -160,7 +169,7 @@ sprite_index=upg[$"sprite"];
 			x = owner.x + irandom_range(-100,100);
 			random_set_seed(current_time);
 			y = owner.y + (irandom_range(-100,100)*-1);
-			alarm[0] = 1;
+			//alarm[0] = 1;
 			depth=owner.depth;
 			//for (var i = 0; i < array_length(Bonuses[BonusType.WeaponSize]); ++i) {
 			//	if (Bonuses[BonusType.WeaponSize][i] != 0) {
@@ -182,7 +191,7 @@ sprite_index=upg[$"sprite"];
 			x = owner.x + irandom_range(-200,200);
 			random_set_seed(current_time);
 			y = owner.y + (irandom_range(-200,200)*-1);
-			alarm[0] = 1;
+			//alarm[0] = 1;
 			image_xscale = 1.3;
 			image_yscale = 1.3;
 			break;}
@@ -220,15 +229,16 @@ sprite_index=upg[$"sprite"];
 			}
 			break;}
 		case Weapons.CuttingBoard:{
-			direction = arrowDir + 180;
+			direction = arrowDir + 180 + diroffset;
 			speed = upg[$"speed"];
 			image_angle = arrowDir + diroffset;
+			//alarm[0] = upg[$"attackdelay"];
 			break;
 		}
 		case Weapons.HoloBomb:{	
 			x = owner.x + irandom_range(-50,50);			
 			y = owner.y + (irandom_range(-50,50)*-1);
-			alarm[0] = 1;
+			//alarm[0] = 1;
 			depth=owner.depth;
 			break;}
 			
@@ -255,7 +265,7 @@ sprite_index=upg[$"sprite"];
 				image_xscale = image_xscale * -1;
 			}		
 			if (shoots>0) {
-				alarm[0] = 1;
+				//alarm[0] = 1;
 			}
 			break;}
 		case Weapons.PsychoAxe:{
@@ -268,9 +278,9 @@ sprite_index=upg[$"sprite"];
 		#region modded
 		case Weapons.PipiPilstol:{
 			defaultBehaviour();
-			direction = global.arrowDir;
-			image_angle = global.arrowDir;
-			alarm[0] = 10;
+			direction = arrowDir;
+			image_angle = arrowDir;
+			//alarm[0] = 10;
 			if (shoots % 2) {
 				sprite_index = spr_Pipmod_Pippa_bullet_rifle_blue;
 				var enemies = instance_number(oEnemy);
@@ -293,7 +303,7 @@ sprite_index=upg[$"sprite"];
 			x=closest.x;
 			y=closest.y;
 			if (shoots>0) {
-				alarm[0] = 20;
+				//alarm[0] = 20;
 			}
 			break;
 		}
@@ -308,7 +318,7 @@ sprite_index=upg[$"sprite"];
 	}
 	
 	if (upg[$"id"] == Weapons.BounceBall) {
-	    for (var i = 0; i <= global.player[?"ballsize"]; ++i) {
+	    for (var i = 0; i < global.player[?"ballsize"]; ++i) {
 			image_xscale = image_xscale * 1.10;
 			image_yscale = image_yscale * 1.10;
 		}

@@ -1,7 +1,7 @@
 /// @description 
 
 if (upg[$"id"] == Weapons.BounceBall) {
-		var _push = oGui.e;
+		var _push = 5;
 		var _dir = point_direction(other.x, other.y, x, y);
 		var _hspd = lengthdir_x(_push, _dir);
 		var _vspd = lengthdir_y(_push, _dir); 

@@ -1,4 +1,5 @@
 event_inherited();
+gotknocked = false;
 debuffs = [];
 damaged=false;
 target = oPlayer;
