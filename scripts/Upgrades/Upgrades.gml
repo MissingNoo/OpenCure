@@ -1,4 +1,34 @@
 // Feather disable GM2017
+
+#region model
+//newCreateUpgrade({ 
+//				id : Weapons.,
+//				weight : 0,
+//				name : "",
+//				maxlevel : 7,
+//				sprite : s,
+//				thumb : s,
+//				mindmg : 0,
+//				maxdmg : 0,
+//				cooldown : 0,
+//				minimumcooldown : 1,
+//				shoots : 1,
+//				attackdelay : 0,
+//				hits : 0,
+//				hitCooldown : 0, 
+//				duration : 0,
+//				speed : 0,
+//				knockbackDuration : 0,
+//				knockbackSpeed : 0,
+//				size : 1,
+//				canBeHasted : true,
+//				type : "white",
+//				shotType : ShotTypes.Multishot,
+//				perk : false,
+//			});
+#endregion
+
+
 #macro UPGRADES global.upgrades
 global.upgrade = false;
 global.upgradeCooldown[0] = 0;
@@ -1010,7 +1040,7 @@ function randomUpgrades(){
 	#endregion
 	//first option
 	// global.upgradeOptions[0] = PERK_LIST[PerkIds.HeavyArtillery][0];
-	 global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.PsychoAxe][1];
+	 global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.CuttingBoard][1];
 }	
 
 function tickPowers(){

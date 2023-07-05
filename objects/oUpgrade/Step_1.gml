@@ -14,6 +14,10 @@ speed=upg[$"speed"];
 mindmg = upg[$"mindmg"];
 maxdmg = upg[$"maxdmg"];
 hits=upg[$"hits"];
+if (variable_struct_exists(upg, "size")) {
+	    image_xscale = upg[$"size"];
+	    image_yscale = upg[$"size"];
+	}
 if (shoots == 0) {
     shoots = upg[$"shoots"];
 }
@@ -156,6 +160,10 @@ sprite_index=upg[$"sprite"];
 		case Weapons.BounceBall:{
 			defaultBehaviour();
 			direction = point_direction(x,y,x,y+10);
+			for (var i = 0; i < global.player[?"ballsize"]; ++i) {
+				image_xscale = image_xscale * 1.10;
+				image_yscale = image_yscale * 1.10;
+			}
 			y = oPlayer.y - 500;
 			var _bx = irandom_range(-100, 100)
 			x = oPlayer.x + _bx;
@@ -229,6 +237,12 @@ sprite_index=upg[$"sprite"];
 			}
 			break;}
 		case Weapons.CuttingBoard:{
+			if (global.player[?"flat"]) {
+				image_xscale = image_xscale * 1.30;
+				image_yscale = image_yscale * 1.30;
+				mindmg = mindmg * 1.30;
+				maxdmg = maxdmg * 1.30;
+			}
 			direction = arrowDir + 180 + diroffset;
 			speed = upg[$"speed"];
 			image_angle = arrowDir + diroffset;
@@ -311,17 +325,6 @@ sprite_index=upg[$"sprite"];
 	}
 		if (sprite_index==blank) {
 			instance_destroy();
-	}
-	if (variable_struct_exists(upg, "size")) {
-	    image_xscale = upg[$"size"];
-	    image_yscale = upg[$"size"];
-	}
-	
-	if (upg[$"id"] == Weapons.BounceBall) {
-	    for (var i = 0; i < global.player[?"ballsize"]; ++i) {
-			image_xscale = image_xscale * 1.10;
-			image_yscale = image_yscale * 1.10;
-		}
 	}
 	
 	originalSize = [image_xscale, image_yscale];
