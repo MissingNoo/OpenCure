@@ -173,9 +173,11 @@ function clientReceivedPacket2(_response)
 		}
 		
 		case Network.UpdateRoom:{
-			if (r[$"roomname"] == global.roomname) {
-			    oLobby.players = json_parse(r[$"players"]);
-				oLobby.IsHost = r[$"isHost"];
+			if (instance_exists(oLobby)) {
+			    if (r[$"roomname"] == global.roomname) {
+				    oLobby.players = json_parse(r[$"players"]);
+					oLobby.IsHost = r[$"isHost"];
+				}
 			}
 			break;
 		}
