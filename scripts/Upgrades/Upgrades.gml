@@ -542,7 +542,7 @@ function populateUpgrades(){
 				thumb : sSpiderCookingThumb,
 				mindmg : [7, 7, 10, 10, 10, 12, 12],
 				maxdmg : [11, 11, 14, 14, 14, 16, 16],
-				cooldown : 10,
+				cooldown : 600,
 				duration : 601, 
 				hitCooldown : [45, 45, 45, 45, 36, 36, 36], 
 				canBeHasted : false,
@@ -1112,8 +1112,9 @@ function randomUpgrades(){
 	#endregion
 	//first option
 	// global.upgradeOptions[0] = PERK_LIST[PerkIds.HeavyArtillery][0];
-	 //global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.BlBook][1];
-	 global.upgradeOptions[0] = global.itemList[ItemIds.Gorilla_Paw][1];
+	 global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.CuttingBoard][1];
+	 //global.upgradeOptions[1] = global.itemList[ItemIds.Membership][1];
+	 //global.upgradeOptions[2] = global.itemList[ItemIds.Knightly_Milk][1];
 	 //global.upgradeOptions[2] = global.upgradesAvaliable[Weapons.PipiPilstol][1];
 	 //global.upgradeOptions[1] = global.upgradesAvaliable[Weapons.PlugAsaCoco][1];
 }	

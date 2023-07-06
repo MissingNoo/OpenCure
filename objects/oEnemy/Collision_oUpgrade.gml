@@ -6,5 +6,5 @@ if (!gotknocked) {
 	var _vspd = lengthdir_y(_push, _dir); 
 	x+=_hspd;
 	y+=_vspd;
-	alarm[2] = other.upg[$"knockbackDuration"];
+	alarm[2] = other.upg[$"knockbackDuration"]*2;
 }

@@ -247,7 +247,7 @@ function populateItems(){
 				weight : 4,
 				thumb : sLimiter,
 				cooldown : 1,
-				bonusType : [BonusType.PickupRange],
+				bonusType : BonusType.PickupRange,
 				bonusValue : [2, 3, 4],
 				perk : false});
 				Bonuses[BonusType.PickupRange][ItemIds.Limiter] = 0;
@@ -262,7 +262,7 @@ function populateItems(){
 				thumb : sSuperChattoTime,
 				cooldown : 1,
 				perk : false,
-				bonusType : [BonusType.SuperChattoTime],
+				bonusType : BonusType.SuperChattoTime,
 				bonusValue : [1.20, 1.40, 1.60, 1.80, 2]
 			});
 			Bonuses[BonusType.SuperChattoTime] = 0;

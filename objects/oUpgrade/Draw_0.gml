@@ -11,8 +11,14 @@ if (upg[$"id"] != Weapons.SpiderCooking) {
     draw_self();
 }
 else{
-	draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, image_yscale, image_angle, c_white, .5);
-	//draw_circle(x,y, )
+	//image_xscale = image_yscale;
+	//draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, image_yscale, image_angle, c_white, .5);
+	draw_set_color(c_purple);
+	draw_set_alpha(.35);
+	draw_circle(x,y, (sprite_get_height(sprite_index)/2) * image_yscale,false);
+	draw_set_alpha(1);
+	draw_circle(x,y, (sprite_get_height(sprite_index)/2) * image_yscale,true);
+	draw_set_color(c_white);
 }
 
 if (global.debug) {
@@ -25,7 +31,7 @@ if (global.debug) {
 	draw_text(x,y-30, string(direction));
 	draw_text(x,y-50, string(image_xscale));
 	draw_text(x,y-70, string(image_yscale));
-	draw_text(x,y-90, string(global.player[?"ballsize"]));
+	draw_text(x,y-90, string(shoots));
 }		
 //		break
 //}

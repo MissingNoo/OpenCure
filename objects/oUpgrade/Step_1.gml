@@ -150,7 +150,7 @@ sprite_index=upg[$"sprite"];
 			direction = point_direction(x,y,x,y+10);
 			for (var i = 0; i < global.player[?"ballsize"]; ++i) {
 				image_xscale = image_xscale * 1.10;
-				image_yscale = image_yscale * 1.10;
+				image_yscale = image_xscale
 			}
 			y = oPlayer.y - 500;
 			var _bx = irandom_range(-100, 100)
@@ -173,14 +173,14 @@ sprite_index=upg[$"sprite"];
 			//		image_yscale = image_yscale * Bonuses[BonusType.WeaponSize][i];
 			//	}			    
 			//}
-			if (level >= 2 and level < 7) {
-			    image_xscale = image_xscale * 1.20;
-				image_yscale = image_yscale * 1.20;
-			}
-			if (level >= 7) {
-			    image_xscale = image_xscale * 1.40;
-				image_yscale = image_yscale * 1.40;
-			}
+			//if (level >= 2 and level < 7) {
+			//    image_xscale = image_xscale * 1.20;
+			//	image_yscale = image_yscale * 1.20;
+			//}
+			//if (level >= 7) {
+			//    image_xscale = image_xscale * 1.40;
+			//	image_yscale = image_yscale * 1.40;
+			//}
 			break;}
 		case Weapons.PowerofAtlantis:{	
 			random_set_seed(current_time);
@@ -308,6 +308,20 @@ sprite_index=upg[$"sprite"];
 			}
 			break;
 		}
+		case Weapons.SpiderCooking:{
+			x = owner.x;
+			y = owner.y - (sprite_get_height(global.player[?"sprite"]) / 3);
+			image_yscale = image_xscale;
+			for (var i = 0; i < instance_number(oUpgrade); ++i) {
+				try{
+					var inst = instance_find(oUpgrade, i);
+					if (inst.upg[$"id"] == Weapons.SpiderCooking and inst.id != id) {
+						instance_destroy(inst);
+					}
+				}
+				catch (err){ }
+			}
+			break;}
 		#endregion
 	}
 		if (sprite_index==blank) {
@@ -317,8 +331,14 @@ sprite_index=upg[$"sprite"];
 	originalSize = [image_xscale, image_yscale];
 	for (var i = 0; i < array_length(Bonuses[BonusType.WeaponSize]); ++i) {
 	    if (Bonuses[BonusType.WeaponSize][i] != 0 and upg[$"id"] != Weapons.HoloBomb) {
-			if (image_xscale > 0) { image_xscale = image_xscale * Bonuses[BonusType.WeaponSize][i]; }
-			else { image_xscale = image_xscale * (Bonuses[BonusType.WeaponSize][i] * -1); }
+			//if (image_xscale > 0) 
+			//{ 
+				image_xscale = image_xscale * Bonuses[BonusType.WeaponSize][i]; 
+			//}
+			//else 
+			//{
+			//	image_xscale = image_xscale * (Bonuses[BonusType.WeaponSize][i] * -1); 
+			//}
 			image_yscale = image_yscale * Bonuses[BonusType.WeaponSize][i];
 		}
 	}

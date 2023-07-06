@@ -10,7 +10,9 @@ originalY = y;
 xpreviousprevious = 0;
 ypreviousprevious = 0;
 ghost = false;
-//arrowDir = global.arrowDir;
+if (arrowDir == 0) {
+    arrowDir = global.arrowDir;
+}
 CE=0;
 image_alpha=0;
 image_speed=0;	
@@ -57,15 +59,8 @@ if (upg[$"id"] == Weapons.IdolSong) {
 }
 
 if (upg[$"id"] == Weapons.SpiderCooking) {
-	for (var i = 0; i < instance_number(oUpgrade); ++i) {
-		try{
-			var inst = instance_find(oUpgrade, i);
-			if (inst.upg[$"id"] == Weapons.SpiderCooking and inst.id != id) {
-			    instance_destroy(inst);
-			}
-		}
-		catch (err){ 
-			//dont care
-		}
-	}
+	x = owner.x;
+	y = owner.y - (sprite_get_height(global.player[?"sprite"]) / 3);
+	image_xscale = upg[$"size"];
+	image_yscale = upg[$"size"];
 }
