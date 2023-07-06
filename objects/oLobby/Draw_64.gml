@@ -145,11 +145,15 @@ if (joinedRoom) {
 	draw_text(200,50,"Connection: " + string(ishost));
 	//draw_text(10,100, players);
 	var offset = 0;
-	
+	var biggername = 0;
 	for (var i = 0; i < array_length(players); ++i) {
-		draw_rectangle(GW/137, GH/70+offset, GW/4, GH/6 + offset, true);
+		var len = string_length(players[i][$"username"]);
+		if (len > biggername) {
+		    biggername = len;
+		}
+		draw_rectangle(GW/137, GH/70+offset, GW/4 + len, GH/6 + offset, true);
 		draw_set_alpha(.35);
-		draw_rectangle_color(GW/137, GH/70+offset, GW/4, GH/6 + offset, c_gray, c_gray, c_gray, c_gray, false);
+		draw_rectangle_color(GW/137, GH/70+offset, GW/4+len, GH/6 + offset, c_gray, c_gray, c_gray, c_gray, false);
 		draw_set_alpha(1);
 		draw_sprite_stretched(CHARACTERS[players[i].character][?"sprite"], sprites, GW/50, GH/25 + offset, 100, 100);
 		draw_text_transformed(GW/10, GH/43+offset, players[i][$"username"], 3, 3, 0);
@@ -162,13 +166,13 @@ if (joinedRoom) {
 	var _y = GH/59.08;
 	var _yo = _y + 4;
 	var _xx = GW/1.01;
-	var _yy = GH/3.20;
+	var _yy = GH/2.90;
 	draw_set_alpha(0.35);
 	draw_rectangle_color(_x, _y, _xx, _yy, c_black, c_black, c_black, c_black, false);
 	draw_set_alpha(1);
 	draw_rectangle_color(_x, _y, _xx, _yy, c_white, c_white, c_white, c_white, true);
 	draw_set_halign(fa_center);
-	draw_text((_x + _xx) /2, _yo, "Options");
+	draw_text_transformed((_x + _xx) /2, _yo, "Options", 2, 2, 0);
 	draw_set_halign(fa_left);
 	for (var i = 0; i < array_length(options); ++i) {
 		_yo += 22;
