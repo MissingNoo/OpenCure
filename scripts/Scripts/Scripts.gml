@@ -214,3 +214,27 @@ function sine_between(time, period, minimum, maximum) {
     var amplitude = maximum - midpoint;
     return sine_wave(time, period, amplitude, midpoint);
 }
+
+/**
+ * Function Description
+ * @param {real} _sx Description
+ * @param {real} _sy Description
+ * @param {real} _ex Description
+ * @param {real} _ey Description
+ * @param {string} _var Description
+ * @param {any} _value Description
+ */
+function openKeyboard(_sx, _sy, _ex, _ey, _var, _value, _varr){
+	if (global.debug) {
+		draw_set_alpha(.3);
+		draw_set_color(c_purple);
+	    draw_rectangle(_sx, _sy, _ex, _ey, false);
+		draw_set_color(c_white);
+		draw_set_alpha(1);
+	}
+	if (point_in_rectangle(oGui.x, oGui.y, _sx, _sy, _ex, _ey)) {
+		keyboard_string = variable_instance_get(self, _varr);
+		variable_instance_set(self, _var, _value);
+	    keyboard_virtual_show(kbv_type_default, kbv_returnkey_default, kbv_autocapitalize_none, false);
+	}
+}

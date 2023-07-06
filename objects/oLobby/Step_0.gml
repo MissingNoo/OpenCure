@@ -26,7 +26,7 @@ if (!joinedRoom and !creatingroom and !typepassword) {
 		}
 	}
 
-	if (point_in_rectangle(oGui.x, oGui.y, joinx1, createy1, joinx2, createy2)  or input_check_pressed("accept") and array_length(rooms) > 0) {
+	if ((point_in_rectangle(oGui.x, oGui.y, joinx1, createy1, joinx2, createy2)  or input_check_pressed("accept")) and array_length(rooms) > 0) {
 		global.roomname = rooms[selectedroom][$"name"];
 		if (rooms[selectedroom][$"password"] == "") {
 		    sendMessage({
@@ -37,9 +37,15 @@ if (!joinedRoom and !creatingroom and !typepassword) {
 		}
 		else{keyboard_string = ""; passwordselected = 0; typepassword = true; }
 	}
+	
+	if (point_in_rectangle(oGui.x, oGui.y, reloadx1, createy1, reloadx2, createy2)) {
+		sendMessage({ command : Network.ListRooms });
+	}
 }
 
 if (creatingroom) {
+	//openKeyboard(GW/2 - 100, GH/2.15, GW/2 + 100, GH/2.15 + 32, "creatingselected", 0);
+	//openKeyboard(GW/2 - 100, GH/1.79, GW/2 + 100, GH/1.79 + 32, "creatingselected", 1);
 	if (input_check_pressed("cancel") or input_check_pressed("pause")) {
 	    creatingroom = false;
 	}
@@ -205,11 +211,10 @@ if (joinedRoom) {
 		#endregion
 }
 	
-if ((os_type == os_android) and input_check_pressed("accept") and (creatingroom and creatingselected != 2) or (typepassword and passwordselected == 0)) {
-    keyboard_virtual_show(kbv_type_default, kbv_returnkey_default, kbv_autocapitalize_none, false);
-}
+//if ((os_type == os_android) and input_check_pressed("accept") and (creatingroom and creatingselected != 2) or (typepassword and passwordselected == 0)) {
+//    keyboard_virtual_show(kbv_type_default, kbv_returnkey_default, kbv_autocapitalize_none, false);
+//}
 
 //if (keyboard_check_pressed(vk_home)) {
 //    shareItems = !shareItems;
 //}
-

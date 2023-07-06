@@ -21,6 +21,8 @@ createx2 = GW/11.68;
 createy2 = GH/20.10;
 joinx1 = GW/11.02;
 joinx2 = GW/6.80;
+reloadx1 = GW/6.57;
+reloadx2 = GW/4.76;
 
 #region options
 shareXP = false;

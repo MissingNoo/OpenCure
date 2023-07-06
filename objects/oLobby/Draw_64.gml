@@ -29,6 +29,16 @@ if (!joinedRoom) {
 	draw_text_transformed_color((joinx1+joinx2)/2, (createy1 + createy2) /2, "Join", 2, 2, 0, c_white, c_white, c_white, c_white, 1);
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
+	
+	draw_set_alpha(.35);
+	draw_rectangle_color(reloadx1, createy1, reloadx2, createy2, c_black, c_black, c_black, c_black, false);
+	draw_set_alpha(1);
+	draw_rectangle_color(reloadx1, createy1, reloadx2, createy2, c_white, c_white, c_white, c_white, true);
+	draw_set_valign(fa_middle);
+	draw_set_halign(fa_middle);
+	draw_text_transformed_color((reloadx1+reloadx2)/2, (createy1 + createy2) /2, "Reload", 2, 2, 0, c_white, c_white, c_white, c_white, 1);
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
 	#endregion
 	#region Button Text
 	var textx = GW/2;
@@ -70,11 +80,13 @@ if (creatingroom) {
 	draw_text_transformed(GW/2, GH/2.35, "Name", 2, 2, 0);
 	var _color = (creatingselected == 0) ? c_yellow : c_white;
 	draw_rectangle_color(GW/2 - 100, GH/2.15, GW/2 + 100, GH/2.15 + 32, _color, _color, _color, _color, true);
+	openKeyboard(GW/2 - 100, GH/2.15, GW/2 + 100, GH/2.15 + 32, "creatingselected", 0, "roomname");
 	draw_text_transformed(GW/2, GH/2.15, roomname, 2, 2, 0);
 	
 	draw_text_transformed(GW/2, GH/1.92, "Password", 2, 2, 0);
 	_color = (creatingselected == 1) ? c_yellow : c_white;
 	draw_rectangle_color(GW/2 - 100, GH/1.79, GW/2 + 100, GH/1.79 + 32, _color, _color, _color, _color, true);
+	openKeyboard(GW/2 - 100, GH/1.79, GW/2 + 100, GH/1.79 + 32, "creatingselected", 1, "password");
 	draw_text_transformed(GW/2, GH/1.79, password, 2, 2, 0);
 	
 	var cx = GW/2 - 55;
@@ -88,10 +100,28 @@ if (creatingroom) {
 	_color = (creatingselectedyesno == 0) ? c_yellow : c_white;
 	if (creatingselected != 2) { _color = c_white;}
 	draw_rectangle_color(cx - cs, cy - 14.5, cx + cs, cy + 14.5, _color, _color, _color, _color, true);
+	if (point_in_rectangle(oGui.x, oGui.y,cx - cs, cy - 14.5, cx + cs, cy + 14.5)) {
+	    creatingroom = false;
+	}
 	draw_text_transformed(cx, cy, "Cancel", 2, 2, 0);
 	_color = (creatingselectedyesno == 1) ? c_yellow : c_white;
 	if (creatingselected != 2) { _color = c_white;}
 	draw_rectangle_color(ax - as, cy - 14.5, ax + as, cy + 14.5, _color, _color, _color, _color, true);
+	if (point_in_rectangle(oGui.x, oGui.y,ax - as, cy - 14.5, ax + as, cy + 14.5)) {
+		    if (roomname != "") {
+				creatingroom = false;
+			    sendMessage({
+					command : Network.CreateRoom,
+					password
+				});
+				sendMessage({
+					command : Network.JoinRoom,
+					username : global.username,
+					character : global.player[?"id"],
+					password
+				});
+			}
+	}
 	draw_text_transformed(ax, cy, "Accept", 2, 2, 0);
 	
 	draw_set_valign(fa_top);
@@ -108,6 +138,7 @@ if (typepassword) {
     draw_rectangle_color(_x - _xoff, _y - _yoff, _x + _xoff, _y + _yoff, c_black, c_black, c_black, c_black, false);
 	draw_set_alpha(1);
 	draw_rectangle_color(_x - _xoff, _y - _yoff, _x + _xoff, _y + _yoff, c_white, c_white, c_white, c_white, true);
+	openKeyboard(_x - _xoff, _y - _yoff, _x + _xoff, _y + _yoff, "passwordselected", 0, "password");
 	draw_set_halign(fa_center);
 	var _ytext = (_y - _yoff) + string_height("Password");
 	draw_text_transformed(_x, _ytext, "Password", 3, 3, 0);
@@ -128,10 +159,24 @@ if (typepassword) {
 	_color = (passwordselectedyesno == 0) ? c_yellow : c_white;
 	if (passwordselected != 1) { _color = c_white;}
 	draw_rectangle_color(cx - cs, cy - 14.5, cx + cs, cy + 14.5, _color, _color, _color, _color, true);
+	if (point_in_rectangle(oGui.x, oGui.y,ax - as, cy - 14.5, ax + as, cy + 14.5)) {
+		typepassword = false;
+	}
 	draw_text_transformed(cx, cy, "Cancel", 2, 2, 0);
 	_color = (passwordselectedyesno == 1) ? c_yellow : c_white;
 	if (passwordselected != 1) { _color = c_white;}
 	draw_rectangle_color(ax - as, cy - 14.5, ax + as, cy + 14.5, _color, _color, _color, _color, true);
+	if (point_in_rectangle(oGui.x, oGui.y,ax - as, cy - 14.5, ax + as, cy + 14.5)) {
+		if (rooms[selectedroom][$"password"] == password) {
+			typepassword = false;
+			global.roomname = rooms[selectedroom][$"name"];
+			sendMessage({
+				command : Network.JoinRoom,
+				username : global.username,
+				character : global.player[?"id"],			
+			});
+		}
+	}
 	draw_text_transformed(ax, cy, "Accept", 2, 2, 0);
 	
 	draw_set_valign(fa_top);
