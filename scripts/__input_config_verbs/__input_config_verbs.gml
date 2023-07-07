@@ -19,7 +19,7 @@ return {
         right: [input_binding_key(vk_right)],
         
         accept:  [input_binding_key(vk_enter), input_binding_key("Z")],
-        cancel:  [input_binding_key(vk_backspace), input_binding_key("X")],
+        cancel:  [input_binding_key("X")],
         action:  input_binding_key(vk_add),
         special: input_binding_key(vk_shift),
         

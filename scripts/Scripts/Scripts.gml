@@ -224,7 +224,7 @@ function sine_between(time, period, minimum, maximum) {
  * @param {string} _var Description
  * @param {any} _value Description
  */
-function openKeyboard(_sx, _sy, _ex, _ey, _var, _value, _varr){
+function openKeyboard(_sx, _sy, _ex, _ey, _var = "nullvar", _value = 0, _varr = ""){
 	if (global.debug) {
 		draw_set_alpha(.3);
 		draw_set_color(c_purple);
@@ -233,8 +233,12 @@ function openKeyboard(_sx, _sy, _ex, _ey, _var, _value, _varr){
 		draw_set_alpha(1);
 	}
 	if (point_in_rectangle(oGui.x, oGui.y, _sx, _sy, _ex, _ey)) {
-		keyboard_string = variable_instance_get(self, _varr);
-		variable_instance_set(self, _var, _value);
+		if (_varr != "") {
+		    keyboard_string = variable_instance_get(self, _varr);
+		}
+		if (_var != "nullvar") {
+		    variable_instance_set(self, _var, _value);
+		}		
 	    keyboard_virtual_show(kbv_type_default, kbv_returnkey_default, kbv_autocapitalize_none, false);
 	}
 }

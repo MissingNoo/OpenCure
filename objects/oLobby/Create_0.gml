@@ -37,14 +37,19 @@ allowGrank = false;
 scaleMobs = false;
 options = [
 ["Share XP", "shareXP"],
-["Share Items", "shareItems"],
-["Share Weapons", "shareWeapons"],
-["Share Anvils", "shareAnvils"],
-["Share Stamps", "shareStamps"],
-["Share Box drops", "shareBoxDrops"],
-["Pause Game", "pauseGame"],
-["Allow Halu", "allowHalu"],
-["Allow Grank", "allowGrank"],
-["Scale Monsters", "scaleMobs"],
+//["Share Items", "shareItems"],
+//["Share Weapons", "shareWeapons"],
+//["Share Anvils", "shareAnvils"],
+//["Share Stamps", "shareStamps"],
+//["Share Box drops", "shareBoxDrops"],
+//["Pause Game", "pauseGame"],
+//["Allow Halu", "allowHalu"],
+//["Allow Grank", "allowGrank"],
+//["Scale Monsters", "scaleMobs"],
 ]
 #endregion
+
+chattext = "";
+chatmessages = [];
+chatbackground = [GW/170.75, GH/1.48, GW/1.005, GH/1.01];
+chat = [GW/91.07, GH/1.06, GW/1.01, GH/1.02];

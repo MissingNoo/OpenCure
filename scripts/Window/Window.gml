@@ -101,6 +101,25 @@ function drawDesc(_xx, _yy, _string, maxX, _size = 1){
 	}
 	draw_set_halign(fa_left);
 }
+	
+/**
+ * Function Description
+ * @param {real} x Description
+ * @param {real} y Description
+ * @param {real} xx Description
+ * @param {real} yy Description
+ * @param {constant.color} [_background]=c_black Description
+ * @param {constant.color} [_outline]=c_white Description
+ * @param {real} [alpha]=0.35 Description
+ */
+function drawRectangle(x, y, xx, yy, _background = c_black, _outline = c_white, alpha = 0.35){
+	draw_set_alpha(alpha);
+	draw_rectangle_color(x, y, xx, yy, _background, _background, _background, _background, false);
+	draw_set_alpha(1);
+	draw_rectangle_color(x, y, xx, yy, _outline, _outline, _outline, _outline, true);
+}
+	
+	
 /**
  * Function Makes buttons clickable
  * @param {any*} _startX Start position of the button 

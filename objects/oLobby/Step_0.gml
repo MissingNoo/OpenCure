@@ -148,7 +148,7 @@ if (typepassword) {
 						username : global.username,
 						character : global.player[?"id"],			
 					});
-				}
+				}				
 				//sendMessage({
 				//	command : Network.JoinRoom,
 				//	username : global.username,
@@ -160,12 +160,12 @@ if (typepassword) {
 		}
 	}
 	#endregion
-	if (creatingselected == 0) {
-	    roomname = keyboard_string;
-	}
-	if (creatingselected == 1) {
-	    password = keyboard_string;
-	}
+	//if (creatingselected == 0) {
+	//    roomname = keyboard_string;
+	//}
+	//if (creatingselected == 1) {
+	//    password = keyboard_string;
+	//}
 	if (passwordselected == 0) {
 	    password = keyboard_string;
 	}
@@ -173,19 +173,33 @@ if (typepassword) {
 }
 
 if (joinedRoom) {
+	chattext = keyboard_string;
+	if (array_length(oLobby.chatmessages) > 10) {
+		array_shift(oLobby.chatmessages);
+	}
+	if (input_check_pressed("accept") and chattext != "") {
+	    sendMessage({
+			command : Network.ChatMessage,
+			text : chattext,
+			username : global.username
+		});
+		var _msg = [global.username, chattext];
+		array_push(chatmessages, _msg);
+		keyboard_string = "";
+	}
 	if (input_check_pressed("cancel") or input_check_pressed("pause")) {
 	    room_goto(rInicio);
 	}
-		global.IsHost = ishost;
-		sprites += .25;
-		if (ishost and input_check_pressed("accept")) {
-			for (var i = 0; i < array_length(options); ++i) {
-				variable_global_set(options[i][1], variable_instance_get(self, options[i][1]));
-			}
-			sendMessage({command : Network.StartGame});			
-		}
+	global.IsHost = ishost;
+	sprites += .15;
+	//if (ishost) {
+	//	for (var i = 0; i < array_length(options); ++i) {
+	//		variable_global_set(options[i][1], variable_instance_get(self, options[i][1]));
+	//	}
+	//	sendMessage({command : Network.StartGame});			
+	//}
 		
-		#region buttons			
+	#region buttons			
 		#region options
 		if (ishost) {
 			var _x = GW/1.25;

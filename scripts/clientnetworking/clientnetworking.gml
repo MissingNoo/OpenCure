@@ -24,6 +24,7 @@ enum Network {
 	KeepAlive,
 	UpdateOptions,
 	ShareXP,
+	ChatMessage
 }
 function clientReceivedPacket2(_response)
 {
@@ -37,12 +38,14 @@ function clientReceivedPacket2(_response)
 	        break;
 			
 		case Network.JoinRoom:{
-			show_debug_message(r);
+			//show_debug_message(r);
 			oLobby.roomname = r[$"roomname"];
 			oLobby.players = json_parse(r[$"players"]);
 			oLobby.ishost = r[$"isHost"];
-			show_debug_message(r[$"isHost"]);
+			//show_debug_message(r[$"isHost"]);
 			oLobby.joinedRoom = true;
+			keyboard_string = "";
+			oLobby.chatmessages = [];
 			break;
 		}
 		
@@ -193,6 +196,12 @@ function clientReceivedPacket2(_response)
 			if (r[$"roomname"] == global.roomname) {
 				global.xp += r[$"xp"];
 			}
+			break;
+		}
+		
+		case Network.ChatMessage:{
+			var _msg = [r[$"username"], r[$"text"]];
+			array_push(oLobby.chatmessages, _msg);
 			break;
 		}
 		

@@ -184,11 +184,7 @@ if (typepassword) {
 }
 
 if (joinedRoom) {
-	draw_text(20, display_get_gui_height() - 50, "Z to start game");
-	draw_text(20, display_get_gui_height() - 10, players);
     draw_set_color(c_white);
-	draw_text(200,50,"Connection: " + string(ishost));
-	//draw_text(10,100, players);
 	var offset = 0;
 	var biggername = 0;
 	for (var i = 0; i < array_length(players); ++i) {
@@ -200,7 +196,7 @@ if (joinedRoom) {
 		draw_set_alpha(.35);
 		draw_rectangle_color(GW/137, GH/70+offset, GW/4+len, GH/6 + offset, c_gray, c_gray, c_gray, c_gray, false);
 		draw_set_alpha(1);
-		draw_sprite_stretched(CHARACTERS[players[i].character][?"sprite"], sprites, GW/50, GH/25 + offset, 100, 100);
+		draw_sprite_ext(CHARACTERS[players[i].character][?"sprite"], sprites, GW/20, GH/6.86+ offset, 3, 3, 0, c_white, 1);
 		draw_text_transformed(GW/10, GH/43+offset, players[i][$"username"], 3, 3, 0);
 		draw_text_transformed(GW/10, GH/43+40+offset, CHARACTERS[players[i].character][?"name"], 3, 3, 0);
 		offset += 140;
@@ -210,14 +206,11 @@ if (joinedRoom) {
 	var _tx = _x + 5;
 	var _y = GH/59.08;
 	var _yo = _y + 4;
-	var _xx = GW/1.01;
+	var _xx = GW/1.005;
 	var _yy = GH/2.90;
-	draw_set_alpha(0.35);
-	draw_rectangle_color(_x, _y, _xx, _yy, c_black, c_black, c_black, c_black, false);
-	draw_set_alpha(1);
-	draw_rectangle_color(_x, _y, _xx, _yy, c_white, c_white, c_white, c_white, true);
+	drawRectangle(_x, _y, _xx, _yy);
 	draw_set_halign(fa_center);
-	draw_text_transformed((_x + _xx) /2, _yo, "Options", 2, 2, 0);
+	draw_text_transformed((_x + _xx) /2, _yo, "OPTIONS", 2, 2, 0);
 	draw_set_halign(fa_left);
 	for (var i = 0; i < array_length(options); ++i) {
 		_yo += 22;
@@ -234,5 +227,25 @@ if (joinedRoom) {
 			draw_rectangle_color(_xx - 44, _sy + 1, _xx - 25 - 1, _sy + 15, _color, _color, _color, _color, false);
 		}		
 	}
+	
+	#region chat
+	drawRectangle(chatbackground[0], chatbackground[1], chatbackground[2], chatbackground[3]);
+	var _chatoffset = 0;
+	for (var i = 0; i < array_length(chatmessages); ++i) {
+	    draw_text_transformed(chatbackground[0] + 10, chatbackground[1] + _chatoffset, string(chatmessages[i][0]) + ":" + string(chatmessages[i][1]), 2, 2, 0);
+		_chatoffset += 20;
+	}
+	drawRectangle(chat[0], chat[1], chat[2], chat[3], c_black, c_white, .5);
+	openKeyboard(chat[0], chat[1], chat[2], chat[3]);
+	draw_text_transformed(chat[0] + 10, chat[1], chattext, 2, 2, 0);
+	#endregion
+	
+	#region stage
+	stage = [GW/1.25, GH/2.84, GW/1.005, GH/1.50];
+	drawRectangle(stage[0], stage[1], stage[2], stage[3]);
+	draw_set_halign(fa_center);
+	draw_text_transformed((stage[0] + stage[2]) / 2, stage[1] + 10, "STAGE", 2, 2, 0);
+	draw_set_halign(fa_left);
+	#endregion
 	
 }
