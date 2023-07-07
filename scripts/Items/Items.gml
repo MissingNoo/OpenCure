@@ -7,7 +7,7 @@ global.itemCooldown[0] = 0;
 #region Null item
 	global.nullitem={};
 	var item = global.nullitem;
-		variable_struct_set(item, "id", 0);
+		variable_struct_set(item, "id", -1);
 		variable_struct_set(item, "name", "");
 		variable_struct_set(item, "level", 1);
 		variable_struct_set(item, "maxlevel", 1);
@@ -83,6 +83,7 @@ function newCreateItem(_data){
 	}
 
 	enum ItemIds{
+		BlacksmithsGear, //TODO: enhancement
 		Body_Pillow,
 		Chicken_Feather,
 		CreditCard,
@@ -137,6 +138,15 @@ function newCreateItem(_data){
 function populateItems(){
 	#region Item Creation
 		#region Items
+			newCreateItem({//Blacksmith's Gear
+				id : ItemIds.BlacksmithsGear,
+				name : "Blacksmith's Gear",
+				maxlevel : 3,
+				weight : 1,
+				thumb : sBlacksmithGear,
+				cooldown : 1,
+				perk : false,
+			});
 			#region BodyPillow
 			newCreateItem({
 				id : ItemIds.Body_Pillow,
@@ -217,7 +227,7 @@ function populateItems(){
 			Bonuses[BonusType.EnhancingCost][ItemIds.CreditCard] = 0;
 			#endregion
 		
-			#region GWS Pill //TODO
+			#region GWS Pill 
 			newCreateItem({
 				id : ItemIds.GWS_Pill,
 				name : "GWS Pill",
@@ -225,6 +235,7 @@ function populateItems(){
 				weight : 2,
 				thumb : sGWSPill,
 				cooldown : 1,
+				crit : [1.15, 1.20, 1.25],
 				perk : false});
 			#endregion
 			
@@ -522,20 +533,18 @@ function tickItems(){
 					Bonuses[playerItems[i][$"bonusType"]][playerItems[i][$"id"]] = playerItems[i][$"bonusValue"][playerItems[i][$"level"] -1];
 				}			    
 			}
-			//show_message(Bonuses);
 		    switch (playerItems[i][$"id"]) {
-				case ItemIds.Body_Pillow:
+				case ItemIds.Body_Pillow:{
 					Shield = playerItems[i][$"shield"];
 					MaxShield = playerItems[i][$"shield"];
-			//		Bonuses[BonusType.Defense][ItemIds.Body_Pillow] = playerItems[i][$"bonus"];
-					break;
-				case ItemIds.Chicken_Feather:
+					break;}
+				case ItemIds.Chicken_Feather:{
 					if (playerItems[i][$"level"] != Bonuses[BonusType.ChickenFeather]) {
 						Bonuses[BonusType.ChickenFeather] = playerItems[i][$"level"];
 						oPlayer.revives +=1 ;
 					}
-					break;
-				case ItemIds.Energy_Drink:
+					break;}
+				case ItemIds.Energy_Drink:{
 					switch (playerItems[i][$"level"]) {
 					    case 1:
 							if (Bonuses[BonusType.EnergyDrinkHpMinus] == 0) {
@@ -562,28 +571,11 @@ function tickItems(){
 							//Bonuses[BonusType.Speed][ItemIds.Energy_Drink] = 1.50;
 							break;
 					}
-					break;
-			//	case ItemIds.Face_Mask:
-			//		Bonuses[BonusType.Damage][ItemIds.Face_Mask] = 1.50;
-			//		Bonuses[BonusType.Haste][ItemIds.Face_Mask] = 1.10;
-			//		Bonuses[BonusType.TakeDamage][ItemIds.Face_Mask] = 1.30;
-			//		break;
-			//	case ItemIds.Full_Meal:
-			//		Bonuses[BonusType.Healing][ItemIds.Full_Meal] = 2;
-			//		break;
-			//	case ItemIds.Gorilla_Paw:
-			//		Bonuses[BonusType.Damage][ItemIds.Gorilla_Paw] = playerItems[i][$"damageBonus"];
-			//		Bonuses[BonusType.loseCritical][ItemIds.Gorilla_Paw] = playerItems[i][$"loseCritical"];
-			//		break;
-				case ItemIds.Injection_Type_Asacoco:
+					break;}
+				case ItemIds.Injection_Type_Asacoco:{
 					HP = HP - (HP * 0.05);
-			//		Bonuses[BonusType.Damage][ItemIds.Injection_Type_Asacoco] = playerItems[i][$"bonus"];
-					break;
-			//	case ItemIds.Knightly_Milk:
-			//		Bonuses[BonusType.WeaponSize][ItemIds.Knightly_Milk] = playerItems[i][$"weaponSize"];
-			//		Bonuses[BonusType.PickupRange][ItemIds.Knightly_Milk] = playerItems[i][$"pickupRange"];
-			//		break;
-				case ItemIds.Uber_Sheep: 
+					break;}
+				case ItemIds.Uber_Sheep:{
 					do{
 						a = irandom_range(-1,1);
 						b = irandom_range(-1,1);
@@ -594,14 +586,14 @@ function tickItems(){
 					"Instances",
 					oBurguer
 					);
-					break;
-				case ItemIds.Idol_Costume:
+					break;}
+				case ItemIds.Idol_Costume:{
 					if (oPlayer.idolCostumeLevel != playerItems[i][$"level"]) {
 					    oPlayer.idolCostumeLevel = playerItems[i][$"level"];
 						oPlayer.specialcooldown = oPlayer.specialcooldown - (oPlayer.specialcooldown * playerItems[i][$"SpecialCooldown"]);
 					}
-					break;
-				case ItemIds.Stolen_Piggy_Bank:
+					break;}
+				case ItemIds.Stolen_Piggy_Bank:{
 					if(variable_global_exists("pig") and time_source_exists(global.pig)) {break;}
 					global.pigfunction = function()
 					{
@@ -609,15 +601,15 @@ function tickItems(){
 					}
 					global.pig = time_source_create(time_source_game, 1, time_source_units_seconds,global.pigfunction, [], -1, time_source_expire_after);
 					time_source_start(global.pig);
-					break;
-				case ItemIds.Piki_Piki_Piman:
+					break;}
+				case ItemIds.Piki_Piki_Piman:{
 					if (oPlayer.pimanLevel != playerItems[i][$"level"]) {
 					    oPlayer.pimanLevel = playerItems[i][$"level"];
 					    oPlayer.pimanBonus = playerItems[i][$"bonusPercentage"];
 						MAXHP += playerItems[i][$"bonus"];
 					}
 					pimanUsable = true;
-					break;
+					break;}
 				case ItemIds.Membership:{
 					if (global.newcoins > 0) {
 					    global.newcoins -= 3;
@@ -629,6 +621,14 @@ function tickItems(){
 						Bonuses[BonusType.Damage][ItemIds.Membership] = 1;
 						Bonuses[BonusType.TakeDamage][ItemIds.Membership] = 1;
 					}		
+					break;}
+				case ItemIds.GWS_Pill:{
+					if (oPlayer.skilltimer < oPlayer.specialcooldown) {
+					    Bonuses[BonusType.Critical][ItemIds.GWS_Pill] = playerItems[i][$"crit"];
+					}
+					else{
+						Bonuses[BonusType.Critical][ItemIds.GWS_Pill] = 0;
+					}
 					break;}
 			}
 		}

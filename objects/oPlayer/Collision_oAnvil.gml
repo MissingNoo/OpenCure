@@ -12,13 +12,18 @@ for (var i = 0; i < array_length(playerItems); ++i) {
 		possible_upgrade = true;
 	}
 }
-
-if (possible_upgrade) {
+other.alarm[0] = 30;
+if (!other.used and possible_upgrade) {
+	other.used = true;
+	other.maxuses -= 1;
+	oPlayer.lastanvil = other.id;
 	ANVIL = true;
 	oGui.selected = 0;
 	oGui.anvilSelected = 0;
 	oGui.anvilSelectedCategory = 0;
-	instance_destroy(other);
+	if (other.maxuses == 0) {
+	    instance_destroy(other);
+	}	
 	audio_play_sound(snd_anvil,0,0);
 	PauseGame();
 }
