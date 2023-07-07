@@ -152,7 +152,7 @@ sprite_index=upg[$"sprite"];
 				image_xscale = image_xscale * 1.10;
 				image_yscale = image_xscale
 			}
-			y = oPlayer.y - 500;
+			y = oPlayer.y - 200;
 			var _bx = irandom_range(-100, 100)
 			x = oPlayer.x + _bx;
 			//alarm[0] = upg[$"attackdelay"];

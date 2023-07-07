@@ -1,5 +1,11 @@
+hspd = 0;
+vspd = 0;
 upg??=global.null;
 event_inherited();
+afterimagex = [];
+afterimagey = [];
+afterimagespr = [];
+afterimagecount = 0;
 //alarm[11] = 1;
 partSystem = part_system_create();
 part = part_type_create();

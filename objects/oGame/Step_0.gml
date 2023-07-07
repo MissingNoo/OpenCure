@@ -40,8 +40,8 @@ else{
 
 #region room limit, TODO: redo all this crap
 if (instance_exists(oPlayer)) {
-	if (keyboard_check_pressed(ord("I"))) { oPlayer.y = 610 - oGui.a; }
-	if (keyboard_check_pressed(ord("O"))) { oPlayer.y = 3170; }
+	//if (keyboard_check_pressed(ord("I"))) { oPlayer.y = 610 - oGui.a; }
+	//if (keyboard_check_pressed(ord("O"))) { oPlayer.y = 3170; }
 	var xx;
 	var yy;
 	var px;
