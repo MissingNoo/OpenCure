@@ -71,12 +71,17 @@ if (!global.gamePaused) {
 			//if (direction != 270) {
 			//    direction += 15 * (direction > 270) ? 1 : -1 ;
 			//}
-			if (direction < 270) {
-			    direction += 5;
+			
+			//if (direction < 270) {
+			//    direction += 5;
+			//}
+			//if (direction > 270) {
+			//    direction -= 5;
+			//}
+			if (vspeed < upg[$"speed"]) {
+				vspeed += 0.2;
 			}
-			if (direction > 270) {
-			    direction -= 5;
-			}
+			move_and_collide(hspd, vspd, oEnemy);
 			image_angle+=10;
 			break;
 		}

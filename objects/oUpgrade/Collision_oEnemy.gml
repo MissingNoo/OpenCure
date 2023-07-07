@@ -3,11 +3,16 @@
 if (upg[$"id"] == Weapons.BounceBall) {
 		var _push = 5;
 		var _dir = point_direction(other.x, other.y, x, y);
-		var _hspd = lengthdir_x(_push, _dir);
+		var _rnd = 0;
+		do {
+		    _rnd = irandom_range(-1,1);
+		} until (_rnd != 0);
+		var _hspd = lengthdir_x(_push, _dir)  * _rnd;
 		var _vspd = lengthdir_y(_push, _dir); 
 		 //x+=_hspd;
 		 //y+=_vspd;
 		 vspeed=_vspd;
+		 hspeed = _hspd;
 		 //direction = point_direction(x, y, x + _hspd, y + _vspd);
 		 //if (alarm_get(11) == -1) {
 		 //    alarm[11] = 20;

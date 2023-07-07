@@ -231,10 +231,10 @@ if can_move == true{
         var _xadd = lengthdir_x(_spd, _dir);
 
         var _yadd = lengthdir_y(_spd, _dir);
+		move_and_collide(_xadd, _yadd,oCollision);
+        //x = x + _xadd;
 
-        x = x + _xadd;
-
-        y = y + _yadd;
+        //y = y + _yadd;
 		sprite_index=runningsprite;
         }
 		else {

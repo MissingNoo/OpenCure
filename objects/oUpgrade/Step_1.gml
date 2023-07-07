@@ -146,7 +146,7 @@ sprite_index=upg[$"sprite"];
 			break;}
 			
 		case Weapons.BounceBall:{
-			defaultBehaviour();
+			//defaultBehaviour();
 			direction = point_direction(x,y,x,y+10);
 			for (var i = 0; i < global.player[?"ballsize"]; ++i) {
 				image_xscale = image_xscale * 1.10;
@@ -331,14 +331,14 @@ sprite_index=upg[$"sprite"];
 	originalSize = [image_xscale, image_yscale];
 	for (var i = 0; i < array_length(Bonuses[BonusType.WeaponSize]); ++i) {
 	    if (Bonuses[BonusType.WeaponSize][i] != 0 and upg[$"id"] != Weapons.HoloBomb) {
-			//if (image_xscale > 0) 
-			//{ 
+			if (image_xscale > 0) 
+			{ 
 				image_xscale = image_xscale * Bonuses[BonusType.WeaponSize][i]; 
-			//}
-			//else 
-			//{
-			//	image_xscale = image_xscale * (Bonuses[BonusType.WeaponSize][i] * -1); 
-			//}
+			}
+			else 
+			{
+				image_xscale = image_xscale * (Bonuses[BonusType.WeaponSize][i] * -1); 
+			}
 			image_yscale = image_yscale * Bonuses[BonusType.WeaponSize][i];
 		}
 	}
