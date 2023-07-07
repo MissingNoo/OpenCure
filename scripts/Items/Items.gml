@@ -594,18 +594,7 @@ function tickItems(){
 					"Instances",
 					oBurguer
 					);
-					//Bonuses[BonusType.UberSheep] = playerItems[i][$"bonus"];
 					break;
-			//	case ItemIds.Study_Glasses:
-			//		Bonuses[BonusType.XPBonus][ItemIds.Study_Glasses] = playerItems[i][$"XPBonus"];
-			//		break;
-			//	case ItemIds.CreditCard:
-			//		Bonuses[BonusType.AnvilDrop][ItemIds.CreditCard] = playerItems[i][$"AnvilDropBonus"];
-			//		Bonuses[BonusType.EnhancingCost][ItemIds.CreditCard] = playerItems[i][$"EnhancingCost"];
-			//		break;
-			//	case ItemIds.Super_Chatto_Time:
-			//		Bonuses[BonusType.SuperChattoTime] = playerItems[i][$"bonus"];
-			//		break;
 				case ItemIds.Idol_Costume:
 					if (oPlayer.idolCostumeLevel != playerItems[i][$"level"]) {
 					    oPlayer.idolCostumeLevel = playerItems[i][$"level"];
@@ -613,8 +602,6 @@ function tickItems(){
 					}
 					break;
 				case ItemIds.Stolen_Piggy_Bank:
-			//		Bonuses[BonusType.PickupRange][ItemIds.Stolen_Piggy_Bank] = -0.30;
-			//		Bonuses[BonusType.Speed][ItemIds.Stolen_Piggy_Bank] = 1.15;
 					if(variable_global_exists("pig") and time_source_exists(global.pig)) {break;}
 					global.pigfunction = function()
 					{
@@ -623,9 +610,6 @@ function tickItems(){
 					global.pig = time_source_create(time_source_game, 1, time_source_units_seconds,global.pigfunction, [], -1, time_source_expire_after);
 					time_source_start(global.pig);
 					break;
-			//	case ItemIds.Limiter:
-			//		Bonuses[BonusType.PickupRange][ItemIds.Limiter] = playerItems[i][$"bonus"];
-			//		break;
 				case ItemIds.Piki_Piki_Piman:
 					if (oPlayer.pimanLevel != playerItems[i][$"level"]) {
 					    oPlayer.pimanLevel = playerItems[i][$"level"];
