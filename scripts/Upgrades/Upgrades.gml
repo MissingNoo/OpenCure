@@ -1112,10 +1112,10 @@ function randomUpgrades(){
 	#endregion
 	//first option
 	// global.upgradeOptions[0] = PERK_LIST[PerkIds.HeavyArtillery][0];
-	 //global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.CuttingBoard][1];
-	 //global.upgradeOptions[1] = global.itemList[ItemIds.BlacksmithsGear][1];
+	 //global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.PsychoAxe][1];
+	 //global.upgradeOptions[1] = global.itemList[ItemIds.Uber_Sheep][1];
 	 //global.upgradeOptions[2] = global.itemList[ItemIds.Knightly_Milk][1];
-	 //global.upgradeOptions[2] = global.upgradesAvaliable[Weapons.PipiPilstol][1];
+	 //global.upgradeOptions[2] = global.upgradesAvaliable[Weapons.BounceBall][1];
 	 //global.upgradeOptions[1] = global.upgradesAvaliable[Weapons.PlugAsaCoco][1];
 }	
 
