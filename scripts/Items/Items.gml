@@ -512,7 +512,7 @@ function populateItems(){
 				bonusType : BonusType.UberSheep,
 				bonusValue : [1.10, 1.12, 1.15, 1.18, 1.20],
 			});
-				//Bonuses[BonusType.UberSheep][ItemIds.Uber_Sheep] = 1;
+				Bonuses[BonusType.UberSheep][ItemIds.Uber_Sheep] = 1;
 			#endregion
 		
 			#endregion

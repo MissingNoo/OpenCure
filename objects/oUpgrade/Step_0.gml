@@ -1,20 +1,5 @@
 xpreviousprevious = x - (x - xprevious);
 ypreviousprevious = y - (y - yprevious);
-
-if (afterimagecount < 0.30) {
-    afterimagecount++;
-}
-else{
-	afterimagecount = 0;
-	array_push(afterimagex,x);
-	array_push(afterimagey,y);
-	array_push(afterimagespr,image_index);
-	if (array_length(afterimagex) > 4) {
-	    array_shift(afterimagex);
-	    array_shift(afterimagey);
-	    array_shift(afterimagespr);
-	}
-}
 if (global.testvar == "") {
     global.testvar = upg;
 }
@@ -25,6 +10,21 @@ if (socket == oPlayer.socket) {
 }
 #region Connected to Character
 if (!global.gamePaused) {
+	if (afterimagecount < 0.30) {
+	    afterimagecount++;
+	}
+	else{
+		afterimagecount = 0;
+		array_push(afterimagex,x);
+		array_push(afterimagey,y);
+		array_push(afterimagespr,image_index);
+		if (array_length(afterimagex) > 4) {
+		    array_shift(afterimagex);
+		    array_shift(afterimagey);
+		    array_shift(afterimagespr);
+		}
+	}
+	
 	switch (upg[$"id"]) {
 		case Weapons.GuraTrident:{
 			x=owner.x;
