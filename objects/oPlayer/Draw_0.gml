@@ -13,6 +13,8 @@ if (global.debug) {
 	draw_text(x,y-50, $"X: {x}");
 	draw_text(x,y-30, $"Y: {y}");
 	draw_text(x,y-100, "Enemy Count: " + string(instance_number(oEnemy)));
+	draw_text(x,y-120, "FPS: " + string(fps));
+	draw_text(x,y-140, "FPSR: " + string(fps_real));
 	//draw_text(x,y-60, "lh: " + string(gamepad_axis_value(global.GP_NUM, gp_axislh)));
 	//draw_text(x,y-80, "lv: " + string(gamepad_axis_value(global.GP_NUM, gp_axislv)));
 	//draw_text(x,y-60, "left: " + string(spd));

@@ -225,16 +225,34 @@ if (ANVIL) {
 		selectedThing = playerItems[anvilSelected];
 	}
 	var level = selectedThing[$"level"];
-	var maxlevel = selectedThing[$"maxlevel"];
-	if (zKey and level < maxlevel) {
-		if (anvilSelectedCategory == 0) {
-			UPGRADES[anvilSelected] = global.upgradesAvaliable[UPGRADES[anvilSelected][$"id"]][UPGRADES[anvilSelected][$"level"] + 1];
+	var maxlevel = selectedThing[$"maxlevel"];	
+	if (xKey) {
+		if (anvilconfirm and !upgradeconfirm) {
+		    anvilconfirm = false;
 		}
-		if (anvilSelectedCategory == 1) {
-			playerItems[anvilSelected] = global.itemList[playerItems[anvilSelected][$"id"]][playerItems[anvilSelected][$"level"] + 1];
+		if (anvilconfirm and upgradeconfirm) {
+		    upgradeconfirm = false;
+		}	    
+	}
+	if (zKey) {
+		if (upgradeconfirm) {
+		    if (anvilSelectedCategory == 0) {
+				UPGRADES[anvilSelected] = global.upgradesAvaliable[UPGRADES[anvilSelected][$"id"]][UPGRADES[anvilSelected][$"level"] + 1];
+			}
+			if (anvilSelectedCategory == 1) {
+				playerItems[anvilSelected] = global.itemList[playerItems[anvilSelected][$"id"]][playerItems[anvilSelected][$"level"] + 1];
+			}
+			ANVIL = false;//TODO: Cost money
+			anvilconfirm = false;
+			upgradeconfirm = false;
+			PauseGame();
+		}	
+		if (!upgradeconfirm and anvilconfirm) {
+		    upgradeconfirm = true;
 		}
-	ANVIL = false;//TODO: Cost money
-	PauseGame();
+		if (!anvilconfirm and ANVIL and selectedThing!=global.null and selectedThing != global.nullitem) {
+		    anvilconfirm = true;
+		}
 	}
 }
 #endregion

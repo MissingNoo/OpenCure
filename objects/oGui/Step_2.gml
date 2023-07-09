@@ -62,26 +62,28 @@ if (instance_exists(oPlayer) and global.upgrade==1) {
 
 #region Anvil
 if (instance_exists(oPlayer) and ANVIL) {
-	if (leftKey) {
-		if (anvilSelected == 0) {
-			anvilSelected = 5;
-		} else anvilSelected -= 1
-	}
-	if (rightKey) {
-		if (anvilSelected < 5) {
-			anvilSelected += 1;
-		} else anvilSelected = 0
-	}
+	if (!anvilconfirm) {
+		if (leftKey) {
+			if (anvilSelected == 0) {
+				anvilSelected = 5;
+			} else anvilSelected -= 1
+		}
+		if (rightKey) {
+			if (anvilSelected < 5) {
+				anvilSelected += 1;
+			} else anvilSelected = 0
+		}
 
-	if (upKey) {
-		if (anvilSelectedCategory == 0) {
-			anvilSelectedCategory = 1;
-		} else  anvilSelectedCategory = 0;
-	}
-	if (downKey) {
-		if (anvilSelectedCategory == 1) {
-			anvilSelectedCategory = 0;
-		} else  anvilSelectedCategory = 1;
+		if (upKey) {
+			if (anvilSelectedCategory == 0) {
+				anvilSelectedCategory = 1;
+			} else  anvilSelectedCategory = 0;
+		}
+		if (downKey) {
+			if (anvilSelectedCategory == 1) {
+				anvilSelectedCategory = 0;
+			} else  anvilSelectedCategory = 1;
+		}
 	}
 }
 #endregion

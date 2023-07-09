@@ -22,6 +22,6 @@
   "option_operagx_scale": 1,
   "option_operagx_team_id": "",
   "option_operagx_team_name": "",
-  "option_operagx_texture_page": "2048x2048",
+  "option_operagx_texture_page": "8192x8192",
   "option_operagx_version": "1.0.0.0",
 }

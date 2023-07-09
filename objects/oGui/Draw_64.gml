@@ -357,8 +357,20 @@
 					draw_sprite_ext(sHoloCursor, holoarrowspr, _xx - 440, _yy + offset, 2.5, 2.5, 0, c_white, 1); 
 					} 
 				draw_set_halign(fa_left);
-								
-	            draw_text_transformed(GW/2.60 + guiOffset, GH/6.65 + offset - androidoffset, string(global.upgradeOptions[i][$"name"]), 1.5, 1.5, 0); // draw the name
+				var uptype = "";
+				switch (global.upgradeOptions[i][$"style"]) { // type of upgrade
+				    case ItemTypes.Weapon:
+				        uptype = "Weapons.";
+				        break;
+				    case ItemTypes.Item:
+				        uptype = "Items.";
+				        break;
+					case ItemTypes.Perk:
+				        uptype = "Perks.";
+				        break;
+				}
+				var _name = lexicon_text(uptype + string(global.upgradeOptions[i][$"name"]) + ".name");
+	            draw_text_transformed(GW/2.60 + guiOffset, GH/6.65 + offset - androidoffset, _name, 1.5, 1.5, 0); // draw the name
 				var style = ""; 
 				switch (global.upgradeOptions[i][$"style"]) { // type of upgrade
 				    case ItemTypes.Weapon:
@@ -384,18 +396,6 @@
 						foundlv = UPGRADES[j][$"level"] + 1;
 					}
 				}			
-				var uptype = "";
-				switch (global.upgradeOptions[i][$"style"]) { // type of upgrade
-				    case ItemTypes.Weapon:
-				        uptype = "Weapons.";
-				        break;
-				    case ItemTypes.Item:
-				        uptype = "Items.";
-				        break;
-					case ItemTypes.Perk:
-				        uptype = "Perks.";
-				        break;
-				}
 				var maxx = 0;
 				if (os_type == os_android) {
 				    maxx = GW/2.50
@@ -440,16 +440,24 @@
 
 		#region Anvil
 		if (ANVIL) {
-			draw_text_transformed(GW/2, GH/7.25, "UPGRADE!", 4, 4, 0);
+			draw_set_halign(fa_center);
+			draw_set_valign(fa_center);
+			var _x = GW/1.56;
+			var _y = GH/5.30;
+			draw_text_transformed_color(_x+1, _y+1, "UPGRADE!", 5, 5, 0, c_black, c_black, c_black, c_black, 1);
+			draw_text_transformed_color(_x-1, _y-1, "UPGRADE!", 5, 5, 0, c_black, c_black, c_black, c_black, 1);
+			draw_text_transformed(_x, _y, "UPGRADE!", 5, 5, 0);
+			draw_set_valign(fa_top);
+			draw_set_halign(fa_left);			
 			#region Weapons
 				for (var i = 0; i < array_length(UPGRADES); ++i) {
-				    mouseOnButton(GW/2.30 + (GW/12 * i), GH/3, GW/17.50, sItemSquare, 2, 2, array_create(2,0), "anvilSelectedCategory");
+				    if (!anvilconfirm) { mouseOnButton(GW/2.30 + (GW/12 * i), GH/3, GW/17.50, sItemSquare, 2, 2, array_create(2,0), "anvilSelectedCategory");}
 				}
 				
 				var xoffset = 0;
 				var anvilIsSelected = 0;
 				for (var i = 0; i < array_length(UPGRADES); ++i){
-					mouseOnButton(GW/2.30, GH/3, GW/12, sItemSquare, 2, 2, UPGRADES, "anvilSelected", "horizontal");
+					if (!anvilconfirm) { mouseOnButton(GW/2.30, GH/3, GW/12, sItemSquare, 2, 2, UPGRADES, "anvilSelected", "horizontal");}
 					if (anvilSelectedCategory == 0 and i == anvilSelected){
 						anvilIsSelected = 1
 					}else{
@@ -464,7 +472,7 @@
 			#region Items
 				xoffset = 0;
 				for (var i = 0; i < array_length(playerItems); ++i){
-					mouseOnButton(GW/2.30, GH/2.30, GW/12, sItemSquare, 2, 2, playerItems, "anvilSelected", "horizontal");
+					if (!anvilconfirm) { mouseOnButton(GW/2.30, GH/2.30, GW/12, sItemSquare, 2, 2, playerItems, "anvilSelected", "horizontal");}
 					if (anvilSelectedCategory == 1 and i == anvilSelected){
 						anvilIsSelected = 1
 					}else{
@@ -483,23 +491,26 @@
 				draw_sprite_ext(sUpgradeBackground, 0, _xx, _yy, 2.10, 1.25, 0, c_black, .75);//upgrade background
 				draw_sprite_ext(sUpgradeBackground, 2, _xx, _yy, 2.10, 1.25, 0, c_white, .75);//upgrade line for the text
 				draw_sprite_ext(sUpgradeBackground, 1, _xx, _yy, 2.10, 1.25, 0, c_white, 1); 
-				var selectedThing;
+				var selectedThing, _name;
 				if (anvilSelectedCategory == 0) {
 				    selectedThing = UPGRADES[anvilSelected];
+					//_name = lexicon_text("Weapons." + selectedThing[i][$"name"] + "." + string(selectedThing[$"level"]);
+					_name = lexicon_text("Weapons." + selectedThing[$"name"] + ".name");
 				}else{
 					selectedThing = playerItems[anvilSelected];
+					_name = lexicon_text("Items." + selectedThing[$"name"] + ".name");
 				}
-				var level = selectedThing[$"level"] + 1;
+				var level = selectedThing[$"level"];
 				var maxlevel = selectedThing[$"maxlevel"];
-				draw_text_transformed(_xx - 385, _yy - 59.50 , string(selectedThing[$"name"]), 1, 1, 0); // draw the name
+				draw_text_transformed(_xx - 385, _yy - 59.50 , _name, 1, 1, 0); // draw the name
 				draw_set_color(c_yellow);
 				if (level -1 < maxlevel) {
 					str = string_ext("LV {0} >> LV {1} ", [string(selectedThing[$"level"]), string(selectedThing[$"level"] + 1)]);
 				}else{
 					str = "MAX LV";
 				}
-				if (selectedThing != global.null and selectedThing != global.nullitem) {
-				    draw_text_transformed(_xx - 385 + (string_width(selectedThing[$"name"]) + 20), _yy - 59.50 , str, 1, 1, 0); // draw the name
+				if (selectedThing != global.null and selectedThing != global.nullitem and anvilconfirm) {
+				    draw_text_transformed(_xx - 385 + (string_width(_name) + 20), _yy - 59.50 , str, 1, 1, 0); // draw the name
 				}
 				draw_set_color(c_white);
 				switch (selectedThing[$"style"]) { // type of upgrade
@@ -518,12 +529,47 @@
 				draw_set_halign(fa_left);
 				draw_sprite_ext(selectedThing[$ "thumb"],0, _xx - 350, _yy, 2, 2,0,c_white,1); // item thumb
 				draw_sprite_ext(sItemType, selectedThing[$"style"], _xx - 350, _yy, 2, 2,0,c_white,1); // item thumb type
-				if (level > maxlevel) {	level -= 1	}
-				if (anvilSelectedCategory == 0 and selectedThing != global.null and selectedThing != global.nullitem) {
-					drawDesc(_xx - 290,_yy - 35, global.upgradesAvaliable[selectedThing[$"id"]][level][$"desc"], GW/2, 2);
+				if (!anvilconfirm) {
+					if (level > maxlevel) {	level -= 1	}
+					if (anvilSelectedCategory == 0 and selectedThing != global.null and selectedThing != global.nullitem) {
+						
+						drawDesc(_xx - 290,_yy - 35, lexicon_text("Weapons." + selectedThing[$"name"] + "." + string(level)), GW/2, 2);
+					}
+					if (anvilSelectedCategory == 1 and selectedThing != global.null and selectedThing != global.nullitem) {
+						drawDesc(_xx - 290,_yy - 35, lexicon_text("Items." + selectedThing[$"name"] + "." + string(level)), GW/2, 2);
+					}
 				}
-				if (anvilSelectedCategory == 1 and selectedThing != global.null and selectedThing != global.nullitem) {
-					drawDesc(_xx - 290,_yy - 35, global.itemList[selectedThing[$"id"]][level][$"desc"], GW/2, 2);
+				else {
+					if (!upgradeconfirm) {
+					    var _tx = GW/1.53;
+						var _ty = GH/1.31;
+						draw_sprite_ext(sHudButton, 1, _tx, _ty, 1.5, 1.5, 0, c_white, 1);
+						draw_set_halign(fa_center);
+						draw_set_valign(fa_center);						
+						draw_text_transformed_color(_tx, _ty, "Upgrade", 2,2,0,c_black,c_black,c_black,c_black, 1);
+						draw_set_valign(fa_top);
+						draw_set_halign(fa_left);
+					}
+					else{
+						var _tx = GW/1.53;
+						var _ty = GH/1.29;
+						draw_set_halign(fa_center);
+						draw_set_valign(fa_center);						
+						draw_text_transformed_color(_tx, _ty - 40, "Sucess Rate: 100%", 2,2,0,c_white,c_white,c_white,c_white, 1);
+						var _confirmstring = string_ext("Cost: {0} to UPGRADE", [global.holocoins]);
+						draw_sprite_ext(sHudButton, 1, _tx, _ty, 2, 1.5, 0, c_white, 1);
+						draw_text_transformed_color(_tx, _ty, _confirmstring, 2,2,0,c_black,c_black,c_black,c_black, 1);
+						draw_set_valign(fa_top);
+						draw_set_halign(fa_left);
+					}
+					level++;
+					if (level > maxlevel) {	level -= 1	}
+					if (anvilSelectedCategory == 0 and selectedThing != global.null and selectedThing != global.nullitem) {
+						drawDesc(_xx - 290,_yy - 35, lexicon_text("Weapons." + selectedThing[$"name"] + "." + string(level)), GW/2, 2);
+					}
+					if (anvilSelectedCategory == 1 and selectedThing != global.null and selectedThing != global.nullitem) {
+						drawDesc(_xx - 290,_yy - 35, lexicon_text("Items." + selectedThing[$"name"] + "." + string(level)), GW/2, 2);
+					}
 				}
 			#endregion
 			drawStats();

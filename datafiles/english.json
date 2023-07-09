@@ -5,7 +5,7 @@
         "dialogue.NPCBob.Greeting": "Hello there %player%!",
         "Weapons":{
             "AmePistol":{
-            "name":"AmePistol",
+            "name":"Pistol Shot",
 				"1":"Shoots 3 Projectiles forward. Horizontal only.", 
 				"2":"Shoot [1] additional shot, and each bullet can pierce [+1] times.",
 				"3":"Increase damage by [25%].",
