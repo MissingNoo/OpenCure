@@ -630,6 +630,9 @@ function tickItems(){
 						Bonuses[BonusType.Critical][ItemIds.GWS_Pill] = 0;
 					}
 					break;}
+				case ItemIds.BlacksmithsGear:{
+					oPlayer.blacksmithLevel = playerItems[i][$"level"];
+					break;}
 			}
 		}
 	}

@@ -504,10 +504,15 @@
 				var maxlevel = selectedThing[$"maxlevel"];
 				draw_text_transformed(_xx - 385, _yy - 59.50 , _name, 1, 1, 0); // draw the name
 				draw_set_color(c_yellow);
-				if (level -1 < maxlevel) {
+				if (level < maxlevel) {
 					str = string_ext("LV {0} >> LV {1} ", [string(selectedThing[$"level"]), string(selectedThing[$"level"] + 1)]);
-				}else{
-					str = "MAX LV";
+				}else if (anvilSelectedCategory == 0){
+					if (!variable_struct_exists(UPGRADES[anvilSelected], "bonusLevel")) {
+					    str = "+ 1";
+					}
+					else{
+						str = string("+ {0} >> + {1}", variable_struct_get(UPGRADES[anvilSelected], "bonusLevel"), variable_struct_get(UPGRADES[anvilSelected], "bonusLevel") + 1);
+					}					
 				}
 				if (selectedThing != global.null and selectedThing != global.nullitem and anvilconfirm) {
 				    draw_text_transformed(_xx - 385 + (string_width(_name) + 20), _yy - 59.50 , str, 1, 1, 0); // draw the name
@@ -532,7 +537,6 @@
 				if (!anvilconfirm) {
 					if (level > maxlevel) {	level -= 1	}
 					if (anvilSelectedCategory == 0 and selectedThing != global.null and selectedThing != global.nullitem) {
-						
 						drawDesc(_xx - 290,_yy - 35, lexicon_text("Weapons." + selectedThing[$"name"] + "." + string(level)), GW/2, 2);
 					}
 					if (anvilSelectedCategory == 1 and selectedThing != global.null and selectedThing != global.nullitem) {
@@ -554,9 +558,18 @@
 						var _tx = GW/1.53;
 						var _ty = GH/1.29;
 						draw_set_halign(fa_center);
-						draw_set_valign(fa_center);						
-						draw_text_transformed_color(_tx, _ty - 40, "Sucess Rate: 100%", 2,2,0,c_white,c_white,c_white,c_white, 1);
-						var _confirmstring = string_ext("Cost: {0} to UPGRADE", [global.holocoins]);
+						draw_set_valign(fa_center);
+						var _chance = 100;
+						var _coinValue = 0;
+						if (variable_struct_exists(selectedThing, "bonusLevel")) {
+						    for (var i = 0; i < selectedThing[$"bonusLevel"]; ++i) {
+							    _coinValue += 50;
+								_chance -= 10;
+							}
+						}
+						if (_chance < 10) {_chance=10;}
+						draw_text_transformed_color(_tx, _ty - 40, string("Sucess Rate: {0}%", _chance), 2,2,0,c_white,c_white,c_white,c_white, 1);
+						var _confirmstring = string("Cost: {0} to UPGRADE", _coinValue);
 						draw_sprite_ext(sHudButton, 1, _tx, _ty, 2, 1.5, 0, c_white, 1);
 						draw_text_transformed_color(_tx, _ty, _confirmstring, 2,2,0,c_black,c_black,c_black,c_black, 1);
 						draw_set_valign(fa_top);
@@ -564,12 +577,20 @@
 					}
 					level++;
 					if (level > maxlevel) {	level -= 1	}
-					if (anvilSelectedCategory == 0 and selectedThing != global.null and selectedThing != global.nullitem) {
-						drawDesc(_xx - 290,_yy - 35, lexicon_text("Weapons." + selectedThing[$"name"] + "." + string(level)), GW/2, 2);
+					if (level != maxlevel) {
+					    if (anvilSelectedCategory == 0 and selectedThing != global.null and selectedThing != global.nullitem) {
+							drawDesc(_xx - 290,_yy - 35, lexicon_text("Weapons." + selectedThing[$"name"] + "." + string(level)), GW/2, 2);
+						}	
+					}
+					else{
+						if (anvilSelectedCategory == 0 and selectedThing != global.null and selectedThing != global.nullitem) {
+							drawDesc(_xx - 290,_yy - 35, lexicon_text("Anvil.Enhance." + string(oPlayer.blacksmithLevel)), GW/2, 2);
+						}	
 					}
 					if (anvilSelectedCategory == 1 and selectedThing != global.null and selectedThing != global.nullitem) {
 						drawDesc(_xx - 290,_yy - 35, lexicon_text("Items." + selectedThing[$"name"] + "." + string(level)), GW/2, 2);
 					}
+					
 				}
 			#endregion
 			drawStats();

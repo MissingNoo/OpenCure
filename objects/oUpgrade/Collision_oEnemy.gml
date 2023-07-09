@@ -63,6 +63,7 @@ if (other.hittedcooldown[upg[$"id"]] <= 0  and !global.gamePaused and other.imag
 	    maxdmg = 0;
 	}
 	var dmg = irandom_range(mindmg, maxdmg);
+	//show_message(maxdmg);
 	var bdmg = 0;
 	for (var i = 0; i < array_length(Bonuses[BonusType.Damage]); ++i) {
 	    if (Bonuses[BonusType.Damage][i] != 0) {

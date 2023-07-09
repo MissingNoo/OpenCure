@@ -237,10 +237,41 @@ if (ANVIL) {
 	if (zKey) {
 		if (upgradeconfirm) {
 		    if (anvilSelectedCategory == 0) {
-				UPGRADES[anvilSelected] = global.upgradesAvaliable[UPGRADES[anvilSelected][$"id"]][UPGRADES[anvilSelected][$"level"] + 1];
+				if (level < maxlevel) {
+				    UPGRADES[anvilSelected] = global.upgradesAvaliable[UPGRADES[anvilSelected][$"id"]][UPGRADES[anvilSelected][$"level"] + 1];
+				}
+				else{
+					var _bonusdmg = 0;
+					switch (oPlayer.blacksmithLevel) {
+					    case 0:
+					        _bonusdmg = 2;
+					        break;
+					    case 1:
+					        _bonusdmg = 2;
+					        break;
+					    case 2:
+					        _bonusdmg = 2.5;
+					        break;
+					    case 3:
+					        _bonusdmg = 3;
+					        break;
+					    default:
+					        break;
+					}
+					if (!variable_struct_exists(UPGRADES[anvilSelected], "bonusLevel")) {
+					    variable_struct_set(UPGRADES[anvilSelected], "bonusLevel", 1);
+						UPGRADES[anvilSelected][$"bonusDamage"] = [_bonusdmg];
+					}
+					else{
+						variable_struct_set(UPGRADES[anvilSelected], "bonusLevel", variable_struct_get(UPGRADES[anvilSelected], "bonusLevel") + 1);
+						array_push(UPGRADES[anvilSelected][$"bonusDamage"], _bonusdmg);
+					}
+				}
 			}
 			if (anvilSelectedCategory == 1) {
-				playerItems[anvilSelected] = global.itemList[playerItems[anvilSelected][$"id"]][playerItems[anvilSelected][$"level"] + 1];
+				if (level < maxlevel) {
+					playerItems[anvilSelected] = global.itemList[playerItems[anvilSelected][$"id"]][playerItems[anvilSelected][$"level"] + 1];
+				}
 			}
 			ANVIL = false;//TODO: Cost money
 			anvilconfirm = false;
@@ -251,7 +282,12 @@ if (ANVIL) {
 		    upgradeconfirm = true;
 		}
 		if (!anvilconfirm and ANVIL and selectedThing!=global.null and selectedThing != global.nullitem) {
-		    anvilconfirm = true;
+			if (anvilSelectedCategory == 1 and level < maxlevel) {
+			    anvilconfirm = true;
+			}
+			if (anvilSelectedCategory == 0) {
+			    anvilconfirm = true;
+			}
 		}
 	}
 }

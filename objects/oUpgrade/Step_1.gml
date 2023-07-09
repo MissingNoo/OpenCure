@@ -11,8 +11,12 @@ if (socket == oPlayer.socket) {
 // Feather disable GM2016
 if (a==0) {	
 speed=upg[$"speed"];
-mindmg = upg[$"mindmg"];
-maxdmg = upg[$"maxdmg"];
+if (!variable_instance_exists(self, "mindmg")) {
+	mindmg = upg[$"mindmg"];
+}
+if (!variable_instance_exists(self, "maxdmg")) {
+	maxdmg = upg[$"maxdmg"];
+}
 hits=upg[$"hits"];
 if (variable_struct_exists(upg, "size")) {
 	    image_xscale = upg[$"size"];
@@ -30,7 +34,7 @@ if (shoots > 1) {
 		alarm[0] = 1;
 	}
 }
-//if (keyboard_check(ord("C")) and upg != UPGRADES[0]) {show_message(upg[$"shoots"]);show_message(shoots)};
+if (keyboard_check(ord("C"))) {show_message(UPGRADES[0][$"bonusDamage"])};
 sprite_index=upg[$"sprite"];
 
 
@@ -321,6 +325,10 @@ sprite_index=upg[$"sprite"];
 				}
 				catch (err){ }
 			}
+			break;}
+		case Weapons.ENsCurse:{
+			direction = arrowDir;
+			image_angle  = arrowDir;
 			break;}
 		#endregion
 	}

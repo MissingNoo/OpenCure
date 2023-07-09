@@ -6,6 +6,7 @@
 function initializePlayer(_p){
 	attacktick=true;
 	global.newcoins = 0;
+	blacksmithLevel = 0;
 	#region shop hp upgrade
 	var _hpBonus = 4 * global.ShopUpgrades[$ "Hp"][$ "level"];
 	#endregion

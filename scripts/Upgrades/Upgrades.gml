@@ -1113,7 +1113,7 @@ function randomUpgrades(){
 	//first option
 	// global.upgradeOptions[0] = PERK_LIST[PerkIds.HeavyArtillery][0];
 	 //global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.PsychoAxe][1];
-	 //global.upgradeOptions[1] = global.itemList[ItemIds.Uber_Sheep][1];
+	 //global.upgradeOptions[1] = global.itemList[ItemIds.BlacksmithsGear][1];
 	 //global.upgradeOptions[2] = global.itemList[ItemIds.Knightly_Milk][1];
 	 //global.upgradeOptions[2] = global.upgradesAvaliable[Weapons.BounceBall][1];
 	 //global.upgradeOptions[1] = global.upgradesAvaliable[Weapons.PlugAsaCoco][1];
@@ -1122,6 +1122,12 @@ function randomUpgrades(){
 function tickPowers(){
 	if (attacktick == true and UPGRADES[0][$"name"]!="") {
 		for (i=0; i < array_length(UPGRADES); i++) {
+			var bonusdmg  = 0;
+			if (variable_struct_exists(UPGRADES[i], "bonusLevel")) {
+				for (var j = 0; j < array_length(UPGRADES[i][$"bonusDamage"]); ++j) {
+				    bonusdmg = bonusdmg + UPGRADES[i][$"bonusDamage"][j];
+				}			    
+			}
 			if (UPGRADES[i] != global.null and global.upgradeCooldown[UPGRADES[i][$"id"]] <= 0) {
 				instance_create_layer(x,y-8,"Upgrades",oUpgrade,{
 					upg : UPGRADES[i],
@@ -1130,8 +1136,8 @@ function tickPowers(){
 					shoots : UPGRADES[i][$"shoots"],
 					sprite_index : UPGRADES[i][$"sprite"],
 					level : UPGRADES[i][$"level"],
-					mindmg: UPGRADES[i][$"mindmg"],
-					maxdmg: UPGRADES[i][$"maxdmg"]
+					mindmg: UPGRADES[i][$"mindmg"] + bonusdmg,
+					maxdmg: UPGRADES[i][$"maxdmg"] + bonusdmg
 				});
 				
 			}			

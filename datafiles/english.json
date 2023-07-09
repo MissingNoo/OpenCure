@@ -3,6 +3,14 @@
     "locale": "en-US",
     "text": {
         "dialogue.NPCBob.Greeting": "Hello there %player%!",
+        "Anvil" : {
+			"Enhance":{
+				"0":"Increase base attack by 2",
+				"1":"Increase base attack by 2",
+				"2":"Increase base attack by 2.5",
+				"3":"Increase base attack by 3",
+			}
+        },
         "Weapons":{
             "AmePistol":{
             "name":"Pistol Shot",
@@ -175,6 +183,12 @@
             },
         },
         "Items": {
+			"Blacksmith's Gear" : {
+				"name": "Blacksmith's Gear",
+				"1":"Normal anvils can be used twice. Only applies to anvils since taking this item.",
+				"2":"Normal anvils can be used twice. Weapon enhancements increase damage by 2.5 instead of 2 per level.",
+				"3":"Normal anvils can be used twice. Weapon enhancements increase damage by 3 instead of 2 per level.",
+				},
             "Body Pillow": {
                 "name" : "Body Pillow",
                 "1": "Gain a shield that absorbs up to [15] damage. Every [15] seconds, this shield refreshes. Also reduces damage taken by [5%].",
