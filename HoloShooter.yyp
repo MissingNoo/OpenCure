@@ -110,6 +110,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Timelines","folderPath":"folders/Timelines.yy",},
   ],
   "IncludedFiles": [
+    {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":".english.json.kate-swp","CopyToMask":-1,"filePath":"datafiles",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"blocks-16bit.ttf","CopyToMask":-1,"filePath":"datafiles",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"blocks-3x3-monospaced.ttf","CopyToMask":-1,"filePath":"datafiles",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"blocks-extended.ttf","CopyToMask":-1,"filePath":"datafiles",},
@@ -169,6 +170,7 @@
     {"id":{"name":"__input_load_sdl2_from_file","path":"scripts/__input_load_sdl2_from_file/__input_load_sdl2_from_file.yy",},},
     {"id":{"name":"sSuperChattoTime","path":"sprites/sSuperChattoTime/sSuperChattoTime.yy",},},
     {"id":{"name":"oPillarYagoo","path":"objects/oPillarYagoo/oPillarYagoo.yy",},},
+    {"id":{"name":"sDevilHat","path":"sprites/sDevilHat/sDevilHat.yy",},},
     {"id":{"name":"sFanBeamThumb","path":"sprites/sFanBeamThumb/sFanBeamThumb.yy",},},
     {"id":{"name":"__lexicon_reset","path":"scripts/__lexicon_reset/__lexicon_reset.yy",},},
     {"id":{"name":"input_binding_scan_params_clear","path":"scripts/input_binding_scan_params_clear/input_binding_scan_params_clear.yy",},},

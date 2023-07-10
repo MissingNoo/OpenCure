@@ -130,6 +130,7 @@
     {"name":"__input_load_sdl2_from_file","order":7,"path":"scripts/__input_load_sdl2_from_file/__input_load_sdl2_from_file.yy",},
     {"name":"sSuperChattoTime","order":25,"path":"sprites/sSuperChattoTime/sSuperChattoTime.yy",},
     {"name":"oPillarYagoo","order":2,"path":"objects/oPillarYagoo/oPillarYagoo.yy",},
+    {"name":"sDevilHat","order":29,"path":"sprites/sDevilHat/sDevilHat.yy",},
     {"name":"sFanBeamThumb","order":22,"path":"sprites/sFanBeamThumb/sFanBeamThumb.yy",},
     {"name":"__lexicon_reset","order":10,"path":"scripts/__lexicon_reset/__lexicon_reset.yy",},
     {"name":"input_binding_scan_params_clear","order":2,"path":"scripts/input_binding_scan_params_clear/input_binding_scan_params_clear.yy",},

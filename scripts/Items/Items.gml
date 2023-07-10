@@ -88,6 +88,7 @@ function newCreateItem(_data){
 		Breastplate,
 		Chicken_Feather,
 		CreditCard,
+		DevilHat,
 		Energy_Drink,
 		Face_Mask,
 		Full_Meal,
@@ -175,9 +176,16 @@ function populateItems(){
 				bonusValue : [[0.90, 0.85, 0.80],[0.80, 0.80, 0.80]],
 				reflectChance : [50, 60, 70],
 				reflectDamage : [2, 2.5, 3],
+				perk : false});			
+			newCreateItem({//Devil Hat
+				id : ItemIds.DevilHat,
+				name : "Devil Hat",
+				maxlevel : 3,
+				weight : 2,
+				thumb : sDevilHat,
+				cooldown : 1,
+				damageMultiplier : [1.2, 1.4, 1.6],
 				perk : false});
-				Bonuses[BonusType.Damage][ItemIds.Face_Mask] = 0;
-			
 			#region Holocoin
 			
 			newCreateItem({

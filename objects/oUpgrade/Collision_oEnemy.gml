@@ -1,5 +1,3 @@
-/// @description 
-
 if (upg[$"id"] == Weapons.BounceBall) {
 		var _push = 5;
 		var _dir = point_direction(other.x, other.y, x, y);
@@ -21,6 +19,13 @@ if (upg[$"id"] == Weapons.BounceBall) {
 }
 
 if (other.hittedcooldown[upg[$"id"]] <= 0  and !global.gamePaused and other.image_alpha == 1 and image_alpha == 1 and ghost == false) {
+	other.hittedcooldown[upg[$"id"]] = upg[$"hitCooldown"];
+	other.damaged = true;
+	//random_set_seed(current_time);
+	if (!variable_instance_exists(self, "mindmg")) { mindmg = 0; }	
+	if (!variable_instance_exists(self, "maxdmg")) { maxdmg = 0; }
+	var dmg = irandom_range(mindmg, maxdmg);
+
 	audio_play_sound(choose(snd_hit1, snd_hit2, snd_hit3), 0, 0, .5);
 	#region debuffs	
 	for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
@@ -49,21 +54,24 @@ if (other.hittedcooldown[upg[$"id"]] <= 0  and !global.gamePaused and other.imag
 		}
 		#endregion
 	}	
+	for (var i = 0; i < array_length(playerItems); ++i) {
+	    switch (playerItems[i][$"id"]) {
+		    case ItemIds.DevilHat:
+				var _multiplier = playerItems[i][$"damageMultiplier"];
+		        if (point_distance(other.x, other.y, oPlayer.x, oPlayer.y) > 150) {
+				    dmg = dmg * _multiplier;
+				}
+				else{
+					dmg = dmg * 0.90;
+				}
+		        break;
+		    default:
+		        // code here
+		        break;
+		}
+	}
 	#endregion
 	
-	other.hittedcooldown[upg[$"id"]] = upg[$"hitCooldown"];
-	other.damaged = true;
-	//random_set_seed(current_time);
-	if (!variable_instance_exists(self, "mindmg")) {
-		mindmg = 0;
-	}
-	
-	if (!variable_instance_exists(self, "maxdmg")) {
-	    // Feather disable once GM2016
-	    maxdmg = 0;
-	}
-	var dmg = irandom_range(mindmg, maxdmg);
-	//show_message(maxdmg);
 	var bdmg = 0;
 	for (var i = 0; i < array_length(Bonuses[BonusType.Damage]); ++i) {
 	    if (Bonuses[BonusType.Damage][i] != 0) {
