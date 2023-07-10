@@ -443,6 +443,7 @@
     {"id":{"name":"spr_Pipmod_Pippa_idle","path":"sprites/spr_Pipmod_Pippa_idle/spr_Pipmod_Pippa_idle.yy",},},
     {"id":{"name":"input_profile_import","path":"scripts/input_profile_import/input_profile_import.yy",},},
     {"id":{"name":"sHalu","path":"sprites/sHalu/sHalu.yy",},},
+    {"id":{"name":"sBreastplate","path":"sprites/sBreastplate/sBreastplate.yy",},},
     {"id":{"name":"input_clear_momentary","path":"scripts/input_clear_momentary/input_clear_momentary.yy",},},
     {"id":{"name":"sQShrimp","path":"sprites/sQShrimp/sQShrimp.yy",},},
     {"id":{"name":"sKronieB","path":"sprites/sKronieB/sKronieB.yy",},},

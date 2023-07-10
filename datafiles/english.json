@@ -197,6 +197,12 @@
                 "4": "Gain a shield that absorbs up to [30] damage. Every [15] seconds, this shield refreshes. Also reduces damage taken by [20%].",
                 "5": "Gain a shield that absorbs up to [35] damage. Every [15] seconds, this shield refreshes. Also reduces damage taken by [25%].",
             },
+            "Breastplate":{
+				"name" : "Breastplate",
+				"1" : "Reduce damage taken by 10% and SPD by 20%. When attacked there is a 50% chance the attacker also takes 200% damage.",
+				"2" : "Reduce damage taken by 15% and SPD by 20%. When attacked there is a 60% chance the attacker also takes 250% damage.",
+				"3" : "Reduce damage taken by 20% and SPD by 20%. When attacked there is a 70% chance the attacker also takes 300% damage.",
+				},
             "Credit Card": {
                 "name" : "Credit Card",
 				"1": "Cost of enhancing is reduced by [20%] and anvils appear [20%] more often.", 

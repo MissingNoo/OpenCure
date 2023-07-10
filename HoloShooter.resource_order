@@ -373,6 +373,7 @@
     {"name":"spr_Pipmod_Pippa_idle","order":8,"path":"sprites/spr_Pipmod_Pippa_idle/spr_Pipmod_Pippa_idle.yy",},
     {"name":"input_profile_import","order":7,"path":"scripts/input_profile_import/input_profile_import.yy",},
     {"name":"sHalu","order":12,"path":"sprites/sHalu/sHalu.yy",},
+    {"name":"sBreastplate","order":28,"path":"sprites/sBreastplate/sBreastplate.yy",},
     {"name":"sQShrimp","order":17,"path":"sprites/sQShrimp/sQShrimp.yy",},
     {"name":"sKronieB","order":14,"path":"sprites/sKronieB/sKronieB.yy",},
     {"name":"input_vibrate_set_strength","order":7,"path":"scripts/input_vibrate_set_strength/input_vibrate_set_strength.yy",},

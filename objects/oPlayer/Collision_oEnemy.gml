@@ -41,5 +41,25 @@ if (other.canattack and other.image_alpha == 1 and image_alpha == 1 and !global.
 	    dmg=round(damage);
 		depth = oPlayer.depth-1;
 	}
+	
+	#region breastplate
+	for (var i = 0; i < array_length(playerItems); ++i) {
+	    if (playerItems[i][$"id"] == ItemIds.Breastplate) {
+		    var _chance = playerItems[i][$"reflectChance"];
+			var _random = irandom_range(1, 100);
+			var _returnPercent = playerItems[i][$"reflectDamage"];
+			var _returnDamage = damage * _returnPercent;
+			if (_random <= _chance) {
+			    other.hp -= _returnDamage;
+				var inst = instance_create_layer(other.x,other.y - sprite_get_height(other.sprite_index)/2,"DamageLayer",oDamageText);
+				with (inst)
+				{
+				    dmg=round(_returnDamage);
+					depth = other.depth-1;
+				}
+			}
+		}
+	}
+	#endregion
 }
 

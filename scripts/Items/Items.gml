@@ -85,6 +85,7 @@ function newCreateItem(_data){
 	enum ItemIds{
 		BlacksmithsGear, //TODO: enhancement
 		Body_Pillow,
+		Breastplate,
 		Chicken_Feather,
 		CreditCard,
 		Energy_Drink,
@@ -163,6 +164,19 @@ function populateItems(){
 				Bonuses[BonusType.Defense][ItemIds.Body_Pillow] = 0;
 				//super createItem(ItemIds.Body_Pillow, "Body Pillow", 6, 5, 3, sBodyPillow, 15, "Gain a shield that absorbs up to 35 damage. Every 15 seconds, this shield refreshes. Also reduces damage taken by 25%.")
 			#endregion
+			newCreateItem({//Breasplate
+				id : ItemIds.Breastplate,
+				name : "Breastplate",
+				maxlevel : 3,
+				weight : 2,
+				thumb : sBreastplate,
+				cooldown : 1,
+				bonusType : [BonusType.Defense, BonusType.Speed],
+				bonusValue : [[0.90, 0.85, 0.80],[0.80, 0.80, 0.80]],
+				reflectChance : [50, 60, 70],
+				reflectDamage : [2, 2.5, 3],
+				perk : false});
+				Bonuses[BonusType.Damage][ItemIds.Face_Mask] = 0;
 			
 			#region Holocoin
 			
