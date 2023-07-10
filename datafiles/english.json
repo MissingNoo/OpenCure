@@ -199,7 +199,7 @@
             },
             "Breastplate":{
 				"name" : "Breastplate",
-				"1" : "Reduce damage taken by 10% and SPD by 20%. When attacked there is a 50% chance the attacker also takes 200% damage.",
+				"1" : "Reduce damage taken by 10% and SPD by 20%. When attacked there is a 50% chance the attacker also takes 200% damage.",	
 				"2" : "Reduce damage taken by 15% and SPD by 20%. When attacked there is a 60% chance the attacker also takes 250% damage.",
 				"3" : "Reduce damage taken by 20% and SPD by 20%. When attacked there is a 70% chance the attacker also takes 300% damage.",
 				},
@@ -210,6 +210,12 @@
 				"3": "Cost of enhancing is reduced by [30%] and anvils appear [60%] more often.",
 				"4": "Cost of enhancing is reduced by [35%] and anvils appear [80%] more often.",
 				"5": "Cost of enhancing is reduced by [40%] and anvils appear [twice] as often.",
+            },
+            "Devil Hat" : {
+				"name" : "Devil Hat",
+				"1" : "Attacks deal 1.2 times damage if the target is farther than 150px away from the player. If less than 150px away, damage is reduced by 10%.",
+				"2" : "Attacks deal 1.4 times damage if the target is farther than 150px away from the player. If less than 150px away, damage is reduced by 10%.",
+				"3" : "Attacks deal 1.6 times damage if the target is farther than 150px away from the player. If less than 150px away, damage is reduced by 10%.",
             },
             "Chicken's Feather": {
                 "name" : "Chicken's Feather",
