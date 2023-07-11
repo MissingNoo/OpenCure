@@ -7,16 +7,7 @@ if (onArea) {
 }
 else speed=0;
 if (!global.gamePaused) {
-	if (dir == 0) {
-	    if (y > oY - 5) {
-	    y -= .15;
-		} else {dir = 1}
-	}
-	if (dir == 1) {
-	    if (y < oY + 5) {
-	    y += .15;
-		} else {dir = 0}
-	}
+	y = sine_wave(current_time / 1000, 1, 1, y);
 }
 var nearestxp = instance_nearest(x,y, oXP);
 if (distance_to_point(nearestxp.x, nearestxp.y) < 40) {

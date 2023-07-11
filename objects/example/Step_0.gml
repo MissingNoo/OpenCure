@@ -29,13 +29,14 @@ if (keyboard_check_pressed(vk_f6)) {
  
 if (imguigml_ready()) {
 	var size = [ 0, 0 ];
-  var pos = [ 0, 0 ];
-  if (ShowTestWindow) {
+	var pos = [ 0, 0 ];
+	if (ShowTestWindow) {
 		imguigml_set_next_window_size(650, 350, EImGui_Cond.Once);
-
+		
 		var ret = imguigml_begin("Testing", ShowTestWindow);
-    ShowTestWindow = ret[1]; 
-    if (ret[0] && ret[1]) {
+		ShowTestWindow = ret[1]; 
+		if (ret[0] && ret[1]) {
+			imguigml_text(string("FPS: {0}/{1}", fps, fps_real));
 			var _header = imguigml_collapsing_header("Values");
 			if(_header[0]){
 				imguigml_text(string("a: {0}, b: {1}, c: {2}, d: {3}", oGui.a, oGui.b, oGui.c, oGui.d));
@@ -104,6 +105,7 @@ if (imguigml_ready()) {
 						imguigml_same_line();
 						_input = imguigml_checkbox("Spawn Events", oEvents.enable);
 						if(_input[0]) { oEvents.enable = _input[1];}
+						if (imguigml_button("Clear enemies")) { with (oEnemy) { instance_destroy(); } }
 					}
 					imguigml_end_child();
 				}			    
@@ -247,7 +249,7 @@ if (imguigml_ready()) {
 		  var _button = imguigml_sprite_button(_spr, 0, 21, 21);
 		  if (_button) {
 				  //show_message(string("test {0}", i));
-				  UPGRADES[changeUpgradeNum] = global.upgradesAvaliable[i][1];
+				  UPGRADES[changeUpgradeNum] = global.upgradesAvaliable[i][imguigml_mem("uplevel", 1)];
 				  changeUpgradeWindow = false;
 			}
 			if (_break < 5) {
@@ -257,6 +259,10 @@ if (imguigml_ready()) {
 			else{
 				_break = 0;
 			}
+		}
+		var _level = imguigml_input_int("Level", imguigml_mem("uplevel", 1));
+		if (_level[0]) {
+		    imguigml_memset("uplevel", _level[1]);
 		}
 		var doggo_size = imguigml_get_window_size();
 		imguigml_end();
