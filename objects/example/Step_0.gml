@@ -31,9 +31,9 @@ if (imguigml_ready()) {
 	var size = [ 0, 0 ];
 	var pos = [ 0, 0 ];
 	if (ShowTestWindow) {
-		imguigml_set_next_window_size(650, 350, EImGui_Cond.Once);
+		imguigml_set_next_window_size(0, 350, EImGui_Cond.Once);
 		
-		var ret = imguigml_begin("Testing", ShowTestWindow);
+		var ret = imguigml_begin("OpenCure", ShowTestWindow);
 		ShowTestWindow = ret[1]; 
 		if (ret[0] && ret[1]) {
 			imguigml_text(string("FPS: {0}/{1}", fps, fps_real));
@@ -43,8 +43,8 @@ if (imguigml_ready()) {
 				imguigml_same_line();
 				imguigml_text("E: "); 
 				imguigml_same_line();
-				var _input = imguigml_input_float("");
-				if(_input[0]){ oGui.e = _input[1]; }
+				var _input = imguigml_input_float("", imguigml_mem("e", 1));
+				if(_input[0]){ imguigml_memset("e", _input[1]); oGui.e = _input[1]; }				
 			}
 			
 			if (instance_exists(oPlayer)) {
@@ -279,7 +279,7 @@ if (imguigml_ready()) {
 		  var _button = imguigml_sprite_button(_spr, 0, 21, 21);
 		  if (_button) {
 				  //show_message(string("test {0}", i));
-				  playerItems[changeItemNum] = ItemList[i][1];
+				  playerItems[changeItemNum] = ItemList[i][imguigml_mem("uplevel", 1)];
 				  changeItemWindow = false;
 			}
 			if (_break < 5) {
@@ -289,6 +289,10 @@ if (imguigml_ready()) {
 			else{
 				_break = 0;
 			}
+		}
+		var _level = imguigml_input_int("Level", imguigml_mem("uplevel", 1));
+		if (_level[0]) {
+		    imguigml_memset("uplevel", _level[1]);
 		}
 		var doggo_size = imguigml_get_window_size();
 		imguigml_end();
