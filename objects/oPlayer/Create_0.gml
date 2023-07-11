@@ -1,5 +1,6 @@
 event_inherited();
 //show_debug_overlay(true);
+immortal = false;
 if (global.singleplayer) {
 	global.roomname = "";
 	global.IsHost = true;

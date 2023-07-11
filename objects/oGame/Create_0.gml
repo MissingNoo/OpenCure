@@ -1,3 +1,4 @@
+imguigml_activate();
 global.socket = 0;
 global.singleplayer = false;
 global.roomname="";

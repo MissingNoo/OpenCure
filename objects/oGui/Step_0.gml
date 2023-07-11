@@ -22,7 +22,7 @@ if (room == Room1 and !instance_exists(oClient)) {
 	instance_create_layer(1895, 1880, "Instances", oClient);
     instance_create_layer(1895, 1880, "Instances", oPlayer);
 }
-if (mouse_check_button(mb_left)) {
+if (mouse_check_button(mb_left) and keyboard_check(vk_shift)) {
     var _xx = GW;
 	var _xn = 1;
 	var _yy = GH;
@@ -39,7 +39,7 @@ if (mouse_check_button(mb_left)) {
 	b = _yn;
 	//show_message(string(_xn));
 }
-if (mouse_check_button(mb_right)) {
+if (mouse_check_button(mb_right) and keyboard_check(vk_shift)) {
     var _xx = GW;
 	var _xn = 1;
 	var _yy = GH;

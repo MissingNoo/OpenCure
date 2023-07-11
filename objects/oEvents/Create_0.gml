@@ -1,5 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
+enable = true;
 var _my_method = function()
 {
     event = true;

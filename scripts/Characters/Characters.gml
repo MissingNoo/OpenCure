@@ -120,7 +120,7 @@ function populateCharacters(){
 	createCharacter(Characters.Ina,"Ninomae Ina'nis",sInaPortrait,sInaIdle,sInaRunning,75,1.50,0.90, 1.01, 1,u[Weapons.InaTentacle], true);
 	#region Modded
 	#region Pipkin Pippa
-	createCharacter(Characters.Pippa,"Pipkin Pippa",spr_Pipmod_Pippa_Portrait,spr_Pipmod_Pippa_idle,spr_Pipmod_Pippa_run,60,1.50,0.95, 1.10, 1,u[Weapons.PipiPilstol]);
+	createCharacter(Characters.Pippa,"Pipkin Pippa",spr_Pipmod_Pippa_Portrait,spr_Pipmod_Pippa_idle,spr_Pipmod_Pippa_run,60,1.50,0.95, 1.10, 1,u[Weapons.PipiPilstol], true);
 	#endregion
 	#endregion
 	

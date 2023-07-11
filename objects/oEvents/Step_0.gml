@@ -3,7 +3,7 @@ if (event == false and time_source_get_state(_time_source) == time_source_state_
 	time_source_start(_time_source);
 }
 
-if (instance_exists(oPlayer)) { //TODO: finish adding stage 1 events
+if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 	var _seconds = round(Seconds);
 	if (_seconds == 5 and Minutes == 0 and event) {
 		event = false;
