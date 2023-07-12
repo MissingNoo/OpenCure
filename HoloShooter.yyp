@@ -495,6 +495,7 @@
     {"id":{"name":"sXP","path":"sprites/sXP/sXP.yy",},},
     {"id":{"name":"sSharkBiteAnimation","path":"sprites/sSharkBiteAnimation/sSharkBiteAnimation.yy",},},
     {"id":{"name":"__input_config_mouse","path":"scripts/__input_config_mouse/__input_config_mouse.yy",},},
+    {"id":{"name":"sHopeSoda","path":"sprites/sHopeSoda/sHopeSoda.yy",},},
     {"id":{"name":"input_axis_threshold_set","path":"scripts/input_axis_threshold_set/input_axis_threshold_set.yy",},},
     {"id":{"name":"sSpiderCookingThumb","path":"sprites/sSpiderCookingThumb/sSpiderCookingThumb.yy",},},
     {"id":{"name":"input_source_share","path":"scripts/input_source_share/input_source_share.yy",},},

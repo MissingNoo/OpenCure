@@ -420,6 +420,7 @@
     {"name":"sXP","order":8,"path":"sprites/sXP/sXP.yy",},
     {"name":"sSharkBiteAnimation","order":1,"path":"sprites/sSharkBiteAnimation/sSharkBiteAnimation.yy",},
     {"name":"__input_config_mouse","order":7,"path":"scripts/__input_config_mouse/__input_config_mouse.yy",},
+    {"name":"sHopeSoda","order":31,"path":"sprites/sHopeSoda/sHopeSoda.yy",},
     {"name":"input_axis_threshold_set","order":9,"path":"scripts/input_axis_threshold_set/input_axis_threshold_set.yy",},
     {"name":"sSpiderCookingThumb","order":33,"path":"sprites/sSpiderCookingThumb/sSpiderCookingThumb.yy",},
     {"name":"input_source_share","order":7,"path":"scripts/input_source_share/input_source_share.yy",},

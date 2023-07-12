@@ -211,6 +211,14 @@
 				"4": "Cost of enhancing is reduced by [35%] and anvils appear [80%] more often.",
 				"5": "Cost of enhancing is reduced by [40%] and anvils appear [twice] as often.",
             },
+            "Hope Soda" : {
+				"name" : "Hope Soda",
+				"1" : "Increase critical hit damage 10% and increase Special cooldown by 25%.",
+				"2" : "Increase critical hit damage 20% and increase Special cooldown by 25%.",
+				"3" : "Increase critical hit damage 30% and increase Special cooldown by 25%.",
+				"4" : "Increase critical hit damage 40% and increase Special cooldown by 25%.",
+				"5" : "Increase critical hit damage 50% and increase Special cooldown by 25%.",
+            },
             "Devil Hat" : {
 				"name" : "Devil Hat",
 				"1" : "Attacks deal 1.2 times damage if the target is farther than 150px away from the player. If less than 150px away, damage is reduced by 10%.",

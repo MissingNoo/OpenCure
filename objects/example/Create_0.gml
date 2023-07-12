@@ -3,7 +3,7 @@ changeUpgradeWindow = false;
 changeItemWindow = false;
 changeUpgradeNum = 0;
 changeItemNum = 0;
-ShowTestWindow = true;
+ShowTestWindow = false;
 ShowDoggoWindow = false;
 
 Actors = 1000;

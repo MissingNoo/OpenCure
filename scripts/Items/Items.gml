@@ -96,9 +96,10 @@ function newCreateItem(_data){
 		GWS_Pill, //TODO: add crit effects
 		Halu,//TODO: add all effects
 		Headphones, //TODO: add knockback
+		Hope_Soda,
 		Idol_Costume,
 		Injection_Type_Asacoco,
-		Just_Bandage, //TODO: add all effects
+		Just_Bandage, //TODO: add regen effect
 		Knightly_Milk,
 		Limiter,
 		Membership, //TODO: add all effects
@@ -117,6 +118,7 @@ function newCreateItem(_data){
 	enum BonusType{
 		Damage,
 		Critical,
+		CriticalDamage, //TODO
 		TakeDamage,
 		Defense,
 		Haste,
@@ -260,7 +262,7 @@ function populateItems(){
 				perk : false});
 			#endregion
 			
-			#region Just Bandage //TODO
+			#region Just Bandage 
 			newCreateItem({
 				id : ItemIds.Just_Bandage,
 				name : "Just Bandage",
@@ -354,8 +356,8 @@ function populateItems(){
 				weight : 3,
 				thumb : sMembership,
 				cooldown : 1,
-				bonusType : [BonusType.Damage, BonusType.Defense],
-				bonusValue : [[1.30, 1.40, 1.50], [0.90, 0.82, 0.75]],
+				bonusATK : [1.30, 1.40, 1.50],
+				bonusLessDamage : [0.90, 0.82, 0.75],
 				perk : false});
 			#endregion
 			
@@ -374,6 +376,21 @@ function populateItems(){
 				*/
 			#endregion
 		
+			newCreateItem({ //TODO
+				id : ItemIds.Hope_Soda,
+				name : "Hope Soda",
+				maxlevel : 5,
+				weight : 2,
+				thumb : sHopeSoda,
+				cooldown : 1,
+				bonusType : BonusType.CriticalDamage,
+				bonusValue : [1.10, 1.20, 1.30, 1.40, 1.50],
+				perk : false,
+				SpecialCooldown: [1.25, 1.25, 1.25, 1.25, 1.25],
+				}
+			);
+			Bonuses[BonusType.CriticalDamage][ItemIds.Hope_Soda] = 0;
+		
 			#region Idol Costume
 				newCreateItem({
 					id : ItemIds.Idol_Costume,
@@ -383,7 +400,7 @@ function populateItems(){
 					thumb : sIdolCostume,
 					cooldown : 1,
 					perk : false,
-					SpecialCooldown: [.20, .25, .30, .35, .40],
+					SpecialCooldown: [0.80, 0.75, 0.70, 0.65, 0.60],
 				}
 				);
 			#endregion
@@ -611,7 +628,16 @@ function tickItems(){
 				case ItemIds.Idol_Costume:{
 					if (oPlayer.idolCostumeLevel != playerItems[i][$"level"]) {
 					    oPlayer.idolCostumeLevel = playerItems[i][$"level"];
-						oPlayer.specialcooldown = oPlayer.specialcooldown - (oPlayer.specialcooldown * playerItems[i][$"SpecialCooldown"]);
+						oPlayer.specialcooldown = oPlayer.specialcooldown * playerItems[i][$"SpecialCooldown"];
+					}
+					break;}
+				case ItemIds.Hope_Soda:{
+					if (!variable_instance_exists(oPlayer, "hopeSodaLevel")) {
+					    oPlayer.hopeSodaLevel = 0;
+					}
+					if (oPlayer.hopeSodaLevel != playerItems[i][$"level"]) {
+					    oPlayer.hopeSodaLevel = playerItems[i][$"level"];
+						oPlayer.specialcooldown = oPlayer.specialcooldown * playerItems[i][$"SpecialCooldown"];
 					}
 					break;}
 				case ItemIds.Stolen_Piggy_Bank:{
@@ -628,6 +654,14 @@ function tickItems(){
 					    oPlayer.pimanLevel = playerItems[i][$"level"];
 					    oPlayer.pimanBonus = playerItems[i][$"bonusPercentage"];
 						MAXHP += playerItems[i][$"bonus"];
+					}
+					pimanUsable = true;
+					break;}
+				case ItemIds.Just_Bandage:{
+					if (!variable_instance_exists(oPlayer, "bandageLevel")) { oPlayer.bandageLevel = 0; }
+					if (oPlayer.bandageLevel != playerItems[i][$"level"]) {
+					    oPlayer.bandageLevel= playerItems[i][$"level"];
+						MAXHP = MAXHP + 10;
 					}
 					pimanUsable = true;
 					break;}
