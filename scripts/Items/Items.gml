@@ -92,17 +92,17 @@ function newCreateItem(_data){
 		Energy_Drink,
 		Face_Mask,
 		Full_Meal,
-		Gorilla_Paw, //TODO: lower the crit damage
-		GWS_Pill, //TODO: add crit effects
+		Gorilla_Paw, 
+		GWS_Pill, 
 		Halu,//TODO: add all effects
-		Headphones, //TODO: add knockback
+		Headphones,
 		Hope_Soda,
 		Idol_Costume,
 		Injection_Type_Asacoco,
 		Just_Bandage, //TODO: add regen effect
 		Knightly_Milk,
 		Limiter,
-		Membership, //TODO: add all effects
+		Membership,
 		NurseHorn,
 		Piki_Piki_Piman,
 		Plushie, //TODO: add all effects
@@ -117,7 +117,7 @@ function newCreateItem(_data){
 	global.bonuses[0] = 0;
 	enum BonusType{
 		Damage,
-		Critical,
+		Critical, //TODO
 		CriticalDamage, //TODO
 		TakeDamage,
 		Defense,
@@ -376,7 +376,7 @@ function populateItems(){
 				*/
 			#endregion
 		
-			newCreateItem({ //TODO
+			newCreateItem({
 				id : ItemIds.Hope_Soda,
 				name : "Hope Soda",
 				maxlevel : 5,
