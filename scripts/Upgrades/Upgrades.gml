@@ -294,6 +294,7 @@ function populateUpgrades(){
 				type : "white",
 				shotType : ShotTypes.Melee,
 				perk : true,
+				characterid : Characters.Lenght
 			});
 	
 	#region BLBook
