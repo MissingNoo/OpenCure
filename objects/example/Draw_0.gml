@@ -11,10 +11,10 @@ if (!instance_exists(imgui)) {
   draw_text_transformed(tx, ty, helpText, s, s, 0);
 }
 
-if (!surface_exists(Surface)) {
-	Surface = surface_create(sprite_get_width(doggo), sprite_get_height(doggo));
-	surface_set_target(Surface)
-	draw_clear_alpha(c_black, 0);
-	draw_sprite(doggo, 0, 0, 0);
-	surface_reset_target();
-}
+//if (!surface_exists(Surface)) {
+//	Surface = surface_create(sprite_get_width(doggo), sprite_get_height(doggo));
+//	surface_set_target(Surface)
+//	draw_clear_alpha(c_black, 0);
+//	draw_sprite(doggo, 0, 0, 0);
+//	surface_reset_target();
+//}

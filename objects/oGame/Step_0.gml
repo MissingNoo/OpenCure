@@ -199,6 +199,7 @@ if (instance_exists(oPlayer) and canspawn == true and global.gamePaused == false
 					}
 					if (Buffs[i].cooldown <= 0) {
 						Buffs[i].enabled = false;
+						Buffs[i][$"count"] = 0;
 					    switch (Buffs[i].name) {
 						    case "Short Height":
 						        PerkBonuses[BonusType.Speed][PerkIds.ShortSize] = 0;

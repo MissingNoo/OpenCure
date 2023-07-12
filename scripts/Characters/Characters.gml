@@ -104,7 +104,8 @@ function createCharacter(_id, _name, _portrait, _sprite, _runningsprite, _hp, _s
 enum BuffNames{
 	ShortHeight,
 	SharkBite,
-	Slowness
+	Slowness,
+	testbuff
 }
 
 //List of Flat Characters
@@ -134,6 +135,18 @@ function populateCharacters(){
 		chance : [0,15,25,35],
 		bonus : [0,1.3,1.4,1.5]
 	}
+	Buffs[BuffNames.testbuff] = {
+		id : BuffNames.testbuff,
+		name : "Test Buff",
+		icon : sBreastplate,
+		enabled : false,
+		baseCooldown : 10,
+		cooldown : 0,
+		count : 0,
+		chance : [0,15,25,35],
+		bonus : [0,1.3,1.4,1.5]
+	}
+		
 	Buffs[BuffNames.SharkBite] = {
 		id : BuffNames.SharkBite,
 		name : "Shark Bite",

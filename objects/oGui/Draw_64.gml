@@ -478,8 +478,9 @@
 					}else{
 						anvilIsSelected = 0;
 					}
+					var _alpha = (playerItems[i][$"level"] < playerItems[i][$"maxlevel"]) ? 1 : 0.5;
 					draw_sprite_ext(sItemSquare, anvilIsSelected, GW/2.30 + xoffset, GH/2.30, 2, 2, 0, c_white, 1);
-					draw_sprite_ext(playerItems[i][$"thumb"], 0, GW/2.30 + xoffset, GH/2.30, 2, 2, 0, c_white, 1);
+					draw_sprite_ext(playerItems[i][$"thumb"], 0, GW/2.30 + xoffset, GH/2.30, 2, 2, 0, c_white, _alpha);
 					xoffset += GW/12;
 				}
 			#endregion
@@ -613,7 +614,12 @@
 					draw_set_alpha(1);
 					draw_sprite_stretched(Buffs[i].icon, 0, _xx - sprite_get_width(Buffs[i].icon), _yy - sprite_get_height(Buffs[i].icon), 35, 35);
 					draw_set_color(c_blue);
-					draw_text(_xx, _yy+10, string(round(Buffs[i].cooldown)));
+					if (variable_struct_exists(Buffs[i], "cooldown")) {
+						draw_text(_xx, _yy+10, string(round(Buffs[i].cooldown)));
+					}
+					if (variable_struct_exists(Buffs[i], "count")) {
+					    draw_text(_xx - 25, _yy+10, string(round(Buffs[i].count)));
+					}					
 					draw_set_color(c_white);
 					draw_set_alpha(1);
 					_xx += 40;

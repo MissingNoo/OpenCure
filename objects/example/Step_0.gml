@@ -1,29 +1,14 @@
 ///@desc example - Step
-depth = 1000;
-if (keyboard_check_pressed(vk_f2))
-  imguigml_activate();
-
-if (keyboard_check_pressed(vk_f3))
+depth = oGui.depth - 1;
+if (keyboard_check_pressed(vk_f2)){
   imguigml_deactivate();
-  
-//if (keyboard_check_pressed(vk_f5)) {
-//  imguigml_toggle_cursor();
-//  Cursor_visible = !Cursor_visible;
-//  window_set_cursor(Cursor_visible ? cr_arrow : cr_none);
-//}
-
-//if (keyboard_check_pressed(vk_f6)) {
-//	if (surface_exists(Surface)) 
-//		surface_free(Surface);
-//}
- 
+}
 if (keyboard_check_pressed(vk_f1)) {
+	imguigml_activate();
+	ShowTestWindow = true;
 	if (!instance_exists(imgui)) {
 	  instance_create_depth(0, 0, depth-10, imgui);
 		//imguigml_add_font_from_ttf("pixel04b24.ttf", 12.0);	
-	}
-	else if(!ShowTestWindow){
-		ShowTestWindow = true;	
 	}
 }	
  
@@ -43,20 +28,29 @@ if (imguigml_ready()) {
 				imguigml_same_line();
 				imguigml_text("E: "); 
 				imguigml_same_line();
-				var _input = imguigml_input_float("", imguigml_mem("e", 1));
-				if(_input[0]){ imguigml_memset("e", _input[1]); oGui.e = _input[1]; }				
+				var _input = imguigml_input_float("", imguigml_mem("ee"));
+				if(_input[0]){ imguigml_memset("ee", _input[1]); oGui.e = _input[1]; }				
 			}
 			
 			if (instance_exists(oPlayer)) {
 				var _header = imguigml_collapsing_header("Player and Stage");
 				if(_header[0]){
-					imguigml_begin_child("Player", 0, 170, true); 
-					{
+					imguigml_begin_child("Player", 0, 170, true);{
 						var _button = imguigml_button("Level up");
 						if (_button) { global.xp = oPlayer.neededxp; }
 						imguigml_same_line();
 						_button = imguigml_button("Skill cooldown");
 						if (_button) { oPlayer.skilltimer = oPlayer.specialcooldown; }
+						imguigml_same_line();
+						_button = imguigml_button("Spawn Anvil");
+						if (_button) { instance_create_depth(oPlayer.x, oPlayer.y + 50, oPlayer.depth, oAnvil); }
+						imguigml_same_line();
+						_button = imguigml_button("Test Buff");
+						if (_button) {
+							Buffs[BuffNames.testbuff][$"count"] += 1;
+							Buffs[BuffNames.testbuff][$"cooldown"] = Buffs[BuffNames.testbuff][$"baseCooldown"];
+							Buffs[BuffNames.testbuff][$"enabled"] = true;
+						}
 						imguigml_same_line();
 						if (global.upgrade) {
 						    _button = imguigml_button("Rerrol");
@@ -65,8 +59,7 @@ if (imguigml_ready()) {
 						}
 						var _input = imguigml_checkbox("Immortal", oPlayer.immortal);
 						if(_input[0]) { oPlayer.immortal = _input[1];}
-						imguigml_begin_child("Upgrades", 230, 60, true);
-						{
+						imguigml_begin_child("Upgrades", 230, 60, true);{
 							imguigml_text("Weapons");							
 							for (var i = 0; i < array_length(UPGRADES); ++i) {
 								var _spr = UPGRADES[i][$"thumb"];
@@ -78,11 +71,9 @@ if (imguigml_ready()) {
 								}
 								imguigml_same_line();
 							}
-						}
-						imguigml_end_child();
+						}imguigml_end_child();						
 						imguigml_same_line();
-						imguigml_begin_child("Items", 230, 60, true);
-						{
+						imguigml_begin_child("Items", 230, 60, true);{
 							imguigml_text("Items");
 							var _spr, _w, _h, _button;
 							for (var i = 0; i < array_length(playerItems); ++i) {
@@ -97,16 +88,15 @@ if (imguigml_ready()) {
 								imguigml_same_line();
 							}
 						}
-						imguigml_end_child();
-						
-						imguigml_separator();
-						_input = imguigml_checkbox("Spawn Enemies", global.SpawnEnemies);
-						if(_input[0]) { global.SpawnEnemies = _input[1];}
-						imguigml_same_line();
-						_input = imguigml_checkbox("Spawn Events", oEvents.enable);
-						if(_input[0]) { oEvents.enable = _input[1];}
-						if (imguigml_button("Clear enemies")) { with (oEnemy) { instance_destroy(); } }
-					}
+					}imguigml_end_child();
+					imguigml_separator();
+					var _input = imguigml_checkbox("Spawn Enemies", global.SpawnEnemies);
+					if(_input[0]) { global.SpawnEnemies = _input[1];}
+					imguigml_same_line();
+					_input = imguigml_checkbox("Spawn Events", oEvents.enable);
+					if(_input[0]) { oEvents.enable = _input[1];}
+					if (imguigml_button("Clear enemies")) { with (oEnemy) { instance_destroy(); } }
+					
 					imguigml_end_child();
 				}			    
 			}
@@ -260,6 +250,12 @@ if (imguigml_ready()) {
 				_break = 0;
 			}
 		}
+		var _button = imguigml_sprite_button(sAnvil, 0, 21, 21);
+		if (_button) {
+		    UPGRADES[changeUpgradeNum] = global.null;
+			changeUpgradeWindow = false;
+		}
+		imguigml_separator();
 		var _level = imguigml_input_int("Level", imguigml_mem("uplevel", 1));
 		if (_level[0]) {
 		    imguigml_memset("uplevel", _level[1]);
@@ -290,6 +286,12 @@ if (imguigml_ready()) {
 				_break = 0;
 			}
 		}
+		var _button = imguigml_sprite_button(sAnvil, 0, 21, 21);
+		if (_button) {
+		    playerItems[changeItemNum] = global.nullitem;
+			changeItemWindow = false;
+		}
+		imguigml_separator();
 		var _level = imguigml_input_int("Level", imguigml_mem("uplevel", 1));
 		if (_level[0]) {
 		    imguigml_memset("uplevel", _level[1]);

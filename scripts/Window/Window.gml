@@ -85,7 +85,9 @@ function drawDesc(_xx, _yy, _string, maxX, _size = 1){
 				i++;
 				break;
 			case ".":
-				newline = true;
+				if (string_copy(_string, i + 1, 1) == " ") {
+					newline = true;
+				}				
 				break;
 		}
 		char = string_copy(_string, i, 1);
