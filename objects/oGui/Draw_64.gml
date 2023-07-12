@@ -828,7 +828,7 @@ if (keyboard_check_pressed(ord("M"))) {
 						    calc += real(string_replace(string(PerkBonuses[BonusType.Damage][i]), "1.", ""));
 						}
 					}
-					str = "+" + string(calc) + "%";
+					str = ((calc > 0) ? "+" : "") + string_replace(string(calc), ".00", "") + "%";
 					draw_set_halign(fa_right);
 					draw_text_transformed(GW/3.40, GH/2.15 + stats_offset, str, 1.5, 1.5, 0);
 					draw_set_halign(fa_left);
@@ -850,7 +850,7 @@ if (keyboard_check_pressed(ord("M"))) {
 						    calc += real(string_replace(string(PerkBonuses[BonusType.Speed][i]), "1.", ""));							
 						}
 					}
-					str = "+" + string(calc) + "%";
+					str = ((calc > 0) ? "+" : "") + string_replace(string(calc), ".00", "") + "%";
 					draw_set_halign(fa_right);
 					draw_text_transformed(GW/3.40, GH/2.15 + stats_offset, str, 1.5, 1.5, 0);
 					draw_set_halign(fa_left);
@@ -864,7 +864,12 @@ if (keyboard_check_pressed(ord("M"))) {
 					calc = 0;
 					for (var i = 0; i < array_length(Bonuses[BonusType.Critical]); ++i) {
 						if (Bonuses[BonusType.Critical][i] != 0) {
-						    calc += real(string_replace(string(Bonuses[BonusType.Critical][i]), "1.", ""));
+							if (Bonuses[BonusType.Critical][i] > 1) {
+							    calc += (real(string_replace(string(Bonuses[BonusType.Critical][i]), "1.", "")));
+							}
+							else{
+								calc -= (1 - Bonuses[BonusType.Critical][i]) * 100;
+							}							
 						}
 					}
 					for (var i = 0; i < array_length(PerkBonuses[BonusType.Critical]); ++i) {
@@ -872,7 +877,7 @@ if (keyboard_check_pressed(ord("M"))) {
 						    calc += real(string_replace(string(PerkBonuses[BonusType.Critical][i]), "1.", ""));
 						}
 					}
-					str = "+" + string(calc) + "%";
+					str = ((calc > 0) ? "+" : "") + string_replace(string(calc), ".00", "") + "%";
 					draw_set_halign(fa_right);
 					draw_text_transformed(GW/3.40, GH/2.15 + stats_offset, str, 1.5, 1.5, 0);
 					draw_set_halign(fa_left);
@@ -894,7 +899,7 @@ if (keyboard_check_pressed(ord("M"))) {
 					//	    calc += real(string_replace(string(PerkBonuses[BonusType.PickupRange][i]), "1.", ""));
 					//	}
 					//}//TODO: if there is a pickuprange bonus perk
-					str = "+" + string(calc) + "%";
+					str = ((calc > 0) ? "+" : "") + string_replace(string(calc), ".00", "") + "%";
 					draw_set_halign(fa_right);
 					draw_text_transformed(GW/3.40, GH/2.15 + stats_offset, str, 1.5, 1.5, 0);
 					draw_set_halign(fa_left);
@@ -916,7 +921,7 @@ if (keyboard_check_pressed(ord("M"))) {
 					//	    calc += real(string_replace(string(PerkBonuses[BonusType.Haste][i]), "1.", ""));
 					//	}
 					//}//TODO: if there is a Haste bonus perk
-					str = "+" + string(calc) + "%";
+					str = ((calc > 0) ? "+" : "") + string_replace(string(calc), ".00", "") + "%";
 					draw_set_halign(fa_right);
 					draw_text_transformed(GW/3.40, GH/2.15 + stats_offset, str, 1.5, 1.5, 0);
 					draw_set_halign(fa_center);
@@ -974,7 +979,7 @@ if (keyboard_check_pressed(ord("M"))) {
 					//draw_sprite_stretched(sHudCrtIcon, 0, GW/11, GH/2.15 + stats_offset, 25, 25);
 					//draw_text_transformed(GW/8, GH/2.15 + stats_offset, "CRT", 1.5, 1.5, 0);
 					//draw_line(GW/8.80, GH/2 + stats_offset, GW/3.40, GH/2 + stats_offset);
-					//str = "+" + string(calc) + "%";
+					//str = ((calc > 0) ? "+" : "") + string(calc) + "%";
 					//draw_set_halign(fa_right);
 					//draw_text_transformed(GW/3.40, GH/2.15 + stats_offset, str, 1.5, 1.5, 0);
 					//draw_set_halign(fa_left);

@@ -160,6 +160,7 @@ enum Weapons
 	SpiderCooking,
 	WamyWater,
 	//X-Potato
+	Shockwave,
 	PipiPilstol,
 	HeavyArtillery,
 }
@@ -268,6 +269,32 @@ function populateUpgrades(){
 	#endregion
 		#endregion
 	#endregion
+	
+	newCreateUpgrade({ //Shockwave
+				id : Weapons.Shockwave,
+				weight : 0,
+				name : "Shockwave",
+				maxlevel : 1,
+				sprite : sShockwave,
+				thumb : blank,
+				mindmg : 0,
+				maxdmg : 0,
+				cooldown : 60,
+				minimumcooldown : 1,
+				shoots : 1,
+				attackdelay : 5,
+				hits : 100,
+				hitCooldown : 30, 
+				duration : 180,
+				speed : 0,
+				knockbackDuration : 1,
+				knockbackSpeed : 20,
+				size : 1,
+				canBeHasted : true,
+				type : "white",
+				shotType : ShotTypes.Melee,
+				perk : true,
+			});
 	
 	#region BLBook
 		newCreateUpgrade({
@@ -1113,7 +1140,7 @@ function randomUpgrades(){
 	//first option
 	// global.upgradeOptions[0] = PERK_LIST[PerkIds.HeavyArtillery][0];
 	 //global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.PsychoAxe][1];
-	 //global.upgradeOptions[1] = global.itemList[ItemIds.BlacksmithsGear][1];
+	 global.upgradeOptions[1] = global.itemList[ItemIds.Gorilla_Paw][1];
 	 //global.upgradeOptions[2] = global.itemList[ItemIds.Knightly_Milk][1];
 	 //global.upgradeOptions[2] = global.upgradesAvaliable[Weapons.BounceBall][1];
 	 //global.upgradeOptions[1] = global.upgradesAvaliable[Weapons.PlugAsaCoco][1];

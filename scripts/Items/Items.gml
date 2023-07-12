@@ -117,7 +117,6 @@ function newCreateItem(_data){
 	enum BonusType{
 		Damage,
 		Critical,
-		loseCritical,
 		TakeDamage,
 		Defense,
 		Haste,
@@ -442,11 +441,11 @@ function populateItems(){
 				thumb : sGorillaPaw,
 				cooldown : 1,				
 				perk : false,
-				bonusType : [BonusType.Damage, BonusType.loseCritical],
+				bonusType : [BonusType.Damage, BonusType.Critical],
 				bonusValue : [[1.30, 1.40, 1.50], [0.8, 0.8, 0.8]]
 			});
 				Bonuses[BonusType.Damage][ItemIds.Gorilla_Paw] = 0;
-				Bonuses[BonusType.loseCritical][ItemIds.Gorilla_Paw] = 0;
+				Bonuses[BonusType.Critical][ItemIds.Gorilla_Paw] = 0;
 			#endregion
 			
 			#region Headphones

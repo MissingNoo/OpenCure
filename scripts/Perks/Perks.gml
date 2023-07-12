@@ -90,7 +90,7 @@ function populate_perks(){
 						characterid : Characters.Amelia,
 						bonus : true,
 						bonustype : BonusType.Critical,
-						bonusvalue : [1, 1.10, 1.20, 1.30]
+						bonusvalue : [0, 1.10, 1.20, 1.30]
 					});
 					//create_perk(PerkIds.DetectiveEye, "Detective Eye", 0, 3, 1, sDetectiveEye, 1, "Do nothing.", Characters.Amelia);
 					//create_perk(PerkIds.DetectiveEye, "Detective Eye", 1, 3, 1, sDetectiveEye, 1, "Increases critical hit chance by [10%].", Characters.Amelia);

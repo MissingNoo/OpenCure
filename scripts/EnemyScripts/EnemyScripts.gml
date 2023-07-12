@@ -178,6 +178,7 @@ function damageCalculation(baseDmg)
 		    // randomize;
 			if (irandom_range(1, 100) <= playerItems[i][$"dodgeChance"]) {
 			    damage = 0;
+				instance_create_depth(x,y,depth,oUpgrade,{upg : global.upgradesAvaliable[Weapons.Shockwave][1]});
 			}
 		}
 	}

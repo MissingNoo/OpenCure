@@ -1,37 +1,37 @@
 ///@desc example - Step
 depth = 1000;
 if (keyboard_check_pressed(vk_f2))
-  imguigml_deactivate();
+  imguigml_activate();
 
 if (keyboard_check_pressed(vk_f3))
-  imguigml_activate();
+  imguigml_deactivate();
   
-if (keyboard_check_pressed(vk_f5)) {
-  imguigml_toggle_cursor();
-  Cursor_visible = !Cursor_visible;
-  window_set_cursor(Cursor_visible ? cr_arrow : cr_none);
-}
+//if (keyboard_check_pressed(vk_f5)) {
+//  imguigml_toggle_cursor();
+//  Cursor_visible = !Cursor_visible;
+//  window_set_cursor(Cursor_visible ? cr_arrow : cr_none);
+//}
 
-if (keyboard_check_pressed(vk_f6)) {
-	if (surface_exists(Surface)) 
-		surface_free(Surface);
-}
+//if (keyboard_check_pressed(vk_f6)) {
+//	if (surface_exists(Surface)) 
+//		surface_free(Surface);
+//}
  
-//if (keyboard_check_pressed(vk_space)) {
-//	if (!instance_exists(imgui)) {
-//	  instance_create_depth(0, 0, depth-10, imgui);
-//		//imguigml_add_font_from_ttf("pixel04b24.ttf", 12.0);	
-//	}
-//	else if(!ShowTestWindow){
-//		ShowTestWindow = true;	
-//	}
-//}	
+if (keyboard_check_pressed(vk_f1)) {
+	if (!instance_exists(imgui)) {
+	  instance_create_depth(0, 0, depth-10, imgui);
+		//imguigml_add_font_from_ttf("pixel04b24.ttf", 12.0);	
+	}
+	else if(!ShowTestWindow){
+		ShowTestWindow = true;	
+	}
+}	
  
 if (imguigml_ready()) {
 	var size = [ 0, 0 ];
 	var pos = [ 0, 0 ];
 	if (ShowTestWindow) {
-		imguigml_set_next_window_size(0, 350, EImGui_Cond.Once);
+		imguigml_set_next_window_size(500, 350, EImGui_Cond.Once);
 		
 		var ret = imguigml_begin("OpenCure", ShowTestWindow);
 		ShowTestWindow = ret[1]; 

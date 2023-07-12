@@ -443,6 +443,7 @@
     {"name":"lexicon_index_declare_from_json","order":4,"path":"scripts/lexicon_index_declare_from_json/lexicon_index_declare_from_json.yy",},
     {"name":"oShop","order":5,"path":"objects/oShop/oShop.yy",},
     {"name":"snd_specialuse","order":24,"path":"sounds/snd_specialuse/snd_specialuse.yy",},
+    {"name":"sShockwave","order":30,"path":"sprites/sShockwave/sShockwave.yy",},
     {"name":"sHudSpecialCooldownIcon","order":7,"path":"sprites/sHudSpecialCooldownIcon/sHudSpecialCooldownIcon.yy",},
     {"name":"input_check_long_released","order":5,"path":"scripts/input_check_long_released/input_check_long_released.yy",},
     {"name":"sFubuzilla","order":5,"path":"sprites/sFubuzilla/sFubuzilla.yy",},

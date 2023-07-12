@@ -520,6 +520,7 @@
     {"id":{"name":"lexicon_index_declare_from_json","path":"scripts/lexicon_index_declare_from_json/lexicon_index_declare_from_json.yy",},},
     {"id":{"name":"oShop","path":"objects/oShop/oShop.yy",},},
     {"id":{"name":"snd_specialuse","path":"sounds/snd_specialuse/snd_specialuse.yy",},},
+    {"id":{"name":"sShockwave","path":"sprites/sShockwave/sShockwave.yy",},},
     {"id":{"name":"sHudSpecialCooldownIcon","path":"sprites/sHudSpecialCooldownIcon/sHudSpecialCooldownIcon.yy",},},
     {"id":{"name":"input_check_long_released","path":"scripts/input_check_long_released/input_check_long_released.yy",},},
     {"id":{"name":"sFubuzilla","path":"sprites/sFubuzilla/sFubuzilla.yy",},},
