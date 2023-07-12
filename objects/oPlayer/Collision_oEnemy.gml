@@ -61,7 +61,7 @@ if (other.canattack and other.image_alpha == 1 and image_alpha == 1 and !global.
 				}
 		        break;
 			case ItemIds.NurseHorn:
-				var _rnd = irandom(0, 100);
+				var _rnd = irandom_range(0, 100);
 				var _hppercent = (HP/MAXHP) * 100;
 				if (_hppercent <= 15 and _rnd <= 4) {
 					var _percenttoheal = (MAXHP * 30) / 100;
