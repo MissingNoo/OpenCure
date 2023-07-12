@@ -113,8 +113,14 @@ function newCreateItem(_data){
 		Uber_Sheep,
 		Holocoin,
 		Hamburguer,
+		length
 	}
 	global.bonuses[0] = 0;
+	for (var i = 0; i < ItemIds.length; ++i) {
+		for (var j = 0; j < BonusType.lenght; ++j) {
+		    Bonuses[i][j] = 0;
+		}
+	}
 	enum BonusType{
 		Damage,
 		Critical, //TODO
@@ -163,7 +169,7 @@ function populateItems(){
 				bonusValue : [0.95, 0.90, 0.85, 0.80, 0.75],
 				shield : [15, 20, 25, 30, 35],				
 			});			
-				Bonuses[BonusType.Defense][ItemIds.Body_Pillow] = 0;
+				//Bonuses[BonusType.Defense][ItemIds.Body_Pillow] = 0;
 				//super createItem(ItemIds.Body_Pillow, "Body Pillow", 6, 5, 3, sBodyPillow, 15, "Gain a shield that absorbs up to 35 damage. Every 15 seconds, this shield refreshes. Also reduces damage taken by 25%.")
 			#endregion
 			newCreateItem({//Breasplate
@@ -246,8 +252,8 @@ function populateItems(){
 				bonusValue : [[.18, .28, .38, .45, .5], [20, 25, 30, 35, 40]],
 			}
 			);
-			Bonuses[BonusType.AnvilDrop][ItemIds.CreditCard] = 0;
-			Bonuses[BonusType.EnhancingCost][ItemIds.CreditCard] = 0;
+			//Bonuses[BonusType.AnvilDrop][ItemIds.CreditCard] = 0;
+			//Bonuses[BonusType.EnhancingCost][ItemIds.CreditCard] = 0;
 			#endregion
 		
 			#region GWS Pill 
@@ -284,7 +290,7 @@ function populateItems(){
 				bonusType : BonusType.PickupRange,
 				bonusValue : [2, 3, 4],
 				perk : false});
-				Bonuses[BonusType.PickupRange][ItemIds.Limiter] = 0;
+				//Bonuses[BonusType.PickupRange][ItemIds.Limiter] = 0;
 			#endregion
 			
 			#region Super Chatto Time
@@ -389,7 +395,7 @@ function populateItems(){
 				SpecialCooldown: [1.25, 1.25, 1.25, 1.25, 1.25],
 				}
 			);
-			Bonuses[BonusType.CriticalDamage][ItemIds.Hope_Soda] = 0;
+			//Bonuses[BonusType.CriticalDamage][ItemIds.Hope_Soda] = 0;
 		
 			#region Idol Costume
 				newCreateItem({
@@ -416,8 +422,8 @@ function populateItems(){
 				bonusType : [BonusType.Haste, BonusType.Speed],
 				bonusValue : [[1.10, 1.15, 1.20], [1.30, 1.40, 1.50]],
 				perk : false});
-				Bonuses[BonusType.Haste][ItemIds.Energy_Drink] = 0;
-				Bonuses[BonusType.Speed][ItemIds.Energy_Drink] = 0;
+				//Bonuses[BonusType.Haste][ItemIds.Energy_Drink] = 0;
+				//Bonuses[BonusType.Speed][ItemIds.Energy_Drink] = 0;
 				Bonuses[BonusType.EnergyDrinkHpMinus] = 0;
 			#endregion
 		
@@ -432,9 +438,9 @@ function populateItems(){
 				bonusType : [BonusType.Damage, BonusType.Haste, BonusType.TakeDamage],
 				bonusValue : [[1.3],[1.1],[1.3]],
 				perk : false});
-				Bonuses[BonusType.Damage][ItemIds.Face_Mask] = 0;
-				Bonuses[BonusType.Haste][ItemIds.Face_Mask] = 0;
-				Bonuses[BonusType.TakeDamage][ItemIds.Face_Mask] = 0;
+				//Bonuses[BonusType.Damage][ItemIds.Face_Mask] = 0;
+				//Bonuses[BonusType.Haste][ItemIds.Face_Mask] = 0;
+				//Bonuses[BonusType.TakeDamage][ItemIds.Face_Mask] = 0;
 			#endregion
 		
 			#region Full Meal
@@ -461,8 +467,8 @@ function populateItems(){
 				bonusType : [BonusType.Damage, BonusType.Critical],
 				bonusValue : [[1.30, 1.40, 1.50], [0.8, 0.8, 0.8]]
 			});
-				Bonuses[BonusType.Damage][ItemIds.Gorilla_Paw] = 0;
-				Bonuses[BonusType.Critical][ItemIds.Gorilla_Paw] = 0;
+				//Bonuses[BonusType.Damage][ItemIds.Gorilla_Paw] = 0;
+				//Bonuses[BonusType.Critical][ItemIds.Gorilla_Paw] = 0;
 			#endregion
 			
 			#region Headphones
@@ -491,7 +497,7 @@ function populateItems(){
 				bonusType : BonusType.Damage,
 				bonusValue : [1.40, 1.60, 1.80],
 			});
-				Bonuses[BonusType.Damage][ItemIds.Injection_Type_Asacoco] = 0;
+				//Bonuses[BonusType.Damage][ItemIds.Injection_Type_Asacoco] = 0;
 			#endregion
 		
 			#region Knightly Milk
@@ -506,8 +512,8 @@ function populateItems(){
 				bonusType : [BonusType.WeaponSize, BonusType.PickupRange],
 				bonusValue : [[1.10, 1.15, 1.20], [1.30, 1.40, 1.50]],
 			});				
-				Bonuses[BonusType.WeaponSize][ItemIds.Knightly_Milk] = 1;
-				Bonuses[BonusType.PickupRange][ItemIds.Knightly_Milk] = 0;
+				//Bonuses[BonusType.WeaponSize][ItemIds.Knightly_Milk] = 1;
+				//Bonuses[BonusType.PickupRange][ItemIds.Knightly_Milk] = 0;
 			#endregion
 		
 			#region Nurse's Horn
@@ -535,7 +541,7 @@ function populateItems(){
 				bonusValue : [1.10, 1.15, 1.20, 1.25, 1.30]
 			}
 			);
-			Bonuses[BonusType.XPBonus][ItemIds.Study_Glasses] = 0;
+			//Bonuses[BonusType.XPBonus][ItemIds.Study_Glasses] = 0;
 			#endregion
 		
 			#region UberSheep
