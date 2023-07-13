@@ -869,7 +869,7 @@ if (keyboard_check_pressed(ord("M"))) {
 					draw_line(GW/8.80, GH/2 + stats_offset, GW/3.40, GH/2 + stats_offset);
 					calc = 0;
 					for (var i = 0; i < array_length(Bonuses[BonusType.Critical]); ++i) {
-						if (!is_array(Bonuses[BonusType.Critical[i]])) {
+						if (!is_array(Bonuses[BonusType.Critical][i])) {
 						    if (Bonuses[BonusType.Critical][i] != 0) {
 								if (Bonuses[BonusType.Critical][i] > 1) {
 								    calc += (real(string_replace(string(Bonuses[BonusType.Critical][i]), "1.", "")));

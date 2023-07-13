@@ -125,10 +125,7 @@ function populate_perks(){
 						weight : 1,
 						thumb : sShortHeight,
 						cooldown : 1,
-						characterid : Characters.Gura,
-						bonus : true,
-						bonustype : BonusType.Speed,
-						bonusvalue : [1, 1.30, 1.40, 1.50]
+						characterid : Characters.Gura
 					});
 					//create_perk(PerkIds.ShortSize, "Short Size", 0, 3, 1, sShortHeight, 1, "Do Nothing.", Characters.Gura);
 					//create_perk(PerkIds.ShortSize, "Short Size", 1, 3, 1, sShortHeight, 1, "Grants a [15%] chance to dodge an attack. After dodging, increase movement speed by [30%] and stay invulnerable for [0.5] second.", Characters.Gura);
@@ -229,9 +226,6 @@ function populate_perks(){
 function tick_perks()
 {
 	for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
-		if (keyboard_check(ord("A"))) {
-		    show_message(PerkBonuses);
-		}
 		if (PLAYER_PERKS[i][$"level"] != 0 and global.perkCooldown[PLAYER_PERKS[i][$"id"]] <= 0) {
 			defaultPerkBehaviour(PLAYER_PERKS[i][$"id"], PLAYER_PERKS[i][$"cooldown"]);
 			if (variable_struct_exists(PLAYER_PERKS[i], "bonus")) {
