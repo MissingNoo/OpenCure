@@ -482,6 +482,7 @@
     {"id":{"name":"input_mouse_dy","path":"scripts/input_mouse_dy/input_mouse_dy.yy",},},
     {"id":{"name":"input_binding_swap","path":"scripts/input_binding_swap/input_binding_swap.yy",},},
     {"id":{"name":"spr_Pipmod_Pippa_Icon_Perk_HeavyArtillery","path":"sprites/spr_Pipmod_Pippa_Icon_Perk_HeavyArtillery/spr_Pipmod_Pippa_Icon_Perk_HeavyArtillery.yy",},},
+    {"id":{"name":"sSakeFood","path":"sprites/sSakeFood/sSakeFood.yy",},},
     {"id":{"name":"spr_Pipmod_Pippa_Soda","path":"sprites/spr_Pipmod_Pippa_Soda/spr_Pipmod_Pippa_Soda.yy",},},
     {"id":{"name":"snd_woosh2","path":"sounds/snd_woosh2/snd_woosh2.yy",},},
     {"id":{"name":"input_xy","path":"scripts/input_xy/input_xy.yy",},},

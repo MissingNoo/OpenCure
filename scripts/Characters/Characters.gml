@@ -105,6 +105,8 @@ enum BuffNames{
 	ShortHeight,
 	SharkBite,
 	Slowness,
+	Sake,
+	SakeFood,
 	testbuff
 }
 
@@ -145,6 +147,25 @@ function populateCharacters(){
 		count : 0,
 		chance : [0,15,25,35],
 		bonus : [0,1.3,1.4,1.5]
+	}
+	Buffs[BuffNames.Sake] = {
+		id : BuffNames.Sake,
+		name : "Sake",
+		icon : sSake,
+		enabled : false,
+		permanent : true,
+		baseCooldown : 1,
+		cooldown : 0,
+		count : 0,
+		maxCount : 10
+	}
+	Buffs[BuffNames.SakeFood] = {
+		id : BuffNames.SakeFood,
+		name : "SakeFood",
+		icon : sSakeFood,
+		enabled : false,
+		baseCooldown : 5,
+		cooldown : 0,
 	}
 		
 	Buffs[BuffNames.SharkBite] = {

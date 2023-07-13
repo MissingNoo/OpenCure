@@ -24,9 +24,7 @@ if (imguigml_ready()) {
 			imguigml_text(string("FPS: {0}/{1}", fps, fps_real));
 			var _header = imguigml_collapsing_header("Values");
 			if(_header[0]){
-				imguigml_text(string("a: {0}, b: {1}, c: {2}, d: {3}", oGui.a, oGui.b, oGui.c, oGui.d));
-				imguigml_same_line();
-				imguigml_text("E: "); 
+				imguigml_text(string("a: {0}, b: {1}, c: {2}, d: {3}, e: {4}", oGui.a, oGui.b, oGui.c, oGui.d, oGui.e));
 				imguigml_same_line();
 				var _input = imguigml_input_float("", imguigml_mem("ee"));
 				if(_input[0]){ imguigml_memset("ee", _input[1]); oGui.e = _input[1]; }				
@@ -44,6 +42,9 @@ if (imguigml_ready()) {
 						imguigml_same_line();
 						_button = imguigml_button("Spawn Anvil");
 						if (_button) { instance_create_depth(oPlayer.x, oPlayer.y + 50, oPlayer.depth, oAnvil); }
+						imguigml_same_line();
+						_button = imguigml_button("Spawn Food");
+						if (_button) { instance_create_depth(oPlayer.x, oPlayer.y + 50, oPlayer.depth, oBurguer); }
 						imguigml_same_line();
 						_button = imguigml_button("Test Buff");
 						if (_button) {

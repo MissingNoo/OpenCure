@@ -614,7 +614,7 @@
 					draw_set_alpha(1);
 					draw_sprite_stretched(Buffs[i].icon, 0, _xx - sprite_get_width(Buffs[i].icon), _yy - sprite_get_height(Buffs[i].icon), 35, 35);
 					draw_set_color(c_blue);
-					if (variable_struct_exists(Buffs[i], "cooldown")) {
+					if (variable_struct_exists(Buffs[i], "cooldown") and !variable_struct_exists(Buffs[i], "permanent")) {
 						draw_text(_xx, _yy+10, string(round(Buffs[i].cooldown)));
 					}
 					if (variable_struct_exists(Buffs[i], "count")) {
@@ -869,14 +869,28 @@ if (keyboard_check_pressed(ord("M"))) {
 					draw_line(GW/8.80, GH/2 + stats_offset, GW/3.40, GH/2 + stats_offset);
 					calc = 0;
 					for (var i = 0; i < array_length(Bonuses[BonusType.Critical]); ++i) {
-						if (Bonuses[BonusType.Critical][i] != 0) {
-							if (Bonuses[BonusType.Critical][i] > 1) {
-							    calc += (real(string_replace(string(Bonuses[BonusType.Critical][i]), "1.", "")));
+						if (!is_array(Bonuses[BonusType.Critical[i]])) {
+						    if (Bonuses[BonusType.Critical][i] != 0) {
+								if (Bonuses[BonusType.Critical][i] > 1) {
+								    calc += (real(string_replace(string(Bonuses[BonusType.Critical][i]), "1.", "")));
+								}
+								else{
+									calc -= (1 - Bonuses[BonusType.Critical][i]) * 100;
+								}							
 							}
-							else{
-								calc -= (1 - Bonuses[BonusType.Critical][i]) * 100;
-							}							
 						}
+						else{
+							for (var j = 0; j < array_length(Bonuses[BonusType.Critical][i]); ++j) {
+							    if (Bonuses[BonusType.Critical][i][j] != 0) {
+									if (Bonuses[BonusType.Critical][i][j] > 1) {
+									    calc += (real(string_replace(string(Bonuses[BonusType.Critical][i][j]), "1.", "")));
+									}
+									else{
+										calc -= (1 - Bonuses[BonusType.Critical][i][j]) * 100;
+									}							
+								}
+							}
+						}						
 					}
 					for (var i = 0; i < array_length(PerkBonuses[BonusType.Critical]); ++i) {
 						if (PerkBonuses[BonusType.Critical][i] != 0) {

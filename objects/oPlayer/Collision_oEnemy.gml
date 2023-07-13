@@ -3,6 +3,8 @@
 
 
 if (other.canattack and other.image_alpha == 1 and image_alpha == 1 and !global.gamePaused) {
+	other.canattack=false;
+	other.alarm[0]=25;
 	var damage = damageCalculation(other.atk);
 	#region Perks
 		#region Gura
@@ -31,10 +33,11 @@ if (other.canattack and other.image_alpha == 1 and image_alpha == 1 and !global.
 	}
 	else {
 	    HP -= damage;
+		if (Buffs[BuffNames.Sake][$"count"] > 1) {
+		    Buffs[BuffNames.Sake][$"count"] = round(Buffs[BuffNames.Sake][$"count"] / 2);
+		}		
 	}
 	//alarm[1]=60;
-	other.canattack=false;
-	other.alarm[0]=15;
 	var inst = instance_create_layer(x,y - sprite_get_height(sprite_index)/2,"DamageLayer",oDamageText);
 	with (inst)
 	{

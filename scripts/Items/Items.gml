@@ -121,6 +121,9 @@ function newCreateItem(_data){
 		    Bonuses[i][j] = 0;
 		}
 	}
+	
+	Bonuses[BonusType.Critical][ItemIds.Sake] = [0,0];
+	
 	enum BonusType{
 		Damage,
 		Critical, //TODO
@@ -327,6 +330,7 @@ function populateItems(){
 				weight : 4,
 				thumb : sSake,
 				cooldown : 1,
+				bonus : [10, 15, 20],
 				perk : false});
 			#endregion
 			
@@ -694,6 +698,19 @@ function tickItems(){
 				case ItemIds.BlacksmithsGear:{
 					oPlayer.blacksmithLevel = playerItems[i][$"level"];
 					break;}
+				case ItemIds.Sake:{
+					if (!variable_instance_exists(self, "sakeLevel")) { sakeLevel = 0; }
+					if (sakeLevel < playerItems[i][$"level"]) {
+					    sakeLevel = playerItems[i][$"level"];
+						Buffs[BuffNames.Sake][$"maxCount"] = playerItems[i][$"bonus"];
+					}
+					if (!Buffs[BuffNames.Sake][$"enabled"]) {
+						Buffs[BuffNames.Sake][$"count"] = 0;
+					    Buffs[BuffNames.Sake][$"enabled"] = true;
+					    Buffs[BuffNames.Sake][$"cooldown"] = Buffs[BuffNames.Sake][$"baseCooldown"];
+					}
+					break;
+				}
 			}
 		}
 	}
