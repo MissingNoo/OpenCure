@@ -1,4 +1,21 @@
 // Feather disable GM1044
+
+if (activeMenu == PMenus.Pause) {
+    editOption = false;
+}
+
+if (room != Room1) {
+    //global.pad.circle(GW/oGui.a, GH/oGui.b, 60);
+}
+if (room == Room1) {
+	if (global.gamePaused) {
+	    //global.pad.circle(GW/oGui.a, GH/oGui.b, 60);
+	}
+	else{
+		//global.pad.circle(-200, -200, 60);
+	}
+}
+
 if (device_mouse_check_button_pressed(0, ev_left_button)) {
     x = device_mouse_x_to_gui(0);
 	y = device_mouse_y_to_gui(0);
@@ -62,11 +79,21 @@ isP=global.gamePaused;
 //}else{zKey = keyboard_check_pressed(ord("Z")) or mousein and device_mouse_check_button_released(0,mb_left);}
 // Feather disable 2016
 zKey = input_check_pressed("accept");
+//if (mousein) {
+//    mousein = false;
+//	zKey = true;
+//}
 xKey = input_check_pressed("cancel");
 eKey = input_check_pressed("action");
 leftKey = input_check_pressed("left");
 rightKey = input_check_pressed("right");
 upKey = input_check_pressed("up");
+if (editOption and button_click(minusbutton)) {
+    leftKey = true;
+}
+if (editOption and button_click(plusbutton)) {
+    rightKey = true;
+}
 downKey = input_check_pressed("down");
 
 if (xKey and global.gamePaused) {

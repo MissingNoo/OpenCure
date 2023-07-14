@@ -631,7 +631,7 @@
 #endregion
 
 #region PauseMenu
-	if (global.gamePaused and !global.upgrade and !ANVIL and HP > 0) {
+	if (global.gamePaused and !global.upgrade and !ANVIL and HP > 0 and !instance_exists(oGameOver)) {
 		draw_set_halign(fa_left);
 		if (instance_exists(oPlayer) and activeMenu == PMenus.Pause) { drawStats(); }
 		
@@ -674,7 +674,7 @@
 			    bigString = string_length(pauseMenu[activeMenu][PM.Options][i])/11;
 			}
 		}
-		//mouseOnButton(GW/2, (GH/2 - (sprite_get_height(sMenu) * pauseMenu[activeMenu][PM.YScale])/2) + 90, 45, sHudButton, bigString, 1, array_create(array_length(pauseMenu[activeMenu][PM.Options]),0), "selected");
+		mouseOnButton(GW/2, (GH/2 - (sprite_get_height(sMenu) * pauseMenu[activeMenu][PM.YScale])/2) + 90, 45, sHudButton, bigString, 1, array_create(array_length(pauseMenu[activeMenu][PM.Options]),0), "selected");
 		for (var i = startOption; i < totaloptions; ++i) {
 			var _xoff = 0;
 			if (totaloptions > 6) {
@@ -761,7 +761,8 @@ if (keyboard_check_pressed(ord("M"))) {
 #endregion	
 
 #region Android Buttons
-	if (os_type == os_android) {
+	if (os_type == os_android) 
+	{
 		////draw_set_font(global.Font); //draw_set_font(fnt_font1);
 		draw_set_alpha(0.5);
 		draw_set_color(c_white);
@@ -786,14 +787,37 @@ if (keyboard_check_pressed(ord("M"))) {
 		draw_rectangle(pButtonX, pButtonY, pButtonXEnd, pButtonYEnd, true);
 		draw_text(pButtonX + 70, pButtonY + 22.5, "P");
 		draw_set_color(c_white);
+		plusbutton = [GW/1.79, zButtonY, GW/1.79 + 120, zButtonYEnd];
+		minusbutton = [GW/2.21, zButtonY, GW/2.21 + 120, zButtonYEnd];
+		if (editOption) {
+			//plus
+			draw_set_alpha(0.5);
+			draw_rectangle(plusbutton[0],plusbutton[1],plusbutton[2],plusbutton[3], false);
+			draw_set_alpha(1);
+			draw_set_color(c_black);
+			draw_rectangle(plusbutton[0],plusbutton[1],plusbutton[2],plusbutton[3], true);
+			draw_text(plusbutton[0] + 70, pButtonY + 22.5, ">");
+			draw_set_color(c_white);
+			//minus
+			draw_set_alpha(0.5);
+			draw_rectangle(minusbutton[0],minusbutton[1],minusbutton[2],minusbutton[3], false);
+			draw_set_alpha(1);
+			draw_set_color(c_black);
+			draw_rectangle(minusbutton[0],minusbutton[1],minusbutton[2],minusbutton[3], true);
+			draw_text(minusbutton[0] + 70, pButtonY + 22.5, "<");
+			draw_set_color(c_white);
+		}
 		//draw_text(GW/2, GH/2, string(oGui.aim.check()) + ":" + string(oGui.aim.get_touch_start_x()) + ":" + string(oGui.aim.get_touch_x()));
-		pad.debug_draw();
+		
+		
 		//aim.debug_draw();
 		//zB.debug_draw();
 		//xB.debug_draw();
 		//pB.debug_draw();
 	}
-	
+	//if (global.gamePaused or room != Room1) {
+		    //global.pad.debug_draw();
+		//}
 #endregion
 
 #region Functions

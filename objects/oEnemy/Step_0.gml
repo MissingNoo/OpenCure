@@ -30,7 +30,7 @@ if(global.gamePaused == false and instance_exists(target)){
 				}
 		}	
 		
-		if (distance_to_point(dieX, y) < 10) {
+		if (customSpawn and distance_to_point(dieX, y) < 10) {
 			dropxp = false;
 		    hp = 0;			
 		}

@@ -14,9 +14,18 @@ if (variable_global_exists("aim")) {
     global.aim.destroy();
 }
 global.aim = input_virtual_create();
-global.aim.rectangle(GW/2, 0, GW, GH);
+global.aim.rectangle(GW/2, GH/2, GW, GH);
 //aim.circle(GW/1.2, GH/1.25, 60);
 global.aim.follow(false);
+
+if (variable_global_exists("move")) {
+    global.move.destroy();
+}
+global.move = input_virtual_create();
+//global.move.circle(GW/6, GH/1.25, 60);
+global.move.rectangle(0, GH/2, GW/2, GH);
+//aim.circle(GW/1.2, GH/1.25, 60);
+global.move.follow(false);
 
 #region redgura
 	redgura = false;

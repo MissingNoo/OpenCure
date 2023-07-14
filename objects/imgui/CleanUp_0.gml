@@ -1,10 +1,12 @@
 ///@desc imgui - Clean Up
-var num_textures = array_length(Textures);
-var i = 1;
-repeat(num_textures - 1) {
-	var tex = Textures[i++];
-	if (tex[EImGuiGML_Texture.DeleteOnCleanUp])
-	  sprite_delete(tex[EImGuiGML_Texture.TextureID]);
+if (variable_instance_exists(self, "Textures")) {
+    var num_textures = array_length(Textures);
+	var i = 1;
+	repeat(num_textures - 1) {
+		var tex = Textures[i++];
+		if (tex[EImGuiGML_Texture.DeleteOnCleanUp])
+		  sprite_delete(tex[EImGuiGML_Texture.TextureID]);
+	}
 }
 global.__imguigml = noone;
 

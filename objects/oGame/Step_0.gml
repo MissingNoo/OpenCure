@@ -11,9 +11,9 @@ else{
 //if (gamepad_button_check_pressed(global.gPnum, gp_start)) {
 //	global.GamePad = true;
 //}
-//if (!global.padset) {
+//if (!//global.padset) {
 //	global.GamePad = false;
-//    global.padset = true;
+//    //global.padset = true;
 //}
 
 //for (var i = 0; i < gamepad_get_device_count(); i++) {

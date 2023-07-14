@@ -72,6 +72,8 @@ pButtonX = GW/1.15 - 280;
 pButtonY = GH/14;
 pButtonXEnd = pButtonX + 120;
 pButtonYEnd =  pButtonY + 45;
+plusbutton = [oGui.a, zButtonY, oGui.a + 120, zButtonYEnd];
+minusbutton = [oGui.a, zButtonY, oGui.a + 120, zButtonYEnd];
 
 zB = input_virtual_create();
 zB.rectangle(zButtonX, zButtonY, zButtonXEnd, zButtonYEnd);
@@ -85,11 +87,11 @@ pB = input_virtual_create();
 pB.rectangle(pButtonX, pButtonY, pButtonXEnd, pButtonYEnd);
 pB.button("pause");
 
-pad = input_virtual_create();
-pad.circle(GW/6, GH/1.25, 60);
-pad.follow(false);
-pad.release_behavior(INPUT_VIRTUAL_RELEASE.RESET_POSITION);
-pad.dpad("", "left", "right", "up", "down");
+//global.pad = input_virtual_create();
+//global.pad.circle(GW/oGui.a, GH/oGui.b, 60);
+//global.pad.follow(false);
+//global.pad.release_behavior(INPUT_VIRTUAL_RELEASE.RESET_POSITION);
+//global.pad.dpad("", "left", "right", "up", "down");
 
 
 
@@ -173,3 +175,11 @@ if (instance_number(oTitleRunning) < 15 and room == rInicio) {
 	stages = [{name: "Stage 1", port : sStage1Port, roomname : Room1}]
 	selectedStage = 0;
 #endregion
+
+function button_click(pos){
+	var result = false;
+	if (point_in_rectangle(oGui.x, oGui.y, pos[0], pos[1], pos[2], pos[3])){
+		result = true;
+	}
+	return result;
+}

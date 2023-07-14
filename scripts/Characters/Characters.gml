@@ -228,6 +228,15 @@ if can_move == true{
 				if (_up and _left) { global.arrowDir=135; }
 				if (_down and _right) { global.arrowDir=315; }
 				if (_down and _left) { global.arrowDir=225; }
+				if (global.arrowDir > 90 and global.arrowDir < 270) {
+					    image_xscale = -1;
+					};
+					if (global.arrowDir < 90 and (global.arrowDir > 270 or global.arrowDir > 0)) {
+					    image_xscale = 1;
+					};
+					if (global.arrowDir < 360 and global.arrowDir > 270) {
+					    image_xscale = 1;
+					};
 			}
 			else{
 				if (global.aim.check() and global.aim.get_touch_x() != undefined and global.aim.get_touch_y() != undefined) {
@@ -237,6 +246,15 @@ if can_move == true{
 					_y2 = global.aim.get_touch_y();
 				}				
 				global.arrowDir = point_direction(_x1, _y1, _x2, _y2);
+				if (global.arrowDir > 90 and global.arrowDir < 270) {
+					    image_xscale = -1;
+					};
+					if (global.arrowDir < 90 and (global.arrowDir > 270 or global.arrowDir > 0)) {
+					    image_xscale = 1;
+					};
+					if (global.arrowDir < 360 and global.arrowDir > 270) {
+					    image_xscale = 1;
+					};
 			}
 		}
 		else{
@@ -245,11 +263,31 @@ if can_move == true{
 			global.arrowDir = point_direction(0,0, _gx, _gy);
 		}
 	}
+	var _hspd = 0;
+	var _vspd = 0;
 	
-	
-    var _hspd = _right - _left;
-
-    var _vspd = _down - _up;
+	if (os_type != os_android) {
+	    _hspd = _right - _left;
+		_vspd = _down - _up;
+	}
+	else {
+		if (global.move.check() and global.move.get_touch_x() != undefined and global.move.get_touch_y() != undefined) {
+			sprite_index=runningsprite;
+			_mx1 = global.move.get_touch_start_x();
+			_my1 = global.move.get_touch_start_y();
+			_mx2 = global.move.get_touch_x();
+			_my2 = global.move.get_touch_y();
+			_dir = point_direction(_mx1, _my1, _mx2, _my2);
+			var _spd = spd;
+			var _xadd = lengthdir_x(_spd, _dir);
+			var _yadd = lengthdir_y(_spd, _dir);
+			move_and_collide(_xadd, _yadd,oCollision);
+		}
+		else {
+			sprite_index=sprite;
+		}
+	}
+    
 
     if (_hspd != 0 || _vspd != 0)
     {
@@ -272,11 +310,11 @@ if can_move == true{
         //y = y + _yadd;
 		sprite_index=runningsprite;
         }
-		else {
+		else if (os_type != os_android) {
 			sprite_index=sprite;
 		}
     } 
-	else {
+	else if (os_type != os_android) {
 		sprite_index=sprite;
 		}
 }

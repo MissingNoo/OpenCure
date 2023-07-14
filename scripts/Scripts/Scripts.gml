@@ -30,7 +30,6 @@ function PauseGame(){
 			}
 			else{global.mode = "menu";}
 		}
-		
 		if (!global.gamePaused) {
 		    global.gamePaused = true;
 		}
@@ -77,6 +76,21 @@ function PauseGame(){
 				}
 		}
 		}
+		//if (!global.gamePaused) {
+		//	if (variable_global_exists("aim")) {
+		//    //global.pad.destroy();
+		//	}
+		//}
+		//else{
+		//	if (variable_global_exists("aim")) {
+		//		//global.pad.destroy();
+		//	}
+		//	//global.pad = input_virtual_create();
+		//	//global.pad.circle(GW/oGui.a, GH/oGui.b, 60);
+		//	//global.pad.follow(false);
+		//	//global.pad.release_behavior(INPUT_VIRTUAL_RELEASE.RESET_POSITION);
+		//	//global.pad.dpad("", "left", "right", "up", "down");
+		//}
 }		
 	
 function summonCircle(walk = true){
