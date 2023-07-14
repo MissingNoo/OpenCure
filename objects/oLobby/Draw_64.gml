@@ -1,4 +1,4 @@
-if (!joinedRoom) {
+if (!joinedRoom) {//wrong client secret
 	var x1;
 	var y1;
 	var x2;
@@ -236,16 +236,23 @@ if (joinedRoom) {
 		_chatoffset += 20;
 	}
 	drawRectangle(chat[0], chat[1], chat[2], chat[3], c_black, c_white, .5);
+	gui_draw_button(chatSend, "Send");
 	openKeyboard(chat[0], chat[1], chat[2], chat[3]);
 	draw_text_transformed(chat[0] + 10, chat[1], chattext, 2, 2, 0);
 	#endregion
 	
 	#region stage
-	stage = [GW/1.25, GH/2.84, GW/1.005, GH/1.50];
 	drawRectangle(stage[0], stage[1], stage[2], stage[3]);
 	draw_set_halign(fa_center);
 	draw_text_transformed((stage[0] + stage[2]) / 2, stage[1] + 10, "STAGE", 2, 2, 0);
 	draw_set_halign(fa_left);
 	#endregion
+	if (!ishost) {
+	    draw_set_alpha(.5);
+	}
+	gui_draw_button(startButton, "Start!");
+	draw_set_alpha(1);
+	gui_draw_button(leaveButton, "Leave!");
+	
 	
 }

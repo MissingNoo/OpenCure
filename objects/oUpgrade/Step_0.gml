@@ -15,13 +15,13 @@ if (!global.gamePaused) {
 	}
 	else{
 		afterimagecount = 0;
-		array_push(afterimagex,x);
-		array_push(afterimagey,y);
-		array_push(afterimagespr,image_index);
-		if (array_length(afterimagex) > 4) {
-		    array_shift(afterimagex);
-		    array_shift(afterimagey);
-		    array_shift(afterimagespr);
+		array_push(afterimage[0],x);
+		array_push(afterimage[1],y);
+		array_push(afterimage[2],image_index);
+		if (array_length(afterimage[0]) > 4) {
+		    array_shift(afterimage[0]);
+		    array_shift(afterimage[1]);
+		    array_shift(afterimage[2]);
 		}
 	}
 	
@@ -121,7 +121,9 @@ sendMessage({
 	y,
 	image_alpha,
 	image_angle,
-	
+	image_xscale,
+	image_yscale,	
+	afterimg : json_stringify(afterimage)
 });
 //	buffer_seek(oClient.clientBuffer, buffer_seek_start, 0);
 //	buffer_write(oClient.clientBuffer, buffer_u8, Network.UpdateUpgrade);

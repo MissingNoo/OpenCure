@@ -16,14 +16,18 @@ other.alarm[0] = 30;
 if (!other.used and possible_upgrade) {
 	other.used = true;
 	other.maxuses -= 1;
+	if (global.shareAnvils) {
+	    sendMessage({
+			command : Network.UpdateAnvil,
+			anvilid : other.anvilid,
+			maxuses : other.maxuses
+		});
+	}
 	oPlayer.lastanvil = other.id;
 	ANVIL = true;
 	oGui.selected = 0;
 	oGui.anvilSelected = 0;
 	oGui.anvilSelectedCategory = 0;
-	if (other.maxuses == 0) {
-	    instance_destroy(other);
-	}	
 	audio_play_sound(snd_anvil,0,0);
 	PauseGame();
 }

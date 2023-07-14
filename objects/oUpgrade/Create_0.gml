@@ -2,9 +2,7 @@ hspd = 0;
 vspd = 0;
 upg??=global.null;
 event_inherited();
-afterimagex = [];
-afterimagey = [];
-afterimagespr = [];
+afterimage = [[], [], []];
 afterimagecount = 0;
 //alarm[11] = 1;
 partSystem = part_system_create();
@@ -40,7 +38,7 @@ image_alpha=0;
 //lava
 loops = 0;
 changeSprite=false;
-socket = oPlayer.socket;
+socket = global.socket;
 owner = instance_nearest(x,y, oPlayer);
 originalSize = [0, 0];
 if (!variable_instance_exists(self, "idolDir")) {

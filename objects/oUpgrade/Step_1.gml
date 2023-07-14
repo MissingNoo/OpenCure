@@ -371,7 +371,7 @@ sprite_index=upg[$"sprite"];
 				//sendvars,
 				//upg : upg[$"id"],
 				upgID,
-				
+				haveafterimage : (variable_struct_exists(upg, "afterimage")) ? true : false
 			});
 		}
 		//var sidevars = ["upg", "speed", "hits", "sprite_index", "level", "mindmg", "maxdmg"];

@@ -1,4 +1,14 @@
 imguigml_activate();
+global.shareXP = false;
+global.shareItems = false;
+global.shareWeapons = false;
+global.pauseGame = false;
+global.shareAnvils = false;
+global.shareStamps = false;
+global.shareBoxDrops = false;
+global.allowHalu = false;
+global.allowGrank = false;
+global.scaleMobs = false;
 global.socket = 0;
 global.singleplayer = false;
 global.roomname="";

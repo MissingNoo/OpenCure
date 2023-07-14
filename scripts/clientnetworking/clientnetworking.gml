@@ -24,7 +24,9 @@ enum Network {
 	KeepAlive,
 	UpdateOptions,
 	ShareXP,
-	ChatMessage
+	ChatMessage,
+	SpawnAnvil,
+	UpdateAnvil
 }
 function clientReceivedPacket2(_response)
 {
@@ -34,7 +36,7 @@ function clientReceivedPacket2(_response)
 	    case Network.ListRooms:
 	        oLobby.rooms = r[$"rooms"];
 			global.socket = r[$"socket"];
-			show_debug_message(r[$"socket"]);
+			//show_debug_message(r[$"socket"]);
 	        break;
 			
 		case Network.JoinRoom:{
@@ -98,6 +100,7 @@ function clientReceivedPacket2(_response)
 			_upg.sprite_index = r[$"sprite_index"];
 			_upg.direction = r[$"direction"];
 			_upg.image_angle = r[$"image_angle"];
+			_upg.haveafterimage = r[$"haveafterimage"];
 			_upg.speed = 0;
 			break;
 		}
@@ -117,6 +120,9 @@ function clientReceivedPacket2(_response)
 						inst.image_alpha = r[$"image_alpha"];
 						inst.sprite_index = r[$"sprite_index"];
 						inst.image_angle = r[$"image_angle"];
+						inst.image_xscale = r[$"image_xscale"];
+						inst.image_yscale = r[$"image_yscale"];
+						inst.afterimage = json_parse(r[$"afterimg"]);
 						inst.direction= r[$"direction"];
 					}
 				}
@@ -204,6 +210,21 @@ function clientReceivedPacket2(_response)
 			array_push(oLobby.chatmessages, _msg);
 			break;
 		}
+		
+		case Network.SpawnAnvil:{
+			if (r[$"owner"] != global.socket) {
+			    instance_create_depth(r[$"x"], r[$"y"], oPlayer.depth, oAnvil,{anvilid : r[$"anvilid"], maxuses : r[$"maxuses"], dontsend : true});
+			}			
+			break;}
+			
+		case Network.UpdateAnvil:{
+			if (!instance_exists(oAnvil)) { return; }
+			with (oAnvil) {
+			    if (anvilid == r[$"anvilid"]) {
+				    maxuses = r[$"maxuses"];
+				}
+			}
+			break;}
 		
 	    default:
 	        // code here

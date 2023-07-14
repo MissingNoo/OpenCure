@@ -177,7 +177,7 @@ if (joinedRoom) {
 	if (array_length(oLobby.chatmessages) > 10) {
 		array_shift(oLobby.chatmessages);
 	}
-	if (input_check_pressed("accept") and chattext != "") {
+	if ((gui_button_click(chatSend) or keyboard_check_pressed(vk_enter)) and chattext != "") {
 	    sendMessage({
 			command : Network.ChatMessage,
 			text : chattext,
@@ -187,19 +187,20 @@ if (joinedRoom) {
 		array_push(chatmessages, _msg);
 		keyboard_string = "";
 	}
-	if (input_check_pressed("cancel") or input_check_pressed("pause")) {
-	    room_goto(rInicio);
-	}
 	global.IsHost = ishost;
 	sprites += .15;
-	//if (ishost) {
-	//	for (var i = 0; i < array_length(options); ++i) {
-	//		variable_global_set(options[i][1], variable_instance_get(self, options[i][1]));
-	//	}
-	//	sendMessage({command : Network.StartGame});			
-	//}
+	if (gui_button_click(leaveButton)) {
+	    room_goto(rInicio);
+	}
+	
+	if (ishost and gui_button_click(startButton)) {
+		for (var i = 0; i < array_length(options); ++i) {
+			variable_global_set(options[i][1], variable_instance_get(self, options[i][1]));
+		}
+		sendMessage({command : Network.StartGame});			
+	}
 		
-	#region buttons			
+	#region buttons
 		#region options
 		if (ishost) {
 			var _x = GW/1.25;
