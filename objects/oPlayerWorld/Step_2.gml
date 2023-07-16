@@ -1,3 +1,3 @@
 /// @description 
-oCam.x += (oPlayer.x - oCam.x) / 16;
-oCam.y += (oPlayer.y - oCam.y) / 16;
+oCamWorld.x += (oPlayerWorld.x - oCamWorld.x) / 16;
+oCamWorld.y += (oPlayerWorld.y - oCamWorld.y) / 16;

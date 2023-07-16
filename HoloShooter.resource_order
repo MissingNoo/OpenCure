@@ -102,6 +102,7 @@
     {"name":"Stages","order":16,"path":"folders/Sprites/Stages.yy",},
     {"name":"Tile Sets","order":14,"path":"folders/Tile Sets.yy",},
     {"name":"Timelines","order":19,"path":"folders/Timelines.yy",},
+    {"name":"HoloHouse","order":14,"path":"folders/Objects/HoloHouse.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"input_gamepad_check_released","order":2,"path":"scripts/input_gamepad_check_released/input_gamepad_check_released.yy",},
@@ -163,6 +164,7 @@
     {"name":"__input_class_trigger_effect_off","order":11,"path":"scripts/__input_class_trigger_effect_off/__input_class_trigger_effect_off.yy",},
     {"name":"input_binding_mouse_button","order":4,"path":"scripts/input_binding_mouse_button/input_binding_mouse_button.yy",},
     {"name":"input_player_export","order":1,"path":"scripts/input_player_export/input_player_export.yy",},
+    {"name":"rMap","order":5,"path":"rooms/rMap/rMap.yy",},
     {"name":"__input_load_type_csv","order":10,"path":"scripts/__input_load_type_csv/__input_load_type_csv.yy",},
     {"name":"input_profile_export","order":6,"path":"scripts/input_profile_export/input_profile_export.yy",},
     {"name":"input_cursor_translate","order":9,"path":"scripts/input_cursor_translate/input_cursor_translate.yy",},
@@ -318,6 +320,7 @@
     {"name":"input_value_is_binding","order":9,"path":"scripts/input_value_is_binding/input_value_is_binding.yy",},
     {"name":"__lexicon_parse_json","order":2,"path":"scripts/__lexicon_parse_json/__lexicon_parse_json.yy",},
     {"name":"input_player_ghost_set","order":8,"path":"scripts/input_player_ghost_set/input_player_ghost_set.yy",},
+    {"name":"oCamWorld","order":7,"path":"objects/oCamWorld/oCamWorld.yy",},
     {"name":"test_depth","order":3,"path":"objects/test_depth/test_depth.yy",},
     {"name":"sGloom","order":6,"path":"sprites/sGloom/sGloom.yy",},
     {"name":"input_cursor_speed_set","order":9,"path":"scripts/input_cursor_speed_set/input_cursor_speed_set.yy",},
