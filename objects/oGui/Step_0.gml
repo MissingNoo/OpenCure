@@ -88,10 +88,10 @@ eKey = input_check_pressed("action");
 leftKey = input_check_pressed("left");
 rightKey = input_check_pressed("right");
 upKey = input_check_pressed("up");
-if (editOption and button_click(minusbutton)) {
+if (editOption and button_click(minusButton)) {
     leftKey = true;
 }
-if (editOption and button_click(plusbutton)) {
+if (editOption and button_click(plusButton)) {
     rightKey = true;
 }
 downKey = input_check_pressed("down");
@@ -179,6 +179,7 @@ if (xKey and global.gamePaused) {
 							//show_message(global.upgradesAvaliable[UPGRADES[i][$"id"]]);
 							var newlevel = UPGRADES[i][$"level"] + 1;
 							UPGRADES[i] = global.upgradesAvaliable[UPGRADES[i][$"id"]][newlevel];
+							share_weapon(i);
 							break;
 						}			
 					#endregion
@@ -191,6 +192,7 @@ if (xKey and global.gamePaused) {
 							    if (global.upgradesAvaliable[j][1][$"name"] == global.upgradeOptions[selected][$"name"]) 
 								{
 									UPGRADES[i]=global.upgradesAvaliable[j][1];
+									share_weapon(i);
 								}
 							}
 							break;
@@ -203,6 +205,7 @@ if (xKey and global.gamePaused) {
 						{
 							var newlevel = playerItems[i][$"level"] + 1;
 							playerItems[i] = ItemList[playerItems[i][$"id"]][newlevel];
+							share_item(i);
 							break;
 						}
 					#endregion
@@ -216,6 +219,7 @@ if (xKey and global.gamePaused) {
 							    if (ItemList[j][1][$"name"] == global.upgradeOptions[selected][$"name"]) 
 								{
 									playerItems[i]=ItemList[j][1];
+									share_item(i);
 								}
 							}
 							break;

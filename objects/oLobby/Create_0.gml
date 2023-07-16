@@ -37,8 +37,8 @@ allowGrank = false;
 scaleMobs = false;
 options = [
 ["Share XP", "shareXP"],
-//["Share Items", "shareItems"],
-//["Share Weapons", "shareWeapons"],
+["Share Items", "shareItems"],
+["Share Weapons", "shareWeapons"],
 ["Share Anvils", "shareAnvils"],
 //["Share Stamps", "shareStamps"],
 //["Share Box drops", "shareBoxDrops"],

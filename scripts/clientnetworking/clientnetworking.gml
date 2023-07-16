@@ -26,7 +26,8 @@ enum Network {
 	ShareXP,
 	ChatMessage,
 	SpawnAnvil,
-	UpdateAnvil
+	UpdateAnvil,
+	AddItem
 }
 function clientReceivedPacket2(_response)
 {
@@ -223,6 +224,15 @@ function clientReceivedPacket2(_response)
 			    if (anvilid == r[$"anvilid"]) {
 				    maxuses = r[$"maxuses"];
 				}
+			}
+			break;}
+			
+		case Network.AddItem:{
+			if (r[$"type"] == "weapon") {
+			    UPGRADES[r[$"pos"]] = global.upgradesAvaliable[r[$"id"]][r[$"level"]];
+			}
+			if (r[$"type"] == "item") {
+			    playerItems[r[$"pos"]] = ItemList[r[$"id"]][r[$"level"]];
 			}
 			break;}
 		

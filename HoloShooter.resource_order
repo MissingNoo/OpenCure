@@ -241,6 +241,7 @@
     {"name":"snd_lvl_up","order":3,"path":"sounds/snd_lvl_up/snd_lvl_up.yy",},
     {"name":"__input_class_vibration_curve","order":17,"path":"scripts/__input_class_vibration_curve/__input_class_vibration_curve.yy",},
     {"name":"rInicio","order":1,"path":"rooms/rInicio/rInicio.yy",},
+    {"name":"oPlayerWorld","order":6,"path":"objects/oPlayerWorld/oPlayerWorld.yy",},
     {"name":"input_source_set","order":6,"path":"scripts/input_source_set/input_source_set.yy",},
     {"name":"input_source_mode_set","order":6,"path":"scripts/input_source_mode_set/input_source_mode_set.yy",},
     {"name":"__input_class_cursor","order":3,"path":"scripts/__input_class_cursor/__input_class_cursor.yy",},

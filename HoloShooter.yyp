@@ -293,6 +293,7 @@
     {"id":{"name":"snd_lvl_up","path":"sounds/snd_lvl_up/snd_lvl_up.yy",},},
     {"id":{"name":"__input_class_vibration_curve","path":"scripts/__input_class_vibration_curve/__input_class_vibration_curve.yy",},},
     {"id":{"name":"rInicio","path":"rooms/rInicio/rInicio.yy",},},
+    {"id":{"name":"oPlayerWorld","path":"objects/oPlayerWorld/oPlayerWorld.yy",},},
     {"id":{"name":"input_source_set","path":"scripts/input_source_set/input_source_set.yy",},},
     {"id":{"name":"input_source_mode_set","path":"scripts/input_source_mode_set/input_source_mode_set.yy",},},
     {"id":{"name":"__input_class_cursor","path":"scripts/__input_class_cursor/__input_class_cursor.yy",},},
