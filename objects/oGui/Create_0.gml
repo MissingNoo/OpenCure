@@ -43,7 +43,10 @@ a=2;
 b=2;
 c=2;
 d=2;
-e=0;
+e=1;
+f=1;
+g=1;
+h=1;
 image_speed=5;
 sprindex=0;
 if (os_type == os_android) {

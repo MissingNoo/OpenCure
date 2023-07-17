@@ -59,7 +59,7 @@ if (room = rInicio and !global.gamePaused) {
 	if (zKey) {
 	    switch (menu_options[selected]) {
 			case  "Map":{
-				global.player=CHARACTERS[irandom_range(0, array_length(CHARACTERS))];
+				global.player=CHARACTERS[irandom_range(0, array_length(CHARACTERS) - 1)];
 				room_goto(rMap);
 				audio_stop_sound(global.musicPlaying);
 				break;}
@@ -387,7 +387,7 @@ if (global.gamePaused and !global.upgrade and !ANVIL) {
 }
 #endregion
 #region Debug
-if (mouse_check_button(mb_left) and keyboard_check(vk_shift)) {
+if (keyboard_check(ord("B"))) {
     var _xx = GW;
 	var _xn = 1;
 	var _yy = GH;
@@ -404,7 +404,7 @@ if (mouse_check_button(mb_left) and keyboard_check(vk_shift)) {
 	b = _yn;
 	//show_message(string(_xn));
 }
-if (mouse_check_button(mb_right) and keyboard_check(vk_shift)) {
+if (keyboard_check(ord("N"))) {
     var _xx = GW;
 	var _xn = 1;
 	var _yy = GH;

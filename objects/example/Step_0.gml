@@ -24,10 +24,13 @@ if (imguigml_ready()) {
 			imguigml_text(string("FPS: {0}/{1}", fps, fps_real));
 			var _header = imguigml_collapsing_header("Values");
 			if(_header[0]){
-				imguigml_text(string("a: {0}, b: {1}, c: {2}, d: {3}, e: {4}", oGui.a, oGui.b, oGui.c, oGui.d, oGui.e));
-				imguigml_same_line();
-				var _input = imguigml_input_float("", imguigml_mem("ee"));
-				if(_input[0]){ imguigml_memset("ee", _input[1]); oGui.e = _input[1]; }				
+				imguigml_text(string("a: {0}, b: {1}, c: {2}, d: {3}, e: {4}, f: {5}, g: {6}, h: {7}", oGui.a, oGui.b, oGui.c, oGui.d, oGui.e, oGui.f, oGui.g, oGui.h));
+				imguigml_text("e/f");
+				var _input = imguigml_input_float4();
+				if(_input[1]){ oGui.e = _input[1]; }	
+				if(_input[2]){ oGui.f = _input[2]; }	
+				if(_input[3]){ oGui.g = _input[3]; }	
+				if(_input[4]){ oGui.h = _input[4]; }	
 			}
 			
 			if (instance_exists(oPlayer)) {

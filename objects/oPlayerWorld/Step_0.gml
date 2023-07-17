@@ -1,5 +1,6 @@
 socket = global.socket;
 if (global.gamePaused) { return; }
+if (instance_exists(oNpcShop)) { return; }
 Movement();
 sendMessage({
 	command : Network.Move,

@@ -690,7 +690,6 @@ if (global.debug) {
 	}
 }
 #endregion	
-
 #region Android Buttons
 if (os_type == os_android) {
 	android_gui_button(zButton);
