@@ -5,5 +5,7 @@ enum ShopType {
 }
 enum ShopOption {
 	Buy, 
-	Sell
+	Sell,
+	Talk,
+	Quit
 }

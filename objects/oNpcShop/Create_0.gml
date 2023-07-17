@@ -1,59 +1,15 @@
 firstitem = 0;
 maxitem = 3;
-shopOptions = ["Buy", "Sell", "Exchange", "Talk", "Quit"];
+shopOptions = [ShopOption.Talk, ShopOption.Quit];
 shopSprSize = sprite_get_width(sHudShopArea);
-shopItemsBuy = [
-{
-	name : "Old Rod",
-	sprite : sAsaCocoThumb,
-	price : 1000
-},
-{
-	name : "Dad's Rod",
-	sprite : sBounceBallThumb,
-	price : 1000
-},
-{
-	name : "Blacksmith-Made Rod",
-	sprite : sKnightlyMilk,
-	price : 1000
-},
-{
-	name : "Atlantean Rod",
-	sprite : sBreastplate,
-	price : 1000
-},
-{
-	name : "Brazillian Rod",
-	sprite : sBLBookThumb,
-	price : 1000
-},
-]
-shopItemsSell = [
-{
-	name : "Dad's Rod",
-	sprite : sBounceBallThumb,
-	price : 1000
-},
-{
-	name : "Blacksmith-Made Rod",
-	sprite : sKnightlyMilk,
-	price : 1000
-},
-{
-	name : "Atlantean Rod",
-	sprite : sBreastplate,
-	price : 1000
-},
-{
-	name : "Brazillian Rod",
-	sprite : sBLBookThumb,
-	price : 1000
-},
-]
+justOpened = true;
+alarm[0] = 10;
 
 function draw_simple_items(arr){
 	var _yoff = 0;
+	if (maxitem > array_length(arr)) {
+	    maxitem = array_length(arr);
+	}
 	for (var i = firstitem; i < maxitem; ++i) {
 		if (selectedItem == i) {
 			draw_set_alpha(.1);
@@ -68,4 +24,11 @@ function draw_simple_items(arr){
 		draw_text_ext_transformed(GW/3.23 + 140, GH/13.97 + 160 + _yoff, lexicon_text(string(shopName) + "." +  arr[i][$"name"] + ".desc"),10, 220, 3, 3, 0);
 		_yoff += 170;
 	}
+}
+
+if (is_array(shopItemsSell)) {
+    array_insert(shopOptions, 0, ShopOption.Sell);
+}
+if (is_array(shopItemsBuy)) {
+    array_insert(shopOptions, 0, ShopOption.Buy);
 }
