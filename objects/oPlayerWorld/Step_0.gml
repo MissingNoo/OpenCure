@@ -1,6 +1,6 @@
 socket = global.socket;
 if (global.gamePaused) { return; }
-if (instance_exists(oNpcShop)) { return; }
+if (instance_exists(oNpcShop) or (instance_exists(oHouseManager) and oHouseManager.editHouse)) { return; }
 Movement();
 sendMessage({
 	command : Network.Move,

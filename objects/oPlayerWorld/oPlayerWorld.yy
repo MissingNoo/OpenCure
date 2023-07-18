@@ -48,6 +48,9 @@
   ],
   "solid": false,
   "spriteId": null,
-  "spriteMaskId": null,
+  "spriteMaskId": {
+    "name": "sWorldMask",
+    "path": "sprites/sWorldMask/sWorldMask.yy",
+  },
   "visible": true,
 }

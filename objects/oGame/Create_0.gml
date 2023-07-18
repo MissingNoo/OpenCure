@@ -1,4 +1,5 @@
 imguigml_activate();
+linespos = 0;
 global.shareXP = false;
 global.shareItems = false;
 global.shareWeapons = false;
