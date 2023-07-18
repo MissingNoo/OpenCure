@@ -56,10 +56,10 @@ if (os_type == os_android) {
 	}	
 }
 zButton = [GW/1.15, GH/14, GW/1.15 + 120, GH/14 + 45, "Z"];
-xButton = [GW/1.15 - 140, GH/14, GW/1.15 + 120, GH/14 + 45, "X"];
-pButton = [GW/1.15 - 280, GH/14, GW/1.15 + 120, GH/14 + 45, "P"];
-plusButton = [GW/1.15 - 420, GH/14, GW/1.15 + 120, GH/14 + 45, ">"];
-minusButton = [GW/1.15 - 560, GH/14, GW/1.15 + 120, GH/14 + 45, "<"];
+xButton = [GW/1.15 - 140, GH/14, GW/1.15 - 140 + 120, GH/14 + 45, "X"];
+pButton = [GW/1.15 - 280, GH/14, GW/1.15 - 280 + 120, GH/14 + 45, "P"];
+plusButton = [GW/1.15 - 420, GH/14, GW/1.15 - 420 + 120, GH/14 + 45, ">"];
+minusButton = [GW/1.15 - 560, GH/14, GW/1.15 - 560 + 120, GH/14 + 45, "<"];
 
 zB = input_virtual_create();
 zB.rectangle(zButton[0], zButton[1], zButton[2], zButton[3]);
@@ -189,7 +189,6 @@ function android_gui_button(pos){
 	draw_rectangle(pos[0], pos[1], pos[2], pos[3], true);
 	draw_text(pos[0] + 70, pos[1] + 22.5, pos[4]);
 	draw_set_color(c_white);
-	draw_set_alpha(0.5);
 }
 
 function drawStats(){

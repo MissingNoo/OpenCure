@@ -4,7 +4,7 @@ if (keyboard_check_pressed(vk_home)) {
     editHouse = true;	
 }
 if (placingObject and input_check_pressed("accept")) {
-	instance_create_depth(round((mouse_x/grid)) * grid, round((mouse_y/grid)) * grid, depth, oHouseItem, {itemId : objectId, sprite_index : objectSprite});
+	instance_create_depth(round((TouchX1/grid)) * grid, round((TouchY1/grid)) * grid, depth, oHouseItem, {itemId : objectId, sprite_index : objectSprite});
 	Save_House();
     alarm[0] = 2;
 }
@@ -14,7 +14,7 @@ if (editHouse and selectedMenuConfirm and input_check_pressed("accept")) {
 	objectId = HouseInventory[selectedMenu][selectedItem][$"itemId"];
 	editHouse = false;
 }
-if (input_check_pressed("cancel") and editHouse) {
+if (input_check_pressed("cancel") and editHouse and !justOpened) {
 	if (selectedMenuConfirm) {
 	    selectedMenuConfirm = false;
 	}

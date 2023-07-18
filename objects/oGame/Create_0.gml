@@ -1,4 +1,5 @@
 imguigml_activate();
+global.arrowDir = 0;
 linespos = 0;
 global.shareXP = false;
 global.shareItems = false;

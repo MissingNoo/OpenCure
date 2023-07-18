@@ -691,7 +691,8 @@ if (global.debug) {
 }
 #endregion	
 #region Android Buttons
-if (os_type == os_android) {
+//if (os_type == os_android) 
+{
 	android_gui_button(zButton);
 	android_gui_button(xButton);
 	android_gui_button(pButton);

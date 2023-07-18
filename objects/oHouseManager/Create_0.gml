@@ -1,3 +1,5 @@
+justOpened = true;
+alarm[1] = 2;
 editHouse = false;
 placingObject = false;
 objectSprite = 0;

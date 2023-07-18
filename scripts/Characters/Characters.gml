@@ -245,22 +245,24 @@ if can_move == true{
 				    _x2 = global.aim.get_touch_x();
 					_y2 = global.aim.get_touch_y();
 				}				
-				global.arrowDir = point_direction(_x1, _y1, _x2, _y2);
-				if (global.arrowDir > 90 and global.arrowDir < 270) {
-					    image_xscale = -1;
+				if (!instance_exists(oPlayerWorld)) {
+				    global.arrowDir = point_direction(_x1, _y1, _x2, _y2);
+					if (global.arrowDir > 90 and global.arrowDir < 270) {
+						image_xscale = -1;
 					};
 					if (global.arrowDir < 90 and (global.arrowDir > 270 or global.arrowDir > 0)) {
-					    image_xscale = 1;
+						image_xscale = 1;
 					};
 					if (global.arrowDir < 360 and global.arrowDir > 270) {
-					    image_xscale = 1;
+						image_xscale = 1;
 					};
+				}
 			}
 		}
 		else{
 			_gx = - input_check("aim_left") + input_check("aim_right"); 
 			_gy = - input_check("aim_up") + input_check("aim_down");
-			global.arrowDir = point_direction(0,0, _gx, _gy);
+			if (!instance_exists(oPlayerWorld)) {global.arrowDir = point_direction(0,0, _gx, _gy);}
 		}
 	}
 	var _hspd = 0;
