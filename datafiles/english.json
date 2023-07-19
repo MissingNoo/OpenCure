@@ -2,6 +2,9 @@
     "language": "English",
     "locale": "en-US",
     "text": {
+		"HouseItems" : {
+			"Bookshelf": "Bookshelf"
+		},
         "dialogue.NPCBob.Greeting": "Hello there %player%!",
         "Anvil" : {
 			"Enhance":{

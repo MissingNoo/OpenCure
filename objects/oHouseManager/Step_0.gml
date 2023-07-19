@@ -3,5 +3,5 @@ if (keyboard_check_pressed(vk_f5)) {
     Save_House();
 }
 if (keyboard_check_pressed(vk_f6)) {
-    Load_House();
+    global.holocoins+=1000;
 }

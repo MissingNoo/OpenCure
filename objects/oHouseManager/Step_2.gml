@@ -1,10 +1,10 @@
-if (keyboard_check_pressed(vk_home)) {
-	selectedMenu = 0;
-	selectedMenuConfirm = false;
+if (input_check_pressed("house")) {
+	//selectedMenu = 0;
+	//selectedMenuConfirm = false;
     editHouse = true;	
 }
 if (placingObject and input_check_pressed("accept")) {
-	instance_create_depth(round((TouchX1/grid)) * grid, round((TouchY1/grid)) * grid, depth, oHouseItem, {itemId : objectId, sprite_index : objectSprite});
+	instance_create_depth(round((mouse_x/grid)) * grid, round((mouse_y/grid)) * grid, depth, oHouseItem, {itemId : objectId, sprite_index : objectSprite});
 	Save_House();
     alarm[0] = 2;
 }
@@ -26,6 +26,7 @@ var _pressed = - input_check_pressed("up") + input_check_pressed("down");
 var _vpressed = - input_check_pressed("left") + input_check_pressed("right");
 
 if (editHouse and !selectedMenuConfirm and _pressed != 0) {
+	selectedItem = 0;
 	selectedMenu += _pressed;
 	if (selectedMenu < 0) { selectedMenu = 0; }
 	if (selectedMenu > array_length(houseOptions) - 1) { selectedMenu = array_length(houseOptions) - 1; }

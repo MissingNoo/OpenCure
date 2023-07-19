@@ -60,18 +60,24 @@ xButton = [GW/1.15 - 140, GH/14, GW/1.15 - 140 + 120, GH/14 + 45, "X"];
 pButton = [GW/1.15 - 280, GH/14, GW/1.15 - 280 + 120, GH/14 + 45, "P"];
 plusButton = [GW/1.15 - 420, GH/14, GW/1.15 - 420 + 120, GH/14 + 45, ">"];
 minusButton = [GW/1.15 - 560, GH/14, GW/1.15 - 560 + 120, GH/14 + 45, "<"];
+houseButton = [GW/1.15 - 700, GH/14, GW/1.15 - 700 + 120, GH/14 + 45, "H"];
+if (os_type == os_android) {
+	zB = input_virtual_create();
+	zB.rectangle(zButton[0], zButton[1], zButton[2], zButton[3]);
+	zB.button("accept");
 
-zB = input_virtual_create();
-zB.rectangle(zButton[0], zButton[1], zButton[2], zButton[3]);
-zB.button("accept");
+	xB = input_virtual_create();
+	xB.rectangle(xButton[0], xButton[1], xButton[2], xButton[3]);
+	xB.button("cancel");
 
-xB = input_virtual_create();
-xB.rectangle(xButton[0], xButton[1], xButton[2], xButton[3]);
-xB.button("cancel");
+	pB = input_virtual_create();
+	pB.rectangle(pButton[0], pButton[1], pButton[2], pButton[3]);
+	pB.button("pause");
 
-pB = input_virtual_create();
-pB.rectangle(pButton[0], pButton[1], pButton[2], pButton[3]);
-pB.button("pause");
+	hB = input_virtual_create();
+	hB.rectangle(houseButton[0], houseButton[1], houseButton[2], houseButton[3]);
+	hB.button("house");
+}
 revives = 0;
 event = 0;
 #region PauseMenu

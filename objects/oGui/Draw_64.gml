@@ -691,7 +691,7 @@ if (global.debug) {
 }
 #endregion	
 #region Android Buttons
-//if (os_type == os_android) 
+if (os_type == os_android) 
 {
 	android_gui_button(zButton);
 	android_gui_button(xButton);
@@ -699,6 +699,9 @@ if (global.debug) {
 	if (editOption) {
 		android_gui_button(plusButton);
 		android_gui_button(minusButton);
+	}
+	if (instance_exists(oHouseManager)) {
+		android_gui_button(houseButton);
 	}
 }
 #endregion
