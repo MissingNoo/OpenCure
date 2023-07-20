@@ -1,3 +1,4 @@
+//feather disable all
 ///@desc imgui - Draw GUI
 if (!DrawGUI)
 	return;

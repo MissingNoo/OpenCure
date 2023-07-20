@@ -39,9 +39,9 @@ if (!global.gamePaused) {
 		case Weapons.PlugAsaCoco:{
 			if (alarm_get(1) > 0) {
 			    y-=1.75;
-				if (instance_exists(CE)) {
-					direction = point_direction(x,y,CE.x, CE.y);
-					image_angle = point_direction(x,y,CE.x, CE.y);
+				if (instance_exists(ce)) {
+					direction = point_direction(x,y,ce.x, ce.y);
+					image_angle = point_direction(x,y,ce.x, ce.y);
 				}				
 			}else {image_alpha = 1;}		
 			break;}

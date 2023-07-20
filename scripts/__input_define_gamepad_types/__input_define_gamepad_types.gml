@@ -1,3 +1,4 @@
+//feather disable all
 function __input_define_gamepad_types()
 {
     __input_global().__simple_type_lookup = {};

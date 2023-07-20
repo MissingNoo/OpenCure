@@ -1,3 +1,4 @@
+//feather disable all
 /// @desc    Returns he number of players with connected devices
 
 function input_player_connected_count()

@@ -1,3 +1,4 @@
+//feather disable all
 //if (instance_exists(oJoystick) and instance_number(oJoystick) > 1) {
 	instance_destroy();
 //}

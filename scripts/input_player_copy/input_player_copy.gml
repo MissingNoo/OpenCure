@@ -1,3 +1,4 @@
+//feather disable all
 /// @desc    Duplicates one player's bindings, profiles and axis thresholds and copies them to another
 /// @param   playerIndexSrc
 /// @param   playerIndexDst

@@ -1,3 +1,4 @@
+//feather disable all
 /// @desc    Sets the specific analogue activation threshold for this binding
 ///          This overrides the activation threshold set by input_axis_threshold_set()
 /// @param   binding

@@ -14,7 +14,7 @@ if (!global.gamePaused) {
 	
 	if (keyboard_check_pressed(ord("X")) and skilltimer > specialcooldown and global.ShopUpgrades[$ "SpecialAtk"][$ "level"] == 1) {
 	//if (keyboard_check_pressed(ord("X"))) {
-	    useSpecial(special);
+	    use_special(special);
 	}
 	#region RedGura
 	if(redgura){

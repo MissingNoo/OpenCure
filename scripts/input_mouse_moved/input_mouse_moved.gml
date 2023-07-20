@@ -1,3 +1,4 @@
+//feather disable all
 /// @desc    Returns whether the mouse has moved between frames
 
 function input_mouse_moved()

@@ -1,3 +1,4 @@
+//feather disable all
 // Feather disable GM2017
 draw_set_alpha(.5);
 #macro TouchX1 device_mouse_x_to_gui(0)

@@ -1,3 +1,4 @@
+//feather disable all
 /// @desc    Returns the gamepad type as a string (after SDL remapping)
 /// @param   gamepadIndex
 

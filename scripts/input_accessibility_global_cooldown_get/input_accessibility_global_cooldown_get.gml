@@ -1,3 +1,4 @@
+//feather disable all
 /// @desc    Returns whether verb cooldowns are allowed across the game
 
 function input_accessibility_global_cooldown_get()

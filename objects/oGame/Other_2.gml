@@ -165,7 +165,7 @@ populateItems();
 populateUpgrades();
 populateCharacters();
 populate_perks();
-populateSpecials();
+populate_specials();
 
 
 #region name here

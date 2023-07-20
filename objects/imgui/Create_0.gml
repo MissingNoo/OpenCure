@@ -1,3 +1,4 @@
+//feather disable all
 ///@desc imgui - create
 gml_pragma("global", "global.__imguigml = noone;");
 if (global.__imguigml != noone && instance_exists(global.__imguigml))

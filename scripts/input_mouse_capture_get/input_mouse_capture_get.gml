@@ -1,3 +1,4 @@
+//feather disable all
 /// @desc    Returns whether the mouse is being captured in the game window
 
 function input_mouse_capture_get()

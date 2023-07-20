@@ -156,7 +156,7 @@
     {"id":{"name":"input_binding_set","path":"scripts/input_binding_set/input_binding_set.yy",},},
     {"id":{"name":"input_icons_gamepad","path":"scripts/input_icons_gamepad/input_icons_gamepad.yy",},},
     {"id":{"name":"input_profile_exists","path":"scripts/input_profile_exists/input_profile_exists.yy",},},
-    {"id":{"name":"seq_SlowTIme","path":"sequences/seq_SlowTIme/seq_SlowTIme.yy",},},
+    {"id":{"name":"seq_SlowTime","path":"sequences/seq_SlowTime/seq_SlowTime.yy",},},
     {"id":{"name":"sAmePistol","path":"sprites/sAmePistol/sAmePistol.yy",},},
     {"id":{"name":"input_verb_set","path":"scripts/input_verb_set/input_verb_set.yy",},},
     {"id":{"name":"__input_class_vibration_pulse","path":"scripts/__input_class_vibration_pulse/__input_class_vibration_pulse.yy",},},

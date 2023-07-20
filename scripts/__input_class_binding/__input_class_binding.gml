@@ -1,4 +1,4 @@
-// Feather disable GM2043
+// Feather disable all
 // Feather disable GM2047
 function __input_class_binding() constructor
 {

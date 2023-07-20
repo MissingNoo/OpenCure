@@ -1,3 +1,4 @@
+//feather disable all
 /// @desc    Starts a binding scan, allowing the player to create new bindings based on what
 ///          keyboard/mouse/gamepad input they have provided.
 ///          

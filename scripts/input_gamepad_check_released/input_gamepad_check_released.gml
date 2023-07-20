@@ -1,3 +1,4 @@
+//feather disable all
 /// @desc    Checks if the given button/axis is newly deactivated this frame
 /// @param   gamepadIndex
 /// @param   GMconstant

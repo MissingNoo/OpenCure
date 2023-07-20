@@ -1,3 +1,4 @@
+//feather disable all
 ///@desc Example - Draw
 
 if (!instance_exists(imgui)) {

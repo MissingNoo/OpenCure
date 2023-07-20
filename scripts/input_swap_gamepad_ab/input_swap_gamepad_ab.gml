@@ -1,3 +1,4 @@
+//feather disable all
 /// @desc    Sets the A/B swap state. This generally should only be used at the start of the game as it fully resets all player profiles and bindings to what’s found in __input_config_verbs()
 /// @param   state
 

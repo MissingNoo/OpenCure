@@ -1,3 +1,4 @@
+//feather disable all
 /// @desc    Returns whether the given mouse button is newly activated this frame.
 /// @param   binding
 

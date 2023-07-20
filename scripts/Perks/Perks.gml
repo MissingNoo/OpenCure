@@ -350,7 +350,7 @@ function tick_perks()
 	}
 }
 
-function defaultPerkBehaviour(_id, _cooldown){
+function default_perk_behaviour(_id, _cooldown){
 	global.perkCooldown[_id] = _cooldown;
 }
 

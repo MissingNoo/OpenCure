@@ -1,3 +1,4 @@
+//feather disable all
 if (!instance_exists(oPlayer)) {
     global.mode = "menu";
 }

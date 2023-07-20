@@ -110,9 +110,9 @@ sprite_index=upg[$"sprite"];
 			if (instance_exists(oEnemy)) {
 				var enemies = instance_number(oEnemy);
 				if (enemies == 0) { instance_destroy(); }
-				CE = instance_find(oEnemy, irandom_range(0,enemies-1));
-				direction = point_direction(x,y-50.75,CE.x, CE.y);
-				image_angle = point_direction(x,y-50.75,CE.x, CE.y);
+				ce = instance_find(oEnemy, irandom_range(0,enemies-1));
+				direction = point_direction(x,y-50.75,ce.x, ce.y);
+				image_angle = point_direction(x,y-50.75,ce.x, ce.y);
 			} else instance_destroy();
 			originalspeed = speed;
 			speed = 0;
@@ -200,12 +200,12 @@ sprite_index=upg[$"sprite"];
 				// random_set_seed(current_time * global.upgradeCooldown[0]);
 				var enemies = instance_number(oEnemy);
 				if (enemies == 0) { instance_destroy(); }
-				//var CE = instance_nearest(x,y-50.75,oEnemy);
+				//var ce = instance_nearest(x,y-50.75,oEnemy);
 				// // randomize;
-				//if (CE != 0) {
-				    CE = instance_find(oEnemy, irandom_range(0,enemies-1));
-					direction = point_direction(x,y,CE.x, CE.y);
-					image_angle = point_direction(x,y,CE.x, CE.y);
+				//if (ce != 0) {
+				    ce = instance_find(oEnemy, irandom_range(0,enemies-1));
+					direction = point_direction(x,y,ce.x, ce.y);
+					image_angle = point_direction(x,y,ce.x, ce.y);
 				//}
 				if (shoots>0) {
 					for (var i = 1; i < shoots; ++i) {
@@ -252,9 +252,9 @@ sprite_index=upg[$"sprite"];
 			if (instance_exists(oEnemy)) {
 				var enemies = instance_number(oEnemy);
 				if (enemies == 0) { instance_destroy(); }
-				CE = instance_find(oEnemy, irandom_range(0,enemies-1));
-				direction = point_direction(x,y,CE.x, CE.y);
-				image_angle = point_direction(x,y,CE.x, CE.y);
+				ce = instance_find(oEnemy, irandom_range(0,enemies-1));
+				direction = point_direction(x,y,ce.x, ce.y);
+				image_angle = point_direction(x,y,ce.x, ce.y);
 				if (shoots>0) {
 					for (var i = 1; i < shoots; ++i) { spawnUpgrade(); }
 				}
@@ -290,10 +290,10 @@ sprite_index=upg[$"sprite"];
 			if (shoots == -1) {
 				sprite_index = sBulletBlue;
 				var enemies = instance_number(oEnemy);
-			    CE = instance_find(oEnemy, irandom_range(0,enemies-1));
+			    ce = instance_find(oEnemy, irandom_range(0,enemies-1));
 				try{
-					direction = point_direction(x,y,CE.x, CE.y);
-					image_angle = point_direction(x,y,CE.x, CE.y);
+					direction = point_direction(x,y,ce.x, ce.y);
+					image_angle = point_direction(x,y,ce.x, ce.y);
 				}
 				catch (err){
 					direction = point_direction(x,y, 0, 0);

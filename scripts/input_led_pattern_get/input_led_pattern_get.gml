@@ -1,3 +1,4 @@
+//feather disable all
 /// @desc    Returns the player gamepad LED pattern
 /// @param   gamepadIndex
 

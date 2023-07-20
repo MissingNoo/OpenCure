@@ -4,7 +4,7 @@ global.specialBonuses[0] = 0;
 
 #region Item Functions
 
-	function createSpecial(_id, _name, _sprite, _cooldown, _desc, _character, _sequence)
+	function create_special(_id, _name, _sprite, _cooldown, _desc, _character, _sequence)
 	{
 		SPECIAL_LIST[_id]={};
 		var item = SPECIAL_LIST[_id];
@@ -24,22 +24,22 @@ global.specialBonuses[0] = 0;
 		Gura,
 		Ina,
 		//Modded
-		Walmart_Form
+		WalmartForm
 	}
 #endregion
-function populateSpecials(){
-	createSpecial(SpecialIds.Amelia, "Slow Time", sAmeSpecial, 60, "Slows all target movement by 80% while Pistol Shot shoots 50% faster for 15 seconds.", Characters.Amelia, seq_SlowTIme);
-	createSpecial(SpecialIds.Gura, "Shark Call", sGuraSpecialIcon, 45, "Summon a shark that deals 500% damage to all targets around. Gura turns red, increasing ATK by 50% and SPD by 25% for 15 seconds.", Characters.Gura, seq_GuraShark);
-	createSpecial(SpecialIds.Ina, "Tako Spin", sInaSpecialIcon, 60, "Summons 8 tentacles around Ina, then spins rapidly around her, dealing 150% damage and knockback to all targets.", Characters.Ina, seq_InaSpin);
+function populate_specials(){
+	create_special(SpecialIds.Amelia, "Slow Time", sAmeSpecial, 60, "Slows all target movement by 80% while Pistol Shot shoots 50% faster for 15 seconds.", Characters.Amelia, seq_SlowTime);
+	create_special(SpecialIds.Gura, "Shark Call", sGuraSpecialIcon, 45, "Summon a shark that deals 500% damage to all targets around. Gura turns red, increasing ATK by 50% and SPD by 25% for 15 seconds.", Characters.Gura, seq_GuraShark);
+	create_special(SpecialIds.Ina, "Tako Spin", sInaSpecialIcon, 60, "Summons 8 tentacles around Ina, then spins rapidly around her, dealing 150% damage and knockback to all targets.", Characters.Ina, seq_InaSpin);
 	#region Modded
 	#region Pipkin Pippa
-	createSpecial(SpecialIds.Walmart_Form, "Walmart Form", sWalmart, 60, "Summons 8 tentacles around Ina, then spins rapidly around her, dealing 150% damage and knockback to all targets.", Characters.Pippa, pointer_null);
+	create_special(SpecialIds.WalmartForm, "Walmart Form", sWalmart, 60, "Summons 8 tentacles around Ina, then spins rapidly around her, dealing 150% damage and knockback to all targets.", Characters.Pippa, pointer_null);
 	#endregion
 	#endregion
 	
 }
 
-function useSpecial(_special)
+function use_special(_special)
 {
 	skilltimer = 0;
 	global.lastsequence = layer_sequence_create("Specials", x, y, _special.seq);
@@ -47,6 +47,7 @@ function useSpecial(_special)
 	    case SpecialIds.Amelia:
 			if (!instance_exists(oEnemy)) { break; }
 	        with (oEnemy) {
+			    // Feather disable once GM1041
 			    array_push(debuffs, copyStruct(Buffs[BuffNames.Slowness]));
 				//show_message(Buffs[BuffNames.Slowness]);
 			}

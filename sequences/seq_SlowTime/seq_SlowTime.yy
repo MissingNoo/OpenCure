@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSequence",
   "resourceVersion": "1.4",
-  "name": "seq_SlowTIme",
+  "name": "seq_SlowTime",
   "autoRecord": true,
   "backdropHeight": 768,
   "backdropImageOpacity": 0.5,

@@ -1,3 +1,4 @@
+//feather disable all
 /// @param   icon
 
 function input_icon_empty(_icon)

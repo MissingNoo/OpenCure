@@ -1,3 +1,4 @@
+//feather disable all
 /// @desc    Creates a keyboard binding. This function accepts vk_* constants and single-letter strings e.g. "A"
 /// @param   key
 

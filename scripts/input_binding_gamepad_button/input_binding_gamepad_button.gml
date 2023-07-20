@@ -1,3 +1,4 @@
+//feather disable all
 /// @desc    Creates a gamepad button binding. This function accepts gp_* constants
 /// @param   button
 

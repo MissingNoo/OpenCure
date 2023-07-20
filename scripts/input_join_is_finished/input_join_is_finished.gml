@@ -1,3 +1,4 @@
+//feather disable all
 /// @desc    Returns whether enough players have connected for valid gameplay
 
 function input_join_is_finished()

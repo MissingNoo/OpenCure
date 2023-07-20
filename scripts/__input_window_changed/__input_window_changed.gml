@@ -1,3 +1,4 @@
+//feather disable all
 /// @desc Detect change in window
 function __input_window_changed()
 {

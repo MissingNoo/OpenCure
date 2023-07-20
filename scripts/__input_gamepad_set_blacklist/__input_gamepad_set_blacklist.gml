@@ -1,3 +1,4 @@
+//feather disable all
 /// This function should be called in the scope of a gamepad class
 
 function __input_gamepad_set_blacklist()
