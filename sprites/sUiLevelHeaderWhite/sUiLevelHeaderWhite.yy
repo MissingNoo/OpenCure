@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
-  "name": "ui_level_header_yellow",
+  "name": "sUiLevelHeaderWhite",
   "bbox_bottom": 8,
   "bbox_left": 0,
   "bbox_right": 19,
@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"77e05925-e01d-43d1-9766-0a28ab3391b8",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"29f45ff7-4e5b-4394-87b1-6345d7455b71",},
   ],
   "gridX": 0,
   "gridY": 0,
   "height": 9,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"c98fd068-8f23-4aa3-b9c4-0bea9c3b27e0","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"1c40ecce-084f-40c8-85fc-fd79ae101c93","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 9,
@@ -32,7 +32,7 @@
   "sequence": {
     "resourceType": "GMSequence",
     "resourceVersion": "1.4",
-    "name": "ui_level_header_yellow",
+    "name": "sUiLevelHeaderWhite",
     "autoRecord": true,
     "backdropHeight": 768,
     "backdropImageOpacity": 0.5,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"77e05925-e01d-43d1-9766-0a28ab3391b8","path":"sprites/ui_level_header_yellow/ui_level_header_yellow.yy",},},},"Disabled":false,"id":"937bd48d-111e-49f7-a20b-49f27ade537e","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"29f45ff7-4e5b-4394-87b1-6345d7455b71","path":"sprites/sUiLevelHeaderWhite/sUiLevelHeaderWhite.yy",},},},"Disabled":false,"id":"bdf7ce96-55b6-466b-8071-9c9cf52216fc","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

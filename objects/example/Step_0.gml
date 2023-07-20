@@ -95,8 +95,8 @@ if (imguigml_ready()) {
 						}
 					}imguigml_end_child();
 					imguigml_separator();
-					var _input = imguigml_checkbox("Spawn Enemies", global.SpawnEnemies);
-					if(_input[0]) { global.SpawnEnemies = _input[1];}
+					var _input = imguigml_checkbox("Spawn Enemies", global.spawnEnemies);
+					if(_input[0]) { global.spawnEnemies = _input[1];}
 					imguigml_same_line();
 					_input = imguigml_checkbox("Spawn Events", oEvents.enable);
 					if(_input[0]) { oEvents.enable = _input[1];}

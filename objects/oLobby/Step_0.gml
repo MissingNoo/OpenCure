@@ -187,6 +187,7 @@ if (joinedRoom) {
 		array_push(chatmessages, _msg);
 		keyboard_string = "";
 	}
+	//feather disable once GM2017
 	global.IsHost = ishost;
 	sprites += .15;
 	if (gui_button_click(leaveButton)) {

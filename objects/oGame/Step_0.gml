@@ -119,13 +119,13 @@ if (instance_exists(oPlayer)) {
 }
 #endregion
 // Apply shake
-fx_set_parameter(shake_fx, "g_Magnitude", shake_magnitude);
-fx_set_parameter(shake_fx, "g_ShakeSpeed", shake_speed);
+fx_set_parameter(shakeFx, "g_Magnitude", shakeMagnitude);
+fx_set_parameter(shakeFx, "g_ShakeSpeed", shakeSpeed);
 
 // Fall to 0
-if (shake_magnitude > 0)
+if (shakeMagnitude > 0)
 {
-	shake_magnitude -= 0.2;
+	shakeMagnitude -= 0.2;
 }
 var pressed = (input_check("accept") and !global.gamePaused) ? true : false;
 //if (global.GamePad) {
@@ -137,7 +137,8 @@ var pressed = (input_check("accept") and !global.gamePaused) ? true : false;
 if (!instance_exists(oEvents)) {
 	    instance_create_layer(0,0,"Instances",oEvents);
 	}	
-if (instance_exists(oPlayer) and canspawn == true and global.gamePaused == false and room == rStage1 and global.SpawnEnemies == 1 and global.IsHost) {
+	//feather disable once GM2017
+if (instance_exists(oPlayer) and canspawn == true and global.gamePaused == false and room == rStage1 and global.spawnEnemies == 1 and global.IsHost) {
 	
 	var a = irandom_range(-1,1)
 	if (a=0) a = 1;
@@ -168,7 +169,7 @@ if (instance_exists(oPlayer) and canspawn == true and global.gamePaused == false
 					    down = 1 * Bonuses[BonusType.Haste][i];
 					}				    
 				}
-				for (var i = 0; i < global.ShopUpgrades[$ "Haste"][$ "level"]; ++i) {
+				for (var i = 0; i < global.shopUpgrades[$ "Haste"][$ "level"]; ++i) {
 				    down = down + ((down * 4) / 100);
 				}
 			#endregion

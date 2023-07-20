@@ -93,7 +93,7 @@ if (other.hittedcooldown[upg[$"id"]] <= 0  and !global.gamePaused and other.imag
 		}
 	}
 	
-	for (var i = 0; i < global.ShopUpgrades[$ "Atk"][$ "level"]; ++i) {
+	for (var i = 0; i < global.shopUpgrades[$ "Atk"][$ "level"]; ++i) {
 	    bdmg = bdmg + ((bdmg * 6) / 100);
 	}
 
@@ -110,7 +110,7 @@ if (other.hittedcooldown[upg[$"id"]] <= 0  and !global.gamePaused and other.imag
 	}
 	//show_message(string(originalDamage) + "/" + string(dmg));
 	other.hp-= dmg * global.player[?"atk"];
-	if (global.DamageNumbers) {
+	if (global.damageNumbers) {
 	    var _inst = instance_create_layer(other.x,other.y,"DamageLayer",oDamageText);
 		_inst.dmg = round(dmg);
 	}
@@ -118,8 +118,8 @@ if (other.hittedcooldown[upg[$"id"]] <= 0  and !global.gamePaused and other.imag
 	other.alarm[1]=15;	
 	switch (upg[$"id"]) {
 	    case Weapons.AmePistol:
-	        if (hits == 1 and !AmePistolLastHit and upg[$"level"] >= 4) {
-			    AmePistolLastHit=true;
+	        if (hits == 1 and !amePistolLastHit and upg[$"level"] >= 4) {
+			    amePistolLastHit=true;
 				hits+=5;
 				direction = random(360);
 				//switch (direction) {

@@ -17,13 +17,13 @@ ghost = false;
 if (arrowDir == 0) {
     arrowDir = global.arrowDir;
 }
-CE=0;
+ce=0;
 image_alpha=0;
 image_speed=0;	
 originalspeed = speed;
 a=0;
 alarm[1]=200;
-AmePistolLastHit=false;
+amePistolLastHit=false;
 diroffset=0;
 //image_xscale=oPlayer.image_xscale;
 offset=-16;
@@ -31,8 +31,8 @@ b=0;
 originaly=0;
 //bl
 orbitoffset = -90;
-orbit_place = 0;
-orbit_length = 0;
+orbitPlace = 0;
+orbitLength = 0;
 image_speed=0;
 image_alpha=0;
 //lava

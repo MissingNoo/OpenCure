@@ -1,6 +1,6 @@
 global.gamePad = false;
 if (!variable_global_exists("ShopUpgrades")) {
-    global.ShopUpgrades = {
+    global.shopUpgrades = {
 		Hp : {
 			name:"Max HP Up",
 			desc : "Increase Max HP by 4% per level. (Max 40%) ",
@@ -147,47 +147,48 @@ if (!variable_global_exists("ShopUpgrades")) {
 		},
 	}
 }
-global.ShopUpgradesJSON = json_stringify(global.ShopUpgrades);
+global.shopUpgradesJSON = json_stringify(global.shopUpgrades);
 global.holocoins = 0;
 Load_Data_Structs();
 global.holocoins ??= 0;
 //if (os_type != os_android) {
 	//font_add_enable_aa(false);
-	global.new_font = font_add("pixelade.ttf", 10, false, false, 32, 128);
-	draw_set_font(global.new_font);
+	global.newFont = font_add("pixelade.ttf", 10, false, false, 32, 128);
+	draw_set_font(global.newFont);
 	
 	//global.Font = font_add_sprite(sPixelFont, ord("!"), false, 2);
     //draw_set_font(global.Font);
 //}
 ////draw_set_font(global.Font); //draw_set_font(fnt_font1);
 randomize();
-populateItems();
-populateUpgrades();
-populateCharacters();
+populate_items();
+populate_upgrades();
+populate_characters();
 populate_perks();
 populate_specials();
 
 
 #region name here
 
-
-		global.ShopUpgrades.Hp.sprite = sHudHPIcon;
-		global.ShopUpgrades.Atk.sprite =sHudAtkIcon;
-		global.ShopUpgrades.Spd.sprite =sHudSpdIcon;
-		global.ShopUpgrades.Crit.sprite =sHudCrtIcon;
-		global.ShopUpgrades.PickUp.sprite =sHudPickupIcon;
-		global.ShopUpgrades.Haste.sprite =sHudCooldownIcon;
-		global.ShopUpgrades.Regeneration.sprite =sHudRegenerationIcon;
-		global.ShopUpgrades.SpecialAtk.sprite =sHudSpecialUnlockIcon;
-		global.ShopUpgrades.SpecialCooldown.sprite =sHudSpecialCooldownIcon;
-		global.ShopUpgrades.Growth.sprite =sHudGrowthIcon;
-		global.ShopUpgrades.ExpGain.sprite =sXP;
-		global.ShopUpgrades.FoodDrop.sprite =sHamburger;
-		global.ShopUpgrades.MoneyGain.sprite =sHolocoin;
-		global.ShopUpgrades.Reroll.sprite =sHudRerollIcon;
-		global.ShopUpgrades.EnhacementRate.sprite =sHudHPIcon;
-		global.ShopUpgrades.Defense.sprite =sHudDefenseIcon;
-		global.ShopUpgrades.GRankOff.sprite =sHudHPIcon;
-		global.ShopUpgrades.Hardcore.sprite =sHudHPIcon;
+		//feather disable GM2017
+		global.shopUpgrades.Hp.sprite = sHudHPIcon;
+		global.shopUpgrades.Atk.sprite =sHudAtkIcon;
+		global.shopUpgrades.Spd.sprite =sHudSpdIcon;
+		global.shopUpgrades.Crit.sprite =sHudCrtIcon;
+		global.shopUpgrades.PickUp.sprite =sHudPickupIcon;
+		global.shopUpgrades.Haste.sprite =sHudCooldownIcon;
+		global.shopUpgrades.Regeneration.sprite =sHudRegenerationIcon;
+		global.shopUpgrades.SpecialAtk.sprite =sHudSpecialUnlockIcon;
+		global.shopUpgrades.SpecialCooldown.sprite =sHudSpecialCooldownIcon;
+		global.shopUpgrades.Growth.sprite =sHudGrowthIcon;
+		global.shopUpgrades.ExpGain.sprite =sXP;
+		global.shopUpgrades.FoodDrop.sprite =sHamburger;
+		global.shopUpgrades.MoneyGain.sprite =sHolocoin;
+		global.shopUpgrades.Reroll.sprite =sHudRerollIcon;
+		global.shopUpgrades.EnhacementRate.sprite =sHudHPIcon;
+		global.shopUpgrades.Defense.sprite =sHudDefenseIcon;
+		global.shopUpgrades.GRankOff.sprite =sHudHPIcon;
+		global.shopUpgrades.Hardcore.sprite =sHudHPIcon;
+		//feather enable GM2017
 
 #endregion

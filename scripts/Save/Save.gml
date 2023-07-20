@@ -7,7 +7,7 @@ global.Data = [
 #macro Reserve (working_directory + "Reserve_Data.bin")
 
 function Save_Data_Structs () { 
-	global.ShopUpgradesJSON = json_stringify(global.ShopUpgrades);
+	global.shopUpgradesJSON = json_stringify(global.shopUpgrades);
 	var Data = {};
         for(var i = 0; i < array_length(global.Data); i++){
             var Key = global.Data[i];
@@ -27,8 +27,8 @@ function Load_Data_Structs () {
                 if(variable_global_exists(Key)){
                     variable_global_set(Key, Json[$ Key] );}}
           ds_map_destroy(Map);} 
-		  if (is_string(global.ShopUpgradesJSON)) {
-		      global.ShopUpgrades = json_parse(global.ShopUpgradesJSON);
+		  if (is_string(global.shopUpgradesJSON)) {
+		      global.shopUpgrades = json_parse(global.shopUpgradesJSON);
 		  }  
      };
     

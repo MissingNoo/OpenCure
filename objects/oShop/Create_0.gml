@@ -9,5 +9,5 @@ voffset = 0;
 startx = GW/2;
 starty = GH/2;
 maxx = GW/1.5;
-AChanX = GW/2;
-AChanY = GH/2;
+aChanX = GW/2;
+aChanY = GH/2;

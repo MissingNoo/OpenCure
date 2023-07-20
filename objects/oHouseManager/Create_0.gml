@@ -22,6 +22,7 @@ enum HouseOptions {
 
 }
 #macro HOUSE (working_directory + "Save_House.bin")
+//feather disable once GM2017
 function Save_House() { 
 	var Data = {};		
 	for (var i = 0; i < instance_number(oHouseItem); ++i) {
@@ -36,7 +37,7 @@ function Save_House() {
 	ds_map_secure_save(Map, HOUSE);
 	ds_map_destroy(Map);
 };
-    
+//feather disable once GM2017
 function Load_House() {
 if (file_exists(HOUSE)) {
 	var Map = ds_map_secure_load(HOUSE);

@@ -158,7 +158,7 @@ function damageCalculation(baseDmg)
 		    damage = damage * Bonuses[BonusType.Defense][i];
 		}
 	}
-	for (var i = 0; i < global.ShopUpgrades[$ "Defense"][$ "level"]; ++i) {
+	for (var i = 0; i < global.shopUpgrades[$ "Defense"][$ "level"]; ++i) {
 	    damage = damage - ((damage * 3) / 100);
 	}
 	//// perk bonuses

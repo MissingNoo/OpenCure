@@ -52,6 +52,7 @@ if (room != rInicio) {
 }
 deathSent = false;
 enemyID = irandom(9999);
+//feather disable once GM2017
 if (global.IsHost and !global.singleplayer) {
 	vars = variable_instance_get_names(self);
 	savedvars = {};

@@ -57,7 +57,6 @@ switch (type) {
         // code here
         break;
 }
-_maxvalue = maxvalue;
 
 var _vpressed = - input_check_pressed("up") + input_check_pressed("down");
 selectedItem += _vpressed;

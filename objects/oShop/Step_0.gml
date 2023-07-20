@@ -13,7 +13,7 @@ if (!interact) {
 	}
 	if (_left) {
 	    if (selected == 0) {
-		    selected = variable_struct_names_count(global.ShopUpgrades) - 1;
+		    selected = variable_struct_names_count(global.shopUpgrades) - 1;
 		}
 		else
 		{
@@ -22,7 +22,7 @@ if (!interact) {
 	}
 
 	if (_right) {
-	    if (selected == variable_struct_names_count(global.ShopUpgrades) - 1) {
+	    if (selected == variable_struct_names_count(global.shopUpgrades) - 1) {
 		    selected = 0;
 		}
 		else
@@ -40,8 +40,8 @@ if (!interact) {
 	}
 	if (_down) {
 		newselected += 7;
-		if (newselected >= variable_struct_names_count(global.ShopUpgrades)) {
-		    newselected = variable_struct_names_count(global.ShopUpgrades) -1;
+		if (newselected >= variable_struct_names_count(global.shopUpgrades)) {
+		    newselected = variable_struct_names_count(global.shopUpgrades) -1;
 		}
 		selected = newselected;
 	}

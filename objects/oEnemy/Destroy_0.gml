@@ -33,16 +33,16 @@ if (dropxp) {
 	}
 #endregion
 // randomize;
-//var _dropChanceBuff = Bonuses[BonusType.UberSheep][ItemIds.Uber_Sheep] + global.ShopUpgrades[$"FoodDrop"][$"level"] / 100;
+//var _dropChanceBuff = Bonuses[BonusType.UberSheep][ItemIds.UberSheep] + global.shopUpgrades[$"FoodDrop"][$"level"] / 100;
 //show_message(_dropChanceBuff)
 //var dropchance = 1 / 200 * (1 - _dropChanceBuff);
 //show_message(dropchance)
 var _dropchance = 1;
-for (var i = 0; i < global.ShopUpgrades[$"FoodDrop"][$"level"]; ++i) {
+for (var i = 0; i < global.shopUpgrades[$"FoodDrop"][$"level"]; ++i) {
     _dropchance = _dropchance * 1.04;
 }
-if (Bonuses[BonusType.UberSheep][ItemIds.Uber_Sheep] != 0) {
-    _dropchance = _dropchance * Bonuses[BonusType.UberSheep][ItemIds.Uber_Sheep];
+if (Bonuses[BonusType.UberSheep][ItemIds.UberSheep] != 0) {
+    _dropchance = _dropchance * Bonuses[BonusType.UberSheep][ItemIds.UberSheep];
 }
 if (random_range(1,200) <= _dropchance) {
     instance_create_layer(x,y,"Instances", oBurguer);

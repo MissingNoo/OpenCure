@@ -12,13 +12,15 @@ if (!global.gamePaused) {
 	tick_perks();
 	Movement();
 	
-	if (keyboard_check_pressed(ord("X")) and skilltimer > specialcooldown and global.ShopUpgrades[$ "SpecialAtk"][$ "level"] == 1) {
+	if (keyboard_check_pressed(ord("X")) and skilltimer > specialcooldown and global.shopUpgrades[$ "SpecialAtk"][$ "level"] == 1) {
 	//if (keyboard_check_pressed(ord("X"))) {
 	    use_special(special);
 	}
 	#region RedGura
 	if(redgura){
+		//feather disable once GM2017
 		part_red ??= part_system_create(part_GuraRed);
+		//feather disable once GM2017
 		part_system_position(part_red, x, y);
 		// show_debug_message(time_source_get_time_remaining(redtime));
 		var _timestate = time_source_get_state(redtime);
@@ -63,7 +65,7 @@ if (!global.gamePaused) {
 	
 	if (global.hp <= 0) {
 		if (revives <= 0 and !dead) {
-			can_move = false;
+			canMove = false;
 			dead = true;
 			global.mode = "menu";
 			global.holocoins += global.newcoins;
@@ -111,14 +113,14 @@ if (HP > MAXHP) {
 		    calc += PerkBonuses[BonusType.Speed][i];
 		}    
 	}
-	for (var i = 0; i < global.ShopUpgrades[$ "Spd"][$ "level"]; ++i) {
+	for (var i = 0; i < global.shopUpgrades[$ "Spd"][$ "level"]; ++i) {
 	    calc = calc + ((calc * 6) / 100);
 	}
 	if (calc == 0) {
 	    calc = 1;
 	}
 	var shopBonus = ospd;
-	for (var i = 0; i < global.ShopUpgrades[$ "Spd"][$ "level"]; ++i) {
+	for (var i = 0; i < global.shopUpgrades[$ "Spd"][$ "level"]; ++i) {
 	    shopBonus = shopBonus + ((shopBonus* 6) / 100);
 	}
 	shopBonus = shopBonus - ospd;
@@ -141,7 +143,7 @@ if (HP > MAXHP) {
 	//	}    
 	//}//TODO: if there is a pickuprange bonus perk
 	shopBonus = originalPickupRadius;
-	for (var i = 0; i < global.ShopUpgrades[$ "PickUp"][$ "level"]; ++i) {
+	for (var i = 0; i < global.shopUpgrades[$ "PickUp"][$ "level"]; ++i) {
 	    shopBonus = shopBonus + ((shopBonus* 10) / 100);
 	}
 	shopBonus = shopBonus - originalPickupRadius;
@@ -156,12 +158,12 @@ if (global.gamePaused) {
 }
 
 #region heal every five seconds if shop upgrade
-if (global.ShopUpgrades[$ "Regeneration"][$ "level"] > 0 and !global.gamePaused) {
+if (global.shopUpgrades[$ "Regeneration"][$ "level"] > 0 and !global.gamePaused) {
     healSeconds+=1/60;
 	if (healSeconds > 5) {
-	    HP += 1 * global.ShopUpgrades[$ "Regeneration"][$ "level"];
+	    HP += 1 * global.shopUpgrades[$ "Regeneration"][$ "level"];
 		healSeconds = 0;
-		//show_message("healed: " + string(1 * global.ShopUpgrades[$ "Regeneration"][$ "level"]));
+		//show_message("healed: " + string(1 * global.shopUpgrades[$ "Regeneration"][$ "level"]));
 	}
 }
 #endregion

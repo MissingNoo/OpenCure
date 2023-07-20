@@ -17,7 +17,7 @@ if (instance_number(oTitleRunning) == 0 and room == rInicio) {
     instance_create_layer(0,0, "Instances", oTitleRunning);
 }	
 if (room == rInicio and instance_exists(oClient)) {
-    instance_destroy(oClient);
+    instance_destroy(oClient);//feather disable once GM2017
 	global.IsHost = true;
 }
 if (room == rStage1 and !instance_exists(oClient)) {
@@ -57,7 +57,7 @@ if (xKey and global.gamePaused) {
 #region Start Menu
 if (room = rInicio and !global.gamePaused) {
 	if (zKey) {
-	    switch (menu_options[selected]) {
+	    switch (menuOptions[selected]) {
 			case  "Map":{
 				global.player=CHARACTERS[irandom_range(0, array_length(CHARACTERS) - 1)];
 				room_goto(rMap);
@@ -109,8 +109,8 @@ if (global.upgrade) // after level up
 		{	
 			if (global.upgradeOptions[selected][$"name"] == "null") { break; }
 			if (global.upgradeOptions[selected][$"id"] == ItemIds.Holocoin){ 
-				var coins = 50;
-				for (var j = 1; j < global.ShopUpgrades.MoneyGain.level; ++j) {
+				var coins = 50;//feather disable once GM2017
+				for (var j = 1; j < global.shopUpgrades.MoneyGain.level; ++j) {
 					coins = coins + ((coins * 20) / 100);
 				}
 				global.newcoins += coins;

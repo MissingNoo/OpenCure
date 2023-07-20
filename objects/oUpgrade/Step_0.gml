@@ -46,16 +46,16 @@ if (!global.gamePaused) {
 			}else {image_alpha = 1;}		
 			break;}
 		case Weapons.BlBook:{
-			x = owner.x + lengthdir_x(orbit_length, orbit_place);
-			y = owner.y - 16 + lengthdir_y(orbit_length, orbit_place);
-			orbit_place-=3;
+			x = owner.x + lengthdir_x(orbitLength, orbitPlace);
+			y = owner.y - 16 + lengthdir_y(orbitLength, orbitPlace);
+			orbitPlace-=3;
 			break;}
 		case Weapons.PsychoAxe:{
 			//part_type_sprite(part, upg[$"sprite"], false, false, image_index);
-			x = xstart + lengthdir_x(orbit_length, orbit_place);
-			y = ystart + lengthdir_y(orbit_length, orbit_place);
-			orbit_place-=4;
-			orbit_length += 0.75;
+			x = xstart + lengthdir_x(orbitLength, orbitPlace);
+			y = ystart + lengthdir_y(orbitLength, orbitPlace);
+			orbitPlace-=4;
+			orbitLength += 0.75;
 			//part_particles_create_colour(partSystem, xprevious, yprevious, part, c_yellow, 1);
 			break;}
 		case Weapons.CuttingBoard:{

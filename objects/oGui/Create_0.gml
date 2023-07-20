@@ -35,7 +35,7 @@ debug=false;
 selected=0;
 maxselected = selected;
 color=c_white;
-menu_options = ["Map", "Singleplayer", "Multiplayer", "Shop", "Leaderboard", "Achievements", "Settings", "Credits", "Quit"];
+menuOptions = ["Map", "Singleplayer", "Multiplayer", "Shop", "Leaderboard", "Achievements", "Settings", "Credits", "Quit"];
 resetTimer()
 global.upgrades=ds_map_create();
 global.a=1;
@@ -119,15 +119,15 @@ pauseMenu[PMenus.Pause][PM.YScale] = 0.75;
 		pauseMenu[PMenus.Settings][PM.Options][0] = "Music Volume: " + string(round(global.musicVolume*100)) + "%";
 		pauseMenu[PMenus.Settings][PM.Options][1] = "Sound Volume: " + string(round(global.soundVolume*100)) + "%";
 		pauseMenu[PMenus.Settings][PM.Bool][2] = true;
-		pauseMenu[PMenus.Settings][PM.BoolValue][2] = global.DamageNumbers;
-		pauseMenu[PMenus.Settings][PM.Options][2] = "Damage Numbers: ";
+		pauseMenu[PMenus.Settings][PM.BoolValue][2] = global.damageNumbers;
+		pauseMenu[PMenus.Settings][PM.Options][2] = "damage Numbers: ";
 		pauseMenu[PMenus.Settings][PM.Bool][3] = true;
-		pauseMenu[PMenus.Settings][PM.BoolValue][3] = global.ScreenShake;
-		pauseMenu[PMenus.Settings][PM.Options][3] = "Screen Shake: ";
+		pauseMenu[PMenus.Settings][PM.BoolValue][3] = global.screenShake;
+		pauseMenu[PMenus.Settings][PM.Options][3] = "screen Shake: ";
 		pauseMenu[PMenus.Settings][PM.Bool][4] = true;
-		pauseMenu[PMenus.Settings][PM.BoolValue][4] = global.SpawnEnemies;
-		pauseMenu[PMenus.Settings][PM.Options][4] = "SpawnEnemies: ";
-		pauseMenu[PMenus.Settings][PM.Options][5] = "GamePad: ";
+		pauseMenu[PMenus.Settings][PM.BoolValue][4] = global.spawnEnemies;
+		pauseMenu[PMenus.Settings][PM.Options][4] = "spawnEnemies: ";
+		pauseMenu[PMenus.Settings][PM.Options][5] = "gamePad: ";
 		pauseMenu[PMenus.Settings][PM.Bool][5] = true;
 		pauseMenu[PMenus.Settings][PM.BoolValue][5] = global.gamePad;
 		pauseMenu[PMenus.Settings][PM.Options][6] = "showhpui: ";
@@ -153,7 +153,7 @@ if (instance_number(oTitleRunning) < 15 and room == rInicio) {
 #endregion
 
 #region Functions
-
+//feather disable once GM2017
 function button_click(pos){
 	var result = false;
 	if (point_in_rectangle(oGui.x, oGui.y, pos[0], pos[1], pos[2], pos[3])){
@@ -161,7 +161,7 @@ function button_click(pos){
 	}
 	return result;
 }
-
+//feather disable once GM2017
 function share_item(i){
 	if (global.shareItems) {
 		sendMessage({
@@ -174,6 +174,11 @@ function share_item(i){
 	}
 }
 
+/**
+ * Function Description
+ * @param {any*} i Description
+ */
+ //feather disable once GM2017
 function share_weapon(i){
 if (global.shareWeapons) {
 	sendMessage({
@@ -185,7 +190,7 @@ if (global.shareWeapons) {
 	});
 }
 }
-
+//feather disable once GM2017
 function android_gui_button(pos){
 	draw_set_alpha(0.5);
 	draw_set_color(c_white);
@@ -208,7 +213,7 @@ function drawStats(){
 		var stats_offset=0;
 			
 		#region HP
-			draw_sprite_stretched(heart_shaded, 0, GW/11, GH/2.15, 25, 25);
+			draw_sprite_stretched(sHeartShaded, 0, GW/11, GH/2.15, 25, 25);
 			draw_set_halign(fa_left);
 			draw_text_transformed(GW/8 - 15, GH/2.15, "HP", 1.5, 1.5, 0);
 			draw_line(GW/8.80, GH/2, GW/3.40, GH/2);
@@ -220,7 +225,7 @@ function drawStats(){
 			
 			#region ATK
 				stats_offset += 35;
-				draw_sprite_stretched(sword_blue, 0, GW/11, GH/2.15 + stats_offset, 25, 25);
+				draw_sprite_stretched(sSwordBlue, 0, GW/11, GH/2.15 + stats_offset, 25, 25);
 				draw_text_transformed(GW/8 - 15, GH/2.15 + stats_offset, "ATK", 1.5, 1.5, 0);
 				draw_line(GW/8.80, GH/2 + stats_offset, GW/3.40, GH/2 + stats_offset);
 				var calc = 0;
@@ -363,7 +368,7 @@ function drawStatsSelect(character){
 	var str;
 	draw_set_color(c_white);
 	#region HP
-		draw_sprite_stretched(heart_shaded, 0, _xx, _yt, 25, 25);
+		draw_sprite_stretched(sHeartShaded, 0, _xx, _yt, 25, 25);
 		draw_text_transformed(_x, _yt, "HP", 1.5, 1.5, 0);
 		draw_line(_xx, _yy, _xt, _yy);
 		str = string(character[?"hp"]);
@@ -374,7 +379,7 @@ function drawStatsSelect(character){
 			
 		#region ATK
 			stats_offset += 35;
-			draw_sprite_stretched(sword_blue, 0, _xx, _yt + stats_offset, 25, 25);
+			draw_sprite_stretched(sSwordBlue, 0, _xx, _yt + stats_offset, 25, 25);
 			draw_text_transformed(_x, _yt + stats_offset, "ATK", 1.5, 1.5, 0);
 			draw_line(_xx, _yy + stats_offset, _xt, _yy + stats_offset);
 			str = character[?"atk"];

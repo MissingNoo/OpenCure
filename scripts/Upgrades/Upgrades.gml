@@ -76,7 +76,8 @@ enum ShotTypes {
  * @param {struct} _data Description
  * @param {Array<Asset.GMSound>} [_sounds]=[] Description
  */
-function newCreateUpgrade(_data, _sounds = []){
+ //feather disable once GM1045
+function newCreateUpgrade(_data, _sounds = ""){
 	global.upgradesAvaliable[_data.id][0] = global.null;
 	_data.z = "z";
 	//show_message(_data);
@@ -169,7 +170,7 @@ enum Weapons
 	PipiPilstol,
 	HeavyArtillery,
 }
-function populateUpgrades(){
+function populate_upgrades(){
 	#region Character Perks
 		#region Amelia Perks
 			#region AmePistol 

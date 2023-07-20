@@ -58,7 +58,7 @@ stage = [GW/1.25, GH/2.84, GW/1.005, GH/1.50];
 startButton = [GW/1.47, GH/1.68, GW/1.26, GH/1.50];
 leaveButton = [GW/1.47, GH/1.94, GW/1.26, GH/1.71];
 
-
+//feather disable once GM2017
 function gui_draw_button(position, text){
 	drawRectangle(position[0], position[1], position[2], position[3]);
 	draw_set_halign(fa_center);
@@ -67,7 +67,7 @@ function gui_draw_button(position, text){
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
 }
-
+//feather disable once GM2017
 function gui_button_click(pos){
 	var result = false;
 	if (point_in_rectangle(oGui.x, oGui.y, pos[0], pos[1], pos[2], pos[3])){

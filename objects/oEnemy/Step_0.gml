@@ -46,7 +46,7 @@ if(global.gamePaused == false and instance_exists(target)){
 		
 		image_alpha-=.05;
 		x-=image_xscale;
-		if (boss and global.ScreenShake == 1) {
+		if (boss and global.screenShake == 1) {
 			oGame.shake_magnitude=6;
 		}
 		if (image_alpha == 0) {

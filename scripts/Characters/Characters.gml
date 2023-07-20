@@ -8,11 +8,11 @@ function initializePlayer(_p){
 	global.newcoins = 0;
 	blacksmithLevel = 0;
 	#region shop hp upgrade
-	var _hpBonus = 4 * global.ShopUpgrades[$ "Hp"][$ "level"];
+	var _hpBonus = 4 * global.shopUpgrades[$ "Hp"][$ "level"];
 	#endregion
 	HP=_p[?"hp"] + _hpBonus;
 	MAXHP=_p[?"hp"] + _hpBonus;
-	if (global.ShopUpgrades[$ "Hardcore"][$ "level"] == 1) {
+	if (global.shopUpgrades[$ "Hardcore"][$ "level"] == 1) {
 		MAXHP=1;
 	}
 	NAME=_p[?"name"];
@@ -117,7 +117,7 @@ enum BuffNames{
 //Natsuiro Matsuri IconNatsuiro Matsuri
 //Murasaki Shion IconMurasaki Shion
 
-function populateCharacters(){
+function populate_characters(){
 	createCharacter(Characters.Amelia,"Watson Amelia",sAmePortrait,sAmeIdle,sAmeRunning,75,1.35,1.30, 1.10, 3,u[Weapons.AmePistol], false);
 	createCharacter(Characters.Gura,"Gawr Gura",sGuraPortrait,sGuraIdle,sGuraRunning,65,1.40,1.10,1.05, 1, u[Weapons.GuraTrident], true);
 	createCharacter(Characters.Ina,"Ninomae Ina'nis",sInaPortrait,sInaIdle,sInaRunning,75,1.50,0.90, 1.01, 1,u[Weapons.InaTentacle], true);
@@ -204,7 +204,7 @@ enum Characters {
 
 function Movement()
 {
-if can_move == true{
+if canMove == true{
 	gamepad_set_axis_deadzone(global.gPnum, 0.7);
 	var _left, _right, _up, _down;
 	     _left = input_check("left");

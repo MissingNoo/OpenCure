@@ -5,7 +5,7 @@ if (room == rInicio or room == rLobby) {
 			alarm[0]=1;
 		}
 		for (var i = 0; i < 130; ++i) {
-			draw_sprite_ext(menuCharselectBar,0,linespos+linesoff,display_get_gui_height()+60,1.5,2.15,0,c_white,.25);
+			draw_sprite_ext(sMenuCharselectBar,0,linespos+linesoff,display_get_gui_height()+60,1.5,2.15,0,c_white,.25);
 			linesoff +=16;
 		}	
 	#endregion

@@ -39,7 +39,8 @@ sprite_index=upg[$"sprite"];
 
 
 	var randomEnemy;
-	if (upg[$"perk"] and global.ShopUpgrades.Growth.level == 1) {
+	//feather disable once GM2017
+	if (upg[$"perk"] and global.shopUpgrades.Growth.level == 1) {
 	    for (var i = 0; i < global.level; ++i) {
 		    mindmg = mindmg + (mindmg* 2 / 100);
 			maxdmg = maxdmg+ (maxdmg* 2 / 100);
@@ -120,7 +121,7 @@ sprite_index=upg[$"sprite"];
 			break;}
 			
 		case Weapons.BlBook:{
-			orbit_length = 50;
+			orbitLength = 50;
 			if (shoots > 0) {	
 				switch (upg[$"level"]) {
 				    case 1:
@@ -275,7 +276,7 @@ sprite_index=upg[$"sprite"];
 			break;}
 		case Weapons.PsychoAxe:{
 			orbitoffset = 0;
-			orbit_length = 0;
+			orbitLength = 0;
 			break;}
 		case Weapons.WamyWater:{
 			image_angle = arrowDir + diroffset;

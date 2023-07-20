@@ -16,12 +16,12 @@ if (global.upgrade == 1 or global.gamePaused and room != rInicio and HP > 0) {
 if (room == rInicio) {
 	#region Menu
 	if (!global.gamePaused) {
-		mouseOnButton(GW/1.25, GW/6, 55, sHudButton, 1.75, 1.5, menu_options);
+		mouseOnButton(GW/1.25, GW/6, 55, sHudButton, 1.75, 1.5, menuOptions);
 		draw_text_transformed(20,GH-50,"version DEMO 0.4.11072001 ported by Airgeadlamh", 1, 1, 0);
 		var offset = 0;
 		var thiss=0;
 		var scale;
-		for (var i = 0; i < array_length(menu_options); i++) {
+		for (var i = 0; i < array_length(menuOptions); i++) {
 		    if (i == selected) { draw_set_color(c_black); thiss = 1; scale = 0.35;}
 		    else {draw_set_color(c_white); thiss=0; scale = 0;}
 			//var menuX = GW/1.20;
@@ -34,7 +34,7 @@ if (room == rInicio) {
 		    draw_text_transformed(
 		        menuX,
 		        menuY + offset,
-		        menu_options[i],1.85, 1.85,0);
+		        menuOptions[i],1.85, 1.85,0);
 		    offset += 55;	
 			draw_set_valign(fa_top);
 			draw_set_halign(fa_left);
@@ -52,7 +52,7 @@ if (room == rCharacterSelect) {
 		alarm[0]=1;
 	}
 	for (var i = 0; i < 130; ++i) {
-		draw_sprite_ext(menuCharselectBar,0,oGame.linespos+linesoff,display_get_gui_height()+60,1.5,2.15,0,c_white,.25);
+		draw_sprite_ext(sMenuCharselectBar,0,oGame.linespos+linesoff,display_get_gui_height()+60,1.5,2.15,0,c_white,.25);
 		linesoff +=16;
 	}	
 #endregion
@@ -85,7 +85,7 @@ if (room == rCharacterSelect) {
 		for (var i=0; i < Characters.Lenght; i++) {
 			draw_sprite_ext(CHARACTERS[i][?"portrait"],0,_x + offset,_y,2.20,2.20,0,c_white,1);
 			if (selectedCharacter == i) {
-				draw_sprite_ext(menu_carselec_cursor,-1,_x + offset, _y,2.20,2.20,0,c_white,1);
+				draw_sprite_ext(sMenuCharSelectCursor,-1,_x + offset, _y,2.20,2.20,0,c_white,1);
 			}
 			offset+=GW/13;
 		}
@@ -186,17 +186,17 @@ if (instance_exists(oPlayer))
 	draw_text_transformed(GW/1.18, GH/7.60, string(global.defeatedEnemies), 2, 2, 0);
 	#region Character Portrait
 	var _portraitx = GW/30, _portraity = GH/10;
-	var _portraithalf = sprite_get_height(ui_portrait_frame);
+	var _portraithalf = sprite_get_height(sUiPortraitFrame);
 	if (global.showhpui) {
 		draw_rectangle_color(_portraitx, _portraity - _portraithalf, _portraitx + 85, _portraity - _portraithalf + 15, c_white, c_white, c_white, c_white, false);		
 		draw_text_transformed_color(GW/14, GH/20, "HP", 2, 1.5, 0, c_black, c_black, c_black, c_black, 1);		
 	}		
-	draw_sprite_ext(ui_portrait_bg,0, _portraitx, _portraity, 2,2,0,c_white,1);
+	draw_sprite_ext(sUiPortraitBg,0, _portraitx, _portraity, 2,2,0,c_white,1);
 	draw_sprite_ext(global.player[?"portrait"],0,_portraitx, _portraity,2,2,0,c_white,1);
-	draw_sprite_ext(ui_portrait_frame,0,_portraitx, _portraity,2,2,0,c_white,1);
+	draw_sprite_ext(sUiPortraitFrame,0,_portraitx, _portraity,2,2,0,c_white,1);
 	#endregion
 	#region Special
-	if (global.ShopUpgrades[$ "SpecialAtk"][$ "level"] == 1) {
+	if (global.shopUpgrades[$ "SpecialAtk"][$ "level"] == 1) {
 		var _sx = GW/273;
 		var _sy = GH/6;
 		var casesize = 27;
@@ -227,23 +227,23 @@ if (instance_exists(oPlayer))
 		_itemsy = GH/13;
 	}
 	for (var i = 0; i < array_length(UPGRADES); i++){ //for the size of the upgrade arrays
-		draw_sprite_ext(ui_empty_slot_weapon,0,_itemsx+offset,_itemsy,1.5,1.5,0,c_white,.5); //draw empty slots background
+		draw_sprite_ext(sUiEmptySlotWeapon,0,_itemsx+offset,_itemsy,1.5,1.5,0,c_white,.5); //draw empty slots background
 		if (UPGRADES[i]!=global.null){ //if there is a upgrade in the slot		
 			var awakened = (UPGRADES[i][$"level"] < UPGRADES[i][$"maxlevel"]) ? 0 : 1; //check if weapon is awakened
 			draw_sprite_ext(UPGRADES[i][$ "thumb"],awakened,_itemsx+offset,_itemsy,2,2,0,c_white,1); //draw weapon sprite
 			if (global.debug) {draw_text(_itemsx+offset, _itemsy-15,string(global.upgradeCooldown[UPGRADES[i][$"id"]]));}
 			switch (UPGRADES[i][$ "type"]){ //detect the type of upgrade
 				case "red":{
-					header = ui_level_header_pink;
-					digit = uiDigitPink;
+					header = sUiLevelHeaderPink;
+					digit = sUiDigitPink;
 					break;}
 				case "yellow":{
-					header = ui_level_header_yellow;
-					digit = uiDigitYellow;
+					header = sUiLevelHeaderYellow;
+					digit = sUiDigitYellow;
 					break;}
 				case "white":{
-					header = ui_level_header_white;
-					digit = uiDigitWhite;
+					header = sUiLevelHeaderWhite;
+					digit = sUiDigitWhite;
 					break;}
 			}
 			draw_sprite_ext(header,0,_itemsx+offset,_itemsy,2,2,0,c_white,1); //draw type sprite
@@ -257,7 +257,7 @@ if (instance_exists(oPlayer))
 	offset=0;			
 	yoffset = 60;
 	for (var i = 0; i < array_length(playerItems); i++){ //for the size of the upgrade arrays
-		draw_sprite_ext(ui_empty_slot_item,0,_itemsx+offset,_itemsy+yoffset,1.5,1.5,0,c_white,.5); //draw empty slots background
+		draw_sprite_ext(sUiEmptySlotItem,0,_itemsx+offset,_itemsy+yoffset,1.5,1.5,0,c_white,.5); //draw empty slots background
 		if (playerItems[i]!=global.nullitem) //if there is a upgrade in the slot
 		{
 			var awakened = (playerItems[i][$"level"] < 7) ? 0 : 1; //check if weapon is awakened
@@ -266,16 +266,16 @@ if (instance_exists(oPlayer))
 			switch (playerItems[i][$ "type"]) //detect the type of upgrade
 			{
 				case "red":{
-					header = ui_level_header_pink;
-					digit = uiDigitPink;
+					header = sUiLevelHeaderPink;
+					digit = sUiDigitPink;
 					break;}
 				case "yellow":{
-					header = ui_level_header_yellow;
-					digit = uiDigitYellow;
+					header = sUiLevelHeaderYellow;
+					digit = sUiDigitYellow;
 					break;}
 				case "white":{
-					header = ui_level_header_white;
-					digit = uiDigitWhite;
+					header = sUiLevelHeaderWhite;
+					digit = sUiDigitWhite;
 					break;}
 			}
 			draw_sprite_ext(header,0,_itemsx+offset,_itemsy+yoffset,2,2,0,c_white,1); //draw type sprite
@@ -289,13 +289,13 @@ if (instance_exists(oPlayer))
 	offset=150;
 	yoffset = 120;
 	for (var i = 0; i < array_length(PLAYER_PERKS); i++){ //for the size of the upgrade arrays
-		draw_sprite_ext(ui_empty_slot_item,0,_itemsx+offset,_itemsy+yoffset,1.5,1.5,0,c_white,.5); //draw empty slots background
+		draw_sprite_ext(sUiEmptySlotItem,0,_itemsx+offset,_itemsy+yoffset,1.5,1.5,0,c_white,.5); //draw empty slots background
 		if (PLAYER_PERKS[i]!=global.nullperk){ //if there is a upgrade in the slot
 			var activated = PLAYER_PERKS[i][$"level"] > 0  ? 1 : .5;
 			draw_sprite_ext(PLAYER_PERKS[i][$ "thumb"],0,_itemsx+offset,_itemsy+yoffset,2,2,0,c_white, activated); //draw weapon sprite
 			if (global.debug) {draw_text(_itemsx+offset, _itemsy-15+yoffset,string(global.perkCooldown[PLAYER_PERKS[i][$"id"]]));}
-			draw_sprite_ext(ui_level_header_pink,0,_itemsx+offset,_itemsy+yoffset,2,2,0,c_white,1); //draw type sprite
-			draw_sprite_ext(uiDigitPink,PLAYER_PERKS[i][$ "level"],_itemsx+5+offset,_itemsy+yoffset,2,2,0,c_white,1); //draw level					        
+			draw_sprite_ext(sUiLevelHeaderPink,0,_itemsx+offset,_itemsy+yoffset,2,2,0,c_white,1); //draw type sprite
+			draw_sprite_ext(sUiDigitPink,PLAYER_PERKS[i][$ "level"],_itemsx+5+offset,_itemsy+yoffset,2,2,0,c_white,1); //draw level					        
 		}		
 		offset+=50;
 	}
@@ -376,8 +376,8 @@ if (instance_exists(oPlayer))
 			}
 			offset += GH/5.30;
 			draw_set_color(c_white);
-		}
-		if (global.ShopUpgrades.Reroll.level > 0) {
+		}//feather disable once GM2017
+		if (global.shopUpgrades.Reroll.level > 0) {
 			var _rerollX = GW/2;
 			var _rerollY = GH/1.05;
 			draw_sprite_ext(sHudButton, selected == 4 ? 1 : 0, _rerollX, _rerollY, 1.15, 2, 0, c_white, 1);
@@ -673,6 +673,7 @@ if (global.debug) {
 	draw_set_color(c_grey);
 	draw_set_alpha(.5);
 	draw_set_color(c_white);
+	//feather disable once GM2017
 	var g = time_source_get_state(oEvents._time_source);
 	var variables = ["a","b","c","d","e", "dir", "revives", "event", "g"];
 	var boxsize=0;

@@ -47,8 +47,8 @@ switch (upg[$"id"]) {
 	case Weapons.BlBook:{
 		//if (shoots > 1) {			
 			inst = spawnUpgrade();
-			inst.orbit_place = orbitoffset;
-			inst.orbit_length = orbit_length;
+			inst.orbitPlace = orbitoffset;
+			inst.orbitLength = orbitLength;
 			switch (upg[$"level"]) {
 				    case 1:
 				        orbitoffset -= 120;

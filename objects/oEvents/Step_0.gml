@@ -1,3 +1,4 @@
+//feather disable GM2017
 if (event == false and time_source_get_state(_time_source) == time_source_state_stopped) {
     time_source_reset(_time_source);
 	time_source_start(_time_source);

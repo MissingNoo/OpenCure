@@ -7,10 +7,10 @@ maxitemtabbed = 5;
 shopOptions = [ShopOption.Talk, ShopOption.Quit];
 shopSprSize = sprite_get_width(sHudShopArea);
 justOpened = true;
-_maxvalue = 0;
 haveSelectedItem = false;
 alarm[0] = 10;
 buyingItem = false;
+//feather disable once GM2017
 function draw_simple_items(arr){
 	var _yoff = 0;
 	if (maxitem > array_length(arr)) {

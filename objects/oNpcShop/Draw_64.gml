@@ -123,8 +123,7 @@ firstItem : {3}
 maxItem : {4}
 firstItemTabbed : {5}
 maxItemTabbed : {6}
-buyingItem : {7}
-maxvalue : {8}", 
+buyingItem : {7}", 
 selectedItem, 
 selectedTab,
 tabItems,
@@ -132,6 +131,5 @@ firstitem,
 maxitem,
 firstitemtabbed,
 maxitemtabbed,
-buyingItem,
-_maxvalue
+buyingItem
 ));

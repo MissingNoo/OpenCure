@@ -110,7 +110,7 @@ function newCreateItem(_data){
 		Stolen_Piggy_Bank,
 		Study_Glasses, 
 		Super_Chatto_Time,
-		Uber_Sheep,
+		UberSheep,
 		Holocoin,
 		Hamburguer,
 		length
@@ -147,7 +147,7 @@ function newCreateItem(_data){
 	}
 #endregion
 
-function populateItems(){
+function populate_items(){
 	#region Item Creation
 		#region Items
 			newCreateItem({//Blacksmith's Gear
@@ -550,7 +550,7 @@ function populateItems(){
 		
 			#region UberSheep
 			newCreateItem({
-				id : ItemIds.Uber_Sheep,
+				id : ItemIds.UberSheep,
 				name : "Uber Sheep",
 				maxlevel : 5,
 				weight : 4,
@@ -560,7 +560,7 @@ function populateItems(){
 				bonusType : BonusType.UberSheep,
 				bonusValue : [1.10, 1.12, 1.15, 1.18, 1.20],
 			});
-				Bonuses[BonusType.UberSheep][ItemIds.Uber_Sheep] = 1;
+				Bonuses[BonusType.UberSheep][ItemIds.UberSheep] = 1;
 			#endregion
 		
 			#endregion
@@ -624,7 +624,7 @@ function tickItems(){
 				case ItemIds.Injection_Type_Asacoco:{
 					HP = HP - (HP * 0.05);
 					break;}
-				case ItemIds.Uber_Sheep:{
+				case ItemIds.UberSheep:{
 					do{
 						a = irandom_range(-1,1);
 						b = irandom_range(-1,1);

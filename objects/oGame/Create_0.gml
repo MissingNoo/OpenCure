@@ -30,10 +30,10 @@ global.gPnum = 0;
 /// @description Insert description here
 // You can write your code in this editor
 // Feather disable GM2017
-global.SpawnEnemies = 1;
-shake_fx = layer_get_fx("ShakeLayer");
-shake_magnitude = 0;
-shake_speed = 1;
+global.spawnEnemies = 1;
+shakeFx = layer_get_fx("ShakeLayer");
+shakeMagnitude = 0;
+shakeSpeed = 1;
 depth=99;
 global.musicPlaying = undefined;
 #region lines
@@ -52,7 +52,7 @@ enum StageTypes{
 #region SaveLoad
 
 
-	var variables = ["musicVolume","soundVolume","DamageNumbers","ScreenShake", "GamePad"];
+	var variables = ["musicVolume","soundVolume","damageNumbers","screenShake", "gamePad"];
 	for (var i = 0; i < array_length(variables); ++i) {
 			if (!variable_global_exists(variables[i])) {
 				variable_global_set(variables[i], 1)
@@ -78,20 +78,20 @@ enum StageTypes{
 	//	    global.soundVolume = 1; 
 	//	}
 	//}
-
+//global.damageNumbers ??= 1;
 	//if (!variable_global_exists("damageNumbers")) { 
-	//	global.DamageNumbers = 1; 
+	//	global.damageNumbers = 1; 
 	//}else{
-	//	if (global.DamageNumbers == undefined) {
-	//	    global.DamageNumbers = 1; 
+	//	if (global.damageNumbers == undefined) {
+	//	    global.damageNumbers = 1; 
 	//	}
 	//}
 	
 	//if (!variable_global_exists("canShake")) { 
-	//	global.ScreenShake = 1; 
+	//	global.screenShake = 1; 
 	//}else{
-	//	if (global.ScreenShake== undefined) {
-	//	    global.ScreenShake= 1; 
+	//	if (global.screenShake== undefined) {
+	//	    global.screenShake= 1; 
 	//	}
 	//}
 #endregion

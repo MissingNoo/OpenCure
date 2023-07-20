@@ -3,6 +3,7 @@ event_inherited();
 immortal = false;
 if (global.singleplayer) {
 	global.roomname = "";
+	//feather disable once GM2017
 	global.IsHost = true;
 }
 global.defeatedEnemies = 0;
@@ -29,7 +30,9 @@ global.move.follow(false);
 
 #region redgura
 	redgura = false;
+	//feather disable once GM2017
 	part_red = undefined;
+	//feather disable once GM2017
 	redstop = function(){redgura = false; part_system_destroy(part_red); part_red = undefined;}
 	redtime = time_source_create(time_source_game, 10, time_source_units_seconds,redstop);
 #endregion
@@ -49,13 +52,14 @@ healSeconds = 0;
 initializePlayer(global.player);
 pickupRadius = 35;
 originalPickupRadius = pickupRadius;
+//feather disable once GM2017
 in_range = noone;
 canShoot=1;
 neededxp = 79;
 atkpercentage=0;
 v=0;
 global.arrowDir=0;
-can_move=true;
+canMove=true;
 ospd = spd;
 if (!instance_exists(oCam)) {
     instance_create_depth(x,y,0,oCam);
@@ -66,4 +70,5 @@ lef =0;
 dow=0;
 rig=0;
 upp=0;
-global.rerolls = global.ShopUpgrades.Reroll.level;
+//feather disable once GM2017
+global.rerolls = global.shopUpgrades.Reroll.level;
