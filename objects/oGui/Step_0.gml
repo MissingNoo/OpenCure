@@ -1,10 +1,10 @@
 #region Misc
 isP=global.gamePaused;
-if (device_mouse_check_button_pressed(0, ev_left_button)) {
+if (device_mouse_check_button_pressed(0, mb_left)) {
     x = device_mouse_x_to_gui(0);
 	y = device_mouse_y_to_gui(0);
 }
-if (device_mouse_check_button_released(0, ev_left_button)) {
+if (device_mouse_check_button_released(0, mb_left)) {
     x = 0;
 	y = 0;
 	if (instance_exists(oLobby)) {
@@ -20,7 +20,7 @@ if (room == rInicio and instance_exists(oClient)) {
     instance_destroy(oClient);
 	global.IsHost = true;
 }
-if (room == Room1 and !instance_exists(oClient)) {
+if (room == rStage1 and !instance_exists(oClient)) {
 	instance_create_layer(1895, 1880, "Instances", oClient);
     instance_create_layer(1895, 1880, "Instances", oPlayer);
 }
@@ -110,7 +110,7 @@ if (global.upgrade) // after level up
 			if (global.upgradeOptions[selected][$"name"] == "null") { break; }
 			if (global.upgradeOptions[selected][$"id"] == ItemIds.Holocoin){ 
 				var coins = 50;
-				for (var i = 1; i < global.ShopUpgrades.MoneyGain.level; ++i) {
+				for (var j = 1; j < global.ShopUpgrades.MoneyGain.level; ++j) {
 					coins = coins + ((coins * 20) / 100);
 				}
 				global.newcoins += coins;

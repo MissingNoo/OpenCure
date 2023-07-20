@@ -29,8 +29,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_Pipmod_Pippa_idle",
-    "path": "sprites/spr_Pipmod_Pippa_idle/spr_Pipmod_Pippa_idle.yy",
+    "name": "sPippaIdle",
+    "path": "sprites/sPippaIdle/sPippaIdle.yy",
   },
   "spriteMaskId": null,
   "visible": true,

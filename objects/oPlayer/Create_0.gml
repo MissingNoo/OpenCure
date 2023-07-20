@@ -6,10 +6,10 @@ if (global.singleplayer) {
 	global.IsHost = true;
 }
 global.defeatedEnemies = 0;
-_x1 = 0;
-_x2 = 0;
-_y1 = 0;
-_y2 = 0;
+x1 = 0;
+x2 = 0;
+y1 = 0;
+y2 = 0;
 if (variable_global_exists("aim")) {
     global.aim.destroy();
 }

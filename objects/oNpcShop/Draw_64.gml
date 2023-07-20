@@ -28,7 +28,7 @@ draw_sprite_ext(sHudArea, 0, GW/1.20, GH/21.34, 8, 2, 0, c_white, 1);
 //coins
 draw_sprite_ext(sHudArea, 0, GW/1.20 - 250, GH/21.34, 8, 2, 0, c_white, 1);
 draw_sprite_ext(sHolocoin, 0, GW/1.20 -250 + 30, GH/21.34 + 18, 2, 2, 0, c_white, 1);
-draw_set_valign(fa_center);
+//draw_set_valign(fa_center);
 draw_set_halign(fa_right);
 draw_text_transformed(GW/1.20 - 250 + 185, GH/21.34 + 16, global.holocoins, 3, 3, 0);
 draw_set_valign(fa_top);
@@ -37,7 +37,7 @@ if (!optionConfirmed) { return; }
 #region Shop Area
 draw_sprite_ext(sHudShopArea, 0, GW/3.23, GH/13.97 + 35, 36, 32, 0, c_white, 1);
 #region Shop Name
-draw_set_valign(fa_center);
+//draw_set_valign(fa_center);
 draw_set_halign(fa_center);
 draw_text_transformed(GW/3.23 + ((shopSprSize * 36) / 2), GH/13.97 + 80, shopName, 6, 6, 0);
 draw_set_valign(fa_top);
@@ -48,9 +48,11 @@ switch (type) {
     case ShopType.Simple:
 		switch (category) {
 			case ShopOption.Buy:
+		        // Feather disable once GM1041
 		        draw_simple_items(shopItemsBuy);
 		        break;
 			case ShopOption.Sell:
+				// Feather disable once GM1041
 		        draw_simple_items(shopItemsSell);
 		        break;
 		}
@@ -62,12 +64,13 @@ switch (type) {
 				var _xoff = 0;
 				var _x = GW/2.48;
 				var _y = GH/3.25;
+				// Feather disable once GM1041
 				for (var i = 0; i < array_length(shopTabs); ++i) {				
 					var _alpha = selectedTab == i ? 1 : .5;
 				    draw_sprite_ext(shopTabs[i][$"sprite"], 0, _x + _xoff, _y, 1, 1, 0, c_white, _alpha);
 					_xoff += 80;
 				}
-				var _yoff = 0;
+				_yoff = 0;
 				_x = GW/3.10;
 				_y = GH/4.71;
 				_x = _x + 100;
@@ -88,7 +91,7 @@ switch (type) {
 						    haveItem = true;
 						}
 					}
-					draw_set_valign(fa_right);
+					//draw_set_valign(fa_right);
 					if (!haveItem) {
 						if (selectedItem == i) { haveSelectedItem = haveItem; }
 						draw_text_transformed_color(_x + 550, _y + 25 + _yoff, tabItems[i][$"cost"], 3, 3, 0, c_yellow, c_yellow, c_yellow, c_yellow, 1);
@@ -103,7 +106,7 @@ switch (type) {
 					if (buyingItem) {
 					    draw_sprite_ext(sHudButton, 1, _x + 525, _y + _yoff, 1.5, 1.5, 0, c_white, 1);
 					}
-					draw_set_valign(fa_left);
+					//draw_set_valign(fa_left);
 					_yoff += 80;
 				}
 				break;

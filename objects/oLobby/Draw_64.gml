@@ -1,3 +1,4 @@
+
 if (!joinedRoom) {//wrong client secret
 	var x1;
 	var y1;
@@ -14,7 +15,7 @@ if (!joinedRoom) {//wrong client secret
 	draw_set_alpha(1);
 	draw_rectangle_color(createx1, createy1, createx2, createy2, c_white, c_white, c_white, c_white, true);
 	draw_set_valign(fa_middle);
-	draw_set_halign(fa_middle);
+	//draw_set_halign(fa_middle);
 	draw_text_transformed_color((createx1+createx2)/2, (createy1 + createy2) /2, "Create", 2, 2, 0, c_white, c_white, c_white, c_white, 1);
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
@@ -25,7 +26,7 @@ if (!joinedRoom) {//wrong client secret
 	draw_set_alpha(1);
 	draw_rectangle_color(joinx1, createy1, joinx2, createy2, c_white, c_white, c_white, c_white, true);
 	draw_set_valign(fa_middle);
-	draw_set_halign(fa_middle);
+	//draw_set_halign(fa_middle);
 	draw_text_transformed_color((joinx1+joinx2)/2, (createy1 + createy2) /2, "Join", 2, 2, 0, c_white, c_white, c_white, c_white, 1);
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
@@ -35,7 +36,7 @@ if (!joinedRoom) {//wrong client secret
 	draw_set_alpha(1);
 	draw_rectangle_color(reloadx1, createy1, reloadx2, createy2, c_white, c_white, c_white, c_white, true);
 	draw_set_valign(fa_middle);
-	draw_set_halign(fa_middle);
+	//draw_set_halign(fa_middle);
 	draw_text_transformed_color((reloadx1+reloadx2)/2, (createy1 + createy2) /2, "Reload", 2, 2, 0, c_white, c_white, c_white, c_white, 1);
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
@@ -44,7 +45,7 @@ if (!joinedRoom) {//wrong client secret
 	var textx = GW/2;
 	var texty = GH/30.72;
 	draw_set_valign(fa_middle);
-	draw_set_halign(fa_middle);
+	//draw_set_halign(fa_middle);
 	draw_text_transformed_color(textx, texty, "ROOMS",2.86, 2.86, 0, c_white, c_white, c_white, c_white, 1);
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);	
@@ -96,7 +97,7 @@ if (creatingroom) {
 	var ay = cy;
 	var as = cs;
 	
-	draw_set_valign(fa_center);
+	//draw_set_valign(fa_center);
 	_color = (creatingselectedyesno == 0) ? c_yellow : c_white;
 	if (creatingselected != 2) { _color = c_white;}
 	draw_rectangle_color(cx - cs, cy - 14.5, cx + cs, cy + 14.5, _color, _color, _color, _color, true);
@@ -155,7 +156,7 @@ if (typepassword) {
 	var ay = cy;
 	var as = cs;
 	
-	draw_set_valign(fa_center);
+	//draw_set_valign(fa_center);
 	_color = (passwordselectedyesno == 0) ? c_yellow : c_white;
 	if (passwordselected != 1) { _color = c_white;}
 	draw_rectangle_color(cx - cs, cy - 14.5, cx + cs, cy + 14.5, _color, _color, _color, _color, true);
@@ -187,6 +188,7 @@ if (joinedRoom) {
     draw_set_color(c_white);
 	var offset = 0;
 	var biggername = 0;
+	// Feather disable once GM1041
 	for (var i = 0; i < array_length(players); ++i) {
 		var len = string_length(players[i][$"username"]);
 		if (len > biggername) {

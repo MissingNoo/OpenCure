@@ -1,4 +1,4 @@
-// Feather disable GM2017
+// Feather disable all
 function __input_class_vibration_curve(_strength, _curve, _pan, _duration, _force) constructor
 {
     __force = _force;

@@ -236,7 +236,7 @@ function sine_between(time, period, minimum, maximum) {
  * @param {real} _ex Description
  * @param {real} _ey Description
  * @param {string} _var Description
- * @param {any} _value Description
+ * @param {real} _value Description
  */
 function openKeyboard(_sx, _sy, _ex, _ey, _var = "nullvar", _value = 0, _varr = ""){
 	if (global.debug) {

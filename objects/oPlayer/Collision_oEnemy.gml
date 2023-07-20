@@ -55,7 +55,7 @@ if (other.canattack and other.image_alpha == 1 and image_alpha == 1 and !global.
 				var _returnDamage = damage * _returnPercent;
 				if (_random <= _chance) {
 					other.hp -= _returnDamage;
-					var inst = instance_create_layer(other.x,other.y - sprite_get_height(other.sprite_index)/2,"DamageLayer",oDamageText);
+					inst = instance_create_layer(other.x,other.y - sprite_get_height(other.sprite_index)/2,"DamageLayer",oDamageText);
 					with (inst)
 					{
 						dmg=round(_returnDamage);

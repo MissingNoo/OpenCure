@@ -1,3 +1,4 @@
+global.gamePad = false;
 if (!variable_global_exists("ShopUpgrades")) {
     global.ShopUpgrades = {
 		Hp : {

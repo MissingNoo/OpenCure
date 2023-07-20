@@ -1,5 +1,4 @@
-// Feather disable GM2043
-// Feather disable GM2017
+// Feather disable all
 function __input_class_virtual() constructor
 {
     __INPUT_GLOBAL_STATIC_VARIABLE  //Set static __global

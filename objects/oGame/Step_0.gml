@@ -1,9 +1,10 @@
 //show_debug_message(string(input_profile_get(0)));
+//feather disable GM1016
 if (input_profile_get(0) == "gamepad") {
-    global.GamePad = true;
+    global.gamePad = true;
 }
 else{
-	global.GamePad = false;
+	global.gamePad = false;
 }
 //if (keyboard_check_pressed(RIGHTKEY) or keyboard_check_pressed(LEFTKEY) or keyboard_check_pressed(UPKEY)  or keyboard_check_pressed(DOWNKEY) or device_mouse_check_button_pressed(0,mb_left)) {
 //	global.GamePad = false;
@@ -136,7 +137,7 @@ var pressed = (input_check("accept") and !global.gamePaused) ? true : false;
 if (!instance_exists(oEvents)) {
 	    instance_create_layer(0,0,"Instances",oEvents);
 	}	
-if (instance_exists(oPlayer) and canspawn == true and global.gamePaused == false and room == Room1 and global.SpawnEnemies == 1 and global.IsHost) {
+if (instance_exists(oPlayer) and canspawn == true and global.gamePaused == false and room == rStage1 and global.SpawnEnemies == 1 and global.IsHost) {
 	
 	var a = irandom_range(-1,1)
 	if (a=0) a = 1;

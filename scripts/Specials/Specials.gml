@@ -33,7 +33,7 @@ function populateSpecials(){
 	createSpecial(SpecialIds.Ina, "Tako Spin", sInaSpecialIcon, 60, "Summons 8 tentacles around Ina, then spins rapidly around her, dealing 150% damage and knockback to all targets.", Characters.Ina, seq_InaSpin);
 	#region Modded
 	#region Pipkin Pippa
-	createSpecial(SpecialIds.Walmart_Form, "Walmart Form", spr_Pipmod_Pippa_Icon_Special, 60, "Summons 8 tentacles around Ina, then spins rapidly around her, dealing 150% damage and knockback to all targets.", Characters.Pippa, pointer_null);
+	createSpecial(SpecialIds.Walmart_Form, "Walmart Form", sWalmart, 60, "Summons 8 tentacles around Ina, then spins rapidly around her, dealing 150% damage and knockback to all targets.", Characters.Pippa, pointer_null);
 	#endregion
 	#endregion
 	

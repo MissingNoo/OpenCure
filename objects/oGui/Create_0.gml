@@ -129,7 +129,7 @@ pauseMenu[PMenus.Pause][PM.YScale] = 0.75;
 		pauseMenu[PMenus.Settings][PM.Options][4] = "SpawnEnemies: ";
 		pauseMenu[PMenus.Settings][PM.Options][5] = "GamePad: ";
 		pauseMenu[PMenus.Settings][PM.Bool][5] = true;
-		pauseMenu[PMenus.Settings][PM.BoolValue][5] = global.GamePad;
+		pauseMenu[PMenus.Settings][PM.BoolValue][5] = global.gamePad;
 		pauseMenu[PMenus.Settings][PM.Options][6] = "showhpui: ";
 		pauseMenu[PMenus.Settings][PM.Bool][6] = true;
 		pauseMenu[PMenus.Settings][PM.BoolValue][6] = global.showhpui;			
@@ -148,7 +148,7 @@ if (instance_number(oTitleRunning) < 15 and room == rInicio) {
 	stageSelected = false;
 	stageModes = ["STAGE MODE", "ENDLESS MODE"];
 	modesDescription = ["Defeat the last boss to complete the stage!", "Survive for as long as you can and reach the top of the leaderboards!"];
-	stages = [{name: "Stage 1", port : sStage1Port, roomname : Room1}]
+	stages = [{name: "Stage 1", port : sStage1Port, roomname : rStage1}]
 	selectedStage = 0;
 #endregion
 

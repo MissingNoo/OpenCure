@@ -1,3 +1,4 @@
+// Feather disable all
 if(!instance_exists(imgui)){
 	exit;	
 }

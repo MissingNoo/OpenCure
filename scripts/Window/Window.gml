@@ -1,6 +1,8 @@
 // Feather disable GM2043
 // Feather disable GM1024
 // Feather disable GM2017
+// Feather disable GM1044
+// Feather disable GM1041
 #macro GW display_get_gui_width()
 #macro GH display_get_gui_height()
 function drawWindow(x, y, xx, yy, title, titlesize = 25,titlePos = 15, fontsize = 1){
@@ -110,8 +112,8 @@ function drawDesc(_xx, _yy, _string, maxX, _size = 1){
  * @param {real} y Description
  * @param {real} xx Description
  * @param {real} yy Description
- * @param {constant.color} [_background]=c_black Description
- * @param {constant.color} [_outline]=c_white Description
+ * @param {any} [_background]=c_black Description
+ * @param {any} [_outline]=c_white Description
  * @param {real} [alpha]=0.35 Description
  */
 function drawRectangle(x, y, xx, yy, _background = c_black, _outline = c_white, alpha = 0.35){

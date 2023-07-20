@@ -56,9 +56,9 @@ function initializePlayer(_p){
 	#endregion
 	
 	#region reset perk bonuses
-		PerkBonuses = array_create(BonusType.lenght);
+		PerkBonuses = array_create(BonusType.Lenght);
 		for (var i = 0; i < array_length(PerkBonuses); ++i) {
-			PerkBonuses[i]=array_create(PerkIds.lenght, 0);
+			PerkBonuses[i]=array_create(PerkIds.Lenght, 0);
 			//if (is_array(PerkBonuses[i])) {
 			//    for (var j = 0; j < array_length(PerkBonuses[i]); ++j) {
 			//		PerkBonuses[i][j]=0;
@@ -77,8 +77,8 @@ function initializePlayer(_p){
 			}
 		}
 	#endregion
-	_gx = 0;
-	_gy =0;
+	gx = 0;
+	gy =0;
 	pimanLevel = 0;
 }
 
@@ -123,7 +123,7 @@ function populateCharacters(){
 	createCharacter(Characters.Ina,"Ninomae Ina'nis",sInaPortrait,sInaIdle,sInaRunning,75,1.50,0.90, 1.01, 1,u[Weapons.InaTentacle], true);
 	#region Modded
 	#region Pipkin Pippa
-	createCharacter(Characters.Pippa,"Pipkin Pippa",spr_Pipmod_Pippa_Portrait,spr_Pipmod_Pippa_idle,spr_Pipmod_Pippa_run,60,1.50,0.95, 1.10, 1,u[Weapons.PipiPilstol], true);
+	createCharacter(Characters.Pippa,"Pipkin Pippa",sPippaPortrait,sPippaIdle,sPippaRun,60,1.50,0.95, 1.10, 1,u[Weapons.PipiPilstol], true);
 	#endregion
 	#endregion
 	
@@ -217,7 +217,7 @@ if can_move == true{
 			
 		//}
 		
-		if (!global.GamePad) {
+		if (!global.gamePad) {
 			//TODO: fix
 			if (os_type != os_android) {
 				if (_down) { global.arrowDir=270; }
@@ -260,9 +260,9 @@ if can_move == true{
 			}
 		}
 		else{
-			_gx = - input_check("aim_left") + input_check("aim_right"); 
-			_gy = - input_check("aim_up") + input_check("aim_down");
-			if (!instance_exists(oPlayerWorld)) {global.arrowDir = point_direction(0,0, _gx, _gy);}
+			gx = - input_check("aim_left") + input_check("aim_right"); 
+			gy = - input_check("aim_up") + input_check("aim_down");
+			if (!instance_exists(oPlayerWorld)) {global.arrowDir = point_direction(0,0, gx, gy);}
 		}
 	}
 	var _hspd = 0;

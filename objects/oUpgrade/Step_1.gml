@@ -288,7 +288,7 @@ sprite_index=upg[$"sprite"];
 			//alarm[0] = 10;
 			//if (shoots % 2) {
 			if (shoots == -1) {
-				sprite_index = spr_Pipmod_Pippa_bullet_rifle_blue;
+				sprite_index = sBulletBlue;
 				var enemies = instance_number(oEnemy);
 			    CE = instance_find(oEnemy, irandom_range(0,enemies-1));
 				try{
@@ -332,7 +332,7 @@ sprite_index=upg[$"sprite"];
 			break;}
 		#endregion
 	}
-		if (sprite_index==blank) {
+		if (sprite_index==sBlank) {
 			instance_destroy();
 	}
 	

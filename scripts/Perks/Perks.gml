@@ -53,7 +53,7 @@ function create_perk(_data){
 		HeavyArtillery,
 		MoldySoul,
 		SodaFueled,
-		lenght
+		Lenght
 	}
 #endregion
 function populate_perks(){
@@ -184,7 +184,7 @@ function populate_perks(){
 						name : "Heavy Artillery",
 						maxlevel : 3, 
 						weight : 1,
-						thumb : spr_Pipmod_Pippa_Icon_Perk_HeavyArtillery,
+						thumb : sHeavyArtillery,
 						cooldown : [180, 180, 174, 174],
 						characterid : Characters.Pippa,
 						upgrade: true,
@@ -199,7 +199,7 @@ function populate_perks(){
 						name : "Moldy Soul",
 						maxlevel : 3, 
 						weight : 1,
-						thumb : spr_Pipmod_Pippa_Icon_Perk_MoldySoul,
+						thumb : sMoldySoul,
 						cooldown : 1,
 						characterid : Characters.Pippa
 					});
@@ -210,7 +210,7 @@ function populate_perks(){
 						name : "Soda Fueled",
 						maxlevel : 3, 
 						weight : 1,
-						thumb : spr_Pipmod_Pippa_Icon_Perk_SodaFueled,
+						thumb : sSodaFueled,
 						cooldown : 1,
 						characterid : Characters.Pippa
 					});

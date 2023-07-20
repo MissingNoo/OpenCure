@@ -1,6 +1,6 @@
 if (!editHouse) { return; }
 var _yoff = 0;
-draw_set_valign(fa_center);
+//draw_set_valign(fa_center);
 draw_set_halign(fa_center);
 for (var i = 0; i < array_length(houseOptions); ++i) {
 	var _spr = selectedMenu == i ? 1 : 0;
@@ -18,7 +18,7 @@ var _x = GW/3.69
 var _y = GH/7.18;
 draw_sprite_ext(sHudShopArea, 0, _x, _y, 25, 30.25, 0, c_white, 1);
 var _xoff = 0;
-var _yoff = 0;
+_yoff = 0;
 for (var i = 0; i < array_length(HouseInventory[selectedMenu]); ++i) {
 	if (selectedMenuConfirm and selectedItem == i) {
 	    draw_sprite_ext(sItemSquare, 0, _x + 45 + _xoff, _y + 40 + _yoff, 2, 2, 0, c_white, 1);
@@ -33,8 +33,8 @@ for (var i = 0; i < array_length(HouseInventory[selectedMenu]); ++i) {
 }
 //preview
 draw_sprite_ext(sHudShopArea, 0, GW/1.39, GH/7.18, 13, 22.50, 0, c_white, 1);
-var _x = GW/1.39 + ((sprite_get_width(sHudShopArea) * 13) / 2);
-var _y = GH/7.18 + 70;
+_x = GW/1.39 + ((sprite_get_width(sHudShopArea) * 13) / 2);
+_y = GH/7.18 + 70;
 draw_text_transformed(_x, _y, "Preview:", 3, 3, 0);
 if (variable_struct_exists(HouseInventory[selectedMenu][selectedItem], "sprite")) {
 	var _spr = HouseInventory[selectedMenu][selectedItem][$"sprite"];

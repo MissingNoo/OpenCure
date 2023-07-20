@@ -1,3 +1,4 @@
+// Feather disable all
 ///@desc imgui - Clean Up
 if (variable_instance_exists(self, "Textures")) {
     var num_textures = array_length(Textures);

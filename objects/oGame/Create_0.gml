@@ -1,4 +1,5 @@
 imguigml_activate();
+global.gamePad = false;
 global.arrowDir = 0;
 linespos = 0;
 global.shareXP = false;

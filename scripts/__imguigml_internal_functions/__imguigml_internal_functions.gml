@@ -2,7 +2,7 @@
 
 ///@desc imguigml initialization functions
 
-// Feather disable GM1019
+// Feather disable all
 enum EImGuiGML_Texture {
 	TextureID = 0,
 	OwnerID,

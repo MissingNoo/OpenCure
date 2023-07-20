@@ -39,8 +39,8 @@ global.upgradeCooldown[0] = 0;
 	variable_struct_set(m, "name", "null");
 	variable_struct_set(m, "level", 0);
 	variable_struct_set(m, "maxlevel", 0);
-	variable_struct_set(m, "sprite", blank);
-	variable_struct_set(m, "thumb", blank);
+	variable_struct_set(m, "sprite", sBlank);
+	variable_struct_set(m, "thumb", sBlank);
 	variable_struct_set(m, "mindmg", 0);
 	variable_struct_set(m, "maxdmg", 1);
 	variable_struct_set(m, "cooldown", 1);
@@ -71,7 +71,12 @@ enum ShotTypes {
 }
 
 #region Upgrades
-function newCreateUpgrade(_data, _sounds = ""){
+/**
+ * Function Description
+ * @param {struct} _data Description
+ * @param {Array<Asset.GMSound>} [_sounds]="" Description
+ */
+function newCreateUpgrade(_data, _sounds = []){
 	global.upgradesAvaliable[_data.id][0] = global.null;
 	_data.z = "z";
 	//show_message(_data);
@@ -276,7 +281,7 @@ function populateUpgrades(){
 				name : "Shockwave",
 				maxlevel : 1,
 				sprite : sShockwave,
-				thumb : blank,
+				thumb : sBlank,
 				mindmg : 0,
 				maxdmg : 0,
 				cooldown : 60,
@@ -697,8 +702,8 @@ function populateUpgrades(){
 				id : Weapons.PipiPilstol,
 				name : "PiPiPilstols",
 				maxlevel : 6,
-				sprite : spr_Pipmod_Pippa_bullet_rifle_pink,
-				thumb : spr_Pipmod_Pippa_Icon_Weapon,
+				sprite : sBulletPink,
+				thumb : sRifle,
 				mindmg : [7, 7, 7*1.25, 7*1.25, 7*1.25*1.50, 7*1.25*1.50*1.75],
 				maxdmg : [13, 13, 13*1.25, 13*1.25, 13*1.25, 13*1.20*1.40, 13*1.20*1.40],
 				cooldown : [80, 80, 80, 80*0.75, 80*0.75, 30],
@@ -720,7 +725,7 @@ function populateUpgrades(){
 				name : "Heavy Artillery",
 				maxlevel : 3,
 				sprite : sBombExplosion,
-				thumb : spr_Pipmod_Pippa_Icon_Weapon,
+				thumb : sRifle,
 				mindmg : (7*333)/100,
 				maxdmg : (13*333)/100,
 				cooldown : [180, 174, 174],
@@ -1152,6 +1157,7 @@ function tickPowers(){
 		for (i=0; i < array_length(UPGRADES); i++) {
 			var bonusdmg  = 0;
 			if (variable_struct_exists(UPGRADES[i], "bonusLevel")) {
+				// Feather disable once GM1041
 				for (var j = 0; j < array_length(UPGRADES[i][$"bonusDamage"]); ++j) {
 				    bonusdmg = bonusdmg + UPGRADES[i][$"bonusDamage"][j];
 				}			    
@@ -1203,3 +1209,219 @@ function spawnUpgrade(_upg = upg, _speed = upg[$"speed"], _hits = upg[$"hits"], 
 				});
 		return instancecreated;
 }
+				shoots : [2, 4, 4, 4, 4, 4],
+				knockbackSpeed : [0, 0, 0, 0, 0, 0, 0],
+				knockbackDuration : [0, 0, 0, 0, 0, 0, 0],
+				perk : true,
+				characterid : Characters.Pippa
+			},[snd_bullet, snd_bullet2, snd_bullet3]);
+			newCreateUpgrade({
+				id : Weapons.HeavyArtillery,
+				name : "Heavy Artillery",
+				maxlevel : 3,
+				sprite : sBombExplosion,
+				thumb : sRifle,
+				mindmg : (7*333)/100,
+				maxdmg : (13*333)/100,
+				cooldown : [180, 174, 174],
+				duration : 100, 
+				attackdelay : 20,
+				hitCooldown : 10, 
+				canBeHasted : true,
+				speed : 0,
+				hits : 100,
+				type : "red",
+				shoots : [1, 1, 2],
+				knockbackSpeed : [0, 0, 0, 0, 0, 0, 0],
+				knockbackDuration : [0, 0, 0, 0, 0, 0, 0],
+				perk : true,
+				characterid : Characters.Lenght
+			});
+	#endregion
+	#endregion
+}
+
+#endregion
+//generate random list of possible upgrades
+function randomUpgrades(){
+	random_set_seed(current_time);
+	name="";
+	
+	#region Generate the lists
+		//function generateLists() {
+		weapons_list = [];
+		items_list = [];
+		perks_list = [];
+	
+		#region Weapons List
+			//show_message(UPGRADES[5][$"name"]);	
+			if (UPGRADES[array_length(UPGRADES) -1] == global.null) {
+				for (var i = 0; i < array_length(WEAPONS_LIST); ++i) {
+					var maxed = false;
+					var found = false;
+					for (var j = 0; j < array_length(UPGRADES); ++j) {
+						//show_message("A:" + string(UPGRADES[j][$"name"]));
+						//show_message("B:" + string(global.upgradesAvaliable[i][1][$"name"]));
+						if (UPGRADES[j][$"name"] == WEAPONS_LIST[i][1][$"name"]) {
+							found = true;
+						    if (UPGRADES[j][$"level"] != WEAPONS_LIST[i][1][$"maxlevel"]){
+								maxed = false;
+							}
+							else maxed = true;
+						}
+						//else {array_push(ups, global.upgradesAvaliable[i]);}
+					}	    
+					if (found) {
+					    if (!maxed) {
+						    array_push(weapons_list, WEAPONS_LIST[i]);
+						}
+					} else {
+						//if (WEAPONS_LIST[i][1][$"characterid"] == -1 or WEAPONS_LIST[i][1][$"characterid"] == global.player[?"id"]) {
+						if (!variable_struct_exists(WEAPONS_LIST[i][1], "characterid") or WEAPONS_LIST[i][1][$"characterid"] == -1 or WEAPONS_LIST[i][1][$"characterid"] == global.player[?"id"]) {
+							//show_message("test");
+						    array_push(weapons_list, WEAPONS_LIST[i]);
+						}						
+					}
+				}
+			}else{
+				//var str = "";
+				for (var i = 0; i < array_length(UPGRADES); ++i) {
+				    if (UPGRADES[i][$"level"] != UPGRADES[i][$"maxlevel"] and UPGRADES[i] != global.null) {
+					    array_push(weapons_list, WEAPONS_LIST[UPGRADES[i][$"id"]]);
+						
+						//str = str + ":" + UPGRADES[i][$"name"];
+					}
+				}	
+				//show_message(str);
+			}
+			
+		#endregion
+	
+		#region Items
+			if (playerItems[5] == global.nullitem) {
+				for (var i = 0; i < array_length(ItemList); ++i) {
+					var maxed = false;
+					var found = false;
+					for (var j = 0; j < array_length(playerItems); ++j) {
+						if (playerItems[j][$"name"] == ItemList[i][1][$"name"]) {
+							found = true;
+						    if (playerItems[j][$"level"] != ItemList[i][1][$"maxlevel"]){
+								maxed = false;
+							}
+							else maxed = true;
+						}
+						//else {array_push(ups, global.upgradesAvaliable[i]);}
+					}	    
+					if (found) {
+					    if (!maxed) {
+							for (var k = 0; k < ItemList[i][1][$"weight"]; ++k) {
+							    array_push(items_list, ItemList[i]);
+							}				    
+						}
+					} else {
+						for (var k = 0; k < ItemList[i][1][$"weight"]; ++k) {
+							    array_push(items_list, ItemList[i]);
+							}
+						}
+				}
+				//var str = "";
+				//for (var i = 0; i < array_length(items_list); ++i) {
+				//    str = str + " : " + items_list[i][1][$"name"];
+				//}
+				//show_message(str);
+			}else{
+				for (var i = 0; i < array_length(playerItems); ++i) {
+				    if (playerItems[i][$"level"] != playerItems[i][$"maxlevel"]) {
+					    for (var k = 0; k < ItemList[playerItems[i][$"id"]][1][$"weight"]; ++k) {
+							    array_push(items_list, ItemList[playerItems[i][$"id"]]);
+						}
+					}
+				}
+			}
+		#endregion
+	
+		#region Perks
+			for (var i = 0; i < array_length(PERK_LIST); ++i) {
+				if (PERK_LIST[i][0][$"characterid"] == global.player[?"id"]) {
+				    //	array_push(ups, PERK_LIST[i]);
+					var maxed = false;
+					var found = false;
+					for (var j = 0; j < array_length(PLAYER_PERKS); ++j) {
+						if (PLAYER_PERKS[j][$"name"] == PERK_LIST[i][1][$"name"]) {
+							found = true;
+						    if (PLAYER_PERKS[j][$"level"] != PERK_LIST[i][1][$"maxlevel"]){
+								maxed = false;
+							}
+							else maxed = true;
+						}
+						//else {array_push(ups, global.upgradesAvaliable[i]);}
+					}	    
+					if (found) {
+					    if (!maxed) {
+						    array_push(perks_list, PERK_LIST[i]);	
+						}
+					} else {array_push(perks_list, PERK_LIST[i]);}
+					//show_debug_message("Added: " + string( PERK_LIST[i][0][$"name"]));
+				}	    
+			}
+		#endregion
+		
+	#endregion
+	#region Generate the options
+		is_what = "";
+		var can_be_item;
+		var can_be_weapon;
+		var can_be_perk;
+		#region 1&2
+			function slotRandomizer12() {
+				// randomize;
+				is_what = "";
+				can_be_weapon = false;
+				for (var i = 0; i < array_length(UPGRADES); ++i) {
+					if (UPGRADES[i][$"level"] != UPGRADES[i][$"maxlevel"] or UPGRADES[i] == global.null) {
+						can_be_weapon = true;
+					}
+				}
+				
+				can_be_item = false;
+				for (var i = 0; i < array_length(playerItems); ++i) {
+					//show_message(string(playerItems[i][$"level"]) + ":" + string(playerItems[i][$"maxlevel"]));
+					if (playerItems[i][$"level"] != playerItems[i][$"maxlevel"] or playerItems[i] == global.nullitem) {
+						can_be_item = true;
+					}
+				}
+				
+				can_be_perk = false;
+				for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
+					if (PLAYER_PERKS[i][$"level"] != PLAYER_PERKS[i][$"maxlevel"]) {
+						can_be_perk = true;
+					}
+				}
+				
+				do {
+					if (irandom_range(1,9) <= 4) {
+					    is_what = ItemTypes.Weapon;
+					}else if (irandom_range(1,9) == 1) {
+					    is_what = ItemTypes.Item;
+					}else if (irandom_range(1,18) == 1) {
+							     is_what = ItemTypes.Item; //TODO: change to stat-up
+					}else if (irandom_range(1,18) <= 7) {
+							     is_what = ItemTypes.Perk;
+					}
+				} until (is_what != "");
+				// show_debug_message("type: {0}, weapon : {1}, array : {2}", is_what, can_be_weapon, array_length(weapons_list));
+				if (is_what == ItemTypes.Weapon and !can_be_weapon or is_what == ItemTypes.Weapon and array_length(weapons_list) == 0) {
+				    is_what = ItemTypes.Item;
+				}
+				if (is_what == ItemTypes.Item and !can_be_item or is_what == ItemTypes.Item and array_length(items_list) == 0) {
+					is_what = "null";
+				    //TODO: change item type to statup
+				}
+				if (is_what == ItemTypes.Perk and !can_be_perk) {
+				is_what = "null";
+			    //TODO: change item type to statup
+				}
+				var str = "Weapons";
+				for (var i = 0; i < array_length(weapons_list); ++i) { str = str + " : " + weapons_list[i][1][$"name"]; }
+				str = str + "\n\nItems"; 
+				createUpgrade(Weapons.GuraTrident,"GuraTrident",7, sGuraTridentShoot, sGuraTrident,11*1.20*1.40,21*1.20*1.40,70*0.85,100,20,true,0,999, "red", 3,"Thrust 3 times, in a fork-like shape. ");

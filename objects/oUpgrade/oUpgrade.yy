@@ -52,8 +52,8 @@
   ],
   "solid": false,
   "spriteId": {
-    "name": "blank",
-    "path": "sprites/blank/blank.yy",
+    "name": "sBlank",
+    "path": "sprites/sBlank/sBlank.yy",
   },
   "spriteMaskId": null,
   "visible": true,

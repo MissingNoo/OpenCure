@@ -1,3 +1,4 @@
+// Feather disable all
 ///@desc imgui template
 if(!instance_exists(imgui)){
 	exit;	

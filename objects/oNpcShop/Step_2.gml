@@ -1,3 +1,4 @@
+// Feather disable GM1041
 if (justOpened) { return; }
 if (!optionConfirmed) {
 	if (input_check_pressed("cancel")) {

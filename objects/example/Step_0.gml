@@ -1,3 +1,4 @@
+// Feather disable all
 ///@desc example - Step
 depth = oGui.depth - 1;
 if (keyboard_check_pressed(vk_f2)){

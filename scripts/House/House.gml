@@ -15,17 +15,17 @@ enum HouseCategory {
 }
 
 enum HouseItemId{ 
-	null,
+	Null,
 	Bookshelf,
 	TV,
 	Wall
 }
-HouseItems[HouseItemId.null] = {
+HouseItems[HouseItemId.Null] = {
 	name : "null",
 	category : HouseCategory.Bedroom,
-	itemId : HouseItemId.null,
-	sprite : blank,
-	thumb : blank,
+	itemId : HouseItemId.Null,
+	sprite : sBlank,
+	thumb : sBlank,
 	cost : 1000
 }
 HouseItems[HouseItemId.Bookshelf] = {
@@ -53,7 +53,7 @@ HouseItems[HouseItemId.Wall] = {
 	cost : 100
 }
 for (var i = 0; i < HouseCategory.LENGTH; ++i) {
-    HouseInventory[i] = [HouseItems[HouseItemId.null]];
+    HouseInventory[i] = [HouseItems[HouseItemId.Null]];
 }
 //HouseInventory[HouseCategory.Bedroom][0] = HouseItems[HouseItemId.Bookshelf];
 

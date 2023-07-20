@@ -1,3 +1,4 @@
+// Feather disable GM1041
 #region Start variables
 draw_set_alpha(1);
 draw_set_color(c_white);
@@ -394,7 +395,7 @@ if (instance_exists(oPlayer))
 	#region Anvil
 	if (ANVIL) {
 		draw_set_halign(fa_center);
-		draw_set_valign(fa_center);
+		draw_set_valign(fa_middle);
 		var _x = GW/1.56;
 		var _y = GH/5.30;
 		draw_text_transformed_color(_x+1, _y+1, "UPGRADE!", 5, 5, 0, c_black, c_black, c_black, c_black, 1);
@@ -500,7 +501,7 @@ if (instance_exists(oPlayer))
 				var _ty = GH/1.31;
 				draw_sprite_ext(sHudButton, 1, _tx, _ty, 1.5, 1.5, 0, c_white, 1);
 				draw_set_halign(fa_center);
-				draw_set_valign(fa_center);						
+				//draw_set_valign(fa_center);						
 				draw_text_transformed_color(_tx, _ty, "Upgrade", 2,2,0,c_black,c_black,c_black,c_black, 1);
 				draw_set_valign(fa_top);
 				draw_set_halign(fa_left);
@@ -509,7 +510,7 @@ if (instance_exists(oPlayer))
 				var _tx = GW/1.53;
 				var _ty = GH/1.29;
 				draw_set_halign(fa_center);
-				draw_set_valign(fa_center);
+				//draw_set_valign(fa_center);
 				var _chance = 100;
 				var _coinValue = 0;
 				if (variable_struct_exists(selectedThing, "bonusLevel")) {

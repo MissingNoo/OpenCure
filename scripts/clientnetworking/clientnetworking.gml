@@ -1,4 +1,5 @@
 // Feather disable GM2044
+// Feather disable GM2017
 enum Network {
 	Move,
 	Message,
@@ -54,9 +55,10 @@ function clientReceivedPacket2(_response)
 		
 		case Network.StartGame:{
 			for (var i = 0; i < array_length(oLobby.options); ++i) {
+				// Feather disable once GM1044
 				variable_global_set(oLobby.options[i][1], variable_instance_get(oLobby, oLobby.options[i][1]));
 			}
-			room_goto(Room1);
+			room_goto(rStage1);
 			break;}
 			
 		 case Network.PlayerJoined:{
@@ -194,6 +196,7 @@ function clientReceivedPacket2(_response)
 		
 		case Network.UpdateOptions:{
 			if (r[$"roomname"] == global.roomname) {
+				// Feather disable once GM1041
 				variable_instance_set(oLobby, r[$"option"], r[$"value"]);
 			}
 			break;
@@ -471,7 +474,7 @@ function clientReceivedPacket(_buffer)
 				break;}
 				
 			case Network.StartGame:{
-				room_goto(Room1);
+				room_goto(rStage1);
 				break;}
 				
 			case Network.ListRooms:{

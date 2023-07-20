@@ -1,4 +1,5 @@
-#region Background
+// Feather disable GM1041
+#region Background	
 	draw_set_color(c_black);
 	draw_set_alpha(image_alpha);
 	draw_rectangle(0, 0, GW, GH, false);

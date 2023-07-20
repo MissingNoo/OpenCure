@@ -1,3 +1,4 @@
+// Feather disable all
 ///@function example_input_callback(_callback_data)
 ///@desc input text callback
 ///@param {Array:EImGui_TextCallbackData}

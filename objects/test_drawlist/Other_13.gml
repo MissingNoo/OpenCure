@@ -1,3 +1,4 @@
+// Feather disable all
 ///@desc tab poly
 var _window_pos = imguigml_get_window_pos(),
 	_colouru32 = $ffffffff,

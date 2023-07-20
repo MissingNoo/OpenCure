@@ -12,7 +12,7 @@ global.itemCooldown[0] = 0;
 		variable_struct_set(item, "level", 1);
 		variable_struct_set(item, "maxlevel", 1);
 		variable_struct_set(item, "weight", 1);
-		variable_struct_set(item, "thumb", blank);
+		variable_struct_set(item, "thumb", sBlank);
 		variable_struct_set(item, "cooldown", 1);
 		variable_struct_set(item, "desc", "null");
 		variable_struct_set(item, "unlocked", true);
@@ -117,7 +117,7 @@ function newCreateItem(_data){
 	}
 	global.bonuses[0] = 0;
 	for (var i = 0; i < ItemIds.length; ++i) {
-		for (var j = 0; j < BonusType.lenght; ++j) {
+		for (var j = 0; j < BonusType.Lenght; ++j) {
 		    Bonuses[i][j] = 0;
 		}
 	}
@@ -143,7 +143,7 @@ function newCreateItem(_data){
 		AnvilDrop,
 		EnhancingCost,
 		SuperChattoTime,
-		lenght
+		Lenght
 	}
 #endregion
 
@@ -568,6 +568,7 @@ function populateItems(){
 }
 
 function tickItems(){
+	var _player = instance_find(oPlayer, 0);
 	for (var i = 0; i < array_length(playerItems); ++i) {
 		if (playerItems[i] != global.nullitem and global.itemCooldown[playerItems[i][$"id"]] <= 0) {
 			defaultItemBehaviour(playerItems[i][$"id"], playerItems[i][$"cooldown"]);
@@ -636,18 +637,18 @@ function tickItems(){
 					);
 					break;}
 				case ItemIds.Idol_Costume:{
-					if (oPlayer.idolCostumeLevel != playerItems[i][$"level"]) {
-					    oPlayer.idolCostumeLevel = playerItems[i][$"level"];
-						oPlayer.specialcooldown = oPlayer.specialcooldown * playerItems[i][$"SpecialCooldown"];
+					if (_player.idolCostumeLevel != playerItems[i][$"level"]) {
+					    _player.idolCostumeLevel = playerItems[i][$"level"];
+						_player.specialcooldown = _player.specialcooldown * playerItems[i][$"SpecialCooldown"];
 					}
 					break;}
 				case ItemIds.Hope_Soda:{
-					if (!variable_instance_exists(oPlayer, "hopeSodaLevel")) {
-					    oPlayer.hopeSodaLevel = 0;
+					if (!variable_instance_exists(_player, "hopeSodaLevel")) {
+					    _player.hopeSodaLevel = 0;
 					}
-					if (oPlayer.hopeSodaLevel != playerItems[i][$"level"]) {
-					    oPlayer.hopeSodaLevel = playerItems[i][$"level"];
-						oPlayer.specialcooldown = oPlayer.specialcooldown * playerItems[i][$"SpecialCooldown"];
+					if (_player.hopeSodaLevel != playerItems[i][$"level"]) {
+					    _player.hopeSodaLevel = playerItems[i][$"level"];
+						_player.specialcooldown = _player.specialcooldown * playerItems[i][$"SpecialCooldown"];
 					}
 					break;}
 				case ItemIds.Stolen_Piggy_Bank:{
@@ -668,9 +669,9 @@ function tickItems(){
 					pimanUsable = true;
 					break;}
 				case ItemIds.Just_Bandage:{
-					if (!variable_instance_exists(oPlayer, "bandageLevel")) { oPlayer.bandageLevel = 0; }
-					if (oPlayer.bandageLevel != playerItems[i][$"level"]) {
-					    oPlayer.bandageLevel= playerItems[i][$"level"];
+					if (!variable_instance_exists(_player, "bandageLevel")) { _player.bandageLevel = 0; }
+					if (_player.bandageLevel != playerItems[i][$"level"]) {
+					    _player.bandageLevel= playerItems[i][$"level"];
 						MAXHP = MAXHP + 10;
 					}
 					pimanUsable = true;
