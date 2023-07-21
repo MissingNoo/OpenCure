@@ -15,9 +15,9 @@
 			}
         },
         "Weapons":{
-            "AmePistol":{
+            "Pistol Shot":{
             "name":"Pistol Shot",
-				"1":"Shoots 3 Projectiles forward. Horizontal only.", 
+				"1":"Shoots 3 Projectiles forward.", 
 				"2":"Shoot [1] additional shot, and each bullet can pierce [+1] times.",
 				"3":"Increase damage by [25%].",
 				"4":"Bullets ricochet if hit limit is reached.",

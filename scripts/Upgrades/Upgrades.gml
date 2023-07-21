@@ -176,7 +176,7 @@ function populate_upgrades(){
 			#region AmePistol 
 			newCreateUpgrade({
 				id : Weapons.AmePistol,
-				name : "AmePistol",
+				name : "Pistol Shot",
 				maxlevel : 7,
 				sprite : sAmeShoot,
 				attackdelay : 10,

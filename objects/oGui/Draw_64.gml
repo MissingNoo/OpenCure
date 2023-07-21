@@ -6,6 +6,10 @@ var header;
 var digit;
 #endregion
 #region black screen below gui
+if (keyboard_check(vk_alt)) {
+	//feather disable once GM2017
+    draw_sprite_ext(bgtest, 0, 0, 0, 1, 1, 0, c_white, .8);
+}
 if (global.upgrade == 1 or global.gamePaused and room != rInicio and HP > 0) {
 	draw_set_alpha(.75);
 	draw_rectangle_color(0, 0, display_get_gui_width(), display_get_gui_height(), c_black, c_black, c_black, c_black, false); // Darken the screen
@@ -60,9 +64,9 @@ if (room == rCharacterSelect) {
 if (room == rCharacterSelect) {
 	NAME=CHARACTERS[selectedCharacter][?"name"];	
 	#region Character window
-	var _x = GW / 48.79;
-	var _y = GH / 5.95;
-	var _xx = GW / 3.36;
+	var _x = GW / 50;
+	var _y = GH / 5.97;
+	var _xx = GW / 3.38;
 	var _yy = GH / 1.07;
 	var _titleY = GH/4.24;
 	var _titlePos = 18.50;
@@ -74,20 +78,28 @@ if (room == rCharacterSelect) {
 	#region CharacterList
 	if (!characterSelected) {
 		str="CHOOSE YOUR IDOL";
-		draw_text_transformed((GW/2)- string_width(str),50,str,2,2,0);
+		draw_set_valign(fa_middle);
+		draw_set_halign(fa_center);
+		draw_text_transformed(GW/2, 60, str, 4.30, 4.30, 0);
+		draw_set_valign(fa_top);
+		draw_set_halign(fa_left);
 		draw_set_color(c_white);
-		draw_text_transformed(GW/3.12, GH/5.82,"MYTH",2,2,0);
-		draw_line(GW/3.12, GH/5, GW/1.46,GH/5);	
+		//draw_text_transformed(GW/3.12, GH/5.82,"MYTH",2,2,0);
+		//draw_line(GW/3.12, GH/5, GW/1.46,GH/5);
 		offset=0;
-		_x = GW/2.83;
-		_y = GH/3.80;
-		mouseOnButton(_x,_y, GW/13, sAmePortrait, 2.20, 2.20, array_create(Characters.Lenght, 0),"selectedCharacter", "horizontal");
+		_x = GW/2.81;
+		_y = GH/4.59;
+		//mouseOnButton(_x,_y, GW/oGui.a, sAmePortrait, 2, 2, array_create(Characters.Lenght, 0),"selectedCharacter", "horizontal");
 		for (var i=0; i < Characters.Lenght; i++) {
-			draw_sprite_ext(CHARACTERS[i][?"portrait"],0,_x + offset,_y,2.20,2.20,0,c_white,1);
-			if (selectedCharacter == i) {
-				draw_sprite_ext(sMenuCharSelectCursor,-1,_x + offset, _y,2.20,2.20,0,c_white,1);
+			if (point_in_rectangle(TouchX1, TouchY1, _x - 44 + offset, _y - 38, _x + 44 + offset, _y + 38)) {
+			    selectedCharacter = i;
 			}
-			offset+=GW/13;
+			draw_rectangle(_x - 44 + offset, _y - 38, _x + 44 + offset, _y + 38, true);
+			draw_sprite_ext(CHARACTERS[i][?"portrait"], 0, _x - 2 + offset,_y - 1, 2, 2, 0, c_white, 1);
+			if (selectedCharacter == i) {
+				draw_sprite_ext(sMenuCharSelectCursor,-1,_x - 2 + offset, _y,2,2,0,c_white,1);
+			}
+			offset+=92;
 		}
 	}
 	#endregion	
@@ -149,9 +161,9 @@ if (room == rCharacterSelect) {
 	var weaponSprite = weaponID[1][$"thumb"];
 	draw_sprite_ext(weaponSprite, 0,GW/1.37, GH/3.52,2,2,0,c_white,1);
 	draw_set_valign(fa_middle); draw_set_color(c_white);
-	draw_text_transformed(GW/1.32, GH/3.52, weaponID[1][$"name"], 2, 2, 0);
+	draw_text_transformed(_x + 66, _y + 77, lexicon_text("Weapons." + weaponID[1][$"name"] + ".name"), 2.50, 2.50, 0);
 	//drawDesc(GW/1.39, GH/2.97, weaponID[1][$"desc"], GW/4.10, 2);
-	drawDesc(GW/1.39, GH/2.97, lexicon_text("Weapons." + weaponID[1][$"name"] + ".1") , GW/4.10, 2);
+	drawDesc(_x + 13, _y + 118, lexicon_text("Weapons." + weaponID[1][$"name"] + ".1") , _x + 1, 2);
 	draw_set_valign(0);
 	#endregion
 	#region Special window
@@ -167,12 +179,12 @@ if (room == rCharacterSelect) {
 	_y = GH/1.55;
 	var specialID = CHARACTERS[selectedCharacter][?"special"];
 	var specialSprite = SPECIAL_LIST[specialID][$"thumb"];
-	var specialName = SPECIAL_LIST[specialID][$"name"];
-	var specialDesc = SPECIAL_LIST[specialID][$"desc"];
-	draw_sprite_ext(specialSprite, 0,_x-sprite_get_width(specialSprite), _y-sprite_get_height(specialSprite),2,2,0,c_white,1);
+	var specialName = lexicon_text("Special." + SPECIAL_LIST[specialID][$"name"] + ".name");
+	var specialDesc = lexicon_text("Special." + SPECIAL_LIST[specialID][$"name"] + ".desc");
+	draw_sprite_ext(specialSprite, 0,_x - 4 - sprite_get_width(specialSprite), _y-sprite_get_height(specialSprite),2,2,0,c_white,1);
 	draw_set_valign(fa_middle); draw_set_color(c_white);
 	draw_text_transformed(_x + 38, _y, specialName, 2, 2, 0);
-	drawDesc(_x-18.50, _y + 42, specialDesc, GW/4.10, 2);
+	drawDesc(_x - 19, _y + 35, specialDesc, _x + 1, 2);
 	draw_set_valign(0);
 	#endregion
 }
@@ -185,15 +197,19 @@ if (instance_exists(oPlayer))
 	draw_sprite_stretched(sHuddefeatedEnemies, 0, GW/1.25, GH/9, 55, 55);
 	draw_text_transformed(GW/1.18, GH/7.60, string(global.defeatedEnemies), 2, 2, 0);
 	#region Character Portrait
-	var _portraitx = GW/30, _portraity = GH/10;
+	var _x = GW/25.10, _y = GH/10.59;
 	var _portraithalf = sprite_get_height(sUiPortraitFrame);
+	draw_set_alpha(global.debug ? .5 : 1);
 	if (global.showhpui) {
-		draw_rectangle_color(_portraitx, _portraity - _portraithalf, _portraitx + 85, _portraity - _portraithalf + 15, c_white, c_white, c_white, c_white, false);		
-		draw_text_transformed_color(GW/14, GH/20, "HP", 2, 1.5, 0, c_black, c_black, c_black, c_black, 1);		
+		draw_healthbar(_x + 87, _y - 38, _x + 340, _y - 27, ((HP / MAXHP) * 100), c_red, #8cffbd, #8cffbd, 0, 1, 0);
+		draw_healthbar(_x + 87, _y - 40, _x + 340, _y - 27, ((HP / MAXHP) * 100), c_red, #069617, #069617, 0, 1, 0);
+		draw_healthbar(_x + 87, _y - 38, _x + 340, _y - 29, ((HP / MAXHP) * 100), c_red, c_lime, c_lime, 0, 1, 0);		
+		draw_rectangle_color(_x, _y - _portraithalf, _x + 85, _y - _portraithalf + 15, c_white, c_white, c_white, c_white, false);
+		draw_text_transformed_color(_x + 57, _y - _portraithalf - 3, "HP", 2, 1.5, 0, c_black, c_black, c_black, c_black, 1);		
 	}		
-	draw_sprite_ext(sUiPortraitBg,0, _portraitx, _portraity, 2,2,0,c_white,1);
-	draw_sprite_ext(global.player[?"portrait"],0,_portraitx, _portraity,2,2,0,c_white,1);
-	draw_sprite_ext(sUiPortraitFrame,0,_portraitx, _portraity,2,2,0,c_white,1);
+	draw_sprite_ext(sUiPortraitBg,0, _x, _y, 2,2,0,c_white,1);
+	draw_sprite_ext(global.player[?"portrait"],0,_x, _y ,2,2,0,c_white,1);
+	draw_sprite_ext(sUiPortraitFrame,0,_x, _y,2,2,0,c_white,1);
 	#endregion
 	#region Special
 	if (global.shopUpgrades[$ "SpecialAtk"][$ "level"] == 1) {
@@ -213,14 +229,15 @@ if (instance_exists(oPlayer))
 	}
 	#endregion
 	#region Upgrades
+	draw_sprite_ext(sItemsArea, 0, _x + 51, _y - 20, 16.45, 6.65, 0, c_white, 1);
 	#region Weapons
 	offset=0;
 	var yoffset = 0;
 	var _itemsx;
 	var _itemsy;
 	if (global.showhpui) {
-		_itemsx = GW/11;
-		_itemsy = GH/9;
+		_itemsx = _x + 76;
+		_itemsy = _y + 4;
 	}
 	else{
 		_itemsx = GW/12;

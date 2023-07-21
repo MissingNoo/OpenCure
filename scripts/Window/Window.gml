@@ -11,14 +11,16 @@ function drawWindow(x, y, xx, yy, title, titlesize = 25,titlePos = 15, fontsize 
 	draw_set_color(c_black);
 	draw_rectangle(x,y,xx, yy,false);
 	//
-	draw_set_alpha(1);
-	draw_set_color(c_white);
+	draw_set_alpha(global.debug ? .5 : 1);
+	draw_set_color(global.debug ? c_purple : c_white);
 	//title
 	draw_rectangle(x,y,xx,titlesize,false);
 	//window
 	draw_rectangle(x,y,xx,yy,true);
 	draw_set_color(c_teal);
-	draw_text_transformed(x+5,y + titlePos, title, fontsize,fontsize,0);
+	draw_set_valign(fa_middle);
+	draw_text_transformed(x+10,(y + titlesize) / 2, title, fontsize,fontsize,0);
+	draw_set_valign(fa_top);
 	draw_set_color(c_white)
 }
 function gameWindow(){
