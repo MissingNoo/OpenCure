@@ -99,6 +99,7 @@ function createCharacter(_id, _name, _portrait, _sprite, _runningsprite, _hp, _s
 	ds_map_add(m, "weapon", _weapon);
 	ds_map_add(m, "ballsize", _ballsize);
 	ds_map_add(m, "flat", _flat);
+	ds_map_add(m, "crit", _crt);
 }
 
 enum BuffNames{

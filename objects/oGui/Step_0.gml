@@ -448,8 +448,8 @@ if(keyboard_check(ord("L"))) {global.singleplayer = false; show_message("Client"
 		if(keyboard_check(ord("Y"))) c +=.1;
 		if(keyboard_check(ord("U"))) d -=.1;
 		if(keyboard_check(ord("I"))) d +=.1;
-		if(keyboard_check_pressed(ord("O"))) e -=.5;
-		if(keyboard_check(ord("P"))) e +=1;
+		if(keyboard_check_pressed(ord("O"))) e -=.05;
+		if(keyboard_check_pressed(ord("P"))) e +=1;
 		if((keyboard_check(vk_escape) and room == rCharacterSelect)) {room_goto(rInicio)}
 		//if (keyboard_check_pressed(ord("V"))) {
 		//    display_set_gui_size(640,360);

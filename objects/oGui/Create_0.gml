@@ -132,7 +132,7 @@ pauseMenu[PMenus.Pause][PM.YScale] = 0.75;
 		pauseMenu[PMenus.Settings][PM.BoolValue][5] = global.gamePad;
 		pauseMenu[PMenus.Settings][PM.Options][6] = "showhpui: ";
 		pauseMenu[PMenus.Settings][PM.Bool][6] = true;
-		pauseMenu[PMenus.Settings][PM.BoolValue][6] = global.showhpui;			
+		pauseMenu[PMenus.Settings][PM.BoolValue][6] = global.showhpui;
 	}
 	loadSettingValues();
 	//pauseMenu[PMenus.Pause][PM.Options] = ["Skills"];
@@ -360,55 +360,49 @@ function drawStats(){
 	*/
 function drawStatsSelect(character){
 	var stats_offset = 0;
-	var _xt = GW/3.75;
-	var _x = GW/12.77;
-	var _xx = GW/19;
-	var _yt = GH/1.54;
-	var _yy = GH/1.46;
+	
+	var _x = GW/17.54;
+	var _y = GH/1.54;
 	var str;
 	draw_set_color(c_white);
-	#region HP
-		draw_sprite_stretched(sHeartShaded, 0, _xx, _yt, 25, 25);
-		draw_text_transformed(_x, _yt, "HP", 1.5, 1.5, 0);
-		draw_line(_xx, _yy, _xt, _yy);
-		str = string(character[?"hp"]);
-		draw_set_halign(fa_right);
-		draw_text_transformed(_xt, _yt, str, 1.5, 1.5, 0);
-		draw_set_halign(fa_left);
-	#endregion
-			
-		#region ATK
-			stats_offset += 35;
-			draw_sprite_stretched(sSwordBlue, 0, _xx, _yt + stats_offset, 25, 25);
-			draw_text_transformed(_x, _yt + stats_offset, "ATK", 1.5, 1.5, 0);
-			draw_line(_xx, _yy + stats_offset, _xt, _yy + stats_offset);
-			str = character[?"atk"];
-			draw_set_halign(fa_right);
-			draw_text_transformed(_xt, _yt + stats_offset, str, 1.5, 1.5, 0);
+	
+	var stats = [
+		{
+			spr : sHeartShaded,
+			name : "HP",
+			stat : character[?"hp"],
+			suffix : ""
+		},
+		{
+			spr : sSwordBlue,
+			name : "ATK",
+			stat : character[?"atk"],
+			suffix : "x"
+		},
+		{
+			spr : sHudSpdIcon,
+			name : "SPD",
+			stat : character[?"speed"],
+			suffix : "x"
+		},
+		{
+			spr : sHudCrtIcon,
+			name : "CRT",
+			stat : string_replace(character[?"crit"], "1.", ""),
+			suffix : "%"
+		},
+		]
+		
+		for (var i = 0; i < array_length(stats); ++i) {
+			draw_sprite_ext(stats[i][$"spr"], 0, _x, _y + stats_offset, 1.90, 1.90, 0, c_white, 1);
+			draw_text_transformed(_x + 25, _y - 17 + stats_offset, stats[i][$"name"], 2, 2, 0);
+			draw_rectangle(_x + 27, _y + 12 + stats_offset, _x + 268, _y + 9 + stats_offset, false);
 			draw_set_halign(fa_left);
-		#endregion
-				
-		#region SPD
-			stats_offset += 35;
-			draw_sprite_stretched(sHudSpdIcon, 0, _xx, _yt + stats_offset, 25, 25);
-			draw_text_transformed(_x, _yt + stats_offset, "SPD", 1.5, 1.5, 0);
-			draw_line(_xx, _yy + stats_offset, _xt, _yy + stats_offset);
-			str = character[?"speed"];
+			str = string(stats[i][$"stat"]) + stats[i][$"suffix"];
 			draw_set_halign(fa_right);
-			draw_text_transformed(_xt, _yt + stats_offset, str, 1.5, 1.5, 0);
+			draw_text_transformed(_x + 265, _y - 17 + stats_offset, str, 2, 2, 0);
 			draw_set_halign(fa_left);
-		#endregion
-				
-			#region CRT
-				//stats_offset += 35;
-				//draw_sprite_stretched(sHudCrtIcon, 0, GW/11, GH/2.15 + stats_offset, 25, 25);
-				//draw_text_transformed(GW/8, GH/2.15 + stats_offset, "CRT", 1.5, 1.5, 0);
-				//draw_line(GW/8.80, GH/2 + stats_offset, GW/3.40, GH/2 + stats_offset);
-				//str = ((calc > 0) ? "+" : "") + string(calc) + "%";
-				//draw_set_halign(fa_right);
-				//draw_text_transformed(GW/3.40, GH/2.15 + stats_offset, str, 1.5, 1.5, 0);
-				//draw_set_halign(fa_left);
-			#endregion
-
+			stats_offset += 40;
+		}
 }
 #endregion

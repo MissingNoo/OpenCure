@@ -94,13 +94,13 @@ switch (type) {
 					//draw_set_valign(fa_right);
 					if (!haveItem) {
 						if (selectedItem == i) { haveSelectedItem = haveItem; }
-						draw_text_transformed_color(_x + 550, _y + 25 + _yoff, tabItems[i][$"cost"], 3, 3, 0, c_yellow, c_yellow, c_yellow, c_yellow, 1);
-						draw_text_transformed(_x + 400, _y + 25 + _yoff, "COST:", 3, 3, 0);						
+						draw_text_transformed_color(_x + 550, _y - 25 + _yoff, tabItems[i][$"cost"], 3, 3, 0, c_yellow, c_yellow, c_yellow, c_yellow, 1);
+						draw_text_transformed(_x + 400, _y - 25 + _yoff, "COST:", 3, 3, 0);						
 					}
 					else {					    
 						if (selectedItem == i) { haveSelectedItem = haveItem; }
 						draw_set_color(c_yellow);
-						draw_text_transformed(_x + 550, _y + 25 + _yoff, "SOLD OUT!", 3, 3, 0);						
+						draw_text_transformed(_x + 550, _y - 25 + _yoff, "SOLD OUT!", 3, 3, 0);						
 						draw_set_color(c_white);
 					}
 					if (buyingItem) {

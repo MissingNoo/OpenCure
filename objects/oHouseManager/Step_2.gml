@@ -1,6 +1,7 @@
 if (input_check_pressed("house")) {
 	//selectedMenu = 0;
-	//selectedMenuConfirm = false;
+	selectedItem = 0;
+	selectedMenuConfirm = false;
     editHouse = true;	
 }
 if (placingObject and input_check_pressed("accept")) {

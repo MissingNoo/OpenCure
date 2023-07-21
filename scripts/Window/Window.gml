@@ -5,9 +5,9 @@
 // Feather disable GM1041
 #macro GW display_get_gui_width()
 #macro GH display_get_gui_height()
-function drawWindow(x, y, xx, yy, title, titlesize = 25,titlePos = 15, fontsize = 1){
+function drawWindow(x, y, xx, yy, title, titlesize = 25,titlePos = 15, fontsize = 1, backgroundAlpha = .35){
 	//background
-	draw_set_alpha(.35);
+	draw_set_alpha(backgroundAlpha);
 	draw_set_color(c_black);
 	draw_rectangle(x,y,xx, yy,false);
 	//

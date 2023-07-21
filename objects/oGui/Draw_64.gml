@@ -67,7 +67,7 @@ if (room == rCharacterSelect) {
 	var _titleY = GH/4.24;
 	var _titlePos = 18.50;
 	var _fontSize = 2;
-	drawWindow(_x,_y,_xx,_yy,string_upper(global.name), _titleY, _titlePos, _fontSize);
+	drawWindow(_x,_y,_xx,_yy,string_upper(global.name), _titleY, _titlePos, _fontSize, 0.15);
 	draw_sprite_ext(CHARACTERS[selectedCharacter][?"sprite"], sprindex,GW/6.18, GH/1.79, 4, 4, 0,c_white,1);
 	drawStatsSelect(CHARACTERS[selectedCharacter]);
 	#endregion
