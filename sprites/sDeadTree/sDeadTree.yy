@@ -25,8 +25,8 @@
   "nineSlice": null,
   "origin": 9,
   "parent": {
-    "name": "HoloShooter",
-    "path": "HoloShooter.yyp",
+    "name": "Maps",
+    "path": "folders/Sprites/Maps.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

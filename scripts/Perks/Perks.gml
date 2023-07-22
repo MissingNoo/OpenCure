@@ -227,7 +227,7 @@ function tick_perks()
 {
 	for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
 		if (PLAYER_PERKS[i][$"level"] != 0 and global.perkCooldown[PLAYER_PERKS[i][$"id"]] <= 0) {
-			defaultPerkBehaviour(PLAYER_PERKS[i][$"id"], PLAYER_PERKS[i][$"cooldown"]);
+			default_perk_behaviour(PLAYER_PERKS[i][$"id"], PLAYER_PERKS[i][$"cooldown"]);
 			if (variable_struct_exists(PLAYER_PERKS[i], "bonus")) {
 				PerkBonuses[PLAYER_PERKS[i][$"bonustype"]][PLAYER_PERKS[i][$"id"]] = PLAYER_PERKS[i][$"bonusvalue"];
 			}

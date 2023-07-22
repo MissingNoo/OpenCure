@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
-  "name": "Sprite201",
+  "name": "sTree",
   "bbox_bottom": 131,
   "bbox_left": 0,
   "bbox_right": 119,
@@ -25,14 +25,14 @@
   "nineSlice": null,
   "origin": 9,
   "parent": {
-    "name": "HoloShooter",
-    "path": "HoloShooter.yyp",
+    "name": "Maps",
+    "path": "folders/Sprites/Maps.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
     "resourceType": "GMSequence",
     "resourceVersion": "1.4",
-    "name": "Sprite201",
+    "name": "sTree",
     "autoRecord": true,
     "backdropHeight": 768,
     "backdropImageOpacity": 0.5,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"c217d569-70ca-4efe-9c6a-316ff50b4fbd","path":"sprites/Sprite201/Sprite201.yy",},},},"Disabled":false,"id":"89efac41-a344-4a3c-83f5-8d9fe488c021","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"c217d569-70ca-4efe-9c6a-316ff50b4fbd","path":"sprites/sTree/sTree.yy",},},},"Disabled":false,"id":"89efac41-a344-4a3c-83f5-8d9fe488c021","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

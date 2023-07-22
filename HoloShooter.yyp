@@ -749,7 +749,7 @@
     {"id":{"name":"sBLBook","path":"sprites/sBLBook/sBLBook.yy",},},
     {"id":{"name":"sBlacksmithGear","path":"sprites/sBlacksmithGear/sBlacksmithGear.yy",},},
     {"id":{"name":"input_x","path":"scripts/input_x/input_x.yy",},},
-    {"id":{"name":"Sprite201","path":"sprites/Sprite201/Sprite201.yy",},},
+    {"id":{"name":"sTree","path":"sprites/sTree/sTree.yy",},},
     {"id":{"name":"input_binding_is_valid","path":"scripts/input_binding_is_valid/input_binding_is_valid.yy",},},
     {"id":{"name":"oClient","path":"objects/oClient/oClient.yy",},},
     {"id":{"name":"lexicon_text_array","path":"scripts/lexicon_text_array/lexicon_text_array.yy",},},
