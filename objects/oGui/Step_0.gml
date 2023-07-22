@@ -265,6 +265,9 @@ if (ANVIL) {
 #endregion
 #region Select Character room
 if (room = rCharacterSelect) {
+	if (instance_number(oTriangle) == 0 and room == rCharacterSelect) {
+		instance_create_layer(0,0, "Instances", oTriangle);
+	}
 	if (zKey) {
 		if (stageSelected) {
 			room_goto(stages[0].roomname);

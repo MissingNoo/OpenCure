@@ -146,8 +146,19 @@ if (instance_number(oTitleRunning) < 15 and room == rInicio) {
 }
 #region Stages
 	stageSelected = false;
-	stageModes = ["STAGE MODE", "ENDLESS MODE"];
-	modesDescription = ["Defeat the last boss to complete the stage!", "Survive for as long as you can and reach the top of the leaderboards!"];
+	stageModes = [
+	{
+		name : "STAGE MODE", 
+		desc : "Defeat the last boss to \ncomplete the stage!"
+	},
+	{
+		name : "ENDLESS MODE", 
+		desc : "Survive for as long as \nyou can and reach the top \nof the leaderboards!"
+	},
+	{
+		name : "TIME MODE",
+		desc : "Defeat 5000 targets as \nsoon as possible! \nShop upgrades are standardized"
+	}];
 	stages = [{name: "Stage 1", port : sStage1Port, roomname : rStage1}]
 	selectedStage = 0;
 #endregion

@@ -50,7 +50,10 @@ if (room == rInicio) {
 #region Character Select Room
 var str = ""; var offset = 0;
 if (room == rCharacterSelect) {
-#region Lines
+	#region triangles
+	
+	#endregion
+	#region Lines
 	var linesoff = 0;
 	if (alarm_get(0) == -1) {
 		alarm[0]=1;
@@ -110,28 +113,28 @@ if (room == rCharacterSelect) {
 		_xx = GW/1.43;
 		_yy = GH;
 		draw_set_color(c_black);
-		draw_set_alpha(.55);
+		draw_set_alpha(.25);
 		draw_rectangle(_x, _y, _xx, _yy, false);
 		draw_set_color(c_white);
 		draw_set_alpha(1);
 		str="CHOOSE MODE";
 		draw_set_halign(fa_center);
-		draw_text_transformed(GW/2,50,str,4,4,0);
+		draw_text_transformed(GW/2,GH/22.50,str, 4.50, 4.50, 0);
 		draw_set_halign(fa_left);
 		_x = GW/2;
-		_y = GH/2.35;
+		_y = GH/3.14;
 		if (!stageSelected) {
 			offset = 0;
 			draw_set_halign(fa_center);
 			for (var i = 0; i < array_length(stageModes); ++i) {
-				draw_sprite_ext(sUpgradeBackground, 0, _x, _y + offset, 1.55, 1.35, 0, c_black, .75);
-				draw_sprite_ext(sUpgradeBackground, 2, _x, _y + 5 + offset, 1.55, 1.35, 0, c_white, .75);
-				draw_text(_x, _y - 61 + offset, stageModes[i]);
-				draw_text_ext_transformed(_x, _y - 40 + offset, modesDescription[i], 11, 160, 3,3 ,0);
+				draw_sprite_ext(sUpgradeBackground, 0, _x, _y + offset, 1.495, 1.35, 0, c_black, .75);
+				draw_sprite_ext(sUpgradeBackground, 2, _x, _y - 19 + offset, 1.47, 1, 0, c_white, .75);
+				draw_text_transformed(_x, _y - 67 + offset, stageModes[i][$"name"], 2.50, 2.50, 0);
+				draw_text_transformed(_x, _y - 35 + offset, stageModes[i][$"desc"], 2.5, 2.5, 0);
 				if (i = selected) {
-					draw_sprite_ext(sUpgradeBackground, 1, _x, _y + offset, 1.55, 1.35, 0, c_white, 1);
+					draw_sprite_ext(sUpgradeBackground, 1, _x, _y + offset, 1.49, 1.34, 0, c_white, 1);
 				}
-			offset += 170;
+			offset += 160;
 			}
 		}
 		if (stageSelected) {
@@ -413,8 +416,8 @@ if (instance_exists(oPlayer))
 	if (ANVIL) {
 		draw_set_halign(fa_center);
 		draw_set_valign(fa_middle);
-		var _x = GW/1.56;
-		var _y = GH/5.30;
+		_x = GW/1.56;
+		_y = GH/5.30;
 		draw_text_transformed_color(_x+1, _y+1, "UPGRADE!", 5, 5, 0, c_black, c_black, c_black, c_black, 1);
 		draw_text_transformed_color(_x-1, _y-1, "UPGRADE!", 5, 5, 0, c_black, c_black, c_black, c_black, 1);
 		draw_text_transformed(_x, _y, "UPGRADE!", 5, 5, 0);
