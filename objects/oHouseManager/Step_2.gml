@@ -11,8 +11,8 @@ if (placingObject and input_check_pressed("accept")) {
 }
 if (editHouse and selectedMenuConfirm and input_check_pressed("accept")) {
     placingObject = true;
-	objectSprite = HouseInventory[selectedMenu][selectedItem][$"sprite"];
-	objectId = HouseInventory[selectedMenu][selectedItem][$"itemId"];
+	objectSprite = HouseItems[HouseInventory[selectedMenu][selectedItem][$"itemId"]][$"sprite"];
+	objectId = HouseItems[HouseInventory[selectedMenu][selectedItem][$"itemId"]][$"itemId"];
 	editHouse = false;
 }
 if (input_check_pressed("cancel") and editHouse and !justOpened) {
