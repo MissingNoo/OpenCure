@@ -140,17 +140,36 @@ if (!instance_exists(oEvents)) {
 	//feather disable once GM2017
 if (instance_exists(oPlayer) and canspawn == true and global.gamePaused == false and room == rStage1 and global.spawnEnemies == 1 and global.IsHost) {
 	
-	var a = irandom_range(-1,1)
-	if (a=0) a = 1;
-	var b = irandom_range(-1,1)
-	if (b=0) b = 1;
+	//var a = irandom_range(-1,1)
+	//if (a=0) a = 1;
+	//var b = irandom_range(-1,1)
+	//if (b=0) b = 1;
+	var place = irandom_range(1,4);
+	var _x = oPlayer.x;
+	var _y = oPlayer.y;
+	if (place == 1) {
+		_y -= 300;
+	    _x += random_range(0, view_wport[0]);
+	}
+	if (place == 2) {
+		_y += 300;
+	    _x += random_range(0, view_wport[0]);
+	}
+	if (place== 3) {
+		_x -= 400;
+	    _y += random_range(0, view_hport[0]);
+	}
+	if (place == 4) {
+		_x += 400;
+	    _y += random_range(0, view_hport[0]);
+	}
 	
-	random_set_seed(current_time);
+	//random_set_seed(current_time);
     canspawn=false;
 	alarm[0]=60;
 	instance_create_layer(
-	oPlayer.x+(225*a),
-	oPlayer.y+(225*b),
+	_x,
+	_y,
 	"Instances",
 	oEnemy	
 	)
