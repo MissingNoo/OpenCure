@@ -110,7 +110,7 @@ enum Patterns{
 	Ambush
 }
 
-function spawnEvent(monster, type, hp, atk, spd, xp, lifetime, quantity, r = 270){
+function spawnEvent(monster, type, hp, atk, spd, xp, lifetime, quantity, r = 400){
 //function spawnEvent(monster, quantity, type, hp = 0, spd = 0, xp = 0){
 	if (!global.singleplayer) { return; }
 	var enemy = global.enemies[monster];

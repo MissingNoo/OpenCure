@@ -1,12 +1,12 @@
 //if (instance_number(oEnemy) == 0) {
 //    instance_destroy();
 //}
-if (global.gamePaused and !gotpaused) {
-    gotpaused = true;
-	speed = 0;
-	imageSpeedOriginal = image_speed;
-	image_speed = 0;
-}
+//if (global.gamePaused and !gotpaused) {
+//    gotpaused = true;
+//	speed = 0;
+//	imageSpeedOriginal = image_speed;
+//	image_speed = 0;
+//}
 if (socket == oPlayer.socket) {
     owner = instance_nearest(x,y,oPlayer);
 }else{

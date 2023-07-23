@@ -1,6 +1,6 @@
 // Feather disable GM2017
 if(global.gamePaused == false and instance_exists(target)){
-	if (lifetime > 0 and alarm[3] == -1) {
+	if (lifetime != "-" and lifetime > 0 and alarm[3] == -1) {
 	    alarm[3] = lifetime * 60;
 	}
 	var nearupgrade;
