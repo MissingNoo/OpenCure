@@ -17,7 +17,7 @@ if (imguigml_ready()) {
 	var size = [ 0, 0 ];
 	var pos = [ 0, 0 ];
 	if (ShowTestWindow) {
-		imguigml_set_next_window_size(500, 350, EImGui_Cond.Once);
+		imguigml_set_next_window_size(540, 350, EImGui_Cond.Always);
 		
 		var ret = imguigml_begin("OpenCure", ShowTestWindow);
 		ShowTestWindow = ret[1]; 
@@ -37,7 +37,7 @@ if (imguigml_ready()) {
 			if (instance_exists(oPlayer)) {
 				var _header = imguigml_collapsing_header("Player and Stage");
 				if(_header[0]){
-					imguigml_begin_child("Player", 0, 170, true);{
+					//imguigml_begin_child("Player", 0, 170, true);{
 						var _button = imguigml_button("Level up");
 						if (_button) { global.xp = oPlayer.neededxp; }
 						imguigml_same_line();
@@ -92,18 +92,31 @@ if (imguigml_ready()) {
 									}
 								imguigml_same_line();
 							}
-						}
-					}imguigml_end_child();
-					imguigml_separator();
+						}imguigml_end_child();
+				}			    
+			}
+			if (instance_exists(oPlayer)) {
+				var _header = imguigml_collapsing_header("Enemy Options");
+				if(_header[0]){	
 					var _input = imguigml_checkbox("Spawn Enemies", global.spawnEnemies);
 					if(_input[0]) { global.spawnEnemies = _input[1];}
 					imguigml_same_line();
 					_input = imguigml_checkbox("Spawn Events", oEvents.enable);
 					if(_input[0]) { oEvents.enable = _input[1];}
-					if (imguigml_button("Clear enemies")) { with (oEnemy) { instance_destroy(); } }
-					
-					imguigml_end_child();
-				}			    
+					if (imguigml_button("Clear enemies")) { with (oEnemy) { instance_destroy(); } }imguigml_same_line();
+					if (imguigml_button("Clear XP")) { with (oXP) { instance_destroy(); } }
+					if (imguigml_button("1 Minute")) { Minutes += 1; }imguigml_same_line();
+					if (imguigml_button("10 Seconds")) { Seconds += 10; }
+					if (imguigml_button("Horde")) { 
+						spawnEvent(Enemies.KFPEmployee,Patterns.Horde, 25, "-", 3, "-", "-", 100);
+					}imguigml_same_line();
+					if (imguigml_button("Stampede")) { 
+						spawnEvent(Enemies.DeadBeatLV3,Patterns.Stampede, 500, "-", 2, 8, 20, 10);
+					}imguigml_same_line();
+					if (imguigml_button("Circle")) { 
+						spawnEvent(Enemies.DeadBeatLV3,Patterns.Ring, "-", "-", "-", "-", 22, 27, 400);
+					}
+				}
 			}
       
 			

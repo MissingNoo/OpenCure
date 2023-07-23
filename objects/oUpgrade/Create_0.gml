@@ -1,3 +1,5 @@
+gotpaused = false;
+imageSpeedOriginal = 0;
 hspd = 0;
 vspd = 0;
 upg??=global.null;

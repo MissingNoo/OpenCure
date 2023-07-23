@@ -24,7 +24,7 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 		event = false;
 		//alarm[0] = 60;
 		//shtimp e deadbeat
-		spawnEvent(Enemies.KFPEmployee,Patterns.Horde, 25, "-", "-", "-", "-", 30);
+		spawnEvent(Enemies.KFPEmployee,Patterns.Horde, 25, "-", 3, "-", "-", 30);
 	}
 
 	if (_seconds == 30 and Minutes == 1 and event) {
@@ -48,7 +48,7 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 	if (_seconds == 45 and Minutes == 2 and event) {
 		event = false;
 		//alarm[0] = 60;
-		spawnEvent(Enemies.DeadBeatLV3,Patterns.Stampede, 500, "-", "-", 8, 20, 10); //TODO: Add 20 seconds of lifetime
+		spawnEvent(Enemies.DeadBeatLV3,Patterns.Stampede, 500, "-", 2, 8, 20, 10);
 	}
 
 	if (_seconds == 0 and Minutes == 3 and event) {
@@ -69,7 +69,7 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 	if (_seconds == 18 and Minutes == 3 and event) {
 		event = false;
 		//alarm[0] = 60;	
-		spawnEvent(Enemies.KFPEmployee, Patterns.Horde, 25, "-", "-", "-", "-", 30);
+		spawnEvent(Enemies.KFPEmployee,Patterns.Horde, 25, "-", 3, "-", "-", 30);
 	}
 
 	if (_seconds == 40 and Minutes == 3 and event) {
@@ -104,19 +104,19 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 	if (_seconds == 0 and Minutes == 5 and event) {
 		event = false;
 		//alarm[0] = 60;	
-		spawnEvent(Enemies.KFPEmployee, Patterns.Horde, 25, "-", "-", "-", "-", 100);
+		spawnEvent(Enemies.KFPEmployee,Patterns.Horde, 25, "-", 3, "-", "-", 100);
 	}
 
 	if (_seconds == 5 and Minutes == 5 and event) {
 		event = false;
 		//alarm[0] = 60;	
-		spawnEvent(Enemies.KFPEmployee, Patterns.Horde, 25, "-", "-", "-", "-", 100);
+		spawnEvent(Enemies.KFPEmployee,Patterns.Horde, 25, "-", 3, "-", "-", 100);
 	}
 
 	if (_seconds == 10 and Minutes == 5 and event) {
 		event = false;
 		//alarm[0] = 60;	
-		spawnEvent(Enemies.KFPEmployee, Patterns.Horde, 25, "-", "-", "-", "-", 100);
+		spawnEvent(Enemies.KFPEmployee,Patterns.Horde, 25, "-", 3, "-", "-", 100);
 	}
 
 	if (_seconds == 30 and Minutes == 5 and event) {
@@ -155,15 +155,19 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 		event = false;
 		//alarm[0] = 60;	
 		addEnemyToPool(Enemies.GiantDeadBatter);
-	}
-
+	} 
+	
 	if (_seconds == 30 and Minutes == 8 and event) {
 		event = false;
+		repeatSource = time_source_create(time_source_game, 1.66, time_source_units_seconds, function(){ 
+			spawnEvent(Enemies.DeadBeatLV3,Patterns.Ring, "-", "-", 0.35, "-", 22, 27, 400)}, [], 10);
+		time_source_start(repeatSource);
 		//alarm[0] = 60;	
 		removeEnemyFromPool(Enemies.DarkShrimp);
 		removeEnemyFromPool(Enemies.DeadBatter);
 	}
-
+	//10
+	
 	if (_seconds == 30 and Minutes == 9 and event) {
 		event = false;
 		//alarm[0] = 60;	

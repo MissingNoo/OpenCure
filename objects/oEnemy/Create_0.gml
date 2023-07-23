@@ -1,4 +1,5 @@
 event_inherited();
+saved = false;
 gotknocked = false;
 debuffs = [];
 damaged=false;
@@ -28,6 +29,9 @@ if (room != rInicio) {
 			        break;
 				case Patterns.WallBoth:
 					    direction = point_direction(x,y, oPlayer.x, y);
+					break;
+				case Patterns.Stampede:
+					    direction = point_direction(x,y, x - 20, y);
 					break;
 			    default:
 			        // code here

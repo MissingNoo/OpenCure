@@ -1,21 +1,9 @@
-
 // Feather disable GM2017
 if(global.gamePaused == false and instance_exists(target)){
-	
-	if (boss) {
-	    if(target.x < x) image_xscale=-2;
-		if(target.x > x) image_xscale=2;
-		image_yscale = 2;
+	if (lifetime > 0 and alarm[3] == -1) {
+	    alarm[3] = lifetime * 60;
 	}
-	else{
-		if(target.x < x) image_xscale=-1;
-		if(target.x > x) image_xscale=1;
-		image_yscale = 1;
-	}
-	
-	//if(target.y < y) y-=.5;
-		//if(target.y > y) y+=.5;
-		var nearupgrade;
+	var nearupgrade;
 		if (instance_exists(oUpgrade) and instance_exists(target)) {
 			nearupgrade = instance_nearest(x,y,oUpgrade);
 			if (instance_exists(oUpgrade) and nearupgrade.upg[$"id"] == Weapons.PowerofAtlantis and distance_to_object(nearupgrade) < 100) {
@@ -24,10 +12,20 @@ if(global.gamePaused == false and instance_exists(target)){
 				    direction=point_direction(x,y,_is_colliding.x,_is_colliding.y + (sprite_get_height(sWaterPoolStart) / 2));
 				}	
 			}else {
-				if (pattern != Patterns.Horde and pattern != Patterns.WallBoth) {
-					    direction=point_direction(x,y,target.x,target.y);
+				if (pattern != Patterns.Horde and pattern != Patterns.WallBoth and pattern != Patterns.Stampede) {
+					direction=point_direction(x,y,target.x,target.y);
+					if (boss) {
+						if(target.x < x) image_xscale=-2;
+						if(target.x > x) image_xscale=2;
+						image_yscale = 2;
+					}
+					else{
+						if(target.x < x) image_xscale=-1;
+						if(target.x > x) image_xscale=1;
+						image_yscale = 1;
 					}
 				}
+			}
 		}	
 		
 		if (customSpawn and distance_to_point(dieX, y) < 10) {
@@ -36,6 +34,12 @@ if(global.gamePaused == false and instance_exists(target)){
 		}
 	
 	if (hp<=0) {
+		if (!saved) {
+			saved = true;
+		    var part = part_system_create(part_saved);
+			//feather disable once GM2017
+			part_system_position(part, x, y);
+		}		
 		if (!deathSent) {
 		    deathSent = true;
 			sendMessage({
