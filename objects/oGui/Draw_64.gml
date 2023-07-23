@@ -20,7 +20,7 @@ if (global.upgrade == 1 or global.gamePaused and room != rInicio and HP > 0) {
 if (room == rInicio) {
 	#region Menu
 	if (!global.gamePaused) {
-		mouseOnButton(GW/1.25, GW/6, 55, sHudButton, 1.75, 1.5, menuOptions);
+		//mouseOnButton(GW/1.25, GW/6, 55, sHudButton, 1.75, 1.5, menuOptions);
 		draw_text_transformed(20,GH-50,"version DEMO 0.4.11072001 ported by Airgeadlamh", 1, 1, 0);
 		var offset = 0;
 		var thiss=0;
@@ -28,13 +28,12 @@ if (room == rInicio) {
 		for (var i = 0; i < array_length(menuOptions); i++) {
 		    if (i == selected) { draw_set_color(c_black); thiss = 1; scale = 0.35;}
 		    else {draw_set_color(c_white); thiss=0; scale = 0;}
-			//var menuX = GW/1.20;
-			//var menuY = GW/5;
 			var menuX = GW/1.25;
 			var menuY = GW/6;
 			draw_set_valign(fa_middle);
 			draw_set_halign(fa_center);
 			draw_sprite_ext(sHudButton,thiss,menuX, menuY+offset,1.75+scale, 1.5,0,c_white,1);
+			mouse_on_button(menuX, menuY + offset, sHudButton, i, 1.75 + scale, 1.5);
 		    draw_text_transformed(
 		        menuX,
 		        menuY + offset,
@@ -332,14 +331,17 @@ if (instance_exists(oPlayer))
 		#region UpgradeList
 		offset = 0;
 		for (var i = 0; i < array_length(global.upgradeOptions); i++) {
-			var _xx = GW/1.52;
-			var _yy = GH/4.5;
-			mouseOnButton(_xx, _yy, GH/5.30, sUpgradeBackground, 2.1/1.30, 1.25/2, global.upgradeOptions);
-			draw_sprite_ext(sUpgradeBackground, 0, _xx, _yy + offset, 2.10, 1.25, 0, c_black, .75);//upgrade background
-			draw_sprite_ext(sUpgradeBackground, 2, _xx, _yy + 5 + offset, 2.10, 1.25, 0, c_white, .75);//upgrade line for the text
+			var _xx = GW/1.55;
+			var _yy = GH/4.16;
+			var _xscale = 2.06;
+			var _yscale = 1.32;
+			draw_sprite_ext(sUpgradeBackground, 0, _xx, _yy + offset, _xscale, _yscale, 0, c_black, .75);//upgrade background
+			//draw_sprite_ext(sUpgradeBackground, 2, _xx, _yy + 5 + offset, _xscale, _yscale, 0, c_white, .75);//upgrade line for the text
+			draw_rectangle(_xx - 365, _yy + offset - 35, _xx + 365, _yy + offset - 34, false);			
+			mouse_on_button(_xx, _yy + offset, sUpgradeBackground, i, _xscale / 1.32, _yscale / 2.2);
 			if (i = selected) { //if select draw border
-				draw_sprite_ext(sUpgradeBackground, 1, _xx, _yy + offset, 2.10, 1.25, 0, c_white, 1); 
-				draw_sprite_ext(sHoloCursor, holoarrowspr, _xx - 440, _yy + offset, 2.5, 2.5, 0, c_white, 1); 
+				draw_sprite_ext(sUpgradeBackground, 1, _xx, _yy + offset, _xscale, _yscale, 0, c_white, 1);//upgrade background
+				draw_sprite_ext(sHoloCursor, holoarrowspr, _xx - 415, _yy + 2 + offset, 2, 2, 0, c_white, 1); 
 			} 
 			draw_set_halign(fa_left);
 			var uptype = "";
@@ -355,7 +357,7 @@ if (instance_exists(oPlayer))
 					break;}
 			}
 			var _name = lexicon_text(uptype + string(global.upgradeOptions[i][$"name"]) + ".name");
-			draw_text_transformed(GW/2.60 + guiOffset, GH/6.65 + offset - androidoffset, _name, 1.5, 1.5, 0); // draw the name
+			draw_text_transformed(_xx - 348 + guiOffset, _yy - 64 + offset - androidoffset, _name, 2, 2, 0); // draw the name
 			var style = ""; 
 			switch (global.upgradeOptions[i][$"style"]) { // type of upgrade
 				case ItemTypes.Weapon:{
@@ -369,10 +371,10 @@ if (instance_exists(oPlayer))
 					break;}
 			}
 			draw_set_halign(fa_right);
-			draw_text_transformed(GW/1.08 - guiOffset, GH/6.65 + offset - androidoffset, string(style), 1.5, 1.5, 0);  // draw type of upgrade
+			draw_text_transformed(_xx + 340 - guiOffset, _yy - 64 + offset - androidoffset, string(style), 2, 2, 0);  // draw type of upgrade
 			draw_set_halign(fa_left);
-			draw_sprite_ext(global.upgradeOptions[i][$ "thumb"],0,GW/2.45 + guiOffset, _yy + offset,2, 2,0,c_white,1); // item thumb			
-			draw_sprite_ext(sItemType, global.upgradeOptions[i][$"style"], GW/2.45 + guiOffset, _yy + offset,2, 2,0,c_white,1); // item thumb type
+			draw_sprite_ext(global.upgradeOptions[i][$ "thumb"],0,_xx - 322 + guiOffset, _yy + 8 + offset,2, 2,0,c_white,1); // item thumb			
+			draw_sprite_ext(sItemType, global.upgradeOptions[i][$"style"], _xx - 322 + guiOffset, _yy + 8 + offset,2, 2,0,c_white,1); // item thumb type
 			var foundup = false;
 			var foundlv = 0;
 			for (var j = 0; j < array_length(UPGRADES); ++j) {
@@ -381,20 +383,24 @@ if (instance_exists(oPlayer))
 					foundlv = UPGRADES[j][$"level"] + 1;
 				}
 			}			
-			var maxx = 0;
-			if (os_type == os_android) {
-				maxx = GW/2.50;
-			}else{
-				maxx = GW/2.07;
-			}	
+			var maxx = 600;
+			//if (os_type == os_android) {
+			//	maxx = GW/2.50;
+			//}else{
+			//	maxx = GW/2.07;
+			//}	
+			var desc = "";
 			if (foundup) {
 				var idd = global.upgradeOptions[i][$"id"];
-				draw_text_ext_transformed(GW/2.20+(guiOffset/2) + 5,GH/5.5+offset, lexicon_text(uptype + global.upgradeOptions[i][$"name"] + "." + string(foundlv)), string_width("W"), 327.5, 2,2,0);
+				desc = lexicon_text(uptype + global.upgradeOptions[i][$"name"] + "." + string(foundlv));
+				//draw_text_ext_transformed(GW/2.20+(guiOffset/2) + 5,GH/5.5+offset, lexicon_text(uptype + global.upgradeOptions[i][$"name"] + "." + string(foundlv)), string_width("W"), 327.5, 2,2,0);
 			}
 			else{
-				draw_text_ext_transformed(GW/2.20+(guiOffset/2) + 5,GH/5.5+offset, lexicon_text(uptype + global.upgradeOptions[i][$"name"] + ".1"), string_width("W"), 327.5, 2,2,0);
+				desc = lexicon_text(uptype + global.upgradeOptions[i][$"name"] + ".1");
+				//draw_text_ext_transformed(GW/2.20+(guiOffset/2) + 5,GH/5.5+offset, lexicon_text(uptype + global.upgradeOptions[i][$"name"] + ".1"), string_width("W"), 327.5, 2,2,0);
 			}
-			offset += GH/5.30;
+			drawDesc(_xx- 230, _yy - 28 + offset, desc , maxx, 2);
+			offset += 138;
 			draw_set_color(c_white);
 		}//feather disable once GM2017
 		if (global.shopUpgrades.Reroll.level > 0) {
@@ -424,14 +430,14 @@ if (instance_exists(oPlayer))
 		draw_set_valign(fa_top);
 		draw_set_halign(fa_left);			
 		#region Weapons
-		for (var i = 0; i < array_length(UPGRADES); ++i) {
-			if (!anvilconfirm) { mouseOnButton(GW/2.30 + (GW/12 * i), GH/3, GW/17.50, sItemSquare, 2, 2, array_create(2,0), "anvilSelectedCategory");}
-		}
+		//for (var i = 0; i < array_length(UPGRADES); ++i) {
+		//	if (!anvilconfirm) { mouseOnButton(GW/2.30 + (GW/12 * i), GH/3, GW/17.50, sItemSquare, 2, 2, array_create(2,0), "anvilSelectedCategory");}
+		//}
 		
 		var xoffset = 0;
 		var anvilIsSelected = 0;
 		for (var i = 0; i < array_length(UPGRADES); ++i){
-			if (!anvilconfirm) { mouseOnButton(GW/2.30, GH/3, GW/12, sItemSquare, 2, 2, UPGRADES, "anvilSelected", "horizontal");}
+			//if (!anvilconfirm) { mouseOnButton(GW/2.30, GH/3, GW/12, sItemSquare, 2, 2, UPGRADES, "anvilSelected", "horizontal");}
 			if (anvilSelectedCategory == 0 and i == anvilSelected){
 				anvilIsSelected = 1
 			}else{
@@ -445,7 +451,7 @@ if (instance_exists(oPlayer))
 		#region Items
 		xoffset = 0;
 		for (var i = 0; i < array_length(playerItems); ++i){
-			if (!anvilconfirm) { mouseOnButton(GW/2.30, GH/2.30, GW/12, sItemSquare, 2, 2, playerItems, "anvilSelected", "horizontal");}
+			//if (!anvilconfirm) { mouseOnButton(GW/2.30, GH/2.30, GW/12, sItemSquare, 2, 2, playerItems, "anvilSelected", "horizontal");}
 			if (anvilSelectedCategory == 1 and i == anvilSelected){
 				anvilIsSelected = 1;
 			}else{
@@ -631,7 +637,7 @@ if (global.gamePaused and !global.upgrade and !ANVIL and HP > 0 and !instance_ex
 			bigString = string_length(pauseMenu[activeMenu][PM.Options][i])/11;
 		}
 	}
-	mouseOnButton(GW/2, (GH/2 - (sprite_get_height(sMenu) * pauseMenu[activeMenu][PM.YScale])/2) + 90, 45, sHudButton, bigString, 1, array_create(array_length(pauseMenu[activeMenu][PM.Options]),0), "selected");
+	//mouseOnButton(GW/2, (GH/2 - (sprite_get_height(sMenu) * pauseMenu[activeMenu][PM.YScale])/2) + 90, 45, sHudButton, bigString, 1, array_create(array_length(pauseMenu[activeMenu][PM.Options]),0), "selected");
 	for (var i = startOption; i < totaloptions; ++i) {
 		var _xoff = 0;
 		if (totaloptions > 6) {
@@ -643,10 +649,10 @@ if (global.gamePaused and !global.upgrade and !ANVIL and HP > 0 and !instance_ex
 			}
 		}
 		var spr = (selected == i) ? 1 : 0;
-		draw_sprite_ext(sHudButton, spr, GW/2 + _xoff,
-		(GH/2 - (sprite_get_height(sMenu) * pauseMenu[activeMenu][PM.YScale])/2) + 90 + mOffset,
-		bigString,
-		1.35,0,c_white,1);
+		var _ox = GW/2 + _xoff;
+		var _oy = (GH/2 - (sprite_get_height(sMenu) * pauseMenu[activeMenu][PM.YScale])/2) + 90 + mOffset;
+		draw_sprite_ext(sHudButton, spr, _ox, _oy, bigString, 1.35,0,c_white,1);	
+		mouse_on_button(_ox, _oy, sHudButton, i, bigString, 1.35);
 		var _arrowoff = 160;
 		if (editOption and selected == i) {
 			draw_sprite_ext(sMenuArrow, 0, GW/2 + _xoff - _arrowoff,

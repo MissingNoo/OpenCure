@@ -126,59 +126,15 @@ function drawRectangle(x, y, xx, yy, _background = c_black, _outline = c_white, 
 }
 	
 	
-/**
- * Function Makes buttons clickable
- * @param {any*} _startX Start position of the button 
- * @param {any*} _startY  Start position of the button 
- * @param {real} _off Offset between buttons
- * @param {asset.gmsprite} _sprite button Sprite
- * @param {real} _scaleX Scale of the button
- * @param {real} _scaleY Scale of the button
- * @param {array} _array Array of options
- * @param {string} _variable Selected item variable between ""
- * @param {string} _direction vertical/horizontal
- */
-function mouseOnButton(_startX, _startY, _off, _sprite, _scaleX, _scaleY, _array, _variable = "selected", _direction = "vertical"){
-	variable_instance_set(self, "mousein", false);
-	var menuX = _startX;
-	var menuY = _startY;
-	var off = 0;
-	if (_direction == "vertical") {
-	    for (var i = 0; i < array_length(_array); ++i) {
-			if (global.debug) {
-			    // randomize;
-				draw_set_alpha(.1);
-			    draw_set_color(make_color_rgb(random(255),random(255),random(255)));
-				draw_rectangle( menuX - ((sprite_get_width(_sprite) * _scaleX)/2), (menuY + off) - ((sprite_get_height(_sprite)*_scaleY)/2), menuX + ((sprite_get_width(_sprite) * _scaleX)/2), (menuY + off) + ((sprite_get_height(_sprite)*_scaleY)/2),false);
-				draw_set_color(c_white);
-				draw_circle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), 3, false);
-				draw_set_alpha(1);
-			}
-			if (point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), menuX - ((sprite_get_width(_sprite) * _scaleX)/2), (menuY + off) - ((sprite_get_height(_sprite)*_scaleY)/2), menuX + ((sprite_get_width(_sprite) * _scaleX)/2), (menuY + off) + ((sprite_get_height(_sprite)*_scaleY)/2))) {
-				variable_instance_set(self, _variable, i);
-				variable_instance_set(self, "mousein", true);
-			}
-			off += _off;
-		}
+function mouse_on_button(_x, _y, _sprite, _index, _xscale = 1, _yscale = 1, _variable = "selected"){
+	var _w = sprite_get_width(_sprite) * _xscale /2;
+	var _h = sprite_get_height(_sprite) * _yscale / 2;
+	if (point_in_rectangle(TouchX1, TouchY1, _x - _w, _y - _h, _x + _w, _y + _h)) {
+		variable_instance_set(self, _variable, _index);
+	}	
+	if (global.debug) {
+	    draw_rectangle(_x - _w, _y - _h, _x + _w, _y + _h, true);
 	}
-	if (_direction == "horizontal") {
-	    for (var i = 0; i < array_length(_array); ++i) {
-			if (global.debug) {
-				// randomize;
-				draw_set_alpha(.1);
-			    draw_set_color(make_color_rgb(random(255),random(255),random(255)));
-				draw_rectangle((menuX + off) - ((sprite_get_width(_sprite) * _scaleX)/2), menuY - ((sprite_get_height(_sprite)*_scaleY)/2), (menuX + off) + ((sprite_get_width(_sprite) * _scaleX)/2), menuY + ((sprite_get_height(_sprite)*_scaleY)/2),false);
-				draw_set_color(c_white);
-				draw_circle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), 3, false);
-				draw_set_alpha(1);
-			}
-			if (point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), (menuX + off) - ((sprite_get_width(_sprite) * _scaleX)/2), menuY - ((sprite_get_height(_sprite)*_scaleY)/2), (menuX + off) + ((sprite_get_width(_sprite) * _scaleX)/2), menuY + ((sprite_get_height(_sprite)*_scaleY)/2))) {
-				variable_instance_set(self, _variable, i);
-				variable_instance_set(self, "mousein", true);
-			}
-			off += _off;
-		}
-	}
-	
+		
 }
 
