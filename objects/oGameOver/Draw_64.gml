@@ -25,7 +25,7 @@
 #endregion
 
 #region Buttons
-	mouseOnButton(GW/2, GH/1.79, 75, sHudButton, 2.05, 2.10, options, "selectedOption", "vertical");
+	//mouseOnButton(GW/2, GH/1.79, 75, sHudButton, 2.05, 2.10, options, "selectedOption", "vertical");
 	draw_set_valign(fa_middle);
 	var offset = 0, isSelected, xScale, textcolor;
 	for (var i = 0; i < array_length(options); ++i) {
