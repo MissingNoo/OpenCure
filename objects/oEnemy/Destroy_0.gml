@@ -2,7 +2,7 @@ if (boss) {
     audio_play_sound(snd_bossdefeated,0,0);
 }
 
-if (dropxp) {
+if (dropxp and hp < 0) {
 	global.defeatedEnemies += 1;
     instance_create_layer(x,y,"Instances",oXP, {xp : xp});
 }

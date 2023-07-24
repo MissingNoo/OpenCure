@@ -168,6 +168,7 @@
     {"name":"__input_key_is_ignored","order":1,"path":"scripts/__input_key_is_ignored/__input_key_is_ignored.yy",},
     {"name":"__input_class_trigger_effect_off","order":11,"path":"scripts/__input_class_trigger_effect_off/__input_class_trigger_effect_off.yy",},
     {"name":"input_binding_mouse_button","order":4,"path":"scripts/input_binding_mouse_button/input_binding_mouse_button.yy",},
+    {"name":"sTakoViking","order":29,"path":"sprites/sTakoViking/sTakoViking.yy",},
     {"name":"input_player_export","order":1,"path":"scripts/input_player_export/input_player_export.yy",},
     {"name":"rMap","order":5,"path":"rooms/rMap/rMap.yy",},
     {"name":"__input_load_type_csv","order":10,"path":"scripts/__input_load_type_csv/__input_load_type_csv.yy",},

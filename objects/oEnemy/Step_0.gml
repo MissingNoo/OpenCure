@@ -12,7 +12,8 @@ if(global.gamePaused == false and instance_exists(target)){
 				    direction=point_direction(x,y,_is_colliding.x,_is_colliding.y + (sprite_get_height(sWaterPoolStart) / 2));
 				}	
 			}else {
-				if (pattern != Patterns.Horde and pattern != Patterns.WallBoth and pattern != Patterns.Stampede) {
+				if (pattern == Patterns.Horde or pattern == Patterns.WallLeftRight or pattern == Patterns.StampedeRight) { followPlayer = false;} //TODO: remove?
+				if (followPlayer) {
 					direction=point_direction(x,y,target.x,target.y);
 					if (boss) {
 						if(target.x < x) image_xscale=-2;
@@ -20,9 +21,9 @@ if(global.gamePaused == false and instance_exists(target)){
 						image_yscale = 2;
 					}
 					else{
-						if(target.x < x) image_xscale=-1;
-						if(target.x > x) image_xscale=1;
-						image_yscale = 1;
+						if(target.x < x) image_xscale= xscale * -1;
+						if(target.x > x) image_xscale=xscale;
+						image_yscale = yscale;
 					}
 				}
 			}
@@ -38,7 +39,7 @@ if(global.gamePaused == false and instance_exists(target)){
 			saved = true;
 		    var part = part_system_create(part_saved);
 			//feather disable once GM2017
-			part_system_position(part, x, y);
+			part_system_position(part, x, y - (sprite_get_height(sprite_index) /2));
 		}		
 		if (!deathSent) {
 		    deathSent = true;

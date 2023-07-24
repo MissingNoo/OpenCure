@@ -27,11 +27,23 @@ if (room != rInicio) {
 			    case Patterns.Horde:
 			        direction = point_direction(x,y, oPlayer.x, oPlayer.y);
 			        break;
-				case Patterns.WallBoth:
+				case Patterns.WallLeftRight:
 					    direction = point_direction(x,y, oPlayer.x, y);
 					break;
-				case Patterns.Stampede:
+				case Patterns.WallTopBottom:
+					    direction = point_direction(x,y, x, oPlayer.y);
+					break;
+				case Patterns.StampedeRight:
 					    direction = point_direction(x,y, x - 20, y);
+					break;
+				case Patterns.StampedeLeft:
+					    direction = point_direction(x,y, x + 20, y);
+					break;
+				case Patterns.StampedeTop:
+					direction = point_direction(x,y, x, y + 10);					
+					break;
+				case Patterns.StampedeDown:
+					direction = point_direction(x,y, x, y - 10);
 					break;
 			    default:
 			        // code here

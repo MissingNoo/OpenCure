@@ -324,6 +324,8 @@ function populate_upgrades(){
 				knockbackSpeed : 2,
 				canBeHasted : true,
 				type : "white",
+				afterimage : true,
+				afterimageColor : c_red,
 				shotType : ShotTypes.Multishot,
 				perk : false,
 			});

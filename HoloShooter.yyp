@@ -210,6 +210,7 @@
     {"id":{"name":"__input_key_is_ignored","path":"scripts/__input_key_is_ignored/__input_key_is_ignored.yy",},},
     {"id":{"name":"__input_class_trigger_effect_off","path":"scripts/__input_class_trigger_effect_off/__input_class_trigger_effect_off.yy",},},
     {"id":{"name":"input_binding_mouse_button","path":"scripts/input_binding_mouse_button/input_binding_mouse_button.yy",},},
+    {"id":{"name":"sTakoViking","path":"sprites/sTakoViking/sTakoViking.yy",},},
     {"id":{"name":"input_player_export","path":"scripts/input_player_export/input_player_export.yy",},},
     {"id":{"name":"rMap","path":"rooms/rMap/rMap.yy",},},
     {"id":{"name":"__input_load_type_csv","path":"scripts/__input_load_type_csv/__input_load_type_csv.yy",},},

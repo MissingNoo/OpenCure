@@ -30,7 +30,7 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 	if (_seconds == 30 and Minutes == 1 and event) {
 		event = false;
 		//alarm[0] = 60;
-		spawnEvent(Enemies.DeadBeatLV3,Patterns.WallBoth,120, "-", "-", 4, 8.3, 140);
+		spawnEvent(Enemies.DeadBeatLV3,Patterns.WallLeftRight,120, "-", "-", 4, 8.3, 140);
 	}
 
 	if (_seconds == 0 and Minutes == 2 and event) {
@@ -48,7 +48,7 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 	if (_seconds == 45 and Minutes == 2 and event) {
 		event = false;
 		//alarm[0] = 60;
-		spawnEvent(Enemies.DeadBeatLV3,Patterns.Stampede, 500, "-", 2, 8, 20, 10);
+		spawnEvent(Enemies.DeadBeatLV3,Patterns.StampedeRight, 500, "-", 2, 8, 20, 10);
 	}
 
 	if (_seconds == 0 and Minutes == 3 and event) {
@@ -63,7 +63,7 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 	if (_seconds == 15 and Minutes == 3 and event) {
 		event = false;
 		//alarm[0] = 60;	
-		spawnEvent(Enemies.Takodachi, Patterns.WallRight, 200, "-", 0.55, 5, 8.3, 140);//TODO: Tako knight
+		spawnEvent(Enemies.TakoViking, Patterns.WallRight, 200, "-", 0.55, 5, 8.3, 140);
 	}
 
 	if (_seconds == 18 and Minutes == 3 and event) {
@@ -75,7 +75,8 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 	if (_seconds == 40 and Minutes == 3 and event) {
 		event = false;
 		//alarm[0] = 60;	
-		//TODO: takoknight Stampede	500	-	1.6	8	20	20
+		spawnEvent(Enemies.TakoViking, Patterns.StampedeTop, 500, 1, 1.6, 8, 20, 20);		
+		spawnEvent(Enemies.TakoViking, Patterns.StampedeDown, 500, 1, 1.6, 8, 20, 20);		
 	}
 
 	if (_seconds == 0 and Minutes == 4 and event) {
@@ -88,7 +89,7 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 	if (_seconds == 15 and Minutes == 4 and event) {
 		event = false;
 		//alarm[0] = 60;	
-		//TODO: takoknight Ring	200	-	-	5	26	50
+		spawnEvent(Enemies.TakoViking, Patterns.Ring, 200, 1, 0.55, 5, 26, 50);
 	}
 
 	if (_seconds == 0 and Minutes == 5 and event) {
@@ -122,7 +123,8 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 	if (_seconds == 30 and Minutes == 5 and event) {
 		event = false;
 		//alarm[0] = 60;	
-		//TODO: takoknight Stampede	800	-	2.0	8	20	40
+		repeatSource = time_source_create(time_source_game, 0.5, time_source_units_seconds, function(){ spawnEvent(Enemies.TakoViking, Patterns.StampedeRight, 800, 1, 2, 8, 20, 10);}, [], 5);
+		time_source_start(repeatSource);
 	}
 
 	if (_seconds == 0 and Minutes == 6 and event) {
@@ -142,7 +144,8 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 	if (_seconds == 0 and Minutes == 7 and event) {
 		event = false;
 		//alarm[0] = 60;	
-		//TODO: darkshrimp Ring	500	5	0.05	10	25	120
+		spawnEvent(Enemies.Shrimp, Patterns.Ring, 500, 5, 0.05, 10, 25, 76, 400, "-", true, 16);
+		//INFO: should be 120 shrimps, but anyway?
 	}
 	
 	if (_seconds == 35 and Minutes == 7 and event) {
@@ -159,14 +162,20 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 	
 	if (_seconds == 30 and Minutes == 8 and event) {
 		event = false;
-		repeatSource = time_source_create(time_source_game, 1.66, time_source_units_seconds, function(){ 
-			spawnEvent(Enemies.DeadBeatLV3,Patterns.Ring, "-", "-", 0.35, "-", 22, 27, 400)}, [], 10);
+		repeatSource = time_source_create(time_source_game, 2, time_source_units_seconds, function(){ spawnEvent(Enemies.DeadBeatLV3,Patterns.Ring, "-", "-", 0.35, "-", 11, 27, 400)}, [], 10);
 		time_source_start(repeatSource);
+		//INFO: should be 22 seconds of lifetime?
 		//alarm[0] = 60;	
 		removeEnemyFromPool(Enemies.DarkShrimp);
 		removeEnemyFromPool(Enemies.DeadBatter);
 	}
-	//10
+	
+	if (_seconds == 55 and Minutes == 8 and event) {
+		event = false;
+		repeatSource = time_source_create(time_source_game, 5, time_source_units_seconds, function(){ spawnEvent(Enemies.DisgruntledEmployee, Patterns.Horde, "-", "-", 3, "-", "-", 60);}, [], 6);
+		time_source_start(repeatSource);
+		//INFO: should be 120?
+	}
 	
 	if (_seconds == 30 and Minutes == 9 and event) {
 		event = false;
@@ -179,6 +188,14 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 		//alarm[0] = 60;	
 		addEnemyToPool(Enemies.FubuZilla);
 	}
+	
+	if (_seconds == 15 and Minutes == 10 and event) {
+		event = false;
+		spawnEvent(Enemies.InvestiGator, Patterns.StampedeLeft, 1000, "-", 1.6, 10, 20, 40, 0, 0, false, 1);
+		spawnEvent(Enemies.InvestiGator, Patterns.StampedeRight, 1000, "-", 1.6, 10, 20, 40, 0, 0, false, 1);
+		spawnEvent(Enemies.InvestiGator, Patterns.StampedeTop, 1000, "-", 1.6, 10, 20, 40, 0, 0, false, 1);
+		spawnEvent(Enemies.InvestiGator, Patterns.StampedeDown, 1000, "-", 1.6, 10, 20, 40, 0, 0, false, 1);
+	}
 
 	if (_seconds == 0 and Minutes == 11 and event) {
 		event = false;
@@ -190,12 +207,39 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 		removeEnemyFromPool(Enemies.DisgruntledEmployee)
 		addEnemyToPool(Enemies.BaeRat);
 	}
+	
+	if (_seconds == 30 and Minutes == 11 and event) {
+		event = false;
+		spawnEvent(Enemies.BaeRat, Patterns.Ring, "-", "-", "-", "-", "-", 120, 500, 0, true, 16);
+	}
 
 	if (_seconds == 0 and Minutes == 12 and event) {
 		event = false;
 		//alarm[0] = 60;	
 		addEnemyToPool(Enemies.KronieA);
 		addEnemyToPool(Enemies.KronieB);
+	}
+
+	if (_seconds == 20 and Minutes == 12 and event) {
+		event = false;
+		spawnEvent(Enemies.KronieA, Patterns.StampedeLeft, 2000, 7, 2, 10, 20, 10, 0, 0, false, 2);
+		spawnEvent(Enemies.KronieB, Patterns.StampedeRight, 2000, 7, 2, 10, 20, 10, 0, 0, false, 1);
+		//TODO: random kronie
+	}
+	if (_seconds == 25 and Minutes == 12 and event) {
+		event = false;
+		spawnEvent(Enemies.KronieA, Patterns.StampedeTop, 2000, 7, 3, 10, 20, 10, 0, 0, false, 1);
+		spawnEvent(Enemies.KronieA, Patterns.StampedeDown, 2000, 7, 3, 10, 20, 10, 0, 0, false, 2);
+		//TODO: random kronie
+	}
+	if (_seconds == 45 and Minutes == 12 and event) {
+		event = false;
+		repeatSource = time_source_create(time_source_game, 1, time_source_units_seconds, function(){
+			spawnEvent(Enemies.KronieA, Patterns.StampedeLeft, 2000, 7, 3, 10, 20, 20, 0, 0, false, 1);
+			spawnEvent(Enemies.KronieA, Patterns.StampedeDown, 2000, 7, 3, 10, 20, 20, 0, 0, false, 2);
+			}, [], 5);
+		time_source_start(repeatSource);		
+		//TODO: random kronie
 	}
 
 	if (_seconds == 0 and Minutes == 13 and event) {
@@ -236,6 +280,15 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 		//alarm[0] = 60;	
 		removeEnemyFromPool(Enemies.QDeadBeat);
 		removeEnemyFromPool(Enemies.QShrimp);
+	}
+	//if (keyboard_check_pressed(vk_home)) {
+	//    Minutes = 16;
+	//	Seconds = 13;
+	//}
+	if (_seconds == 15 and Minutes == 16 and event) {
+		event = false;
+		spawnEvent(Enemies.KronieA, Patterns.WallLeftRight, 1500, "-", 0.26, 10, 15, 100, 0, 0, false, 100);
+		spawnEvent(Enemies.KronieA, Patterns.WallTopBottom, 1500, "-", 0.26, 10, 15, 100, 0, 0, false, 150);
 	}
 
 	if (_seconds == 30 and Minutes == 17 and event) {
@@ -284,19 +337,19 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 /*
 (Enemies.deadbeatlv3, Patterns.Ring, "-", "-", "-", "-", 22, 27) every1.66s08:30?
 (Enemies.DisgruntledEmployee, Patterns.Horde, "-", "-", "-", "-", "-", 120) every5.0s09:00-09:30
-(Enemies.Investi-Gator, Patterns.Stampede, 1, 000, "-", 1.6, 10, 20, 40) 10:15
+(Enemies.Investi-Gator, Patterns.StampedeRight, 1, 000, "-", 1.6, 10, 20, 40) 10:15
 (Enemies.Baerat, Patterns.Ring, "-", "-", "-", "-", "-", 120) 11:30
-(Enemies.Kronie, Patterns.Stampede, 2, 000, 7, 2.0, 10, 20, 20) 12:20
-(Enemies.Kronie, Patterns.Stampede, 2, 000, 7, 3.0, 10, 20, 20) 12:25
-(Enemies.Kronie, Patterns.Stampede, 2, 000, 7, 2.0, 10, 20, 188) 12:45-12:50
+(Enemies.Kronie, Patterns.StampedeRight, 2, 000, 7, 2.0, 10, 20, 20) 12:20
+(Enemies.Kronie, Patterns.StampedeRight, 2, 000, 7, 3.0, 10, 20, 20) 12:25
+(Enemies.Kronie, Patterns.StampedeRight, 2, 000, 7, 2.0, 10, 20, 188) 12:45-12:50
 (Enemies.Baerat, Patterns.Horde, 70, 2, 1.7, 5, "-", 40) every2.0s13:30-13:40
-(Enemies.RiotQDeadBeat, Patterns.Stampede, 2.000, "-", 2.0, 10, 20, 10) 14:20
-(Enemies.RiotQShrimp, Patterns.Stampede, 2.000, "-", 2.0, 10, 20, 10) 14:25
-(Enemies.RiotQDeadBeat, Patterns.Stampede, 2.000, "-", 2.0, 10, 20, 10) 14:30
-(Enemies.RiotQShrimp, Patterns.Stampede, 2.000, "-", 2.0, 10, 20, 10) 14:30
-(Enemies.RiotQDeadBeat, Patterns.Stampede, 2.000, "-", 2.0, 10, 20, 12) every1.0s14:35-14:40
-(Enemies.RiotQShrimp, Patterns.Stampede, 2.000, "-", 2.0, 10, 20, 12) every1.0s14:35-14:40
+(Enemies.RiotQDeadBeat, Patterns.StampedeRight, 2.000, "-", 2.0, 10, 20, 10) 14:20
+(Enemies.RiotQShrimp, Patterns.StampedeRight, 2.000, "-", 2.0, 10, 20, 10) 14:25
+(Enemies.RiotQDeadBeat, Patterns.StampedeRight, 2.000, "-", 2.0, 10, 20, 10) 14:30
+(Enemies.RiotQShrimp, Patterns.StampedeRight, 2.000, "-", 2.0, 10, 20, 10) 14:30
+(Enemies.RiotQDeadBeat, Patterns.StampedeRight, 2.000, "-", 2.0, 10, 20, 12) every1.0s14:35-14:40
+(Enemies.RiotQShrimp, Patterns.StampedeRight, 2.000, "-", 2.0, 10, 20, 12) every1.0s14:35-14:40
 (Enemies.RiotQDeadBeat, Patterns.Wall, 2.000, "-", 1.6, 10, 20, 8) 14:45
 (Enemies.RiotQShrimp, Patterns.Wall, 2.000, "-", 1.6, 10, 20, 8) 14:45
 (Enemies.Kronie, Patterns.Wall, 1.500, "-", 0.26, 10, 15, 100) 16:15
-(Enemies.Hooman, Patterns.Stampede, 5.000, "-", 2.0, 10, 20, 40) 17:00
+(Enemies.Hooman, Patterns.StampedeRight, 5.000, "-", 2.0, 10, 20, 40) 17:00

@@ -17,6 +17,10 @@ function initiateEnemy(e){
 	sprwalking=e[?"sprite"];
 	sprattack=e[?"atksprite"];
 	sprite_index=sprwalking;
+	image_xscale = e[?"xscale"];
+	image_yscale = e[?"yscale"];
+	xscale = e[?"xscale"];
+	yscale = e[?"yscale"];
 	xp = e[?"exp"];
 	boss = e[?"boss"];
 	for (var i = 0; i < array_length(global.upgradesAvaliable); ++i) {
@@ -27,7 +31,7 @@ function initiateEnemy(e){
 }
 	
 global.enemies=[];
-function createEnemy(_id, _name, _sprite, _hp, _speed, _atk, _exp, _weight = 1, _boss = false)
+function createEnemy(_id, _name, _sprite, _hp, _speed, _atk, _exp, _weight = 1, _boss = false, _xscale = 1, _yscale = 1)
 {
 	global.enemies[_id]=ds_map_create();
 	m = global.enemies[_id];
@@ -36,6 +40,8 @@ function createEnemy(_id, _name, _sprite, _hp, _speed, _atk, _exp, _weight = 1, 
 	ds_map_add(m, "sprite", _sprite);
 	ds_map_add(m, "hp", _hp);
 	ds_map_add(m, "speed", _speed);
+	ds_map_add(m, "xscale", _xscale);
+	ds_map_add(m, "yscale", _yscale);
 	ds_map_add(m, "atk", _atk);
 	ds_map_add(m, "exp", _exp);
 	ds_map_add(m, "weight", _weight);
@@ -54,6 +60,7 @@ enum Enemies
 	DeadBeatLV4,
 	DeadBeatLV5,
 	Takodachi,
+	TakoViking,
 	KFPEmployee,
 	TakoGrande,
 	Bloom,
@@ -94,15 +101,16 @@ enum Enemies
 		createEnemy(Enemies.DeadBeatLV3,"DeadBeatLV3",sDeadBeatLV3,380,.65,5,8,1);
 		createEnemy(Enemies.DeadBatter,"DeadBeatLV2",sDeadBatter,150,.6,7,9,1);
 		createEnemy(Enemies.GiantDeadBatter,"GiantDeadBeatLV2",sDeadBatter,3500,1,11,1500,1, true);
-		createEnemy(Enemies.Takodachi,"TakoDachi",sTakodachi,50,.4,4,1,1);
-		createEnemy(Enemies.HungryTakodachi,"Hungry TakoDachi",sHungryTakodachi,220,.65,8,9,1);
+		createEnemy(Enemies.Takodachi,"TakoDachi",sTakodachi,50,.4,4,1,1, false, 1.5, 1.5);
+		createEnemy(Enemies.TakoViking,"TakoViking",sTakoViking,50,.4,4,1,0, false, 1.5, 1.5);
+		createEnemy(Enemies.HungryTakodachi,"Hungry TakoDachi",sHungryTakodachi,220,.65,8,9,1, false, 1.5, 1.5);
 		createEnemy(Enemies.TakoGrande,"Tako Grande",sTakodachi,1800,.75,10, 600,1, true);
 		createEnemy(Enemies.KFPEmployee, "KFPEmployee", sKFPEmployee, 20, 1, 2, 3, 1);
 		createEnemy(Enemies.DisgruntledEmployee, "Disgruntled Employee", sDisgruntledEmployee, 50, 1.15, 4, 7, 1);
 		createEnemy(Enemies.Gloom, "Gloom", sGloom, 30, .7, 6, 12, 1);
 		createEnemy(Enemies.Bloom, "Bloom", sBloom, 30, .7, 6, 12, 1);
 		createEnemy(Enemies.InvestiGator, "Inveti-Gator", sInvestigator, 180, 0.85, 7, 9, 1);
-		createEnemy(Enemies.FubuZilla, "FubuZilla", sFubuzilla, 8000, 0.8, 15, 2000,1,true);		
+		createEnemy(Enemies.FubuZilla, "FubuZilla", sFubuzilla, 8000, 0.8, 15, 2000,1,true);
 		createEnemy(Enemies.BaeRat, "BaeRat", sBaeRat, 100, 1.1, 5, 8, 1);
 		createEnemy(Enemies.KronieA, "KronieA", sKronieA, 450, 0.8, 11, 10, 1)
 		createEnemy(Enemies.KronieB, "KronieB", sKronieA, 450, 0.8, 11, 10, 1);

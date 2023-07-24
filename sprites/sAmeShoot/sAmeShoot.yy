@@ -24,7 +24,7 @@
     {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"9b5516c2-1bc5-46ee-be1a-16a6793935df","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
-  "origin": 7,
+  "origin": 4,
   "parent": {
     "name": "AmePistol",
     "path": "folders/Sprites/Powers/CharacterPerks/AmePistol.yy",
@@ -62,7 +62,7 @@
     "visibleRange": null,
     "volume": 1.0,
     "xorigin": 5,
-    "yorigin": 8,
+    "yorigin": 4,
   },
   "swatchColours": null,
   "swfPrecision": 2.525,
