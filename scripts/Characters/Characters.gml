@@ -241,13 +241,13 @@ if canMove == true{
 			}
 			else{
 				if (global.aim.check() and global.aim.get_touch_x() != undefined and global.aim.get_touch_y() != undefined) {
-					_x1 = global.aim.get_touch_start_x();
-					_y1 = global.aim.get_touch_start_y();
-				    _x2 = global.aim.get_touch_x();
-					_y2 = global.aim.get_touch_y();
+					x1 = global.aim.get_touch_start_x();
+					y1 = global.aim.get_touch_start_y();
+				    x2 = global.aim.get_touch_x();
+					y2 = global.aim.get_touch_y();
 				}				
 				if (!instance_exists(oPlayerWorld)) {
-				    global.arrowDir = point_direction(_x1, _y1, _x2, _y2);
+				    global.arrowDir = point_direction(x1, y1, x2, y2);
 					if (global.arrowDir > 90 and global.arrowDir < 270) {
 						image_xscale = -1;
 					};

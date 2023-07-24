@@ -768,6 +768,7 @@ function randomUpgrades(){
 				for (var i = 0; i < array_length(WEAPONS_LIST); ++i) {
 					var maxed = false;
 					var found = false;
+					//feather disable once GM2041
 					for (var j = 0; j < array_length(UPGRADES); ++j) {
 						//show_message("A:" + string(UPGRADES[j][$"name"]));
 						//show_message("B:" + string(global.upgradesAvaliable[i][1][$"name"]));

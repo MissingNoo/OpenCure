@@ -42,6 +42,7 @@
 		var _x = GW/2;
 		var _y = GH/1.79 + offset
 	    draw_sprite_ext(sHudButton, isSelected, _x, _y, xScale, 2.10, 0, c_white, 1);
+		mouse_on_button(_x, _y, sHudButton, i, xScale, 2.10, "selectedOption");
 		draw_set_color(textcolor);
 		draw_text_transformed(_x, _y, options[i], 2.05, 2.05, 0);
 		draw_set_color(c_white);

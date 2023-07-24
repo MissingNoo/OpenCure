@@ -63,7 +63,9 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 	if (_seconds == 15 and Minutes == 3 and event) {
 		event = false;
 		//alarm[0] = 60;	
-		spawnEvent(Enemies.TakoViking, Patterns.WallRight, 200, "-", 0.55, 5, 8.3, 140);
+		var qtd = os_type == os_android ? 70 : 140;
+		spawnEvent(Enemies.TakoViking, Patterns.WallTop, 200, "-", 0.55, 5, 8.3, 140, 0, "-", true);
+		spawnEvent(Enemies.TakoViking, Patterns.WallBottom, 200, "-", 0.55, 5, 8.3, 140, 0, "-", true);
 	}
 
 	if (_seconds == 18 and Minutes == 3 and event) {

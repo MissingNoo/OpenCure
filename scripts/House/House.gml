@@ -54,6 +54,7 @@ HouseItems[HouseItemId.Wall] = {
 }
 for (var i = 0; i < HouseCategory.LENGTH; ++i) {
     HouseInventory[i] = [HouseItems[HouseItemId.Null]];
+	//HouseInventory[i][0] = [HouseItems[HouseItemId.Null]];
 }
 //HouseInventory[HouseCategory.Bedroom][0] = HouseItems[HouseItemId.Bookshelf];
 

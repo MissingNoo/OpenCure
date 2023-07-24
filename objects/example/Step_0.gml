@@ -17,7 +17,7 @@ if (imguigml_ready()) {
 	var size = [ 0, 0 ];
 	var pos = [ 0, 0 ];
 	if (ShowTestWindow) {
-		imguigml_set_next_window_size(540, 350, EImGui_Cond.Always);
+		imguigml_set_next_window_size(540, 350, EImGui_Cond.Once);
 		
 		var ret = imguigml_begin("OpenCure", ShowTestWindow);
 		ShowTestWindow = ret[1]; 
