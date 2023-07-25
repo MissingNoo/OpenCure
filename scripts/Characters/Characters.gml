@@ -269,7 +269,7 @@ if canMove == true{
 	var _hspd = 0;
 	var _vspd = 0;
 	
-	if (os_type != os_android) {
+	if (os_type != os_android or global.gamePad) {
 	    _hspd = _right - _left;
 		_vspd = _down - _up;
 	}
@@ -313,11 +313,11 @@ if canMove == true{
         //y = y + _yadd;
 		sprite_index=runningsprite;
         }
-		else if (os_type != os_android) {
+		else if (os_type != os_android or global.gamePad) {
 			sprite_index=sprite;
 		}
     } 
-	else if (os_type != os_android) {
+	else if (os_type != os_android or global.gamePad) {
 		sprite_index=sprite;
 		}
 }

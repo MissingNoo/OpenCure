@@ -768,7 +768,7 @@ function randomUpgrades(){
 				for (var i = 0; i < array_length(WEAPONS_LIST); ++i) {
 					var maxed = false;
 					var found = false;
-					//feather disable once GM2041
+					//feather disable once GM1041
 					for (var j = 0; j < array_length(UPGRADES); ++j) {
 						//show_message("A:" + string(UPGRADES[j][$"name"]));
 						//show_message("B:" + string(global.upgradesAvaliable[i][1][$"name"]));
@@ -795,6 +795,7 @@ function randomUpgrades(){
 				}
 			}else{
 				//var str = "";
+				//feather disable once GM1041
 				for (var i = 0; i < array_length(UPGRADES); ++i) {
 				    if (UPGRADES[i][$"level"] != UPGRADES[i][$"maxlevel"] and UPGRADES[i] != global.null) {
 					    array_push(weapons_list, WEAPONS_LIST[UPGRADES[i][$"id"]]);

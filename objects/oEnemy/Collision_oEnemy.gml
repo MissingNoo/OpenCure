@@ -23,7 +23,7 @@ switch (pattern) {
         canCollide = false;
         break;
     case Patterns.WallTopBottom:
-        canCollide = false;
+        canCollide = true;
         break;
     default:
         // code here

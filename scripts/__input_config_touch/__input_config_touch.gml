@@ -13,7 +13,7 @@
 //Maximum number of touch screen points to query
 //This applies to touch screen devices only (excludes PlayStation)
 //Many devices have fewer touchpoints than the default value (11)
-#macro INPUT_MAX_TOUCHPOINTS  11
+#macro INPUT_MAX_TOUCHPOINTS  3
 
 //Margin in pixels around the screen edge where gaining or losing a touch point will not register "pressed" or "released"
 //Prevents false positives when dragging on to or off of the edge of a touchscreen.

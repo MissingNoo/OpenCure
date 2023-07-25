@@ -59,13 +59,13 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 		removeEnemyFromPool(Enemies.Shrimp);
 		addEnemyToPool(Enemies.Takodachi);
 	}
-
+	
 	if (_seconds == 15 and Minutes == 3 and event) {
 		event = false;
 		//alarm[0] = 60;	
-		var qtd = os_type == os_android ? 70 : 140;
-		spawnEvent(Enemies.TakoViking, Patterns.WallTop, 200, "-", 0.55, 5, 8.3, 140, 0, "-", true);
-		spawnEvent(Enemies.TakoViking, Patterns.WallBottom, 200, "-", 0.55, 5, 8.3, 140, 0, "-", true);
+		//var qtd = os_type == os_android ? 70 : 140;
+		//spawnEvent(Enemies.TakoViking, Patterns.WallTop, 200, "-", 0.55, 5, 8.3, 140, 0, "-", true);
+		spawnEvent(Enemies.TakoViking, Patterns.WallTopBottom, 200, "-", 0.55, 5, 8.3, 140, 0, "-", true);
 	}
 
 	if (_seconds == 18 and Minutes == 3 and event) {
@@ -74,11 +74,15 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 		spawnEvent(Enemies.KFPEmployee,Patterns.Horde, 25, "-", 3, "-", "-", 30);
 	}
 
+if (keyboard_check_pressed(vk_home)) {
+	    Minutes = 3;
+		Seconds = 39;
+	}
 	if (_seconds == 40 and Minutes == 3 and event) {
 		event = false;
 		//alarm[0] = 60;	
-		spawnEvent(Enemies.TakoViking, Patterns.StampedeTop, 500, 1, 1.6, 8, 20, 20);		
-		spawnEvent(Enemies.TakoViking, Patterns.StampedeDown, 500, 1, 1.6, 8, 20, 20);		
+		spawnEvent(Enemies.TakoViking, Patterns.StampedeTop, 500, 1, 1.6, 8, 20, 20, 0 ,0, false, 1);
+		spawnEvent(Enemies.TakoViking, Patterns.StampedeDown, 500, 1, 1.6, 8, 20, 20, 0 ,0, false, 2);
 	}
 
 	if (_seconds == 0 and Minutes == 4 and event) {
@@ -283,10 +287,6 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 		removeEnemyFromPool(Enemies.QDeadBeat);
 		removeEnemyFromPool(Enemies.QShrimp);
 	}
-	//if (keyboard_check_pressed(vk_home)) {
-	//    Minutes = 16;
-	//	Seconds = 13;
-	//}
 	if (_seconds == 15 and Minutes == 16 and event) {
 		event = false;
 		spawnEvent(Enemies.KronieA, Patterns.WallLeftRight, 1500, "-", 0.26, 10, 15, 100, 0, 0, false, 100);

@@ -194,7 +194,9 @@ if (instance_exists(oPlayer) and canspawn == true and global.gamePaused == false
 			#endregion
 			for (var i = 0; i < array_length(global.perkCooldown); ++i) {
 				global.perkCooldown[i] -= .5;
+
 			}
+			//feather disable once GM1041
 			for (var i = 0; i < array_length(UPGRADES); ++i) {
 				if (UPGRADES[i] != global.null) {
 					if (UPGRADES[i][$"canBeHasted"] == true) {
