@@ -10,6 +10,9 @@ if (socket == oPlayer.socket) {
 }
 #region Connected to Character
 if (!global.gamePaused) {
+	if (speed > 0) {
+	    speed=upg[$"speed"] * Delta;
+	}
 	if (afterimagecount < 0.30) {
 	    afterimagecount++;
 	}

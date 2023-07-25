@@ -281,7 +281,7 @@ if canMove == true{
 			_mx2 = global.move.get_touch_x();
 			_my2 = global.move.get_touch_y();
 			_dir = point_direction(_mx1, _my1, _mx2, _my2);
-			var _spd = spd;
+			var _spd = spd * Delta;
 			var _xadd = lengthdir_x(_spd, _dir);
 			var _yadd = lengthdir_y(_spd, _dir);
 			move_and_collide(_xadd, _yadd,oCollision);
@@ -300,7 +300,7 @@ if canMove == true{
 			}		    
 		}
 		
-        var _spd = spd;
+        var _spd = spd * Delta;
 
         var _dir = point_direction(0, 0, _hspd, _vspd);
 		

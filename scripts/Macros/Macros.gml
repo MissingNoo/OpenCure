@@ -8,3 +8,4 @@
 global.anvil = false;
 #macro ANVIL global.anvil
 #macro Buffs global.buffs
+#macro Delta global.deltaTime

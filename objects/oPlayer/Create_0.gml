@@ -50,6 +50,7 @@ global.testvar = "";
 socket = 1;
 healSeconds = 0;
 initializePlayer(global.player);
+oImageSpeed = image_speed;
 pickupRadius = 35;
 originalPickupRadius = pickupRadius;
 //feather disable once GM2017

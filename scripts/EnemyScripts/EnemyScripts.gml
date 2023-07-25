@@ -12,6 +12,7 @@ function initiateEnemy(e){
 	col=false;
 	hp=e[?"hp"];
 	speed=e[?"speed"];
+	ospeed=e[?"speed"];
 	def=e[?"def"];
 	atk=e[?"atk"];
 	sprwalking=e[?"sprite"];

@@ -100,6 +100,7 @@ if (global.upgrade) // after level up
 	if (zKey) {
 		if (selected == 4) {
 			if (global.rerolls > 0) {
+				//feather disable once GM2016
 				randomUpgrades();
 				global.rerolls--;
 			}

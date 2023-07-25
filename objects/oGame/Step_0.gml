@@ -1,5 +1,6 @@
 //show_debug_message(string(input_profile_get(0)));
 //feather disable GM1016
+//global.deltaTime = (delta_time / 1000000) * game_get_speed(gamespeed_fps);
 if (input_profile_get(0) == "gamepad") {
     global.gamePad = true;
 }
@@ -178,9 +179,8 @@ if (instance_exists(oPlayer) and canspawn == true and global.gamePaused == false
 
 #region Time
 	if (global.gamePaused == false) {
-	    global.seconds+=1/60;
-		#region Skills Cooldown
-		
+	    global.seconds+=(1/60) * Delta ;
+		#region Skills Cooldown		
 			#region cooldownamount
 				var down = 1
 				for (var i = 0; i < array_length(Bonuses[BonusType.Haste]); ++i) {
@@ -193,24 +193,24 @@ if (instance_exists(oPlayer) and canspawn == true and global.gamePaused == false
 				}
 			#endregion
 			for (var i = 0; i < array_length(global.perkCooldown); ++i) {
-				global.perkCooldown[i] -= .5;
+				global.perkCooldown[i] -= .5 * Delta;
 
 			}
 			//feather disable once GM1041
 			for (var i = 0; i < array_length(UPGRADES); ++i) {
 				if (UPGRADES[i] != global.null) {
 					if (UPGRADES[i][$"canBeHasted"] == true) {
-					    global.upgradeCooldown[UPGRADES[i][$"id"]] -= down;
+					    global.upgradeCooldown[UPGRADES[i][$"id"]] -= down * Delta;
 						//show_message(string(round(UPGRADES[i][?"cooldown"] / (1 + (1.50/100)))))
 					}   
 					else{
-						global.upgradeCooldown[UPGRADES[i][$"id"]] -= 1;
+						global.upgradeCooldown[UPGRADES[i][$"id"]] -= 1 * Delta;
 					}
 				}
 			}
 			for (var i = 0; i < array_length(global.itemCooldown); ++i) {
 				if (global.itemCooldown[i] > 0) {
-				    global.itemCooldown[i] -= 1/60;
+				    global.itemCooldown[i] -= (1/60) * Delta;
 				}   
 			}
 		#endregion

@@ -1,3 +1,4 @@
+image_speed = oImageSpeed * Delta;
 socket = global.socket;
 if (immortal) {
     HP = MAXHP;

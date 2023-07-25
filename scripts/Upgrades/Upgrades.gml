@@ -888,6 +888,7 @@ function randomUpgrades(){
 				// randomize;
 				is_what = "";
 				can_be_weapon = false;
+				//feather disable once GM1041
 				for (var i = 0; i < array_length(UPGRADES); ++i) {
 					if (UPGRADES[i][$"level"] != UPGRADES[i][$"maxlevel"] or UPGRADES[i] == global.null) {
 						can_be_weapon = true;
@@ -991,6 +992,7 @@ function randomUpgrades(){
 				// randomize;
 				is_what = "";
 				can_be_weapon = false;
+				//feather disable once GM1041
 				for (var i = 0; i < array_length(UPGRADES); ++i) {
 					if (UPGRADES[i][$"level"] != UPGRADES[i][$"maxlevel"] or UPGRADES[i] == global.null) {
 						can_be_weapon = true;

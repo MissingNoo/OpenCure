@@ -1,5 +1,6 @@
 // Feather disable GM2017
 if(global.gamePaused == false and instance_exists(target)){
+	image_speed = oImageSpeed * Delta;
 	if (lifetime != "-" and lifetime > 0 and alarm[3] == -1) {
 	    alarm[3] = lifetime * 60;
 	}
@@ -61,7 +62,7 @@ if(global.gamePaused == false and instance_exists(target)){
 	// Feather disable once GM2016
 	atk = (baseATK + (2 * global.timeA)) * (1 + (global.timeB / 25));
 	if (canwalk) {
-	    speed = (baseSPD + (0.12 * global.timeA)) * (1 + (global.timeB / 25));
+	    speed = (baseSPD + (0.12 * global.timeA)) * (1 + (global.timeB / 25)) * Delta;
 	}
 	else{
 		speed = 0;
@@ -71,7 +72,7 @@ if(global.gamePaused == false and instance_exists(target)){
 	var debuffLenght = array_length(debuffs);
 	for (var i = 0; i < debuffLenght; ++i) {
 	    if (debuffs[i].id == BuffNames.Slowness) {
-		    speed = speed * 0.2;
+		    speed = (speed * 0.2)  * Delta;
 		}
 	}
 	
