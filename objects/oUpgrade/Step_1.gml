@@ -33,10 +33,12 @@ if (shoots == 0) {
 if (shoots > 1) {
 	arrowDir = global.arrowDir;
 	if (variable_struct_exists(upg, "attackdelay")) {
-		alarm[0] = upg[$"attackdelay"];
+		//alarm[0] = upg[$"attackdelay"];
+		dAlarm[0] = upg[$"attackdelay"];
 	}
 	else{
-		alarm[0] = 1;
+		//alarm[0] = 1;
+		dAlarm[0] = 1;
 	}
 }
 if (keyboard_check(ord("C"))) {show_message(UPGRADES[0][$"bonusDamage"])};
@@ -52,7 +54,7 @@ sprite_index=upg[$"sprite"];
 		}
 	}
 	global.upgradeCooldown[upg[$"id"]] = upg[$"cooldown"];
-	alarm[1] = upg[$"duration"];
+	dAlarm[1] = upg[$"duration"];
 	image_speed=1;
 	image_alpha=1;		
 	a=1;
@@ -107,7 +109,7 @@ sprite_index=upg[$"sprite"];
 			    var dirr = (image_xscale > 0) ? .25 : -.25;
 				image_xscale += dirr;
 			}
-			alarm[0]=1;
+			dAlarm[0]=1;
 			break;}
 			
 		case Weapons.PlugAsaCoco:{
@@ -122,7 +124,7 @@ sprite_index=upg[$"sprite"];
 			} else instance_destroy();
 			originalspeed = speed;
 			speed = 0;
-			alarm[1]=30;
+			dAlarm[1]=30;
 			break;}
 			
 		case Weapons.BlBook:{
@@ -216,7 +218,8 @@ sprite_index=upg[$"sprite"];
 				if (shoots>0) {
 					for (var i = 1; i < shoots; ++i) {
 						spawnUpgrade();
-						alarm[0]=1;
+						//alarm[0]=1;
+						dAlarm[0]=1;
 					}
 				}
 			} else instance_destroy();
@@ -230,7 +233,8 @@ sprite_index=upg[$"sprite"];
 			if (shoots>0) {
 				for (var i = 1; i < shoots; ++i) {
 					spawnUpgrade();
-					alarm[0]=1;
+					//alarm[0]=1;
+					dAlarm[0]=1;
 				}
 			}
 			break;}

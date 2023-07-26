@@ -1,4 +1,6 @@
 imguigml_activate();
+targetDelta = 1 / 60;
+actualDelta = 0;
 global.gamePad = false;
 global.arrowDir = 0;
 linespos = 0;

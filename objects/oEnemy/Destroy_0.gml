@@ -49,12 +49,13 @@ if (random_range(1,200) <= _dropchance) {
 }
 // randomize;
 if (irandom_range(1, 90) == 1) {
-	if(Bonuses[BonusType.SuperChattoTime] > 0){
-		global.newcoins += round(10 * Bonuses[BonusType.SuperChattoTime]);
-	}else{
-		instance_create_layer(x,y,"Instances", oHolocoin);
+	for (var i = 0; i < array_length(Bonuses[BonusType.SuperChattoTime]); ++i) {
+	    if(Bonuses[BonusType.SuperChattoTime][i] > 0){
+			global.newcoins += round(10 * Bonuses[BonusType.SuperChattoTime][i]);
+		}else{
+			instance_create_layer(x,y,"Instances", oHolocoin);
+		}
 	}
-    
 }
 
 // randomize;

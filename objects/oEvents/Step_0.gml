@@ -1,4 +1,8 @@
 //feather disable GM2017
+if (keyboard_check_pressed(vk_home)) {
+	Minutes = 9;
+	Seconds = 58;
+}
 if (event == false and time_source_get_state(_time_source) == time_source_state_stopped) {
     time_source_reset(_time_source);
 	time_source_start(_time_source);
@@ -74,10 +78,6 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 		spawnEvent(Enemies.KFPEmployee,Patterns.Horde, 25, "-", 3, "-", "-", 30);
 	}
 
-if (keyboard_check_pressed(vk_home)) {
-	    Minutes = 3;
-		Seconds = 39;
-	}
 	if (_seconds == 40 and Minutes == 3 and event) {
 		event = false;
 		//alarm[0] = 60;	

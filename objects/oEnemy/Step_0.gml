@@ -1,8 +1,52 @@
 // Feather disable GM2017
+if (justSpawned and thisEnemy == Enemies.FubuZilla) {
+	justSpawned = false;
+    fanbeamAlarm = fanbeamCooldown;
+}
 if(global.gamePaused == false and instance_exists(target)){
+	if (damagedAlarm > 0) {
+	    damagedAlarm-= 1*Delta;
+	}
+	if (damagedAlarm < 0) {
+		damagedAlarm= 0;
+	    damaged=false;
+	}
+	if (canattackAlarm > 0) {
+	    canattackAlarm -= 1*Delta;
+	}
+	if (canattackAlarm < 0) {
+		canattackAlarm = 0;
+	    canattack=true;
+	}
+	if (lifetimeAlarm > 0) {
+	    lifetimeAlarm -= 1*Delta;
+	}
+	if (lifetimeAlarm < 0) {
+		lifetimeAlarm = 0;
+	    hp = 0;
+	}
+	#region Fubuzilla
+	if (fanbeamAlarm > 0) {
+	    fanbeamAlarm -= 1*Delta;
+	}
+	if (fanbeamFiring > 0) {
+	    fanbeamFiring -= 1*Delta;
+	}
+	if (fanbeamFiring < 0) {
+		fanbeamFiring = 0;
+		var angle = image_xscale > 0 ? 0 : 180;
+		instance_create_depth(x + (35 * image_xscale), y - 55, depth - 1, oFubuzillaBeam, {image_angle : angle});
+	}
+	if (fanbeamAlarm < 0) {
+		fanbeamAlarm = fanbeamCooldown;
+		fanbeamFiring = 200;
+	}
+	#endregion
 	image_speed = oImageSpeed * Delta;
-	if (lifetime != "-" and lifetime > 0 and alarm[3] == -1) {
-	    alarm[3] = lifetime * 60;
+	//if (lifetime != "-" and lifetime > 0 and alarm[3] == -1) {
+	if (lifetime != "-" and lifetime > 0 and lifetimeAlarm == 0) {
+	    //alarm[3] = lifetime * 60;
+	    lifetimeAlarm = lifetime * 60;
 	}
 	var nearupgrade;
 		if (instance_exists(oUpgrade) and instance_exists(target)) {
@@ -50,12 +94,12 @@ if(global.gamePaused == false and instance_exists(target)){
 			});
 		}
 		
-		image_alpha-=.05;
+		image_alpha-=.05 * Delta;
 		x-=image_xscale;
 		if (boss and global.screenShake == 1) {
 			oGame.shake_magnitude=6;
 		}
-		if (image_alpha == 0) {
+		if (image_alpha <= 0) {
 		    instance_destroy();
 		}
 	}
@@ -80,7 +124,7 @@ if(global.gamePaused == false and instance_exists(target)){
 		for (var i = 0; i < debuffLenght; ++i) {
 			if (!variable_struct_exists(debuffs[i], "time")) { break; }
 		    if (debuffs[i].time > 0) {
-			    debuffs[i].time -= 1/60;
+			    debuffs[i].time -= 1/60 * Delta;
 				//show_message(debuffs[i].cooldown);
 			}
 			else {

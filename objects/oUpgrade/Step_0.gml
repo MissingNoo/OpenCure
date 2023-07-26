@@ -1,3 +1,12 @@
+for (var i = 0; i < array_length(dAlarm); ++i) {
+    if (dAlarm[i] != -1) {
+	    dAlarm[i] -= 1 * Delta;
+	}
+	if (dAlarm[i] < 0 and dAlarm[i] != -1) {
+	    dAlarm[i] = -1;
+		event_user(i);
+	}
+}
 xpreviousprevious = x - (x - xprevious);
 ypreviousprevious = y - (y - yprevious);
 if (global.testvar == "") {
@@ -10,7 +19,7 @@ if (socket == oPlayer.socket) {
 }
 #region Connected to Character
 if (!global.gamePaused) {
-	if (speed > 0) {
+	if (speed > 0 and upg[$"id"] != Weapons.CuttingBoard) {
 	    speed=upg[$"speed"] * Delta;
 	}
 	if (afterimagecount < 0.30) {
@@ -40,7 +49,8 @@ if (!global.gamePaused) {
 			y=owner.y-8;
 			break;}
 		case Weapons.PlugAsaCoco:{
-			if (alarm_get(1) > 0) {
+			//if (alarm_get(1) > 0) {
+			if (dAlarm[1] > 0) {
 			    y-=1.75;
 				// feather disable once GM1041
 				if (instance_exists(ce)) {
@@ -52,19 +62,19 @@ if (!global.gamePaused) {
 		case Weapons.BlBook:{
 			x = owner.x + lengthdir_x(orbitLength, orbitPlace);
 			y = owner.y - 16 + lengthdir_y(orbitLength, orbitPlace);
-			orbitPlace-=3;
+			orbitPlace-=3 * Delta;
 			break;}
 		case Weapons.PsychoAxe:{
 			//part_type_sprite(part, upg[$"sprite"], false, false, image_index);
 			x = xstart + lengthdir_x(orbitLength, orbitPlace);
 			y = ystart + lengthdir_y(orbitLength, orbitPlace);
-			orbitPlace-=4;
-			orbitLength += 0.75;
+			orbitPlace -= 4 * Delta;
+			orbitLength += 0.75 * Delta;
 			//part_particles_create_colour(partSystem, xprevious, yprevious, part, c_yellow, 1);
 			break;}
 		case Weapons.CuttingBoard:{
 			if (distance_to_point(xstart, ystart) > 5) {
-				speed -= .30;
+				speed -= .30 * Delta;
 				if (speed < 0) {
 				    speed = 0;
 				}
@@ -98,7 +108,7 @@ if (!global.gamePaused) {
 			//    direction -= 5;
 			//}
 			if (vspeed < upg[$"speed"]) {
-				vspeed += 0.2;
+				vspeed += 0.2 * Delta;
 			}
 			move_and_collide(hspd, vspd, oEnemy);
 			image_angle+=10;

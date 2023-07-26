@@ -15,11 +15,11 @@ switch (upg[$"id"]) {
 			image_index = 0;
 		    sprite_index = sLavaPoolLoop;			
 			changeSprite= true;
-			alarm[1]=upg[$"duration"] * 0.25;
+			dAlarm[1]=upg[$"duration"] * 0.25;
 		}
 		if (sprite_index == sLavaPoolLoop and changeSprite == false) {
 			changeSprite=true;
-			alarm[1]=2;
+			dAlarm[1]=2;
 		    if (loops > 0) {
 				image_index = 0;
 			    sprite_index = sLavaPoolEnd;

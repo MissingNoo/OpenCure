@@ -308,7 +308,7 @@ function populate_items(){
 				bonusType : BonusType.SuperChattoTime,
 				bonusValue : [1.20, 1.40, 1.60, 1.80, 2]
 			});
-			Bonuses[BonusType.SuperChattoTime] = 0;
+			Bonuses[BonusType.SuperChattoTime][0] = 0;
 			#endregion
 			
 			#region Stolen Piggy Bank

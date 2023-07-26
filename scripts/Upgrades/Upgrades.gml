@@ -1189,7 +1189,7 @@ function defaultBehaviour(){
 	image_alpha=1;
 }
 
-function spawnUpgrade(_upg = upg, _speed = upg[$"speed"], _hits = upg[$"hits"], _shoots = shoots, _mindmg = upg[$"mindmg"], _maxdmg = upg[$"maxdmg"], _sprite = upg[$"sprite"]){
+function spawnUpgrade(_upg = upg, _speed = upg[$"speed"], _hits = upg[$"hits"], _shoots = shoots, _mindmg = upg[$"mindmg"], _maxdmg = upg[$"maxdmg"], _sprite = upg[$"sprite"], _arrowDir = arrowDir){
 	if (_upg[$"id"] != Weapons.PipiPilstol) { _shoots = -1; }
 	var instancecreated = instance_create_layer(owner.x,owner.y-8,"Upgrades",oUpgrade,{
 					upg : _upg,
@@ -1200,7 +1200,8 @@ function spawnUpgrade(_upg = upg, _speed = upg[$"speed"], _hits = upg[$"hits"], 
 					maxdmg : _maxdmg,
 					sprite_index : _sprite,
 					a : 0,
-					owner : owner
+					owner : owner,
+					arrowDir : _arrowDir
 				});
 		return instancecreated;
 }

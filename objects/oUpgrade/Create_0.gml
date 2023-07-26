@@ -1,3 +1,4 @@
+dAlarm = array_create(11, -1);
 gotpaused = false;
 imageSpeedOriginal = 0;
 hspd = 0;
@@ -24,7 +25,8 @@ image_alpha=0;
 image_speed=0;	
 originalspeed = speed;
 a=0;
-alarm[1]=200;
+//alarm[1]=200;
+dAlarm[1]=200;
 amePistolLastHit=false;
 diroffset=0;
 //image_xscale=oPlayer.image_xscale;

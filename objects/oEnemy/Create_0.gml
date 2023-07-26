@@ -1,10 +1,21 @@
 event_inherited();
+canattackAlarm = 0;
+damagedAlarm = 0;
+lifetimeAlarm = 0;
 saved = false;
 gotknocked = false;
 debuffs = [];
 damaged=false;
 target = oPlayer;
 enemynum = 1;
+#region fubuzilla
+fanbeamAlarm = 0;
+fanbeamFiring = 0;
+fanbeamCooldown = 350;
+warningAlpha = 0;
+alphaGoingUp = true;
+justSpawned = true;
+#endregion
 //TODO: add multiplayer random target
 if (room != rInicio) {
 	    random_set_seed(current_time);

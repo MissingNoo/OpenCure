@@ -14,8 +14,7 @@ if (upg[$"id"] == Weapons.BounceBall) {
 		 //direction = point_direction(x, y, x + _hspd, y + _vspd);
 		 //if (alarm_get(11) == -1) {
 		 //    alarm[11] = 20;
-		 //}
-		 
+		 //}		 
 }
 
 if (other.hittedcooldown[upg[$"id"]] <= 0  and !global.gamePaused and other.image_alpha == 1 and image_alpha == 1 and ghost == false) {
@@ -115,7 +114,8 @@ if (other.hittedcooldown[upg[$"id"]] <= 0  and !global.gamePaused and other.imag
 		_inst.dmg = round(dmg);
 	}
 	
-	other.alarm[1]=15;	
+	//other.alarm[1]=15;
+	other.damagedAlarm=15;
 	switch (upg[$"id"]) {
 	    case Weapons.AmePistol:
 	        if (hits == 1 and !amePistolLastHit and upg[$"level"] >= 4) {
