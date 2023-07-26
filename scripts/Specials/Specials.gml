@@ -48,7 +48,7 @@ function use_special(_special)
 			if (!instance_exists(oEnemy)) { break; }
 	        with (oEnemy) {
 			    // Feather disable once GM1041
-			    array_push(debuffs, copyStruct(Buffs[BuffNames.Slowness]));
+			    array_push(debuffs, copy_struct(Buffs[BuffNames.Slowness]));
 				//show_message(Buffs[BuffNames.Slowness]);
 			}
 	        break;

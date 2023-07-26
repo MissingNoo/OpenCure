@@ -1,10 +1,8 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
-
-// Feather disable GM2017
 global.sprites[0]=0
 global.gamePaused = false;
-function resetTimer(){
+function reset_timer(){
 	global.seconds=0;
 	global.minutes=0;
 	global.hours=0;
@@ -17,7 +15,7 @@ function resetTimer(){
 //#macro Hours global.hours
 	
 	
-function PauseGame(){
+function pause_game(){
 	if (instance_exists(oGameOver)) {
 	    return;
 	}
@@ -93,9 +91,6 @@ function PauseGame(){
 		//}
 }		
 	
-function summonCircle(walk = true){
-
-}
 enum Patterns{
 	Cluster,
 	Horde,
@@ -116,7 +111,7 @@ enum Patterns{
 	Ambush
 }
 
-function spawnEvent(monster, type, hp, atk, spd, xp, lifetime, quantity, r = 400, distanceDie = "-", followPlayer = false, offset = 2){
+function spawn_event(monster, type, hp, atk, spd, xp, lifetime, quantity, r = 400, distanceDie = "-", followPlayer = false, offset = 2){
 	//quantity = os_type == os_android ? quantity / 2 : quantity;
 //function spawnEvent(monster, quantity, type, hp = 0, spd = 0, xp = 0){
 	if (!global.singleplayer) { return; }
@@ -269,7 +264,7 @@ function spawnEvent(monster, type, hp, atk, spd, xp, lifetime, quantity, r = 400
 
 
 
-function copyStruct(struct){
+function copy_struct(struct){
     var key, value;
     var newCopy = {};
     var keys = variable_struct_get_names(struct);
@@ -282,15 +277,15 @@ function copyStruct(struct){
     return newCopy;
 }
 
-function healPlayer(amount){
-	if (Bonuses[BonusType.Healing][ItemIds.Full_Meal] != 0) {
-	    HP += amount * Bonuses[BonusType.Healing][ItemIds.Full_Meal];
+function heal_player(amount){
+	if (Bonuses[BonusType.Healing][ItemIds.FullMeal] != 0) {
+	    HP += amount * Bonuses[BonusType.Healing][ItemIds.FullMeal];
 	}else{
 		HP += amount;
 	}
 }
 	
-function propDraw(){
+function prop_draw(){
 	var sprw = sprite_width / 2;
 	var sprh = sprite_height;
 	var alpha = oPlayer.y < y and collision_rectangle(x- sprw,y - sprh, x + sprw, y, oPlayer, false, false) ? 0.35 : 1

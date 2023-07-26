@@ -3,7 +3,7 @@
 instance_destroy(other);
 var coins = 10;
 //feather disable once GM2017
-for (var i = 1; i < global.shopUpgrades.MoneyGain.level; ++i) {
+for (var i = 0; i < global.shopUpgrades.MoneyGain.level; ++i) { //TODO: Is this working?
     coins = coins + ((coins * 20) / 100);
 }
 global.newcoins+= coins;

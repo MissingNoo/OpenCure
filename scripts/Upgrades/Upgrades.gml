@@ -1136,6 +1136,7 @@ function randomUpgrades(){
 				// randomize;
 				is_what = "";
 				can_be_weapon = false;
+				// feather disable once GM1041
 				for (var i = 0; i < array_length(UPGRADES); ++i) {
 					if (UPGRADES[i][?"level"] != UPGRADES[i][?"maxlevel"] or UPGRADES[i] == global.null or playerItems[i] == global.nullitem) {
 						can_be_weapon = true;
@@ -1143,6 +1144,7 @@ function randomUpgrades(){
 				}
 				
 				can_be_item = false;
+				// feather disable once GM1041
 				for (var i = 0; i < array_length(playerItems); ++i) {
 					if (playerItems[i][?"level"] != playerItems[i][?"maxlevel"] or playerItems[i] == global.nullitem) {
 						can_be_item = true;
@@ -1209,6 +1211,7 @@ function randomUpgrades(){
 
 function tickPowers(){
 	if (attacktick == true and UPGRADES[0][$"name"]!="") {
+		// feather disable once GM1041
 		for (i=0; i < array_length(UPGRADES); i++) {
 			if (UPGRADES[i] != global.null and global.upgradeCooldown[UPGRADES[i][$"id"]] <= 0) {
 				instance_create_layer(x,y-8,"Upgrades",oUpgrade,{

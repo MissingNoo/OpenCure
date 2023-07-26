@@ -13,7 +13,7 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 	if (_seconds == 5 and Minutes == 0 and event) {
 		event = false;
 		//alarm[0] = 60;
-		spawnEvent(Enemies.Shrimp,Patterns.Cluster,"-", "-", "-", "-", "-", 15);
+		spawn_event(Enemies.Shrimp,Patterns.Cluster,"-", "-", "-", "-", "-", 15);
 		
 	}
 
@@ -28,13 +28,13 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 		event = false;
 		//alarm[0] = 60;
 		//shtimp e deadbeat
-		spawnEvent(Enemies.KFPEmployee,Patterns.Horde, 25, "-", 3, "-", "-", 30);
+		spawn_event(Enemies.KFPEmployee,Patterns.Horde, 25, "-", 3, "-", "-", 30);
 	}
 
 	if (_seconds == 30 and Minutes == 1 and event) {
 		event = false;
 		//alarm[0] = 60;
-		spawnEvent(Enemies.DeadBeatLV3,Patterns.WallLeftRight,120, "-", "-", 4, 8.3, 140);
+		spawn_event(Enemies.DeadBeatLV3,Patterns.WallLeftRight,120, "-", "-", 4, 8.3, 140);
 	}
 
 	if (_seconds == 0 and Minutes == 2 and event) {
@@ -46,13 +46,13 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 	if (_seconds == 35 and Minutes == 2 and event) {
 		event = false;
 		//alarm[0] = 60;
-		spawnEvent(Enemies.DeadBeat,Patterns.Ring, "-", "-", "-", "-", "-", 50);
+		spawn_event(Enemies.DeadBeat,Patterns.Ring, "-", "-", "-", "-", "-", 50);
 	}
 
 	if (_seconds == 45 and Minutes == 2 and event) {
 		event = false;
 		//alarm[0] = 60;
-		spawnEvent(Enemies.DeadBeatLV3,Patterns.StampedeRight, 500, "-", 2, 8, 20, 10);
+		spawn_event(Enemies.DeadBeatLV3,Patterns.StampedeRight, 500, "-", 2, 8, 20, 10);
 	}
 
 	if (_seconds == 0 and Minutes == 3 and event) {
@@ -69,20 +69,20 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 		//alarm[0] = 60;	
 		//var qtd = os_type == os_android ? 70 : 140;
 		//spawnEvent(Enemies.TakoViking, Patterns.WallTop, 200, "-", 0.55, 5, 8.3, 140, 0, "-", true);
-		spawnEvent(Enemies.TakoViking, Patterns.WallTopBottom, 200, "-", 0.55, 5, 8.3, 140, 0, "-", true);
+		spawn_event(Enemies.TakoViking, Patterns.WallTopBottom, 200, "-", 0.55, 5, 8.3, 140, 0, "-", true);
 	}
 
 	if (_seconds == 18 and Minutes == 3 and event) {
 		event = false;
 		//alarm[0] = 60;	
-		spawnEvent(Enemies.KFPEmployee,Patterns.Horde, 25, "-", 3, "-", "-", 30);
+		spawn_event(Enemies.KFPEmployee,Patterns.Horde, 25, "-", 3, "-", "-", 30);
 	}
 
 	if (_seconds == 40 and Minutes == 3 and event) {
 		event = false;
 		//alarm[0] = 60;	
-		spawnEvent(Enemies.TakoViking, Patterns.StampedeTop, 500, 1, 1.6, 8, 20, 20, 0 ,0, false, 1);
-		spawnEvent(Enemies.TakoViking, Patterns.StampedeDown, 500, 1, 1.6, 8, 20, 20, 0 ,0, false, 2);
+		spawn_event(Enemies.TakoViking, Patterns.StampedeTop, 500, 1, 1.6, 8, 20, 20, 0 ,0, false, 1);
+		spawn_event(Enemies.TakoViking, Patterns.StampedeDown, 500, 1, 1.6, 8, 20, 20, 0 ,0, false, 2);
 	}
 
 	if (_seconds == 0 and Minutes == 4 and event) {
@@ -95,7 +95,7 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 	if (_seconds == 15 and Minutes == 4 and event) {
 		event = false;
 		//alarm[0] = 60;	
-		spawnEvent(Enemies.TakoViking, Patterns.Ring, 200, 1, 0.55, 5, 26, 50);
+		spawn_event(Enemies.TakoViking, Patterns.Ring, 200, 1, 0.55, 5, 26, 50);
 	}
 
 	if (_seconds == 0 and Minutes == 5 and event) {
@@ -111,25 +111,25 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 	if (_seconds == 0 and Minutes == 5 and event) {
 		event = false;
 		//alarm[0] = 60;	
-		spawnEvent(Enemies.KFPEmployee,Patterns.Horde, 25, "-", 3, "-", "-", 100);
+		spawn_event(Enemies.KFPEmployee,Patterns.Horde, 25, "-", 3, "-", "-", 100);
 	}
 
 	if (_seconds == 5 and Minutes == 5 and event) {
 		event = false;
 		//alarm[0] = 60;	
-		spawnEvent(Enemies.KFPEmployee,Patterns.Horde, 25, "-", 3, "-", "-", 100);
+		spawn_event(Enemies.KFPEmployee,Patterns.Horde, 25, "-", 3, "-", "-", 100);
 	}
 
 	if (_seconds == 10 and Minutes == 5 and event) {
 		event = false;
 		//alarm[0] = 60;	
-		spawnEvent(Enemies.KFPEmployee,Patterns.Horde, 25, "-", 3, "-", "-", 100);
+		spawn_event(Enemies.KFPEmployee,Patterns.Horde, 25, "-", 3, "-", "-", 100);
 	}
 
 	if (_seconds == 30 and Minutes == 5 and event) {
 		event = false;
 		//alarm[0] = 60;	
-		repeatSource = time_source_create(time_source_game, 0.5, time_source_units_seconds, function(){ spawnEvent(Enemies.TakoViking, Patterns.StampedeRight, 800, 1, 2, 8, 20, 10);}, [], 5);
+		repeatSource = time_source_create(time_source_game, 0.5, time_source_units_seconds, function(){ spawn_event(Enemies.TakoViking, Patterns.StampedeRight, 800, 1, 2, 8, 20, 10);}, [], 5);
 		time_source_start(repeatSource);
 	}
 
@@ -150,7 +150,7 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 	if (_seconds == 0 and Minutes == 7 and event) {
 		event = false;
 		//alarm[0] = 60;	
-		spawnEvent(Enemies.Shrimp, Patterns.Ring, 500, 5, 0.05, 10, 25, 76, 400, "-", true, 16);
+		spawn_event(Enemies.Shrimp, Patterns.Ring, 500, 5, 0.05, 10, 25, 76, 400, "-", true, 16);
 		//INFO: should be 120 shrimps, but anyway?
 	}
 	
@@ -168,7 +168,7 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 	
 	if (_seconds == 30 and Minutes == 8 and event) {
 		event = false;
-		repeatSource = time_source_create(time_source_game, 2, time_source_units_seconds, function(){ spawnEvent(Enemies.DeadBeatLV3,Patterns.Ring, "-", "-", 0.35, "-", 11, 27, 400)}, [], 10);
+		repeatSource = time_source_create(time_source_game, 2, time_source_units_seconds, function(){ spawn_event(Enemies.DeadBeatLV3,Patterns.Ring, "-", "-", 0.35, "-", 11, 27, 400)}, [], 10);
 		time_source_start(repeatSource);
 		//INFO: should be 22 seconds of lifetime?
 		//alarm[0] = 60;	
@@ -178,7 +178,7 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 	
 	if (_seconds == 55 and Minutes == 8 and event) {
 		event = false;
-		repeatSource = time_source_create(time_source_game, 5, time_source_units_seconds, function(){ spawnEvent(Enemies.DisgruntledEmployee, Patterns.Horde, "-", "-", 3, "-", "-", 60);}, [], 6);
+		repeatSource = time_source_create(time_source_game, 5, time_source_units_seconds, function(){ spawn_event(Enemies.DisgruntledEmployee, Patterns.Horde, "-", "-", 3, "-", "-", 60);}, [], 6);
 		time_source_start(repeatSource);
 		//INFO: should be 120?
 	}
@@ -197,10 +197,10 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 	
 	if (_seconds == 15 and Minutes == 10 and event) {
 		event = false;
-		spawnEvent(Enemies.InvestiGator, Patterns.StampedeLeft, 1000, "-", 1.6, 10, 20, 40, 0, 0, false, 1);
-		spawnEvent(Enemies.InvestiGator, Patterns.StampedeRight, 1000, "-", 1.6, 10, 20, 40, 0, 0, false, 1);
-		spawnEvent(Enemies.InvestiGator, Patterns.StampedeTop, 1000, "-", 1.6, 10, 20, 40, 0, 0, false, 1);
-		spawnEvent(Enemies.InvestiGator, Patterns.StampedeDown, 1000, "-", 1.6, 10, 20, 40, 0, 0, false, 1);
+		spawn_event(Enemies.InvestiGator, Patterns.StampedeLeft, 1000, "-", 1.6, 10, 20, 40, 0, 0, false, 1);
+		spawn_event(Enemies.InvestiGator, Patterns.StampedeRight, 1000, "-", 1.6, 10, 20, 40, 0, 0, false, 1);
+		spawn_event(Enemies.InvestiGator, Patterns.StampedeTop, 1000, "-", 1.6, 10, 20, 40, 0, 0, false, 1);
+		spawn_event(Enemies.InvestiGator, Patterns.StampedeDown, 1000, "-", 1.6, 10, 20, 40, 0, 0, false, 1);
 	}
 
 	if (_seconds == 0 and Minutes == 11 and event) {
@@ -216,7 +216,7 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 	
 	if (_seconds == 30 and Minutes == 11 and event) {
 		event = false;
-		spawnEvent(Enemies.BaeRat, Patterns.Ring, "-", "-", "-", "-", "-", 120, 500, 0, true, 16);
+		spawn_event(Enemies.BaeRat, Patterns.Ring, "-", "-", "-", "-", "-", 120, 500, 0, true, 16);
 	}
 
 	if (_seconds == 0 and Minutes == 12 and event) {
@@ -228,21 +228,21 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 
 	if (_seconds == 20 and Minutes == 12 and event) {
 		event = false;
-		spawnEvent(Enemies.KronieA, Patterns.StampedeLeft, 2000, 7, 2, 10, 20, 10, 0, 0, false, 2);
-		spawnEvent(Enemies.KronieB, Patterns.StampedeRight, 2000, 7, 2, 10, 20, 10, 0, 0, false, 1);
+		spawn_event(Enemies.KronieA, Patterns.StampedeLeft, 2000, 7, 2, 10, 20, 10, 0, 0, false, 2);
+		spawn_event(Enemies.KronieB, Patterns.StampedeRight, 2000, 7, 2, 10, 20, 10, 0, 0, false, 1);
 		//TODO: random kronie
 	}
 	if (_seconds == 25 and Minutes == 12 and event) {
 		event = false;
-		spawnEvent(Enemies.KronieA, Patterns.StampedeTop, 2000, 7, 3, 10, 20, 10, 0, 0, false, 1);
-		spawnEvent(Enemies.KronieA, Patterns.StampedeDown, 2000, 7, 3, 10, 20, 10, 0, 0, false, 2);
+		spawn_event(Enemies.KronieA, Patterns.StampedeTop, 2000, 7, 3, 10, 20, 10, 0, 0, false, 1);
+		spawn_event(Enemies.KronieA, Patterns.StampedeDown, 2000, 7, 3, 10, 20, 10, 0, 0, false, 2);
 		//TODO: random kronie
 	}
 	if (_seconds == 45 and Minutes == 12 and event) {
 		event = false;
 		repeatSource = time_source_create(time_source_game, 1, time_source_units_seconds, function(){
-			spawnEvent(Enemies.KronieA, Patterns.StampedeLeft, 2000, 7, 3, 10, 20, 20, 0, 0, false, 1);
-			spawnEvent(Enemies.KronieA, Patterns.StampedeDown, 2000, 7, 3, 10, 20, 20, 0, 0, false, 2);
+			spawn_event(Enemies.KronieA, Patterns.StampedeLeft, 2000, 7, 3, 10, 20, 20, 0, 0, false, 1);
+			spawn_event(Enemies.KronieA, Patterns.StampedeDown, 2000, 7, 3, 10, 20, 20, 0, 0, false, 2);
 			}, [], 5);
 		time_source_start(repeatSource);		
 		//TODO: random kronie
@@ -289,8 +289,8 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 	}
 	if (_seconds == 15 and Minutes == 16 and event) {
 		event = false;
-		spawnEvent(Enemies.KronieA, Patterns.WallLeftRight, 1500, "-", 0.26, 10, 15, 100, 0, 0, false, 100);
-		spawnEvent(Enemies.KronieA, Patterns.WallTopBottom, 1500, "-", 0.26, 10, 15, 100, 0, 0, false, 150);
+		spawn_event(Enemies.KronieA, Patterns.WallLeftRight, 1500, "-", 0.26, 10, 15, 100, 0, 0, false, 100);
+		spawn_event(Enemies.KronieA, Patterns.WallTopBottom, 1500, "-", 0.26, 10, 15, 100, 0, 0, false, 150);
 	}
 
 	if (_seconds == 30 and Minutes == 17 and event) {

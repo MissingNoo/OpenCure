@@ -29,5 +29,5 @@ if (!other.used and possible_upgrade) {
 	oGui.anvilSelected = 0;
 	oGui.anvilSelectedCategory = 0;
 	audio_play_sound(snd_anvil,0,0);
-	PauseGame();
+	pause_game();
 }

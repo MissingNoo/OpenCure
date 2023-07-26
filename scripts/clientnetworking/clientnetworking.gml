@@ -62,7 +62,7 @@ function clientReceivedPacket2(_response)
 			break;}
 			
 		 case Network.PlayerJoined:{
-				resetTimer();
+				reset_timer();
 				ResetPool();
 				with (oEnemy) {
 				    instance_destroy();
@@ -401,13 +401,13 @@ function clientReceivedPacket(_buffer)
 				break;}
 				
 		    case Network.PlayerConnect:{
-				resetTimer();
+				reset_timer();
 				var _socket = buffer_read(_buffer, buffer_u8);
 				instance_create_layer(playerSpawn[0], playerSpawn[1], "Instances", oPlayer, {socket : _socket});
 				break;}
 				
 		    case Network.PlayerJoined:{
-				resetTimer();
+				reset_timer();
 				ResetPool();
 				with (oEnemy) {
 				    instance_destroy();

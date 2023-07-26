@@ -34,12 +34,12 @@ if (zKey) {
 	        show_message_async("not ready yet");
 	        break;
 	    case 1:
-			PauseGame();
+			pause_game();
 			global.gamePaused = false;
 	        room_goto(rCharacterSelect);
 	        break;
 	    case 2:
-			PauseGame();
+			pause_game();
 			global.gamePaused = false;
 	        room_goto(rInicio);
 	        break;

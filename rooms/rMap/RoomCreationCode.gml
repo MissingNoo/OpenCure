@@ -5,7 +5,7 @@ keyboard_clear(ord("Z"));
 keyboard_clear(ord("X"));
 keyboard_clear(vk_escape);
 if (global.singleplayer) {
-    resetTimer();
+    reset_timer();
 }
 
 if (global.musicPlaying != undefined) {

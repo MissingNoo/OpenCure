@@ -69,7 +69,7 @@ if (other.canattack and other.image_alpha == 1 and image_alpha == 1 and !global.
 				var _hppercent = (HP/MAXHP) * 100;
 				if (_hppercent <= 15 and _rnd <= 4) {
 					var _percenttoheal = (MAXHP * 30) / 100;
-				    healPlayer(_percenttoheal);
+				    heal_player(_percenttoheal);
 				}
 				break;
 		    default:

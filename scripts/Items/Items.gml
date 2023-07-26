@@ -91,7 +91,7 @@ function newCreateItem(_data){
 		DevilHat,
 		Energy_Drink,
 		Face_Mask,
-		Full_Meal,
+		FullMeal,
 		Gorilla_Paw, 
 		GWS_Pill, 
 		Halu,//TODO: add all effects
@@ -449,14 +449,14 @@ function populate_items(){
 		
 			#region Full Meal
 			newCreateItem({
-				id : ItemIds.Full_Meal,
+				id : ItemIds.FullMeal,
 				name : "Full Meal",
 				maxlevel : 1,
 				weight : 1,
 				thumb : sFullMeal,
 				cooldown : 1,
 				perk : false});
-				Bonuses[BonusType.Healing][ItemIds.Full_Meal] = 1;
+				Bonuses[BonusType.Healing][ItemIds.FullMeal] = 1;
 			#endregion
 		
 			#region Gorilla's Paw
@@ -674,7 +674,6 @@ function tickItems(){
 					    _player.bandageLevel= playerItems[i][$"level"];
 						MAXHP = MAXHP + 10;
 					}
-					pimanUsable = true;
 					break;}
 				case ItemIds.Membership:{
 					if (global.newcoins > 0) {

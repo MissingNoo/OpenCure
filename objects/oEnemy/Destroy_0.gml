@@ -19,13 +19,13 @@ if (dropxp and hp < 0) {
 			if (rdn <= 30) {
 			    switch (playerItems[i][$"level"]) {
 				    case 1:
-				        healPlayer(2);
+				        heal_player(2);
 				        break;
 					case 2:
-				        healPlayer(4);
+				        heal_player(4);
 				        break;
 					case 3:
-				        healPlayer(6);
+				        heal_player(6);
 				        break;
 				}
 			}

@@ -17,7 +17,7 @@ originalY = y;
 xpreviousprevious = 0;
 ypreviousprevious = 0;
 ghost = false;
-if (arrowDir == 0) {
+if (arrowDir == 0 and shoots > 0) {
     arrowDir = global.arrowDir;
 }
 ce=0;

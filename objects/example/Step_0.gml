@@ -108,14 +108,14 @@ if (imguigml_ready()) {
 					if (imguigml_button("1 Minute")) { Minutes += 1; }imguigml_same_line();
 					if (imguigml_button("10 Seconds")) { Seconds += 10; }
 					if (imguigml_button("Horde")) { 
-						spawnEvent(Enemies.KFPEmployee,Patterns.Horde, 25, "-", 3, "-", "-", 100);
+						spawn_event(Enemies.KFPEmployee,Patterns.Horde, 25, "-", 3, "-", "-", 100);
 					}imguigml_same_line();
 					if (imguigml_button("StampedeRight")) { 
-						repeatSource = time_source_create(time_source_game, 0.5, time_source_units_seconds, function(){ spawnEvent(Enemies.TakoViking, Patterns.StampedeRight, 800, 1, 2, 8, 20, 10);}, [], 5);
+						repeatSource = time_source_create(time_source_game, 0.5, time_source_units_seconds, function(){ spawn_event(Enemies.TakoViking, Patterns.StampedeRight, 800, 1, 2, 8, 20, 10);}, [], 5);
 		time_source_start(repeatSource);
 					}imguigml_same_line();
 					if (imguigml_button("WallTako")) { 
-						spawnEvent(Enemies.TakoViking,Patterns.WallTopBottom, 200, 1, 0.55, 5, 8.3, 70, 0, "-", true);
+						spawn_event(Enemies.TakoViking,Patterns.WallTopBottom, 200, 1, 0.55, 5, 8.3, 70, 0, "-", true);
 					}imguigml_same_line();
 					//if (imguigml_button("StampedeTopBottom")) { 
 					//	spawnEvent(Enemies.TakoViking, Patterns.StampedeTopBottom, 500, 1, 1.6, 8, 20, 20);
@@ -126,12 +126,12 @@ if (imguigml_ready()) {
 						//spawnEvent(Enemies.InvestiGator, Patterns.StampedeTopBottom, 1000, "-", 1.6, 10, 20, 40, 0, 0, false, 1);
 						//spawnEvent(Enemies.KronieA, Patterns.StampedeLeft, 2000, 7, 2, 10, 20, 10, 0, 0, false, 2);
 						//spawnEvent(Enemies.KronieB, Patterns.StampedeRight, 2000, 7, 2, 10, 20, 10, 0, 0, false, 1);
-						spawnEvent(Enemies.KronieA, Patterns.StampedeLeft, 2000, 7, 3, 10, 20, 10, 0, 0, false, 1);
-						spawnEvent(Enemies.KronieA, Patterns.StampedeDown, 2000, 7, 3, 10, 20, 10, 0, 0, false, 2);
+						spawn_event(Enemies.KronieA, Patterns.StampedeLeft, 2000, 7, 3, 10, 20, 10, 0, 0, false, 1);
+						spawn_event(Enemies.KronieA, Patterns.StampedeDown, 2000, 7, 3, 10, 20, 10, 0, 0, false, 2);
 					}imguigml_same_line();
 					if (imguigml_button("Circle")) { 
 						//spawnEvent(Enemies.DarkShrimp, Patterns.Ring, 500, 5, 0.05, 10, 25, 76, 400, "-", true, 16);
-						spawnEvent(Enemies.BaeRat, Patterns.Ring, "-", "-", "-", "-", "-", 120, 500, 0, true, 16);
+						spawn_event(Enemies.BaeRat, Patterns.Ring, "-", "-", "-", "-", "-", 120, 500, 0, true, 16);
 					}
 				}
 			}

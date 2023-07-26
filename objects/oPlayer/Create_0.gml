@@ -1,4 +1,5 @@
 event_inherited();
+dAlarm = array_create(11, -1);
 //show_debug_overlay(true);
 immortal = false;
 if (global.singleplayer) {
@@ -42,7 +43,7 @@ specialcooldown = special.cooldown;
 pimanLevel = 0;
 pimanUsable = false;
 dead = false;
-resetTimer();
+reset_timer();
 ResetPool();
 idolCostumeLevel = 0;
 global.lastsequence = undefined;

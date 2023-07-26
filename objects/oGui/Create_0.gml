@@ -36,7 +36,7 @@ selected=0;
 maxselected = selected;
 color=c_white;
 menuOptions = ["Map", "Singleplayer", "Multiplayer", "Shop", "Leaderboard", "Achievements", "Settings", "Credits", "Quit"];
-resetTimer()
+reset_timer()
 global.upgrades=ds_map_create();
 global.a=1;
 a=2;

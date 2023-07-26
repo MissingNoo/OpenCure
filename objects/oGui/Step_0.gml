@@ -44,7 +44,7 @@ if (xKey and global.gamePaused) {
 		    activeMenu = PMenus.Pause;
 		}
 		else{
-			PauseGame();
+			pause_game();
 			justopened = 0;
 		}
 	}
@@ -78,7 +78,7 @@ if (room = rInicio and !global.gamePaused) {
 	            break;}
 			case "Settings":{
 				keyboard_clear(ord("Z"));
-				PauseGame();					
+				pause_game();					
 				activeMenu = PMenus.Settings;
 				break;}
 			case "Shop":{
@@ -183,7 +183,7 @@ if (global.upgrade) // after level up
 		}
 		global.xp -= oPlayer.neededxp;
 		global.upgrade = 0;
-		PauseGame();
+		pause_game();
 	}
 }
 #endregion
@@ -248,7 +248,7 @@ if (ANVIL) {
 			ANVIL = false;//TODO: Cost money
 			anvilconfirm = false;
 			upgradeconfirm = false;
-			PauseGame();
+			pause_game();
 		}	
 		if (!upgradeconfirm and anvilconfirm) {
 		    upgradeconfirm = true;
@@ -337,7 +337,7 @@ if (global.gamePaused and !global.upgrade and !ANVIL) {
 		        
 		        break;}
 			case "Resume":{
-		        PauseGame();
+		        pause_game();
 		        break;}
 		    case "Settings":{
 		        activeMenu = PMenus.Settings;

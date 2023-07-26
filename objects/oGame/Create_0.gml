@@ -103,7 +103,7 @@ global.gamePaused=false;
 gamePausedImageSpeed =0;
 //global.player=global.characters[Characters.Amelia];
 ResetPool();
-resetTimer();
+reset_timer();
 global.strafe = false;
 global.minutesPast30 = 0;
 global.hoursPast1= 0 ;

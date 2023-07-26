@@ -48,7 +48,7 @@ if (other.hittedcooldown[upg[$"id"]] <= 0  and !global.gamePaused and other.imag
 					}
 				}
 				Buffs[BuffNames.SharkBite].level = _lv;
-				array_push(other.debuffs, copyStruct(Buffs[BuffNames.SharkBite]));
+				array_push(other.debuffs, copy_struct(Buffs[BuffNames.SharkBite]));
 			}
 		}
 		#endregion

@@ -1,6 +1,15 @@
+for (var i = 0; i < array_length(dAlarm); ++i) {
+    if (dAlarm[i] != -1) {
+	    dAlarm[i] -= 1 * Delta;
+	}
+	if (dAlarm[i] < 0 and dAlarm[i] != -1) {
+	    dAlarm[i] = -1;
+		event_user(i);
+	}
+}
 image_speed = oImageSpeed * Delta;
-oCam.x = oPlayer.x;
-oCam.y = oPlayer.y;
+//oCam.x = oPlayer.x;
+//oCam.y = oPlayer.y;
 socket = global.socket;
 if (immortal) {
     HP = MAXHP;
@@ -62,8 +71,8 @@ if (!global.gamePaused) {
 		audio_play_sound(snd_lvl_up,0,0);
 		//if (instance_exists(oJoystick)) { global.mode = "menu"; }
 		global.upgrade=1;	
-		oGui.selected=0;		
-		PauseGame();
+		oGui.selected=0;
+		pause_game();
 	}
 	
 	if (global.hp <= 0) {
@@ -78,8 +87,10 @@ if (!global.gamePaused) {
 				var inst = instance_create_depth(x,y,depth, oDeathHeart,{direction : heartOff});
 				heartOff += 45;
 			}
-			if (alarm_get(3) == -1) {
-			    alarm[3] = 60;
+			//if (alarm_get(3) == -1) {
+			if (dAlarm[3] == -1) {
+			    //alarm[3] = 60;
+			    dAlarm[3] = 60;
 			}
 		    //game_restart();
 		}
