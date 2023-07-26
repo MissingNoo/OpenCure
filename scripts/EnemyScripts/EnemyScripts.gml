@@ -1,5 +1,4 @@
-// Feather disable GM2017
-	//iniciar variaveis do inimigo
+//iniciar variaveis do inimigo
 #macro EnemyList global.enemies
 #macro EnemyPool global.enemyPool
 function initiateEnemy(e){
@@ -91,6 +90,19 @@ enum Enemies
 	SwarmingOvergrownSapling,
 	ThiccBubba,
 	SmolAme,
+	EndlessShrimp,
+	EndlessDeadBeat,
+	EndlessTakodachi,
+	EndlessEmployee,
+	EndlessBubba,
+	EndlessBloom,
+	EndlessGloom,
+	EndlessSapling,
+	EndlessBaerat,
+	EndlessKronie,
+	EndlessHooman,
+	EndlessSanallite,
+	EndlessYagoo,
 	lenght
 }
 #region Create Enemies
@@ -132,7 +144,21 @@ enum Enemies
 		createEnemy(Enemies.SwarmingOvergrownSapling, "SwarmingOvergrownSapling", sSaplingKing, 3000, 0.4, 17, 15);
 		createEnemy(Enemies.ThiccBubba, "Thicc Bubba", sThiccBubba, 1000, 0.85, 12, 20);
 		createEnemy(Enemies.SmolAme, "Smol Ame", sSmolAme, 25000, 1.2, 20, 5000);
-		
+		#region Endless
+		createEnemy(Enemies.EndlessShrimp, "Endless", sShrimp, 5000, 1, 15, 25);
+		createEnemy(Enemies.EndlessDeadBeat, "Endless", sQDeadBeat, 5000, 1, 15, 25);
+		createEnemy(Enemies.EndlessTakodachi, "Endless", sTakodachi, 5000, 1, 15, 25);
+		createEnemy(Enemies.EndlessEmployee, "Endless", sDisgruntledEmployee, 5000, 1, 15, 25);
+		createEnemy(Enemies.EndlessBubba, "Endless", sThiccBubba, 5000, 1, 15, 25);
+		createEnemy(Enemies.EndlessBloom, "Endless", sBloom, 5000, 1, 15, 25);
+		createEnemy(Enemies.EndlessGloom, "Endless", sGloom, 5000, 1, 15, 25);
+		createEnemy(Enemies.EndlessSapling, "Endless", sSaplingA, 5000, 1, 15, 25);
+		createEnemy(Enemies.EndlessBaerat, "Endless", sBaeRat, 5000, 1, 15, 25);
+		createEnemy(Enemies.EndlessKronie, "Endless", sKronieA, 5000, 1, 15, 25);
+		createEnemy(Enemies.EndlessHooman, "Endless", sHoomanA, 5000, 1, 15, 25);
+		createEnemy(Enemies.EndlessSanallite, "Endless", sSanallite, 5000, 1, 15, 25);
+		createEnemy(Enemies.EndlessYagoo, "Endless", sSake, 9000, 1.5, 5, 25);
+		#endregion
 	#endregion
 #endregion
 global.sprites = [];

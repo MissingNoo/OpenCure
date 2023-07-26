@@ -26,7 +26,7 @@ switch (pattern) {
         canCollide = true;
         break;
     default:
-        // code here
+        canCollide = true;
         break;
 }
 if (canwalk and canCollide) {

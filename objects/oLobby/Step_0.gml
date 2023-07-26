@@ -44,8 +44,8 @@ if (!joinedRoom and !creatingroom and !typepassword) {
 }
 
 if (creatingroom) {
-	//openKeyboard(GW/2 - 100, GH/2.15, GW/2 + 100, GH/2.15 + 32, "creatingselected", 0);
-	//openKeyboard(GW/2 - 100, GH/1.79, GW/2 + 100, GH/1.79 + 32, "creatingselected", 1);
+	//open_keyboard(GW/2 - 100, GH/2.15, GW/2 + 100, GH/2.15 + 32, "creatingselected", 0);
+	//open_keyboard(GW/2 - 100, GH/1.79, GW/2 + 100, GH/1.79 + 32, "creatingselected", 1);
 	if (input_check_pressed("cancel") or input_check_pressed("pause")) {
 	    creatingroom = false;
 	}

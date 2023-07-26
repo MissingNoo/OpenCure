@@ -81,13 +81,13 @@ if (creatingroom) {
 	draw_text_transformed(GW/2, GH/2.35, "Name", 2, 2, 0);
 	var _color = (creatingselected == 0) ? c_yellow : c_white;
 	draw_rectangle_color(GW/2 - 100, GH/2.15, GW/2 + 100, GH/2.15 + 32, _color, _color, _color, _color, true);
-	openKeyboard(GW/2 - 100, GH/2.15, GW/2 + 100, GH/2.15 + 32, "creatingselected", 0, "roomname");
+	open_keyboard(GW/2 - 100, GH/2.15, GW/2 + 100, GH/2.15 + 32, "creatingselected", 0, "roomname");
 	draw_text_transformed(GW/2, GH/2.15, roomname, 2, 2, 0);
 	
 	draw_text_transformed(GW/2, GH/1.92, "Password", 2, 2, 0);
 	_color = (creatingselected == 1) ? c_yellow : c_white;
 	draw_rectangle_color(GW/2 - 100, GH/1.79, GW/2 + 100, GH/1.79 + 32, _color, _color, _color, _color, true);
-	openKeyboard(GW/2 - 100, GH/1.79, GW/2 + 100, GH/1.79 + 32, "creatingselected", 1, "password");
+	open_keyboard(GW/2 - 100, GH/1.79, GW/2 + 100, GH/1.79 + 32, "creatingselected", 1, "password");
 	draw_text_transformed(GW/2, GH/1.79, password, 2, 2, 0);
 	
 	var cx = GW/2 - 55;
@@ -139,7 +139,7 @@ if (typepassword) {
     draw_rectangle_color(_x - _xoff, _y - _yoff, _x + _xoff, _y + _yoff, c_black, c_black, c_black, c_black, false);
 	draw_set_alpha(1);
 	draw_rectangle_color(_x - _xoff, _y - _yoff, _x + _xoff, _y + _yoff, c_white, c_white, c_white, c_white, true);
-	openKeyboard(_x - _xoff, _y - _yoff, _x + _xoff, _y + _yoff, "passwordselected", 0, "password");
+	open_keyboard(_x - _xoff, _y - _yoff, _x + _xoff, _y + _yoff, "passwordselected", 0, "password");
 	draw_set_halign(fa_center);
 	var _ytext = (_y - _yoff) + string_height("Password");
 	draw_text_transformed(_x, _ytext, "Password", 3, 3, 0);
@@ -239,7 +239,7 @@ if (joinedRoom) {
 	}
 	drawRectangle(chat[0], chat[1], chat[2], chat[3], c_black, c_white, .5);
 	gui_draw_button(chatSend, "Send");
-	openKeyboard(chat[0], chat[1], chat[2], chat[3]);
+	open_keyboard(chat[0], chat[1], chat[2], chat[3]);
 	draw_text_transformed(chat[0] + 10, chat[1], chattext, 2, 2, 0);
 	#endregion
 	

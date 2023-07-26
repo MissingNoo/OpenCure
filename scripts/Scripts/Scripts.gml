@@ -92,6 +92,7 @@ function pause_game(){
 }		
 	
 enum Patterns{
+	Null,
 	Cluster,
 	Horde,
 	Ring,
@@ -311,7 +312,7 @@ function sine_between(time, period, minimum, maximum) {
  * @param {string} _var Description
  * @param {real} _value Description
  */
-function openKeyboard(_sx, _sy, _ex, _ey, _var = "nullvar", _value = 0, _varr = ""){
+function open_keyboard(_sx, _sy, _ex, _ey, _var = "nullvar", _value = 0, _varr = ""){
 	if (global.debug) {
 		draw_set_alpha(.3);
 		draw_set_color(c_purple);

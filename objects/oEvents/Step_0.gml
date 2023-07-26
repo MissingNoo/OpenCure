@@ -1,8 +1,4 @@
 //feather disable GM2017
-if (keyboard_check_pressed(vk_home)) {
-	Minutes = 9;
-	Seconds = 58;
-}
 if (event == false and time_source_get_state(_time_source) == time_source_state_stopped) {
     time_source_reset(_time_source);
 	time_source_start(_time_source);
@@ -326,32 +322,19 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 		removeEnemyFromPool(Enemies.SwarmingKingKronie);
 		removeEnemyFromPool(Enemies.SwarmingOvergrownSapling);
 	}
-
+if (keyboard_check_pressed(vk_home)) {
+	Minutes = 22;
+	Seconds = 58;
+}
 	if (_seconds == 0 and Minutes == 23 and event) {
 		event = false;
 		//alarm[0] = 60;	
-		removeEnemyFromPool(Enemies.ThiccBubba);	
+		ResetPool();
+		removeEnemyFromPool(Enemies.Shrimp);
+		for (var i = Enemies.EndlessShrimp; i <= Enemies.EndlessSanallite; ++i) {
+		    addEnemyToPool(i);
+		}
 	}
+	
+	
 }
-
-
-//TODO:
-/*
-(Enemies.deadbeatlv3, Patterns.Ring, "-", "-", "-", "-", 22, 27) every1.66s08:30?
-(Enemies.DisgruntledEmployee, Patterns.Horde, "-", "-", "-", "-", "-", 120) every5.0s09:00-09:30
-(Enemies.Investi-Gator, Patterns.StampedeRight, 1, 000, "-", 1.6, 10, 20, 40) 10:15
-(Enemies.Baerat, Patterns.Ring, "-", "-", "-", "-", "-", 120) 11:30
-(Enemies.Kronie, Patterns.StampedeRight, 2, 000, 7, 2.0, 10, 20, 20) 12:20
-(Enemies.Kronie, Patterns.StampedeRight, 2, 000, 7, 3.0, 10, 20, 20) 12:25
-(Enemies.Kronie, Patterns.StampedeRight, 2, 000, 7, 2.0, 10, 20, 188) 12:45-12:50
-(Enemies.Baerat, Patterns.Horde, 70, 2, 1.7, 5, "-", 40) every2.0s13:30-13:40
-(Enemies.RiotQDeadBeat, Patterns.StampedeRight, 2.000, "-", 2.0, 10, 20, 10) 14:20
-(Enemies.RiotQShrimp, Patterns.StampedeRight, 2.000, "-", 2.0, 10, 20, 10) 14:25
-(Enemies.RiotQDeadBeat, Patterns.StampedeRight, 2.000, "-", 2.0, 10, 20, 10) 14:30
-(Enemies.RiotQShrimp, Patterns.StampedeRight, 2.000, "-", 2.0, 10, 20, 10) 14:30
-(Enemies.RiotQDeadBeat, Patterns.StampedeRight, 2.000, "-", 2.0, 10, 20, 12) every1.0s14:35-14:40
-(Enemies.RiotQShrimp, Patterns.StampedeRight, 2.000, "-", 2.0, 10, 20, 12) every1.0s14:35-14:40
-(Enemies.RiotQDeadBeat, Patterns.Wall, 2.000, "-", 1.6, 10, 20, 8) 14:45
-(Enemies.RiotQShrimp, Patterns.Wall, 2.000, "-", 1.6, 10, 20, 8) 14:45
-(Enemies.Kronie, Patterns.Wall, 1.500, "-", 0.26, 10, 15, 100) 16:15
-(Enemies.Hooman, Patterns.StampedeRight, 5.000, "-", 2.0, 10, 20, 40) 17:00
