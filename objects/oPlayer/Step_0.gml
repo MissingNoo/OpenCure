@@ -1,4 +1,6 @@
 image_speed = oImageSpeed * Delta;
+oCam.x = oPlayer.x;
+oCam.y = oPlayer.y;
 socket = global.socket;
 if (immortal) {
     HP = MAXHP;

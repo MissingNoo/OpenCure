@@ -175,6 +175,16 @@
 				"6":"Increase damage by 30%.",
 				"7":"Increase attack area by 30% and stops targets for a short moment after knockback.",
             },
+            "X-Potato":{
+				"name":"X-Potato",
+				"1": "Throw a potato that bounces around the screen before exploding into an X.",
+				"2": "Increases the X explosion size by 20%.",
+				"3": "Throw 2 potatoes.",
+				"4": "Increase damage and speed by 30%.",
+				"5": "Reduce the time between attacks by 15% and remove hit limit.",
+				"6": "Increase the size of potatoes and the X explosion size by 30%.",
+				"7": "Throw four potatoes.",
+            },
             "PiPiPilstols":{
             "name":"PiPiPistols",
             "1": "One pistol shoots in aimed direction, another at random targets",

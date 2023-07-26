@@ -340,6 +340,9 @@ sprite_index=upg[$"sprite"];
 			direction = arrowDir;
 			image_angle  = arrowDir;
 			break;}
+		case Weapons.XPotato:{
+			direction = irandom_range(0,360);
+			break;}
 		#endregion
 	}
 		if (sprite_index==sBlank) {

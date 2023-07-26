@@ -114,6 +114,14 @@ if (!global.gamePaused) {
 			image_angle+=10;
 			break;
 		}
+		//case Weapons.XPotato:{
+		//	image_angle += .5;
+		//	if (x > oPlayer.x + (view_wport[0] / 2)) { direction += 180; }
+		//	if (x < oPlayer.x - (view_wport[0] / 2)) { direction += 180; }
+		//	if (y > oPlayer.y + (view_hport[0] / 2)) { direction += 180; }
+		//	if (y < oPlayer.y - (view_hport[0] / 2)) { direction += 180; }
+		//	break;
+		//}
 	}
 }
 #endregion

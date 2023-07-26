@@ -9,5 +9,8 @@ switch (upg[$"id"]) {
 		speed = originalspeed;
 		audio_play_sound(choose(snd_tailplug, snd_tailplug2, snd_tailplug3),0,0);
 		break;}
-		
+	case Weapons.XPotato:{
+		instance_destroy();
+		instance_create_depth(x,y,depth,oUpgrade, { upg : WEAPONS_LIST[Weapons.XPotatoExplosion][upg[$"level"]], mindmg : upg[$"mindmgExplosion"], maxdmg : upg[$"maxdmgExplosion"]});
+		break;}
 }

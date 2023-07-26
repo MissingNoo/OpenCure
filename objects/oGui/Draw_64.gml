@@ -21,7 +21,7 @@ if (room == rInicio) {
 	#region Menu
 	if (!global.gamePaused) {
 		//mouseOnButton(GW/1.25, GW/6, 55, sHudButton, 1.75, 1.5, menuOptions);
-		draw_text_transformed(20,GH-50,"version DEMO 0.4.11072001 ported by Airgeadlamh", 1, 1, 0);
+		draw_text_transformed(20,GH-50,"version 0.? remake by Airgeadlamh", 1, 1, 0);
 		var offset = 0;
 		var thiss=0;
 		var scale;

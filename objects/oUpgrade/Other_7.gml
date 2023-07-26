@@ -54,6 +54,9 @@ switch (upg[$"id"]) {
 	case Weapons.Shockwave:{
 		    instance_destroy();
 		break;}
+	case Weapons.XPotatoExplosion:{
+		    instance_destroy();
+		break;}
     default:
         // code here
         break;

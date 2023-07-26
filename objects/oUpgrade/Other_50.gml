@@ -1,9 +1,12 @@
 switch (upg[$"id"]) {
     case Weapons.XPotato:{
-		//if (justBounced) {
-		//    justBounced = false;
-		//}
-		image_angle += .5;
+		if (justBounced) { return; }
+		if (!justBounced) {
+		    justBounced = true;
+			dAlarm[2]=50;
+		}
+		//image_angle += .5;
+		direction += 180;
 		//var _x1 = oPlayer.x + (view_wport[0] / 2);
 		//var _x2 = oPlayer.x - (view_wport[0] / 2);
 		//var _y1 = oPlayer.y + (view_hport[0] / 2);
