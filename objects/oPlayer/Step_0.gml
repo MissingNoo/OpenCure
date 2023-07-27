@@ -1,3 +1,37 @@
+#region critChance
+var calc = 0;
+calc += real(string_replace(string(global.player[?"crit"]), "1.", ""));
+for (var i = 0; i < array_length(Bonuses[BonusType.Critical]); ++i) {
+	if (!is_array(Bonuses[BonusType.Critical][i])) {
+		if (Bonuses[BonusType.Critical][i] != 0) {
+			if (Bonuses[BonusType.Critical][i] > 1) {
+				calc += (real(string_replace(string(Bonuses[BonusType.Critical][i]), "1.", "")));
+			}
+			else{
+				calc -= (1 - Bonuses[BonusType.Critical][i]) * 100;
+			}							
+		}
+	}
+	else{
+		for (var j = 0; j < array_length(Bonuses[BonusType.Critical][i]); ++j) {
+			if (Bonuses[BonusType.Critical][i][j] != 0) {
+				if (Bonuses[BonusType.Critical][i][j] > 1) {
+					calc += (real(string_replace(string(Bonuses[BonusType.Critical][i][j]), "1.", "")));
+				}
+				else{
+					calc -= (1 - Bonuses[BonusType.Critical][i][j]) * 100;
+				}							
+			}
+		}
+	}						
+}
+for (var i = 0; i < array_length(PerkBonuses[BonusType.Critical]); ++i) {
+	if (PerkBonuses[BonusType.Critical][i] != 0) {
+		calc += real(string_replace(string(PerkBonuses[BonusType.Critical][i]), "1.", ""));
+	}
+}
+critChance = calc;
+#endregion
 for (var i = 0; i < array_length(dAlarm); ++i) {
     if (dAlarm[i] != -1) {
 	    dAlarm[i] -= 1 * Delta;
@@ -116,7 +150,7 @@ if (HP > MAXHP) {
     HP=MAXHP;
 }
 #region spd calc
-	var calc = 0;
+	calc = 0;
 	for (var i = 0; i < array_length(Bonuses[BonusType.Speed]); ++i) {
 		if (Bonuses[BonusType.Speed][i] != 0) {
 		    calc += Bonuses[BonusType.Speed][i];

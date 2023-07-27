@@ -243,6 +243,7 @@ function drawStats(){
 				draw_text_transformed(GW/8 - 15, GH/2.15 + stats_offset, "ATK", 1.5, 1.5, 0);
 				draw_line(GW/8.80, GH/2 + stats_offset, GW/3.40, GH/2 + stats_offset);
 				var calc = 0;
+				calc += real(string_replace(string(global.player[?"atk"]), "1.", ""));
 				for (var i = 0; i < array_length(Bonuses[BonusType.Damage]); ++i) {
 					if (Bonuses[BonusType.Damage][i] != 0) {
 						calc += real(string_replace(string(Bonuses[BonusType.Damage][i]), "1.", ""));
@@ -262,9 +263,10 @@ function drawStats(){
 			#region SPD
 				stats_offset += 35;
 				draw_sprite_stretched(sHudSpdIcon, 0, GW/11, GH/2.15 + stats_offset, 25, 25);
-				draw_text_transformed(GW/8, GH/2.15 + stats_offset, "SPD", 1.5, 1.5, 0);
+				draw_text_transformed(GW/8 - 15, GH/2.15 + stats_offset, "SPD", 1.5, 1.5, 0);
 				draw_line(GW/8.80, GH/2 + stats_offset, GW/3.40, GH/2 + stats_offset);
 				calc = 0;
+				calc += real(string_replace(string(global.player[?"speed"]), "1.", ""));
 				for (var i = 0; i < array_length(Bonuses[BonusType.Speed]); ++i) {
 					if (Bonuses[BonusType.Speed][i] != 0) {
 						calc += real(string_replace(string(Bonuses[BonusType.Speed][i]), "1.", ""));
@@ -286,36 +288,7 @@ function drawStats(){
 				draw_sprite_stretched(sHudCrtIcon, 0, GW/11, GH/2.15 + stats_offset, 25, 25);
 				draw_text_transformed(GW/8 - 15, GH/2.15 + stats_offset, "CRT", 1.5, 1.5, 0);
 				draw_line(GW/8.80, GH/2 + stats_offset, GW/3.40, GH/2 + stats_offset);
-				calc = 0;
-				for (var i = 0; i < array_length(Bonuses[BonusType.Critical]); ++i) {
-					if (!is_array(Bonuses[BonusType.Critical][i])) {
-						if (Bonuses[BonusType.Critical][i] != 0) {
-							if (Bonuses[BonusType.Critical][i] > 1) {
-								calc += (real(string_replace(string(Bonuses[BonusType.Critical][i]), "1.", "")));
-							}
-							else{
-								calc -= (1 - Bonuses[BonusType.Critical][i]) * 100;
-							}							
-						}
-					}
-					else{
-						for (var j = 0; j < array_length(Bonuses[BonusType.Critical][i]); ++j) {
-							if (Bonuses[BonusType.Critical][i][j] != 0) {
-								if (Bonuses[BonusType.Critical][i][j] > 1) {
-									calc += (real(string_replace(string(Bonuses[BonusType.Critical][i][j]), "1.", "")));
-								}
-								else{
-									calc -= (1 - Bonuses[BonusType.Critical][i][j]) * 100;
-								}							
-							}
-						}
-					}						
-				}
-				for (var i = 0; i < array_length(PerkBonuses[BonusType.Critical]); ++i) {
-					if (PerkBonuses[BonusType.Critical][i] != 0) {
-						calc += real(string_replace(string(PerkBonuses[BonusType.Critical][i]), "1.", ""));
-					}
-				}
+				calc = oPlayer.critChance;
 				str = ((calc > 0) ? "+" : "") + string_replace(string(calc), ".00", "") + "%";
 				draw_set_halign(fa_right);
 				draw_text_transformed(GW/3.40, GH/2.15 + stats_offset, str, 1.5, 1.5, 0);
@@ -328,6 +301,7 @@ function drawStats(){
 				draw_text_transformed(GW/8 - 15, GH/2.15 + stats_offset, "Pickup", 1.5, 1.5, 0);
 				draw_line(GW/8.80, GH/2 + stats_offset, GW/3.40, GH/2 + stats_offset);
 				calc = 0;
+				
 				for (var i = 0; i < array_length(Bonuses[BonusType.PickupRange]); ++i) {
 					if (Bonuses[BonusType.PickupRange][i] != 0) {
 						calc += real(string_replace(string(Bonuses[BonusType.PickupRange][i]), "1.", ""));

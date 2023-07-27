@@ -108,10 +108,19 @@ if (other.hittedcooldown[upg[$"id"]] <= 0  and !global.gamePaused and other.imag
 		}
 	}
 	//show_message(string(originalDamage) + "/" + string(dmg));
-	other.hp-= dmg * global.player[?"atk"];
+	var _rnd = irandom_range(0, 100);
+	var _critChance = oPlayer.critChance;
+	var _critMultiplier = 1;
+	var _wasCrit = false;
+	if (_rnd <= _critChance) {
+	    _critMultiplier = 1.5;
+		_wasCrit = true;
+	}
+	other.hp-= dmg * global.player[?"atk"] * _critMultiplier;
 	if (global.damageNumbers) {
 	    var _inst = instance_create_layer(other.x,other.y,"DamageLayer",oDamageText);
 		_inst.dmg = round(dmg);
+		_inst.critical = _wasCrit;
 	}
 	
 	//other.alarm[1]=15;

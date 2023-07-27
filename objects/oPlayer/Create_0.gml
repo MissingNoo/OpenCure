@@ -74,3 +74,4 @@ rig=0;
 upp=0;
 //feather disable once GM2017
 global.rerolls = global.shopUpgrades.Reroll.level;
+critChance = 0;

@@ -2,7 +2,7 @@
     //draw_set_font(global.Font); //draw_set_font(fnt_font1);
 //}
 draw_set_alpha(image_alpha);
-draw_set_color(c_yellow);
+draw_set_color(critical ? c_yellow : c_white);
 if (dmg != 0) {
     draw_text_transformed(x,y,string(dmg), 1.25, 1.25, 0);
 }
