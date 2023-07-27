@@ -114,9 +114,30 @@ if (other.hittedcooldown[upg[$"id"]] <= 0  and !global.gamePaused and other.imag
 	var _wasCrit = false;
 	if (_rnd <= _critChance) {
 	    _critMultiplier = 1.5;
+		var _critCalc = 0;
+		for (var i = 0; i < array_length(Bonuses[BonusType.CriticalDamage]); ++i) {
+		    if (Bonuses[BonusType.CriticalDamage][i] != 0) {
+				_critCalc += real("0." + string(real(string_replace(string(Bonuses[BonusType.CriticalDamage][i]), "1.", ""))));
+			}
+		}
+		_critMultiplier += _critCalc;
+		//show_message(_critCalc);
 		_wasCrit = true;
+		//show_message(string(@"
+		//	damage : {0}
+		//	playermultiplier : {1}
+		//	crit multiplier : {2}
+		//	step 1 : {3}
+		//	step 2 : {4}
+		//	", 
+		//	dmg, 
+		//	global.player[?"atk"], 
+		//	_critMultiplier, 
+		//	dmg * global.player[?"atk"], 
+		//	dmg * global.player[?"atk"] * _critMultiplier));
 	}
-	other.hp-= dmg * global.player[?"atk"] * _critMultiplier;
+	dmg = dmg * global.player[?"atk"] * _critMultiplier;
+	other.hp-= dmg;
 	if (global.damageNumbers) {
 	    var _inst = instance_create_layer(other.x,other.y,"DamageLayer",oDamageText);
 		_inst.dmg = round(dmg);
