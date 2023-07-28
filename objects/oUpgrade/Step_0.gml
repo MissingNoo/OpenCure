@@ -1,12 +1,3 @@
-for (var i = 0; i < array_length(dAlarm); ++i) {
-    if (dAlarm[i] != -1) {
-	    dAlarm[i] -= 1 * Delta;
-	}
-	if (dAlarm[i] < 0 and dAlarm[i] != -1) {
-	    dAlarm[i] = -1;
-		event_user(i);
-	}
-}
 xpreviousprevious = x - (x - xprevious);
 ypreviousprevious = y - (y - yprevious);
 if (global.testvar == "") {
@@ -19,6 +10,15 @@ if (socket == oPlayer.socket) {
 }
 #region Connected to Character
 if (!global.gamePaused) {
+	for (var i = 0; i < array_length(dAlarm); ++i) {
+	    if (dAlarm[i] != -1) {
+		    dAlarm[i] -= 1 * Delta;
+		}
+		if (dAlarm[i] < 0 and dAlarm[i] != -1) {
+		    dAlarm[i] = -1;
+			event_user(i);
+		}
+	}
 	if (speed > 0 and upg[$"id"] != Weapons.CuttingBoard) {
 	    speed=upg[$"speed"] * Delta;
 	}

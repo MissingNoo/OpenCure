@@ -50,6 +50,8 @@ if (imguigml_ready()) {
 						_button = imguigml_button("Spawn Food");
 						if (_button) { instance_create_depth(oPlayer.x, oPlayer.y + 50, oPlayer.depth, oBurguer); }
 						imguigml_same_line();
+						if (imguigml_button("Spawn Coin")) { instance_create_depth(oPlayer.x, oPlayer.y + 50, oPlayer.depth, oHolocoin); }
+						imguigml_same_line();
 						_button = imguigml_button("Test Buff");
 						if (_button) {
 							Buffs[BuffNames.testbuff][$"count"] += 1;
