@@ -4,6 +4,7 @@ instance_destroy(other);
 var coins = 10;
 //feather disable once GM2017
 if (global.shopUpgrades.MoneyGain.level > 0) {
+	//feather disable once GM2017
     for (var i = 0; i < global.shopUpgrades.MoneyGain.level; ++i) { //TODO: Is this working?
 	    coins = coins + ((coins * 20) / 100);
 	}

@@ -45,7 +45,7 @@ pimanLevel = 0;
 pimanUsable = false;
 dead = false;
 reset_timer();
-ResetPool();
+reset_pool();
 idolCostumeLevel = 0;
 global.lastsequence = undefined;
 global.testvar = "";

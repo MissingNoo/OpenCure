@@ -17,7 +17,7 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 		event = false;
 		//alarm[0] = 60;
 		//shtimp e deadbeat
-		addEnemyToPool(Enemies.DeadBeat);
+		add_enemy_to_pool(Enemies.DeadBeat);
 	}
 
 	if (_seconds == 5 and Minutes == 1 and event) {
@@ -36,7 +36,7 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 	if (_seconds == 0 and Minutes == 2 and event) {
 		event = false;
 		//alarm[0] = 60;
-		addEnemyToPool(Enemies.MegaShrimp);
+		add_enemy_to_pool(Enemies.MegaShrimp);
 	}
 	
 	if (_seconds == 35 and Minutes == 2 and event) {
@@ -56,8 +56,8 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 		//alarm[0] = 60;	
 		//remove shrimp
 		//deadbeat takodachi
-		removeEnemyFromPool(Enemies.Shrimp);
-		addEnemyToPool(Enemies.Takodachi);
+		remove_enemy_from_pool(Enemies.Shrimp);
+		add_enemy_to_pool(Enemies.Takodachi);
 	}
 	
 	if (_seconds == 15 and Minutes == 3 and event) {
@@ -84,8 +84,8 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 	if (_seconds == 0 and Minutes == 4 and event) {
 		event = false;
 		//alarm[0] = 60;	
-		addEnemyToPool(Enemies.KFPEmployee);
-		addEnemyToPool(Enemies.TakoGrande);
+		add_enemy_to_pool(Enemies.KFPEmployee);
+		add_enemy_to_pool(Enemies.TakoGrande);
 	}
 
 	if (_seconds == 15 and Minutes == 4 and event) {
@@ -97,11 +97,11 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 	if (_seconds == 0 and Minutes == 5 and event) {
 		event = false;
 		//alarm[0] = 60;	
-		removeEnemyFromPool(Enemies.DeadBeat);
-		removeEnemyFromPool(Enemies.Takodachi);
-		addEnemyToPool(Enemies.DarkShrimp);
-		addEnemyToPool(Enemies.Bloom);
-		addEnemyToPool(Enemies.Gloom);
+		remove_enemy_from_pool(Enemies.DeadBeat);
+		remove_enemy_from_pool(Enemies.Takodachi);
+		add_enemy_to_pool(Enemies.DarkShrimp);
+		add_enemy_to_pool(Enemies.Bloom);
+		add_enemy_to_pool(Enemies.Gloom);
 	}
 
 	if (_seconds == 0 and Minutes == 5 and event) {
@@ -132,15 +132,15 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 	if (_seconds == 0 and Minutes == 6 and event) {
 		event = false;
 		//alarm[0] = 60;	
-		removeEnemyFromPool(Enemies.KFPEmployee);
-		addEnemyToPool(Enemies.DeadBatter);
-		addEnemyToPool(Enemies.MegaDarkShrimp);
+		remove_enemy_from_pool(Enemies.KFPEmployee);
+		add_enemy_to_pool(Enemies.DeadBatter);
+		add_enemy_to_pool(Enemies.MegaDarkShrimp);
 	}
 
 	if (_seconds == 30 and Minutes == 6 and event) {
 		event = false;
 		//alarm[0] = 60;	
-		addEnemyToPool(Enemies.InvestiGator)
+		add_enemy_to_pool(Enemies.InvestiGator)
 	}
 
 	if (_seconds == 0 and Minutes == 7 and event) {
@@ -153,13 +153,13 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 	if (_seconds == 35 and Minutes == 7 and event) {
 		event = false;
 		//alarm[0] = 60;	
-		addEnemyToPool(Enemies.HungryTakodachi);
+		add_enemy_to_pool(Enemies.HungryTakodachi);
 	}
 
 	if (_seconds == 0 and Minutes == 8 and event) {
 		event = false;
 		//alarm[0] = 60;	
-		addEnemyToPool(Enemies.GiantDeadBatter);
+		add_enemy_to_pool(Enemies.GiantDeadBatter);
 	} 
 	
 	if (_seconds == 30 and Minutes == 8 and event) {
@@ -168,8 +168,8 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 		time_source_start(repeatSource);
 		//INFO: should be 22 seconds of lifetime?
 		//alarm[0] = 60;	
-		removeEnemyFromPool(Enemies.DarkShrimp);
-		removeEnemyFromPool(Enemies.DeadBatter);
+		remove_enemy_from_pool(Enemies.DarkShrimp);
+		remove_enemy_from_pool(Enemies.DeadBatter);
 	}
 	
 	if (_seconds == 55 and Minutes == 8 and event) {
@@ -182,13 +182,13 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 	if (_seconds == 30 and Minutes == 9 and event) {
 		event = false;
 		//alarm[0] = 60;	
-		addEnemyToPool(Enemies.DisgruntledEmployee);
+		add_enemy_to_pool(Enemies.DisgruntledEmployee);
 	}
 
 	if (_seconds == 0 and Minutes == 10 and event) {
 		event = false;
 		//alarm[0] = 60;	
-		addEnemyToPool(Enemies.FubuZilla);
+		add_enemy_to_pool(Enemies.FubuZilla);
 	}
 	
 	if (_seconds == 15 and Minutes == 10 and event) {
@@ -202,12 +202,12 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 	if (_seconds == 0 and Minutes == 11 and event) {
 		event = false;
 		//alarm[0] = 60;	
-		removeEnemyFromPool(Enemies.Bloom);
-		removeEnemyFromPool(Enemies.Gloom);
-		removeEnemyFromPool(Enemies.HungryTakodachi);
-		removeEnemyFromPool(Enemies.InvestiGator);
-		removeEnemyFromPool(Enemies.DisgruntledEmployee)
-		addEnemyToPool(Enemies.BaeRat);
+		remove_enemy_from_pool(Enemies.Bloom);
+		remove_enemy_from_pool(Enemies.Gloom);
+		remove_enemy_from_pool(Enemies.HungryTakodachi);
+		remove_enemy_from_pool(Enemies.InvestiGator);
+		remove_enemy_from_pool(Enemies.DisgruntledEmployee)
+		add_enemy_to_pool(Enemies.BaeRat);
 	}
 	
 	if (_seconds == 30 and Minutes == 11 and event) {
@@ -218,8 +218,8 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 	if (_seconds == 0 and Minutes == 12 and event) {
 		event = false;
 		//alarm[0] = 60;	
-		addEnemyToPool(Enemies.KronieA);
-		addEnemyToPool(Enemies.KronieB);
+		add_enemy_to_pool(Enemies.KronieA);
+		add_enemy_to_pool(Enemies.KronieB);
 	}
 
 	if (_seconds == 20 and Minutes == 12 and event) {
@@ -247,41 +247,41 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 	if (_seconds == 0 and Minutes == 13 and event) {
 		event = false;
 		//alarm[0] = 60;	
-		addEnemyToPool(Enemies.KingKronie);
+		add_enemy_to_pool(Enemies.KingKronie);
 	}
 
 	if (_seconds == 0 and Minutes == 14 and event) {
 		event = false;
 		//alarm[0] = 60;	
-		removeEnemyFromPool(Enemies.BaeRat);
-		removeEnemyFromPool(Enemies.KronieA);
-		removeEnemyFromPool(Enemies.KronieB);
-		addEnemyToPool(Enemies.QDeadBeat);
-		addEnemyToPool(Enemies.QShrimp);
+		remove_enemy_from_pool(Enemies.BaeRat);
+		remove_enemy_from_pool(Enemies.KronieA);
+		remove_enemy_from_pool(Enemies.KronieB);
+		add_enemy_to_pool(Enemies.QDeadBeat);
+		add_enemy_to_pool(Enemies.QShrimp);
 	}
 
 	if (_seconds == 0 and Minutes == 15 and event) {
 		event = false;
 		//alarm[0] = 60;	
-		addEnemyToPool(Enemies.GiantQDeadbeat);
-		addEnemyToPool(Enemies.MegaQShrimp);
+		add_enemy_to_pool(Enemies.GiantQDeadbeat);
+		add_enemy_to_pool(Enemies.MegaQShrimp);
 	}
 
 	if (_seconds == 45 and Minutes == 15 and event) {
 		event = false;
 		//alarm[0] = 60;	
-		addEnemyToPool(Enemies.SaplingA);
-		addEnemyToPool(Enemies.SaplingB);
-		addEnemyToPool(Enemies.SaplingC);
-		addEnemyToPool(Enemies.HoomanA);
-		addEnemyToPool(Enemies.HoomanB);
+		add_enemy_to_pool(Enemies.SaplingA);
+		add_enemy_to_pool(Enemies.SaplingB);
+		add_enemy_to_pool(Enemies.SaplingC);
+		add_enemy_to_pool(Enemies.HoomanA);
+		add_enemy_to_pool(Enemies.HoomanB);
 	}
 
 	if (_seconds == 0 and Minutes == 16 and event) {
 		event = false;
 		//alarm[0] = 60;	
-		removeEnemyFromPool(Enemies.QDeadBeat);
-		removeEnemyFromPool(Enemies.QShrimp);
+		remove_enemy_from_pool(Enemies.QDeadBeat);
+		remove_enemy_from_pool(Enemies.QShrimp);
 	}
 	if (_seconds == 15 and Minutes == 16 and event) {
 		event = false;
@@ -292,35 +292,35 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 	if (_seconds == 30 and Minutes == 17 and event) {
 		event = false;
 		//alarm[0] = 60;	
-		addEnemyToPool(Enemies.OvergrownSapling);
+		add_enemy_to_pool(Enemies.OvergrownSapling);
 	}
 
 	if (_seconds == 0 and Minutes == 18 and event) {
 		event = false;
 		//alarm[0] = 60;	
-		addEnemyToPool(Enemies.Sanallite);
+		add_enemy_to_pool(Enemies.Sanallite);
 	}
 
 	if (_seconds == 0 and Minutes == 19 and event) {
 		event = false;
 		//alarm[0] = 60;	
-		addEnemyToPool(Enemies.SwarmingKingKronie);
-		addEnemyToPool(Enemies.SwarmingOvergrownSapling);
-		removeEnemyFromPool(Enemies.SaplingA);
-		removeEnemyFromPool(Enemies.SaplingB);
-		removeEnemyFromPool(Enemies.SaplingC);
-		removeEnemyFromPool(Enemies.HoomanA);
-		removeEnemyFromPool(Enemies.HoomanB);
-		removeEnemyFromPool(Enemies.Sanallite);
+		add_enemy_to_pool(Enemies.SwarmingKingKronie);
+		add_enemy_to_pool(Enemies.SwarmingOvergrownSapling);
+		remove_enemy_from_pool(Enemies.SaplingA);
+		remove_enemy_from_pool(Enemies.SaplingB);
+		remove_enemy_from_pool(Enemies.SaplingC);
+		remove_enemy_from_pool(Enemies.HoomanA);
+		remove_enemy_from_pool(Enemies.HoomanB);
+		remove_enemy_from_pool(Enemies.Sanallite);
 	}
 
 	if (_seconds == 0 and Minutes == 20 and event) {
 		event = false;
 		//alarm[0] = 60;	
-		addEnemyToPool(Enemies.ThiccBubba);
-		addEnemyToPool(Enemies.SmolAme);
-		removeEnemyFromPool(Enemies.SwarmingKingKronie);
-		removeEnemyFromPool(Enemies.SwarmingOvergrownSapling);
+		add_enemy_to_pool(Enemies.ThiccBubba);
+		add_enemy_to_pool(Enemies.SmolAme);
+		remove_enemy_from_pool(Enemies.SwarmingKingKronie);
+		remove_enemy_from_pool(Enemies.SwarmingOvergrownSapling);
 	}
 if (keyboard_check_pressed(vk_home)) {
 	Minutes = 22;
@@ -329,10 +329,10 @@ if (keyboard_check_pressed(vk_home)) {
 	if (_seconds == 0 and Minutes == 23 and event) {
 		event = false;
 		//alarm[0] = 60;	
-		ResetPool();
-		removeEnemyFromPool(Enemies.Shrimp);
+		reset_pool();
+		remove_enemy_from_pool(Enemies.Shrimp);
 		for (var i = Enemies.EndlessShrimp; i <= Enemies.EndlessSanallite; ++i) {
-		    addEnemyToPool(i);
+		    add_enemy_to_pool(i);
 		}
 	}
 	

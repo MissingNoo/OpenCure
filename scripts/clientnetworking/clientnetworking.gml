@@ -63,7 +63,7 @@ function clientReceivedPacket2(_response)
 			
 		 case Network.PlayerJoined:{
 				reset_timer();
-				ResetPool();
+				reset_pool();
 				with (oEnemy) {
 				    instance_destroy();
 				}
@@ -155,10 +155,10 @@ function clientReceivedPacket2(_response)
 				_enemy.target = instance_nearest(x,y,oSlave);
 				with (_enemy) {
 					try{
-						initiateEnemy(ds_list_find_value(global.enemyPool, variable_struct_get(enemyvars, "enemynum")));
+						initiate_enemy(ds_list_find_value(global.enemyPool, variable_struct_get(enemyvars, "enemynum")));
 					}
 					catch(error){
-						initiateEnemy(ds_list_find_value(global.enemyPool, 0));
+						initiate_enemy(ds_list_find_value(global.enemyPool, 0));
 					}				
 				}
 				//}
@@ -390,10 +390,10 @@ function clientReceivedPacket(_buffer)
 					_enemy.target = instance_nearest(x,y,oSlave);
 					with (_enemy) {
 						try{
-							initiateEnemy(ds_list_find_value(global.enemyPool, variable_struct_get(enemyvars, "enemynum")));
+							initiate_enemy(ds_list_find_value(global.enemyPool, variable_struct_get(enemyvars, "enemynum")));
 						}
 						catch(error){
-							initiateEnemy(ds_list_find_value(global.enemyPool, 0));
+							initiate_enemy(ds_list_find_value(global.enemyPool, 0));
 						}
 					
 					}
@@ -408,7 +408,7 @@ function clientReceivedPacket(_buffer)
 				
 		    case Network.PlayerJoined:{
 				reset_timer();
-				ResetPool();
+				reset_pool();
 				with (oEnemy) {
 				    instance_destroy();
 				}

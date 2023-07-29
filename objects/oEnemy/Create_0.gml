@@ -22,9 +22,9 @@ if (room != rInicio) {
 	if (ds_list_size(global.enemyPool) > 0 ) {
 		enemynum = irandom_range(0,ds_list_size(global.enemyPool)-1);
 		if (!customSpawn) {
-		    initiateEnemy(ds_list_find_value(global.enemyPool, enemynum));
+		    initiate_enemy(ds_list_find_value(global.enemyPool, enemynum));
 		}else{
-			initiateEnemy(selectedEnemy);
+			initiate_enemy(selectedEnemy);
 			if (customHP != "-") {
 				hp = customHP;
 			}
@@ -67,7 +67,7 @@ if (room != rInicio) {
 	}
 
 	if (boss) {
-	    removeEnemyFromPool(thisEnemy);
+	    remove_enemy_from_pool(thisEnemy);
 	}
 	baseATK = atk;
 	baseHP = hp;
