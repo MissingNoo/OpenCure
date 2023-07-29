@@ -1,3 +1,7 @@
+//show_debug_overlay(true, true);
+//dbg_view("Game", true);
+//dbg_section("Player");
+//dbg_button("test", function(){show_message_async("test");})
 anvilconfirm = false;
 upgradeconfirm = false;
 justopened = 0;

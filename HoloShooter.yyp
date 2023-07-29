@@ -141,7 +141,7 @@
   "isEcma": false,
   "LibraryEmitters": [],
   "MetaData": {
-    "IDEVersion": "2023.800.0.377",
+    "IDEVersion": "2023.800.0.383",
   },
   "resources": [
     {"id":{"name":"oPillar","path":"objects/oPillar/oPillar.yy",},},

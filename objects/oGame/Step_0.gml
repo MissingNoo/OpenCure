@@ -7,6 +7,9 @@ if (input_profile_get(0) == "gamepad") {
 else{
 	global.gamePad = false;
 }
+//if (instance_exists(oPlayer)) {
+    
+//}
 //if (keyboard_check_pressed(RIGHTKEY) or keyboard_check_pressed(LEFTKEY) or keyboard_check_pressed(UPKEY)  or keyboard_check_pressed(DOWNKEY) or device_mouse_check_button_pressed(0,mb_left)) {
 //	global.GamePad = false;
 //}
