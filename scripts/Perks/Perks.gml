@@ -225,6 +225,7 @@ function populate_perks(){
 
 function tick_perks()
 {
+	//feather disable once GM2041
 	for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
 		if (PLAYER_PERKS[i][$"level"] != 0 and global.perkCooldown[PLAYER_PERKS[i][$"id"]] <= 0) {
 			default_perk_behaviour(PLAYER_PERKS[i][$"id"], PLAYER_PERKS[i][$"cooldown"]);

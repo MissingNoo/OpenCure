@@ -815,7 +815,7 @@ function randomUpgrades(){
 	
 		#region Weapons List
 			//show_message(UPGRADES[5][$"name"]);	
-			// feather disable once GM1041
+			// feather disable once GM2041
 			if (UPGRADES[array_length(UPGRADES) -1] == global.null) {
 				for (var i = 0; i < array_length(WEAPONS_LIST); ++i) {
 					var maxed = false;
@@ -909,6 +909,7 @@ function randomUpgrades(){
 				    //	array_push(ups, PERK_LIST[i]);
 					var maxed = false;
 					var found = false;
+					//feather disable once GM1041
 					for (var j = 0; j < array_length(PLAYER_PERKS); ++j) {
 						if (PLAYER_PERKS[j][$"name"] == PERK_LIST[i][1][$"name"]) {
 							found = true;

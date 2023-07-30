@@ -5,6 +5,7 @@ if (event == false and time_source_get_state(_time_source) == time_source_state_
 }
 
 if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
+	//feather disable once GM1041
 	var _seconds = round(Seconds);
 	if (_seconds == 5 and Minutes == 0 and event) {
 		event = false;
