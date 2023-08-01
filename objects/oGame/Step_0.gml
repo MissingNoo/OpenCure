@@ -261,7 +261,7 @@ if (instance_exists(oPlayer) and canspawn == true and global.gamePaused == false
 		#endregion
 	}
 
-	if (global.seconds > 60) {
+	if (global.seconds > 59) {
 		global.seconds=0;	
 		global.minutes+=1;	
 		if (Minutes > 30) {

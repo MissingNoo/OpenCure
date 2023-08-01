@@ -5,7 +5,7 @@
 var canCollide = true;
 switch (pattern) {
     case Patterns.Cluster:
-        canCollide = false;
+        canCollide = true;
         break;
     case Patterns.StampedeLeft:
         canCollide = false;

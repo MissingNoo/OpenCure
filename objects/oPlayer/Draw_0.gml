@@ -8,8 +8,8 @@ event_inherited();
 //    draw_text(x,y-100, oEvents.event);
 //}
 draw_sprite_ext(sCharShadow, 0, x, y, 1, 1, 0, c_white, 0.8)
-
 if (global.debug) {
+	draw_text(x,y-90, $"healSeconds: {bandageHealSeconds}, haveBandage: {haveBandage}, remaining: {justBandageHealing}");
 	draw_text(x,y-70, $"d: {spd * Delta}");
 	draw_text(x,y-50, $"X: {x}");
 	draw_text(x,y-30, $"Y: {y}");

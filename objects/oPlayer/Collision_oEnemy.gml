@@ -34,6 +34,19 @@ if (other.canattack and other.image_alpha == 1 and image_alpha == 1 and !global.
 	}
 	else {
 	    HP -= damage;
+		if (haveBandage) {
+			switch (bandageLevel) {
+			    case 1:
+			        justBandageHealing += damage * 0.8;
+			        break;
+			    case 2:
+			        justBandageHealing += damage * 0.9;
+			        break;
+			    case 3:
+			        justBandageHealing += damage;
+			        break;
+			}		    
+		}
 		if (Buffs[BuffNames.Sake][$"count"] > 1) {
 		    Buffs[BuffNames.Sake][$"count"] = round(Buffs[BuffNames.Sake][$"count"] / 2);
 		}		

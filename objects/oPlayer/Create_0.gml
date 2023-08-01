@@ -1,4 +1,8 @@
 event_inherited();
+justBandageHealing = 0;
+haveBandage = false;
+bandageLevel = 0;
+bandageHealSeconds = 0;
 renderDistance = x + (view_wport[0] / 2);
 dAlarm = array_create(11, -1);
 //show_debug_overlay(true);

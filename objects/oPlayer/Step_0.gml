@@ -32,15 +32,6 @@ for (var i = 0; i < array_length(PerkBonuses[BonusType.Critical]); ++i) {
 }
 critChance = calc;
 #endregion
-for (var i = 0; i < array_length(dAlarm); ++i) {
-    if (dAlarm[i] != -1) {
-	    dAlarm[i] -= 1 * Delta;
-	}
-	if (dAlarm[i] < 0 and dAlarm[i] != -1) {
-	    dAlarm[i] = -1;
-		event_user(i);
-	}
-}
 image_speed = oImageSpeed * Delta;
 //oCam.x = oPlayer.x;
 //oCam.y = oPlayer.y;
@@ -48,9 +39,18 @@ socket = global.socket;
 if (immortal) {
     HP = MAXHP;
 }
-// Feather disable GM2016
+// Feather disable GM201
 //HP=MAXHP;
 if (!global.gamePaused) {
+	for (var i = 0; i < array_length(dAlarm); ++i) {
+	    if (dAlarm[i] != -1) {
+		    dAlarm[i] -= 1 * Delta;
+		}
+		if (dAlarm[i] < 0 and dAlarm[i] != -1) {
+		    dAlarm[i] = -1;
+			event_user(i);
+		}
+	}
 	if (skilltimer < specialcooldown + 10) { skilltimer+=1/60; }
 	//if (skilltimer < special.cooldown + 10) { skilltimer+=100; }
 	tickPowers();
@@ -92,7 +92,7 @@ if (!global.gamePaused) {
 	});
 	
 	#region XP Range
-		inRange = collision_circle(x,y-16,pickupRadius, oXP, false, true);
+		var inRange = collision_circle(x,y-16,pickupRadius, oXP, false, true);
 		if (inRange != noone) { inRange.onArea = true; }
 	#endregion
 	
@@ -139,6 +139,35 @@ if (!global.gamePaused) {
 		}
 		
 	}
+	#region heal every five seconds if shop upgrade
+	if (global.shopUpgrades[$ "Regeneration"][$ "level"] > 0 and !global.gamePaused) {
+	    healSeconds+=1/60 * Delta;
+		if (healSeconds > 5) {
+		    HP += 1 * global.shopUpgrades[$ "Regeneration"][$ "level"];
+			healSeconds = 0;
+			//show_message("healed: " + string(1 * global.shopUpgrades[$ "Regeneration"][$ "level"]));
+		}
+	}
+	#endregion
+	#region Just Bandage Healing
+	if (haveBandage and justBandageHealing > 0) {
+	    bandageHealSeconds+=1/60 * Delta;
+		if (bandageHealSeconds > 3) {
+			var _amount = (HP * 10) / 100;
+			if (_amount < 1) {
+			    _amount = 1;
+			}
+		    HP += _amount;
+			bandageHealSeconds = 0;
+			justBandageHealing -= _amount;
+			if (justBandageHealing < 0) {
+			    justBandageHealing = 0;
+			}
+			//show_message("healed: " + string(1 * global.shopUpgrades[$ "Regeneration"][$ "level"]));
+		}
+	}
+	#endregion
+	
 }
 if (global.debug) {
     HP=999999;
@@ -204,14 +233,3 @@ if (global.gamePaused) {
 }else{
 	image_speed=1;
 }
-
-#region heal every five seconds if shop upgrade
-if (global.shopUpgrades[$ "Regeneration"][$ "level"] > 0 and !global.gamePaused) {
-    healSeconds+=1/60;
-	if (healSeconds > 5) {
-	    HP += 1 * global.shopUpgrades[$ "Regeneration"][$ "level"];
-		healSeconds = 0;
-		//show_message("healed: " + string(1 * global.shopUpgrades[$ "Regeneration"][$ "level"]));
-	}
-}
-#endregion

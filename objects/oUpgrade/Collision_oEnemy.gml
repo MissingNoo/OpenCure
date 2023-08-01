@@ -110,6 +110,14 @@ if (other.hittedcooldown[upg[$"id"]] <= 0  and !global.gamePaused and other.imag
 	//show_message(string(originalDamage) + "/" + string(dmg));
 	var _rnd = irandom_range(0, 100);
 	var _critChance = oPlayer.critChance;
+	//show_debug_message(_critChance);
+	if (global.shopUpgrades[$"Crit"].level > 0) {		
+	    for (var i = 0; i < global.shopUpgrades[$"Crit"].level; ++i) {
+			_critChance+=2;
+		}
+		//show_debug_message("new " + string(_critChance));
+	}
+	
 	var _critMultiplier = 1;
 	var _wasCrit = false;
 	if (_rnd <= _critChance) {

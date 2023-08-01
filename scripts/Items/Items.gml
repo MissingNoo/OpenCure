@@ -669,10 +669,12 @@ function tickItems(){
 					pimanUsable = true;
 					break;}
 				case ItemIds.Just_Bandage:{
-					if (!variable_instance_exists(_player, "bandageLevel")) { _player.bandageLevel = 0; }
+					//if (!variable_instance_exists(_player, "bandageLevel")) { _player.bandageLevel = 0; }
 					if (_player.bandageLevel != playerItems[i][$"level"]) {
+						_player.haveBandage = true;
 					    _player.bandageLevel= playerItems[i][$"level"];
 						MAXHP = MAXHP + 10;
+						HP += 10;
 					}
 					break;}
 				case ItemIds.Membership:{
