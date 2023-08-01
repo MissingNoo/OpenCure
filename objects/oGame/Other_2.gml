@@ -25,7 +25,7 @@ if (!variable_global_exists("ShopUpgrades")) {
 			maxlevel : 10,
 			costs : [200, 500, 1200, 2750, 6000, 12000, 18000, 24000, 30000, 36000]
 		},
-		Crit : { //TODO: Crit damage up
+		Crit : {
 			name:"Crit Up",
 			desc : "Increase critical hit chance by 2% per level. (max 10%) ",
 			sprite : sHudCrtIcon,
