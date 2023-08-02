@@ -7,13 +7,31 @@ if (input_profile_get(0) == "gamepad") {
 else{
 	global.gamePad = false;
 }
-if (keyboard_check(vk_end)) {
-    show_message_async("a");
-	UnlockableWeapons[Weapons.BounceBall] = true;
-	UnlockableWeapons[Weapons.CEOTears] = true;
-	UnlockableWeapons[Weapons.WamyWater] = true;
+if (keyboard_check(vk_home)) {
+	for (var i = 0; i < array_length(UnlockableWeapons); ++i) {
+	    UnlockableWeapons[i] = true;
+	}
+	for (var i = 0; i < array_length(UnlockableItems); ++i) {
+	    UnlockableItems[i] = true;
+	}
+	for (var i = 0; i < array_length(Achievements); ++i) {
+	    Achievements[i][$"unlocked"] = true;
+	}
 	load_unlocked();
 }
+if (keyboard_check(vk_end)) {
+	for (var i = 0; i < array_length(UnlockableWeapons); ++i) {
+	    UnlockableWeapons[i] = false;
+	}
+	for (var i = 0; i < array_length(UnlockableItems); ++i) {
+	    UnlockableItems[i] = false;
+	}
+	for (var i = 0; i < array_length(Achievements); ++i) {
+	    Achievements[i][$"unlocked"] = false;
+	}
+	load_unlocked();
+}
+
 //if (instance_exists(oPlayer)) {
     
 //}

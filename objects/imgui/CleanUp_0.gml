@@ -10,9 +10,10 @@ if (variable_instance_exists(self, "Textures")) {
 	}
 }
 global.__imguigml = noone;
-
-buffer_delete(Render_buffer[0]);
-buffer_delete(Render_buffer[1]);
+if (buffer_exists(Render_buffer)) {
+    buffer_delete(Render_buffer[0]);
+	buffer_delete(Render_buffer[1]);
+}
 buffer_delete(Input_buffer);
 buffer_delete(Wrapper_buffer);
 buffer_delete(Debug_buffer);

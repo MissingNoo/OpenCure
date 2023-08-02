@@ -206,6 +206,12 @@ enum Characters {
 function Movement()
 {
 if canMove == true{
+	var _maxx = oCam.x + (((view_wport[0])/2) - 16);
+	var _minx = (oCam.x - ((view_wport[0])/2)) + 16;
+	var _maxy = oCam.y + (((view_hport[0])/2) - 16);
+	var _miny = (oCam.y - ((view_hport[0])/2)) + 32;
+	//if (round(y) <= round(_miny)) { y = _miny; }
+	//if (round(x) <= round(_minx)) { x = _minx; }
 	gamepad_set_axis_deadzone(global.gPnum, 0.7);
 	var _left, _right, _up, _down;
 	     _left = input_check("left");
@@ -284,6 +290,8 @@ if canMove == true{
 			var _spd = spd * Delta;
 			var _xadd = lengthdir_x(_spd, _dir);
 			var _yadd = lengthdir_y(_spd, _dir);
+			if (x + _xadd > _maxx or x - _xadd < _minx) { _xadd = 0;}
+			if (y + _yadd > _maxy or y - _yadd < _miny) { _yadd = 0;}
 			move_and_collide(_xadd, _yadd,oCollision);
 		}
 		else {
@@ -301,16 +309,15 @@ if canMove == true{
 		}
 		
         var _spd = spd * Delta;
-
         var _dir = point_direction(0, 0, _hspd, _vspd);
 		
         var _xadd = lengthdir_x(_spd, _dir);
 
         var _yadd = lengthdir_y(_spd, _dir);
+		
+		if (x + _xadd > _maxx or x + _xadd < _minx) { _xadd = 0;}
+		if (y + _yadd > _maxy or y + _yadd < _miny) { _yadd = 0;}
 		move_and_collide(_xadd, _yadd,oCollision);
-        //x = x + _xadd;
-
-        //y = y + _yadd;
 		sprite_index=runningsprite;
         }
 		else if (os_type != os_android or global.gamePad) {

@@ -30,6 +30,3 @@ for (var i = firstItem; i <= lastItem; ++i) {
 	_yoffset += 106;
 	draw_set_alpha(1);
 }
-if (keyboard_check_pressed(vk_down)) {
-    Achievements[2][$"unlocked"] = true;
-}
