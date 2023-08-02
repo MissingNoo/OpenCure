@@ -24,10 +24,22 @@ function Achievement(_id, _internalName, _thumbnail, _reward, _amount = 0) const
 enum AchievementIds {
 	FirstWin,
 	FuburaIsComing,
+	BBBRRRRRREEEEEEEEE,
+	TearsOfHappiness,
+	YouHaveBeenCursed,
+	ThousandMileStare,
 	Length
 }
 Achievements[array_length(Achievements)] = new Achievement(AchievementIds.FirstWin, "First Win", sAchFirstWin, sHolocoin, 500);
 Achievements[array_length(Achievements)] = new Achievement(AchievementIds.FuburaIsComing, "Fubura is coming", sAchFubura, sFanBeamThumb);
+Achievements[array_length(Achievements)] = new Achievement(AchievementIds.BBBRRRRRREEEEEEEEE, "BBBRRRRRREEEEEEEEE", sAchFirstBoss, sGorillaPaw);
+Achievements[array_length(Achievements)] = new Achievement(AchievementIds.TearsOfHappiness, "Tears of Happiness...?", sAchTears, sCeoTearsThumb);
+Achievements[array_length(Achievements)] = new Achievement(AchievementIds.YouHaveBeenCursed, "You have been Cursed", sAchCursed, sENCurseThumb);
+Achievements[array_length(Achievements)] = new Achievement(AchievementIds.ThousandMileStare, "Thousand Mile Stare", sAchStare, sHolocoin, 10000);
+Achievements[array_length(Achievements)] = new Achievement(AchievementIds.ThousandMileStare, "Thousand Mile Stare", sAchStare, sHolocoin, 10000);
+Achievements[array_length(Achievements)] = new Achievement(AchievementIds.ThousandMileStare, "Thousand Mile Stare", sAchStare, sHolocoin, 10000);
+Achievements[array_length(Achievements)] = new Achievement(AchievementIds.ThousandMileStare, "Thousand Mile Stare", sAchStare, sHolocoin, 10000);
+Achievements[array_length(Achievements)] = new Achievement(AchievementIds.ThousandMileStare, "Thousand Mile Stare", sAchStare, sHolocoin, 10000);
 
 //show_message(achievements[0]);
 //achievements[array_length(achievements)] = new Achievement(AchievementIds., "", , );

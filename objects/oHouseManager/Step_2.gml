@@ -1,9 +1,11 @@
+//feather disable once GM1044
 if (input_check_pressed("house")) {
 	//selectedMenu = 0;
 	selectedItem = 0;
 	selectedMenuConfirm = false;
     editHouse = true;	
 }
+//feather disable once GM1044
 if (placingObject and input_check_pressed("accept")) {
 	instance_create_depth(round((mouse_x/grid)) * grid, round((mouse_y/grid)) * grid, depth, oHouseItem, {itemId : objectId, sprite_index : objectSprite});
 	Save_House();
@@ -15,6 +17,7 @@ if (editHouse and selectedMenuConfirm and input_check_pressed("accept")) {
 	objectId = HouseItems[HouseInventory[selectedMenu][selectedItem][$"itemId"]][$"itemId"];
 	editHouse = false;
 }
+//feather disable once GM1044
 if (input_check_pressed("cancel") and editHouse and !justOpened) {
 	if (selectedMenuConfirm) {
 	    selectedMenuConfirm = false;

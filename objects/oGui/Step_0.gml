@@ -26,6 +26,7 @@ if (room == rStage1 and !instance_exists(oClient)) {
 }
 #endregion	
 #region Input
+//feather disable GM1044
 zKey = input_check_pressed("accept");
 xKey = input_check_pressed("cancel");
 eKey = input_check_pressed("action");
@@ -35,6 +36,7 @@ rightKey = input_check_pressed("right");
 if (editOption and button_click(plusButton)) { rightKey = true; }
 upKey = input_check_pressed("up");
 downKey = input_check_pressed("down");
+//feather enable GM1044
 #endregion
 #region Pause Menu
 if (activeMenu == PMenus.Pause) { editOption = false; }

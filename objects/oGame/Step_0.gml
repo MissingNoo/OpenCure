@@ -1,6 +1,6 @@
 //show_debug_message(string(input_profile_get(0)));
-//feather disable GM1016
 //global.deltaTime = (delta_time / 1000000) * game_get_speed(gamespeed_fps);
+//feather disable once GM2016 
 if (input_profile_get(0) == "gamepad") {
     global.gamePad = true;
 }

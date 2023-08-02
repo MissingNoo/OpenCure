@@ -11,6 +11,7 @@ if (room == rInicio) {
 }
 
 if (room == rAchievements) {
+	//feather disable once GM1044
 	if (input_check_pressed("cancel")) {
 	    room_goto(rInicio);
 	}
