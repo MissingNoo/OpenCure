@@ -113,10 +113,10 @@ function newCreateItem(_data){
 		UberSheep,
 		Holocoin,
 		Hamburguer,
-		length
+		Length
 	}
 	global.bonuses[0] = 0;
-	for (var i = 0; i < ItemIds.length; ++i) {
+	for (var i = 0; i < ItemIds.Length; ++i) {
 		for (var j = 0; j < BonusType.Lenght; ++j) {
 		    Bonuses[i][j] = 0;
 		}

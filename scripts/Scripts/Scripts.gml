@@ -7,7 +7,7 @@ function reset_timer(){
 	global.minutes=0;
 	global.hours=0;
 	global.minutesPast30 = 0;
-	global.hoursPast1= 0 ;
+	global.hoursPast1= 0;
 }
 #macro Seconds global.seconds
 #macro Minutes global.minutes
@@ -287,6 +287,9 @@ function heal_player(amount){
 }
 	
 function prop_draw(){
+	if (!instance_exists(oPlayer)) {
+	    return;
+	}
 	var sprw = sprite_width / 2;
 	var sprh = sprite_height;
 	var alpha = oPlayer.y < y and collision_rectangle(x- sprw,y - sprh, x + sprw, y, oPlayer, false, false) ? 0.35 : 1

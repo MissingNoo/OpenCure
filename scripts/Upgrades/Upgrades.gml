@@ -170,6 +170,7 @@ enum Weapons
 	Shockwave,
 	PipiPilstol,
 	HeavyArtillery,
+	Length
 }
 function populate_upgrades(){
 	#region Character Perks
@@ -357,6 +358,7 @@ function populate_upgrades(){
 				type : "white",
 				shotType : ShotTypes.Multishot,
 				perk : false,
+				unlocked : false
 			});
 	#endregion
 	
@@ -437,6 +439,7 @@ function populate_upgrades(){
 				type : "white",
 				shotType : ShotTypes.Multishot,
 				perk : false,
+				unlocked : false,
 			});
 	#endregion
 	
@@ -696,7 +699,8 @@ function populate_upgrades(){
 				shotType : ShotTypes.Melee,
 				knockbackSpeed : [5, 5, 5, 8, 8, 8 ,8],
 				knockbackDuration : 10,
-				perk : false
+				perk : false,
+				unlocked : false,
 			});
 	#endregion
 	
@@ -818,13 +822,16 @@ function randomUpgrades(){
 			// feather disable once GM1041
 			if (UPGRADES[array_length(UPGRADES) -1] == global.null) {
 				for (var i = 0; i < array_length(WEAPONS_LIST); ++i) {
+					if (variable_struct_exists(WEAPONS_LIST[i][1], "unlocked") and !WEAPONS_LIST[i][1][$"unlocked"]) {
+					    break;
+					}
 					var maxed = false;
 					var found = false;
 					//feather disable once GM1041
 					for (var j = 0; j < array_length(UPGRADES); ++j) {
 						//show_message("A:" + string(UPGRADES[j][$"name"]));
 						//show_message("B:" + string(global.upgradesAvaliable[i][1][$"name"]));
-						if (UPGRADES[j][$"name"] == WEAPONS_LIST[i][1][$"name"]) {
+						if (UPGRADES[j][$"id"] == WEAPONS_LIST[i][1][$"id"]) {
 							found = true;
 						    if (UPGRADES[j][$"level"] != WEAPONS_LIST[i][1][$"maxlevel"]){
 								maxed = false;
@@ -863,6 +870,9 @@ function randomUpgrades(){
 		#region Items
 			if (playerItems[5] == global.nullitem) {
 				for (var i = 0; i < array_length(ItemList); ++i) {
+					if (variable_struct_exists(ItemList[i][1], "unlocked") and !ItemList[i][1][$"unlocked"]) {
+					    break;
+					}
 					var maxed = false;
 					var found = false;
 					for (var j = 0; j < array_length(playerItems); ++j) {
@@ -1206,6 +1216,9 @@ function randomUpgrades(){
 	//global.upgradeOptions[3] = global.null;
 	#endregion
 	//first option
+	if (variable_struct_exists(global.upgradesAvaliable[Weapons.BounceBall][1], "unlocked") and global.upgradesAvaliable[Weapons.BounceBall][1][$"unlocked"]) {
+	    global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.BounceBall][1];
+	}
 	 //global.upgradeOptions[0] = PERK_LIST[PerkIds.HeavyArtillery][0];
 	 //global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.PipiPilstol][1];
 }	

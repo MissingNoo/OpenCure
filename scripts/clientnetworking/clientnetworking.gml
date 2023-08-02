@@ -54,10 +54,10 @@ function clientReceivedPacket2(_response)
 		}
 		
 		case Network.StartGame:{
-			for (var i = 0; i < array_length(oLobby.options); ++i) {
-				// Feather disable once GM1044
-				variable_global_set(oLobby.options[i][1], variable_instance_get(oLobby, oLobby.options[i][1]));
-			}
+			//for (var i = 0; i < array_length(oLobby.options); ++i) {
+			//	// Feather disable once GM1044
+			//	variable_global_set(oLobby.options[i][1], variable_instance_get(oLobby, oLobby.options[i][1]));
+			//}
 			room_goto(rStage1);
 			break;}
 			

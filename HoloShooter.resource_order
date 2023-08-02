@@ -562,6 +562,7 @@
     {"name":"sHoloCursor","order":1,"path":"sprites/sHoloCursor/sHoloCursor.yy",},
     {"name":"seq_InaSpin","order":3,"path":"sequences/seq_InaSpin/seq_InaSpin.yy",},
     {"name":"snd_summonShark1","order":25,"path":"sounds/snd_summonShark1/snd_summonShark1.yy",},
+    {"name":"Unlockables","order":15,"path":"scripts/Unlockables/Unlockables.yy",},
     {"name":"input_trigger_effect_set_strength","order":6,"path":"scripts/input_trigger_effect_set_strength/input_trigger_effect_set_strength.yy",},
     {"name":"input_check_quick_pressed_2d","order":11,"path":"scripts/input_check_quick_pressed_2d/input_check_quick_pressed_2d.yy",},
     {"name":"sShortHeight","order":3,"path":"sprites/sShortHeight/sShortHeight.yy",},

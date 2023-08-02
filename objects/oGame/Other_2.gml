@@ -166,7 +166,12 @@ populate_upgrades();
 populate_characters();
 populate_perks();
 populate_specials();
-
+try{
+	load_unlocked();
+}
+catch (err){
+	//ignore
+}
 
 #region name here
 

@@ -7,6 +7,13 @@ if (input_profile_get(0) == "gamepad") {
 else{
 	global.gamePad = false;
 }
+if (keyboard_check(vk_end)) {
+    show_message_async("a");
+	UnlockableWeapons[Weapons.BounceBall] = true;
+	UnlockableWeapons[Weapons.CEOTears] = true;
+	UnlockableWeapons[Weapons.WamyWater] = true;
+	load_unlocked();
+}
 //if (instance_exists(oPlayer)) {
     
 //}

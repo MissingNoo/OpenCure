@@ -655,6 +655,7 @@
     {"id":{"name":"sHoloCursor","path":"sprites/sHoloCursor/sHoloCursor.yy",},},
     {"id":{"name":"seq_InaSpin","path":"sequences/seq_InaSpin/seq_InaSpin.yy",},},
     {"id":{"name":"snd_summonShark1","path":"sounds/snd_summonShark1/snd_summonShark1.yy",},},
+    {"id":{"name":"Unlockables","path":"scripts/Unlockables/Unlockables.yy",},},
     {"id":{"name":"input_trigger_effect_set_strength","path":"scripts/input_trigger_effect_set_strength/input_trigger_effect_set_strength.yy",},},
     {"id":{"name":"input_check_quick_pressed_2d","path":"scripts/input_check_quick_pressed_2d/input_check_quick_pressed_2d.yy",},},
     {"id":{"name":"sShortHeight","path":"sprites/sShortHeight/sShortHeight.yy",},},
