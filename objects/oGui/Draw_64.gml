@@ -48,7 +48,7 @@ if (room == rInicio) {
 #endregion
 #region Character Select Room
 var str = ""; var offset = 0;
-if (room == rCharacterSelect) {
+if (room == rCharacterSelect or room == rAchievements) {
 	#region triangles
 	
 	#endregion

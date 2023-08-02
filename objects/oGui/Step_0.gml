@@ -89,6 +89,9 @@ if (room = rInicio and !global.gamePaused) {
 				Save_Data_Structs();
 	            game_end();
 	            break;}
+	        case "Achievements":{
+				room_goto(rAchievements);
+	            break;}
 	    }
 	}
 }
@@ -264,11 +267,13 @@ if (ANVIL) {
 	}
 }
 #endregion
-#region Select Character room
-if (room = rCharacterSelect) {
-	if (instance_number(oTriangle) == 0 and room == rCharacterSelect) {
+if (room == rCharacterSelect or room == rAchievements) {
+    if (instance_number(oTriangle) == 0) {
 		instance_create_layer(0,0, "Instances", oTriangle);
 	}
+}
+#region Select Character room
+if (room == rCharacterSelect) {
 	if (zKey) {
 		if (stageSelected) {
 			room_goto(stages[0].roomname);

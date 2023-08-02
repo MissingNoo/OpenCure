@@ -2,7 +2,7 @@
 if (isP != global.gamePaused) {
     loadSettingValues();
 }
-if (room = rInicio) {
+if (room == rInicio) {
 	if (!global.gamePaused) {
 	    if (upKey) { if (selected == 0) { selected = array_length(menuOptions) - 1; } else selected -= 1 }
 		if (downKey) { if (selected < array_length(menuOptions) - 1) { selected += 1; } else selected = 0 }
@@ -10,7 +10,13 @@ if (room = rInicio) {
 	}
 }
 
-if (room = rCharacterSelect) {
+if (room == rAchievements) {
+	if (input_check_pressed("cancel")) {
+	    room_goto(rInicio);
+	}
+}
+
+if (room == rCharacterSelect) {
 	if (!characterSelected) {
 	    if (leftKey) {
 	        if (selectedCharacter == 0) {
