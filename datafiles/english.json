@@ -2,6 +2,12 @@
     "language": "English",
     "locale": "en-US",
     "text": {
+		"Special" : {
+			"No Multiplayer" :{
+				"name" : "No Multiplayer!",
+				"desc" : "THERE'S NO MULTIPLAYER!."
+			}
+		},
 		"HouseItems" : {
 			"Bookshelf": "Bookshelf"
 		},
@@ -11,10 +17,20 @@
 				"0":"Increase base attack by 2",
 				"1":"Increase base attack by 2",
 				"2":"Increase base attack by 2.5",
-				"3":"Increase base attack by 3",
+				"3":"Increase base attack by 3"
 			}
         },
         "Weapons":{
+			"Zenora's Tears":{
+				"name":"Zenora's Tears",
+					"1":"The ones he cries everytime someone asks for multiplayer", 
+					"2":"Shoot [1] additional shot, and each bullet can pierce [+1] times.",
+					"3":"Increase damage by [25%].",
+					"4":"Bullets ricochet if hit limit is reached.",
+					"5":"Each bullet can pierce [+1] times. Reduce the time between attacks by [25%].",
+					"6":"Increase damage by [40%].",
+					"7":"Shoot [2] additional shots, and pistol becomes spread type."
+				},
             "Pistol Shot":{
             "name":"Pistol Shot",
 				"1":"Shoots 3 Projectiles forward.", 

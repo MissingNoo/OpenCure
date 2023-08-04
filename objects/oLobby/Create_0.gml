@@ -62,7 +62,7 @@ leaveButton = [GW/1.47, GH/1.94, GW/1.26, GH/1.71];
 function gui_draw_button(position, text){
 	drawRectangle(position[0], position[1], position[2], position[3]);
 	draw_set_halign(fa_center);
-	//draw_set_valign(fa_center);
+	draw_set_valign(fa_middle);
 	draw_text_transformed((position[0] + position[2]) / 2, (position[1] + position[3]) / 2, text, 2, 2, 0);
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
@@ -72,6 +72,8 @@ function gui_button_click(pos){
 	var result = false;
 	if (point_in_rectangle(oGui.x, oGui.y, pos[0], pos[1], pos[2], pos[3])){
 		result = true;
+		oGui.x = 0;
+		oGui.y = 0;
 	}
 	return result;
 }

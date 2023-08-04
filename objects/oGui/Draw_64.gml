@@ -165,7 +165,7 @@ if (room == rCharacterSelect) {
 	draw_set_valign(fa_middle); draw_set_color(c_white);
 	draw_text_transformed(_x + 66, _y + 77, lexicon_text("Weapons." + weaponID[1][$"name"] + ".name"), 2.50, 2.50, 0);
 	//drawDesc(GW/1.39, GH/2.97, weaponID[1][$"desc"], GW/4.10, 2);
-	drawDesc(_x + 13, _y + 118, lexicon_text("Weapons." + weaponID[1][$"name"] + ".1") , _x + 1, 2);
+	drawDesc(_x + 13, _y + 118, lexicon_text("Weapons." + weaponID[1][$"name"] + ".1") , 350, 2);
 	draw_set_valign(0);
 	#endregion
 	#region Special window

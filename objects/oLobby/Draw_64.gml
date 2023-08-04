@@ -14,41 +14,26 @@ if (!joinedRoom) {//wrong client secret
 	draw_rectangle_color(createx1, createy1, createx2, createy2, c_black, c_black, c_black, c_black, false);
 	draw_set_alpha(1);
 	draw_rectangle_color(createx1, createy1, createx2, createy2, c_white, c_white, c_white, c_white, true);
+	draw_set_halign(fa_center);
 	draw_set_valign(fa_middle);
-	//draw_set_halign(fa_middle);
 	draw_text_transformed_color((createx1+createx2)/2, (createy1 + createy2) /2, "Create", 2, 2, 0, c_white, c_white, c_white, c_white, 1);
-	draw_set_halign(fa_left);
-	draw_set_valign(fa_top);
-	
 	
 	draw_set_alpha(.35);
 	draw_rectangle_color(joinx1, createy1, joinx2, createy2, c_black, c_black, c_black, c_black, false);
 	draw_set_alpha(1);
 	draw_rectangle_color(joinx1, createy1, joinx2, createy2, c_white, c_white, c_white, c_white, true);
-	draw_set_valign(fa_middle);
-	//draw_set_halign(fa_middle);
 	draw_text_transformed_color((joinx1+joinx2)/2, (createy1 + createy2) /2, "Join", 2, 2, 0, c_white, c_white, c_white, c_white, 1);
-	draw_set_halign(fa_left);
-	draw_set_valign(fa_top);
 	
 	draw_set_alpha(.35);
 	draw_rectangle_color(reloadx1, createy1, reloadx2, createy2, c_black, c_black, c_black, c_black, false);
 	draw_set_alpha(1);
 	draw_rectangle_color(reloadx1, createy1, reloadx2, createy2, c_white, c_white, c_white, c_white, true);
-	draw_set_valign(fa_middle);
-	//draw_set_halign(fa_middle);
 	draw_text_transformed_color((reloadx1+reloadx2)/2, (createy1 + createy2) /2, "Reload", 2, 2, 0, c_white, c_white, c_white, c_white, 1);
-	draw_set_halign(fa_left);
-	draw_set_valign(fa_top);
 	#endregion
 	#region Button Text
 	var textx = GW/2;
 	var texty = GH/30.72;
-	draw_set_valign(fa_middle);
-	//draw_set_halign(fa_middle);
 	draw_text_transformed_color(textx, texty, "ROOMS",2.86, 2.86, 0, c_white, c_white, c_white, c_white, 1);
-	draw_set_halign(fa_left);
-	draw_set_valign(fa_top);	
 	#endregion
 	
 	var _offset = 0;
@@ -58,26 +43,24 @@ if (!joinedRoom) {//wrong client secret
 		draw_set_alpha(1);
 		draw_rectangle_color(GW/54.64, GH/16.35 + _offset, GW/1.02, GH/8.26 + _offset, c_white, c_white, c_white, c_white, true);
 		var _color = selectedroom == i ? c_yellow : c_white;
+		draw_set_halign(fa_left);
 	    draw_text_transformed_color(GW/37.95, GH/13.25 + _offset, rooms[i][$"name"],2.05, 2.05, 0, _color, _color, _color, _color, 1);
 		draw_set_halign(fa_right);										 
 		if (rooms[i][$"password"] != "") {
 		    draw_sprite_ext(sLockIcon, 0, GW/1.08, GH/13.25 + _offset, 1, 1, 0, c_white, 1);
 		}
 	    draw_text_transformed_color(GW/1.02, GH/13.25 + _offset, string(rooms[i][$"totalplayers"]) + "/2",2.05, 2.05, 0, _color, _color, _color, _color, 1);
-		draw_set_halign(fa_left);
-		_offset += 55;
-		
+		_offset += 55;		
 	}
 }
-
+draw_set_halign(fa_center);
+draw_set_valign(fa_top);
 if (creatingroom) {
 	draw_set_alpha(.5);
     draw_rectangle_color(GW/2 - 200, GH/2- 120, GW/2 + 200, GH/2 + 120, c_black, c_black, c_black, c_black, false);
 	draw_set_alpha(1);
 	draw_rectangle_color(GW/2 - 200, GH/2- 120, GW/2 + 200, GH/2 + 120, c_white, c_white, c_white, c_white, true);
-	draw_set_halign(fa_center);
 	draw_text_transformed(GW/2, GH/2.75, "Create Room", 3, 3, 0);
-	
 	draw_text_transformed(GW/2, GH/2.35, "Name", 2, 2, 0);
 	var _color = (creatingselected == 0) ? c_yellow : c_white;
 	draw_rectangle_color(GW/2 - 100, GH/2.15, GW/2 + 100, GH/2.15 + 32, _color, _color, _color, _color, true);
@@ -89,7 +72,7 @@ if (creatingroom) {
 	draw_rectangle_color(GW/2 - 100, GH/1.79, GW/2 + 100, GH/1.79 + 32, _color, _color, _color, _color, true);
 	open_keyboard(GW/2 - 100, GH/1.79, GW/2 + 100, GH/1.79 + 32, "creatingselected", 1, "password");
 	draw_text_transformed(GW/2, GH/1.79, password, 2, 2, 0);
-	
+	draw_set_valign(fa_middle);
 	var cx = GW/2 - 55;
 	var cy = GH/1.59;
 	var cs = 45;
@@ -125,8 +108,8 @@ if (creatingroom) {
 	}
 	draw_text_transformed(ax, cy, "Accept", 2, 2, 0);
 	
-	draw_set_valign(fa_top);
-	draw_set_halign(fa_left);
+	//draw_set_valign(fa_top);
+	//draw_set_halign(fa_left);
 }
 
 if (typepassword) {
@@ -180,8 +163,8 @@ if (typepassword) {
 	}
 	draw_text_transformed(ax, cy, "Accept", 2, 2, 0);
 	
-	draw_set_valign(fa_top);
-	draw_set_halign(fa_left);
+	//draw_set_valign(fa_top);
+	//draw_set_halign(fa_left);
 }
 
 if (joinedRoom) {
@@ -229,7 +212,6 @@ if (joinedRoom) {
 			draw_rectangle_color(_xx - 44, _sy + 1, _xx - 25 - 1, _sy + 15, _color, _color, _color, _color, false);
 		}		
 	}
-	
 	#region chat
 	drawRectangle(chatbackground[0], chatbackground[1], chatbackground[2], chatbackground[3]);
 	var _chatoffset = 0;
@@ -247,7 +229,7 @@ if (joinedRoom) {
 	drawRectangle(stage[0], stage[1], stage[2], stage[3]);
 	draw_set_halign(fa_center);
 	draw_text_transformed((stage[0] + stage[2]) / 2, stage[1] + 10, "STAGE", 2, 2, 0);
-	draw_set_halign(fa_left);
+	//draw_set_halign(fa_left);
 	#endregion
 	if (!ishost) {
 	    draw_set_alpha(.5);
@@ -258,3 +240,5 @@ if (joinedRoom) {
 	
 	
 }
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);

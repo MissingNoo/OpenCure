@@ -195,9 +195,6 @@ if (joinedRoom) {
 	}
 	
 	if (ishost and gui_button_click(startButton)) {
-		for (var i = 0; i < array_length(options); ++i) {
-			variable_global_set(options[i][1], variable_instance_get(self, options[i][1]));
-		}
 		sendMessage({command : Network.StartGame});			
 	}
 		
@@ -214,6 +211,8 @@ if (joinedRoom) {
 				_yo += 22;
 				var _sy = _yo + 3.50;
 				if (point_in_rectangle(oGui.x, oGui.y, _xx - 45, _sy, _xx - 5, _sy + 17)) {
+					oGui.x = 0;
+					oGui.y = 0;					
 					variable_instance_set(self, options[i][1], !variable_instance_get(self, options[i][1]));
 					sendMessage({
 						command : Network.UpdateOptions,

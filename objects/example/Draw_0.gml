@@ -4,7 +4,7 @@
 if (!instance_exists(imgui)) {
   draw_set_color($F36EB2);
   var s = 2;
-  var helpText = "Press [SPACE] to start ImGui!";
+  var helpText = "";
   var tw = string_width(helpText) * s,
       th = string_height(helpText) * s;
   var tx = floor((room_width - tw) * 0.5),
