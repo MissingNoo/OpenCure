@@ -42,14 +42,14 @@ gachas = [
 				type : PrizeType.Character,
 				character : Characters.Amelia
 			},
-			//{
-			//	type : PrizeType.Character,
-			//	character : Characters.Gura
-			//},
-			//{
-			//	type : PrizeType.Character,
-			//	character : Characters.Ina
-			//}
+			{
+				type : PrizeType.Character,
+				character : Characters.Gura
+			},
+			{
+				type : PrizeType.Character,
+				character : Characters.Ina
+			}
 		]
 	}
 ]

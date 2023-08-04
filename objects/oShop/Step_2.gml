@@ -71,10 +71,12 @@ if (!onMenu and optionSelected == 0) {
 				}
 				if (_outfits  > 1 and !_allUnlocked) {
 					_rnd = irandom_range(0, 10);
-					outfitPrizeNumber = _notUnlocked[irandom_range(0, array_length(_notUnlocked) - 1)];
-					UnlockableOutfits[CHARACTERS[gotPrize[$"character"]][?"outfits"][outfitPrizeNumber][$"id"]] = true;
-					unlocked_outfits_load();
-					isOutfit = true;
+					isOutfit = _rnd <= 1 ? true : false;
+					if (isOutfit) {
+					    outfitPrizeNumber = _notUnlocked[irandom_range(0, array_length(_notUnlocked) - 1)];
+						UnlockableOutfits[CHARACTERS[gotPrize[$"character"]][?"outfits"][outfitPrizeNumber][$"id"]] = true;
+						unlocked_outfits_load();
+					}
 				}
 				return;
 			}
