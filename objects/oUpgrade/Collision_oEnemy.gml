@@ -1,4 +1,5 @@
-if (upg[$"id"] == Weapons.BounceBall) {
+if (other.hittedcooldown[upg[$"id"]] <= 0  and !global.gamePaused and other.image_alpha == 1 and image_alpha == 1 and ghost == false) {
+	if (upg[$"id"] == Weapons.BounceBall) {
 		var _push = 5;
 		var _dir = point_direction(other.x, other.y, x, y);
 		var _rnd = 0;
@@ -15,9 +16,7 @@ if (upg[$"id"] == Weapons.BounceBall) {
 		 //if (alarm_get(11) == -1) {
 		 //    alarm[11] = 20;
 		 //}		 
-}
-
-if (other.hittedcooldown[upg[$"id"]] <= 0  and !global.gamePaused and other.image_alpha == 1 and image_alpha == 1 and ghost == false) {
+	}
 	other.hittedcooldown[upg[$"id"]] = upg[$"hitCooldown"];
 	other.damaged = true;
 	//random_set_seed(current_time);

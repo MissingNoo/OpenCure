@@ -1,4 +1,5 @@
 dAlarm = array_create(11, -1);
+idolStartX = 0;
 gotpaused = false;
 imageSpeedOriginal = 0;
 hspd = 0;

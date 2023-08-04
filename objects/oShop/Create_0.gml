@@ -1,4 +1,6 @@
 /// @description Insert description here
+achansubimage = 0;
+holocoinsubimage = 0;
 depth = oGui.depth + 1;
 selected = 0;
 interact = false;
@@ -21,6 +23,13 @@ enum PrizeType {
 
 gachaInteract = false;
 gachaInteractButtons = ["Buy", "Redeem"];
+gachaDebut = false;
+gachaPrize = false;
+isOutfit = false;
+outfitPrizeNumber = 0;
+gotPrize = {};
+prizeIdleAnimation = [0, 0];
+prizeIdleSpeed = 0;
 gachaButton = 0;
 selectedGacha = 0;
 gachas = [
@@ -33,14 +42,14 @@ gachas = [
 				type : PrizeType.Character,
 				character : Characters.Amelia
 			},
-			{
-				type : PrizeType.Character,
-				character : Characters.Gura
-			},
-			{
-				type : PrizeType.Character,
-				character : Characters.Ina
-			}
+			//{
+			//	type : PrizeType.Character,
+			//	character : Characters.Gura
+			//},
+			//{
+			//	type : PrizeType.Character,
+			//	character : Characters.Ina
+			//}
 		]
 	}
 ]

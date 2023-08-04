@@ -33,8 +33,8 @@ function initializePlayer(_p){
 	arrowDir=0;
 	// Feather enable GM2017
 	atk=_p[?"atk"];
-	sprite=_p[?"sprite"];
-	runningsprite=_p[?"runningsprite"];
+	sprite=_p[?"outfits"][global.selectedOutfit][$"sprite"];
+	runningsprite=_p[?"outfits"][global.selectedOutfit][$"runningSprite"];
 	sprite_index=sprite;
 	global.upgrades[0] = _p[?"weapon"][1];
 	Shield = 0;
@@ -100,6 +100,7 @@ function createCharacter(_id, _name, _portrait, _sprite, _runningsprite, _hp, _s
 	ds_map_add(m, "ballsize", _ballsize);
 	ds_map_add(m, "flat", _flat);
 	ds_map_add(m, "crit", _crt);
+	ds_map_add(m, "outfits", []);
 }
 
 enum BuffNames{

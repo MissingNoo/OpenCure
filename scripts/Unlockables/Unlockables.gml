@@ -1,7 +1,10 @@
 #macro UnlockableItems global.unlockableItems
 #macro UnlockableWeapons global.unlockableWeapons
+#macro UnlockableOutfits global.unlockableOutfits
+#macro Granks global.gRanks
 UnlockableItems = array_create(ItemIds.Length, false);
 UnlockableWeapons = array_create(Weapons.Length, false);
+Granks = array_create(Characters.Lenght, 0);
 function load_unlocked(){
 	for (var i = 0; i < ItemIds.Length; ++i) {
 		if (variable_struct_exists(ItemList[i][1], "unlocked")) {

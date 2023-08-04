@@ -105,8 +105,38 @@ if (room == rCharacterSelect) {
 		}
 	}
 	#endregion	
+	#region Outfit
+	if (selectingOutfit) {
+	    _x = GW/3.27;
+		_y = 0;
+		_xx = GW/1.43;
+		_yy = GH;
+		draw_set_color(c_black);
+		draw_set_alpha(.25);
+		draw_rectangle(_x, _y, _xx, _yy, false);
+		draw_set_color(c_white);
+		draw_set_alpha(1);
+		str="Outfits";
+		_x = GW/2;
+		_y = GH/2;
+		draw_set_halign(fa_center);
+		draw_set_valign(fa_top);
+		draw_sprite_ext(sCharacterselected, 0, _x, _y, 6, 6, 0, c_white, 1);
+		draw_text_transformed(_x, _y - (sprite_get_height(sCharacterselected) * 6) / 2, str, 4.50, 4.50, 0);		
+		draw_set_halign(fa_left);
+		outfitIdleAnimation[1] = sprite_get_number(CHARACTERS[selectedCharacter][?"outfits"][selectedOutfit][$"sprite"]);
+		outfitIdleSpeed = sprite_get_speed(CHARACTERS[selectedCharacter][?"outfits"][selectedOutfit][$"sprite"]);
+		if (outfitIdleAnimation[0] < outfitIdleAnimation[1]) {
+			outfitIdleAnimation[0] += outfitIdleSpeed / game_get_speed(gamespeed_fps) * Delta;
+		}
+		else{ outfitIdleAnimation[0] = 0; }
+		var _spr = CHARACTERS[selectedCharacter][?"outfits"][selectedOutfit][$"sprite"];
+		var _isUnlocked = CHARACTERS[selectedCharacter][?"outfits"][selectedOutfit][$"unlocked"] ? c_white : c_black;
+		draw_sprite_ext(_spr, outfitIdleAnimation[0], _x, _y + sprite_get_height(_spr) * 3, 6, 6, 0, _isUnlocked, 1);
+	}
+	#endregion
 	#region Stage
-	if (characterSelected) {
+	if (characterSelected and outfitSelected) {
 		_x = GW/3.27;
 		_y = 0;
 		_xx = GW/1.43;

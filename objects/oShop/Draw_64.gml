@@ -31,8 +31,8 @@ draw_set_valign(fa_top);
 #region Menu
 if (onMenu) {
 	var _yoffset = 0;
-	var _x = GW/1.42;
-	var _y = GH/2.36;
+	_x = GW/1.42;
+	_y = GH/2.36;
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_middle);
     for (var i = 0; i < array_length(menuOptions); ++i) {
@@ -53,8 +53,8 @@ if (onMenu) {
 if (!onMenu) {
 	switch (optionSelected) {
 		case 0:{//gacha
-			var _x = GW/1.45;
-			var _y = GH/2.47;
+			_x = GW/1.45;
+			_y = GH/2.47;
 			draw_sprite_ext(gachas[selectedGacha][$"sprite"], 0, _x, _y, 2, 2, 0, c_white, 1);
 			_y += 265;
 			draw_sprite_ext(sHudShopNew, 0, _x - 5, _y, 32, 6.60, 0, c_white, 1);
@@ -64,8 +64,8 @@ if (!onMenu) {
 			draw_text_transformed_color(_x + 359, _y + 26, string($"Cost: {gachas[selectedGacha][$"cost"]}"), 2.50, 2.50, 0, c_yellow, c_yellow, c_yellow, c_yellow, 1);
 			draw_set_halign(fa_left);
 			if (gachaInteract) {
-				draw_set_valign(fa_center);
-				draw_set_halign(fa_middle);
+				draw_set_valign(fa_middle);
+				draw_set_halign(fa_center);
 			    draw_sprite_ext(sHudButton, (gachaButton == 0) ? 1 : 0, _x - 102, _y + 103, (gachaButton == 0) ? 1 : 0.8, (gachaButton == 0) ? 2 : 1.30, 0, c_white, 1);
 			    draw_sprite_ext(sHudButton, (gachaButton == 1) ? 1 : 0, _x + 102, _y + 103, (gachaButton == 1) ? 1 : 0.8, (gachaButton == 1) ? 2 : 1.30, 0, c_white, 1);
 				var _color = (gachaButton == 0) ? c_black : c_white;
@@ -74,6 +74,47 @@ if (!onMenu) {
 				draw_text_transformed_color(_x + 102, _y + 103, gachaInteractButtons[1], 2, 2, 0, _color, _color, _color, _color, 1);
 				draw_set_halign(fa_left);
 				draw_set_valign(fa_top);
+			}
+			if (gachaDebut) {
+				draw_set_alpha(0.80);
+			    draw_rectangle_color(0, 0, GW, GH, c_black, c_black, c_black, c_black, false);
+				draw_set_alpha(1);
+				draw_sprite_ext(sGachaLogo, 0, GW/2, GH/2, 2, 2, 0, c_white, 1);
+				_x = GW/2;
+				_y = GH/1.20;
+				draw_sprite_ext(sHudButton, 1, _x, _y, 1, 2, 0, c_white, 1);
+				draw_set_halign(fa_center);
+				draw_set_valign(fa_middle);
+				draw_text_transformed_color(_x, _y, "DEBUT!", 2, 2, 0, c_black, c_black, c_black, c_black, 1);
+				draw_set_halign(fa_left);
+				draw_set_valign(fa_top);
+			}
+			if (gachaPrize) {
+				draw_set_alpha(0.80);
+			    draw_rectangle_color(0, 0, GW, GH, c_black, c_black, c_black, c_black, false);
+				draw_set_alpha(1);
+				draw_set_halign(fa_center);
+				draw_set_valign(fa_middle);
+				_x = GW/2;
+				_y = GH/5.95;
+				draw_text_transformed_color(_x, _y, "CONGRATULATIONS!", 5, 5, 0, c_white, c_white, c_white, c_white, 1);
+				_y = GH/1.28;
+				var _name = CHARACTERS[gotPrize[$"character"]][?"name"]
+				draw_text_transformed_color(_x, _y, $"{string_upper(_name)} RANK UP!!!", 5, 5, 0, c_yellow, c_yellow, c_yellow, c_yellow, 1);
+				if (isOutfit) {
+				    draw_text_transformed_color(_x, _y + 75, "OUTFIT GET!!!", 5, 5, 0, c_yellow, c_yellow, c_yellow, c_yellow, 1);
+				}
+				draw_set_halign(fa_left);
+				draw_set_valign(fa_top);
+				if (prizeIdleAnimation[0] < prizeIdleAnimation[1]) {
+				    prizeIdleAnimation[0] += prizeIdleSpeed / game_get_speed(gamespeed_fps) * Delta;
+				}
+				else{ prizeIdleAnimation[0] = 0; }
+				var _spr = CHARACTERS[gotPrize[$"character"]][?"sprite"];
+				if (isOutfit) {
+					_spr = CHARACTERS[gotPrize[$"character"]][?"outfits"][outfitPrizeNumber][$"sprite"];   
+				}				
+			    draw_sprite_ext(_spr, prizeIdleAnimation[0], GW/2, GH/2 + (sprite_get_height(_spr) * 2), 6, 6, 0, c_white, 1);
 			}
 			break;}
 			
@@ -118,9 +159,9 @@ if (!onMenu) {
 			draw_sprite_ext(sItemType, 0, _xx - 350, _yy, 2, 2,0,c_white,1); // item thumb type	
 			drawDesc(_xx - 290,_yy - 35, selectedThing[$ "desc"], GW/2 - oGui.guiOffset, 2);
 			//feather disable once GM2017
-			LEVEL = selectedThing[$ "level"];
+			var LEVEL = selectedThing[$ "level"];
 			//feather disable once GM2017
-			MAXLEVEL = selectedThing[$ "maxlevel"];
+			var MAXLEVEL = selectedThing[$ "maxlevel"];
 			draw_set_color(c_yellow);
 			draw_set_halign(fa_right);
 			//feather disable once GM2017

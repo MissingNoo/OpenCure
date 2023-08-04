@@ -166,6 +166,8 @@ populate_upgrades();
 populate_characters();
 populate_perks();
 populate_specials();
+populate_outfits();
+unlocked_outfits_load();
 try{
 	load_unlocked();
 }

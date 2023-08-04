@@ -4,6 +4,7 @@ var _up = input_check_pressed("up");
 var _down = input_check_pressed("down");
 var xKey = input_check_pressed("cancel");
 var zKey= input_check_pressed("accept");
+
 //if (global.GamePad) {
 //    zKey = keyboard_check_pressed(ord("Z")) or gamepad_button_check_pressed(global.gPnum, gp_face1);
 //}else{zKey = keyboard_check_pressed(ord("Z

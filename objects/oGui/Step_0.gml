@@ -69,6 +69,10 @@ if (room = rInicio and !global.gamePaused) {
 				characterSelected = false;
 				global.singleplayer = true;
 				selected=0;
+				selectingOutfit = false;
+				selectedOutfit = 0;
+				maxOutfits = 0;
+				outfitSelected = false;
 	            room_goto(rCharacterSelect);
 	            break;}
 			case "Multiplayer":{
@@ -76,6 +80,10 @@ if (room = rInicio and !global.gamePaused) {
 				//instance_create_layer(0, 0, "Instances", oClient);
 				characterSelected = false;					
 				selected=0;
+				selectingOutfit = false;
+				selectedOutfit = 0;
+				maxOutfits = 0;
+				outfitSelected = false;
 	            room_goto(rCharacterSelect);
 	            break;}
 			case "Settings":{
@@ -280,10 +288,11 @@ if (room == rCharacterSelect) {
 		if (stageSelected) {
 			room_goto(stages[0].roomname);
 		}
-		if (!stageSelected and characterSelected) {
+		if (!stageSelected and characterSelected and outfitSelected) {
 			stageSelected = true;
 			if (selected == 0) { global.stageType = StageTypes.Stage; }
 			if (selected == 1) { global.stageType = StageTypes.Endless; }
+			return;
 		}
 		if (!characterSelected) {
 			global.player=CHARACTERS[selectedCharacter];
@@ -295,6 +304,17 @@ if (room == rCharacterSelect) {
 					global.mode = "stage";
 					//room_goto(Room1);
 					characterSelected = true;
+					maxOutfits = array_length(CHARACTERS[selectedCharacter][?"outfits"]) - 1;
+					var _unlockedOutfits = 0;
+					for (var i = 0; i < maxOutfits; ++i) {
+						if (CHARACTERS[selectedCharacter][?"outfits"][i][$"unlocked"]) {
+						    _unlockedOutfits += 1;
+						}
+					}
+					if (maxOutfits > 1 and _unlockedOutfits > 1) {
+					    selectingOutfit = true;
+					}
+					else{outfitSelected = true;}
 					break;}
 				case false:{
 					global.mode = "menu";
@@ -302,6 +322,16 @@ if (room == rCharacterSelect) {
 					room_goto(rLobby);
 					break;}
 			}
+			return;
+		}
+		if (selectingOutfit) {
+			var _isUnlocked = CHARACTERS[selectedCharacter][?"outfits"][selectedOutfit][$"unlocked"];
+			if (_isUnlocked) {
+			    selectingOutfit = false;
+			    outfitSelected = true;
+				global.selectedOutfit = selectedOutfit;
+			}			
+			return;
 		}
 	}
 }

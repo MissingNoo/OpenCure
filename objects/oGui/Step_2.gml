@@ -35,7 +35,16 @@ if (room == rCharacterSelect) {
 			audio_play_sound(snd_char_select_woosh,0,0);
 	    }
 	}
-	if (!stageSelected and characterSelected) {
+	if (selectingOutfit) {
+	    var _leftright = - input_check_pressed("left") + input_check_pressed("right");
+		if (_leftright != 0) {
+		    selectedOutfit += _leftright;
+			if (selectedOutfit > maxOutfits) { selectedOutfit = 0; }
+			if (selectedOutfit < 0) { selectedOutfit = maxOutfits; }
+			return;
+		}
+	}
+	if (!stageSelected and characterSelected and outfitSelected) {
 	    if (upKey) {
 	        if (selected == 0) {
 	            selected = array_length(stageModes) - 1;

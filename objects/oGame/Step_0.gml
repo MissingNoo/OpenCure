@@ -18,6 +18,9 @@ if (keyboard_check(vk_home)) {
 	    Achievements[i][$"unlocked"] = true;
 	}
 	load_unlocked();
+	UnlockableOutfits[Outfits.AmeliaO1] = true;
+	UnlockableOutfits[Outfits.AmeliaO2] = true;
+	unlocked_outfits_load();
 }
 if (keyboard_check(vk_end)) {
 	for (var i = 0; i < array_length(UnlockableWeapons); ++i) {
@@ -30,6 +33,9 @@ if (keyboard_check(vk_end)) {
 	    Achievements[i][$"unlocked"] = false;
 	}
 	load_unlocked();
+	UnlockableOutfits[Outfits.AmeliaO1] = false;
+	UnlockableOutfits[Outfits.AmeliaO2] = false;
+	unlocked_outfits_load();
 }
 
 //if (instance_exists(oPlayer)) {

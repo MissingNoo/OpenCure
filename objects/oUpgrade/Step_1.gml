@@ -274,13 +274,14 @@ sprite_index=upg[$"sprite"];
 		case Weapons.IdolSong:{
 			if (idolDir == 90) {
 			    idolDir = 270;
-				xstart = xstart + 20;
+				idolStartX= oPlayer.x + 20;
 				direction = idolDir;
 			}else{
 				idolDir = 90;
-				xstart = xstart - 20;
+				idolStartX= oPlayer.x - 20;
+				//xstart = xstart - 20;
 				direction = idolDir;
-				image_xscale = image_xscale * -1;
+				//image_xscale = image_xscale * -1;
 			}
 			break;}
 		case Weapons.PsychoAxe:{

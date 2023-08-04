@@ -94,7 +94,7 @@ if (!global.gamePaused) {
 			y = owner.y - (sprite_get_height(global.player[?"sprite"]) / 3);
 			break;}
 		case Weapons.IdolSong:{
-			x = sine_wave(current_time / 1000, 1, 64, xstart);
+			x = sine_wave(current_time  / 1000, 1 * (shoots % 2) ? 1 : -1, upg[$"travelWidth"], idolStartX);
 			break;}
 		case Weapons.BounceBall:{
 			//if (direction != 270) {
