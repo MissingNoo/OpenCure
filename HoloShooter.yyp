@@ -123,6 +123,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Stages","folderPath":"folders/Sprites/Stages.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tile Sets","folderPath":"folders/Tile Sets.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Timelines","folderPath":"folders/Timelines.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Gacha","folderPath":"folders/Sprites/Shop/Gacha.yy",},
   ],
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"blocks-16bit.ttf","CopyToMask":-1,"filePath":"datafiles",},
@@ -486,6 +487,7 @@
     {"id":{"name":"input_gamepad_get_description","path":"scripts/input_gamepad_get_description/input_gamepad_get_description.yy",},},
     {"id":{"name":"snd_bgm_sss","path":"sounds/snd_bgm_sss/snd_bgm_sss.yy",},},
     {"id":{"name":"oShiranuiEmployee","path":"objects/oShiranuiEmployee/oShiranuiEmployee.yy",},},
+    {"id":{"name":"sHudShopNew","path":"sprites/sHudShopNew/sHudShopNew.yy",},},
     {"id":{"name":"BG_yagoohead","path":"sprites/BG_yagoohead/BG_yagoohead.yy",},},
     {"id":{"name":"__lexicon_file_types","path":"scripts/__lexicon_file_types/__lexicon_file_types.yy",},},
     {"id":{"name":"input_trigger_effect_off","path":"scripts/input_trigger_effect_off/input_trigger_effect_off.yy",},},
@@ -776,6 +778,7 @@
     {"id":{"name":"input_check_double","path":"scripts/input_check_double/input_check_double.yy",},},
     {"id":{"name":"input_direction","path":"scripts/input_direction/input_direction.yy",},},
     {"id":{"name":"input_binding_remove","path":"scripts/input_binding_remove/input_binding_remove.yy",},},
+    {"id":{"name":"sGachaMyth","path":"sprites/sGachaMyth/sGachaMyth.yy",},},
     {"id":{"name":"input_binding_scan_start","path":"scripts/input_binding_scan_start/input_binding_scan_start.yy",},},
     {"id":{"name":"sBombExplosion","path":"sprites/sBombExplosion/sBombExplosion.yy",},},
     {"id":{"name":"__input_class_trigger_effect_feedback","path":"scripts/__input_class_trigger_effect_feedback/__input_class_trigger_effect_feedback.yy",},},

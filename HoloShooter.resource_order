@@ -107,6 +107,7 @@
     {"name":"Stages","order":16,"path":"folders/Sprites/Stages.yy",},
     {"name":"Tile Sets","order":14,"path":"folders/Tile Sets.yy",},
     {"name":"Timelines","order":19,"path":"folders/Timelines.yy",},
+    {"name":"Gacha","order":6,"path":"folders/Sprites/Shop/Gacha.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"input_gamepad_check_released","order":2,"path":"scripts/input_gamepad_check_released/input_gamepad_check_released.yy",},
@@ -414,6 +415,7 @@
     {"name":"example","order":4,"path":"objects/example/example.yy",},
     {"name":"input_gamepad_get_description","order":5,"path":"scripts/input_gamepad_get_description/input_gamepad_get_description.yy",},
     {"name":"snd_bgm_sss","order":4,"path":"sounds/snd_bgm_sss/snd_bgm_sss.yy",},
+    {"name":"sHudShopNew","order":27,"path":"sprites/sHudShopNew/sHudShopNew.yy",},
     {"name":"BG_yagoohead","order":3,"path":"sprites/BG_yagoohead/BG_yagoohead.yy",},
     {"name":"input_trigger_effect_off","order":4,"path":"scripts/input_trigger_effect_off/input_trigger_effect_off.yy",},
     {"name":"sBubba","order":5,"path":"sprites/sBubba/sBubba.yy",},
