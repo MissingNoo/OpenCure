@@ -227,7 +227,7 @@ sprite_index=upg[$"sprite"];
 		}
 		case Weapons.FanBeam:{
 			image_xscale = owner.image_xscale;
-			if(shoots == 0){
+			if(shoots == -1){
 				image_xscale = image_xscale * -1;
 			}
 			if (shoots>0) {

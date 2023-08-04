@@ -1218,9 +1218,9 @@ function randomUpgrades(){
 	//global.upgradeOptions[3] = global.null;
 	#endregion
 	//first option
-	if (variable_struct_exists(global.upgradesAvaliable[Weapons.BounceBall][1], "unlocked") and global.upgradesAvaliable[Weapons.BounceBall][1][$"unlocked"]) {
-	    global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.BounceBall][1];
-	}
+	//if (variable_struct_exists(global.upgradesAvaliable[Weapons.BounceBall][1], "unlocked") and global.upgradesAvaliable[Weapons.BounceBall][1][$"unlocked"]) {
+	//    global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.BounceBall][1];
+	//}
 	 //global.upgradeOptions[0] = PERK_LIST[PerkIds.HeavyArtillery][0];
 	 //global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.PipiPilstol][1];
 }	
