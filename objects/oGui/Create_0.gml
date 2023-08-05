@@ -11,7 +11,7 @@ editOption = false;
 mousein = false;
 guiOffset = 0;
 characterSelected = false;
-selectedCharacter = 0;
+selectedCharacter = 1;
 HP = 1;
 androidoffset = 0;
 if (os_type == os_android) {

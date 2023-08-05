@@ -1,4 +1,7 @@
 // Feather disable GM1041
+if (keyboard_check_pressed(vk_home)) {
+		    show_message_async(UnlockableCharacters);
+		}
 #region Start variables
 draw_set_alpha(1);
 draw_set_color(c_white);
@@ -64,7 +67,8 @@ if (room == rCharacterSelect or room == rAchievements) {
 #endregion
 }
 if (room == rCharacterSelect) {
-	NAME=CHARACTERS[selectedCharacter][?"name"];	
+	NAME=CHARACTERS[selectedCharacter][?"name"];
+	var _isUnlocked = UnlockableCharacters[CHARACTERS[selectedCharacter][?"id"]];
 	#region Character window
 	var _x = GW / 50;
 	var _y = GH / 5.97;
@@ -73,9 +77,14 @@ if (room == rCharacterSelect) {
 	var _titleY = GH/4.24;
 	var _titlePos = 18.50;
 	var _fontSize = 2;
-	drawWindow(_x,_y,_xx,_yy,string_upper(global.name), _titleY, _titlePos, _fontSize, 0.15);
-	draw_sprite_ext(CHARACTERS[selectedCharacter][?"sprite"], sprindex,GW/6.18, GH/1.79, 4, 4, 0,c_white,1);
-	drawStatsSelect(CHARACTERS[selectedCharacter]);
+	drawWindow(_x,_y,_xx,_yy,string_upper(_isUnlocked ? global.name : ""), _titleY, _titlePos, _fontSize, 0.15);
+	draw_sprite_ext(CHARACTERS[_isUnlocked ? selectedCharacter : 0][?"sprite"], sprindex,GW/6.18, GH/1.79, 4, 4, 0,c_white,1);
+	drawStatsSelect(CHARACTERS[_isUnlocked ? selectedCharacter : 0]);
+	draw_set_valign(fa_middle);
+	draw_set_halign(fa_center);		
+	draw_text_transformed_color(_xx - 105, _yy - 40, $"G. RANK: {Granks[CHARACTERS[_isUnlocked ? selectedCharacter : 0][?"id"]]}", 3, 3, 0, c_yellow, c_yellow, c_yellow, c_yellow, 1);
+	draw_set_valign(fa_top);
+	draw_set_halign(fa_left);
 	#endregion
 	#region CharacterList
 	if (!characterSelected) {
@@ -92,12 +101,14 @@ if (room == rCharacterSelect) {
 		_x = GW/2.81;
 		_y = GH/4.59;
 		//mouseOnButton(_x,_y, GW/oGui.a, sAmePortrait, 2, 2, array_create(Characters.Lenght, 0),"selectedCharacter", "horizontal");
-		for (var i=0; i < Characters.Lenght; i++) {
+		for (var i=1; i < Characters.Lenght; i++) {
 			if (point_in_rectangle(TouchX1, TouchY1, _x - 44 + offset, _y - 38, _x + 44 + offset, _y + 38)) {
 			    selectedCharacter = i;
 			}
 			draw_rectangle(_x - 44 + offset, _y - 38, _x + 44 + offset, _y + 38, true);
-			draw_sprite_ext(CHARACTERS[i][?"portrait"], 0, _x - 2 + offset,_y - 1, 2, 2, 0, c_white, 1);
+			if (UnlockableCharacters[CHARACTERS[i][?"id"]]) {
+			    draw_sprite_ext(CHARACTERS[i][?"portrait"], 0, _x - 2 + offset,_y - 1, 2, 2, 0, c_white, 1);
+			}
 			if (selectedCharacter == i) {
 				draw_sprite_ext(sMenuCharSelectCursor,-1,_x - 2 + offset, _y,2,2,0,c_white,1);
 			}
@@ -189,13 +200,15 @@ if (room == rCharacterSelect) {
 	_titlePos = 18;
 	_fontSize = 2;
 	drawWindow(_x,_y,_xx,_yy,"ATTACK", _titleY, _titlePos, _fontSize);
-	var weaponID = CHARACTERS[selectedCharacter][?"weapon"];
-	var weaponSprite = weaponID[1][$"thumb"];
-	draw_sprite_ext(weaponSprite, 0,GW/1.37, GH/3.52,2,2,0,c_white,1);
-	draw_set_valign(fa_middle); draw_set_color(c_white);
-	draw_text_transformed(_x + 66, _y + 77, lexicon_text("Weapons." + weaponID[1][$"name"] + ".name"), 2.50, 2.50, 0);
-	//drawDesc(GW/1.39, GH/2.97, weaponID[1][$"desc"], GW/4.10, 2);
-	drawDesc(_x + 13, _y + 118, lexicon_text("Weapons." + weaponID[1][$"name"] + ".1") , 350, 2);
+	if (_isUnlocked) {
+		var weaponID = CHARACTERS[selectedCharacter][?"weapon"];
+		var weaponSprite = weaponID[1][$"thumb"];
+		draw_sprite_ext(weaponSprite, 0,GW/1.37, GH/3.52,2,2,0,c_white,1);
+		draw_set_valign(fa_middle); draw_set_color(c_white);
+		draw_text_transformed(_x + 66, _y + 77, lexicon_text("Weapons." + weaponID[1][$"name"] + ".name"), 2.50, 2.50, 0);
+		//drawDesc(GW/1.39, GH/2.97, weaponID[1][$"desc"], GW/4.10, 2);
+		drawDesc(_x + 13, _y + 118, lexicon_text("Weapons." + weaponID[1][$"name"] + ".1") , 350, 2);
+	}
 	draw_set_valign(0);
 	#endregion
 	#region Special window
@@ -209,14 +222,16 @@ if (room == rCharacterSelect) {
 	drawWindow(_x,_y,_xx,_yy,"SPECIAL", _titleY, _titlePos, _fontSize);
 	_x = GW/1.37;
 	_y = GH/1.55;
-	var specialID = CHARACTERS[selectedCharacter][?"special"];
-	var specialSprite = SPECIAL_LIST[specialID][$"thumb"];
-	var specialName = lexicon_text("Special." + SPECIAL_LIST[specialID][$"name"] + ".name");
-	var specialDesc = lexicon_text("Special." + SPECIAL_LIST[specialID][$"name"] + ".desc");
-	draw_sprite_ext(specialSprite, 0,_x - 4 - sprite_get_width(specialSprite), _y-sprite_get_height(specialSprite),2,2,0,c_white,1);
-	draw_set_valign(fa_middle); draw_set_color(c_white);
-	draw_text_transformed(_x + 38, _y, specialName, 2, 2, 0);
-	drawDesc(_x - 19, _y + 35, specialDesc, _x + 1, 2);
+	if (_isUnlocked) {
+		var specialID = CHARACTERS[selectedCharacter][?"special"];
+		var specialSprite = SPECIAL_LIST[specialID][$"thumb"];
+		var specialName = lexicon_text("Special." + SPECIAL_LIST[specialID][$"name"] + ".name");
+		var specialDesc = lexicon_text("Special." + SPECIAL_LIST[specialID][$"name"] + ".desc");
+		draw_sprite_ext(specialSprite, 0,_x - 4 - sprite_get_width(specialSprite), _y-sprite_get_height(specialSprite),2,2,0,c_white,1);
+		draw_set_valign(fa_middle); draw_set_color(c_white);
+		draw_text_transformed(_x + 38, _y, specialName, 2, 2, 0);
+		drawDesc(_x - 19, _y + 35, specialDesc, _x + 1, 2);
+	}
 	draw_set_valign(0);
 	#endregion
 }

@@ -1,12 +1,11 @@
 var _updown = - input_check_pressed("up") + input_check_pressed("down");
 var _leftright = - input_check_pressed("left") + input_check_pressed("right");
-
+#region Menu
 if (onMenu) {    
 	optionSelected += _updown;
 	if (optionSelected < 0) { optionSelected = 0; }
 	var _maxOption = array_length(menuOptions) - 1;
-	if (optionSelected > _maxOption) { optionSelected = _maxOption; }
-	
+	if (optionSelected > _maxOption) { optionSelected = _maxOption; }	
 	if (input_check_pressed("accept")) {
 	    onMenu = false;
 		if (optionSelected == 3) {
@@ -15,7 +14,7 @@ if (onMenu) {
 		return;
 	}
 }
-
+#endregion
 #region Gacha
 if (!onMenu and optionSelected == 0) {
 	if (!gachaInteract) {
@@ -56,6 +55,12 @@ if (!onMenu and optionSelected == 0) {
 				gachaDebut = false;
 				var _rnd = irandom_range(0, array_length(gachas[selectedGacha][$"prizes"]) -1);
 				gotPrize = gachas[selectedGacha][$"prizes"][_rnd];
+				if (!UnlockableCharacters[gotPrize[$"character"]]) {
+				    UnlockableCharacters[gotPrize[$"character"]] = true;
+				}
+				else{
+					Granks[gotPrize[$"character"]] += 1;
+				}
 				prizeIdleAnimation[1] = sprite_get_number(CHARACTERS[gotPrize[$"character"]][?"sprite"]);
 				prizeIdleSpeed = sprite_get_speed(CHARACTERS[gotPrize[$"character"]][?"sprite"]);
 				gachaPrize = true;

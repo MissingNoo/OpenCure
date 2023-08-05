@@ -49,7 +49,6 @@ if (onMenu) {
 }
 #endregion
 
-#region shop items
 if (!onMenu) {
 	switch (optionSelected) {
 		case 0:{//gacha
@@ -187,5 +186,3 @@ if (!onMenu) {
 	        break;}
 	}
 }
-	
-#endregion

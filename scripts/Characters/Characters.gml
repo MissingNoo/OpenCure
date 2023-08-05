@@ -84,8 +84,11 @@ function initializePlayer(_p){
 
 global.characters=[];
 #macro CHARACTERS global.characters
-function createCharacter(_id, _name, _portrait, _sprite, _runningsprite, _hp, _speed, _atk, _crt, _ballsize, _weapon, _flat)
+function createCharacter(_id, _name, _portrait, _sprite, _runningsprite, _hp, _speed, _atk, _crt, _ballsize, _weapon, _flat, _unlocked)
 {
+	if (_unlocked) {
+	    UnlockableCharacters[_id] = _unlocked;
+	}	
 	global.characters[_id]=ds_map_create();
 	m = global.characters[_id];
 	ds_map_add(m, "id", _id);
@@ -120,12 +123,13 @@ enum BuffNames{
 //Murasaki Shion IconMurasaki Shion
 
 function populate_characters(){
-	createCharacter(Characters.Amelia,"Amelia Watson",sAmePortrait,sAmeIdle,sAmeRunning,75,1.35,1.30, 1.10, 3,u[Weapons.AmePistol], false);
-	createCharacter(Characters.Gura,"Gawr Gura",sGuraPortrait,sGuraIdle,sGuraRunning,65,1.40,1.10,1.05, 1, u[Weapons.GuraTrident], true);
-	createCharacter(Characters.Ina,"Ninomae Ina'nis",sInaPortrait,sInaIdle,sInaRunning,75,1.50,0.90, 1.01, 1,u[Weapons.InaTentacle], true);
+	createCharacter(Characters.null,"",sBlank,sBlank,sBlank,0,0,0, 0, 0,u[Weapons.AmePistol], false, false);
+	createCharacter(Characters.Amelia,"Amelia Watson",sAmePortrait,sAmeIdle,sAmeRunning,75,1.35,1.30, 1.10, 3,u[Weapons.AmePistol], false, true);
+	createCharacter(Characters.Gura,"Gawr Gura",sGuraPortrait,sGuraIdle,sGuraRunning,65,1.40,1.10,1.05, 1, u[Weapons.GuraTrident], true, false);
+	createCharacter(Characters.Ina,"Ninomae Ina'nis",sInaPortrait,sInaIdle,sInaRunning,75,1.50,0.90, 1.01, 1,u[Weapons.InaTentacle], true, true);
 	#region Modded
 	#region Pipkin Pippa
-	createCharacter(Characters.Pippa,"Pipkin Pippa",sPippaPortrait,sPippaIdle,sPippaRun,60,1.50,0.95, 1.10, 1,u[Weapons.PipiPilstol], true);
+	createCharacter(Characters.Pippa,"Pipkin Pippa",sPippaPortrait,sPippaIdle,sPippaRun,60,1.50,0.95, 1.10, 1,u[Weapons.PipiPilstol], true, true);
 	#endregion
 	#endregion
 	
@@ -194,6 +198,7 @@ function populate_characters(){
 
 
 enum Characters {
+	null,
 	Amelia,
 	Gura,
 	Ina,
@@ -207,10 +212,17 @@ enum Characters {
 function Movement()
 {
 if canMove == true{
-	var _maxx = oCam.x + (((view_wport[0])/2) - 16);
-	var _minx = (oCam.x - ((view_wport[0])/2)) + 16;
-	var _maxy = oCam.y + (((view_hport[0])/2) - 16);
-	var _miny = (oCam.y - ((view_hport[0])/2)) + 32;
+	var _target = noone;
+	if (instance_exists(oCam)) {
+	    _target = oCam;
+	}
+	if (instance_exists(oCamWorld)) {
+	    _target = oCamWorld;
+	}
+	var _maxx = _target.x + (((view_wport[0])/2) - 16);
+	var _minx = (_target.x - ((view_wport[0])/2)) + 16;
+	var _maxy = _target.y + (((view_hport[0])/2) - 16);
+	var _miny = (_target.y - ((view_hport[0])/2)) + 32;
 	//if (round(y) <= round(_miny)) { y = _miny; }
 	//if (round(x) <= round(_minx)) { x = _minx; }
 	gamepad_set_axis_deadzone(global.gPnum, 0.7);

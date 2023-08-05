@@ -1,4 +1,6 @@
 // Feather disable GM2016
+var _updown = - upKey + downKey;
+var _leftright = - leftKey + rightKey;
 if (isP != global.gamePaused) {
     loadSettingValues();
 }
@@ -19,137 +21,60 @@ if (room == rAchievements) {
 
 if (room == rCharacterSelect) {
 	if (!characterSelected) {
-	    if (leftKey) {
-	        if (selectedCharacter == 0) {
-	            selectedCharacter = Characters.Lenght - 1;
-	        } else selectedCharacter -= 1;
-			NAME=CHARACTERS[selectedCharacter][?"name"];
+		selectedCharacter += _leftright;
+	    if (selectedCharacter < 1) { selectedCharacter = Characters.Lenght - 1; }
+	    if (selectedCharacter > Characters.Lenght - 1) { selectedCharacter = 1; }
+		if (_leftright != 0) {
+		    NAME=CHARACTERS[selectedCharacter][?"name"];
 			audio_play_sound(snd_char_select_woosh,0,0);
-	    }
-	    if (rightKey) {
-	        if (selectedCharacter < Characters.Lenght - 1) {
-	            selectedCharacter += 1;
-	        } else selectedCharacter = 0;
-			//mouseOnButton(GW/3.10,GH/3.75, GW/13, sAmePortrait, 2, 2, array_create(Characters.Lenght, 0), "horizontal");
-			NAME=CHARACTERS[selectedCharacter][?"name"];
-			audio_play_sound(snd_char_select_woosh,0,0);
-	    }
+		}		
 	}
 	if (selectingOutfit) {
-	    var _leftright = - input_check_pressed("left") + input_check_pressed("right");
-		if (_leftright != 0) {
-		    selectedOutfit += _leftright;
-			if (selectedOutfit > maxOutfits) { selectedOutfit = 0; }
-			if (selectedOutfit < 0) { selectedOutfit = maxOutfits; }
-			return;
-		}
+		selectedOutfit += _leftright;
+		if (selectedOutfit > maxOutfits) { selectedOutfit = 0; }
+		if (selectedOutfit < 0) { selectedOutfit = maxOutfits; }
 	}
 	if (!stageSelected and characterSelected and outfitSelected) {
-	    if (upKey) {
-	        if (selected == 0) {
-	            selected = array_length(stageModes) - 1;
-	        } else selected -= 1
-	    }
-	    if (downKey) {
-	        if (selected < array_length(stageModes) - 1) {
-	            selected += 1;
-	        } else selected = 0
-	    }
+	    selected += _updown;
+		if (selected < 0) { selected = array_length(stageModes) - 1; }
+		if (selected > array_length(stageModes) - 1) { selected = 0; }
 	}
 }
 //global.holocoins = 99999;
 
 if (instance_exists(oPlayer) and global.upgrade==1) {
 	var istherererolls = -1;
-	if (global.rerolls > 0) {
-		    istherererolls = 0;
-	}
-    if (upKey) {		
-        if (selected == 0) {
-            selected = array_length(global.upgradeOptions) + istherererolls;
-        } else selected -= 1
-    }
-    if (downKey) {
-        if (selected < array_length(global.upgradeOptions) + istherererolls) {
-            selected += 1;
-        } else selected = 0
-    }
+	if (global.rerolls > 0) { istherererolls = 1; }
+	selected += _updown;
+    if (selected < 0) { selected = array_length(global.upgradeOptions) + istherererolls; }
+    if (selected > array_length(global.upgradeOptions) + istherererolls) { selected = 0; }
 }
 
 #region Anvil
 if (instance_exists(oPlayer) and ANVIL) {
-	if (!anvilconfirm) {
-		if (leftKey) {
-			if (anvilSelected == 0) {
-				anvilSelected = 5;
-			} else anvilSelected -= 1
-		}
-		if (rightKey) {
-			if (anvilSelected < 5) {
-				anvilSelected += 1;
-			} else anvilSelected = 0
-		}
-
-		if (upKey) {
-			if (anvilSelectedCategory == 0) {
-				anvilSelectedCategory = 1;
-			} else  anvilSelectedCategory = 0;
-		}
-		if (downKey) {
-			if (anvilSelectedCategory == 1) {
-				anvilSelectedCategory = 0;
-			} else  anvilSelectedCategory = 1;
-		}
-	}
+	if (anvilconfirm) { return; }
+	anvilSelected += _leftright;
+	if (anvilSelected < 0) { anvilSelected = 5; }
+	if (anvilSelected > 5) { anvilSelected = 0; }
+	anvilSelectedCategory += _updown;
+	if (anvilSelectedCategory < 0) { anvilSelectedCategory = 0; }
+	if (anvilSelectedCategory > 1) { anvilSelectedCategory = 1; }	
 }
 #endregion
 
 if (room == rCharacterSelect) {
-    if (sprindex < sprite_get_number(CHARACTERS[selected][?"sprite"])) {
-		sprindex+=1/10;
+	var _sprspd = sprite_get_speed(CHARACTERS[selectedCharacter][?"sprite"]);
+    if (sprindex < sprite_get_number(CHARACTERS[selectedCharacter][?"sprite"])) {
+		sprindex+= _sprspd / game_get_speed(gamespeed_fps) * Delta;
 	}
 	else sprindex=0;
 }
 
 #region PausedMenu
 if (global.gamePaused and !global.upgrade and !ANVIL and !editOption) {
-	if (upKey)
-	{
-		if (selected == 0)
-		{ 
-			selected = array_length(pauseMenu[activeMenu][PM.Options]) - 1; 
-			maxselected = selected; 
-			} else selected -= 1;
-		}
-	if (downKey)
-	{
-		if (selected < (array_length(pauseMenu[activeMenu][PM.Options])) - 1)
-		{
-			selected += 1; 
-		} 
-		else {selected = 0; maxselected = selected; }
-	}	
-	var maxopt = array_length(pauseMenu[activeMenu][PM.Options]) - 1;
-	if (maxopt > 5) {
-		var newpos = 0;
-		if (leftKey) {
-			newpos = selected - 6;
-			if (newpos < 0) {
-			    selected = 0;
-			}
-			else{
-				selected = newpos;
-			}
-		}
-		if (rightKey) {
-			newpos = selected + 6;
-			if (newpos > maxopt) {
-			    selected = maxopt;
-			}
-			else{
-				selected = newpos;
-			}
-		}
-	}
+	selected += _updown;
+	var _maxopt = array_length(pauseMenu[activeMenu][PM.Options]) - 1;
+	if (selected < 0) { selected = 0; }
+	if (selected > _maxopt) { selected = _maxopt;	}
 }
 #endregion

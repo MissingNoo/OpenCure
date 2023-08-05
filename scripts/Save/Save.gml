@@ -1,6 +1,6 @@
 // Feather disable GM2017
 global.Data = [
-    "holocoins","musicVolume","soundVolume", "damageNumbers", "shopUpgradesJSON", "showhpui", "gamePad", "houseinventory", "unlockableItems", "unlockableWeapons", "unlockableOutfits", "gRanks"
+    "holocoins","musicVolume","soundVolume", "damageNumbers", "shopUpgradesJSON", "showhpui", "gamePad", "houseinventory", "unlockableItems", "unlockableWeapons", "unlockableOutfits", "gRanks", "unlockableCharacters"
     ];
 
 #macro DATA (working_directory + "Save_Data.bin")
@@ -30,6 +30,12 @@ function Load_Data_Structs () {
 		  if (is_string(global.shopUpgradesJSON)) {
 		      global.shopUpgrades = json_parse(global.shopUpgradesJSON);
 		  }  
+		  
+		if(array_length(UnlockableItems) < ItemIds.Length) { UnlockableItems[array_length(UnlockableItems)] = false; }
+		if(array_length(UnlockableWeapons) < Weapons.Length) { UnlockableWeapons[array_length(UnlockableWeapons)] = false; }
+		if(array_length(UnlockableCharacters) < Characters.Lenght) { UnlockableCharacters[array_length(UnlockableCharacters)] = false; }
+		if(array_length(Granks) < Characters.Lenght) { Granks[array_length(Granks)] = 0; }
+		if(array_length(UnlockableOutfits) < Outfits.Length) { UnlockableOutfits[array_length(UnlockableOutfits)] = false; }
      };
     
 function Save_Reserve () { var Data = {};

@@ -35,14 +35,14 @@ if (!onMenu and optionSelected == 1) {
 		}
 		var newselected = selected;
 		if (_up) {
-			newselected -= 7;
+			newselected -= 6;
 		    if (newselected < 0) {
 			    newselected = 0;
 			}
 			selected = newselected;
 		}
 		if (_down) {
-			newselected += 7;
+			newselected += 6;
 			if (newselected >= variable_struct_names_count(global.shopUpgrades)) {
 			    newselected = variable_struct_names_count(global.shopUpgrades) -1;
 			}
