@@ -6,6 +6,9 @@ if (onMenu) {
 	if (optionSelected < 0) { optionSelected = 0; }
 	var _maxOption = array_length(menuOptions) - 1;
 	if (optionSelected > _maxOption) { optionSelected = _maxOption; }	
+	if (input_check_pressed("cancel")) {
+		room_goto(rInicio);
+	}
 	if (input_check_pressed("accept")) {
 	    onMenu = false;
 		if (optionSelected == 3) {

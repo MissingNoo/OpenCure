@@ -39,6 +39,7 @@ if (onMenu) {
 		var _size = (optionSelected == i) ? 2 : 1.80;
 		var _spr = (optionSelected == i) ? 1 : 0;
 		draw_set_color((optionSelected == i) ? c_black : c_white);
+		if (guiClick(_x, _y + _yoffset, sHudButton, _size, 1.80)) { optionSelected = i; }
 	    draw_sprite_ext(sHudButton, _spr, _x, _y + _yoffset, _size, 1.80, 0, c_white, 1);
 		draw_text_transformed(_x, _y + _yoffset, lexicon_text("ShopMenu." + menuOptions[i]), 2, 2, 0);
 		_yoffset += 66;
@@ -65,7 +66,9 @@ if (!onMenu) {
 			if (gachaInteract) {
 				draw_set_valign(fa_middle);
 				draw_set_halign(fa_center);
+				if (guiClick(_x - 102, _y + 103, sHudButton, (gachaButton == 0) ? 1 : 0.8, (gachaButton == 0) ? 2 : 1.30)) { gachaButton = 0; }
 			    draw_sprite_ext(sHudButton, (gachaButton == 0) ? 1 : 0, _x - 102, _y + 103, (gachaButton == 0) ? 1 : 0.8, (gachaButton == 0) ? 2 : 1.30, 0, c_white, 1);
+				if (guiClick(_x + 102, _y + 103, sHudButton, (gachaButton == 0) ? 1 : 0.8, (gachaButton == 0) ? 2 : 1.30)) { gachaButton = 1; }
 			    draw_sprite_ext(sHudButton, (gachaButton == 1) ? 1 : 0, _x + 102, _y + 103, (gachaButton == 1) ? 1 : 0.8, (gachaButton == 1) ? 2 : 1.30, 0, c_white, 1);
 				var _color = (gachaButton == 0) ? c_black : c_white;
 				draw_text_transformed_color(_x - 102, _y + 103, gachaInteractButtons[0], 2, 2, 0, _color, _color, _color, _color, 1);

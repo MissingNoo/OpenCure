@@ -31,9 +31,9 @@ zKey = input_check_pressed("accept");
 xKey = input_check_pressed("cancel");
 eKey = input_check_pressed("action");
 leftKey = input_check_pressed("left");
-if (editOption and button_click(minusButton)) { leftKey = true; }
+if (button_click(minusButton)) { leftKey = true; }
 rightKey = input_check_pressed("right");
-if (editOption and button_click(plusButton)) { rightKey = true; }
+if (button_click(plusButton)) { rightKey = true; }
 upKey = input_check_pressed("up");
 downKey = input_check_pressed("down");
 //feather enable GM1044
@@ -284,6 +284,21 @@ if (room == rCharacterSelect or room == rAchievements) {
 }
 #region Select Character room
 if (room == rCharacterSelect) {
+	if (selectingOutfit) {
+		if (xKey) {
+			selectingOutfit = false;
+			characterSelected = false;
+		}
+		if (zKey) {
+			var _isUnlocked = CHARACTERS[selectedCharacter][?"outfits"][selectedOutfit][$"unlocked"];
+			if (_isUnlocked) {
+			    selectingOutfit = false;
+			    outfitSelected = true;
+				global.selectedOutfit = selectedOutfit;
+			}
+			return;
+		}
+	}
 	if (zKey) {
 		if (stageSelected) {
 			room_goto(stages[0].roomname);
@@ -324,16 +339,8 @@ if (room == rCharacterSelect) {
 			}
 			return;
 		}
-		if (selectingOutfit) {
-			var _isUnlocked = CHARACTERS[selectedCharacter][?"outfits"][selectedOutfit][$"unlocked"];
-			if (_isUnlocked) {
-			    selectingOutfit = false;
-			    outfitSelected = true;
-				global.selectedOutfit = selectedOutfit;
-			}			
-			return;
-		}
 	}
+	
 }
 #endregion
 #region PauseMenu

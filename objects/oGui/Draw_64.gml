@@ -773,6 +773,10 @@ if (os_type == os_android)
 		android_gui_button(plusButton);
 		android_gui_button(minusButton);
 	}
+	if (selectingOutfit) {
+		android_gui_button(plusButton);
+		android_gui_button(minusButton);
+	}
 	if (instance_exists(oHouseManager)) {
 		android_gui_button(houseButton);
 	}

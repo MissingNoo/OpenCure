@@ -184,6 +184,8 @@ function button_click(pos){
 	var result = false;
 	if (point_in_rectangle(oGui.x, oGui.y, pos[0], pos[1], pos[2], pos[3])){
 		result = true;
+		oGui.x = 0;
+		oGui.y = 0;
 	}
 	return result;
 }
