@@ -7,7 +7,15 @@ event_inherited();
 //if (instance_exists(oEvents)) {
 //    draw_text(x,y-100, oEvents.event);
 //}
-draw_sprite_ext(sCharShadow, 0, x, y, 1, 1, 0, c_white, 0.8)
+draw_sprite_ext(sCharShadow, 0, x, y, 1, 1, 0, c_white, 0.8);
+//var max_w = display_get_width();
+//var max_h = display_get_height();
+//var aspect = display_get_width() / display_get_height();
+//draw_text(x,y-90, $"W: {max_w}, H: {max_h}, aspect: {aspect}");
+//max_w = view_wport[0];
+//max_h = view_hport[0];
+//aspect = max_w / max_h;
+//draw_text(x,y-70, $"w: {max_w}, h: {max_h}, aspect: {aspect}");
 if (global.debug) {
 	draw_text(x,y-90, $"healSeconds: {bandageHealSeconds}, haveBandage: {haveBandage}, remaining: {justBandageHealing}");
 	draw_text(x,y-70, $"d: {spd * Delta}");

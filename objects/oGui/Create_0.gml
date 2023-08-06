@@ -1,3 +1,50 @@
+//if (os_type == os_android) {
+//    var base_w = 1280;
+//	var base_h = 720;
+//	var max_w = display_get_width();
+//	var max_h = display_get_height();
+//	var aspect = 0;
+//	var aspect = display_get_width() / display_get_height();
+//	if (max_w < max_h)
+//	    {
+//	    // portait
+//	     var VIEW_WIDTH = min(base_w, max_w);
+//	    var VIEW_HEIGHT = VIEW_WIDTH / aspect;
+//	    }
+//	else
+//	    {
+//	    // landscape
+//	    var VIEW_HEIGHT = min(base_h, max_h);
+//	    var VIEW_WIDTH = VIEW_HEIGHT * aspect;
+//	    }
+//	//var l2 = VIEW_WIDTH/VIEW_HEIGHT;
+//	//l2 = l2 / l2;
+//	//show_message_async($"{VIEW_WIDTH}/{VIEW_HEIGHT}/{VIEW_WIDTH/VIEW_HEIGHT}")
+//	camera_set_view_size(view_camera[0], floor(VIEW_WIDTH), floor(VIEW_HEIGHT))
+//	view_wport[0] = max_w;
+//	view_hport[0] = max_h;
+//	surface_resize(application_surface, view_wport[0], view_hport[0]);
+//	var _check = true;
+//	var _rm = room_next(room);
+//	var  _rprev = _rm;
+
+//	while (_check = true){
+//		var _cam = room_get_camera(_rm, 0);
+//		camera_destroy(_cam);
+//	    var _newcam = camera_create_view((base_w - VIEW_WIDTH) div 2, (base_h - VIEW_HEIGHT) div 2, VIEW_WIDTH, VIEW_HEIGHT);
+//	    room_set_camera(_rm, 0, _newcam);
+//	    room_set_viewport(_rm, 0, true, 0, 0, VIEW_WIDTH, VIEW_HEIGHT);
+//	    room_set_view_enabled(_rm, true);
+//		if _rm = room_last {
+//			_check = false;
+//		}
+//		else {
+//			_rprev = _rm;
+//	        _rm = room_next(_rprev);
+//		}
+//	}
+//}
+//surface_resize(application_surface, base_w, base_h);
 //show_debug_overlay(true, true);
 //dbg_view("Game", true);
 //dbg_section("Player");
@@ -16,7 +63,7 @@ HP = 1;
 androidoffset = 0;
 if (os_type == os_android) {
 	//androidoffset = 4;
-	display_set_gui_size(display_get_width()/1.5, display_get_height()/1.5);
+	//display_set_gui_size(display_get_width()/1.5, display_get_height()/1.5);
 	//window_set_size(display_get_width(),display_get_height());
 	//show_message_async(string(1366) + ":" + string(display_get_width()/1.5) + "=" + string(1366 - (display_get_width()/1.5)))
 	//guiOffset = round((display_get_width()/1.5) - 1366) / 6.50;
@@ -67,12 +114,15 @@ if (os_type == os_android) {
 	    instance_create_depth(0,0,0,oJoystick);
 	}	
 }
-zButton = [GW/1.15, GH/14, GW/1.15 + 120, GH/14 + 45, "Z"];
-xButton = [GW/1.15 - 140, GH/14, GW/1.15 - 140 + 120, GH/14 + 45, "X"];
-pButton = [GW/1.15 - 280, GH/14, GW/1.15 - 280 + 120, GH/14 + 45, "P"];
-plusButton = [GW/1.15 - 420, GH/14, GW/1.15 - 420 + 120, GH/14 + 45, ">"];
-minusButton = [GW/1.15 - 560, GH/14, GW/1.15 - 560 + 120, GH/14 + 45, "<"];
-houseButton = [GW/1.15 - 700, GH/14, GW/1.15 - 700 + 120, GH/14 + 45, "H"];
+//zButton = [GW/1.15, GH/14, GW/1.15 + 120, GH/14 + 45, "Z"];
+startX = GW - 150;
+startY = 0 + 10;
+zButton = [startX,								startY, startX + 120,			 startY + 45, "Z"];
+xButton = [startX - 140,					startY, startX - 140 + 120, startY + 45, "X"];
+pButton = [startX - 280,					startY, startX - 280 + 120, startY + 45, "P"];
+plusButton = [startX - 420,			startY, startX - 420 + 120, startY + 45, ">"];
+minusButton = [startX - 560,		startY, startX - 560 + 120, startY + 45, "<"];
+houseButton = [startX - 700,		startY, startX - 700 + 120, startY + 45, "H"];
 if (os_type == os_android) {
 	zB = input_virtual_create();
 	zB.rectangle(zButton[0], zButton[1], zButton[2], zButton[3]);

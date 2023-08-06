@@ -1,3 +1,39 @@
+function view_set() {
+	if (global.debug) {
+		global.baseW = 1280;
+		global.baseH = 720;
+	if (view_wport[0] > global.baseW and offsetW == 0 and offsetH == 0) {
+		global.baseW = view_wport[0];
+	    offsetW = view_wport[0] - global.baseW;
+	}
+	if (view_wport[0] < global.baseW and offsetW == 0 and offsetH == 0) {
+		global.baseW = view_wport[0];
+	    offsetW = global.baseW - view_wport[0];
+	}
+	if (view_hport[0] > global.baseH and offsetH == 0 and offsetW == 0) {
+		global.baseH = view_hport[0];
+	    offsetH = view_hport[0] - global.baseW;
+	}
+	if (view_hport[0] < global.baseH and offsetH == 0 and offsetW == 0) {
+		global.baseH = view_hport[0];
+	    offsetH = global.baseH - view_hport[0];
+	}
+	view_wport[0] = global.baseW + offsetH;
+	view_hport[0] = global.baseH + offsetW;
+	view_enabled = true;
+	view_visible[0] = true;
+	var xport = 0;
+	var yport = 0;
+	var wport = global.baseW + offsetH;
+	var hport = global.baseH + offsetW;
+	//if (os_type == os_android) {
+	//	wport = display_get_width()/3;
+	//	hport = display_get_height()/3;
+	//	//show_message_async(string(view_wport[0]) + ":" + string(view_hport[0]));
+	//}
+	view_camera[0] = camera_create_view(0, 0, wport, hport, 0, oCam, -1, -1, 400, 250);
+}
+}
 // Feather disable GM2043
 // Feather disable GM1024
 // Feather disable GM2017

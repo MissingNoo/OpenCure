@@ -1,3 +1,14 @@
+if (!done) {
+	var aspect = display_get_width() / display_get_height();
+	var h = view_hport[0];
+	while (view_wport[0] / h < aspect) {
+		h-=.1;
+		view_hport[0] = h;
+	}
+    view_camera[0] = camera_create_view(0, 0, view_wport[0], h, 0, oCam, -1, -1, 400, 250);
+	done = true;
+}
+
 //var xTo, yTo;
 //move_towards_point(mouse_x, mouse_y, 0);
 //xTo=oPlayer.x + lengthdir_x(min(dis, distance_to_point(mouse_x, mouse_y)), direction);

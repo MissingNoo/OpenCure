@@ -1,3 +1,17 @@
+if (os_type == os_android) {
+    startX = GW - 150;
+	startY = 0 + 10;
+	zButton = [startX,								startY, startX + 120,			 startY + 45, "Z"];
+	zB.rectangle(zButton[0], zButton[1], zButton[2], zButton[3]);
+	xButton = [startX - 140,					startY, startX - 140 + 120, startY + 45, "X"];
+	xB.rectangle(xButton[0], xButton[1], xButton[2], xButton[3]);
+	pButton = [startX - 280,					startY, startX - 280 + 120, startY + 45, "P"];
+	pB.rectangle(pButton[0], pButton[1], pButton[2], pButton[3]);
+	plusButton = [startX - 420,			startY, startX - 420 + 120, startY + 45, ">"];
+	minusButton = [startX - 560,		startY, startX - 560 + 120, startY + 45, "<"];
+	houseButton = [startX - 700,		startY, startX - 700 + 120, startY + 45, "H"];
+	hB.rectangle(houseButton[0], houseButton[1], houseButton[2], houseButton[3]);
+}
 #region Misc
 isP=global.gamePaused;
 if (device_mouse_check_button_pressed(0, mb_left)) {
@@ -299,6 +313,14 @@ if (room == rCharacterSelect) {
 			return;
 		}
 	}
+	if (!stageSelected and characterSelected and outfitSelected) {
+		if (xKey) {
+		    characterSelected = false;
+			outfitSelected = false;
+			selectedOutfit = 0;
+			selected = 0;
+		}
+	}
 	if (zKey) {
 		if (stageSelected) {
 			room_goto(stages[0].roomname);
@@ -319,7 +341,7 @@ if (room == rCharacterSelect) {
 					global.mode = "stage";
 					//room_goto(Room1);
 					characterSelected = true;
-					maxOutfits = array_length(CHARACTERS[selectedCharacter][?"outfits"]) - 1;
+					maxOutfits = array_length(CHARACTERS[selectedCharacter][?"outfits"]);
 					var _unlockedOutfits = 0;
 					for (var i = 0; i < maxOutfits; ++i) {
 						if (CHARACTERS[selectedCharacter][?"outfits"][i][$"unlocked"]) {

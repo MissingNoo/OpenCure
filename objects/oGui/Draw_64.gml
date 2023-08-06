@@ -769,11 +769,7 @@ if (os_type == os_android)
 	android_gui_button(zButton);
 	android_gui_button(xButton);
 	android_gui_button(pButton);
-	if (editOption) {
-		android_gui_button(plusButton);
-		android_gui_button(minusButton);
-	}
-	if (selectingOutfit) {
+	if (editOption or selectingOutfit) {
 		android_gui_button(plusButton);
 		android_gui_button(minusButton);
 	}
