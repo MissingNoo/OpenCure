@@ -56,7 +56,7 @@ downKey = input_check_pressed("down");
 #endregion
 #region Pause Menu
 if (activeMenu == PMenus.Pause) { editOption = false; }
-if (xKey and global.gamePaused) {
+if (xKey and global.gamePaused and !ANVIL and !GoldenANVIL) {
 	if (!editOption) {
 		if (activeMenu != PMenus.Pause and room != rInicio) {
 		    activeMenu = PMenus.Pause;
@@ -294,10 +294,27 @@ if (ANVIL) {
 }
 #endregion
 #region Golden Anvil
-if (GoldenANVIL and canCollab) {
-	if (zKey) {
+if (GoldenANVIL) {
+	if (zKey and canCollab) {
 	    UPGRADES[gAnvilWeapon1Position] = global.null;
 	    UPGRADES[gAnvilWeapon2Position] = global.null;
+		for (var i = 0; i < array_length(Collabs); ++i) {
+		    if (is_array(Collabs[i]) and ((Collabs[i][0] == gAnvilWeapon1[$"id"] and Collabs[i][1] == gAnvilWeapon2[$"id"]) or (Collabs[i][0] == gAnvilWeapon2[$"id"] and Collabs[i][1] == gAnvilWeapon1[$"id"]))) {
+				var _n = min(gAnvilWeapon1Position, gAnvilWeapon2Position);
+			    UPGRADES[_n] = WEAPONS_LIST[i][1];
+				UPGRADES[_n][$"materials"] = [];
+				UPGRADES[_n][$"materials"][0] = gAnvilWeapon1;
+				UPGRADES[_n][$"materials"][1] = gAnvilWeapon2;
+				break;
+			}
+		}		
+		GoldenANVIL = false;
+		gAnvilWeapon1 = global.null;
+	    gAnvilWeapon2 = global.null;
+		gAnvilWeapon1Position = 0;
+		gAnvilWeapon2Position = 0;
+		canCollab = false;
+		pause_game();
 		return;
 	}
 	if (xKey) {

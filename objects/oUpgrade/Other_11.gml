@@ -5,6 +5,10 @@ switch (upg[$"id"]) {
 	case Weapons.EliteLavaBucket:{
 		changeSprite=false;
 		break;}
+	case Weapons.MiCometPool:{
+		image_index = 0;
+		sprite_index = sLavaPoolEnd;
+		break;}
 	case Weapons.PlugAsaCoco:{
 		speed = originalspeed;
 		audio_play_sound(choose(snd_tailplug, snd_tailplug2, snd_tailplug3),0,0);

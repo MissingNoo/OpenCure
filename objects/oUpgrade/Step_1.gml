@@ -344,6 +344,26 @@ sprite_index=upg[$"sprite"];
 		case Weapons.XPotato:{
 			direction = irandom_range(0,360);
 			break;}
+		#region Collabs
+		#region MiComet
+		case Weapons.MiComet:{
+			instance_create_layer(x + irandom_range(-200, 200), y + irandom_range(-200, 200), "Upgrades", oUpgrade,{
+					upg : WEAPONS_LIST[Weapons.MiCometMeteor][1],
+					speed : WEAPONS_LIST[Weapons.MiCometMeteor][1][$"speed"],
+					hits : WEAPONS_LIST[Weapons.MiCometMeteor][1][$"hits"],
+					shoots : WEAPONS_LIST[Weapons.MiCometMeteor][1][$"shoots"],
+					sprite_index : WEAPONS_LIST[Weapons.MiCometMeteor][1][$"sprite"],
+					level : WEAPONS_LIST[Weapons.MiCometMeteor][1][$"level"],
+					mindmg: WEAPONS_LIST[Weapons.MiCometMeteor][1][$"mindmg"],
+					maxdmg: WEAPONS_LIST[Weapons.MiCometMeteor][1][$"maxdmg"]
+				});
+			break;}
+		case Weapons.MiCometMeteor:{
+			break;}
+		case Weapons.MiCometPool:{
+			break;}
+		#endregion
+		#endregion
 		#endregion
 	}
 		if (sprite_index==sBlank) {

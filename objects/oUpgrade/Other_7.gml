@@ -57,6 +57,38 @@ switch (upg[$"id"]) {
 	case Weapons.XPotatoExplosion:{
 		    instance_destroy();
 		break;}
+	#region Collabs
+	#region MiComet
+	case Weapons.MiCometMeteor:{
+		if (sprite_index == sMiCometSplash) {
+			instance_create_depth(x, y - (sprite_get_height(WEAPONS_LIST[Weapons.MiCometPool][1][$"sprite"]) * WEAPONS_LIST[Weapons.MiCometPool][1][$"size"]) / 2, depth, oUpgrade,{
+					upg : WEAPONS_LIST[Weapons.MiCometPool][1],
+					speed : WEAPONS_LIST[Weapons.MiCometPool][1][$"speed"],
+					hits : WEAPONS_LIST[Weapons.MiCometPool][1][$"hits"],
+					shoots : WEAPONS_LIST[Weapons.MiCometPool][1][$"shoots"],
+					sprite_index : WEAPONS_LIST[Weapons.MiCometPool][1][$"sprite"],
+					level : WEAPONS_LIST[Weapons.MiCometPool][1][$"level"],
+					mindmg: WEAPONS_LIST[Weapons.MiCometPool][1][$"mindmg"],
+					maxdmg: WEAPONS_LIST[Weapons.MiCometPool][1][$"maxdmg"]
+				});
+			instance_destroy();
+		}
+		if (sprite_index == sMiComet) {
+			image_index = 0;
+		    sprite_index = sMiCometSplash;
+		}
+		break;}
+	case Weapons.MiCometPool:{
+		if (sprite_index == sLavaPoolStart) {
+			image_index = 0;
+		    sprite_index = sLavaPoolLoop;
+		}
+		if (sprite_index == sLavaPoolEnd) {
+			instance_destroy();
+		}
+		break;}
+	#endregion
+	#endregion
     default:
         // code here
         break;

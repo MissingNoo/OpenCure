@@ -15,7 +15,10 @@
     "name": "Upgrades",
     "path": "folders/Objects/Player/Upgrades.yy",
   },
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "oDepthParent",
+    "path": "objects/oDepthParent/oDepthParent.yy",
+  },
   "persistent": false,
   "physicsAngularDamping": 0.1,
   "physicsDensity": 0.5,

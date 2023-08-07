@@ -164,6 +164,7 @@ enum Weapons
 	WamyWater,
 	XPotato,
 	XPotatoExplosion,
+	MiComet,
 	MiCometMeteor,
 	MiCometPool,
 	Shockwave,
@@ -470,6 +471,7 @@ function populate_upgrades(){
 				type : "white",
 				shotType : ShotTypes.Multishot,
 				perk : false,
+				collabWith : Weapons.PsychoAxe
 			});
 	#endregion
 	
@@ -682,7 +684,7 @@ function populate_upgrades(){
 				shotType : ShotTypes.Ranged,
 				afterimage : true,
 				afterimageColor : c_yellow,
-				collabWith : Weapons.BlBook,
+				collabWith : [Weapons.BlBook, Weapons.EliteLavaBucket]
 			});
 	#endregion
 	#region Wamy Water
@@ -765,28 +767,81 @@ function populate_upgrades(){
 	#region Collabs
 	#region MiComet
 	newCreateUpgrade({ 
-				id : Weapons.,
+				id : Weapons.MiComet,
+				collab : true,
 				weight : 0,
-				name : "",
-				maxlevel : 7,
-				sprite : s,
-				thumb : s,
+				name : "MiComet",
+				maxlevel : 1,
+				sprite : sBlank,
+				thumb : sMiCometThumb,
 				mindmg : 0,
 				maxdmg : 0,
-				cooldown : 0,
-				minimumcooldown : 1,
+				cooldown : 60,
+				minimumcooldown : 5,
 				shoots : 1,
 				attackdelay : 0,
-				hits : 0,
+				hits : 99999,
 				hitCooldown : 0, 
-				duration : 0,
+				duration : 100,
 				speed : 0,
 				knockbackDuration : 0,
 				knockbackSpeed : 0,
 				size : 1,
 				canBeHasted : true,
 				type : "white",
-				shotType : ShotTypes.Multishot,
+				shotType : ShotTypes.Ranged,
+				perk : false,
+			});
+	newCreateUpgrade({ 
+				id : Weapons.MiCometMeteor,
+				collab : true,
+				weight : 0,
+				name : "MiComet",
+				maxlevel : 1,
+				sprite : sMiComet,
+				thumb : sMiCometThumb,
+				mindmg : 45,
+				maxdmg : 55,
+				cooldown : 60,
+				minimumcooldown : 5,
+				shoots : 1,
+				attackdelay : 0,
+				hits : 99999,
+				hitCooldown : 60, 
+				duration : 9999,
+				speed : 0,
+				knockbackDuration : 0,
+				knockbackSpeed : 0,
+				size : 2,
+				canBeHasted : true,
+				type : "white",
+				shotType : ShotTypes.Ranged,
+				perk : false,
+			});
+	newCreateUpgrade({ 
+				id : Weapons.MiCometPool,
+				collab : true,
+				weight : 0,
+				name : "MiComet",
+				maxlevel : 1,
+				sprite : sLavaPoolStart,
+				thumb : sMiComet,
+				mindmg : 19,
+				maxdmg : 23,
+				cooldown : 60,
+				minimumcooldown : 5,
+				shoots : 1,
+				attackdelay : 0,
+				hits : 99999,
+				hitCooldown : 15, 
+				duration : 60,
+				speed : 0,
+				knockbackDuration : 0,
+				knockbackSpeed : 0,
+				size : 3,
+				canBeHasted : true,
+				type : "white",
+				shotType : ShotTypes.Ranged,
 				perk : false,
 			});
 	#endregion
@@ -843,6 +898,12 @@ function populate_upgrades(){
 }
 
 #endregion
+#region Collabs
+//global.collabs = array_create(Weapons.Length);
+global.collabs = [];
+#macro Collabs global.collabs
+Collabs[Weapons.MiComet] = [Weapons.EliteLavaBucket, Weapons.PsychoAxe];
+#endregion
 //generate random list of possible upgrades
 function randomUpgrades(){
 	random_set_seed(current_time);
@@ -859,8 +920,8 @@ function randomUpgrades(){
 			// feather disable once GM1041
 			if (UPGRADES[array_length(UPGRADES) -1] == global.null) {
 				for (var i = 0; i < array_length(WEAPONS_LIST); ++i) {
-					if (variable_struct_exists(WEAPONS_LIST[i][1], "unlocked") and !WEAPONS_LIST[i][1][$"unlocked"]) {
-					    break;
+					if (variable_struct_exists(WEAPONS_LIST[i][1], "unlocked") and !WEAPONS_LIST[i][1][$"unlocked"] or variable_struct_exists(WEAPONS_LIST[i][1], "collab")) {
+					    continue;
 					}
 					var maxed = false;
 					var found = false;
@@ -1252,6 +1313,7 @@ function randomUpgrades(){
 		
 	//global.upgradeOptions[3] = global.null;
 	#endregion
+	#endregion
 	//first option
 	//if (variable_struct_exists(global.upgradesAvaliable[Weapons.BounceBall][1], "unlocked") and global.upgradesAvaliable[Weapons.BounceBall][1][$"unlocked"]) {
 	//    global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.BounceBall][1];
@@ -1325,7 +1387,7 @@ function can_collab(){
 			    for (var k = 0; k < array_length(searchFor); ++k) {
 				    if (UPGRADES[j][$"id"] == searchFor[k]) {
 						if (!instance_exists(oGoldenAnvil)) {
-						    instance_create_depth(x, y + 50, depth, oGoldenAnvil);
+						    instance_create_layer(x, y + 50,"Props" , oGoldenAnvil);
 						}
 					}
 				}
@@ -1333,7 +1395,7 @@ function can_collab(){
 			else{
 			    if (UPGRADES[j][$"id"] == searchFor) {
 					if (!instance_exists(oGoldenAnvil)) {
-					    instance_create_depth(x, y + 50, depth, oGoldenAnvil);
+					    instance_create_layer(x, y + 50,"Props" , oGoldenAnvil);
 					}
 				}
 			}

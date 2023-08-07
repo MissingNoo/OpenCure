@@ -108,6 +108,7 @@
     {"name":"Stages","order":16,"path":"folders/Sprites/Stages.yy",},
     {"name":"Tile Sets","order":14,"path":"folders/Tile Sets.yy",},
     {"name":"Timelines","order":19,"path":"folders/Timelines.yy",},
+    {"name":"Collabs","order":44,"path":"folders/Sprites/Powers/Collabs.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"input_gamepad_check_released","order":2,"path":"scripts/input_gamepad_check_released/input_gamepad_check_released.yy",},
@@ -190,6 +191,7 @@
     {"name":"sGorillaPaw","order":5,"path":"sprites/sGorillaPaw/sGorillaPaw.yy",},
     {"name":"sHudShopArea","order":24,"path":"sprites/sHudShopArea/sHudShopArea.yy",},
     {"name":"__input_keyboard_key","order":3,"path":"scripts/__input_keyboard_key/__input_keyboard_key.yy",},
+    {"name":"sMiComet","order":1,"path":"sprites/sMiComet/sMiComet.yy",},
     {"name":"fnt_example","order":6,"path":"fonts/fnt_example/fnt_example.yy",},
     {"name":"test_color_inputs","order":1,"path":"objects/test_color_inputs/test_color_inputs.yy",},
     {"name":"rShop","order":3,"path":"rooms/rShop/rShop.yy",},
@@ -373,6 +375,7 @@
     {"name":"input_check_released","order":2,"path":"scripts/input_check_released/input_check_released.yy",},
     {"name":"__lexicon_throw","order":12,"path":"scripts/__lexicon_throw/__lexicon_throw.yy",},
     {"name":"input_player_swap","order":9,"path":"scripts/input_player_swap/input_player_swap.yy",},
+    {"name":"sMiCometSplash","order":2,"path":"sprites/sMiCometSplash/sMiCometSplash.yy",},
     {"name":"input_player_get_gamepad_type","order":5,"path":"scripts/input_player_get_gamepad_type/input_player_get_gamepad_type.yy",},
     {"name":"sAmeMinWand","order":7,"path":"sprites/sAmeMinWand/sAmeMinWand.yy",},
     {"name":"input_gamepad_map_contains","order":10,"path":"scripts/input_gamepad_map_contains/input_gamepad_map_contains.yy",},
