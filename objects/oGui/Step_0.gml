@@ -1,3 +1,5 @@
+GW = display_get_gui_width();
+GH = display_get_gui_height();
 if (os_type == os_android) {
     startX = GW - 150;
 	startY = 0 + 10;
@@ -289,6 +291,22 @@ if (ANVIL) {
 			}
 		}
 	}
+}
+#endregion
+#region Golden Anvil
+if (GoldenANVIL and canCollab) {
+	if (zKey) {
+	    UPGRADES[gAnvilWeapon1Position] = global.null;
+	    UPGRADES[gAnvilWeapon2Position] = global.null;
+		return;
+	}
+	if (xKey) {
+	    gAnvilWeapon1 = global.null;
+	    gAnvilWeapon2 = global.null;
+		gAnvilWeapon1Position = 0;
+		gAnvilWeapon2Position = 0;
+		canCollab = false;
+	}	
 }
 #endregion
 if (room == rCharacterSelect or room == rAchievements) {

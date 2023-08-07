@@ -3,7 +3,7 @@
   "resourceVersion": "1.0",
   "name": "Android",
   "option_android_application_tag_inject": "",
-  "option_android_arch_arm64": false,
+  "option_android_arch_arm64": true,
   "option_android_arch_armv7": false,
   "option_android_arch_x86_64": true,
   "option_android_attribute_allow_backup": true,

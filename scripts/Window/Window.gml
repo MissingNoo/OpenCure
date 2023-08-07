@@ -1,46 +1,24 @@
-function view_set() {
-	if (global.debug) {
-		global.baseW = 1280;
-		global.baseH = 720;
-	if (view_wport[0] > global.baseW and offsetW == 0 and offsetH == 0) {
-		global.baseW = view_wport[0];
-	    offsetW = view_wport[0] - global.baseW;
+global.guiSet = false;
+function gui_set() {
+	var aspect = display_get_gui_width() / display_get_gui_height();
+	var screenAspect = display_get_width() / display_get_height();
+	var h = display_get_gui_height();
+	while (aspect < screenAspect) {
+		h-=.1;	
+		aspect = display_get_gui_width() / h;
 	}
-	if (view_wport[0] < global.baseW and offsetW == 0 and offsetH == 0) {
-		global.baseW = view_wport[0];
-	    offsetW = global.baseW - view_wport[0];
-	}
-	if (view_hport[0] > global.baseH and offsetH == 0 and offsetW == 0) {
-		global.baseH = view_hport[0];
-	    offsetH = view_hport[0] - global.baseW;
-	}
-	if (view_hport[0] < global.baseH and offsetH == 0 and offsetW == 0) {
-		global.baseH = view_hport[0];
-	    offsetH = global.baseH - view_hport[0];
-	}
-	view_wport[0] = global.baseW + offsetH;
-	view_hport[0] = global.baseH + offsetW;
-	view_enabled = true;
-	view_visible[0] = true;
-	var xport = 0;
-	var yport = 0;
-	var wport = global.baseW + offsetH;
-	var hport = global.baseH + offsetW;
-	//if (os_type == os_android) {
-	//	wport = display_get_width()/3;
-	//	hport = display_get_height()/3;
-	//	//show_message_async(string(view_wport[0]) + ":" + string(view_hport[0]));
-	//}
-	view_camera[0] = camera_create_view(0, 0, wport, hport, 0, oCam, -1, -1, 400, 250);
-}
+	display_set_gui_size(display_get_gui_width(), h);
+	display_set_gui_size(display_get_gui_width()/(aspect/1.5), display_get_gui_height()/(aspect/1.5));
 }
 // Feather disable GM2043
 // Feather disable GM1024
 // Feather disable GM2017
 // Feather disable GM1044
 // Feather disable GM1041
-#macro GW display_get_gui_width()
-#macro GH display_get_gui_height()
+#macro GW global.gw
+
+#macro GH global.gh
+
 function drawWindow(x, y, xx, yy, title, titlesize = 25,titlePos = 15, fontsize = 1, backgroundAlpha = .35){
 	//background
 	draw_set_alpha(backgroundAlpha);
@@ -174,3 +152,13 @@ function mouse_on_button(_x, _y, _sprite, _index, _xscale = 1, _yscale = 1, _var
 		
 }
 
+function draw_set_hvaling(_h, _v){
+	draw_set_valign(_v);
+	draw_set_halign(_h);
+}
+function draw_set_reset(){
+	draw_set_valign(fa_top);
+	draw_set_halign(fa_left);
+	draw_set_color(c_white);
+	draw_set_alpha(1);
+}

@@ -6,6 +6,8 @@
 #macro Bonuses global.bonuses
 #macro PerkBonuses global.perkBonuses
 global.anvil = false;
+global.goldenAnvil = false;
 #macro ANVIL global.anvil
+#macro GoldenANVIL global.goldenAnvil
 #macro Buffs global.buffs
 #macro Delta global.deltaTime

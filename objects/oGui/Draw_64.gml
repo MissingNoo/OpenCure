@@ -13,7 +13,7 @@ if (keyboard_check(vk_alt)) {
 	//feather disable once GM2017
     draw_sprite_ext(bgtest, 0, 0, 0, 1, 1, 0, c_white, .8);
 }
-if (global.upgrade == 1 or global.gamePaused and room != rInicio and HP > 0) {
+if (GoldenANVIL or global.upgrade == 1 or global.gamePaused and room != rInicio and HP > 0) {
 	draw_set_alpha(.75);
 	draw_rectangle_color(0, 0, display_get_gui_width(), display_get_gui_height(), c_black, c_black, c_black, c_black, false); // Darken the screen
 	draw_set_alpha(1)
@@ -474,11 +474,7 @@ if (instance_exists(oPlayer))
 		draw_text_transformed(_x, _y, "UPGRADE!", 5, 5, 0);
 		draw_set_valign(fa_top);
 		draw_set_halign(fa_left);			
-		#region Weapons
-		//for (var i = 0; i < array_length(UPGRADES); ++i) {
-		//	if (!anvilconfirm) { mouseOnButton(GW/2.30 + (GW/12 * i), GH/3, GW/17.50, sItemSquare, 2, 2, array_create(2,0), "anvilSelectedCategory");}
-		//}
-		
+		#region Weapons		
 		var xoffset = 0;
 		var anvilIsSelected = 0;
 		for (var i = 0; i < array_length(UPGRADES); ++i){
@@ -489,6 +485,11 @@ if (instance_exists(oPlayer))
 				anvilIsSelected = 0;
 			}
 			draw_sprite_ext(sItemSquare, anvilIsSelected, GW/2.30 + xoffset, GH/3, 2, 2, 0, c_white, 1);
+			var _sprHalf = (sprite_get_width(sItemSquare) * 2 ) / 2;
+			if (button_click([GW/2.30 - _sprHalf + xoffset, GH/3 - _sprHalf, GW/2.30 + _sprHalf + xoffset, GH/3 + _sprHalf])) {
+			    anvilSelected = i;
+				anvilSelectedCategory = 0;
+			}
 			draw_sprite_ext(UPGRADES[i][$"thumb"], 0, GW/2.30 + xoffset, GH/3, 2, 2, 0, c_white, 1);
 			xoffset += GW/12;
 		}
@@ -504,6 +505,11 @@ if (instance_exists(oPlayer))
 			}
 			var _alpha = (playerItems[i][$"level"] < playerItems[i][$"maxlevel"]) ? 1 : 0.5;
 			draw_sprite_ext(sItemSquare, anvilIsSelected, GW/2.30 + xoffset, GH/2.30, 2, 2, 0, c_white, 1);
+			var _sprHalf = (sprite_get_width(sItemSquare) * 2 ) / 2;
+			if (button_click([GW/2.30 - _sprHalf + xoffset, GH/2.30 - _sprHalf, GW/2.30 + _sprHalf + xoffset, GH/2.30 + _sprHalf])) {
+			    anvilSelected = i;
+				anvilSelectedCategory = 1;
+			}
 			draw_sprite_ext(playerItems[i][$"thumb"], 0, GW/2.30 + xoffset, GH/2.30, 2, 2, 0, c_white, _alpha);
 			xoffset += GW/12;
 		}
@@ -525,6 +531,7 @@ if (instance_exists(oPlayer))
 		}
 		var level = selectedThing[$"level"];
 		var maxlevel = selectedThing[$"maxlevel"];
+		draw_set_valign(fa_top);
 		draw_text_transformed(_xx - 385, _yy - 59.50 , _name, 1, 1, 0); // draw the name
 		draw_set_color(c_yellow);
 		if (level < maxlevel) {
@@ -567,12 +574,13 @@ if (instance_exists(oPlayer))
 			}
 		}
 		else {
+			draw_set_valign(fa_middle);
 			if (!upgradeconfirm) {
 				var _tx = GW/1.53;
 				var _ty = GH/1.31;
 				draw_sprite_ext(sHudButton, 1, _tx, _ty, 1.5, 1.5, 0, c_white, 1);
 				draw_set_halign(fa_center);
-				//draw_set_valign(fa_center);						
+				//draw_set_valign(fa_center);
 				draw_text_transformed_color(_tx, _ty, "Upgrade", 2,2,0,c_black,c_black,c_black,c_black, 1);
 				draw_set_valign(fa_top);
 				draw_set_halign(fa_left);
@@ -591,6 +599,7 @@ if (instance_exists(oPlayer))
 					}
 				}
 				if (_chance < 10) {_chance=10;}
+				draw_set_valign(fa_middle);
 				draw_text_transformed_color(_tx, _ty - 40, string("Sucess Rate: {0}%", _chance), 2,2,0,c_white,c_white,c_white,c_white, 1);
 				var _confirmstring = string("Cost: {0} to UPGRADE", _coinValue);
 				draw_sprite_ext(sHudButton, 1, _tx, _ty, 2, 1.5, 0, c_white, 1);
@@ -615,10 +624,76 @@ if (instance_exists(oPlayer))
 			}
 		}
 		#endregion
+		draw_set_valign(fa_top);
+		draw_set_halign(fa_left);
 		drawStats();
+		draw_set_valign(fa_top);
+		draw_set_halign(fa_left);
 	}
 	#endregion
-	
+	#region Golden Anvil
+	if (GoldenANVIL) {
+		_x = GW/2;
+		_y = GH/2;
+		var _down = 150;
+		var _distance = 90;
+		var _offset = 0;
+		var _sprHalf = (sprite_get_width(sItemSquare) * 2 ) / 2;
+		for (var i = 1; i < array_length(UPGRADES); ++i) {
+			var _isSelected = (anvilSelected == i) ? true : false;
+		    draw_sprite_ext(sItemSquare, _isSelected, _x + _offset, _y, 2, 2, 0, c_white, 1);
+			var _alpha = (gAnvilWeapon1 == UPGRADES[i] or gAnvilWeapon2 == UPGRADES[i]) ? 0.5 : 1;
+		    draw_sprite_ext(UPGRADES[i][$"thumb"], 0, _x + _offset, _y, 2, 2, 0, c_white, _alpha);
+			if (button_click([_x - _sprHalf + _offset, _y - _sprHalf, _x + _sprHalf + _offset, _y + _sprHalf])) {
+				anvilSelected = i;
+				if (gAnvilWeapon1 == global.null and gAnvilWeapon2 != UPGRADES[anvilSelected]) {
+				    gAnvilWeapon1 = UPGRADES[anvilSelected];
+				    gAnvilWeapon1Position = anvilSelected;
+					return;
+				}
+				if (gAnvilWeapon2 == global.null and gAnvilWeapon1 != UPGRADES[anvilSelected]) {
+				    gAnvilWeapon2 = UPGRADES[anvilSelected];
+					gAnvilWeapon2Position = anvilSelected;
+					return;
+				}
+			}
+			if (i == 3) {
+				draw_set_hvaling(fa_center, fa_middle);
+			    draw_text_transformed(_x + _offset, _y + _down, "+", 4, 4, 0);
+				
+				draw_sprite_ext(sItemSquare, 0, _x + _offset - _distance, _y + _down, 2, 2, 0, c_white, 1);
+				draw_sprite_ext(gAnvilWeapon1[$"thumb"], 0, _x + _offset - _distance, _y + _down, 2, 2, 0, c_white, 1);
+				if (button_click([_x - _sprHalf + _offset - _distance, _y - _sprHalf + _down, _x + _sprHalf + _offset - _distance, _y + _sprHalf + _down])) {
+					gAnvilWeapon1 = global.null;
+				}
+				
+				draw_sprite_ext(sItemSquare, 0, _x + _offset + _distance, _y + _down, 2, 2, 0, c_white, 1);
+				draw_sprite_ext(gAnvilWeapon2[$"thumb"], 0, _x + _offset + _distance, _y + _down, 2, 2, 0, c_white, 1);
+				if (button_click([_x - _sprHalf + _offset + _distance, _y - _sprHalf + _down, _x + _sprHalf + _offset + _distance, _y + _sprHalf + _down])) {
+					gAnvilWeapon2 = global.null;
+				}
+				canCollab = false;
+				if (is_array(gAnvilWeapon1[$"collabWith"])) {
+				    if (array_contains(gAnvilWeapon1[$"collabWith"], gAnvilWeapon2[$"id"])) {
+					    canCollab = true;
+					}
+				}
+				else{
+					if (gAnvilWeapon1[$"collabWith"] == gAnvilWeapon2[$"id"]) {
+					    canCollab = true;
+					}
+				}
+				if (canCollab) {
+				    draw_sprite_ext(sHudButton, 1, _x + _offset, _y + (_down + 70), 1, 1.5, 0, c_white, 1);
+					draw_text_transformed_color(_x + _offset, _y + (_down + 70), "COLLAB!", 2, 2, 0, c_black, c_black, c_black, c_black, 1);
+				}
+				
+				draw_set_reset();
+			}
+			_offset += 90;
+		}
+	}
+	#endregion
 	#region Timer
 	var time = string(global.minutes) + ":" + string(string_format(global.seconds,2,0));
 	draw_text_transformed(GW/2-(string_width(time)/2),35,time,1,1,0);
@@ -648,7 +723,7 @@ if (instance_exists(oPlayer))
 }
 #endregion
 #region PauseMenu
-if (global.gamePaused and !global.upgrade and !ANVIL and HP > 0 and !instance_exists(oGameOver)) {
+if (global.gamePaused and !global.upgrade and !ANVIL and !GoldenANVIL and HP > 0 and !instance_exists(oGameOver)) {
 	draw_set_halign(fa_left);
 	if (instance_exists(oPlayer) and activeMenu == PMenus.Pause) { drawStats(); }
 	var startOption = 0;

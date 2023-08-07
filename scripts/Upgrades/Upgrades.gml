@@ -1,5 +1,3 @@
-// Feather disable GM2017
-
 #region model
 //newCreateUpgrade({ 
 //				id : Weapons.,
@@ -27,8 +25,6 @@
 //				perk : false,
 //			});
 #endregion
-
-
 #macro UPGRADES global.upgrades
 global.upgrade = false;
 global.upgradeCooldown[0] = 0;
@@ -88,11 +84,12 @@ function newCreateUpgrade(_data, _sounds = ""){
 		variable_struct_set(m, "level" ,i);
 		//variable_struct_set(m, "desc", lexicon_text("Weapons." + _data.name + "." + string(i)));
 		variable_struct_set(m, "style", ItemTypes.Weapon);
+		variable_struct_set(m, "collabWith", _data[$"collabWith"]);
 		var keys = variable_struct_get_names(_data);
 		//show_message(keys);
 		for (var j = array_length(keys)-1; j >= 0; --j) {
 		    var k = keys[j];
-			//if (k == "desc") { break; }
+			if (k == "collabWith") { continue; }
 		    var v = _data[$ k];
 			if (is_array(v)) {
 			    if (array_length(v) > 1) {
@@ -167,11 +164,14 @@ enum Weapons
 	WamyWater,
 	XPotato,
 	XPotatoExplosion,
+	MiCometMeteor,
+	MiCometPool,
 	Shockwave,
 	PipiPilstol,
 	HeavyArtillery,
 	Length
 }
+
 function populate_upgrades(){
 	#region Character Perks
 		#region Amelia Perks
@@ -330,6 +330,7 @@ function populate_upgrades(){
 				afterimageColor : c_red,
 				shotType : ShotTypes.Multishot,
 				perk : false,
+				collabWith : Weapons.PsychoAxe,
 			});
 	#endregion
 	
@@ -411,6 +412,7 @@ function populate_upgrades(){
 				knockbackDuration : 10,
 				shotType : ShotTypes.Ranged,
 				perk : false,
+				collabWith : Weapons.PlugAsaCoco
 			});
 	#endregion
 	
@@ -523,6 +525,7 @@ function populate_upgrades(){
 				knockbackDuration : 0,
 				shotType : ShotTypes.Multishot,
 				perk : false,
+				collabWith : Weapons.PlugAsaCoco
 			});
 		//Damage: 	170% (12 – 22)
 		//Attack time: 	120 (2 s)
@@ -569,6 +572,7 @@ function populate_upgrades(){
 				afterimage : true,
 				afterimageColor : c_yellow,
 				perk : false,
+				collabWith :[Weapons.FanBeam, Weapons.HoloBomb] 
 			});
 	#endregion
 		
@@ -678,6 +682,7 @@ function populate_upgrades(){
 				shotType : ShotTypes.Ranged,
 				afterimage : true,
 				afterimageColor : c_yellow,
+				collabWith : Weapons.BlBook,
 			});
 	#endregion
 	#region Wamy Water
@@ -756,6 +761,36 @@ function populate_upgrades(){
 				perk : true,
 				characterid : Characters.Lenght
 			});
+	
+	#region Collabs
+	#region MiComet
+	newCreateUpgrade({ 
+				id : Weapons.,
+				weight : 0,
+				name : "",
+				maxlevel : 7,
+				sprite : s,
+				thumb : s,
+				mindmg : 0,
+				maxdmg : 0,
+				cooldown : 0,
+				minimumcooldown : 1,
+				shoots : 1,
+				attackdelay : 0,
+				hits : 0,
+				hitCooldown : 0, 
+				duration : 0,
+				speed : 0,
+				knockbackDuration : 0,
+				knockbackSpeed : 0,
+				size : 1,
+				canBeHasted : true,
+				type : "white",
+				shotType : ShotTypes.Multishot,
+				perk : false,
+			});
+	#endregion
+	#endregion
 	
 	#region Modded
 	#region Pipkin Pippa
@@ -1275,4 +1310,33 @@ function spawnUpgrade(_upg = upg, _speed = upg[$"speed"], _hits = upg[$"hits"], 
 					arrowDir : _arrowDir
 				});
 		return instancecreated;
+}
+	
+function can_collab(){
+	totalWeapons = array_length(UPGRADES);
+	for (var i = 0; i < totalWeapons; ++i) {
+		if (UPGRADES[i][$"level"] < UPGRADES[i][$"maxlevel"]) { continue; }
+		if (!variable_struct_exists(UPGRADES[i], "collabWith")) { continue; }
+		var currentId = UPGRADES[i][$"id"];
+		var searchFor = UPGRADES[i][$"collabWith"];
+		for (var j = 0; j < totalWeapons; ++j) {
+			if (UPGRADES[j][$"level"] < UPGRADES[j][$"maxlevel"]) { continue; }
+			if (is_array(searchFor)) {
+			    for (var k = 0; k < array_length(searchFor); ++k) {
+				    if (UPGRADES[j][$"id"] == searchFor[k]) {
+						if (!instance_exists(oGoldenAnvil)) {
+						    instance_create_depth(x, y + 50, depth, oGoldenAnvil);
+						}
+					}
+				}
+			}
+			else{
+			    if (UPGRADES[j][$"id"] == searchFor) {
+					if (!instance_exists(oGoldenAnvil)) {
+					    instance_create_depth(x, y + 50, depth, oGoldenAnvil);
+					}
+				}
+			}
+		}
+	}	
 }

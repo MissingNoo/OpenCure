@@ -1,3 +1,16 @@
+gAnvilWeapon1 = global.null;
+gAnvilWeapon2 = global.null;
+gAnvilWeapon1Position = 0;
+gAnvilWeapon2Position = 0;
+canCollab = false;
+GW = display_get_gui_width();
+GH = display_get_gui_height();
+if (os_type == os_android and !global.guiSet) {
+    gui_set();
+	GW = display_get_gui_width();
+	GH = display_get_gui_height();
+	global.guiSet = true;
+}
 //if (os_type == os_android) {
 //    var base_w = 1280;
 //	var base_h = 720;
