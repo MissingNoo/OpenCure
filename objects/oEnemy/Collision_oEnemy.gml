@@ -29,7 +29,7 @@ switch (pattern) {
         canCollide = true;
         break;
 }
-if (canwalk and canCollide) {
+if (canwalk and canCollide and other.pattern == pattern) {
 	//if (pattern == Patterns.Cluster and other.pattern == Patterns.Cluster or pattern != Patterns.Cluster and other.pattern != Patterns.Cluster ) {
 		var _push = .5;
 

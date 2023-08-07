@@ -921,7 +921,7 @@ function randomUpgrades(){
 			if (UPGRADES[array_length(UPGRADES) -1] == global.null) {
 				for (var i = 0; i < array_length(WEAPONS_LIST); ++i) {
 					if (variable_struct_exists(WEAPONS_LIST[i][1], "unlocked") and !WEAPONS_LIST[i][1][$"unlocked"] or variable_struct_exists(WEAPONS_LIST[i][1], "collab")) {
-					    continue;
+					    break;
 					}
 					var maxed = false;
 					var found = false;

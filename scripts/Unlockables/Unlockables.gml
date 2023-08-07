@@ -3,9 +3,9 @@
 #macro UnlockableOutfits global.unlockableOutfits
 #macro UnlockableCharacters global.unlockableCharacters
 #macro Granks global.gRanks
-UnlockableItems = array_create(ItemIds.Length, false);
-UnlockableWeapons = array_create(Weapons.Length, false);
-UnlockableCharacters = array_create(Characters.Lenght, false);
+UnlockableItems = array_create(ItemIds.Length, true);
+UnlockableWeapons = array_create(Weapons.Length, true);
+UnlockableCharacters = array_create(Characters.Lenght, true);//TODO: change back to false when archievements unlock things
 Granks = array_create(Characters.Lenght, 0);
 function load_unlocked(){
 	for (var i = 0; i < ItemIds.Length; ++i) {

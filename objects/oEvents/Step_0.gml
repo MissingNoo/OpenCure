@@ -1,4 +1,8 @@
 //feather disable GM2017
+if (keyboard_check_pressed(vk_home) and global.debug) {
+	Minutes = 9;
+	Seconds = 58;
+}
 if (event == false and time_source_get_state(_time_source) == time_source_state_stopped) {
     time_source_reset(_time_source);
 	time_source_start(_time_source);
@@ -323,10 +327,6 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 		remove_enemy_from_pool(Enemies.SwarmingKingKronie);
 		remove_enemy_from_pool(Enemies.SwarmingOvergrownSapling);
 	}
-if (keyboard_check_pressed(vk_home)) {
-	Minutes = 22;
-	Seconds = 58;
-}
 	if (_seconds == 0 and Minutes == 23 and event) {
 		event = false;
 		//alarm[0] = 60;	

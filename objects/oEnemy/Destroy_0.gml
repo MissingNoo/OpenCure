@@ -68,3 +68,6 @@ if (irandom_range(1,range) == 1) {
 if (irandom_range(1,3000) == 1) {
     //TODO: code here for exp magnet
 }
+if (thisEnemy == Enemies.FubuZilla) {
+    Achievements[AchievementIds.FuburaIsComing][$"unlocked"] = true;
+}
