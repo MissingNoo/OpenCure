@@ -834,7 +834,7 @@ function populate_upgrades(){
 				attackdelay : 0,
 				hits : 99999,
 				hitCooldown : 15, 
-				duration : 60,
+				duration : 120,
 				speed : 0,
 				knockbackDuration : 0,
 				knockbackSpeed : 0,

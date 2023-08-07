@@ -1,3 +1,4 @@
+summoned = false;
 dAlarm = array_create(11, -1);
 idolStartX = 0;
 gotpaused = false;
