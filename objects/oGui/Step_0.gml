@@ -307,7 +307,14 @@ if (GoldenANVIL) {
 				UPGRADES[_n][$"materials"][1] = gAnvilWeapon2;
 				break;
 			}
-		}		
+		}	
+		for (var i = 0; i < array_length(UPGRADES) - 1; ++i) {
+		    if (UPGRADES[i] == global.null and UPGRADES[i+1] != global.null) {
+			    UPGRADES[i] = UPGRADES[i + 1];
+			    UPGRADES[i + 1] = global.null;
+				i=0;
+			}
+		}
 		GoldenANVIL = false;
 		gAnvilWeapon1 = global.null;
 	    gAnvilWeapon2 = global.null;

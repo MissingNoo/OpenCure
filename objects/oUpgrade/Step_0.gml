@@ -10,6 +10,35 @@ if (socket == oPlayer.socket) {
 }
 #region Connected to Character
 if (!global.gamePaused) {
+	if (subImg < maxImg and sprReset) {
+	    subImg += sprSpeed / game_get_speed(sprSpeedType) * Delta;
+		if (subImg > maxImg) {
+		    subImg = maxImg;
+			event_perform(ev_other, ev_animation_end);
+		}
+	}
+	#region broadcasts
+	switch (upg[$"id"]) {
+	    case Weapons.MiCometMeteor:
+	        if (floor(subImg) == 2 and !summoned) {
+			    summoned = true;
+				instance_create_depth(x, y - (sprite_get_height(WEAPONS_LIST[Weapons.MiCometPool][1][$"sprite"]) * WEAPONS_LIST[Weapons.MiCometPool][1][$"size"]) / 2, depth, oUpgrade,{
+					upg : WEAPONS_LIST[Weapons.MiCometPool][1],
+					speed : WEAPONS_LIST[Weapons.MiCometPool][1][$"speed"],
+					hits : WEAPONS_LIST[Weapons.MiCometPool][1][$"hits"],
+					shoots : WEAPONS_LIST[Weapons.MiCometPool][1][$"shoots"],
+					sprite_index : WEAPONS_LIST[Weapons.MiCometPool][1][$"sprite"],
+					level : WEAPONS_LIST[Weapons.MiCometPool][1][$"level"],
+					mindmg: WEAPONS_LIST[Weapons.MiCometPool][1][$"mindmg"],
+					maxdmg: WEAPONS_LIST[Weapons.MiCometPool][1][$"maxdmg"]
+				});
+			}
+	        break;
+	    default:
+	        // code here
+	        break;
+	}
+	#endregion
 	for (var i = 0; i < array_length(dAlarm); ++i) {
 	    if (dAlarm[i] != -1) {
 		    dAlarm[i] -= 1 * Delta;
@@ -29,7 +58,7 @@ if (!global.gamePaused) {
 		afterimagecount = 0;
 		array_push(afterimage[0],x);
 		array_push(afterimage[1],y);
-		array_push(afterimage[2],image_index);
+		array_push(afterimage[2],round(subImg));
 		if (array_length(afterimage[0]) > 4) {
 		    array_shift(afterimage[0]);
 		    array_shift(afterimage[1]);

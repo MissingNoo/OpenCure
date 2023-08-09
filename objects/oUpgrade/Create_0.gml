@@ -1,3 +1,8 @@
+subImg=0;
+maxImg = 0;
+sprSpeed = 0;
+sprSpeedType = gamespeed_fps
+sprReset = true;
 summoned = false;
 dAlarm = array_create(11, -1);
 idolStartX = 0;

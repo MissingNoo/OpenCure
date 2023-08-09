@@ -1,3 +1,6 @@
+maxImg = sprite_get_number(sprite_index);
+sprSpeed = sprite_get_speed(sprite_index);
+sprSpeedType = sprite_get_speed_type(sprite_index);
 //if (instance_number(oEnemy) == 0) {
 //    instance_destroy();
 //}
@@ -41,8 +44,10 @@ if (shoots > 1) {
 		dAlarm[0] = 1;
 	}
 }
-if (keyboard_check(ord("C"))) {show_message(UPGRADES[0][$"bonusDamage"])};
 sprite_index=upg[$"sprite"];
+subImg = 0;
+image_index = 0;
+image_speed = 0;
 
 
 	var randomEnemy;
@@ -56,7 +61,7 @@ sprite_index=upg[$"sprite"];
 	global.upgradeCooldown[upg[$"id"]] = upg[$"cooldown"];
 	dAlarm[1] = upg[$"duration"];
 	image_speed=1;
-	image_alpha=1;		
+	image_alpha=1;
 	a=1;
 	//if (shoots > 0) {
 	//    show_debug_message("Spawned: " + string(upg[$"id"]) + " Name: " + upg[$"name"] + " Level: " + string(upg[$"level"]) + " shoots: " + string(shoots) + " cooldown: " + string(upg[$"cooldown"]) );

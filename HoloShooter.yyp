@@ -117,6 +117,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"AmePistol","folderPath":"folders/Sprites/Powers/CharacterPerks/AmePistol.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"GuraTrident","folderPath":"folders/Sprites/Powers/CharacterPerks/GuraTrident.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"InaTentacle","folderPath":"folders/Sprites/Powers/CharacterPerks/InaTentacle.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Collabs","folderPath":"folders/Sprites/Powers/Collabs.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Shop","folderPath":"folders/Sprites/Shop.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Gacha","folderPath":"folders/Sprites/Shop/Gacha.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"icons","folderPath":"folders/Sprites/Shop/icons.yy",},
@@ -124,7 +125,6 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Stages","folderPath":"folders/Sprites/Stages.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tile Sets","folderPath":"folders/Tile Sets.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Timelines","folderPath":"folders/Timelines.yy",},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Collabs","folderPath":"folders/Sprites/Powers/Collabs.yy",},
   ],
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"blocks-16bit.ttf","CopyToMask":-1,"filePath":"datafiles",},

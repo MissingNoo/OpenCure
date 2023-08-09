@@ -6,7 +6,7 @@ switch (upg[$"id"]) {
 		changeSprite=false;
 		break;}
 	case Weapons.MiCometPool:{
-		image_index = 0;
+		subImg = 0;
 		sprite_index = sLavaPoolEnd;
 		break;}
 	case Weapons.PlugAsaCoco:{

@@ -101,6 +101,7 @@
     {"name":"CharacterPerks","order":6,"path":"folders/Sprites/Powers/CharacterPerks.yy",},
     {"name":"GuraTrident","order":1,"path":"folders/Sprites/Powers/CharacterPerks/GuraTrident.yy",},
     {"name":"InaTentacle","order":2,"path":"folders/Sprites/Powers/CharacterPerks/InaTentacle.yy",},
+    {"name":"Collabs","order":44,"path":"folders/Sprites/Powers/Collabs.yy",},
     {"name":"Shop","order":11,"path":"folders/Sprites/Shop.yy",},
     {"name":"Gacha","order":6,"path":"folders/Sprites/Shop/Gacha.yy",},
     {"name":"icons","order":2,"path":"folders/Sprites/Shop/icons.yy",},
@@ -108,7 +109,6 @@
     {"name":"Stages","order":16,"path":"folders/Sprites/Stages.yy",},
     {"name":"Tile Sets","order":14,"path":"folders/Tile Sets.yy",},
     {"name":"Timelines","order":19,"path":"folders/Timelines.yy",},
-    {"name":"Collabs","order":44,"path":"folders/Sprites/Powers/Collabs.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"input_gamepad_check_released","order":2,"path":"scripts/input_gamepad_check_released/input_gamepad_check_released.yy",},

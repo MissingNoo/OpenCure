@@ -13,7 +13,7 @@ if (variable_struct_exists(upg, "afterimage") and upg[$"afterimage"] and image_a
 
 
 if (upg[$"id"] != Weapons.SpiderCooking) {
-    draw_self();
+	draw_sprite_ext(sprite_index, subImg, x, y, image_xscale, image_yscale, image_angle, c_white, image_alpha);
 }
 else{
 	//image_xscale = image_yscale;
@@ -37,6 +37,7 @@ if (global.debug) {
 	draw_text(x,y-50, string(image_xscale));
 	draw_text(x,y-70, string(image_yscale));
 	draw_text(x,y-90, string(shoots));
+	draw_text(x,y-110, string($"{subImg}/{maxImg}"));
 }		
 //		break
 //}

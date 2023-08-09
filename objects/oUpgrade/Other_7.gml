@@ -12,7 +12,7 @@ switch (upg[$"id"]) {
 		break;
 	case Weapons.EliteLavaBucket:{
 		if (sprite_index == sLavaPoolStart) {
-			image_index = 0;
+			subImg = 0;
 		    sprite_index = sLavaPoolLoop;			
 			changeSprite= true;
 			dAlarm[1]=upg[$"duration"] * 0.25;
@@ -21,7 +21,7 @@ switch (upg[$"id"]) {
 			changeSprite=true;
 			dAlarm[1]=2;
 		    if (loops > 0) {
-				image_index = 0;
+				subImg = 0;
 			    sprite_index = sLavaPoolEnd;
 			}
 			else loops += 1;
@@ -74,13 +74,16 @@ switch (upg[$"id"]) {
 			instance_destroy();
 		}
 		if (sprite_index == sMiComet) {
-			image_index = 0;
+			subImg = 0;
 		    sprite_index = sMiCometSplash;
 		}
 		break;}
 	case Weapons.MiCometPool:{
+		if (sprite_index == sLavaPoolLoop) {
+		    subImg = 0;
+		}
 		if (sprite_index == sLavaPoolStart) {
-			image_index = 0;
+			subImg = 0;
 		    sprite_index = sLavaPoolLoop;
 		}
 		if (sprite_index == sLavaPoolEnd) {
@@ -90,8 +93,9 @@ switch (upg[$"id"]) {
 	#endregion
 	#endregion
     default:
-        // code here
+        subImg = 0;
         break;
 }
-
-
+maxImg = sprite_get_number(sprite_index);
+sprSpeed = sprite_get_speed(sprite_index);
+sprSpeedType = sprite_get_speed_type(sprite_index);

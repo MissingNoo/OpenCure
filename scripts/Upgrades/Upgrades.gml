@@ -920,7 +920,7 @@ function randomUpgrades(){
 			// feather disable once GM1041
 			if (UPGRADES[array_length(UPGRADES) -1] == global.null) {
 				for (var i = 0; i < array_length(WEAPONS_LIST); ++i) {
-					if (variable_struct_exists(WEAPONS_LIST[i][1], "unlocked") and !WEAPONS_LIST[i][1][$"unlocked"] or variable_struct_exists(WEAPONS_LIST[i][1], "collab")) {
+					if ((variable_struct_exists(WEAPONS_LIST[i][1], "unlocked") and !WEAPONS_LIST[i][1][$"unlocked"]) or variable_struct_exists(WEAPONS_LIST[i][1], "collab")) {
 					    break;
 					}
 					var maxed = false;
