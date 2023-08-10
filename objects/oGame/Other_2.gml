@@ -163,6 +163,7 @@ global.holocoins ??= 0;
 randomize();
 populate_items();
 populate_upgrades();
+populate_collabs();
 populate_characters();
 populate_perks();
 populate_specials();

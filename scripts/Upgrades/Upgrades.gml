@@ -84,12 +84,12 @@ function newCreateUpgrade(_data, _sounds = ""){
 		variable_struct_set(m, "level" ,i);
 		//variable_struct_set(m, "desc", lexicon_text("Weapons." + _data.name + "." + string(i)));
 		variable_struct_set(m, "style", ItemTypes.Weapon);
-		variable_struct_set(m, "collabWith", _data[$"collabWith"]);
+		//variable_struct_set(m, "collabWith", _data[$"collabWith"]);
 		var keys = variable_struct_get_names(_data);
 		//show_message(keys);
 		for (var j = array_length(keys)-1; j >= 0; --j) {
 		    var k = keys[j];
-			if (k == "collabWith") { continue; }
+			//if (k == "collabWith") { continue; }
 		    var v = _data[$ k];
 			if (is_array(v)) {
 			    if (array_length(v) > 1) {
@@ -331,7 +331,7 @@ function populate_upgrades(){
 				afterimageColor : c_red,
 				shotType : ShotTypes.Multishot,
 				perk : false,
-				collabWith : Weapons.PsychoAxe,
+				//collabWith : Weapons.PsychoAxe,
 			});
 	#endregion
 	
@@ -413,7 +413,7 @@ function populate_upgrades(){
 				knockbackDuration : 10,
 				shotType : ShotTypes.Ranged,
 				perk : false,
-				collabWith : Weapons.PlugAsaCoco
+				//collabWith : Weapons.PlugAsaCoco
 			});
 	#endregion
 	
@@ -471,7 +471,7 @@ function populate_upgrades(){
 				type : "white",
 				shotType : ShotTypes.Multishot,
 				perk : false,
-				collabWith : Weapons.PsychoAxe
+				//collabWith : Weapons.PsychoAxe
 			});
 	#endregion
 	
@@ -527,7 +527,7 @@ function populate_upgrades(){
 				knockbackDuration : 0,
 				shotType : ShotTypes.Multishot,
 				perk : false,
-				collabWith : Weapons.PlugAsaCoco
+				//collabWith : Weapons.PlugAsaCoco
 			});
 		//Damage: 	170% (12 – 22)
 		//Attack time: 	120 (2 s)
@@ -574,7 +574,7 @@ function populate_upgrades(){
 				afterimage : true,
 				afterimageColor : c_yellow,
 				perk : false,
-				collabWith :[Weapons.FanBeam, Weapons.HoloBomb] 
+				//collabWith :[Weapons.FanBeam, Weapons.HoloBomb] 
 			});
 	#endregion
 		
@@ -684,7 +684,7 @@ function populate_upgrades(){
 				shotType : ShotTypes.Ranged,
 				afterimage : true,
 				afterimageColor : c_yellow,
-				collabWith : [Weapons.BlBook, Weapons.EliteLavaBucket]
+				//collabWith : [Weapons.BlBook, Weapons.EliteLavaBucket]
 			});
 	#endregion
 	#region Wamy Water
@@ -903,6 +903,22 @@ function populate_upgrades(){
 global.collabs = [];
 #macro Collabs global.collabs
 Collabs[Weapons.MiComet] = [Weapons.EliteLavaBucket, Weapons.PsychoAxe];
+function populate_collabs(){
+	for (var i = 0; i < array_length(Collabs); ++i) {
+	    if (is_array(Collabs[i])) {
+			for (var j = 1; j < array_length(WEAPONS_LIST[Collabs[i][0]]); ++j) {
+				if (!variable_struct_exists(WEAPONS_LIST[Collabs[i][0]][j], "collabWith")) { WEAPONS_LIST[Collabs[i][0]][j][$"collabWith"] = []; }
+				if (!is_array(WEAPONS_LIST[Collabs[i][0]][j][$"collabWith"])) { WEAPONS_LIST[Collabs[i][0]][j][$"collabWith"] = []; }
+				array_push(WEAPONS_LIST[Collabs[i][0]][j][$"collabWith"], Collabs[i][1]);   
+			}
+			for (var j = 1; j < array_length(WEAPONS_LIST[Collabs[i][1]]); ++j) {
+				if (!variable_struct_exists(WEAPONS_LIST[Collabs[i][1]][j], "collabWith")) { WEAPONS_LIST[Collabs[i][1]][j][$"collabWith"] = []; }
+				if (!is_array(WEAPONS_LIST[Collabs[i][1]][j][$"collabWith"])) { WEAPONS_LIST[Collabs[i][1]][j][$"collabWith"] = []; }
+				array_push(WEAPONS_LIST[Collabs[i][1]][j][$"collabWith"], Collabs[i][0]);   
+			}
+		}
+	}
+}
 #endregion
 //generate random list of possible upgrades
 function randomUpgrades(){

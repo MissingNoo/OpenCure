@@ -51,10 +51,12 @@ if (random_range(1,200) <= _dropchance) {
 if (irandom_range(1, 90) == 1) {
 	for (var i = 0; i < array_length(Bonuses[BonusType.SuperChattoTime]); ++i) {
 	    if(Bonuses[BonusType.SuperChattoTime][i] > 0){
+			spawnCoin = false;
 			global.newcoins += round(10 * Bonuses[BonusType.SuperChattoTime][i]);
-		}else{
-			instance_create_layer(x,y,"Instances", oHolocoin);
 		}
+	}
+	if (spawnCoin) {
+	    instance_create_layer(x,y,"Instances", oHolocoin);
 	}
 }
 

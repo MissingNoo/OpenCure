@@ -58,7 +58,6 @@ if (imguigml_ready()) {
 							Buffs[BuffNames.testbuff][$"cooldown"] = Buffs[BuffNames.testbuff][$"baseCooldown"];
 							Buffs[BuffNames.testbuff][$"enabled"] = true;
 						}
-						imguigml_same_line();
 						if (global.upgrade) {
 						    _button = imguigml_button("Rerrol");
 							if (_button) { randomUpgrades(); }
