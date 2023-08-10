@@ -106,7 +106,7 @@ function newCreateItem(_data){
 		NurseHorn,
 		Piki_Piki_Piman,
 		Plushie, //TODO: add all effects
-		Sake, //TODO: add all effects
+		Sake,
 		Stolen_Piggy_Bank,
 		Study_Glasses, 
 		Super_Chatto_Time,
