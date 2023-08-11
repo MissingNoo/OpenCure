@@ -144,7 +144,7 @@
   "isEcma": false,
   "LibraryEmitters": [],
   "MetaData": {
-    "IDEVersion": "2023.800.0.389",
+    "IDEVersion": "2023.800.0.396",
   },
   "resources": [
     {"id":{"name":"oPillar","path":"objects/oPillar/oPillar.yy",},},
@@ -242,6 +242,7 @@
     {"id":{"name":"fnt_example","path":"fonts/fnt_example/fnt_example.yy",},},
     {"id":{"name":"test_color_inputs","path":"objects/test_color_inputs/test_color_inputs.yy",},},
     {"id":{"name":"rShop","path":"rooms/rShop/rShop.yy",},},
+    {"id":{"name":"oShiranuiEmployee54","path":"objects/oShiranuiEmployee54/oShiranuiEmployee54.yy",},},
     {"id":{"name":"Perks","path":"scripts/Perks/Perks.yy",},},
     {"id":{"name":"__input_trace","path":"scripts/__input_trace/__input_trace.yy",},},
     {"id":{"name":"sMoldSpread","path":"sprites/sMoldSpread/sMoldSpread.yy",},},
@@ -906,6 +907,7 @@
     {"roomId":{"name":"rMap","path":"rooms/rMap/rMap.yy",},},
     {"roomId":{"name":"rAchievements","path":"rooms/rAchievements/rAchievements.yy",},},
   ],
+  "templateType": null,
   "TextureGroups": [
     {"resourceType":"GMTextureGroup","resourceVersion":"1.3","name":"Default","autocrop":true,"border":2,"compressFormat":"bz2","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"targets":-1,},
     {"resourceType":"GMTextureGroup","resourceVersion":"1.3","name":"texgroup1","autocrop":true,"border":2,"compressFormat":"bz2","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"targets":-17179869185,},

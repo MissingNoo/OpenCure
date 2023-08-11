@@ -1,14 +1,23 @@
 global.guiSet = false;
+global.guiScale = 1.5;
+global.defaultAspect = display_get_gui_width() / display_get_gui_height();
+global.defaultScreenAspect = display_get_width() / display_get_height();
+global.screenH = display_get_gui_height();
+global.screenW = display_get_gui_width();
+
 function gui_set() {
-	var aspect = display_get_gui_width() / display_get_gui_height();
-	var screenAspect = display_get_width() / display_get_height();
-	var h = display_get_gui_height();
+	var aspect = global.defaultAspect;
+	var screenAspect = global.defaultScreenAspect;
+	var h = global.screenH;
 	while (aspect < screenAspect) {
 		h-=.1;	
-		aspect = display_get_gui_width() / h;
+		aspect = global.screenW / h;
 	}
-	display_set_gui_size(display_get_gui_width(), h);
-	display_set_gui_size(display_get_gui_width()/(aspect/1.5), display_get_gui_height()/(aspect/1.5));
+	display_set_gui_size(global.screenW, h);
+	display_set_gui_size(global.screenW/(aspect/global.guiScale), display_get_gui_height()/(aspect/global.guiScale));
+	GW = display_get_gui_width();
+	GH = display_get_gui_height();
+	global.guiSet = true;
 }
 // Feather disable GM2043
 // Feather disable GM1024

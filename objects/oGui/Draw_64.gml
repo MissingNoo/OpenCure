@@ -422,12 +422,32 @@ if (instance_exists(oPlayer))
 			draw_sprite_ext(sItemType, global.upgradeOptions[i][$"style"], _xx - 322 + guiOffset, _yy + 8 + offset,2, 2,0,c_white,1); // item thumb type
 			var foundup = false;
 			var foundlv = 0;
-			for (var j = 0; j < array_length(UPGRADES); ++j) {
-				if (UPGRADES[j][$"name"] == global.upgradeOptions[i][$"name"]) {
-					foundup = true;
-					foundlv = UPGRADES[j][$"level"] + 1;
-				}
-			}			
+			switch (global.upgradeOptions[i][$"style"]) { // type of upgrade
+				case ItemTypes.Item:{
+					for (var j = 0; j < array_length(playerItems); ++j) {
+						if (playerItems[j][$"id"] == global.upgradeOptions[i][$"id"]) {
+							foundup = true;
+							foundlv = playerItems[j][$"level"] + 1;
+						}
+					}	
+					break;}
+				case ItemTypes.Perk:{
+					for (var j = 0; j < array_length(PLAYER_PERKS); ++j) {
+						if (PLAYER_PERKS[j][$"id"] == global.upgradeOptions[i][$"id"]) {
+							foundup = true;
+							foundlv = PLAYER_PERKS[j][$"level"] + 1;
+						}
+					}	
+					break;}
+				case ItemTypes.Weapon:{
+					for (var j = 0; j < array_length(UPGRADES); ++j) {
+						if (UPGRADES[j][$"name"] == global.upgradeOptions[i][$"name"]) {
+							foundup = true;
+							foundlv = UPGRADES[j][$"level"] + 1;
+						}
+					}	
+					break;}
+			}		
 			var maxx = 600;
 			//if (os_type == os_android) {
 			//	maxx = GW/2.50;

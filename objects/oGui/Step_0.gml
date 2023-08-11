@@ -77,7 +77,7 @@ if (room = rInicio and !global.gamePaused) {
 	if (zKey) {
 	    switch (menuOptions[selected]) {
 			case  "Map":{
-				global.player=CHARACTERS[irandom_range(0, array_length(CHARACTERS) - 1)];
+				global.player=CHARACTERS[irandom_range(1, array_length(CHARACTERS) - 1)];
 				room_goto(rMap);
 				audio_stop_sound(global.musicPlaying);
 				break;}
@@ -560,8 +560,8 @@ if(keyboard_check(ord("L"))) {global.singleplayer = false; show_message("Client"
 		if(keyboard_check(ord("Y"))) c +=.1;
 		if(keyboard_check(ord("U"))) d -=.1;
 		if(keyboard_check(ord("I"))) d +=.1;
-		if(keyboard_check_pressed(ord("O"))) e -=.05;
-		if(keyboard_check_pressed(ord("P"))) e +=1;
+		if(keyboard_check_pressed(ord("O"))) {e -=.05; global.guiScale = e; if (os_type == os_android) { gui_set();}};
+		if(keyboard_check_pressed(ord("P"))) {e +=1; global.guiScale = e; if (os_type == os_android) { gui_set();}};
 		if((keyboard_check(vk_escape) and room == rCharacterSelect)) {room_goto(rInicio)}
 		//if (keyboard_check_pressed(ord("V"))) {
 		//    display_set_gui_size(640,360);

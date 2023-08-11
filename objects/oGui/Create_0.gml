@@ -7,9 +7,6 @@ GW = display_get_gui_width();
 GH = display_get_gui_height();
 if (os_type == os_android and !global.guiSet) {
     gui_set();
-	GW = display_get_gui_width();
-	GH = display_get_gui_height();
-	global.guiSet = true;
 }
 //if (os_type == os_android) {
 //    var base_w = 1280;
@@ -208,6 +205,7 @@ pauseMenu[PMenus.Pause][PM.YScale] = 0.75;
 		pauseMenu[PMenus.Settings][PM.Options][6] = "showhpui: ";
 		pauseMenu[PMenus.Settings][PM.Bool][6] = true;
 		pauseMenu[PMenus.Settings][PM.BoolValue][6] = global.showhpui;
+		//pauseMenu[PMenus.Settings][PM.Options][1] = "guiScale: " + string(round(global.guiScale*100)) + "%";
 	}
 	loadSettingValues();
 	//pauseMenu[PMenus.Pause][PM.Options] = ["Skills"];

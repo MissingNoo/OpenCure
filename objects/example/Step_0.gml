@@ -33,6 +33,10 @@ if (imguigml_ready()) {
 				if(_input[3]){ oGui.g = _input[3]; }	
 				if(_input[4]){ oGui.h = _input[4]; }	
 			}
+			if (imguigml_button("Set GUI")) {
+			    global.guiScale = oGui.e; 
+				gui_set();
+			}
 			
 			if (instance_exists(oPlayer)) {
 				var _header = imguigml_collapsing_header("Player and Stage");

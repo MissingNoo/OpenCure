@@ -44,6 +44,9 @@ switch (upg[$"id"]) {
 		if (sprite_index == sGlowstickThumbExplosion) {
 		    instance_destroy();
 		}
+		else{
+			subImg = 0;
+		}
 		break;}
 	case Weapons.WamyWater:{
 		    instance_destroy();

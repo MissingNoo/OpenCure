@@ -195,6 +195,7 @@
     {"name":"fnt_example","order":6,"path":"fonts/fnt_example/fnt_example.yy",},
     {"name":"test_color_inputs","order":1,"path":"objects/test_color_inputs/test_color_inputs.yy",},
     {"name":"rShop","order":3,"path":"rooms/rShop/rShop.yy",},
+    {"name":"oShiranuiEmployee54","order":2,"path":"objects/oShiranuiEmployee54/oShiranuiEmployee54.yy",},
     {"name":"Perks","order":8,"path":"scripts/Perks/Perks.yy",},
     {"name":"__input_trace","order":19,"path":"scripts/__input_trace/__input_trace.yy",},
     {"name":"sMoldSpread","order":13,"path":"sprites/sMoldSpread/sMoldSpread.yy",},
