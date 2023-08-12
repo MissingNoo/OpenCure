@@ -1,4 +1,5 @@
 event_inherited();
+depth = layer_get_depth("Enemies");
 canattackAlarm = 0;
 damagedAlarm = 0;
 lifetimeAlarm = 0;
@@ -73,7 +74,7 @@ if (room != rInicio) {
 	baseHP = hp;
 	//hp = (baseHP + baseHP * 0.05 * global.timeA) * (1 + (global.timeB / 50));
 	baseSPD = speed;
-	baseHP = hp;
+	//baseHP = hp;
 	hp = (baseHP + (baseHP * 0.05 + global.timeA)) * ( 1 + (global.timeB/50));
 	canattack=true;
 }

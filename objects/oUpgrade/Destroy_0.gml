@@ -5,3 +5,15 @@ sendMessage({
 	upgID,
 	
 });
+if (ps != undefined) {
+    part_system_destroy(ps);
+    part_system_destroy(ps2);
+}
+switch (upg[$"id"]) {
+    case Weapons.EldritchHorror:
+        instance_destroy(oEldritchFX);
+        break;
+    default:
+        // code here
+        break;
+}

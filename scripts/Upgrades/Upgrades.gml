@@ -167,6 +167,7 @@ enum Weapons
 	MiComet,
 	MiCometMeteor,
 	MiCometPool,
+	EldritchHorror,
 	Shockwave,
 	PipiPilstol,
 	HeavyArtillery,
@@ -845,6 +846,34 @@ function populate_upgrades(){
 				perk : false,
 			});
 	#endregion
+	#region Eldritch Horror
+	newCreateUpgrade({ 
+				id : Weapons.EldritchHorror,
+				collab : true,
+				weight : 0,
+				name : "Eldritch Horror",
+				maxlevel : 1,
+				sprite : sEldricthHorrorPool,
+				thumb : sEldricthHorrorThumb,
+				mindmg : 18,
+				maxdmg : 22,
+				cooldown : 390,
+				minimumcooldown : 120,
+				shoots : 1,
+				attackdelay : 0,
+				hits : 9999,
+				hitCooldown : 30,
+				duration : 240,
+				speed : 0,
+				knockbackDuration : 0,
+				knockbackSpeed : 0,
+				size : 3.5,
+				canBeHasted : true,
+				type : "white",
+				shotType : ShotTypes.Ranged,
+				perk : false,
+			});
+	#endregion
 	#endregion
 	
 	#region Modded
@@ -903,6 +932,7 @@ function populate_upgrades(){
 global.collabs = [];
 #macro Collabs global.collabs
 Collabs[Weapons.MiComet] = [Weapons.EliteLavaBucket, Weapons.PsychoAxe];
+Collabs[Weapons.EldritchHorror] = [Weapons.ENsCurse, Weapons.SpiderCooking];
 function populate_collabs(){
 	for (var i = 0; i < array_length(Collabs); ++i) {
 	    if (is_array(Collabs[i])) {

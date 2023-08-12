@@ -1,3 +1,5 @@
+ps = undefined;
+ps2 = undefined;
 subImg=0;
 maxImg = 0;
 sprSpeed = 0;

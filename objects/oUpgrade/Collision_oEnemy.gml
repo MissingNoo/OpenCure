@@ -195,6 +195,13 @@ if (other.hittedcooldown[upg[$"id"]] <= 0  and !global.gamePaused and other.imag
 					image_yscale = image_yscale * 1.35;
 				}
 			break;
+		case Weapons.EldritchHorror:
+			if (irandom_range(0, 100) <= 30) {
+			    var _percent = irandom_range(0, 5);
+				var _hp = round((other.baseHP * _percent) / 100);
+				heal_player(_hp);
+			}
+			break;
 	    default:
 	        break;
 	}
