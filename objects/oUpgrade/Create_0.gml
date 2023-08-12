@@ -1,3 +1,4 @@
+//event_inherited();
 ps = undefined;
 ps2 = undefined;
 subImg=0;
@@ -13,7 +14,6 @@ imageSpeedOriginal = 0;
 hspd = 0;
 vspd = 0;
 upg??=global.null;
-event_inherited();
 afterimage = [[], [], []];
 afterimagecount = 0;
 //alarm[11] = 1;

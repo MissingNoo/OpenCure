@@ -369,11 +369,13 @@ image_speed = 0;
 			break;}
 		case Weapons.EldritchHorror:{
 			dAlarm[3] = irandom(100);
-			depth = layer_get_depth("Pools");
+			depth = layer_get_depth("Pools") + 1;
 			x = oPlayer.x + irandom_range(-200, 200);
 			y = oPlayer.y + irandom_range(-200, 200);
 			ps = part_system_create();
 			ps2 = part_system_create();
+			part_system_depth(ps, depth-1);
+			part_system_depth(ps2, depth-1);
 			part_system_color(ps, c_white, .5);
 			part_system_color(ps2, c_white, .5);
 			part_system_draw_order( ps, false);
