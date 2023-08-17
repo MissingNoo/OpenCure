@@ -36,7 +36,7 @@ draw_sprite_ext(sHudShopArea, 0, GW/1.39, GH/7.18, 13, 22.50, 0, c_white, 1);
 _x = GW/1.39 + ((sprite_get_width(sHudShopArea) * 13) / 2);
 _y = GH/7.18 + 70;
 draw_text_transformed(_x, _y, "Preview:", 3, 3, 0);
-if (variable_struct_exists(HouseItems[HouseInventory[selectedMenu][selectedItem][$"itemId"]], "sprite")) {
+if (variable_struct_exists(HouseItems[HouseInventory[selectedMenu][selectedItem][$"itemId"]], "sprite") and selectedMenu != HouseCategory.Interior) {
 	var _spr = HouseItems[HouseInventory[selectedMenu][selectedItem][$"itemId"]][$"sprite"];
     draw_sprite_ext(_spr, 0, _x - (sprite_get_width(_spr) / 2), _y + 150, 2, 2, 0, c_white, 1);
 }

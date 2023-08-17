@@ -12,10 +12,23 @@ if (placingObject and input_check_pressed("accept")) {
     alarm[0] = 2;
 }
 if (editHouse and selectedMenuConfirm and input_check_pressed("accept")) {
-    placingObject = true;
-	objectSprite = HouseItems[HouseInventory[selectedMenu][selectedItem][$"itemId"]][$"sprite"];
-	objectId = HouseItems[HouseInventory[selectedMenu][selectedItem][$"itemId"]][$"itemId"];
-	editHouse = false;
+	if (selectedMenu != HouseCategory.Interior) {
+	    placingObject = true;
+		objectSprite = HouseItems[HouseInventory[selectedMenu][selectedItem][$"itemId"]][$"sprite"];
+		objectId = HouseItems[HouseInventory[selectedMenu][selectedItem][$"itemId"]][$"itemId"];
+		editHouse = false;
+	}
+	else{
+		switch (HouseInventory[selectedMenu][selectedItem][$"type"]) {
+		    case HouseInteriorType.Floor:
+		        houseInfo.floor = HouseInventory[selectedMenu][selectedItem][$"itemId"];
+		        break;
+		    case HouseInteriorType.Wall:
+		        houseInfo.wall= HouseInventory[selectedMenu][selectedItem][$"itemId"];
+		        break;
+		}
+		Save_House();
+	}
 }
 //feather disable once GM1044
 if (input_check_pressed("cancel") and editHouse and !justOpened) {

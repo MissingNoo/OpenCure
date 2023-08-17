@@ -18,13 +18,19 @@ houseOptions = [
 "Wall",
 "Interior",
 ]
+houseInfo = {
+	floor : HouseItemId.WoodFloorA,
+	wall : HouseItemId.WoodWallA,
+	ignore : true
+	}
 enum HouseOptions {
 
 }
 #macro HOUSE (working_directory + "Save_House.bin")
 //feather disable once GM2017
 function Save_House() { 
-	var Data = {};		
+	var Data = {};
+	Data[$"houseInfo"] = json_stringify(houseInfo);
 	for (var i = 0; i < instance_number(oHouseItem); ++i) {
 		var inst = instance_find(oHouseItem, i);
 		Data[$ i] = {
@@ -42,14 +48,21 @@ function Load_House() {
 if (file_exists(HOUSE)) {
 	var Map = ds_map_secure_load(HOUSE);
 	var Json = json_parse( json_encode(Map) );
-	var _total = array_length(struct_get_names(Json));
+	var names = struct_get_names(Json);
+	//show_message(Json);
+	var _total = array_length(names) - 1;
 	for (var i = 0; i < _total; ++i) {
+		//show_message(Json[$ i]);
+		if (variable_struct_exists(Json[$ i],"ignore")) {
+		    continue;
+		}
 		var _x = Json[$ i][$"x"];
 		var _y = Json[$ i][$"y"];
 		var _id = Json[$ i][$"itemId"];
 		var _spr = HouseItems[_id][$"sprite"];
 		instance_create_depth(_x, _y, depth, oHouseItem, {itemId : _id, sprite_index : _spr});
 	}
+	houseInfo = json_parse(Json[$"houseInfo"]);
 	ds_map_destroy(Map);} 
 };
 Load_House();

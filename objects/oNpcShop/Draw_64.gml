@@ -67,7 +67,8 @@ switch (type) {
 				// Feather disable once GM1041
 				for (var i = 0; i < array_length(shopTabs); ++i) {				
 					var _alpha = selectedTab == i ? 1 : .5;
-				    draw_sprite_ext(shopTabs[i][$"sprite"], 0, _x + _xoff, _y, 1, 1, 0, c_white, _alpha);
+				    //draw_sprite_ext(shopTabs[i][$"sprite"], 0, _x + _xoff, _y, 1, 1, 0, c_white, _alpha);
+				    draw_sprite_ext(sHouseCategoryIcons, shopTabs[i][$"category"], _x + _xoff, _y, 1, 1, 0, c_white, _alpha);
 					_xoff += 80;
 				}
 				_yoff = 0;

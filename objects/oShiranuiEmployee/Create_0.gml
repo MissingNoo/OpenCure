@@ -49,16 +49,20 @@ shopItemsSell = [
 ]
 houseTabs = [
 {
-	sprite : sBook,
 	category : HouseCategory.Bedroom,
 },
 {
-	sprite : sTV,
 	category : HouseCategory.LivingRoom,
 },
 {
-	sprite : sWallThumb,
 	category : HouseCategory.Wall,
 },
+{
+	category : HouseCategory.Interior,
+},
 ];
-furniture = [HouseItems[HouseItemId.Bookshelf], HouseItems[HouseItemId.Bookshelf], HouseItems[HouseItemId.TV], HouseItems[HouseItemId.Wall]];
+furniture = [];
+for (var i = 1; i < HouseItemId.Last; ++i) {
+    array_push(furniture, HouseItems[i]);
+}
+//furniture = [HouseItems[HouseItemId.Bookshelf], HouseItems[HouseItemId.Bookshelf], HouseItems[HouseItemId.TV], HouseItems[HouseItemId.Wall], HouseItems[HouseItemId.WoodFloorA], HouseItems[HouseItemId.WoodFloorB], HouseItems[HouseItemId.WoodWallA], HouseItems[HouseItemId.WoodWallB]];
