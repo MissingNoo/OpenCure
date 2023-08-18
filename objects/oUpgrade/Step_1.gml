@@ -243,6 +243,14 @@ image_speed = 0;
 				}
 			}
 			break;}
+		case Weapons.AbsoluteWall:{
+			if (global.player[?"flat"]) {
+				image_xscale = image_xscale * 1.20;
+				image_yscale = image_yscale * 1.20;
+				mindmg = mindmg * 1.20;
+				maxdmg = maxdmg * 1.20;
+			}
+			break;}
 		case Weapons.CuttingBoard:{
 			if (global.player[?"flat"]) {
 				image_xscale = image_xscale * 1.30;
@@ -367,6 +375,40 @@ image_speed = 0;
 			break;}
 		case Weapons.MiCometPool:{
 			break;}
+		case Weapons.BoneBrosBullet:{
+			image_angle = direction;
+			break;}
+		case Weapons.BoneBros:{
+			break;}
+		case Weapons.BoneBrosSlash:{
+			image_angle = direction;
+			break;}
+		case Weapons.BLFujoshi:{
+			instance_create_layer(x, y, "Upgrades", oUpgrade,{
+					upg : WEAPONS_LIST[Weapons.BLFujoshiAxe][1],
+					speed : WEAPONS_LIST[Weapons.BLFujoshiAxe][1][$"speed"],
+					hits : WEAPONS_LIST[Weapons.BLFujoshiAxe][1][$"hits"],
+					shoots : WEAPONS_LIST[Weapons.BLFujoshiAxe][1][$"shoots"],
+					sprite_index : WEAPONS_LIST[Weapons.BLFujoshiAxe][1][$"sprite"],
+					level : WEAPONS_LIST[Weapons.BLFujoshiAxe][1][$"level"],
+					mindmg: WEAPONS_LIST[Weapons.BLFujoshiAxe][1][$"mindmg"],
+					maxdmg: WEAPONS_LIST[Weapons.BLFujoshiAxe][1][$"maxdmg"]
+				});
+			instance_create_layer(x, y, "Upgrades", oUpgrade,{
+					upg : WEAPONS_LIST[Weapons.BLFujoshiBook][1],
+					speed : WEAPONS_LIST[Weapons.BLFujoshiBook][1][$"speed"],
+					hits : WEAPONS_LIST[Weapons.BLFujoshiBook][1][$"hits"],
+					shoots : WEAPONS_LIST[Weapons.BLFujoshiBook][1][$"shoots"],
+					sprite_index : WEAPONS_LIST[Weapons.BLFujoshiBook][1][$"sprite"],
+					level : WEAPONS_LIST[Weapons.BLFujoshiBook][1][$"level"],
+					mindmg: WEAPONS_LIST[Weapons.BLFujoshiBook][1][$"mindmg"],
+					maxdmg: WEAPONS_LIST[Weapons.BLFujoshiBook][1][$"maxdmg"]
+				});
+			break;}
+		case Weapons.BLFujoshiAxe:{
+			break;}
+		case Weapons.BLFujoshiBook:{
+			break;}
 		case Weapons.EldritchHorror:{
 			dAlarm[3] = irandom(100);
 			depth = layer_get_depth("Pools") + 1;
@@ -425,7 +467,7 @@ image_speed = 0;
 		#endregion
 		#endregion
 	}
-		if (sprite_index==sBlank) {
+		if (sprite_index==sBlank and !variable_struct_exists(upg, "collab")) {
 			instance_destroy();
 	}
 	

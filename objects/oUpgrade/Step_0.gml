@@ -93,6 +93,52 @@ if (!global.gamePaused) {
 			y = owner.y - 16 + lengthdir_y(orbitLength, round(orbitPlace));
 			orbitPlace-=3 * Delta;
 			break;}
+		case Weapons.BLFujoshiBook:{
+			orbitLength = 100;
+			x = owner.x + lengthdir_x(orbitLength, round(orbitPlace));
+			y = owner.y - 16 + lengthdir_y(orbitLength, round(orbitPlace));
+			orbitPlace -= 8 * Delta;
+			//orbitPlace = oGui.f;
+			break;}
+		case Weapons.BLFujoshiAxe:{
+			orbitLength = 190;
+			x = owner.x + lengthdir_x(orbitLength, round(orbitPlace));
+			y = owner.y - 16 + lengthdir_y(orbitLength, round(orbitPlace));
+			orbitPlace -= 10 * Delta;
+			//orbitPlace = oGui.f;
+			break;}
+		case Weapons.BoneBros:{
+			slashTimer += 1 * Delta;
+			bulletTimer += 1 * Delta;
+			if (slashTimer > 5) {
+			    slashTimer = 0;
+				instance_create_layer(x, y, "Upgrades", oUpgrade,{
+					upg : WEAPONS_LIST[Weapons.BoneBrosSlash][1],
+					speed : WEAPONS_LIST[Weapons.BoneBrosSlash][1][$"speed"],
+					hits : WEAPONS_LIST[Weapons.BoneBrosSlash][1][$"hits"],
+					shoots : WEAPONS_LIST[Weapons.BoneBrosSlash][1][$"shoots"],
+					sprite_index : WEAPONS_LIST[Weapons.BoneBrosSlash][1][$"sprite"],
+					level : WEAPONS_LIST[Weapons.BoneBrosSlash][1][$"level"],
+					mindmg: WEAPONS_LIST[Weapons.BoneBrosSlash][1][$"mindmg"],
+					maxdmg: WEAPONS_LIST[Weapons.BoneBrosSlash][1][$"maxdmg"],
+					direction : global.arrowDir + irandom_range(0, 30)
+				});
+			}
+			if (bulletTimer > 3) {
+			    bulletTimer = 0;
+				instance_create_layer(x, y, "Upgrades", oUpgrade,{
+					upg : WEAPONS_LIST[Weapons.BoneBrosBullet][1],
+					speed : WEAPONS_LIST[Weapons.BoneBrosBullet][1][$"speed"],
+					hits : WEAPONS_LIST[Weapons.BoneBrosBullet][1][$"hits"],
+					shoots : WEAPONS_LIST[Weapons.BoneBrosBullet][1][$"shoots"],
+					sprite_index : WEAPONS_LIST[Weapons.BoneBrosBullet][1][$"sprite"],
+					level : WEAPONS_LIST[Weapons.BoneBrosBullet][1][$"level"],
+					mindmg: WEAPONS_LIST[Weapons.BoneBrosBullet][1][$"mindmg"],
+					maxdmg: WEAPONS_LIST[Weapons.BoneBrosBullet][1][$"maxdmg"],
+					direction : (global.arrowDir + 180) + irandom_range(0, 30)
+				});
+			}
+			break;}
 		case Weapons.AbsoluteWall:{
 			var _offset = 0;
 			switch (wallNumber) {

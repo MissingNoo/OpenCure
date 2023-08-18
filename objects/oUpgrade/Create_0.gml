@@ -8,6 +8,10 @@ sprSpeed = 0;
 sprSpeedType = gamespeed_fps
 sprReset = true;
 summoned = false;
+#region BoneBros
+slashTimer = 0;
+bulletTimer = 0;
+#endregion
 dAlarm = array_create(11, -1);
 idolStartX = 0;
 gotpaused = false;

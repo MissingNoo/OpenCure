@@ -76,6 +76,44 @@ switch (upg[$"id"]) {
 			//alarm[0]=1;
 		//}
 		break;}
+	case Weapons.BLFujoshiBook:{
+		//if (shoots > 1) {			
+		var _off = 0;
+		switch (shoots) {
+				    case 1:
+				        _off = 300;
+				        break;
+				    case 2:
+				        _off = 240;
+				        break;
+					case 3:
+				        _off = 180;
+				        break;
+					case 4:
+				        _off = 120;
+				        break;
+					case 5:
+				        _off = 60;
+				        break;
+					case 6:
+				        _off = 0;
+				        break;
+				}			
+			inst = spawnUpgrade();
+			inst.orbitPlace = _off - (_off + (orbitPlace * 6));
+			inst.orbitLength = orbitLength;
+		    //shoots-=1;			
+			//alarm[0]=1;
+		//}
+		break;}
+	case Weapons.BLFujoshiAxe:{
+			inst = spawnUpgrade();
+			inst.orbitPlace = 180 - (180 + (orbitPlace * 15));
+			inst.orbitLength = orbitLength;
+		    //shoots-=1;			
+			//alarm[0]=1;
+		//}
+		break;}
 	case Weapons.EliteLavaBucket:{
 		//if (shoots > 1) {			
 			spawnUpgrade();

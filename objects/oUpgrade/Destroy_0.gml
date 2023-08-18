@@ -13,6 +13,9 @@ switch (upg[$"id"]) {
     case Weapons.EldritchHorror:
         instance_destroy(oEldritchFX);
         break;
+	//case Weapons.BoneBros:
+	//show_message(slashTimer);
+	//break;
     default:
         // code here
         break;
