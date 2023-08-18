@@ -27,17 +27,20 @@ else{
 }
 
 if (global.debug) {
+	if (upg[$"id"] == Weapons.AbsoluteWall and variable_instance_exists(self, "wallNumber")) {
+		draw_text(x + 20, y - 20, wallNumber);
+	}
 	if (upg[$"id"] == Weapons.ENsCurse) {
 		draw_circle(x,y, upg[$"range"],true)
 	}
-	draw_text(x, y - 20, upgID);
+	//draw_text(x, y - 20, upgID);
 	//draw_text(x,y-30, string(alarm_get(1)));
 	//draw_text(x,y-60, string(upg[?"duration"]));
-	draw_text(x,y-30, string(direction));
-	draw_text(x,y-50, string(image_xscale));
-	draw_text(x,y-70, string(image_yscale));
-	draw_text(x,y-90, string(shoots));
-	draw_text(x,y-110, string($"{subImg}/{maxImg}"));
+	//draw_text(x,y-30, string(direction));
+	//draw_text(x,y-50, string(image_xscale));
+	//draw_text(x,y-70, string(image_yscale));
+	//draw_text(x,y-90, string(shoots));
+	//draw_text(x,y-110, string($"{subImg}/{maxImg}"));
 }		
 //		break
 //}

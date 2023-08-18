@@ -440,7 +440,8 @@ image_speed = 0;
 			{
 				image_xscale = image_xscale * (Bonuses[BonusType.WeaponSize][i] * -1); 
 			}
-			image_yscale = image_yscale * Bonuses[BonusType.WeaponSize][i];
+			//image_yscale = image_yscale * Bonuses[BonusType.WeaponSize][i];
+			image_yscale = image_xscale;
 		}
 	}
 	{ //online code

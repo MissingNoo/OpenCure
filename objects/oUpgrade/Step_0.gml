@@ -93,6 +93,32 @@ if (!global.gamePaused) {
 			y = owner.y - 16 + lengthdir_y(orbitLength, round(orbitPlace));
 			orbitPlace-=3 * Delta;
 			break;}
+		case Weapons.AbsoluteWall:{
+			var _offset = 0;
+			switch (wallNumber) {
+			    case 0:
+			        _offset = 0;
+			        break;
+			    case 1:
+			        _offset = 90;
+			        break;
+			    case 2:
+			        _offset = 180;
+			        break;
+			    case 3:
+			        _offset = 270;
+			        break;
+			}
+			//orbitPlace = _offset;
+			//orbitLength = 100;
+			//image_angle = global.arrowDir + _offset;
+			image_angle = global.arrowDir + _offset;
+			//x = owner.x + lengthdir_x(orbitLength, round(orbitPlace));
+			x = owner.x;
+			//y = owner.y - 16 + lengthdir_y(orbitLength, round(orbitPlace));
+			y = owner.y - 16;
+			image_xscale = image_yscale + 0.5;
+			break;}
 		case Weapons.PsychoAxe:{
 			//part_type_sprite(part, upg[$"sprite"], false, false, image_index);
 			x = xstart + lengthdir_x(round(orbitLength), round(orbitPlace));

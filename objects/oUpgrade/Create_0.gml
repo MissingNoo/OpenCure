@@ -1,4 +1,5 @@
 //event_inherited();
+wallNumber = -1;
 ps = undefined;
 ps2 = undefined;
 subImg=0;

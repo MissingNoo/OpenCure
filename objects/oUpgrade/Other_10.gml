@@ -150,6 +150,13 @@ switch (upg[$"id"]) {
 				//}
 			break;
 		}
+		case Weapons.AbsoluteWall:{
+		//if (shoots > 1) {			
+				inst = spawnUpgrade();
+				inst.wallNumber = wallNumber + 1;
+				wallNumber++;
+			//}
+		}
 		//case Weapons.HeavyArtillery:{
 		//	//if (shoots > 1) {
 		//		spawnUpgrade();

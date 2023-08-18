@@ -168,6 +168,7 @@ enum Weapons
 	MiCometMeteor,
 	MiCometPool,
 	EldritchHorror,
+	AbsoluteWall,
 	Shockwave,
 	PipiPilstol,
 	HeavyArtillery,
@@ -874,6 +875,35 @@ function populate_upgrades(){
 				perk : false,
 			});
 	#endregion
+	#region Absolute Wall
+	newCreateUpgrade({ 
+				id : Weapons.AbsoluteWall,
+				weight : 0,
+				name : "Absolute Wall",
+				maxlevel : 1,
+				sprite : sAbsoluteWall,
+				thumb : sAbsoluteWallIThumb,
+				mindmg : 25,
+				maxdmg : 31,
+				cooldown : 599,
+				minimumcooldown : 600,
+				shoots : 5,
+				attackdelay : 1,
+				hits : 99999,
+				hitCooldown : 30, 
+				duration : 600,
+				speed : 0,
+				knockbackDuration : 15,
+				knockbackSpeed : 16,
+				size : 2,
+				canBeHasted : false,
+				type : "white",
+				shotType : ShotTypes.Ranged,
+				perk : false,
+				afterimage : true,
+				afterimageColor : c_blue,
+			});
+	#endregion
 	#endregion
 	
 	#region Modded
@@ -933,6 +963,7 @@ global.collabs = [];
 #macro Collabs global.collabs
 Collabs[Weapons.MiComet] = [Weapons.EliteLavaBucket, Weapons.PsychoAxe];
 Collabs[Weapons.EldritchHorror] = [Weapons.ENsCurse, Weapons.SpiderCooking];
+Collabs[Weapons.AbsoluteWall] = [Weapons.CuttingBoard, Weapons.BounceBall];
 function populate_collabs(){
 	for (var i = 0; i < array_length(Collabs); ++i) {
 	    if (is_array(Collabs[i])) {
