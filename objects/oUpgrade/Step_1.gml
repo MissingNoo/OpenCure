@@ -304,6 +304,13 @@ image_speed = 0;
 		case Weapons.WamyWater:{
 			image_angle = arrowDir + diroffset;
 			break;}
+		case Weapons.BreatheInTypeAsacoco:{
+			asaDirection = random_range(-1,1);
+			asaRotationSpeed = irandom_range(-10, 10);
+			asaSpeed = irandom_range(1, 8);
+			asaDuration = random_range(0.8, 1.2);
+			vspd = -11;
+			break;}
 		#region modded
 		case Weapons.PipiPilstol:{
 			defaultBehaviour();

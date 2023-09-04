@@ -1,4 +1,10 @@
 //event_inherited();
+#region BreathInAsacoco
+asaDirection = undefined;
+asaRotationSpeed = undefined;
+asaSpeed = undefined;
+asaDuration = undefined;
+#endregion
 wallNumber = -1;
 ps = undefined;
 ps2 = undefined;

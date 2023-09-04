@@ -1,4 +1,10 @@
-if (other.hittedcooldown[upg[$"id"]] <= 0  and !global.gamePaused and other.image_alpha == 1 and image_alpha == 1 and ghost == false) {
+var canhit = true;
+switch (sprite_index) {
+    case sBreathAsacoco:
+        canhit = false;
+        break;
+}
+if (other.hittedcooldown[upg[$"id"]] <= 0  and !global.gamePaused and other.image_alpha == 1 and image_alpha == 1 and ghost == false and canhit) {
 	if (upg[$"id"] == Weapons.BounceBall) {
 		var _push = 5;
 		var _dir = point_direction(other.x, other.y, x, y);

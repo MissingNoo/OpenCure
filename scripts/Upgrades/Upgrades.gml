@@ -175,6 +175,7 @@ enum Weapons
 	BoneBros,
 	BoneBrosSlash,
 	BoneBrosBullet,
+	BreatheInTypeAsacoco,
 	Shockwave,
 	PipiPilstol,
 	HeavyArtillery,
@@ -1077,6 +1078,34 @@ function populate_upgrades(){
 				perk : false,
 				afterimage : true,
 				afterimageColor : c_blue,
+			});
+	#endregion
+	#region Breathe-in Type Asacoco
+	newCreateUpgrade({ 
+				id : Weapons.BreatheInTypeAsacoco,
+				weight : 0,
+				collab : true,
+				name : "Breathe-In Type Asacoco",
+				maxlevel : 1,
+				sprite : sBreathAsacoco,
+				thumb : sBreathAsacocoThumb,
+				mindmg : 22,
+				maxdmg : 26,
+				cooldown : 45,
+				minimumcooldown : 20,
+				shoots : 5,
+				attackdelay : 5,
+				hits : 9999,
+				hitCooldown : 20,
+				duration : 9999,
+				speed : 0,
+				knockbackDuration : 0,
+				knockbackSpeed : 0,
+				size : 2,
+				canBeHasted : true,
+				type : "white",
+				shotType : ShotTypes.Multishot,
+				perk : false,
 			});
 	#endregion
 	#endregion

@@ -209,12 +209,37 @@ if (!global.gamePaused) {
 			//    direction -= 5;
 			//}
 			if (vspeed < upg[$"speed"]) {
-				vspeed += 0.2 * Delta;
+				vspeed += 0.55 * Delta;
 			}
 			move_and_collide(hspd, vspd, oEnemy);
 			image_angle+=10;
 			break;
 		}
+		case Weapons.BreatheInTypeAsacoco:{
+			if (sprite_index == sBreathAsacoco) {
+			    image_xscale = 1;
+				image_yscale = 1;
+				image_angle += asaRotationSpeed * asaDirection;
+			}
+			else{
+				image_xscale = upg[$"size"];
+				image_yscale = upg[$"size"];
+			}
+			if (vspd < 50 and asaDuration > 0) {
+			    vspd += 0.40;
+			}
+			if (asaDuration > 0) {
+			    asaDuration -= 1/60 * Delta;
+			}
+			else{
+				vspd = 0;
+				sprite_index = sBombExplosion;
+				image_angle = 0;
+				image_index = 0;
+			}
+			y += vspd;
+			x += asaSpeed * asaDirection;
+			break;}
 		//case Weapons.XPotato:{
 		//	image_angle += .5;
 		//	if (x > oPlayer.x + (view_wport[0] / 2)) { direction += 180; }

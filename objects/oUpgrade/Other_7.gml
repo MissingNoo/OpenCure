@@ -94,6 +94,13 @@ switch (upg[$"id"]) {
 		}
 		break;}
 	#endregion
+	#region Breathin
+	case Weapons.BreatheInTypeAsacoco:{
+		if (sprite_index == sBombExplosion) {
+		    instance_destroy();
+		}
+		break;}
+	#endregion
 	#endregion
     default:
         subImg = 0;

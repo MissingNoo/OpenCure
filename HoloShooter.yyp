@@ -147,7 +147,7 @@
   "isEcma": false,
   "LibraryEmitters": [],
   "MetaData": {
-    "IDEVersion": "2023.800.0.404",
+    "IDEVersion": "2023.800.0.406",
   },
   "resources": [
     {"id":{"name":"oPillar","path":"objects/oPillar/oPillar.yy",},},
@@ -398,6 +398,7 @@
     {"id":{"name":"input_verb_consume","path":"scripts/input_verb_consume/input_verb_consume.yy",},},
     {"id":{"name":"fnt_font1","path":"fonts/fnt_font1/fnt_font1.yy",},},
     {"id":{"name":"sDeadBeat","path":"sprites/sDeadBeat/sDeadBeat.yy",},},
+    {"id":{"name":"sBreathAsacocoThumb","path":"sprites/sBreathAsacocoThumb/sBreathAsacocoThumb.yy",},},
     {"id":{"name":"input_trigger_effect_get_strength","path":"scripts/input_trigger_effect_get_strength/input_trigger_effect_get_strength.yy",},},
     {"id":{"name":"input_player_ghost_get","path":"scripts/input_player_ghost_get/input_player_ghost_get.yy",},},
     {"id":{"name":"sBLBookThumb","path":"sprites/sBLBookThumb/sBLBookThumb.yy",},},
@@ -796,6 +797,7 @@
     {"id":{"name":"lexicon_locale_get","path":"scripts/lexicon_locale_get/lexicon_locale_get.yy",},},
     {"id":{"name":"sKFPEmployee","path":"sprites/sKFPEmployee/sKFPEmployee.yy",},},
     {"id":{"name":"input_mouse_in_bounds","path":"scripts/input_mouse_in_bounds/input_mouse_in_bounds.yy",},},
+    {"id":{"name":"sBreathAsacoco","path":"sprites/sBreathAsacoco/sBreathAsacoco.yy",},},
     {"id":{"name":"oUpgradeSlave","path":"objects/oUpgradeSlave/oUpgradeSlave.yy",},},
     {"id":{"name":"sSanallite","path":"sprites/sSanallite/sSanallite.yy",},},
     {"id":{"name":"__input_config_profiles","path":"scripts/__input_config_profiles/__input_config_profiles.yy",},},
