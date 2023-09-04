@@ -219,26 +219,29 @@ if (!global.gamePaused) {
 			if (sprite_index == sBreathAsacoco) {
 			    image_xscale = 1;
 				image_yscale = 1;
-				image_angle += asaRotationSpeed * asaDirection;
+				image_angle += (asaRotationSpeed * asaDirection) * Delta;
 			}
 			else{
 				image_xscale = upg[$"size"];
 				image_yscale = upg[$"size"];
 			}
 			if (vspd < 50 and asaDuration > 0) {
-			    vspd += 0.40;
+			    vspd += 0.40 * Delta;
 			}
 			if (asaDuration > 0) {
 			    asaDuration -= 1/60 * Delta;
 			}
 			else{
 				vspd = 0;
+				hspd = 0;
+				speed = 0;
+				asaSpeed = 0;
 				sprite_index = sBombExplosion;
 				image_angle = 0;
 				image_index = 0;
 			}
-			y += vspd;
-			x += asaSpeed * asaDirection;
+			y += vspd * Delta;
+			x += (asaSpeed * asaDirection) * Delta;
 			break;}
 		//case Weapons.XPotato:{
 		//	image_angle += .5;

@@ -1170,6 +1170,7 @@ Collabs[Weapons.EldritchHorror] = [Weapons.ENsCurse, Weapons.SpiderCooking];
 Collabs[Weapons.AbsoluteWall] = [Weapons.CuttingBoard, Weapons.BounceBall];
 Collabs[Weapons.BLFujoshi] = [Weapons.BlBook, Weapons.PsychoAxe];
 Collabs[Weapons.BoneBros] = [Weapons.ENsCurse, Weapons.CuttingBoard];
+Collabs[Weapons.BreatheInTypeAsacoco] = [Weapons.PlugAsaCoco, Weapons.HoloBomb];
 function populate_collabs(){
 	for (var i = 0; i < array_length(Collabs); ++i) {
 	    if (is_array(Collabs[i])) {
