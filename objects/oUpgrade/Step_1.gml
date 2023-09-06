@@ -311,6 +311,10 @@ image_speed = 0;
 			asaDuration = random_range(0.8, 1.2);
 			vspd = -11;
 			break;}
+		case Weapons.EliteCooking:{
+			x = owner.x + irandom_range(-100,100);
+			y = owner.y + (irandom_range(-100,100)*-1);
+			break;}
 		#region modded
 		case Weapons.PipiPilstol:{
 			defaultBehaviour();
@@ -481,12 +485,10 @@ image_speed = 0;
 	originalSize = [image_xscale, image_yscale];
 	for (var i = 0; i < array_length(Bonuses[BonusType.WeaponSize]); ++i) {
 	    if (Bonuses[BonusType.WeaponSize][i] != 0 and upg[$"id"] != Weapons.HoloBomb) {
-			if (image_xscale > 0) 
-			{ 
+			if (image_xscale > 0) { 
 				image_xscale = image_xscale * Bonuses[BonusType.WeaponSize][i]; 
 			}
-			else 
-			{
+			else {
 				image_xscale = image_xscale * (Bonuses[BonusType.WeaponSize][i] * -1); 
 			}
 			//image_yscale = image_yscale * Bonuses[BonusType.WeaponSize][i];

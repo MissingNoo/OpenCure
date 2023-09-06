@@ -243,6 +243,12 @@ if (!global.gamePaused) {
 			y += vspd * Delta;
 			x += (asaSpeed * asaDirection) * Delta;
 			break;}
+		case Weapons.EliteCooking:{
+			if (poolSize != 1) {
+			    poolSize -= 1;
+			}
+			
+			break;}
 		//case Weapons.XPotato:{
 		//	image_angle += .5;
 		//	if (x > oPlayer.x + (view_wport[0] / 2)) { direction += 180; }

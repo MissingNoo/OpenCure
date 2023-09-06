@@ -1,4 +1,7 @@
 //event_inherited();
+#region EliteCooking
+poolSize = 20;
+#endregion
 #region BreathInAsacoco
 asaDirection = undefined;
 asaRotationSpeed = undefined;

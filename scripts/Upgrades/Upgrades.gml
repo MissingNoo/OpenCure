@@ -176,6 +176,7 @@ enum Weapons
 	BoneBrosSlash,
 	BoneBrosBullet,
 	BreatheInTypeAsacoco,
+	EliteCooking,
 	Shockwave,
 	PipiPilstol,
 	HeavyArtillery,
@@ -1107,6 +1108,34 @@ function populate_upgrades(){
 				shotType : ShotTypes.Multishot,
 				perk : false,
 			});
+	#endregion
+	#region Elite Cooking
+	newCreateUpgrade({ 
+		id : Weapons.EliteCooking,
+		weight : 0,
+		collab : true,
+		name : "Elite Cooking",
+		maxlevel : 1,
+		sprite : sSpiderCooking,
+		thumb : sEliteCookingThumb,
+		mindmg : 5,
+		maxdmg : 9,
+		cooldown : 35,
+		minimumcooldown : 10,
+		shoots : 1,
+		attackdelay : 1,
+		hits : 9999,
+		hitCooldown : 30,
+		duration : 300,
+		speed : 0,
+		knockbackDuration : 0,
+		knockbackSpeed : 0,
+		size : 2,
+		canBeHasted : true,
+		type : "white",
+		shotType : ShotTypes.Ranged,
+		perk : false,
+	});
 	#endregion
 	#endregion
 	

@@ -11,19 +11,33 @@ if (variable_struct_exists(upg, "afterimage") and upg[$"afterimage"] and image_a
 }
 
 
-
+switch (upg[$"id"]) {
+    case Weapons.SpiderCooking:
+        draw_set_color(c_purple);
+		draw_set_alpha(.35);
+		draw_circle(x,y, (sprite_get_height(sprite_index)/2) * image_yscale,false);
+		draw_set_alpha(1);
+		draw_circle(x,y, (sprite_get_height(sprite_index)/2) * image_yscale,true);
+		draw_set_color(c_white);
+        break;
+	case Weapons.EliteCooking:
+		draw_set_color(c_purple);
+		draw_set_alpha(0.20);
+		draw_circle(x,y, (sprite_get_height(sprite_index)/2) * image_yscale / poolSize,false);
+		draw_set_alpha(1);
+		draw_set_color(c_white);
+        break;
+    default:
+        draw_sprite_ext(sprite_index, subImg, x, y, image_xscale, image_yscale, image_angle, c_white, image_alpha);
+        break;
+}
 if (upg[$"id"] != Weapons.SpiderCooking) {
-	draw_sprite_ext(sprite_index, subImg, x, y, image_xscale, image_yscale, image_angle, c_white, image_alpha);
+	
 }
 else{
 	//image_xscale = image_yscale;
 	//draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, image_yscale, image_angle, c_white, .5);
-	draw_set_color(c_purple);
-	draw_set_alpha(.35);
-	draw_circle(x,y, (sprite_get_height(sprite_index)/2) * image_yscale,false);
-	draw_set_alpha(1);
-	draw_circle(x,y, (sprite_get_height(sprite_index)/2) * image_yscale,true);
-	draw_set_color(c_white);
+	
 }
 
 if (global.debug) {
