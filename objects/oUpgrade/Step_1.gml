@@ -465,6 +465,13 @@ image_speed = 0;
 			x = owner.x + irandom_range(-100,100);
 			y = owner.y + (irandom_range(-100,100)*-1);
 			break;}
+		case Weapons.StreamOfTears:{
+			image_xscale = upg[$"sizeX"];
+			image_yscale = upg[$"sizeY"];
+			//if (shoots == -1) {
+			//    image_xscale = image_xscale*-1;
+			//}
+			break;}
 		case Weapons.RingOfFitness:{
 			//ringDir = 0;
 			for (var i = 0; i < global.player[?"ballsize"]; ++i) {
@@ -503,7 +510,7 @@ image_speed = 0;
 			instance_destroy();
 	}
 	
-	originalSize = [image_xscale, image_yscale];
+	originalSize = [image_xscale, image_yscale];	
 	for (var i = 0; i < array_length(Bonuses[BonusType.WeaponSize]); ++i) {
 	    if (Bonuses[BonusType.WeaponSize][i] != 0 and upg[$"id"] != Weapons.HoloBomb) {
 			if (image_xscale > 0) { 

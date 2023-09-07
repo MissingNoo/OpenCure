@@ -246,8 +246,21 @@ if (!global.gamePaused) {
 		case Weapons.EliteCooking:{
 			if (poolSize != 1) {
 			    poolSize -= 1;
+			}			
+			break;}
+		case Weapons.StreamOfTears:{
+			if (shoots == -1) {
+			    x = owner.x + lengthdir_x(16, round(orbitPlace));
+				y = owner.y + lengthdir_y(16, round(orbitPlace));
+				orbitPlace += 2 * Delta;
+				image_angle = point_direction(owner.x, owner.y, x, y);
 			}
-			
+			else{
+				x = owner.x - lengthdir_x(16, round(orbitPlace));
+				y = owner.y - lengthdir_y(16, round(orbitPlace));
+				orbitPlace += 2 * Delta;
+				image_angle = point_direction(owner.x, owner.y, x, y);
+			}
 			break;}
 		//case Weapons.XPotato:{
 		//	image_angle += .5;

@@ -178,6 +178,7 @@ enum Weapons
 	BreatheInTypeAsacoco,
 	EliteCooking,
 	RingOfFitness,
+	StreamOfTears,
 	Shockwave,
 	PipiPilstol,
 	HeavyArtillery,
@@ -1166,6 +1167,36 @@ function populate_upgrades(){
 		perk : false,
 	});
 	#endregion
+	#region Stream of Tears
+	newCreateUpgrade({ 
+		id : Weapons.StreamOfTears,
+		weight : 0,
+		collab : true,
+		name : "Stream of Tears",
+		maxlevel : 1,
+		sprite : sStreamOfTears,
+		thumb : sStreamOfTearsThumb,
+		mindmg : 25,
+		maxdmg : 30,
+		cooldown : 360,
+		minimumcooldown : 360,
+		shoots : 2,
+		attackdelay : 1,
+		hits : 9999,
+		hitCooldown : 30,
+		duration : 360,
+		speed : 10,
+		knockbackDuration : 0,
+		knockbackSpeed : 0,
+		size : 1,
+		sizeX : 1.30,
+		sizeY : 4,
+		canBeHasted : false,
+		type : "white",
+		shotType : ShotTypes.Multishot,
+		perk : false,
+	});
+	#endregion
 	#endregion
 	
 	#region Modded
@@ -1231,6 +1262,7 @@ Collabs[Weapons.BoneBros] = [Weapons.ENsCurse, Weapons.CuttingBoard];
 Collabs[Weapons.BreatheInTypeAsacoco] = [Weapons.PlugAsaCoco, Weapons.HoloBomb];
 Collabs[Weapons.EliteCooking] = [Weapons.EliteLavaBucket, Weapons.SpiderCooking];
 Collabs[Weapons.RingOfFitness] = [Weapons.BounceBall, Weapons.CEOTears];
+Collabs[Weapons.StreamOfTears] = [Weapons.FanBeam, Weapons.CEOTears];
 function populate_collabs(){
 	for (var i = 0; i < array_length(Collabs); ++i) {
 	    if (is_array(Collabs[i])) {
