@@ -5,7 +5,7 @@ switch (sprite_index) {
         break;
 }
 if (other.hittedcooldown[upg[$"id"]] <= 0  and !global.gamePaused and other.image_alpha == 1 and image_alpha == 1 and ghost == false and canhit) {
-	if (upg[$"id"] == Weapons.BounceBall) {
+	if (upg[$"id"] == Weapons.BounceBall or upg[$"id"] == Weapons.RingOfFitness) {
 		var _push = 5;
 		var _dir = point_direction(other.x, other.y, x, y);
 		var _rnd = 0;
@@ -18,7 +18,7 @@ if (other.hittedcooldown[upg[$"id"]] <= 0  and !global.gamePaused and other.imag
 		 //y+=_vspd;
 		 vspeed=_vspd;
 		 hspeed = _hspd;
-		 //direction = point_direction(x, y, x + _hspd, y + _vspd);
+		 if (upg[$"id"] == Weapons.RingOfFitness) { direction = point_direction(x, y, x + _hspd, y + _vspd); }		 
 		 //if (alarm_get(11) == -1) {
 		 //    alarm[11] = 20;
 		 //}		 

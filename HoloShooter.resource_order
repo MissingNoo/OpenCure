@@ -238,6 +238,7 @@
     {"name":"network","order":10,"path":"scripts/network/network.yy",},
     {"name":"test_drawlist","order":5,"path":"objects/test_drawlist/test_drawlist.yy",},
     {"name":"sBounceBallThumb","order":37,"path":"sprites/sBounceBallThumb/sBounceBallThumb.yy",},
+    {"name":"sFitnessRingThumb","order":45,"path":"sprites/sFitnessRingThumb/sFitnessRingThumb.yy",},
     {"name":"rCharacterSelect","order":2,"path":"rooms/rCharacterSelect/rCharacterSelect.yy",},
     {"name":"sInaTentacle","order":1,"path":"sprites/sInaTentacle/sInaTentacle.yy",},
     {"name":"sInvestigator","order":8,"path":"sprites/sInvestigator/sInvestigator.yy",},

@@ -177,6 +177,7 @@ enum Weapons
 	BoneBrosBullet,
 	BreatheInTypeAsacoco,
 	EliteCooking,
+	RingOfFitness,
 	Shockwave,
 	PipiPilstol,
 	HeavyArtillery,
@@ -1137,6 +1138,34 @@ function populate_upgrades(){
 		perk : false,
 	});
 	#endregion
+	#region Ring of Fitness
+	newCreateUpgrade({ 
+		id : Weapons.RingOfFitness,
+		weight : 0,
+		collab : true,
+		name : "Ring of Fitness",
+		maxlevel : 1,
+		sprite : sBounceBall,
+		thumb : sFitnessRingThumb,
+		mindmg : 18,
+		maxdmg : 22,
+		cooldown : 75,
+		minimumcooldown : 10,
+		shoots : 15,
+		attackdelay : 1,
+		hits : 9999,
+		hitCooldown : 30,
+		duration : 300,
+		speed : 10,
+		knockbackDuration : 0,
+		knockbackSpeed : 0,
+		size : 0.60,
+		canBeHasted : true,
+		type : "white",
+		shotType : ShotTypes.Multishot,
+		perk : false,
+	});
+	#endregion
 	#endregion
 	
 	#region Modded
@@ -1200,6 +1229,8 @@ Collabs[Weapons.AbsoluteWall] = [Weapons.CuttingBoard, Weapons.BounceBall];
 Collabs[Weapons.BLFujoshi] = [Weapons.BlBook, Weapons.PsychoAxe];
 Collabs[Weapons.BoneBros] = [Weapons.ENsCurse, Weapons.CuttingBoard];
 Collabs[Weapons.BreatheInTypeAsacoco] = [Weapons.PlugAsaCoco, Weapons.HoloBomb];
+Collabs[Weapons.EliteCooking] = [Weapons.EliteLavaBucket, Weapons.SpiderCooking];
+Collabs[Weapons.RingOfFitness] = [Weapons.BounceBall, Weapons.CEOTears];
 function populate_collabs(){
 	for (var i = 0; i < array_length(Collabs); ++i) {
 	    if (is_array(Collabs[i])) {

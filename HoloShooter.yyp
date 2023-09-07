@@ -290,6 +290,7 @@
     {"id":{"name":"Sprite11","path":"sprites/Sprite11/Sprite11.yy",},},
     {"id":{"name":"test_drawlist","path":"objects/test_drawlist/test_drawlist.yy",},},
     {"id":{"name":"sBounceBallThumb","path":"sprites/sBounceBallThumb/sBounceBallThumb.yy",},},
+    {"id":{"name":"sFitnessRingThumb","path":"sprites/sFitnessRingThumb/sFitnessRingThumb.yy",},},
     {"id":{"name":"rCharacterSelect","path":"rooms/rCharacterSelect/rCharacterSelect.yy",},},
     {"id":{"name":"sInaTentacle","path":"sprites/sInaTentacle/sInaTentacle.yy",},},
     {"id":{"name":"sInvestigator","path":"sprites/sInvestigator/sInvestigator.yy",},},

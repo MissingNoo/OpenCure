@@ -80,14 +80,12 @@ image_speed = 0;
 		default:{
 			defaultBehaviour();
 			break;}
-			
 		case Weapons.AmePistol:{
 			defaultBehaviour();
 			direction = arrowDir;
 			//alarm[0] = 10;
 			image_angle = arrowDir;
 			break;}
-			
 		case Weapons.GuraTrident:{
 			image_angle = arrowDir + diroffset;
 			//defaultBehaviour();			
@@ -97,7 +95,6 @@ image_speed = 0;
 			}
 			//alarm[0] = 1;
 			break;}
-			
 		case Weapons.InaTentacle:{
 			if (shoots > 1) {
 				for (var i = 0; i < shoots; ++i) {
@@ -116,7 +113,6 @@ image_speed = 0;
 			}
 			dAlarm[0]=1;
 			break;}
-			
 		case Weapons.PlugAsaCoco:{
 			originaly=y;
 			image_alpha = .99;
@@ -131,7 +127,6 @@ image_speed = 0;
 			speed = 0;
 			dAlarm[1]=30;
 			break;}
-			
 		case Weapons.BlBook:{
 			orbitLength = 50;
 			if (shoots > 0) {	
@@ -161,7 +156,6 @@ image_speed = 0;
 			}
 			//alarm[0]=1;
 			break;}
-			
 		case Weapons.BounceBall:{
 			//defaultBehaviour();
 			direction = point_direction(x,y,x,y+10);
@@ -175,7 +169,6 @@ image_speed = 0;
 			//alarm[0] = upg[$"attackdelay"];
 			break;
 		}
-			
 		case Weapons.EliteLavaBucket:{	
 			level = upg[$"level"];
 			random_set_seed(current_time);
@@ -269,8 +262,7 @@ image_speed = 0;
 			y = owner.y + (irandom_range(-50,50)*-1);
 			//alarm[0] = 1;
 			depth=owner.depth;
-			break;}
-			
+			break;}	
 		case Weapons.Glowstick:{
 			if (instance_exists(oEnemy)) {
 				var enemies = instance_number(oEnemy);
@@ -283,7 +275,6 @@ image_speed = 0;
 				}
 			} else instance_destroy();
 			break;}
-			
 		case Weapons.IdolSong:{
 			if (idolDir == 90) {
 			    idolDir = 270;
@@ -303,17 +294,6 @@ image_speed = 0;
 			break;}
 		case Weapons.WamyWater:{
 			image_angle = arrowDir + diroffset;
-			break;}
-		case Weapons.BreatheInTypeAsacoco:{
-			asaDirection = random_range(-1,1);
-			asaRotationSpeed = irandom_range(-10, 10);
-			asaSpeed = irandom_range(1, 8);
-			asaDuration = random_range(0.8, 1.2);
-			vspd = -11;
-			break;}
-		case Weapons.EliteCooking:{
-			x = owner.x + irandom_range(-100,100);
-			y = owner.y + (irandom_range(-100,100)*-1);
 			break;}
 		#region modded
 		case Weapons.PipiPilstol:{
@@ -347,6 +327,7 @@ image_speed = 0;
 			}
 			break;
 		}
+		#endregion
 		case Weapons.SpiderCooking:{
 			x = owner.x;
 			y = owner.y - (sprite_get_height(global.player[?"sprite"]) / 3);
@@ -369,7 +350,6 @@ image_speed = 0;
 			direction = irandom_range(0,360);
 			break;}
 		#region Collabs
-		#region MiComet
 		case Weapons.MiComet:{
 			instance_create_layer(x + irandom_range(-200, 200), y + irandom_range(-200, 200), "Upgrades", oUpgrade,{
 					upg : WEAPONS_LIST[Weapons.MiCometMeteor][1],
@@ -474,11 +454,52 @@ image_speed = 0;
 			part_system_position(ps2, x, y);
 
 			break;}
-		#endregion
-		#endregion
+		case Weapons.BreatheInTypeAsacoco:{
+			asaDirection = random_range(-1,1);
+			asaRotationSpeed = irandom_range(-10, 10);
+			asaSpeed = irandom_range(1, 8);
+			asaDuration = random_range(0.8, 1.2);
+			vspd = -11;
+			break;}
+		case Weapons.EliteCooking:{
+			x = owner.x + irandom_range(-100,100);
+			y = owner.y + (irandom_range(-100,100)*-1);
+			break;}
+		case Weapons.RingOfFitness:{
+			//ringDir = 0;
+			for (var i = 0; i < global.player[?"ballsize"]; ++i) {
+				image_xscale = image_xscale * 1.10;
+				image_yscale = image_xscale
+			}
+			x = owner.x + lengthdir_x(20, ringDir);
+			y = owner.y + lengthdir_y(20, ringDir);
+			direction = point_direction(owner.x, owner.y, x, y);
+			for (var i = 0; i < shoots - 1; ++i) {
+				ringDir+= 24;
+				//var _x = x + lengthdir_x(20, round(ringDir));
+				//var _y = y + lengthdir_y(20, round(ringDir));
+				//var dirr = point_direction(_x, _y, owner.x, owner.y);
+			    instance_create_depth(owner.x, owner.y, depth, oUpgrade,{
+					upg : WEAPONS_LIST[Weapons.RingOfFitness][1],
+					speed : WEAPONS_LIST[Weapons.RingOfFitness][1][$"speed"],
+					hits : WEAPONS_LIST[Weapons.RingOfFitness][1][$"hits"],
+					shoots : -1,
+					sprite_index : WEAPONS_LIST[Weapons.RingOfFitness][1][$"sprite"],
+					level : WEAPONS_LIST[Weapons.RingOfFitness][1][$"level"],
+					mindmg: WEAPONS_LIST[Weapons.RingOfFitness][1][$"mindmg"],
+					maxdmg: WEAPONS_LIST[Weapons.RingOfFitness][1][$"maxdmg"],
+					ringDir,
+					owner,
+					firstBall : false
+					//x : _x,
+					//y : _y,
+					//direction : dirr,
+				});	
+			}
+			break;}
 		#endregion
 	}
-		if (sprite_index==sBlank and !variable_struct_exists(upg, "collab")) {
+	if (sprite_index==sBlank and !variable_struct_exists(upg, "collab")) {
 			instance_destroy();
 	}
 	

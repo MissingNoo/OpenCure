@@ -76,6 +76,8 @@ switch (upg[$"id"]) {
 			//alarm[0]=1;
 		//}
 		break;}
+	case Weapons.RingOfFitness:{
+		break;}
 	case Weapons.BLFujoshiBook:{
 		//if (shoots > 1) {			
 		var _off = 0;
@@ -173,7 +175,7 @@ switch (upg[$"id"]) {
 		//}
 		//shoots -= 1;
 		break;}
-		case Weapons.PipiPilstol:{
+	case Weapons.PipiPilstol:{
 			//if (shoots > 1) {			
 				//shoots-=1;
 				inst = spawnUpgrade();
@@ -188,7 +190,7 @@ switch (upg[$"id"]) {
 				//}
 			break;
 		}
-		case Weapons.AbsoluteWall:{
+	case Weapons.AbsoluteWall:{
 		//if (shoots > 1) {			
 				inst = spawnUpgrade();
 				inst.wallNumber = wallNumber + 1;

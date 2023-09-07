@@ -8,6 +8,9 @@ asaRotationSpeed = undefined;
 asaSpeed = undefined;
 asaDuration = undefined;
 #endregion
+#region Ring of Fitness
+
+#endregion
 wallNumber = -1;
 ps = undefined;
 ps2 = undefined;
