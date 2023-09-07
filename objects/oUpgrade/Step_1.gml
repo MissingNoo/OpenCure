@@ -504,6 +504,11 @@ image_speed = 0;
 				});	
 			}
 			break;}
+		case Weapons.ImDie:{
+			direction = global.arrowDir;
+			break;}
+		case Weapons.ImDieExplosion:{
+			break;}
 		#endregion
 	}
 	if (sprite_index==sBlank and !variable_struct_exists(upg, "collab")) {

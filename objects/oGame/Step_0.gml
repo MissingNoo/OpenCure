@@ -154,6 +154,8 @@ if (instance_exists(oPlayer)) {
 }
 #endregion
 // Apply shake
+shakeFx = layer_get_fx("ShakeLayer");
+fx_set_single_layer(shakeFx, false);
 fx_set_parameter(shakeFx, "g_Magnitude", shakeMagnitude);
 fx_set_parameter(shakeFx, "g_ShakeSpeed", shakeSpeed);
 

@@ -27,6 +27,10 @@ switch (upg[$"id"]) {
 		draw_set_alpha(1);
 		draw_set_color(c_white);
         break;
+	case Weapons.ImDieExplosion:{
+		var _alpha = 0.5;
+		draw_sprite_ext(sprite_index, subImg, x, y, image_xscale, image_yscale, image_angle, c_white, _alpha);
+		break;}
     default:
         draw_sprite_ext(sprite_index, subImg, x, y, image_xscale, image_yscale, image_angle, c_white, image_alpha);
         break;

@@ -208,6 +208,9 @@ if (other.hittedcooldown[upg[$"id"]] <= 0  and !global.gamePaused and other.imag
 				heal_player(_hp);
 			}
 			break;
+		case Weapons.ImDie:{
+			other.carryingBomb = true;
+			break;}
 	    default:
 	        break;
 	}

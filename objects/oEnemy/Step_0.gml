@@ -85,6 +85,20 @@ if(global.gamePaused == false and instance_exists(target)){
 		    var part = part_system_create(part_saved);
 			//feather disable once GM2017
 			part_system_position(part, x, y - (sprite_get_height(sprite_index) /2));
+			if (carryingBomb) {
+			    instance_create_depth(x, y, depth, oUpgrade,{
+					upg : WEAPONS_LIST[Weapons.ImDieExplosion][1],
+					speed : WEAPONS_LIST[Weapons.ImDieExplosion][1][$"speed"],
+					hits : WEAPONS_LIST[Weapons.ImDieExplosion][1][$"hits"],
+					shoots : WEAPONS_LIST[Weapons.ImDieExplosion][1][$"shoots"],
+					sprite_index : WEAPONS_LIST[Weapons.ImDieExplosion][1][$"sprite"],
+					level : WEAPONS_LIST[Weapons.ImDieExplosion][1][$"level"],
+					mindmg: WEAPONS_LIST[Weapons.ImDieExplosion][1][$"mindmg"],
+					maxdmg: WEAPONS_LIST[Weapons.ImDieExplosion][1][$"maxdmg"],
+					image_xscale : 0,
+					image_yscale : 0,
+				});
+			}
 		}		
 		if (!deathSent) {
 		    deathSent = true;

@@ -262,6 +262,12 @@ if (!global.gamePaused) {
 				image_angle = point_direction(owner.x, owner.y, x, y);
 			}
 			break;}
+			case Weapons.ImDieExplosion:{
+				explosionSize += .10;
+				image_xscale = explosionSize;
+				image_yscale = explosionSize;
+				oGame.shakeMagnitude = oGui.e;
+				break;}
 		//case Weapons.XPotato:{
 		//	image_angle += .5;
 		//	if (x > oPlayer.x + (view_wport[0] / 2)) { direction += 180; }

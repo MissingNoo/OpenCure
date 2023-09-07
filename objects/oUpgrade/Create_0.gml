@@ -11,6 +11,9 @@ asaDuration = undefined;
 #region Ring of Fitness
 
 #endregion
+#region I'm Die
+explosionSize = .1;
+#endregion
 wallNumber = -1;
 ps = undefined;
 ps2 = undefined;

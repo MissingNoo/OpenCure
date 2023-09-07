@@ -29,7 +29,12 @@ if (damaged) {
     draw_self();
 	gpu_set_fog(false,c_white,0,0);
 }
-else{draw_self();}
+else{
+	draw_self();
+	if (carryingBomb) {
+	    draw_sprite(sImDie, 0, x, y - (sprite_get_height(sprite_index) / 2));
+	}
+}
 var _vars = ["speed", "atk", "hp", "image_xscale"];
 if (global.debug and distance_to_point(mouse_x, mouse_y) < 10) {
 	for (var i = 0; i < array_length(_vars); ++i) {
