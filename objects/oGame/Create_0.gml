@@ -1,4 +1,7 @@
 imguigml_activate();
+if (os_type != os_android) {
+    window_set_size(1280, 720);
+}
 targetDelta = 1 / 60;
 actualDelta = 0;
 global.gamePad = false;

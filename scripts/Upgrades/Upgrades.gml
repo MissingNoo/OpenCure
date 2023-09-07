@@ -1319,6 +1319,7 @@ Collabs[Weapons.BreatheInTypeAsacoco] = [Weapons.PlugAsaCoco, Weapons.HoloBomb];
 Collabs[Weapons.EliteCooking] = [Weapons.EliteLavaBucket, Weapons.SpiderCooking];
 Collabs[Weapons.RingOfFitness] = [Weapons.BounceBall, Weapons.CEOTears];
 Collabs[Weapons.StreamOfTears] = [Weapons.FanBeam, Weapons.CEOTears];
+Collabs[Weapons.ImDie] = [Weapons.XPotato, Weapons.HoloBomb];
 function populate_collabs(){
 	for (var i = 0; i < array_length(Collabs); ++i) {
 	    if (is_array(Collabs[i])) {

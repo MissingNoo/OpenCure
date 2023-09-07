@@ -7,7 +7,7 @@ var digit;
 #endregion
 #region black screen below gui
 if (keyboard_check(vk_alt)) {
-	window_set_size(1280, 720);
+	
 	//feather disable once GM2017
     //draw_sprite_ext(bgtest, 0, 0, 0, 1, 1, 0, c_white, .8);
     draw_sprite_ext(bgtest264, 0, 0, 0, 1, 1, 0, c_white, .8);

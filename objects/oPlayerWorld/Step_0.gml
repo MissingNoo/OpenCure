@@ -1,6 +1,6 @@
-if (keyboard_check_pressed(vk_home)) {
-		    show_message_async(HouseInventory[HouseCategory.Interior]);
-		}
+//if (keyboard_check_pressed(vk_home)) {
+//		    show_message_async(HouseInventory[HouseCategory.Interior]);
+//		}
 socket = global.socket;
 if (global.gamePaused) { return; }
 if (instance_exists(oNpcShop) or (instance_exists(oHouseManager) and oHouseManager.editHouse)) { return; }

@@ -1,4 +1,5 @@
 justOpened = true;
+showGrid = false;
 alarm[1] = 2;
 editHouse = false;
 placingObject = false;
