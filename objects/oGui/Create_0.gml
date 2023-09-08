@@ -1,3 +1,4 @@
+mousePrevious = [0,0];
 gAnvilWeapon1 = global.null;
 gAnvilWeapon2 = global.null;
 gAnvilWeapon1Position = 0;

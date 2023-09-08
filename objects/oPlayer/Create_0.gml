@@ -1,4 +1,5 @@
 event_inherited();
+weaponHaste = 0;
 justBandageHealing = 0;
 haveBandage = false;
 bandageLevel = 0;

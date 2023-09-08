@@ -152,7 +152,7 @@ function drawRectangle(x, y, xx, yy, _background = c_black, _outline = c_white, 
 function mouse_on_button(_x, _y, _sprite, _index, _xscale = 1, _yscale = 1, _variable = "selected"){
 	var _w = sprite_get_width(_sprite) * _xscale /2;
 	var _h = sprite_get_height(_sprite) * _yscale / 2;
-	if (point_in_rectangle(TouchX1, TouchY1, _x - _w, _y - _h, _x + _w, _y + _h)) {
+	if (point_in_rectangle(oGui.x, oGui.y, _x - _w, _y - _h, _x + _w, _y + _h)) {
 		variable_instance_set(self, _variable, _index);
 	}	
 	if (global.debug) {

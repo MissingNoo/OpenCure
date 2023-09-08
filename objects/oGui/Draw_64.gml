@@ -872,3 +872,5 @@ if (os_type == os_android)
 	}
 }
 #endregion
+x = 0;
+y = 0;

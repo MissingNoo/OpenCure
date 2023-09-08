@@ -37,6 +37,29 @@ if (global.shopUpgrades[$"Crit"].level > 0) {
 }
 critChance = calc;
 #endregion
+#region Haste
+var down = 0;
+for (var i = 0; i < array_length(Bonuses[BonusType.Haste]); ++i) {
+	if (Bonuses[BonusType.Haste][i] != 0) {
+		if (Bonuses[BonusType.Haste][i] > 0) {
+			down += real("." + string_replace(Bonuses[BonusType.Haste][i], "1.", ""));
+		}
+		if (Bonuses[BonusType.Haste][i] < 0) {
+			down -= real("." + string_replace(Bonuses[BonusType.Haste][i], "0.", ""));
+		}
+	}
+}
+for (var i = 0; i < global.shopUpgrades[$ "Haste"][$ "level"]; ++i) {
+	down = down + ((down * 4) / 100);
+}
+if (down > 0 and string_starts_with(down, "0.")) {
+    down = real(string_replace(down, "0.", "1."));
+}
+if (down < 0) {
+    down = down * -1;
+}
+weaponHaste = down;
+#endregion
 image_speed = oImageSpeed * Delta;
 //oCam.x = oPlayer.x;
 //oCam.y = oPlayer.y;

@@ -58,7 +58,16 @@ image_speed = 0;
 			maxdmg = maxdmg+ (maxdmg* 2 / 100);
 		}
 	}
-	global.upgradeCooldown[upg[$"id"]] = upg[$"cooldown"];
+	var cooldown = upg[$"cooldown"];
+	if (upg[$"canBeHasted"] == true and oPlayer.weaponHaste != 0) {
+	    cooldown -= (cooldown * oPlayer.weaponHaste) - cooldown;
+		//show_debug_message(string($"{upg[$"cooldown"]}/{cooldown}/{oPlayer.weaponHaste}"));
+	}
+	var minCooldown = upg[$"minimumcooldown"];
+	if (cooldown < minCooldown) {
+	    cooldown = minCooldown;
+	}
+	global.upgradeCooldown[upg[$"id"]] = cooldown;
 	dAlarm[1] = upg[$"duration"];
 	image_speed=1;
 	image_alpha=1;

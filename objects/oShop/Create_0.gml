@@ -3,7 +3,7 @@ guiClick = function (_x, _y, spr, xscale, yscale){
 	var result = false;
 	var _w = (sprite_get_width(spr) * xscale) / 2;
 	var _h = (sprite_get_height(spr) * yscale) / 2;
-	if (point_in_rectangle(TouchX1, TouchY1, _x - _w, _y - _h, _x + _w, _y + _h)){
+	if (point_in_rectangle(oGui.x, oGui.y, _x - _w, _y - _h, _x + _w, _y + _h)){
 		result = true;
 		oGui.x = 0;
 		oGui.y = 0;

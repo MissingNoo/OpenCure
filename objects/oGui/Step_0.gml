@@ -16,6 +16,16 @@ if (os_type == os_android) {
 }
 #region Misc
 isP=global.gamePaused;
+if (TouchX1 != mousePrevious[0]) {
+    mousePrevious[0] = TouchX1;
+	x = TouchX1;
+	y = TouchY1;
+}
+if (TouchY1 != mousePrevious[1]) {
+    mousePrevious[1] = TouchY1;
+	x = TouchX1;
+	y = TouchY1;
+}
 if (device_mouse_check_button_pressed(0, mb_left)) {
     x = device_mouse_x_to_gui(0);
 	y = device_mouse_y_to_gui(0);
