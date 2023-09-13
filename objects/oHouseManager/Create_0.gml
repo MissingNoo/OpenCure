@@ -31,7 +31,7 @@ enum HouseOptions {
 //feather disable once GM2017
 function Save_House() { 
 	var Data = {};
-	Data[$"houseInfo"] = json_stringify(houseInfo);
+	Data[$ "houseInfo"] = json_stringify(houseInfo);
 	for (var i = 0; i < instance_number(oHouseItem); ++i) {
 		var inst = instance_find(oHouseItem, i);
 		Data[$ i] = {
@@ -57,13 +57,13 @@ if (file_exists(HOUSE)) {
 		if (variable_struct_exists(Json[$ i],"ignore")) {
 		    continue;
 		}
-		var _x = Json[$ i][$"x"];
-		var _y = Json[$ i][$"y"];
-		var _id = Json[$ i][$"itemId"];
-		var _spr = HouseItems[_id][$"sprite"];
+		var _x = Json[$ i][$ "x"];
+		var _y = Json[$ i][$ "y"];
+		var _id = Json[$ i][$ "itemId"];
+		var _spr = HouseItems[_id][$ "sprite"];
 		instance_create_depth(_x, _y, depth, oHouseItem, {itemId : _id, sprite_index : _spr});
 	}
-	houseInfo = json_parse(Json[$"houseInfo"]);
+	houseInfo = json_parse(Json[$ "houseInfo"]);
 	ds_map_destroy(Map);} 
 };
 Load_House();

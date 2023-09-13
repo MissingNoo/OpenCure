@@ -51,9 +51,9 @@ if(global.gamePaused == false and instance_exists(target)){
 	var nearupgrade;
 		if (instance_exists(oUpgrade) and instance_exists(target)) {
 			nearupgrade = instance_nearest(x,y,oUpgrade);
-			if (instance_exists(oUpgrade) and nearupgrade.upg[$"id"] == Weapons.PowerofAtlantis and distance_to_object(nearupgrade) < 100) {
+			if (instance_exists(oUpgrade) and nearupgrade.upg[$ "id"] == Weapons.PowerofAtlantis and distance_to_object(nearupgrade) < 100) {
 			    var _is_colliding = collision_point(x,y, oUpgrade,false, true)
-				if (_is_colliding != noone and _is_colliding.upg[$"id"] == Weapons.PowerofAtlantis) {
+				if (_is_colliding != noone and _is_colliding.upg[$ "id"] == Weapons.PowerofAtlantis) {
 				    direction=point_direction(x,y,_is_colliding.x,_is_colliding.y + (sprite_get_height(sWaterPoolStart) / 2));
 				}	
 			}else {
@@ -88,13 +88,13 @@ if(global.gamePaused == false and instance_exists(target)){
 			if (carryingBomb) {
 			    instance_create_depth(x, y, depth, oUpgrade,{
 					upg : WEAPONS_LIST[Weapons.ImDieExplosion][1],
-					speed : WEAPONS_LIST[Weapons.ImDieExplosion][1][$"speed"],
-					hits : WEAPONS_LIST[Weapons.ImDieExplosion][1][$"hits"],
-					shoots : WEAPONS_LIST[Weapons.ImDieExplosion][1][$"shoots"],
-					sprite_index : WEAPONS_LIST[Weapons.ImDieExplosion][1][$"sprite"],
-					level : WEAPONS_LIST[Weapons.ImDieExplosion][1][$"level"],
-					mindmg: WEAPONS_LIST[Weapons.ImDieExplosion][1][$"mindmg"],
-					maxdmg: WEAPONS_LIST[Weapons.ImDieExplosion][1][$"maxdmg"],
+					speed : WEAPONS_LIST[Weapons.ImDieExplosion][1][$ "speed"],
+					hits : WEAPONS_LIST[Weapons.ImDieExplosion][1][$ "hits"],
+					shoots : WEAPONS_LIST[Weapons.ImDieExplosion][1][$ "shoots"],
+					sprite_index : WEAPONS_LIST[Weapons.ImDieExplosion][1][$ "sprite"],
+					level : WEAPONS_LIST[Weapons.ImDieExplosion][1][$ "level"],
+					mindmg: WEAPONS_LIST[Weapons.ImDieExplosion][1][$ "mindmg"],
+					maxdmg: WEAPONS_LIST[Weapons.ImDieExplosion][1][$ "maxdmg"],
 					image_xscale : 0,
 					image_yscale : 0,
 				});

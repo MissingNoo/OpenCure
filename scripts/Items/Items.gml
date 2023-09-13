@@ -570,31 +570,31 @@ function populate_items(){
 function tickItems(){
 	var _player = instance_find(oPlayer, 0);
 	for (var i = 0; i < array_length(playerItems); ++i) {
-		if (playerItems[i] != global.nullitem and global.itemCooldown[playerItems[i][$"id"]] <= 0) {
-			defaultItemBehaviour(playerItems[i][$"id"], playerItems[i][$"cooldown"]);
+		if (playerItems[i] != global.nullitem and global.itemCooldown[playerItems[i][$ "id"]] <= 0) {
+			defaultItemBehaviour(playerItems[i][$ "id"], playerItems[i][$ "cooldown"]);
 			if (variable_struct_exists(playerItems[i], "bonusType")) {
-				if (is_array(playerItems[i][$"bonusType"])) {
-					for (var j = 0; j < array_length(playerItems[i][$"bonusType"]); ++j) {
-					    Bonuses[playerItems[i][$"bonusType"][j]][playerItems[i][$"id"]] = playerItems[i][$"bonusValue"][j][playerItems[i][$"level"] -1];
+				if (is_array(playerItems[i][$ "bonusType"])) {
+					for (var j = 0; j < array_length(playerItems[i][$ "bonusType"]); ++j) {
+					    Bonuses[playerItems[i][$ "bonusType"][j]][playerItems[i][$ "id"]] = playerItems[i][$ "bonusValue"][j][playerItems[i][$ "level"] -1];
 					}				    
 				}
 				else{
-					Bonuses[playerItems[i][$"bonusType"]][playerItems[i][$"id"]] = playerItems[i][$"bonusValue"][playerItems[i][$"level"] -1];
+					Bonuses[playerItems[i][$ "bonusType"]][playerItems[i][$ "id"]] = playerItems[i][$ "bonusValue"][playerItems[i][$ "level"] -1];
 				}			    
 			}
-		    switch (playerItems[i][$"id"]) {
+		    switch (playerItems[i][$ "id"]) {
 				case ItemIds.Body_Pillow:{
-					Shield = playerItems[i][$"shield"];
-					MaxShield = playerItems[i][$"shield"];
+					Shield = playerItems[i][$ "shield"];
+					MaxShield = playerItems[i][$ "shield"];
 					break;}
 				case ItemIds.Chicken_Feather:{
-					if (playerItems[i][$"level"] != Bonuses[BonusType.ChickenFeather]) {
-						Bonuses[BonusType.ChickenFeather] = playerItems[i][$"level"];
+					if (playerItems[i][$ "level"] != Bonuses[BonusType.ChickenFeather]) {
+						Bonuses[BonusType.ChickenFeather] = playerItems[i][$ "level"];
 						oPlayer.revives +=1 ;
 					}
 					break;}
 				case ItemIds.Energy_Drink:{
-					switch (playerItems[i][$"level"]) {
+					switch (playerItems[i][$ "level"]) {
 					    case 1:
 							if (Bonuses[BonusType.EnergyDrinkHpMinus] == 0) {
 							    Bonuses[BonusType.EnergyDrinkHpMinus] = 1;
@@ -637,18 +637,18 @@ function tickItems(){
 					);
 					break;}
 				case ItemIds.Idol_Costume:{
-					if (_player.idolCostumeLevel != playerItems[i][$"level"]) {
-					    _player.idolCostumeLevel = playerItems[i][$"level"];
-						_player.specialcooldown = _player.specialcooldown * playerItems[i][$"SpecialCooldown"];
+					if (_player.idolCostumeLevel != playerItems[i][$ "level"]) {
+					    _player.idolCostumeLevel = playerItems[i][$ "level"];
+						_player.specialcooldown = _player.specialcooldown * playerItems[i][$ "SpecialCooldown"];
 					}
 					break;}
 				case ItemIds.Hope_Soda:{
 					if (!variable_instance_exists(_player, "hopeSodaLevel")) {
 					    _player.hopeSodaLevel = 0;
 					}
-					if (_player.hopeSodaLevel != playerItems[i][$"level"]) {
-					    _player.hopeSodaLevel = playerItems[i][$"level"];
-						_player.specialcooldown = _player.specialcooldown * playerItems[i][$"SpecialCooldown"];
+					if (_player.hopeSodaLevel != playerItems[i][$ "level"]) {
+					    _player.hopeSodaLevel = playerItems[i][$ "level"];
+						_player.specialcooldown = _player.specialcooldown * playerItems[i][$ "SpecialCooldown"];
 					}
 					break;}
 				case ItemIds.Stolen_Piggy_Bank:{
@@ -661,18 +661,18 @@ function tickItems(){
 					time_source_start(global.pig);
 					break;}
 				case ItemIds.Piki_Piki_Piman:{
-					if (oPlayer.pimanLevel != playerItems[i][$"level"]) {
-					    oPlayer.pimanLevel = playerItems[i][$"level"];
-					    oPlayer.pimanBonus = playerItems[i][$"bonusPercentage"];
-						MAXHP += playerItems[i][$"bonus"];
+					if (oPlayer.pimanLevel != playerItems[i][$ "level"]) {
+					    oPlayer.pimanLevel = playerItems[i][$ "level"];
+					    oPlayer.pimanBonus = playerItems[i][$ "bonusPercentage"];
+						MAXHP += playerItems[i][$ "bonus"];
 					}
 					pimanUsable = true;
 					break;}
 				case ItemIds.Just_Bandage:{
 					//if (!variable_instance_exists(_player, "bandageLevel")) { _player.bandageLevel = 0; }
-					if (_player.bandageLevel != playerItems[i][$"level"]) {
+					if (_player.bandageLevel != playerItems[i][$ "level"]) {
 						_player.haveBandage = true;
-					    _player.bandageLevel= playerItems[i][$"level"];
+					    _player.bandageLevel= playerItems[i][$ "level"];
 						MAXHP = MAXHP + 10;
 						HP += 10;
 					}
@@ -680,8 +680,8 @@ function tickItems(){
 				case ItemIds.Membership:{
 					if (global.newcoins > 0) {
 					    global.newcoins -= 3;
-						Bonuses[BonusType.Damage][ItemIds.Membership] = playerItems[i][$"bonusATK"];
-						Bonuses[BonusType.TakeDamage][ItemIds.Membership] = playerItems[i][$"bonusLessDamage"];
+						Bonuses[BonusType.Damage][ItemIds.Membership] = playerItems[i][$ "bonusATK"];
+						Bonuses[BonusType.TakeDamage][ItemIds.Membership] = playerItems[i][$ "bonusLessDamage"];
 					}
 					if (global.newcoins <= 0) {
 					    global.newcoins = 0;
@@ -691,25 +691,25 @@ function tickItems(){
 					break;}
 				case ItemIds.GWS_Pill:{
 					if (oPlayer.skilltimer < oPlayer.specialcooldown) {
-					    Bonuses[BonusType.Critical][ItemIds.GWS_Pill] = playerItems[i][$"crit"];
+					    Bonuses[BonusType.Critical][ItemIds.GWS_Pill] = playerItems[i][$ "crit"];
 					}
 					else{
 						Bonuses[BonusType.Critical][ItemIds.GWS_Pill] = 0;
 					}
 					break;}
 				case ItemIds.BlacksmithsGear:{
-					oPlayer.blacksmithLevel = playerItems[i][$"level"];
+					oPlayer.blacksmithLevel = playerItems[i][$ "level"];
 					break;}
 				case ItemIds.Sake:{
 					if (!variable_instance_exists(self, "sakeLevel")) { sakeLevel = 0; }
-					if (sakeLevel < playerItems[i][$"level"]) {
-					    sakeLevel = playerItems[i][$"level"];
-						Buffs[BuffNames.Sake][$"maxCount"] = playerItems[i][$"bonus"];
+					if (sakeLevel < playerItems[i][$ "level"]) {
+					    sakeLevel = playerItems[i][$ "level"];
+						Buffs[BuffNames.Sake][$ "maxCount"] = playerItems[i][$ "bonus"];
 					}
-					if (!Buffs[BuffNames.Sake][$"enabled"]) {
-						Buffs[BuffNames.Sake][$"count"] = 0;
-					    Buffs[BuffNames.Sake][$"enabled"] = true;
-					    Buffs[BuffNames.Sake][$"cooldown"] = Buffs[BuffNames.Sake][$"baseCooldown"];
+					if (!Buffs[BuffNames.Sake][$ "enabled"]) {
+						Buffs[BuffNames.Sake][$ "count"] = 0;
+					    Buffs[BuffNames.Sake][$ "enabled"] = true;
+					    Buffs[BuffNames.Sake][$ "cooldown"] = Buffs[BuffNames.Sake][$ "baseCooldown"];
 					}
 					break;
 				}

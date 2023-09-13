@@ -6,7 +6,7 @@
 
 
 //var inst = noone;
-//switch (upg[$"id"]) {
+//switch (upg[$ "id"]) {
 //	default:
 //		spawnUpgrade();
 //		break;
@@ -49,7 +49,7 @@
 //			inst = spawnUpgrade();
 //			inst.orbitPlace = orbitoffset;
 //			inst.orbitLength = orbitLength;
-//			switch (upg[$"level"]) {
+//			switch (upg[$ "level"]) {
 //				    case 1:
 //				        orbitoffset -= 120;
 //				        break;
@@ -161,7 +161,7 @@
 //shoots -= 1;
 //if (shoots > 1) {
 //	if (variable_struct_exists(upg, "attackdelay")) {
-//		alarm[0] = upg[$"attackdelay"];
+//		alarm[0] = upg[$ "attackdelay"];
 //	}
 //	else{
 //		alarm[0] = 1;

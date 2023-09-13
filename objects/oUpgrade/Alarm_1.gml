@@ -3,7 +3,7 @@
 
 ///// @description Insert description here
 //// You can write your code in this editor
-//switch (upg[$"id"]) {
+//switch (upg[$ "id"]) {
 //	default:
 //		instance_destroy();
 //		break;

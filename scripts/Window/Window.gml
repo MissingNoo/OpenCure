@@ -44,7 +44,7 @@ function drawWindow(x, y, xx, yy, title, titlesize = 25,titlePos = 15, fontsize 
 	draw_set_valign(fa_middle);
 	draw_text_transformed(x+10,(y + titlesize) / 2, title, fontsize,fontsize,0);
 	draw_set_valign(fa_top);
-	draw_set_color(c_white)
+	draw_set_color(c_white);
 }
 function gameWindow(){
 //window_set_size( 960, 540 );

@@ -14,10 +14,10 @@ if (dropxp and hp < 0) {
 	for (var i = 0; i < array_length(playerItems); ++i) {
 		//show_message(string(playerItems[i][?"id"]));
 		//show_message(string(ItemIds.NurseHorn));
-	    if (playerItems[i][$"id"] == ItemIds.NurseHorn) {
+	    if (playerItems[i][$ "id"] == ItemIds.NurseHorn) {
 		    var rdn = irandom_range(0,100);
 			if (rdn <= 30) {
-			    switch (playerItems[i][$"level"]) {
+			    switch (playerItems[i][$ "level"]) {
 				    case 1:
 				        heal_player(2);
 				        break;
@@ -33,12 +33,12 @@ if (dropxp and hp < 0) {
 	}
 #endregion
 // randomize;
-//var _dropChanceBuff = Bonuses[BonusType.UberSheep][ItemIds.UberSheep] + global.shopUpgrades[$"FoodDrop"][$"level"] / 100;
+//var _dropChanceBuff = Bonuses[BonusType.UberSheep][ItemIds.UberSheep] + global.shopUpgrades[$ "FoodDrop"][$ "level"] / 100;
 //show_message(_dropChanceBuff)
 //var dropchance = 1 / 200 * (1 - _dropChanceBuff);
 //show_message(dropchance)
 var _dropchance = 1;
-for (var i = 0; i < global.shopUpgrades[$"FoodDrop"][$"level"]; ++i) {
+for (var i = 0; i < global.shopUpgrades[$ "FoodDrop"][$ "level"]; ++i) {
     _dropchance = _dropchance * 1.04;
 }
 if (Bonuses[BonusType.UberSheep][ItemIds.UberSheep] != 0) {
@@ -71,5 +71,5 @@ if (irandom_range(1,3000) == 1) {
     //TODO: code here for exp magnet
 }
 if (thisEnemy == Enemies.FubuZilla) {
-    Achievements[AchievementIds.FuburaIsComing][$"unlocked"] = true;
+    Achievements[AchievementIds.FuburaIsComing][$ "unlocked"] = true;
 }

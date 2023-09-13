@@ -55,13 +55,13 @@ if (!onMenu) {
 		case 0:{//gacha
 			_x = GW/1.45;
 			_y = GH/2.47;
-			draw_sprite_ext(gachas[selectedGacha][$"sprite"], 0, _x, _y, 2, 2, 0, c_white, 1);
+			draw_sprite_ext(gachas[selectedGacha][$ "sprite"], 0, _x, _y, 2, 2, 0, c_white, 1);
 			_y += 265;
 			draw_sprite_ext(sHudShopNew, 0, _x - 5, _y, 32, 6.60, 0, c_white, 1);
 			draw_rectangle(_x - 371, _y - 38, _x + 358 , _y - 37, false);
-			draw_text_transformed(_x - 353, _y - 71, gachas[selectedGacha][$"name"], 2.50, 2.50, 0);
+			draw_text_transformed(_x - 353, _y - 71, gachas[selectedGacha][$ "name"], 2.50, 2.50, 0);
 			draw_set_halign(fa_right);
-			draw_text_transformed_color(_x + 359, _y + 26, string($"Cost: {gachas[selectedGacha][$"cost"]}"), 2.50, 2.50, 0, c_yellow, c_yellow, c_yellow, c_yellow, 1);
+			draw_text_transformed_color(_x + 359, _y + 26, string($"Cost: {gachas[selectedGacha][$ "cost"]}"), 2.50, 2.50, 0, c_yellow, c_yellow, c_yellow, c_yellow, 1);
 			draw_set_halign(fa_left);
 			if (gachaInteract) {
 				draw_set_valign(fa_middle);
@@ -101,7 +101,7 @@ if (!onMenu) {
 				_y = GH/5.95;
 				draw_text_transformed_color(_x, _y, "CONGRATULATIONS!", 5, 5, 0, c_white, c_white, c_white, c_white, 1);
 				_y = GH/1.28;
-				var _name = CHARACTERS[gotPrize[$"character"]][?"name"]
+				var _name = CHARACTERS[gotPrize[$ "character"]][?"name"];
 				draw_text_transformed_color(_x, _y, $"{string_upper(_name)} RANK UP!!!", 5, 5, 0, c_yellow, c_yellow, c_yellow, c_yellow, 1);
 				if (isOutfit) {
 				    draw_text_transformed_color(_x, _y + 75, "OUTFIT GET!!!", 5, 5, 0, c_yellow, c_yellow, c_yellow, c_yellow, 1);
@@ -112,9 +112,9 @@ if (!onMenu) {
 				    prizeIdleAnimation[0] += prizeIdleSpeed / game_get_speed(gamespeed_fps) * Delta;
 				}
 				else{ prizeIdleAnimation[0] = 0; }
-				var _spr = CHARACTERS[gotPrize[$"character"]][?"sprite"];
+				var _spr = CHARACTERS[gotPrize[$ "character"]][?"sprite"];
 				if (isOutfit) {
-					_spr = CHARACTERS[gotPrize[$"character"]][?"outfits"][outfitPrizeNumber][$"sprite"];   
+					_spr = CHARACTERS[gotPrize[$ "character"]][?"outfits"][outfitPrizeNumber][$ "sprite"];   
 				}				
 			    draw_sprite_ext(_spr, prizeIdleAnimation[0], GW/2, GH/2 + (sprite_get_height(_spr) * 2), 6, 6, 0, c_white, 1);
 			}

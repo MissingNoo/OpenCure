@@ -3,7 +3,7 @@
 #macro EnemyPool global.enemyPool
 function initiate_enemy(e){
 	//hittedcooldown = array_create(array_length(global.upgradesAvaliable));
-	hittedcooldown[0] = 0
+	hittedcooldown[0] = 0;
 	thisEnemy = e[?"id"];
 	damaged=false;
 	gamePausedImageSpeed=image_speed;
@@ -126,7 +126,7 @@ enum Enemies
 		create_enemy(Enemies.InvestiGator, "Inveti-Gator", sInvestigator, 180, 0.85, 7, 9, 1);
 		create_enemy(Enemies.FubuZilla, "FubuZilla", sFubuzilla, 8000, 0.8, 15, 2000,1,true, 1, 1, true);
 		create_enemy(Enemies.BaeRat, "BaeRat", sBaeRat, 100, 1.1, 5, 8, 1);
-		create_enemy(Enemies.KronieA, "KronieA", sKronieA, 450, 0.8, 11, 10, 1)
+		create_enemy(Enemies.KronieA, "KronieA", sKronieA, 450, 0.8, 11, 10, 1);
 		create_enemy(Enemies.KronieB, "KronieB", sKronieA, 450, 0.8, 11, 10, 1);
 		create_enemy(Enemies.KingKronie, "King Kronie", sKingKronie, 5500, 1, 18, 2000, 1, true);
 		create_enemy(Enemies.QDeadBeat, "Q DeadBeat", sQDeadBeat, 650, 0.7, 14, 12, 1);
@@ -175,14 +175,14 @@ function add_enemy_to_pool(e){
 }
 
 function remove_enemy_from_pool(e){
-	ds_list_delete(EnemyPool, ds_list_find_index(EnemyPool, EnemyList[e]))
+	ds_list_delete(EnemyPool, ds_list_find_index(EnemyPool, EnemyList[e]));
 	show_debug_message(EnemyList[e][? "name"] + " removed from enemy pool");
 }
 
 function reset_pool()
 {
 	ds_list_clear(EnemyPool);
-	ds_list_add(EnemyPool, EnemyList[Enemies.Shrimp]) //start pool with the first mob
+	ds_list_add(EnemyPool, EnemyList[Enemies.Shrimp]); //start pool with the first mob
 }
 #endregion
 
@@ -210,9 +210,9 @@ function damage_calculation(baseDmg)
 		}
 	}
 	for (var i = 0; i < array_length(playerItems); ++i) {
-	    if (playerItems[i][$"id"] == ItemIds.Headphones) {
+	    if (playerItems[i][$ "id"] == ItemIds.Headphones) {
 		    // randomize;
-			if (irandom_range(1, 100) <= playerItems[i][$"dodgeChance"]) {
+			if (irandom_range(1, 100) <= playerItems[i][$ "dodgeChance"]) {
 			    damage = 0;
 				instance_create_depth(x,y,depth,oUpgrade,{upg : global.upgradesAvaliable[Weapons.Shockwave][1]});
 			}

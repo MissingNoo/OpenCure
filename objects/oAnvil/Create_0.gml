@@ -3,7 +3,7 @@ if (!dontsend) {
 	maxuses = 1;
     anvilid = irandom(9999);
 	for (var i = 0; i < array_length(playerItems); ++i) {
-	    if (playerItems[i][$"id"] == ItemIds.BlacksmithsGear) {
+	    if (playerItems[i][$ "id"] == ItemIds.BlacksmithsGear) {
 		    maxuses = 2;
 		}
 	}

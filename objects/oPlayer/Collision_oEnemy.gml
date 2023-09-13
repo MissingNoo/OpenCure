@@ -11,10 +11,10 @@ if (other.canattack and other.image_alpha == 1 and image_alpha == 1 and !global.
 		#region Gura
 			if (global.player == CHARACTERS[Characters.Gura]) {
 			    for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
-				    if (PLAYER_PERKS[i][$"id"] == PerkIds.ShortSize and PLAYER_PERKS[i][$"level"] > 0 and irandom_range(1, 100) <= Buffs[BuffNames.ShortHeight].chance[PLAYER_PERKS[i][$"level"]] and Shield == 0) {
-					    Buffs[BuffNames.ShortHeight][$"enabled"] = true;
-						Buffs[BuffNames.ShortHeight][$"cooldown"] = Buffs[BuffNames.ShortHeight][$"baseCooldown"];
-						PerkBonuses[BonusType.Speed][PerkIds.ShortSize] = Buffs[BuffNames.ShortHeight][$"bonus"][PLAYER_PERKS[i][$"level"]];
+				    if (PLAYER_PERKS[i][$ "id"] == PerkIds.ShortSize and PLAYER_PERKS[i][$ "level"] > 0 and irandom_range(1, 100) <= Buffs[BuffNames.ShortHeight].chance[PLAYER_PERKS[i][$ "level"]] and Shield == 0) {
+					    Buffs[BuffNames.ShortHeight][$ "enabled"] = true;
+						Buffs[BuffNames.ShortHeight][$ "cooldown"] = Buffs[BuffNames.ShortHeight][$ "baseCooldown"];
+						PerkBonuses[BonusType.Speed][PerkIds.ShortSize] = Buffs[BuffNames.ShortHeight][$ "bonus"][PLAYER_PERKS[i][$ "level"]];
 						damage = 0;
 					}
 				}
@@ -47,8 +47,8 @@ if (other.canattack and other.image_alpha == 1 and image_alpha == 1 and !global.
 			        break;
 			}		    
 		}
-		if (Buffs[BuffNames.Sake][$"count"] > 1) {
-		    Buffs[BuffNames.Sake][$"count"] = round(Buffs[BuffNames.Sake][$"count"] / 2);
+		if (Buffs[BuffNames.Sake][$ "count"] > 1) {
+		    Buffs[BuffNames.Sake][$ "count"] = round(Buffs[BuffNames.Sake][$ "count"] / 2);
 		}		
 	}
 	//alarm[1]=60;
@@ -61,11 +61,11 @@ if (other.canattack and other.image_alpha == 1 and image_alpha == 1 and !global.
 	
 	#region breastplate
 	for (var i = 0; i < array_length(playerItems); ++i) {
-		switch (playerItems[i][$"id"]) {
+		switch (playerItems[i][$ "id"]) {
 			case ItemIds.Breastplate:
-				var _chance = playerItems[i][$"reflectChance"];
+				var _chance = playerItems[i][$ "reflectChance"];
 				var _random = irandom_range(1, 100);
-				var _returnPercent = playerItems[i][$"reflectDamage"];
+				var _returnPercent = playerItems[i][$ "reflectDamage"];
 				var _returnDamage = damage * _returnPercent;
 				if (_random <= _chance) {
 					other.hp -= _returnDamage;
@@ -89,7 +89,7 @@ if (other.canattack and other.image_alpha == 1 and image_alpha == 1 and !global.
 		        // code here
 		        break;
 		}
-	    if (playerItems[i][$"id"] == ItemIds.Breastplate) {
+	    if (playerItems[i][$ "id"] == ItemIds.Breastplate) {
 		    
 		}
 		

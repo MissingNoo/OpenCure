@@ -34,18 +34,18 @@ function clientReceivedPacket2(_response)
 {
 	//show_debug_message(string(_response));
 	var r = json_parse(_response);
-	switch (r[$"command"]) {
+	switch (r[$ "command"]) {
 	    case Network.ListRooms:
-	        oLobby.rooms = r[$"rooms"];
-			global.socket = r[$"socket"];
+	        oLobby.rooms = r[$ "rooms"];
+			global.socket = r[$ "socket"];
 			//show_debug_message(r[$"socket"]);
 	        break;
 			
 		case Network.JoinRoom:{
 			//show_debug_message(r);
-			oLobby.roomname = r[$"roomname"];
-			oLobby.players = json_parse(r[$"players"]);
-			oLobby.ishost = r[$"isHost"];
+			oLobby.roomname = r[$ "roomname"];
+			oLobby.players = json_parse(r[$ "players"]);
+			oLobby.ishost = r[$ "isHost"];
 			//show_debug_message(r[$"isHost"]);
 			oLobby.joinedRoom = true;
 			keyboard_string = "";
@@ -67,7 +67,7 @@ function clientReceivedPacket2(_response)
 				with (oEnemy) {
 				    instance_destroy();
 				}
-				var _sockett = r[$"socket"];
+				var _sockett = r[$ "socket"];
 				var _slave = instance_create_layer(playerSpawn[0], playerSpawn[1], "Instances", oSlave);
 				ds_map_add(socketToInstanceID, _sockett, _slave.id);
 				//show_message(_socket);
@@ -76,12 +76,12 @@ function clientReceivedPacket2(_response)
 				
 		case Network.PlayerMoved:{
 			//show_debug_message(r);
-			var _s = r[$"socket"];
-			var _x = r[$"x"];
-			var _y = r[$"y"];
-			var _spr = r[$"sprite"];
-			var _scale = r[$"image_xscale"];
-			var _sock = r[$"socket"];
+			var _s = r[$ "socket"];
+			var _x = r[$ "x"];
+			var _y = r[$ "y"];
+			var _spr = r[$ "sprite"];
+			var _scale = r[$ "image_xscale"];
+			var _sock = r[$ "socket"];
 			
 			if (!instance_exists(oSlave)) {
 				instance_create_layer(0,0, "Instances", oSlave,{socket : _sock});
@@ -98,12 +98,12 @@ function clientReceivedPacket2(_response)
 		}
 		
 		case Network.SpawnUpgrade:{
-			var _upg = instance_create_layer(r[$"x"], r[$"y"], "Instances", oSlaveUpgrade);
-			_upg.upgID = r[$"upgID"];
-			_upg.sprite_index = r[$"sprite_index"];
-			_upg.direction = r[$"direction"];
-			_upg.image_angle = r[$"image_angle"];
-			_upg.haveafterimage = r[$"haveafterimage"];
+			var _upg = instance_create_layer(r[$ "x"], r[$ "y"], "Instances", oSlaveUpgrade);
+			_upg.upgID = r[$ "upgID"];
+			_upg.sprite_index = r[$ "sprite_index"];
+			_upg.direction = r[$ "direction"];
+			_upg.image_angle = r[$ "image_angle"];
+			_upg.haveafterimage = r[$ "haveafterimage"];
 			_upg.speed = 0;
 			break;
 		}
@@ -117,16 +117,16 @@ function clientReceivedPacket2(_response)
 						total = ftotal;
 					}
 				    var inst = instance_find(oSlaveUpgrade, i);
-					if (inst.upgID == r[$"upgID"]) {
-					    inst.x = r[$"x"];
-						inst.y = r[$"y"];
-						inst.image_alpha = r[$"image_alpha"];
-						inst.sprite_index = r[$"sprite_index"];
-						inst.image_angle = r[$"image_angle"];
-						inst.image_xscale = r[$"image_xscale"];
-						inst.image_yscale = r[$"image_yscale"];
-						inst.afterimage = json_parse(r[$"afterimg"]);
-						inst.direction= r[$"direction"];
+					if (inst.upgID == r[$ "upgID"]) {
+					    inst.x = r[$ "x"];
+						inst.y = r[$ "y"];
+						inst.image_alpha = r[$ "image_alpha"];
+						inst.sprite_index = r[$ "sprite_index"];
+						inst.image_angle = r[$ "image_angle"];
+						inst.image_xscale = r[$ "image_xscale"];
+						inst.image_yscale = r[$ "image_yscale"];
+						inst.afterimage = json_parse(r[$ "afterimg"]);
+						inst.direction= r[$ "direction"];
 					}
 				}
 			break;
@@ -141,14 +141,14 @@ function clientReceivedPacket2(_response)
 						total = ftotal;
 					}
 				    var inst = instance_find(oSlaveUpgrade, i);
-					if (inst.upgID == r[$"upgID"]) { instance_destroy(inst); }
+					if (inst.upgID == r[$ "upgID"]) { instance_destroy(inst); }
 				}
 				break;}
 				
 		 case Network.Spawn:{
-				var enemyvars = json_parse(r[$"sendvars"]);
+				var enemyvars = json_parse(r[$ "sendvars"]);
 				var enemyvarnames = variable_struct_get_names(enemyvars)
-				var _enemy = instance_create_layer(r[$"x"], r[$"y"], "Instances", oEnemy);
+				var _enemy = instance_create_layer(r[$ "x"], r[$ "y"], "Instances", oEnemy);
 				for (var i = 0; i < variable_struct_names_count(enemyvars); ++i) {
 				    variable_instance_set(_enemy, enemyvarnames[i], variable_struct_get(enemyvars, enemyvarnames[i]));
 				}
@@ -172,9 +172,9 @@ function clientReceivedPacket2(_response)
 			//}
 			if (instance_exists(oEnemy)) {
 			    with (oEnemy) {
-				    if (enemyID == r[$"enemyID"]) {
+				    if (enemyID == r[$ "enemyID"]) {
 						deathSent = true;
-						if (r[$"owner"] != oPlayer.socket) {
+						if (r[$ "owner"] != oPlayer.socket) {
 						    dropxp = false;
 						}
 					    hp = 0;
@@ -186,56 +186,56 @@ function clientReceivedPacket2(_response)
 		
 		case Network.UpdateRoom:{
 			if (instance_exists(oLobby)) {
-			    if (r[$"roomname"] == global.roomname) {
-				    oLobby.players = json_parse(r[$"players"]);
-					oLobby.IsHost = r[$"isHost"];
+			    if (r[$ "roomname"] == global.roomname) {
+				    oLobby.players = json_parse(r[$ "players"]);
+					oLobby.IsHost = r[$ "isHost"];
 				}
 			}
 			break;
 		}
 		
 		case Network.UpdateOptions:{
-			if (r[$"roomname"] == global.roomname) {
+			if (r[$ "roomname"] == global.roomname) {
 				// Feather disable once GM1041
-				variable_instance_set(oLobby, r[$"option"], r[$"value"]);
+				variable_instance_set(oLobby, r[$ "option"], r[$ "value"]);
 			}
 			break;
 		}
 		
 		case Network.ShareXP:{
-			if (r[$"roomname"] == global.roomname) {
-				global.xp += r[$"xp"];
+			if (r[$ "roomname"] == global.roomname) {
+				global.xp += r[$ "xp"];
 			}
 			break;
 		}
 		
 		case Network.ChatMessage:{
-			var _msg = [r[$"username"], r[$"text"]];
+			var _msg = [r[$ "username"], r[$ "text"]];
 			array_push(oLobby.chatmessages, _msg);
 			break;
 		}
 		
 		case Network.SpawnAnvil:{
-			if (r[$"owner"] != global.socket) {
-			    instance_create_depth(r[$"x"], r[$"y"], oPlayer.depth, oAnvil,{anvilid : r[$"anvilid"], maxuses : r[$"maxuses"], dontsend : true});
+			if (r[$ "owner"] != global.socket) {
+			    instance_create_depth(r[$ "x"], r[$ "y"], oPlayer.depth, oAnvil,{anvilid : r[$ "anvilid"], maxuses : r[$ "maxuses"], dontsend : true});
 			}			
 			break;}
 			
 		case Network.UpdateAnvil:{
 			if (!instance_exists(oAnvil)) { return; }
 			with (oAnvil) {
-			    if (anvilid == r[$"anvilid"]) {
-				    maxuses = r[$"maxuses"];
+			    if (anvilid == r[$ "anvilid"]) {
+				    maxuses = r[$ "maxuses"];
 				}
 			}
 			break;}
 			
 		case Network.AddItem:{
-			if (r[$"type"] == "weapon") {
-			    UPGRADES[r[$"pos"]] = global.upgradesAvaliable[r[$"id"]][r[$"level"]];
+			if (r[$ "type"] == "weapon") {
+			    UPGRADES[r[$ "pos"]] = global.upgradesAvaliable[r[$ "id"]][r[$ "level"]];
 			}
-			if (r[$"type"] == "item") {
-			    playerItems[r[$"pos"]] = ItemList[r[$"id"]][r[$"level"]];
+			if (r[$ "type"] == "item") {
+			    playerItems[r[$ "pos"]] = ItemList[r[$ "id"]][r[$ "level"]];
 			}
 			break;}
 		

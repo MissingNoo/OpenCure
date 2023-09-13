@@ -30,8 +30,8 @@ for (var i = 0; i < array_length(PerkBonuses[BonusType.Critical]); ++i) {
 		calc += real(string_replace(string(PerkBonuses[BonusType.Critical][i]), "1.", ""));
 	}
 }
-if (global.shopUpgrades[$"Crit"].level > 0) {		
-	for (var i = 0; i < global.shopUpgrades[$"Crit"].level; ++i) {
+if (global.shopUpgrades[$ "Crit"].level > 0) {		
+	for (var i = 0; i < global.shopUpgrades[$ "Crit"].level; ++i) {
 		calc+=2;
 	}
 }

@@ -227,17 +227,17 @@ function tick_perks()
 {
 	//feather disable once GM2041
 	for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
-		if (PLAYER_PERKS[i][$"level"] != 0 and global.perkCooldown[PLAYER_PERKS[i][$"id"]] <= 0) {
-			default_perk_behaviour(PLAYER_PERKS[i][$"id"], PLAYER_PERKS[i][$"cooldown"]);
+		if (PLAYER_PERKS[i][$ "level"] != 0 and global.perkCooldown[PLAYER_PERKS[i][$ "id"]] <= 0) {
+			default_perk_behaviour(PLAYER_PERKS[i][$ "id"], PLAYER_PERKS[i][$ "cooldown"]);
 			if (variable_struct_exists(PLAYER_PERKS[i], "bonus")) {
-				PerkBonuses[PLAYER_PERKS[i][$"bonustype"]][PLAYER_PERKS[i][$"id"]] = PLAYER_PERKS[i][$"bonusvalue"];
+				PerkBonuses[PLAYER_PERKS[i][$ "bonustype"]][PLAYER_PERKS[i][$ "id"]] = PLAYER_PERKS[i][$ "bonusvalue"];
 			}
 			if (variable_struct_exists(PLAYER_PERKS[i], "upgrade")) {
-				instance_create_layer(x,y-8,"Upgrades",oUpgrade,{upg : global.upgradesAvaliable[PLAYER_PERKS[i][$"upgradeid"]][PLAYER_PERKS[i][$"level"]]});
+				instance_create_layer(x,y-8,"Upgrades",oUpgrade,{upg : global.upgradesAvaliable[PLAYER_PERKS[i][$ "upgradeid"]][PLAYER_PERKS[i][$ "level"]]});
 			}
-			//switch (PLAYER_PERKS[i][$"id"]) {
+			//switch (PLAYER_PERKS[i][$ "id"]) {
 			//	case PerkIds.FpsMastery:{
-			//			switch (PLAYER_PERKS[i][$"level"]) {
+			//			switch (PLAYER_PERKS[i][$ "level"]) {
 			//			    case 1:
 			//			        PerkBonuses[BonusType.Damage][PerkIds.FpsMastery] = 1.20;
 			//			        break;
@@ -250,7 +250,7 @@ function tick_perks()
 			//			}						
 			//		break;}
 			//	case PerkIds.DetectiveEye:{
-			//			switch (PLAYER_PERKS[i][$"level"]) {
+			//			switch (PLAYER_PERKS[i][$ "level"]) {
 			//			    case 1:
 			//			        PerkBonuses[BonusType.Critical][PerkIds.DetectiveEye] = 1.10;
 			//			        break;
@@ -263,7 +263,7 @@ function tick_perks()
 			//			}						
 			//		break;}
 			//	case PerkIds.Bubba:{
-			//			switch (PLAYER_PERKS[i][$"level"]) {
+			//			switch (PLAYER_PERKS[i][$ "level"]) {
 			//			    case 1:
 			//			        PerkBonuses[BonusType.Bubba] = global.player[?"atk"];
 			//			        break;
@@ -276,73 +276,73 @@ function tick_perks()
 			//			}						
 			//		break;}
 			//	case PerkIds.PowerofAtlantis:{
-			//			switch (PLAYER_PERKS[i][$"level"]) {
+			//			switch (PLAYER_PERKS[i][$ "level"]) {
 			//			    case 1:{
 			//					inst = (instance_create_layer(x,y-8,"Upgrades",oUpgrade));
 			//					inst.upg=global.upgradesAvaliable[Weapons.PowerofAtlantis][1];
 			//					//show_message(string(global.upgradesAvaliable[Weapons.PowerofAtlantis][1][?"duration"]))
 			//					inst.speed=0;
-			//					inst.mindmg = UPGRADES[0][$"mindmg"] * 0.3;
-			//					inst.maxdmg = UPGRADES[0][$"maxdmg"] * 0.3;
+			//					inst.mindmg = UPGRADES[0][$ "mindmg"] * 0.3;
+			//					inst.maxdmg = UPGRADES[0][$ "maxdmg"] * 0.3;
 			//					inst.hits=999;
 			//					inst.shoots = 1;
-			//					inst.sprite_index=global.upgradesAvaliable[Weapons.PowerofAtlantis][1][$"sprite"];
+			//					inst.sprite_index=global.upgradesAvaliable[Weapons.PowerofAtlantis][1][$ "sprite"];
 			//			        break;}
 			//			    case 2:{
 			//					inst = (instance_create_layer(x,y-8,"Upgrades",oUpgrade));
 			//					inst.upg=global.upgradesAvaliable[Weapons.PowerofAtlantis][1];
 			//					inst.speed=0;
-			//					inst.mindmg = UPGRADES[0][$"mindmg"] * 0.4;
-			//					inst.maxdmg = UPGRADES[0][$"maxdmg"] * 0.4;
+			//					inst.mindmg = UPGRADES[0][$ "mindmg"] * 0.4;
+			//					inst.maxdmg = UPGRADES[0][$ "maxdmg"] * 0.4;
 			//					inst.hits=999;
 			//					inst.shoots = 2;
-			//					inst.sprite_index=global.upgradesAvaliable[Weapons.PowerofAtlantis][1][$"sprite"];
+			//					inst.sprite_index=global.upgradesAvaliable[Weapons.PowerofAtlantis][1][$ "sprite"];
 			//			        break;}
 			//				case 3:{
 			//					inst = (instance_create_layer(x,y-8,"Upgrades",oUpgrade));
 			//					inst.upg=global.upgradesAvaliable[Weapons.PowerofAtlantis][1];
 			//					inst.speed=0;
-			//					inst.mindmg = UPGRADES[0][$"mindmg"] * 0.5;
-			//					inst.maxdmg = UPGRADES[0][$"maxdmg"] * 0.5;
+			//					inst.mindmg = UPGRADES[0][$ "mindmg"] * 0.5;
+			//					inst.maxdmg = UPGRADES[0][$ "maxdmg"] * 0.5;
 			//					inst.hits=999;
 			//					inst.shoots = 3;
-			//					inst.sprite_index=global.upgradesAvaliable[Weapons.PowerofAtlantis][1][$"sprite"];
+			//					inst.sprite_index=global.upgradesAvaliable[Weapons.PowerofAtlantis][1][$ "sprite"];
 			//			        break;}
 			//			}						
 			//		break;}
 			//		case PerkIds.HeavyArtillery:{
-			//			instance_create_layer(x,y-8,"Upgrades",oUpgrade,{upg : global.upgradesAvaliable[Weapons.HeavyArtillery][PLAYER_PERKS[i][$"level"]]});
-			//			//switch (PLAYER_PERKS[i][$"level"]) {
+			//			instance_create_layer(x,y-8,"Upgrades",oUpgrade,{upg : global.upgradesAvaliable[Weapons.HeavyArtillery][PLAYER_PERKS[i][$ "level"]]});
+			//			//switch (PLAYER_PERKS[i][$ "level"]) {
 			//			//    case 1:{
 			//			//		inst = (instance_create_layer(x,y-8,"Upgrades",oUpgrade));
 			//			//		inst.upg=global.upgradesAvaliable[Weapons.HeavyArtillery][1];
 			//			//		//show_message(string(global.upgradesAvaliable[Weapons.HeavyArtillery][1][?"duration"]))
 			//			//		inst.speed=0;
-			//			//		inst.mindmg = (UPGRADES[0][$"mindmg"] * 333)/100;
-			//			//		inst.maxdmg = (UPGRADES[0][$"maxdmg"] * 333)/100;
+			//			//		inst.mindmg = (UPGRADES[0][$ "mindmg"] * 333)/100;
+			//			//		inst.maxdmg = (UPGRADES[0][$ "maxdmg"] * 333)/100;
 			//			//		inst.hits=999;
 			//			//		inst.shoots = 1;
-			//			//		inst.sprite_index=global.upgradesAvaliable[Weapons.HeavyArtillery][1][$"sprite"];
+			//			//		inst.sprite_index=global.upgradesAvaliable[Weapons.HeavyArtillery][1][$ "sprite"];
 			//			//        break;}
 			//			//    case 2:{
 			//			//		inst = (instance_create_layer(x,y-8,"Upgrades",oUpgrade));
 			//			//		inst.upg=global.upgradesAvaliable[Weapons.HeavyArtillery][2];
 			//			//		inst.speed=0;
-			//			//		inst.mindmg = (UPGRADES[0][$"mindmg"] * 333)/100;
-			//			//		inst.maxdmg = (UPGRADES[0][$"maxdmg"] * 333)/100;
+			//			//		inst.mindmg = (UPGRADES[0][$ "mindmg"] * 333)/100;
+			//			//		inst.maxdmg = (UPGRADES[0][$ "maxdmg"] * 333)/100;
 			//			//		inst.hits=999;
 			//			//		inst.shoots = 1;
-			//			//		inst.sprite_index=global.upgradesAvaliable[Weapons.HeavyArtillery][1][$"sprite"];
+			//			//		inst.sprite_index=global.upgradesAvaliable[Weapons.HeavyArtillery][1][$ "sprite"];
 			//			//        break;}
 			//			//	case 3:{
 			//			//		inst = (instance_create_layer(x,y-8,"Upgrades",oUpgrade));
 			//			//		inst.upg=global.upgradesAvaliable[Weapons.HeavyArtillery][3];
 			//			//		inst.speed=0;
-			//			//		inst.mindmg = (UPGRADES[0][$"mindmg"] * 333)/100;
-			//			//		inst.maxdmg = (UPGRADES[0][$"maxdmg"] * 333)/100;
+			//			//		inst.mindmg = (UPGRADES[0][$ "mindmg"] * 333)/100;
+			//			//		inst.maxdmg = (UPGRADES[0][$ "maxdmg"] * 333)/100;
 			//			//		inst.hits=999;
 			//			//		inst.shoots = 2;
-			//			//		inst.sprite_index=global.upgradesAvaliable[Weapons.HeavyArtillery][1][$"sprite"];
+			//			//		inst.sprite_index=global.upgradesAvaliable[Weapons.HeavyArtillery][1][$ "sprite"];
 			//			//        break;}
 			//			//}						
 			//		break;}

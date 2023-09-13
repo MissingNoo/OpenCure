@@ -68,7 +68,7 @@ switch (type) {
 				for (var i = 0; i < array_length(shopTabs); ++i) {				
 					var _alpha = selectedTab == i ? 1 : .5;
 				    //draw_sprite_ext(shopTabs[i][$"sprite"], 0, _x + _xoff, _y, 1, 1, 0, c_white, _alpha);
-				    draw_sprite_ext(sHouseCategoryIcons, shopTabs[i][$"category"], _x + _xoff, _y, 1, 1, 0, c_white, _alpha);
+				    draw_sprite_ext(sHouseCategoryIcons, shopTabs[i][$ "category"], _x + _xoff, _y, 1, 1, 0, c_white, _alpha);
 					_xoff += 80;
 				}
 				_yoff = 0;
@@ -83,19 +83,19 @@ switch (type) {
 						draw_set_alpha(1);
 					}
 					var _color = selectedItem == i ? c_yellow : c_white;
-					draw_sprite_ext(tabItems[i][$"thumb"], 0, _x, _y + _yoff, 2, 2, 0, c_white, 1);
-					draw_text_transformed_color(_x + 40, _y - 25 + _yoff, lexicon_text(string(lexiconIdentifier) + "." +  tabItems[i][$"name"]), 3, 3, 0, _color, _color, _color, _color, 1);
+					draw_sprite_ext(tabItems[i][$ "thumb"], 0, _x, _y + _yoff, 2, 2, 0, c_white, 1);
+					draw_text_transformed_color(_x + 40, _y - 25 + _yoff, lexicon_text(string(lexiconIdentifier) + "." +  tabItems[i][$ "name"]), 3, 3, 0, _color, _color, _color, _color, 1);
 					var haveItem = false;
-					var _category = shopTabs[selectedTab][$"category"];
+					var _category = shopTabs[selectedTab][$ "category"];
 					for (var j = 0; j < array_length(HouseInventory[_category]); ++j) {
-					    if (HouseInventory[_category][j][$"itemId"] == tabItems[i][$"itemId"]) {
+					    if (HouseInventory[_category][j][$ "itemId"] == tabItems[i][$ "itemId"]) {
 						    haveItem = true;
 						}
 					}
 					//draw_set_valign(fa_right);
 					if (!haveItem) {
 						if (selectedItem == i) { haveSelectedItem = haveItem; }
-						draw_text_transformed_color(_x + 550, _y - 25 + _yoff, tabItems[i][$"cost"], 3, 3, 0, c_yellow, c_yellow, c_yellow, c_yellow, 1);
+						draw_text_transformed_color(_x + 550, _y - 25 + _yoff, tabItems[i][$ "cost"], 3, 3, 0, c_yellow, c_yellow, c_yellow, c_yellow, 1);
 						draw_text_transformed(_x + 400, _y - 25 + _yoff, "COST:", 3, 3, 0);						
 					}
 					else {					    

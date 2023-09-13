@@ -1,3 +1,3 @@
-if (upg[$"id"] == Weapons.BounceBall) {
+if (upg[$ "id"] == Weapons.BounceBall) {
     //direction = 270;
 }

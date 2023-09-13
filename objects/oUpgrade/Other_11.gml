@@ -1,4 +1,4 @@
-switch (upg[$"id"]) {
+switch (upg[$ "id"]) {
 	default:
 		instance_destroy();
 		break;
@@ -15,6 +15,6 @@ switch (upg[$"id"]) {
 		break;}
 	case Weapons.XPotato:{
 		instance_destroy();
-		instance_create_depth(x,y,depth,oUpgrade, { upg : WEAPONS_LIST[Weapons.XPotatoExplosion][upg[$"level"]], mindmg : upg[$"mindmgExplosion"], maxdmg : upg[$"maxdmgExplosion"]});
+		instance_create_depth(x,y,depth,oUpgrade, { upg : WEAPONS_LIST[Weapons.XPotatoExplosion][upg[$ "level"]], mindmg : upg[$ "mindmgExplosion"], maxdmg : upg[$ "maxdmgExplosion"]});
 		break;}
 }

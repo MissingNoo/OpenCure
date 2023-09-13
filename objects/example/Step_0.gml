@@ -58,9 +58,9 @@ if (imguigml_ready()) {
 						imguigml_same_line();
 						_button = imguigml_button("Test Buff");
 						if (_button) {
-							Buffs[BuffNames.testbuff][$"count"] += 1;
-							Buffs[BuffNames.testbuff][$"cooldown"] = Buffs[BuffNames.testbuff][$"baseCooldown"];
-							Buffs[BuffNames.testbuff][$"enabled"] = true;
+							Buffs[BuffNames.testbuff][$ "count"] += 1;
+							Buffs[BuffNames.testbuff][$ "cooldown"] = Buffs[BuffNames.testbuff][$ "baseCooldown"];
+							Buffs[BuffNames.testbuff][$ "enabled"] = true;
 						}
 						if (global.upgrade) {
 						    _button = imguigml_button("Rerrol");
@@ -72,7 +72,7 @@ if (imguigml_ready()) {
 						imguigml_begin_child("Upgrades", 230, 60, true);{
 							imguigml_text("Weapons");							
 							for (var i = 0; i < array_length(UPGRADES); ++i) {
-								var _spr = UPGRADES[i][$"thumb"];
+								var _spr = UPGRADES[i][$ "thumb"];
 								var _w = 21, _h = 21;
 								var _button = imguigml_sprite_button(_spr, 0, _w, _h);
 								if (_button) { 
@@ -87,7 +87,7 @@ if (imguigml_ready()) {
 							imguigml_text("Items");
 							var _spr, _w, _h, _button;
 							for (var i = 0; i < array_length(playerItems); ++i) {
-								_spr = playerItems[i][$"thumb"];
+								_spr = playerItems[i][$ "thumb"];
 								_w = 21;
 								_h = 21;
 								_button = imguigml_sprite_button(_spr, 0, _w, _h);
@@ -275,7 +275,7 @@ if (imguigml_ready()) {
 	  changeUpgradeWindow = ret[1];
 	  var _break = 0;
 	  for (var i = 0;i < array_length(global.upgradesAvaliable); ++i ) {
-		  var _spr = global.upgradesAvaliable[i][1][$"thumb"];
+		  var _spr = global.upgradesAvaliable[i][1][$ "thumb"];
 		  var _button = imguigml_sprite_button(_spr, 0, 21, 21);
 		  if (_button) {
 				  //show_message(string("test {0}", i));
@@ -311,7 +311,7 @@ if (imguigml_ready()) {
 	  changeItemWindow= ret[1];
 	  var _break = 0;
 	  for (var i = 0;i < array_length(ItemList); ++i ) {
-		  var _spr = ItemList[i][1][$"thumb"];
+		  var _spr = ItemList[i][1][$ "thumb"];
 		  var _button = imguigml_sprite_button(_spr, 0, 21, 21);
 		  if (_button) {
 				  //show_message(string("test {0}", i));

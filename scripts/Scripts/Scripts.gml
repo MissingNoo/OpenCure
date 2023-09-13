@@ -1,6 +1,6 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
-global.sprites[0]=0
+global.sprites[0]=0;
 global.gamePaused = false;
 function reset_timer(){
 	global.seconds=0;
@@ -273,7 +273,7 @@ function copy_struct(struct){
             key = keys[i];
             value = struct[$ key];
             //variable_struct_get(struct, key);
-            variable_struct_set(newCopy, key, value)
+            variable_struct_set(newCopy, key, value);
     }
     return newCopy;
 }
@@ -292,7 +292,7 @@ function prop_draw(){
 	}
 	var sprw = sprite_width / 2;
 	var sprh = sprite_height;
-	var alpha = oPlayer.y < y and collision_rectangle(x- sprw,y - sprh, x + sprw, y, oPlayer, false, false) ? 0.35 : 1
+	var alpha = oPlayer.y < y and collision_rectangle(x- sprw,y - sprh, x + sprw, y, oPlayer, false, false) ? 0.35 : 1;
 	draw_sprite_ext(sprite_index, 0, x, y, 1, 1, 0, c_white, alpha);
 }
 

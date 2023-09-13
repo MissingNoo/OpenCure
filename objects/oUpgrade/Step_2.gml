@@ -1,4 +1,4 @@
-switch (upg[$"id"]) {
+switch (upg[$ "id"]) {
     case Weapons.XPotato:{
 		//if (justBounced) {
 		//    justBounced = false;

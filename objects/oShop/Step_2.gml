@@ -43,7 +43,7 @@ if (!onMenu and optionSelected == 0) {
 			if (input_check_pressed("accept")) {
 				switch (gachaButton) {
 				    case 0:
-						global.holocoins -= gachas[selectedGacha][$"cost"];
+						global.holocoins -= gachas[selectedGacha][$ "cost"];
 				        gachaDebut = true;
 				        break;
 				    case 1:
@@ -56,23 +56,23 @@ if (!onMenu and optionSelected == 0) {
 		if (gachaDebut) {
 		    if (input_check_pressed("accept")) {
 				gachaDebut = false;
-				var _rnd = irandom_range(0, array_length(gachas[selectedGacha][$"prizes"]) -1);
-				gotPrize = gachas[selectedGacha][$"prizes"][_rnd];
-				if (!UnlockableCharacters[gotPrize[$"character"]]) {
-				    UnlockableCharacters[gotPrize[$"character"]] = true;
+				var _rnd = irandom_range(0, array_length(gachas[selectedGacha][$ "prizes"]) -1);
+				gotPrize = gachas[selectedGacha][$ "prizes"][_rnd];
+				if (!UnlockableCharacters[gotPrize[$ "character"]]) {
+				    UnlockableCharacters[gotPrize[$ "character"]] = true;
 				}
 				else{
-					Granks[gotPrize[$"character"]] += 1;
+					Granks[gotPrize[$ "character"]] += 1;
 				}
-				prizeIdleAnimation[1] = sprite_get_number(CHARACTERS[gotPrize[$"character"]][?"sprite"]);
-				prizeIdleSpeed = sprite_get_speed(CHARACTERS[gotPrize[$"character"]][?"sprite"]);
+				prizeIdleAnimation[1] = sprite_get_number(CHARACTERS[gotPrize[$ "character"]][?"sprite"]);
+				prizeIdleSpeed = sprite_get_speed(CHARACTERS[gotPrize[$ "character"]][?"sprite"]);
 				gachaPrize = true;
 				isOutfit = false;
-				var _outfits = array_length(CHARACTERS[gotPrize[$"character"]][?"outfits"]);
+				var _outfits = array_length(CHARACTERS[gotPrize[$ "character"]][?"outfits"]);
 				var _allUnlocked = true;
 				var _notUnlocked = [];
 				for (var i = 0; i < _outfits; ++i) {
-				    if (!CHARACTERS[gotPrize[$"character"]][?"outfits"][i][$"unlocked"]) {
+				    if (!CHARACTERS[gotPrize[$ "character"]][?"outfits"][i][$ "unlocked"]) {
 					    _allUnlocked = false;
 						array_push(_notUnlocked, i);
 					}
@@ -82,7 +82,7 @@ if (!onMenu and optionSelected == 0) {
 					isOutfit = _rnd <= 1 ? true : false;
 					if (isOutfit) {
 					    outfitPrizeNumber = _notUnlocked[irandom_range(0, array_length(_notUnlocked) - 1)];
-						UnlockableOutfits[CHARACTERS[gotPrize[$"character"]][?"outfits"][outfitPrizeNumber][$"id"]] = true;
+						UnlockableOutfits[CHARACTERS[gotPrize[$ "character"]][?"outfits"][outfitPrizeNumber][$ "id"]] = true;
 						unlocked_outfits_load();
 					}
 				}

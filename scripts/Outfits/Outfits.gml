@@ -36,8 +36,8 @@ function unlocked_outfits_load(){
 	for (var i = 0; i < array_length(UnlockableOutfits); ++i) {
 	    for (var j = 0; j < array_length(CHARACTERS); ++j) {
 			for (var k = 0; k < array_length(CHARACTERS[j][?"outfits"]); ++k) {
-			    if (CHARACTERS[j][?"outfits"][k][$"id"] == i) {
-				    CHARACTERS[j][?"outfits"][k][$"unlocked"] = UnlockableOutfits[i];
+			    if (CHARACTERS[j][?"outfits"][k][$ "id"] == i) {
+				    CHARACTERS[j][?"outfits"][k][$ "unlocked"] = UnlockableOutfits[i];
 				}
 			}
 		}

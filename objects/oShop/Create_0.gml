@@ -25,7 +25,7 @@ maxx = GW/1.5;
 aChanX = GW/2;
 aChanY = GH/2;
 onMenu = true;
-menuOptions  = ["Character Gacha", "Buy Upgrades", "Armory", "Quit"]
+menuOptions  = ["Character Gacha", "Buy Upgrades", "Armory", "Quit"];
 optionSelected = 0;
 
 enum PrizeType {
@@ -63,4 +63,4 @@ gachas = [
 			}
 		]
 	}
-]
+];

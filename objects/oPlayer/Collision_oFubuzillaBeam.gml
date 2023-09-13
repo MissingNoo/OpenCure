@@ -6,8 +6,8 @@ if (other.canattack and !global.gamePaused) {
 	}
 	else {
 	    HP -= 15;
-		if (Buffs[BuffNames.Sake][$"count"] > 1) {
-		    Buffs[BuffNames.Sake][$"count"] = round(Buffs[BuffNames.Sake][$"count"] / 2);
+		if (Buffs[BuffNames.Sake][$ "count"] > 1) {
+		    Buffs[BuffNames.Sake][$ "count"] = round(Buffs[BuffNames.Sake][$ "count"] / 2);
 		}
 	}
 }

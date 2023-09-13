@@ -106,7 +106,7 @@ selected=0;
 maxselected = selected;
 color=c_white;
 menuOptions = ["Map", "Singleplayer", "Multiplayer", "Shop", "Leaderboard", "Achievements", "Settings", "Credits", "Quit"];
-reset_timer()
+reset_timer();
 global.upgrades=ds_map_create();
 global.a=1;
 a=2;
@@ -233,7 +233,7 @@ if (instance_number(oTitleRunning) < 15 and room == rInicio) {
 		name : "TIME MODE",
 		desc : "Defeat 5000 targets as \nsoon as possible! \nShop upgrades are standardized"
 	}];
-	stages = [{name: "Stage 1", port : sStage1Port, roomname : rStage1}]
+	stages = [{name: "Stage 1", port : sStage1Port, roomname : rStage1}];
 	selectedStage = 0;
 #endregion
 
@@ -257,8 +257,8 @@ function share_item(i){
 		sendMessage({
 			command : Network.AddItem,
 			type : "item",
-			id : playerItems[i][$"id"],
-			level : playerItems[i][$"level"],
+			id : playerItems[i][$ "id"],
+			level : playerItems[i][$ "level"],
 			pos : i
 		});
 	}
@@ -274,8 +274,8 @@ if (global.shareWeapons) {
 	sendMessage({
 		command : Network.AddItem,
 		type : "weapon",
-		id : UPGRADES[i][$"id"],
-		level : UPGRADES[i][$"level"],
+		id : UPGRADES[i][$ "id"],
+		level : UPGRADES[i][$ "level"],
 		pos : i
 	});
 }
@@ -294,7 +294,7 @@ function android_gui_button(pos){
 
 function drawStats(){
 	#region Stats
-		var str
+		var str;
 		draw_set_halign(fa_center);
 		if (global.upgrade) {
 			draw_text_transformed(GW/5, GH/3.40, "LevelUP", 3, 3, 0);
@@ -455,14 +455,14 @@ function drawStatsSelect(character){
 			stat : string_replace(character[?"crit"], "1.", ""),
 			suffix : "%"
 		},
-		]
+		];
 		
 		for (var i = 0; i < array_length(stats); ++i) {
-			draw_sprite_ext(stats[i][$"spr"], 0, _x, _y + stats_offset, 1.90, 1.90, 0, c_white, 1);
-			draw_text_transformed(_x + 25, _y - 17 + stats_offset, stats[i][$"name"], 2, 2, 0);
+			draw_sprite_ext(stats[i][$ "spr"], 0, _x, _y + stats_offset, 1.90, 1.90, 0, c_white, 1);
+			draw_text_transformed(_x + 25, _y - 17 + stats_offset, stats[i][$ "name"], 2, 2, 0);
 			draw_rectangle(_x + 27, _y + 12 + stats_offset, _x + 268, _y + 9 + stats_offset, false);
 			draw_set_halign(fa_left);
-			str = string(stats[i][$"stat"]) + stats[i][$"suffix"];
+			str = string(stats[i][$ "stat"]) + stats[i][$ "suffix"];
 			draw_set_halign(fa_right);
 			draw_text_transformed(_x + 265, _y - 17 + stats_offset, str, 2, 2, 0);
 			draw_set_halign(fa_left);

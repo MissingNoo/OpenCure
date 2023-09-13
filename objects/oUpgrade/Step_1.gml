@@ -18,33 +18,33 @@ if (socket == oPlayer.socket) {
 #region Start
 // Feather disable GM2016
 if (a==0) {	
-speed=upg[$"speed"];
+speed=upg[$ "speed"];
 if (!variable_instance_exists(self, "mindmg")) {
-	mindmg = upg[$"mindmg"];
+	mindmg = upg[$ "mindmg"];
 }
 if (!variable_instance_exists(self, "maxdmg")) {
-	maxdmg = upg[$"maxdmg"];
+	maxdmg = upg[$ "maxdmg"];
 }
-hits=upg[$"hits"];
+hits=upg[$ "hits"];
 if (variable_struct_exists(upg, "size")) {
-	    image_xscale = upg[$"size"];
-	    image_yscale = upg[$"size"];
+	    image_xscale = upg[$ "size"];
+	    image_yscale = upg[$ "size"];
 	}
 if (shoots == 0) {
-    shoots = upg[$"shoots"];
+    shoots = upg[$ "shoots"];
 }
 if (shoots > 1) {
 	arrowDir = global.arrowDir;
 	if (variable_struct_exists(upg, "attackdelay")) {
-		//alarm[0] = upg[$"attackdelay"];
-		dAlarm[0] = upg[$"attackdelay"];
+		//alarm[0] = upg[$ "attackdelay"];
+		dAlarm[0] = upg[$ "attackdelay"];
 	}
 	else{
 		//alarm[0] = 1;
 		dAlarm[0] = 1;
 	}
 }
-sprite_index=upg[$"sprite"];
+sprite_index=upg[$ "sprite"];
 subImg = 0;
 image_index = 0;
 image_speed = 0;
@@ -52,40 +52,40 @@ image_speed = 0;
 
 	var randomEnemy;
 	//feather disable once GM2017
-	if (upg[$"perk"] and global.shopUpgrades.Growth.level == 1) {
+	if (upg[$ "perk"] and global.shopUpgrades.Growth.level == 1) {
 	    for (var i = 0; i < global.level; ++i) {
 		    mindmg = mindmg + (mindmg* 2 / 100);
 			maxdmg = maxdmg+ (maxdmg* 2 / 100);
 		}
 	}
-	var cooldown = upg[$"cooldown"];
-	if (upg[$"canBeHasted"] == true and oPlayer.weaponHaste != 0) {
+	var cooldown = upg[$ "cooldown"];
+	if (upg[$ "canBeHasted"] == true and oPlayer.weaponHaste != 0) {
 	    cooldown -= (cooldown * oPlayer.weaponHaste) - cooldown;
-		//show_debug_message(string($"{upg[$"cooldown"]}/{cooldown}/{oPlayer.weaponHaste}"));
+		//show_debug_message(string($ "{upg[$ "cooldown"]}/{cooldown}/{oPlayer.weaponHaste}"));
 	}
-	var minCooldown = upg[$"minimumcooldown"];
+	var minCooldown = upg[$ "minimumcooldown"];
 	if (cooldown < minCooldown) {
 	    cooldown = minCooldown;
 	}
-	global.upgradeCooldown[upg[$"id"]] = cooldown;
-	dAlarm[1] = upg[$"duration"];
+	global.upgradeCooldown[upg[$ "id"]] = cooldown;
+	dAlarm[1] = upg[$ "duration"];
 	image_speed=1;
 	image_alpha=1;
 	a=1;
 	//if (shoots > 0) {
-	//    show_debug_message("Spawned: " + string(upg[$"id"]) + " Name: " + upg[$"name"] + " Level: " + string(upg[$"level"]) + " shoots: " + string(shoots) + " cooldown: " + string(upg[$"cooldown"]) );
+	//    show_debug_message("Spawned: " + string(upg[$ "id"]) + " Name: " + upg[$ "name"] + " Level: " + string(upg[$ "level"]) + " shoots: " + string(shoots) + " cooldown: " + string(upg[$ "cooldown"]) );
 	//}
-	if (variable_struct_exists(upg, "sound") and upg[$"sound"] != "") {
-		if (is_array(upg[$"sound"])) {
-			var snd = irandom_range(0, array_length(upg[$"sound"])-1);
-		    audio_play_sound(upg[$"sound"][snd],0,0);
+	if (variable_struct_exists(upg, "sound") and upg[$ "sound"] != "") {
+		if (is_array(upg[$ "sound"])) {
+			var snd = irandom_range(0, array_length(upg[$ "sound"])-1);
+		    audio_play_sound(upg[$ "sound"][snd],0,0);
 		}else{
-			audio_play_sound(upg[$"sound"],0,0);
+			audio_play_sound(upg[$ "sound"],0,0);
 		}
 	    
 	}
 	//show_message(string(image_xscale));
-	switch (upg[$"id"]) {
+	switch (upg[$ "id"]) {
 		default:{
 			defaultBehaviour();
 			break;}
@@ -98,7 +98,7 @@ image_speed = 0;
 		case Weapons.GuraTrident:{
 			image_angle = arrowDir + diroffset;
 			//defaultBehaviour();			
-			if (upg[$"level"] >= 6) {
+			if (upg[$ "level"] >= 6) {
 			    var dirr = (image_xscale > 0) ? .25 : -.25;
 				image_xscale += dirr;
 			}
@@ -116,7 +116,7 @@ image_speed = 0;
 				image_angle=random(360);
 			}
 			
-			if (upg[$"level"] >= 4) {
+			if (upg[$ "level"] >= 4) {
 			    var dirr = (image_xscale > 0) ? .25 : -.25;
 				image_xscale += dirr;
 			}
@@ -139,7 +139,7 @@ image_speed = 0;
 		case Weapons.BlBook:{
 			orbitLength = 50;
 			if (shoots > 0) {	
-				switch (upg[$"level"]) {
+				switch (upg[$ "level"]) {
 				    case 1:
 				        orbitoffset = -120;
 				        break;
@@ -170,16 +170,16 @@ image_speed = 0;
 			direction = point_direction(x,y,x,y+10);
 			for (var i = 0; i < global.player[?"ballsize"]; ++i) {
 				image_xscale = image_xscale * 1.10;
-				image_yscale = image_xscale
+				image_yscale = image_xscale;
 			}
 			y = oPlayer.y - 200;
-			var _bx = irandom_range(-100, 100)
+			var _bx = irandom_range(-100, 100);
 			x = oPlayer.x + _bx;
-			//alarm[0] = upg[$"attackdelay"];
+			//alarm[0] = upg[$ "attackdelay"];
 			break;
 		}
 		case Weapons.EliteLavaBucket:{	
-			level = upg[$"level"];
+			level = upg[$ "level"];
 			random_set_seed(current_time);
 			x = owner.x + irandom_range(-100,100);
 			random_set_seed(current_time);
@@ -261,9 +261,9 @@ image_speed = 0;
 				maxdmg = maxdmg * 1.30;
 			}
 			direction = arrowDir + 180 + diroffset;
-			speed = upg[$"speed"];
+			speed = upg[$ "speed"];
 			image_angle = arrowDir + diroffset;
-			//alarm[0] = upg[$"attackdelay"];
+			//alarm[0] = upg[$ "attackdelay"];
 			break;
 		}
 		case Weapons.HoloBomb:{	
@@ -344,7 +344,7 @@ image_speed = 0;
 			for (var i = 0; i < instance_number(oUpgrade); ++i) {
 				try{
 					var inst = instance_find(oUpgrade, i);
-					if (inst.upg[$"id"] == Weapons.SpiderCooking and inst.id != id) {
+					if (inst.upg[$ "id"] == Weapons.SpiderCooking and inst.id != id) {
 						instance_destroy(inst);
 					}
 				}
@@ -362,13 +362,13 @@ image_speed = 0;
 		case Weapons.MiComet:{
 			instance_create_layer(x + irandom_range(-200, 200), y + irandom_range(-200, 200), "Upgrades", oUpgrade,{
 					upg : WEAPONS_LIST[Weapons.MiCometMeteor][1],
-					speed : WEAPONS_LIST[Weapons.MiCometMeteor][1][$"speed"],
-					hits : WEAPONS_LIST[Weapons.MiCometMeteor][1][$"hits"],
-					shoots : WEAPONS_LIST[Weapons.MiCometMeteor][1][$"shoots"],
-					sprite_index : WEAPONS_LIST[Weapons.MiCometMeteor][1][$"sprite"],
-					level : WEAPONS_LIST[Weapons.MiCometMeteor][1][$"level"],
-					mindmg: WEAPONS_LIST[Weapons.MiCometMeteor][1][$"mindmg"],
-					maxdmg: WEAPONS_LIST[Weapons.MiCometMeteor][1][$"maxdmg"]
+					speed : WEAPONS_LIST[Weapons.MiCometMeteor][1][$ "speed"],
+					hits : WEAPONS_LIST[Weapons.MiCometMeteor][1][$ "hits"],
+					shoots : WEAPONS_LIST[Weapons.MiCometMeteor][1][$ "shoots"],
+					sprite_index : WEAPONS_LIST[Weapons.MiCometMeteor][1][$ "sprite"],
+					level : WEAPONS_LIST[Weapons.MiCometMeteor][1][$ "level"],
+					mindmg: WEAPONS_LIST[Weapons.MiCometMeteor][1][$ "mindmg"],
+					maxdmg: WEAPONS_LIST[Weapons.MiCometMeteor][1][$ "maxdmg"]
 				});
 			break;}
 		case Weapons.MiCometMeteor:{
@@ -386,23 +386,23 @@ image_speed = 0;
 		case Weapons.BLFujoshi:{
 			instance_create_layer(x, y, "Upgrades", oUpgrade,{
 					upg : WEAPONS_LIST[Weapons.BLFujoshiAxe][1],
-					speed : WEAPONS_LIST[Weapons.BLFujoshiAxe][1][$"speed"],
-					hits : WEAPONS_LIST[Weapons.BLFujoshiAxe][1][$"hits"],
-					shoots : WEAPONS_LIST[Weapons.BLFujoshiAxe][1][$"shoots"],
-					sprite_index : WEAPONS_LIST[Weapons.BLFujoshiAxe][1][$"sprite"],
-					level : WEAPONS_LIST[Weapons.BLFujoshiAxe][1][$"level"],
-					mindmg: WEAPONS_LIST[Weapons.BLFujoshiAxe][1][$"mindmg"],
-					maxdmg: WEAPONS_LIST[Weapons.BLFujoshiAxe][1][$"maxdmg"]
+					speed : WEAPONS_LIST[Weapons.BLFujoshiAxe][1][$ "speed"],
+					hits : WEAPONS_LIST[Weapons.BLFujoshiAxe][1][$ "hits"],
+					shoots : WEAPONS_LIST[Weapons.BLFujoshiAxe][1][$ "shoots"],
+					sprite_index : WEAPONS_LIST[Weapons.BLFujoshiAxe][1][$ "sprite"],
+					level : WEAPONS_LIST[Weapons.BLFujoshiAxe][1][$ "level"],
+					mindmg: WEAPONS_LIST[Weapons.BLFujoshiAxe][1][$ "mindmg"],
+					maxdmg: WEAPONS_LIST[Weapons.BLFujoshiAxe][1][$ "maxdmg"]
 				});
 			instance_create_layer(x, y, "Upgrades", oUpgrade,{
 					upg : WEAPONS_LIST[Weapons.BLFujoshiBook][1],
-					speed : WEAPONS_LIST[Weapons.BLFujoshiBook][1][$"speed"],
-					hits : WEAPONS_LIST[Weapons.BLFujoshiBook][1][$"hits"],
-					shoots : WEAPONS_LIST[Weapons.BLFujoshiBook][1][$"shoots"],
-					sprite_index : WEAPONS_LIST[Weapons.BLFujoshiBook][1][$"sprite"],
-					level : WEAPONS_LIST[Weapons.BLFujoshiBook][1][$"level"],
-					mindmg: WEAPONS_LIST[Weapons.BLFujoshiBook][1][$"mindmg"],
-					maxdmg: WEAPONS_LIST[Weapons.BLFujoshiBook][1][$"maxdmg"]
+					speed : WEAPONS_LIST[Weapons.BLFujoshiBook][1][$ "speed"],
+					hits : WEAPONS_LIST[Weapons.BLFujoshiBook][1][$ "hits"],
+					shoots : WEAPONS_LIST[Weapons.BLFujoshiBook][1][$ "shoots"],
+					sprite_index : WEAPONS_LIST[Weapons.BLFujoshiBook][1][$ "sprite"],
+					level : WEAPONS_LIST[Weapons.BLFujoshiBook][1][$ "level"],
+					mindmg: WEAPONS_LIST[Weapons.BLFujoshiBook][1][$ "mindmg"],
+					maxdmg: WEAPONS_LIST[Weapons.BLFujoshiBook][1][$ "maxdmg"]
 				});
 			break;}
 		case Weapons.BLFujoshiAxe:{
@@ -425,7 +425,7 @@ image_speed = 0;
 			var _scale = 0.75;
 			var _speed = 1;
 			var ptype1 = part_type_create();
-			part_type_sprite( ptype1, sEldricthHorrorSmoke, true, true, false)
+			part_type_sprite( ptype1, sEldricthHorrorSmoke, true, true, false);
 			part_type_size( ptype1, 1, 1, 0, 0 );
 			part_type_scale( ptype1, _scale, _scale);
 			part_type_speed( ptype1, _speed, _speed, 0, 0);
@@ -437,7 +437,7 @@ image_speed = 0;
 			part_type_blend( ptype1, false);
 			part_type_life( ptype1, 80, 80);
 			var ptype2 = part_type_create();
-			part_type_sprite( ptype2, sEldricthHorrorSmoke, true, true, false)
+			part_type_sprite( ptype2, sEldricthHorrorSmoke, true, true, false);
 			part_type_size( ptype2, 1, 1, 0, 0 );
 			part_type_scale( ptype2, _scale, _scale);
 			part_type_speed( ptype2, _speed, _speed, 0, 0);
@@ -475,8 +475,8 @@ image_speed = 0;
 			y = owner.y + (irandom_range(-100,100)*-1);
 			break;}
 		case Weapons.StreamOfTears:{
-			image_xscale = upg[$"sizeX"];
-			image_yscale = upg[$"sizeY"];
+			image_xscale = upg[$ "sizeX"];
+			image_yscale = upg[$ "sizeY"];
 			//if (shoots == -1) {
 			//    image_xscale = image_xscale*-1;
 			//}
@@ -485,7 +485,7 @@ image_speed = 0;
 			//ringDir = 0;
 			for (var i = 0; i < global.player[?"ballsize"]; ++i) {
 				image_xscale = image_xscale * 1.10;
-				image_yscale = image_xscale
+				image_yscale = image_xscale;
 			}
 			x = owner.x + lengthdir_x(20, ringDir);
 			y = owner.y + lengthdir_y(20, ringDir);
@@ -497,13 +497,13 @@ image_speed = 0;
 				//var dirr = point_direction(_x, _y, owner.x, owner.y);
 			    instance_create_depth(owner.x, owner.y, depth, oUpgrade,{
 					upg : WEAPONS_LIST[Weapons.RingOfFitness][1],
-					speed : WEAPONS_LIST[Weapons.RingOfFitness][1][$"speed"],
-					hits : WEAPONS_LIST[Weapons.RingOfFitness][1][$"hits"],
+					speed : WEAPONS_LIST[Weapons.RingOfFitness][1][$ "speed"],
+					hits : WEAPONS_LIST[Weapons.RingOfFitness][1][$ "hits"],
 					shoots : -1,
-					sprite_index : WEAPONS_LIST[Weapons.RingOfFitness][1][$"sprite"],
-					level : WEAPONS_LIST[Weapons.RingOfFitness][1][$"level"],
-					mindmg: WEAPONS_LIST[Weapons.RingOfFitness][1][$"mindmg"],
-					maxdmg: WEAPONS_LIST[Weapons.RingOfFitness][1][$"maxdmg"],
+					sprite_index : WEAPONS_LIST[Weapons.RingOfFitness][1][$ "sprite"],
+					level : WEAPONS_LIST[Weapons.RingOfFitness][1][$ "level"],
+					mindmg: WEAPONS_LIST[Weapons.RingOfFitness][1][$ "mindmg"],
+					maxdmg: WEAPONS_LIST[Weapons.RingOfFitness][1][$ "maxdmg"],
 					ringDir,
 					owner,
 					firstBall : false
@@ -526,7 +526,7 @@ image_speed = 0;
 	
 	originalSize = [image_xscale, image_yscale];	
 	for (var i = 0; i < array_length(Bonuses[BonusType.WeaponSize]); ++i) {
-	    if (Bonuses[BonusType.WeaponSize][i] != 0 and upg[$"id"] != Weapons.HoloBomb) {
+	    if (Bonuses[BonusType.WeaponSize][i] != 0 and upg[$ "id"] != Weapons.HoloBomb) {
 			if (image_xscale > 0) { 
 				image_xscale = image_xscale * Bonuses[BonusType.WeaponSize][i]; 
 			}
@@ -556,7 +556,7 @@ image_speed = 0;
 				image_angle,
 				//speed,
 				//sendvars,
-				//upg : upg[$"id"],
+				//upg : upg[$ "id"],
 				upgID,
 				haveafterimage : (variable_struct_exists(upg, "afterimage")) ? true : false
 			});

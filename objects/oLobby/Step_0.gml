@@ -27,8 +27,8 @@ if (!joinedRoom and !creatingroom and !typepassword) {
 	}
 
 	if ((point_in_rectangle(oGui.x, oGui.y, joinx1, createy1, joinx2, createy2)  or input_check_pressed("accept")) and array_length(rooms) > 0) {
-		global.roomname = rooms[selectedroom][$"name"];
-		if (rooms[selectedroom][$"password"] == "") {
+		global.roomname = rooms[selectedroom][$ "name"];
+		if (rooms[selectedroom][$ "password"] == "") {
 		    sendMessage({
 				command : Network.JoinRoom,
 				username : global.username,
@@ -140,9 +140,9 @@ if (typepassword) {
 			    typepassword = false;
 			}
 		    if (passwordselectedyesno == 1) {
-			    if (rooms[selectedroom][$"password"] == password) {
+			    if (rooms[selectedroom][$ "password"] == password) {
 					typepassword = false;
-					global.roomname = rooms[selectedroom][$"name"];
+					global.roomname = rooms[selectedroom][$ "name"];
 				    sendMessage({
 						command : Network.JoinRoom,
 						username : global.username,

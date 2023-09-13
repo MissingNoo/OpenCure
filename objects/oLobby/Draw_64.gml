@@ -44,12 +44,12 @@ if (!joinedRoom) {//wrong client secret
 		draw_rectangle_color(GW/54.64, GH/16.35 + _offset, GW/1.02, GH/8.26 + _offset, c_white, c_white, c_white, c_white, true);
 		var _color = selectedroom == i ? c_yellow : c_white;
 		draw_set_halign(fa_left);
-	    draw_text_transformed_color(GW/37.95, GH/13.25 + _offset, rooms[i][$"name"],2.05, 2.05, 0, _color, _color, _color, _color, 1);
+	    draw_text_transformed_color(GW/37.95, GH/13.25 + _offset, rooms[i][$ "name"],2.05, 2.05, 0, _color, _color, _color, _color, 1);
 		draw_set_halign(fa_right);										 
-		if (rooms[i][$"password"] != "") {
+		if (rooms[i][$ "password"] != "") {
 		    draw_sprite_ext(sLockIcon, 0, GW/1.08, GH/13.25 + _offset, 1, 1, 0, c_white, 1);
 		}
-	    draw_text_transformed_color(GW/1.02, GH/13.25 + _offset, string(rooms[i][$"totalplayers"]) + "/2",2.05, 2.05, 0, _color, _color, _color, _color, 1);
+	    draw_text_transformed_color(GW/1.02, GH/13.25 + _offset, string(rooms[i][$ "totalplayers"]) + "/2",2.05, 2.05, 0, _color, _color, _color, _color, 1);
 		_offset += 55;		
 	}
 }
@@ -151,9 +151,9 @@ if (typepassword) {
 	if (passwordselected != 1) { _color = c_white;}
 	draw_rectangle_color(ax - as, cy - 14.5, ax + as, cy + 14.5, _color, _color, _color, _color, true);
 	if (point_in_rectangle(oGui.x, oGui.y,ax - as, cy - 14.5, ax + as, cy + 14.5)) {
-		if (rooms[selectedroom][$"password"] == password) {
+		if (rooms[selectedroom][$ "password"] == password) {
 			typepassword = false;
-			global.roomname = rooms[selectedroom][$"name"];
+			global.roomname = rooms[selectedroom][$ "name"];
 			sendMessage({
 				command : Network.JoinRoom,
 				username : global.username,
@@ -173,7 +173,7 @@ if (joinedRoom) {
 	var biggername = 0;
 	// Feather disable once GM1041
 	for (var i = 0; i < array_length(players); ++i) {
-		var len = string_length(players[i][$"username"]);
+		var len = string_length(players[i][$ "username"]);
 		if (len > biggername) {
 		    biggername = len;
 		}
@@ -182,7 +182,7 @@ if (joinedRoom) {
 		draw_rectangle_color(GW/137, GH/70+offset, GW/4+len, GH/6 + offset, c_gray, c_gray, c_gray, c_gray, false);
 		draw_set_alpha(1);
 		draw_sprite_ext(CHARACTERS[players[i].character][?"sprite"], sprites, GW/20, GH/6.86+ offset, 3, 3, 0, c_white, 1);
-		draw_text_transformed(GW/10, GH/43+offset, players[i][$"username"], 3, 3, 0);
+		draw_text_transformed(GW/10, GH/43+offset, players[i][$ "username"], 3, 3, 0);
 		draw_text_transformed(GW/10, GH/43+40+offset, CHARACTERS[players[i].character][?"name"], 3, 3, 0);
 		offset += 140;
 	}

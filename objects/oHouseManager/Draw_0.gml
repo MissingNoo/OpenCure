@@ -1,6 +1,6 @@
-var floorSpr = HouseItems[houseInfo[$"floor"]][$"sprite"];
+var floorSpr = HouseItems[houseInfo[$ "floor"]][$ "sprite"];
 draw_sprite_ext(floorSpr, 0, room_width / 2 - 12, room_height / 2 + 23, 1, 1, 0, c_white, 1);
-var wallSpr = HouseItems[houseInfo[$"wall"]][$"sprite"];
+var wallSpr = HouseItems[houseInfo[$ "wall"]][$ "sprite"];
 draw_sprite_ext(wallSpr, 0, room_width / 2 - 12, room_height / 2 - 113, 1, 1, 0, c_white, 1);
 if (showGrid) {
 	var _x = 84;

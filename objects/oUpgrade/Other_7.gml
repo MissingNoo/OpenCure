@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-switch (upg[$"id"]) {
+switch (upg[$ "id"]) {
     case Weapons.GuraTrident:
 		image_alpha=0;
 		if (shoots==1) {
@@ -15,7 +15,7 @@ switch (upg[$"id"]) {
 			subImg = 0;
 		    sprite_index = sLavaPoolLoop;			
 			changeSprite= true;
-			dAlarm[1]=upg[$"duration"] * 0.25;
+			dAlarm[1]=upg[$ "duration"] * 0.25;
 		}
 		if (sprite_index == sLavaPoolLoop and changeSprite == false) {
 			changeSprite=true;
@@ -64,15 +64,15 @@ switch (upg[$"id"]) {
 	#region MiComet
 	case Weapons.MiCometMeteor:{
 		if (sprite_index == sMiCometSplash) {
-			//instance_create_depth(x, y - (sprite_get_height(WEAPONS_LIST[Weapons.MiCometPool][1][$"sprite"]) * WEAPONS_LIST[Weapons.MiCometPool][1][$"size"]) / 2, depth, oUpgrade,{
+			//instance_create_depth(x, y - (sprite_get_height(WEAPONS_LIST[Weapons.MiCometPool][1][$ "sprite"]) * WEAPONS_LIST[Weapons.MiCometPool][1][$ "size"]) / 2, depth, oUpgrade,{
 			//		upg : WEAPONS_LIST[Weapons.MiCometPool][1],
-			//		speed : WEAPONS_LIST[Weapons.MiCometPool][1][$"speed"],
-			//		hits : WEAPONS_LIST[Weapons.MiCometPool][1][$"hits"],
-			//		shoots : WEAPONS_LIST[Weapons.MiCometPool][1][$"shoots"],
-			//		sprite_index : WEAPONS_LIST[Weapons.MiCometPool][1][$"sprite"],
-			//		level : WEAPONS_LIST[Weapons.MiCometPool][1][$"level"],
-			//		mindmg: WEAPONS_LIST[Weapons.MiCometPool][1][$"mindmg"],
-			//		maxdmg: WEAPONS_LIST[Weapons.MiCometPool][1][$"maxdmg"]
+			//		speed : WEAPONS_LIST[Weapons.MiCometPool][1][$ "speed"],
+			//		hits : WEAPONS_LIST[Weapons.MiCometPool][1][$ "hits"],
+			//		shoots : WEAPONS_LIST[Weapons.MiCometPool][1][$ "shoots"],
+			//		sprite_index : WEAPONS_LIST[Weapons.MiCometPool][1][$ "sprite"],
+			//		level : WEAPONS_LIST[Weapons.MiCometPool][1][$ "level"],
+			//		mindmg: WEAPONS_LIST[Weapons.MiCometPool][1][$ "mindmg"],
+			//		maxdmg: WEAPONS_LIST[Weapons.MiCometPool][1][$ "maxdmg"]
 			//	});
 			instance_destroy();
 		}

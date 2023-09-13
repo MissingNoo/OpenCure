@@ -93,8 +93,8 @@ if (optionConfirmed and !haveSelectedItem and !buyingItem and input_check_presse
 }
 
 if (buyingItem and input_check_pressed("accept")) {
-	global.holocoins -= tabItems[selectedItem][$"cost"];
-	array_push(HouseInventory[tabItems[selectedItem][$"category"]], tabItems[selectedItem]);
+	global.holocoins -= tabItems[selectedItem][$ "cost"];
+	array_push(HouseInventory[tabItems[selectedItem][$ "category"]], tabItems[selectedItem]);
 	buyingItem = false;
 	return;
 }

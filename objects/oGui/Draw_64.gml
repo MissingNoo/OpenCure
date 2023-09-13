@@ -15,7 +15,7 @@ if (keyboard_check(vk_alt)) {
 if (GoldenANVIL or global.upgrade == 1 or global.gamePaused and room != rInicio and HP > 0) {
 	draw_set_alpha(.75);
 	draw_rectangle_color(0, 0, display_get_gui_width(), display_get_gui_height(), c_black, c_black, c_black, c_black, false); // Darken the screen
-	draw_set_alpha(1)
+	draw_set_alpha(1);
 }
 #endregion
 #region Menu room
@@ -80,7 +80,7 @@ if (room == rCharacterSelect) {
 	draw_sprite_ext(CHARACTERS[_isUnlocked ? selectedCharacter : 0][?"sprite"], sprindex,GW/6.18, GH/1.79, 4, 4, 0,c_white,1);
 	drawStatsSelect(CHARACTERS[_isUnlocked ? selectedCharacter : 0]);
 	draw_set_valign(fa_middle);
-	draw_set_halign(fa_center);		
+	draw_set_halign(fa_center);
 	draw_text_transformed_color(_xx - 105, _yy - 40, $"G. RANK: {Granks[CHARACTERS[_isUnlocked ? selectedCharacter : 0][?"id"]]}", 3, 3, 0, c_yellow, c_yellow, c_yellow, c_yellow, 1);
 	draw_set_valign(fa_top);
 	draw_set_halign(fa_left);
@@ -134,14 +134,14 @@ if (room == rCharacterSelect) {
 		draw_sprite_ext(sCharacterselected, 0, _x, _y, 6, 6, 0, c_white, 1);
 		draw_text_transformed(_x, _y - (sprite_get_height(sCharacterselected) * 6) / 2, str, 4.50, 4.50, 0);		
 		draw_set_halign(fa_left);
-		outfitIdleAnimation[1] = sprite_get_number(CHARACTERS[selectedCharacter][?"outfits"][selectedOutfit][$"sprite"]);
-		outfitIdleSpeed = sprite_get_speed(CHARACTERS[selectedCharacter][?"outfits"][selectedOutfit][$"sprite"]);
+		outfitIdleAnimation[1] = sprite_get_number(CHARACTERS[selectedCharacter][?"outfits"][selectedOutfit][$ "sprite"]);
+		outfitIdleSpeed = sprite_get_speed(CHARACTERS[selectedCharacter][?"outfits"][selectedOutfit][$ "sprite"]);
 		if (outfitIdleAnimation[0] < outfitIdleAnimation[1]) {
 			outfitIdleAnimation[0] += outfitIdleSpeed / game_get_speed(gamespeed_fps) * Delta;
 		}
 		else{ outfitIdleAnimation[0] = 0; }
-		var _spr = CHARACTERS[selectedCharacter][?"outfits"][selectedOutfit][$"sprite"];
-		var _isUnlocked = CHARACTERS[selectedCharacter][?"outfits"][selectedOutfit][$"unlocked"] ? c_white : c_black;
+		var _spr = CHARACTERS[selectedCharacter][?"outfits"][selectedOutfit][$ "sprite"];
+		var _isUnlocked = CHARACTERS[selectedCharacter][?"outfits"][selectedOutfit][$ "unlocked"] ? c_white : c_black;
 		draw_sprite_ext(_spr, outfitIdleAnimation[0], _x, _y + sprite_get_height(_spr) * 3, 6, 6, 0, _isUnlocked, 1);
 	}
 	#endregion
@@ -168,9 +168,9 @@ if (room == rCharacterSelect) {
 			for (var i = 0; i < array_length(stageModes); ++i) {
 				draw_sprite_ext(sUpgradeBackground, 0, _x, _y + offset, 1.495, 1.35, 0, c_black, .75);
 				draw_sprite_ext(sUpgradeBackground, 2, _x, _y - 19 + offset, 1.47, 1, 0, c_white, .75);
-				draw_text_transformed(_x, _y - 67 + offset, stageModes[i][$"name"], 2.50, 2.50, 0);
-				draw_text_transformed(_x, _y - 35 + offset, stageModes[i][$"desc"], 2.5, 2.5, 0);
-				if (i = selected) {
+				draw_text_transformed(_x, _y - 67 + offset, stageModes[i][$ "name"], 2.50, 2.50, 0);
+				draw_text_transformed(_x, _y - 35 + offset, stageModes[i][$ "desc"], 2.5, 2.5, 0);
+				if (i == selected) {
 					draw_sprite_ext(sUpgradeBackground, 1, _x, _y + offset, 1.49, 1.34, 0, c_white, 1);
 				}
 			offset += 160;
@@ -201,12 +201,12 @@ if (room == rCharacterSelect) {
 	drawWindow(_x,_y,_xx,_yy,"ATTACK", _titleY, _titlePos, _fontSize);
 	if (_isUnlocked) {
 		var weaponID = CHARACTERS[selectedCharacter][?"weapon"];
-		var weaponSprite = weaponID[1][$"thumb"];
+		var weaponSprite = weaponID[1][$ "thumb"];
 		draw_sprite_ext(weaponSprite, 0,GW/1.37, GH/3.52,2,2,0,c_white,1);
 		draw_set_valign(fa_middle); draw_set_color(c_white);
-		draw_text_transformed(_x + 66, _y + 77, lexicon_text("Weapons." + weaponID[1][$"name"] + ".name"), 2.50, 2.50, 0);
+		draw_text_transformed(_x + 66, _y + 77, lexicon_text("Weapons." + weaponID[1][$ "name"] + ".name"), 2.50, 2.50, 0);
 		//drawDesc(GW/1.39, GH/2.97, weaponID[1][$"desc"], GW/4.10, 2);
-		drawDesc(_x + 13, _y + 118, lexicon_text("Weapons." + weaponID[1][$"name"] + ".1") , 350, 2);
+		drawDesc(_x + 13, _y + 118, lexicon_text("Weapons." + weaponID[1][$ "name"] + ".1") , 350, 2);
 	}
 	draw_set_valign(0);
 	#endregion
@@ -223,9 +223,9 @@ if (room == rCharacterSelect) {
 	_y = GH/1.55;
 	if (_isUnlocked) {
 		var specialID = CHARACTERS[selectedCharacter][?"special"];
-		var specialSprite = SPECIAL_LIST[specialID][$"thumb"];
-		var specialName = lexicon_text("Special." + SPECIAL_LIST[specialID][$"name"] + ".name");
-		var specialDesc = lexicon_text("Special." + SPECIAL_LIST[specialID][$"name"] + ".desc");
+		var specialSprite = SPECIAL_LIST[specialID][$ "thumb"];
+		var specialName = lexicon_text("Special." + SPECIAL_LIST[specialID][$ "name"] + ".name");
+		var specialDesc = lexicon_text("Special." + SPECIAL_LIST[specialID][$ "name"] + ".desc");
 		draw_sprite_ext(specialSprite, 0,_x - 4 - sprite_get_width(specialSprite), _y-sprite_get_height(specialSprite),2,2,0,c_white,1);
 		draw_set_valign(fa_middle); draw_set_color(c_white);
 		draw_text_transformed(_x + 38, _y, specialName, 2, 2, 0);
@@ -270,7 +270,7 @@ if (instance_exists(oPlayer))
 		draw_sprite_ext(sHudSpecial,1, _sx + casesize, _sy, 1, 2, 0, c_white, 1);
 		if (oPlayer.skilltimer > oPlayer.specialcooldown) { draw_text(_sx+oGui.a, _sy + casesize, "READY"); }
 		//draw_sprite_ext(sHudSpecialCase, 0, _sx, _sy, 2.1, 2.1, 0, c_white, 1);
-		draw_sprite_ext(special[$"thumb"], 0, _sx + 4, _sy, 2, 2, 0, c_white, .5);
+		draw_sprite_ext(special[$ "thumb"], 0, _sx + 4, _sy, 2, 2, 0, c_white, .5);
 		if (global.debug) { draw_text(_sx + 90, _sy + casesize / 2,string(oPlayer.skilltimer) + "/" + string(oPlayer.specialcooldown)); }			
 	}
 	#endregion
@@ -292,9 +292,9 @@ if (instance_exists(oPlayer))
 	for (var i = 0; i < array_length(UPGRADES); i++){ //for the size of the upgrade arrays
 		draw_sprite_ext(sUiEmptySlotWeapon,0,_itemsx+offset,_itemsy,1.5,1.5,0,c_white,.5); //draw empty slots background
 		if (UPGRADES[i]!=global.null){ //if there is a upgrade in the slot		
-			var awakened = (UPGRADES[i][$"level"] < UPGRADES[i][$"maxlevel"]) ? 0 : 1; //check if weapon is awakened
+			var awakened = (UPGRADES[i][$ "level"] < UPGRADES[i][$ "maxlevel"]) ? 0 : 1; //check if weapon is awakened
 			draw_sprite_ext(UPGRADES[i][$ "thumb"],awakened,_itemsx+offset,_itemsy,2,2,0,c_white,1); //draw weapon sprite
-			if (global.debug) {draw_text(_itemsx+offset, _itemsy-15,string(global.upgradeCooldown[UPGRADES[i][$"id"]]));}
+			if (global.debug) {draw_text(_itemsx+offset, _itemsy-15,string(global.upgradeCooldown[UPGRADES[i][$ "id"]]));}
 			switch (UPGRADES[i][$ "type"]){ //detect the type of upgrade
 				case "red":{
 					header = sUiLevelHeaderPink;
@@ -323,9 +323,9 @@ if (instance_exists(oPlayer))
 		draw_sprite_ext(sUiEmptySlotItem,0,_itemsx+offset,_itemsy+yoffset,1.5,1.5,0,c_white,.5); //draw empty slots background
 		if (playerItems[i]!=global.nullitem) //if there is a upgrade in the slot
 		{
-			var awakened = (playerItems[i][$"level"] < 7) ? 0 : 1; //check if weapon is awakened
+			var awakened = (playerItems[i][$ "level"] < 7) ? 0 : 1; //check if weapon is awakened
 			draw_sprite_ext(playerItems[i][$ "thumb"],awakened,_itemsx+offset,_itemsy+yoffset,2,2,0,c_white,1); //draw weapon sprite
-			if (global.debug) {draw_text(_itemsx+offset, _itemsy-15+yoffset,string(global.itemCooldown[playerItems[i][$"id"]]));}
+			if (global.debug) {draw_text(_itemsx+offset, _itemsy-15+yoffset,string(global.itemCooldown[playerItems[i][$ "id"]]));}
 			switch (playerItems[i][$ "type"]) //detect the type of upgrade
 			{
 				case "red":{
@@ -354,9 +354,9 @@ if (instance_exists(oPlayer))
 	for (var i = 0; i < array_length(PLAYER_PERKS); i++){ //for the size of the upgrade arrays
 		draw_sprite_ext(sUiEmptySlotItem,0,_itemsx+offset,_itemsy+yoffset,1.5,1.5,0,c_white,.5); //draw empty slots background
 		if (PLAYER_PERKS[i]!=global.nullperk){ //if there is a upgrade in the slot
-			var activated = PLAYER_PERKS[i][$"level"] > 0  ? 1 : .5;
+			var activated = PLAYER_PERKS[i][$ "level"] > 0  ? 1 : .5;
 			draw_sprite_ext(PLAYER_PERKS[i][$ "thumb"],0,_itemsx+offset,_itemsy+yoffset,2,2,0,c_white, activated); //draw weapon sprite
-			if (global.debug) {draw_text(_itemsx+offset, _itemsy-15+yoffset,string(global.perkCooldown[PLAYER_PERKS[i][$"id"]]));}
+			if (global.debug) {draw_text(_itemsx+offset, _itemsy-15+yoffset,string(global.perkCooldown[PLAYER_PERKS[i][$ "id"]]));}
 			draw_sprite_ext(sUiLevelHeaderPink,0,_itemsx+offset,_itemsy+yoffset,2,2,0,c_white,1); //draw type sprite
 			draw_sprite_ext(sUiDigitPink,PLAYER_PERKS[i][$ "level"],_itemsx+5+offset,_itemsy+yoffset,2,2,0,c_white,1); //draw level					        
 		}		
@@ -383,13 +383,13 @@ if (instance_exists(oPlayer))
 			//draw_sprite_ext(sUpgradeBackground, 2, _xx, _yy + 5 + offset, _xscale, _yscale, 0, c_white, .75);//upgrade line for the text
 			draw_rectangle(_xx - 365, _yy + offset - 35, _xx + 365, _yy + offset - 34, false);			
 			mouse_on_button(_xx, _yy + offset, sUpgradeBackground, i, _xscale / 1.32, _yscale / 2.2);
-			if (i = selected) { //if select draw border
+			if (i == selected) { //if select draw border
 				draw_sprite_ext(sUpgradeBackground, 1, _xx, _yy + offset, _xscale, _yscale, 0, c_white, 1);//upgrade background
 				draw_sprite_ext(sHoloCursor, holoarrowspr, _xx - 415, _yy + 2 + offset, 2, 2, 0, c_white, 1); 
 			} 
 			draw_set_halign(fa_left);
 			var uptype = "";
-			switch (global.upgradeOptions[i][$"style"]) { // type of upgrade
+			switch (global.upgradeOptions[i][$ "style"]) { // type of upgrade
 				case ItemTypes.Weapon:{
 					uptype = "Weapons.";
 					break;}
@@ -400,10 +400,10 @@ if (instance_exists(oPlayer))
 					uptype = "Perks.";
 					break;}
 			}
-			var _name = lexicon_text(uptype + string(global.upgradeOptions[i][$"name"]) + ".name");
+			var _name = lexicon_text(uptype + string(global.upgradeOptions[i][$ "name"]) + ".name");
 			draw_text_transformed(_xx - 348 + guiOffset, _yy - 64 + offset - androidoffset, _name, 2, 2, 0); // draw the name
 			var style = ""; 
-			switch (global.upgradeOptions[i][$"style"]) { // type of upgrade
+			switch (global.upgradeOptions[i][$ "style"]) { // type of upgrade
 				case ItemTypes.Weapon:{
 					style = " >> Weapon";
 					break;}
@@ -418,31 +418,31 @@ if (instance_exists(oPlayer))
 			draw_text_transformed(_xx + 340 - guiOffset, _yy - 64 + offset - androidoffset, string(style), 2, 2, 0);  // draw type of upgrade
 			draw_set_halign(fa_left);
 			draw_sprite_ext(global.upgradeOptions[i][$ "thumb"],0,_xx - 322 + guiOffset, _yy + 8 + offset,2, 2,0,c_white,1); // item thumb			
-			draw_sprite_ext(sItemType, global.upgradeOptions[i][$"style"], _xx - 322 + guiOffset, _yy + 8 + offset,2, 2,0,c_white,1); // item thumb type
+			draw_sprite_ext(sItemType, global.upgradeOptions[i][$ "style"], _xx - 322 + guiOffset, _yy + 8 + offset,2, 2,0,c_white,1); // item thumb type
 			var foundup = false;
 			var foundlv = 0;
-			switch (global.upgradeOptions[i][$"style"]) { // type of upgrade
+			switch (global.upgradeOptions[i][$ "style"]) { // type of upgrade
 				case ItemTypes.Item:{
 					for (var j = 0; j < array_length(playerItems); ++j) {
-						if (playerItems[j][$"id"] == global.upgradeOptions[i][$"id"]) {
+						if (playerItems[j][$ "id"] == global.upgradeOptions[i][$ "id"]) {
 							foundup = true;
-							foundlv = playerItems[j][$"level"] + 1;
+							foundlv = playerItems[j][$ "level"] + 1;
 						}
 					}	
 					break;}
 				case ItemTypes.Perk:{
 					for (var j = 0; j < array_length(PLAYER_PERKS); ++j) {
-						if (PLAYER_PERKS[j][$"id"] == global.upgradeOptions[i][$"id"]) {
+						if (PLAYER_PERKS[j][$ "id"] == global.upgradeOptions[i][$ "id"]) {
 							foundup = true;
-							foundlv = PLAYER_PERKS[j][$"level"] + 1;
+							foundlv = PLAYER_PERKS[j][$ "level"] + 1;
 						}
 					}	
 					break;}
 				case ItemTypes.Weapon:{
 					for (var j = 0; j < array_length(UPGRADES); ++j) {
-						if (UPGRADES[j][$"name"] == global.upgradeOptions[i][$"name"]) {
+						if (UPGRADES[j][$ "name"] == global.upgradeOptions[i][$ "name"]) {
 							foundup = true;
-							foundlv = UPGRADES[j][$"level"] + 1;
+							foundlv = UPGRADES[j][$ "level"] + 1;
 						}
 					}	
 					break;}
@@ -455,12 +455,12 @@ if (instance_exists(oPlayer))
 			//}	
 			var desc = "";
 			if (foundup) {
-				var idd = global.upgradeOptions[i][$"id"];
-				desc = lexicon_text(uptype + global.upgradeOptions[i][$"name"] + "." + string(foundlv));
+				var idd = global.upgradeOptions[i][$ "id"];
+				desc = lexicon_text(uptype + global.upgradeOptions[i][$ "name"] + "." + string(foundlv));
 				//draw_text_ext_transformed(GW/2.20+(guiOffset/2) + 5,GH/5.5+offset, lexicon_text(uptype + global.upgradeOptions[i][$"name"] + "." + string(foundlv)), string_width("W"), 327.5, 2,2,0);
 			}
 			else{
-				desc = lexicon_text(uptype + global.upgradeOptions[i][$"name"] + ".1");
+				desc = lexicon_text(uptype + global.upgradeOptions[i][$ "name"] + ".1");
 				//draw_text_ext_transformed(GW/2.20+(guiOffset/2) + 5,GH/5.5+offset, lexicon_text(uptype + global.upgradeOptions[i][$"name"] + ".1"), string_width("W"), 327.5, 2,2,0);
 			}
 			drawDesc(_xx- 230, _yy - 28 + offset, desc , maxx, 2);
@@ -499,7 +499,7 @@ if (instance_exists(oPlayer))
 		for (var i = 0; i < array_length(UPGRADES); ++i){
 			//if (!anvilconfirm) { mouseOnButton(GW/2.30, GH/3, GW/12, sItemSquare, 2, 2, UPGRADES, "anvilSelected", "horizontal");}
 			if (anvilSelectedCategory == 0 and i == anvilSelected){
-				anvilIsSelected = 1
+				anvilIsSelected = 1;
 			}else{
 				anvilIsSelected = 0;
 			}
@@ -509,7 +509,7 @@ if (instance_exists(oPlayer))
 			    anvilSelected = i;
 				anvilSelectedCategory = 0;
 			}
-			draw_sprite_ext(UPGRADES[i][$"thumb"], 0, GW/2.30 + xoffset, GH/3, 2, 2, 0, c_white, 1);
+			draw_sprite_ext(UPGRADES[i][$ "thumb"], 0, GW/2.30 + xoffset, GH/3, 2, 2, 0, c_white, 1);
 			xoffset += GW/12;
 		}
 		#endregion
@@ -522,14 +522,14 @@ if (instance_exists(oPlayer))
 			}else{
 				anvilIsSelected = 0;
 			}
-			var _alpha = (playerItems[i][$"level"] < playerItems[i][$"maxlevel"]) ? 1 : 0.5;
+			var _alpha = (playerItems[i][$ "level"] < playerItems[i][$ "maxlevel"]) ? 1 : 0.5;
 			draw_sprite_ext(sItemSquare, anvilIsSelected, GW/2.30 + xoffset, GH/2.30, 2, 2, 0, c_white, 1);
 			var _sprHalf = (sprite_get_width(sItemSquare) * 2 ) / 2;
 			if (button_click([GW/2.30 - _sprHalf + xoffset, GH/2.30 - _sprHalf, GW/2.30 + _sprHalf + xoffset, GH/2.30 + _sprHalf])) {
 			    anvilSelected = i;
 				anvilSelectedCategory = 1;
 			}
-			draw_sprite_ext(playerItems[i][$"thumb"], 0, GW/2.30 + xoffset, GH/2.30, 2, 2, 0, c_white, _alpha);
+			draw_sprite_ext(playerItems[i][$ "thumb"], 0, GW/2.30 + xoffset, GH/2.30, 2, 2, 0, c_white, _alpha);
 			xoffset += GW/12;
 		}
 		#endregion
@@ -543,18 +543,18 @@ if (instance_exists(oPlayer))
 		var selectedThing, _name;
 		if (anvilSelectedCategory == 0) {
 			selectedThing = UPGRADES[anvilSelected];
-			_name = lexicon_text("Weapons." + selectedThing[$"name"] + ".name");
+			_name = lexicon_text("Weapons." + selectedThing[$ "name"] + ".name");
 		}else{
 			selectedThing = playerItems[anvilSelected];
-			_name = lexicon_text("Items." + selectedThing[$"name"] + ".name");
+			_name = lexicon_text("Items." + selectedThing[$ "name"] + ".name");
 		}
-		var level = selectedThing[$"level"];
-		var maxlevel = selectedThing[$"maxlevel"];
+		var level = selectedThing[$ "level"];
+		var maxlevel = selectedThing[$ "maxlevel"];
 		draw_set_valign(fa_top);
 		draw_text_transformed(_xx - 385, _yy - 59.50 , _name, 1, 1, 0); // draw the name
 		draw_set_color(c_yellow);
 		if (level < maxlevel) {
-			str = string_ext("LV {0} >> LV {1} ", [string(selectedThing[$"level"]), string(selectedThing[$"level"] + 1)]);
+			str = string_ext("LV {0} >> LV {1} ", [string(selectedThing[$ "level"]), string(selectedThing[$ "level"] + 1)]);
 		}else if (anvilSelectedCategory == 0){
 			if (!variable_struct_exists(UPGRADES[anvilSelected], "bonusLevel")) {
 				str = "+ 1";
@@ -567,7 +567,7 @@ if (instance_exists(oPlayer))
 			draw_text_transformed(_xx - 385 + (string_width(_name) + 20), _yy - 59.50 , str, 1, 1, 0); // draw the name
 		}
 		draw_set_color(c_white);
-		switch (selectedThing[$"style"]) { // type of upgrade
+		switch (selectedThing[$ "style"]) { // type of upgrade
 			case ItemTypes.Weapon:{
 				style = " >> Weapon";
 				break;}
@@ -582,14 +582,14 @@ if (instance_exists(oPlayer))
 		draw_text_transformed(_xx + 370, _yy - 59.50, string(style), 1, 1, 0);  // draw type of upgrade
 		draw_set_halign(fa_left);
 		draw_sprite_ext(selectedThing[$ "thumb"],0, _xx - 350, _yy, 2, 2,0,c_white,1); // item thumb
-		draw_sprite_ext(sItemType, selectedThing[$"style"], _xx - 350, _yy, 2, 2,0,c_white,1); // item thumb type
+		draw_sprite_ext(sItemType, selectedThing[$ "style"], _xx - 350, _yy, 2, 2,0,c_white,1); // item thumb type
 		if (!anvilconfirm) {
-			if (level > maxlevel) {	level -= 1	}
+			if (level > maxlevel) {	level -= 1;}
 			if (anvilSelectedCategory == 0 and selectedThing != global.null and selectedThing != global.nullitem) {
-				drawDesc(_xx - 290,_yy - 35, lexicon_text("Weapons." + selectedThing[$"name"] + "." + string(level)), GW/2, 2);
+				drawDesc(_xx - 290,_yy - 35, lexicon_text("Weapons." + selectedThing[$ "name"] + "." + string(level)), GW/2, 2);
 			}
 			if (anvilSelectedCategory == 1 and selectedThing != global.null and selectedThing != global.nullitem) {
-				drawDesc(_xx - 290,_yy - 35, lexicon_text("Items." + selectedThing[$"name"] + "." + string(level)), GW/2, 2);
+				drawDesc(_xx - 290,_yy - 35, lexicon_text("Items." + selectedThing[$ "name"] + "." + string(level)), GW/2, 2);
 			}
 		}
 		else {
@@ -612,7 +612,7 @@ if (instance_exists(oPlayer))
 				var _chance = 100;
 				var _coinValue = 0;
 				if (variable_struct_exists(selectedThing, "bonusLevel")) {
-					for (var i = 0; i < selectedThing[$"bonusLevel"]; ++i) {
+					for (var i = 0; i < selectedThing[$ "bonusLevel"]; ++i) {
 						_coinValue += 50;
 						_chance -= 10;
 					}
@@ -627,10 +627,10 @@ if (instance_exists(oPlayer))
 				draw_set_halign(fa_left);
 			}
 			level++;
-			if (level > maxlevel) {	level -= 1	}
+			if (level > maxlevel) {	level -= 1;}
 			if (level != maxlevel) {
 				if (anvilSelectedCategory == 0 and selectedThing != global.null and selectedThing != global.nullitem) {
-					drawDesc(_xx - 290,_yy - 35, lexicon_text("Weapons." + selectedThing[$"name"] + "." + string(level)), GW/2, 2);
+					drawDesc(_xx - 290,_yy - 35, lexicon_text("Weapons." + selectedThing[$ "name"] + "." + string(level)), GW/2, 2);
 				}	
 			}
 			else{
@@ -639,7 +639,7 @@ if (instance_exists(oPlayer))
 				}	
 			}
 			if (anvilSelectedCategory == 1 and selectedThing != global.null and selectedThing != global.nullitem) {
-				drawDesc(_xx - 290,_yy - 35, lexicon_text("Items." + selectedThing[$"name"] + "." + string(level)), GW/2, 2);
+				drawDesc(_xx - 290,_yy - 35, lexicon_text("Items." + selectedThing[$ "name"] + "." + string(level)), GW/2, 2);
 			}
 		}
 		#endregion
@@ -662,7 +662,7 @@ if (instance_exists(oPlayer))
 			var _isSelected = (anvilSelected == i) ? true : false;
 		    draw_sprite_ext(sItemSquare, _isSelected, _x + _offset, _y, 2, 2, 0, c_white, 1);
 			var _alpha = (gAnvilWeapon1 == UPGRADES[i] or gAnvilWeapon2 == UPGRADES[i]) ? 0.5 : 1;
-		    draw_sprite_ext(UPGRADES[i][$"thumb"], 0, _x + _offset, _y, 2, 2, 0, c_white, _alpha);
+		    draw_sprite_ext(UPGRADES[i][$ "thumb"], 0, _x + _offset, _y, 2, 2, 0, c_white, _alpha);
 			if (button_click([_x - _sprHalf + _offset, _y - _sprHalf, _x + _sprHalf + _offset, _y + _sprHalf])) {
 				anvilSelected = i;
 				if (gAnvilWeapon1 == global.null and gAnvilWeapon2 != UPGRADES[anvilSelected]) {
@@ -681,24 +681,24 @@ if (instance_exists(oPlayer))
 			    draw_text_transformed(_x + _offset, _y + _down, "+", 4, 4, 0);
 				
 				draw_sprite_ext(sItemSquare, 0, _x + _offset - _distance, _y + _down, 2, 2, 0, c_white, 1);
-				draw_sprite_ext(gAnvilWeapon1[$"thumb"], 0, _x + _offset - _distance, _y + _down, 2, 2, 0, c_white, 1);
+				draw_sprite_ext(gAnvilWeapon1[$ "thumb"], 0, _x + _offset - _distance, _y + _down, 2, 2, 0, c_white, 1);
 				if (button_click([_x - _sprHalf + _offset - _distance, _y - _sprHalf + _down, _x + _sprHalf + _offset - _distance, _y + _sprHalf + _down])) {
 					gAnvilWeapon1 = global.null;
 				}
 				
 				draw_sprite_ext(sItemSquare, 0, _x + _offset + _distance, _y + _down, 2, 2, 0, c_white, 1);
-				draw_sprite_ext(gAnvilWeapon2[$"thumb"], 0, _x + _offset + _distance, _y + _down, 2, 2, 0, c_white, 1);
+				draw_sprite_ext(gAnvilWeapon2[$ "thumb"], 0, _x + _offset + _distance, _y + _down, 2, 2, 0, c_white, 1);
 				if (button_click([_x - _sprHalf + _offset + _distance, _y - _sprHalf + _down, _x + _sprHalf + _offset + _distance, _y + _sprHalf + _down])) {
 					gAnvilWeapon2 = global.null;
 				}
 				canCollab = false;
-				if (is_array(gAnvilWeapon1[$"collabWith"])) {
-				    if (array_contains(gAnvilWeapon1[$"collabWith"], gAnvilWeapon2[$"id"])) {
+				if (is_array(gAnvilWeapon1[$ "collabWith"])) {
+				    if (array_contains(gAnvilWeapon1[$ "collabWith"], gAnvilWeapon2[$ "id"])) {
 					    canCollab = true;
 					}
 				}
 				else{
-					if (gAnvilWeapon1[$"collabWith"] == gAnvilWeapon2[$"id"]) {
+					if (gAnvilWeapon1[$ "collabWith"] == gAnvilWeapon2[$ "id"]) {
 					    canCollab = true;
 					}
 				}

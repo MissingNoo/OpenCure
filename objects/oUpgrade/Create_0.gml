@@ -77,12 +77,12 @@ originalSize = [0, 0];
 if (!variable_instance_exists(self, "idolDir")) {
     idolDir = 90;
 }
-if (upg[$"id"] == Weapons.IdolSong) {
+if (upg[$ "id"] == Weapons.IdolSong) {
 	var totalidols = 0;
     for (var i = 0; i < instance_number(oUpgrade); ++i) {
 		try{
 			var inst = instance_find(oUpgrade, i);
-			if (inst.upg[$"id"] == Weapons.IdolSong) {
+			if (inst.upg[$ "id"] == Weapons.IdolSong) {
 			    totalidols++;
 			}
 		}
@@ -90,14 +90,14 @@ if (upg[$"id"] == Weapons.IdolSong) {
 			//dont care
 		}
 	}
-	if (totalidols > upg[$"shoots"]) {
+	if (totalidols > upg[$ "shoots"]) {
 	    instance_destroy();
 	}
 }
 
-if (upg[$"id"] == Weapons.SpiderCooking) {
+if (upg[$ "id"] == Weapons.SpiderCooking) {
 	x = owner.x;
 	y = owner.y - (sprite_get_height(global.player[?"sprite"]) / 3);
-	image_xscale = upg[$"size"];
-	image_yscale = upg[$"size"];
+	image_xscale = upg[$ "size"];
+	image_yscale = upg[$ "size"];
 }

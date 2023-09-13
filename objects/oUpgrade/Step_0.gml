@@ -18,19 +18,19 @@ if (!global.gamePaused) {
 		}
 	}
 	#region broadcasts
-	switch (upg[$"id"]) {
+	switch (upg[$ "id"]) {
 	    case Weapons.MiCometMeteor:
 	        if (floor(subImg) == 2 and !summoned) {
 			    summoned = true;
-				instance_create_depth(x, y - (sprite_get_height(WEAPONS_LIST[Weapons.MiCometPool][1][$"sprite"]) * WEAPONS_LIST[Weapons.MiCometPool][1][$"size"]) / 2, depth, oUpgrade,{
+				instance_create_depth(x, y - (sprite_get_height(WEAPONS_LIST[Weapons.MiCometPool][1][$ "sprite"]) * WEAPONS_LIST[Weapons.MiCometPool][1][$ "size"]) / 2, depth, oUpgrade,{
 					upg : WEAPONS_LIST[Weapons.MiCometPool][1],
-					speed : WEAPONS_LIST[Weapons.MiCometPool][1][$"speed"],
-					hits : WEAPONS_LIST[Weapons.MiCometPool][1][$"hits"],
-					shoots : WEAPONS_LIST[Weapons.MiCometPool][1][$"shoots"],
-					sprite_index : WEAPONS_LIST[Weapons.MiCometPool][1][$"sprite"],
-					level : WEAPONS_LIST[Weapons.MiCometPool][1][$"level"],
-					mindmg: WEAPONS_LIST[Weapons.MiCometPool][1][$"mindmg"],
-					maxdmg: WEAPONS_LIST[Weapons.MiCometPool][1][$"maxdmg"]
+					speed : WEAPONS_LIST[Weapons.MiCometPool][1][$ "speed"],
+					hits : WEAPONS_LIST[Weapons.MiCometPool][1][$ "hits"],
+					shoots : WEAPONS_LIST[Weapons.MiCometPool][1][$ "shoots"],
+					sprite_index : WEAPONS_LIST[Weapons.MiCometPool][1][$ "sprite"],
+					level : WEAPONS_LIST[Weapons.MiCometPool][1][$ "level"],
+					mindmg: WEAPONS_LIST[Weapons.MiCometPool][1][$ "mindmg"],
+					maxdmg: WEAPONS_LIST[Weapons.MiCometPool][1][$ "maxdmg"]
 				});
 			}
 	        break;
@@ -48,8 +48,8 @@ if (!global.gamePaused) {
 			event_user(i);
 		}
 	}
-	if (speed > 0 and upg[$"id"] != Weapons.CuttingBoard) {
-	    speed=upg[$"speed"] * Delta;
+	if (speed > 0 and upg[$ "id"] != Weapons.CuttingBoard) {
+	    speed=upg[$ "speed"] * Delta;
 	}
 	if (afterimagecount < 0.30) {
 	    afterimagecount += 1 * Delta;
@@ -66,7 +66,7 @@ if (!global.gamePaused) {
 		}
 	}
 	
-	switch (upg[$"id"]) {
+	switch (upg[$ "id"]) {
 		case Weapons.GuraTrident:{
 			x=owner.x;
 			y=owner.y-8;
@@ -114,13 +114,13 @@ if (!global.gamePaused) {
 			    slashTimer = 0;
 				instance_create_layer(x, y, "Upgrades", oUpgrade,{
 					upg : WEAPONS_LIST[Weapons.BoneBrosSlash][1],
-					speed : WEAPONS_LIST[Weapons.BoneBrosSlash][1][$"speed"],
-					hits : WEAPONS_LIST[Weapons.BoneBrosSlash][1][$"hits"],
-					shoots : WEAPONS_LIST[Weapons.BoneBrosSlash][1][$"shoots"],
-					sprite_index : WEAPONS_LIST[Weapons.BoneBrosSlash][1][$"sprite"],
-					level : WEAPONS_LIST[Weapons.BoneBrosSlash][1][$"level"],
-					mindmg: WEAPONS_LIST[Weapons.BoneBrosSlash][1][$"mindmg"],
-					maxdmg: WEAPONS_LIST[Weapons.BoneBrosSlash][1][$"maxdmg"],
+					speed : WEAPONS_LIST[Weapons.BoneBrosSlash][1][$ "speed"],
+					hits : WEAPONS_LIST[Weapons.BoneBrosSlash][1][$ "hits"],
+					shoots : WEAPONS_LIST[Weapons.BoneBrosSlash][1][$ "shoots"],
+					sprite_index : WEAPONS_LIST[Weapons.BoneBrosSlash][1][$ "sprite"],
+					level : WEAPONS_LIST[Weapons.BoneBrosSlash][1][$ "level"],
+					mindmg: WEAPONS_LIST[Weapons.BoneBrosSlash][1][$ "mindmg"],
+					maxdmg: WEAPONS_LIST[Weapons.BoneBrosSlash][1][$ "maxdmg"],
 					direction : global.arrowDir + irandom_range(0, 30)
 				});
 			}
@@ -128,13 +128,13 @@ if (!global.gamePaused) {
 			    bulletTimer = 0;
 				instance_create_layer(x, y, "Upgrades", oUpgrade,{
 					upg : WEAPONS_LIST[Weapons.BoneBrosBullet][1],
-					speed : WEAPONS_LIST[Weapons.BoneBrosBullet][1][$"speed"],
-					hits : WEAPONS_LIST[Weapons.BoneBrosBullet][1][$"hits"],
-					shoots : WEAPONS_LIST[Weapons.BoneBrosBullet][1][$"shoots"],
-					sprite_index : WEAPONS_LIST[Weapons.BoneBrosBullet][1][$"sprite"],
-					level : WEAPONS_LIST[Weapons.BoneBrosBullet][1][$"level"],
-					mindmg: WEAPONS_LIST[Weapons.BoneBrosBullet][1][$"mindmg"],
-					maxdmg: WEAPONS_LIST[Weapons.BoneBrosBullet][1][$"maxdmg"],
+					speed : WEAPONS_LIST[Weapons.BoneBrosBullet][1][$ "speed"],
+					hits : WEAPONS_LIST[Weapons.BoneBrosBullet][1][$ "hits"],
+					shoots : WEAPONS_LIST[Weapons.BoneBrosBullet][1][$ "shoots"],
+					sprite_index : WEAPONS_LIST[Weapons.BoneBrosBullet][1][$ "sprite"],
+					level : WEAPONS_LIST[Weapons.BoneBrosBullet][1][$ "level"],
+					mindmg: WEAPONS_LIST[Weapons.BoneBrosBullet][1][$ "mindmg"],
+					maxdmg: WEAPONS_LIST[Weapons.BoneBrosBullet][1][$ "maxdmg"],
 					direction : (global.arrowDir + 180) + irandom_range(0, 30)
 				});
 			}
@@ -166,7 +166,7 @@ if (!global.gamePaused) {
 			image_xscale = image_yscale + 0.5;
 			break;}
 		case Weapons.PsychoAxe:{
-			//part_type_sprite(part, upg[$"sprite"], false, false, image_index);
+			//part_type_sprite(part, upg[$ "sprite"], false, false, image_index);
 			x = xstart + lengthdir_x(round(orbitLength), round(orbitPlace));
 			y = ystart + lengthdir_y(round(orbitLength), round(orbitPlace));
 			orbitPlace -= 4 * Delta;
@@ -195,7 +195,7 @@ if (!global.gamePaused) {
 			y = owner.y - (sprite_get_height(global.player[?"sprite"]) / 3);
 			break;}
 		case Weapons.IdolSong:{
-			x = sine_wave(current_time  / 1000, 1 * (shoots % 2) ? 1 : -1, upg[$"travelWidth"], idolStartX);
+			x = sine_wave(current_time  / 1000, 1 * (shoots % 2) ? 1 : -1, upg[$ "travelWidth"], idolStartX);
 			break;}
 		case Weapons.BounceBall:{
 			//if (direction != 270) {
@@ -208,7 +208,7 @@ if (!global.gamePaused) {
 			//if (direction > 270) {
 			//    direction -= 5;
 			//}
-			if (vspeed < upg[$"speed"]) {
+			if (vspeed < upg[$ "speed"]) {
 				vspeed += 0.55 * Delta;
 			}
 			move_and_collide(hspd, vspd, oEnemy);
@@ -222,8 +222,8 @@ if (!global.gamePaused) {
 				image_angle += (asaRotationSpeed * asaDirection) * Delta;
 			}
 			else{
-				image_xscale = upg[$"size"];
-				image_yscale = upg[$"size"];
+				image_xscale = upg[$ "size"];
+				image_yscale = upg[$ "size"];
 			}
 			if (vspd < 50 and asaDuration > 0) {
 			    vspd += 0.40 * Delta;
@@ -282,7 +282,7 @@ if (!global.gamePaused) {
 
 
 
-if (hits <= 0 and upg[$"id"] != Weapons.Glowstick) {
+if (hits <= 0 and upg[$ "id"] != Weapons.Glowstick) {
 	image_alpha=0;
 }
 

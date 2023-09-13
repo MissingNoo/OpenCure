@@ -14,17 +14,17 @@ if (placingObject and input_check_pressed("accept")) {
 if (editHouse and selectedMenuConfirm and input_check_pressed("accept")) {
 	if (selectedMenu != HouseCategory.Interior) {
 	    placingObject = true;
-		objectSprite = HouseItems[HouseInventory[selectedMenu][selectedItem][$"itemId"]][$"sprite"];
-		objectId = HouseItems[HouseInventory[selectedMenu][selectedItem][$"itemId"]][$"itemId"];
+		objectSprite = HouseItems[HouseInventory[selectedMenu][selectedItem][$ "itemId"]][$ "sprite"];
+		objectId = HouseItems[HouseInventory[selectedMenu][selectedItem][$ "itemId"]][$ "itemId"];
 		editHouse = false;
 	}
 	else{
-		switch (HouseInventory[selectedMenu][selectedItem][$"type"]) {
+		switch (HouseInventory[selectedMenu][selectedItem][$ "type"]) {
 		    case HouseInteriorType.Floor:
-		        houseInfo.floor = HouseInventory[selectedMenu][selectedItem][$"itemId"];
+		        houseInfo.floor = HouseInventory[selectedMenu][selectedItem][$ "itemId"];
 		        break;
 		    case HouseInteriorType.Wall:
-		        houseInfo.wall= HouseInventory[selectedMenu][selectedItem][$"itemId"];
+		        houseInfo.wall= HouseInventory[selectedMenu][selectedItem][$ "itemId"];
 		        break;
 		}
 		Save_House();

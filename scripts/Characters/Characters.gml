@@ -33,8 +33,8 @@ function initializePlayer(_p){
 	arrowDir=0;
 	// Feather enable GM2017
 	atk=_p[?"atk"];
-	sprite=_p[?"outfits"][global.selectedOutfit][$"sprite"];
-	runningsprite=_p[?"outfits"][global.selectedOutfit][$"runningSprite"];
+	sprite=_p[?"outfits"][global.selectedOutfit][$ "sprite"];
+	runningsprite=_p[?"outfits"][global.selectedOutfit][$ "runningSprite"];
 	sprite_index=sprite;
 	global.upgrades[0] = _p[?"weapon"][1];
 	Shield = 0;
@@ -211,7 +211,7 @@ enum Characters {
 
 function Movement()
 {
-if canMove == true{
+if (canMove == true){
 	var _target = noone;
 	if (instance_exists(oCam)) {
 	    _target = oCam;

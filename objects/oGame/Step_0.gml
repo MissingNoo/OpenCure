@@ -240,7 +240,7 @@ if (instance_exists(oPlayer) and canspawn == true and global.gamePaused == false
 					//	//show_message(string(round(UPGRADES[i][?"cooldown"] / (1 + (1.50/100)))))
 					//}   
 					//else{
-						global.upgradeCooldown[UPGRADES[i][$"id"]] -= 1 * Delta;
+						global.upgradeCooldown[UPGRADES[i][$ "id"]] -= 1 * Delta;
 					//}
 				}
 			}
@@ -252,10 +252,10 @@ if (instance_exists(oPlayer) and canspawn == true and global.gamePaused == false
 		#endregion
 		#region buff coldown
 			for (var i = 0; i < array_length(Buffs); ++i) {
-				if (Buffs[i][$"enabled"] and variable_struct_exists(Buffs[i], "cooldown")) {
+				if (Buffs[i][$ "enabled"] and variable_struct_exists(Buffs[i], "cooldown")) {
 					if (Buffs[i].cooldown > 0) {
 					    Buffs[i].cooldown -= 1/60;
-						switch (Buffs[i][$"id"]) {
+						switch (Buffs[i][$ "id"]) {
 						    case BuffNames.SakeFood:
 								Bonuses[BonusType.Critical][ItemIds.Sake][1] = 1.05;
 								break;
@@ -268,20 +268,20 @@ if (instance_exists(oPlayer) and canspawn == true and global.gamePaused == false
 						if (!variable_struct_exists(Buffs[i], "permanent")) {
 						    Buffs[i].enabled = false;
 							if (variable_struct_exists(Buffs[i], "count")) {
-							    Buffs[i][$"count"] = 0;
+							    Buffs[i][$ "count"] = 0;
 							}							
 						}
-					    switch (Buffs[i][$"id"]) {
+					    switch (Buffs[i][$ "id"]) {
 						    case BuffNames.ShortHeight:
 						        PerkBonuses[BonusType.Speed][PerkIds.ShortSize] = 0;
 						        break;
 							case BuffNames.Sake:
-								if (Buffs[i][$"count"] < Buffs[i][$"maxCount"]) {
-								    Buffs[i][$"count"] += 1;
+								if (Buffs[i][$ "count"] < Buffs[i][$ "maxCount"]) {
+								    Buffs[i][$ "count"] += 1;
 								}
-								var _amount = (Buffs[BuffNames.Sake][$"count"] < 10) ? "1.0{0}" : "1.{0}";
-								Bonuses[BonusType.Critical][ItemIds.Sake][0] = real(string(_amount, Buffs[BuffNames.Sake][$"count"]));
-								Buffs[i][$"cooldown"] = Buffs[i][$"baseCooldown"];
+								var _amount = (Buffs[BuffNames.Sake][$ "count"] < 10) ? "1.0{0}" : "1.{0}";
+								Bonuses[BonusType.Critical][ItemIds.Sake][0] = real(string(_amount, Buffs[BuffNames.Sake][$ "count"]));
+								Buffs[i][$ "cooldown"] = Buffs[i][$ "baseCooldown"];
 								break;
 							case BuffNames.SakeFood:
 								Bonuses[BonusType.Critical][ItemIds.Sake][1] = 0;

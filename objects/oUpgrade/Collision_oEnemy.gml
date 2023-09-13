@@ -4,8 +4,8 @@ switch (sprite_index) {
         canhit = false;
         break;
 }
-if (other.hittedcooldown[upg[$"id"]] <= 0  and !global.gamePaused and other.image_alpha == 1 and image_alpha == 1 and ghost == false and canhit) {
-	if (upg[$"id"] == Weapons.BounceBall or upg[$"id"] == Weapons.RingOfFitness) {
+if (other.hittedcooldown[upg[$ "id"]] <= 0  and !global.gamePaused and other.image_alpha == 1 and image_alpha == 1 and ghost == false and canhit) {
+	if (upg[$ "id"] == Weapons.BounceBall or upg[$ "id"] == Weapons.RingOfFitness) {
 		var _push = 5;
 		var _dir = point_direction(other.x, other.y, x, y);
 		var _rnd = 0;
@@ -18,12 +18,12 @@ if (other.hittedcooldown[upg[$"id"]] <= 0  and !global.gamePaused and other.imag
 		 //y+=_vspd;
 		 vspeed=_vspd;
 		 hspeed = _hspd;
-		 if (upg[$"id"] == Weapons.RingOfFitness) { direction = point_direction(x, y, x + _hspd, y + _vspd); }		 
+		 if (upg[$ "id"] == Weapons.RingOfFitness) { direction = point_direction(x, y, x + _hspd, y + _vspd); }		 
 		 //if (alarm_get(11) == -1) {
 		 //    alarm[11] = 20;
 		 //}		 
 	}
-	other.hittedcooldown[upg[$"id"]] = upg[$"hitCooldown"];
+	other.hittedcooldown[upg[$ "id"]] = upg[$ "hitCooldown"];
 	other.damaged = true;
 	//random_set_seed(current_time);
 	if (!variable_instance_exists(self, "mindmg")) { mindmg = 0; }	
@@ -35,7 +35,7 @@ if (other.hittedcooldown[upg[$"id"]] <= 0  and !global.gamePaused and other.imag
 	for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
 		#region Shark Bite
 		var found = false;
-		if (PLAYER_PERKS[i][$"id"] == PerkIds.SharkBite and PLAYER_PERKS[i][$"level"] > 0 and irandom_range(1,100) <= Buffs[BuffNames.SharkBite].chance[PLAYER_PERKS[i][$"level"]]) {
+		if (PLAYER_PERKS[i][$ "id"] == PerkIds.SharkBite and PLAYER_PERKS[i][$ "level"] > 0 and irandom_range(1,100) <= Buffs[BuffNames.SharkBite].chance[PLAYER_PERKS[i][$ "level"]]) {
 			instance_create_layer(other.x, other.y, "Instances", oDebuffAnimation, {sprite_index : sSharkBiteAnimation});
 			for (var j = 0; j < array_length(other.debuffs); ++j) {
 				if (other.debuffs[j].id == BuffNames.SharkBite) {
@@ -48,8 +48,8 @@ if (other.hittedcooldown[upg[$"id"]] <= 0  and !global.gamePaused and other.imag
 			if (!found) {
 				var _lv=0;
 				for (var k = 0; k < array_length(PLAYER_PERKS); ++k) {
-					if (PLAYER_PERKS[k][$"id"] == PerkIds.SharkBite) {
-						_lv = PLAYER_PERKS[k][$"level"];
+					if (PLAYER_PERKS[k][$ "id"] == PerkIds.SharkBite) {
+						_lv = PLAYER_PERKS[k][$ "level"];
 					}
 				}
 				Buffs[BuffNames.SharkBite].level = _lv;
@@ -59,9 +59,9 @@ if (other.hittedcooldown[upg[$"id"]] <= 0  and !global.gamePaused and other.imag
 		#endregion
 	}	
 	for (var i = 0; i < array_length(playerItems); ++i) {
-	    switch (playerItems[i][$"id"]) {
+	    switch (playerItems[i][$ "id"]) {
 		    case ItemIds.DevilHat:
-				var _multiplier = playerItems[i][$"damageMultiplier"];
+				var _multiplier = playerItems[i][$ "damageMultiplier"];
 		        if (point_distance(other.x, other.y, oPlayer.x, oPlayer.y) > 150) {
 				    dmg = dmg * _multiplier;
 				}
@@ -104,7 +104,7 @@ if (other.hittedcooldown[upg[$"id"]] <= 0  and !global.gamePaused and other.imag
 	dmg = dmg + bdmg;
 	if (global.player == CHARACTERS[Characters.Amelia]) {
 	    for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
-		    if (PLAYER_PERKS[i][$"id"] == PerkIds.DetectiveEye and PLAYER_PERKS[i][$"level"] == 3) {
+		    if (PLAYER_PERKS[i][$ "id"] == PerkIds.DetectiveEye and PLAYER_PERKS[i][$ "level"] == 3) {
 				randomize();
 				if (irandom_range(0, 100) <= 2) {
 				    dmg = dmg * 999;
@@ -151,9 +151,9 @@ if (other.hittedcooldown[upg[$"id"]] <= 0  and !global.gamePaused and other.imag
 	
 	//other.alarm[1]=15;
 	other.damagedAlarm=15;
-	switch (upg[$"id"]) {
+	switch (upg[$ "id"]) {
 	    case Weapons.AmePistol:
-	        if (hits == 1 and !amePistolLastHit and upg[$"level"] >= 4) {
+	        if (hits == 1 and !amePistolLastHit and upg[$ "level"] >= 4) {
 			    amePistolLastHit=true;
 				hits+=5;
 				direction = random(360);
@@ -169,9 +169,9 @@ if (other.hittedcooldown[upg[$"id"]] <= 0  and !global.gamePaused and other.imag
 	        break;
 		case Weapons.ENsCurse:
 			var chance = irandom_range(0, 100);
-			if (chance < upg[$"chance"]) {
+			if (chance < upg[$ "chance"]) {
 				var near = instance_nearest(x,y, oEnemy);
-			    if (distance_to_object(near) < upg[$"range"]) {
+			    if (distance_to_object(near) < upg[$ "range"]) {
 				    hits = 2;
 					image_angle = point_direction(x,y, near.x, near.y - 8);
 					direction = point_direction(x,y, near.x, near.y - 8);
@@ -185,7 +185,7 @@ if (other.hittedcooldown[upg[$"id"]] <= 0  and !global.gamePaused and other.imag
 			image_xscale = originalSize[0];
 			image_yscale = originalSize[1];
 			sprite_index = sBombExplosion;
-			level = upg[$"level"];
+			level = upg[$ "level"];
 				for (var i = 0; i < array_length(Bonuses[BonusType.WeaponSize]); ++i) {
 					if (Bonuses[BonusType.WeaponSize][i] != 0) {
 					    image_xscale = image_xscale * Bonuses[BonusType.WeaponSize][i];

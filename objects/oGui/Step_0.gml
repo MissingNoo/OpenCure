@@ -83,7 +83,7 @@ if (xKey and global.gamePaused and !ANVIL and !GoldenANVIL) {
 }
 #endregion
 #region Start Menu
-if (room = rInicio and !global.gamePaused) {
+if (room == rInicio and !global.gamePaused) {
 	if (zKey) {
 	    switch (menuOptions[selected]) {
 			case  "Map":{
@@ -147,8 +147,8 @@ if (global.upgrade) // after level up
 		}
 		for (var i = 0; i < 6; i++) 
 		{	
-			if (global.upgradeOptions[selected][$"name"] == "null") { break; }
-			if (global.upgradeOptions[selected][$"id"] == ItemIds.Holocoin){ 
+			if (global.upgradeOptions[selected][$ "name"] == "null") { break; }
+			if (global.upgradeOptions[selected][$ "id"] == ItemIds.Holocoin){ 
 				var coins = 50;//feather disable once GM2017
 				for (var j = 1; j < global.shopUpgrades.MoneyGain.level; ++j) {
 					coins = coins + ((coins * 20) / 100);
@@ -156,24 +156,24 @@ if (global.upgrade) // after level up
 				global.newcoins += coins;
 				break; 
 			}
-			if (global.upgradeOptions[selected][$"id"] == ItemIds.Hamburguer){ HP += 10; break; }
-			if (global.upgradeOptions[selected][$"style"] == ItemTypes.Weapon) {
+			if (global.upgradeOptions[selected][$ "id"] == ItemIds.Hamburguer){ HP += 10; break; }
+			if (global.upgradeOptions[selected][$ "style"] == ItemTypes.Weapon) {
 				#region Upgrade existing weapon
-				if (UPGRADES[i][$"name"] == global.upgradeOptions[selected][$"name"] ) 
+				if (UPGRADES[i][$ "name"] == global.upgradeOptions[selected][$ "name"] ) 
 				{
 					//show_message(global.upgradesAvaliable[UPGRADES[i][$"id"]]);
-					var newlevel = UPGRADES[i][$"level"] + 1;
-					UPGRADES[i] = global.upgradesAvaliable[UPGRADES[i][$"id"]][newlevel];
+					var newlevel = UPGRADES[i][$ "level"] + 1;
+					UPGRADES[i] = global.upgradesAvaliable[UPGRADES[i][$ "id"]][newlevel];
 					share_weapon(i);
 					break;
 				}			
 				#endregion
 				#region new weapon
-				if (UPGRADES[i][$"name"] == "null") 
+				if (UPGRADES[i][$ "name"] == "null") 
 				{
 					for (var j=0; j<array_length(global.upgradesAvaliable); j++) 
 					{
-						if (global.upgradesAvaliable[j][1][$"name"] == global.upgradeOptions[selected][$"name"]) 
+						if (global.upgradesAvaliable[j][1][$ "name"] == global.upgradeOptions[selected][$ "name"]) 
 						{
 							UPGRADES[i]=global.upgradesAvaliable[j][1];
 							share_weapon(i);
@@ -183,23 +183,23 @@ if (global.upgrade) // after level up
 				}
 				#endregion
 			}
-			else if (global.upgradeOptions[selected][$"style"] == ItemTypes.Item) {
+			else if (global.upgradeOptions[selected][$ "style"] == ItemTypes.Item) {
 				#region Upgrade existing item
-				if (playerItems[i][$"name"] == global.upgradeOptions[selected][$"name"] ) 
+				if (playerItems[i][$ "name"] == global.upgradeOptions[selected][$ "name"] ) 
 				{
-					var newlevel = playerItems[i][$"level"] + 1;
-					playerItems[i] = ItemList[playerItems[i][$"id"]][newlevel];
+					var newlevel = playerItems[i][$ "level"] + 1;
+					playerItems[i] = ItemList[playerItems[i][$ "id"]][newlevel];
 					share_item(i);
 					break;
 				}
 				#endregion
 			
 				#region new item
-				if (playerItems[i][$"name"] == "") 
+				if (playerItems[i][$ "name"] == "") 
 				{
 					for (var j=0; j<array_length(ItemList); j++) 
 					{
-						if (ItemList[j][1][$"name"] == global.upgradeOptions[selected][$"name"]) 
+						if (ItemList[j][1][$ "name"] == global.upgradeOptions[selected][$ "name"]) 
 						{
 							playerItems[i]=ItemList[j][1];
 							share_item(i);
@@ -209,12 +209,12 @@ if (global.upgrade) // after level up
 				}
 					#endregion
 			}
-			else if (global.upgradeOptions[selected][$"style"] == ItemTypes.Perk) {
+			else if (global.upgradeOptions[selected][$ "style"] == ItemTypes.Perk) {
 				#region Upgrade existing item
-				if (PLAYER_PERKS[i][$"name"] == global.upgradeOptions[selected][$"name"] ) 
+				if (PLAYER_PERKS[i][$ "name"] == global.upgradeOptions[selected][$ "name"] ) 
 				{
-					var newlevel = PLAYER_PERKS[i][$"level"]+1;
-					PLAYER_PERKS[i] = PERK_LIST[PLAYER_PERKS[i][$"id"]][newlevel];
+					var newlevel = PLAYER_PERKS[i][$ "level"]+1;
+					PLAYER_PERKS[i] = PERK_LIST[PLAYER_PERKS[i][$ "id"]][newlevel];
 					break;
 				}
 				#endregion
@@ -235,8 +235,8 @@ if (ANVIL) {
 	}else{
 		selectedThing = playerItems[anvilSelected];
 	}
-	var level = selectedThing[$"level"];
-	var maxlevel = selectedThing[$"maxlevel"];	
+	var level = selectedThing[$ "level"];
+	var maxlevel = selectedThing[$ "maxlevel"];	
 	if (xKey) {
 		if (anvilconfirm and !upgradeconfirm) {
 		    anvilconfirm = false;
@@ -249,7 +249,7 @@ if (ANVIL) {
 		if (upgradeconfirm) {
 		    if (anvilSelectedCategory == 0) {
 				if (level < maxlevel) {
-				    UPGRADES[anvilSelected] = global.upgradesAvaliable[UPGRADES[anvilSelected][$"id"]][UPGRADES[anvilSelected][$"level"] + 1];
+				    UPGRADES[anvilSelected] = global.upgradesAvaliable[UPGRADES[anvilSelected][$ "id"]][UPGRADES[anvilSelected][$ "level"] + 1];
 				}
 				else{
 					var _bonusdmg = 0;
@@ -271,17 +271,17 @@ if (ANVIL) {
 					}
 					if (!variable_struct_exists(UPGRADES[anvilSelected], "bonusLevel")) {
 					    variable_struct_set(UPGRADES[anvilSelected], "bonusLevel", 1);
-						UPGRADES[anvilSelected][$"bonusDamage"] = [_bonusdmg];
+						UPGRADES[anvilSelected][$ "bonusDamage"] = [_bonusdmg];
 					}
 					else{
 						variable_struct_set(UPGRADES[anvilSelected], "bonusLevel", variable_struct_get(UPGRADES[anvilSelected], "bonusLevel") + 1);
-						array_push(UPGRADES[anvilSelected][$"bonusDamage"], _bonusdmg);
+						array_push(UPGRADES[anvilSelected][$ "bonusDamage"], _bonusdmg);
 					}
 				}
 			}
 			if (anvilSelectedCategory == 1) {
 				if (level < maxlevel) {
-					playerItems[anvilSelected] = global.itemList[playerItems[anvilSelected][$"id"]][playerItems[anvilSelected][$"level"] + 1];
+					playerItems[anvilSelected] = global.itemList[playerItems[anvilSelected][$ "id"]][playerItems[anvilSelected][$ "level"] + 1];
 				}
 			}
 			ANVIL = false;//TODO: Cost money
@@ -309,12 +309,12 @@ if (GoldenANVIL) {
 	    UPGRADES[gAnvilWeapon1Position] = global.null;
 	    UPGRADES[gAnvilWeapon2Position] = global.null;
 		for (var i = 0; i < array_length(Collabs); ++i) {
-		    if (is_array(Collabs[i]) and ((Collabs[i][0] == gAnvilWeapon1[$"id"] and Collabs[i][1] == gAnvilWeapon2[$"id"]) or (Collabs[i][0] == gAnvilWeapon2[$"id"] and Collabs[i][1] == gAnvilWeapon1[$"id"]))) {
+		    if (is_array(Collabs[i]) and ((Collabs[i][0] == gAnvilWeapon1[$ "id"] and Collabs[i][1] == gAnvilWeapon2[$ "id"]) or (Collabs[i][0] == gAnvilWeapon2[$ "id"] and Collabs[i][1] == gAnvilWeapon1[$ "id"]))) {
 				var _n = min(gAnvilWeapon1Position, gAnvilWeapon2Position);
 			    UPGRADES[_n] = WEAPONS_LIST[i][1];
-				UPGRADES[_n][$"materials"] = [];
-				UPGRADES[_n][$"materials"][0] = gAnvilWeapon1;
-				UPGRADES[_n][$"materials"][1] = gAnvilWeapon2;
+				UPGRADES[_n][$ "materials"] = [];
+				UPGRADES[_n][$ "materials"][0] = gAnvilWeapon1;
+				UPGRADES[_n][$ "materials"][1] = gAnvilWeapon2;
 				break;
 			}
 		}	
@@ -356,7 +356,7 @@ if (room == rCharacterSelect) {
 			characterSelected = false;
 		}
 		if (zKey) {
-			var _isUnlocked = CHARACTERS[selectedCharacter][?"outfits"][selectedOutfit][$"unlocked"];
+			var _isUnlocked = CHARACTERS[selectedCharacter][?"outfits"][selectedOutfit][$ "unlocked"];
 			if (_isUnlocked) {
 			    selectingOutfit = false;
 			    outfitSelected = true;
@@ -396,7 +396,7 @@ if (room == rCharacterSelect) {
 					maxOutfits = array_length(CHARACTERS[selectedCharacter][?"outfits"]);
 					var _unlockedOutfits = 0;
 					for (var i = 0; i < maxOutfits; ++i) {
-						if (CHARACTERS[selectedCharacter][?"outfits"][i][$"unlocked"]) {
+						if (CHARACTERS[selectedCharacter][?"outfits"][i][$ "unlocked"]) {
 						    _unlockedOutfits += 1;
 						}
 					}
@@ -572,7 +572,7 @@ if(keyboard_check(ord("L"))) {global.singleplayer = false; show_message("Client"
 		if(keyboard_check(ord("I"))) d +=.1;
 		if(keyboard_check_pressed(ord("O"))) {e -=.05; global.guiScale = e; if (os_type == os_android) { gui_set();}};
 		if(keyboard_check_pressed(ord("P"))) {e +=1; global.guiScale = e; if (os_type == os_android) { gui_set();}};
-		if((keyboard_check(vk_escape) and room == rCharacterSelect)) {room_goto(rInicio)}
+		if((keyboard_check(vk_escape) and room == rCharacterSelect)) {room_goto(rInicio);}
 		//if (keyboard_check_pressed(ord("V"))) {
 		//    display_set_gui_size(640,360);
 		//}

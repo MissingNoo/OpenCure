@@ -6,8 +6,8 @@ if (isP != global.gamePaused) {
 }
 if (room == rInicio) {
 	if (!global.gamePaused) {
-	    if (upKey) { if (selected == 0) { selected = array_length(menuOptions) - 1; } else selected -= 1 }
-		if (downKey) { if (selected < array_length(menuOptions) - 1) { selected += 1; } else selected = 0 }
+	    if (upKey) { if (selected == 0) { selected = array_length(menuOptions) - 1; } else selected -= 1; }
+		if (downKey) { if (selected < array_length(menuOptions) - 1) { selected += 1; } else selected = 0; }
 		//mouseOnButton(GW/1.25, GW/6, 55, sHudButton, 1.75, 1.5, menuOptions);
 	}
 }
