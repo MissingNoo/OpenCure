@@ -142,8 +142,7 @@ function createUpgradeP2(_id, _level, _maxlevel, _knockbackSpeed, _knockbackDura
 	variable_struct_set(m, "maxlevel", _maxlevel);
 }
 
-enum Weapons
-{
+enum Weapons{
 	AmePistol,
 	GuraTrident,
 	PowerofAtlantis, //TODO: water area, more damage
@@ -292,7 +291,7 @@ function populate_upgrades(){
 	#endregion
 		#endregion
 	#endregion
-	
+	#region Shockwave
 	newCreateUpgrade({ //Shockwave
 				id : Weapons.Shockwave,
 				weight : 0,
@@ -319,7 +318,7 @@ function populate_upgrades(){
 				perk : true,
 				characterid : Characters.Lenght
 			});
-	
+	#endregion
 	#region BLBook
 		newCreateUpgrade({
 				id : Weapons.BlBook,
@@ -348,7 +347,6 @@ function populate_upgrades(){
 				//collabWith : Weapons.PsychoAxe,
 			});
 	#endregion
-	
 	#region Bounce Ball //TODO: knockback depends on character
 		newCreateUpgrade({ 
 				id : Weapons.BounceBall,
@@ -377,7 +375,6 @@ function populate_upgrades(){
 				unlocked : false
 			});
 	#endregion
-	
 	#region Cutting Board
 	newCreateUpgrade({
 				id : Weapons.CuttingBoard,
@@ -403,7 +400,6 @@ function populate_upgrades(){
 				perk : false,
 			});
 	#endregion
-	
 	#region Fan Beam
 	newCreateUpgrade({
 				id : Weapons.FanBeam,
@@ -430,7 +426,6 @@ function populate_upgrades(){
 				//collabWith : Weapons.PlugAsaCoco
 			});
 	#endregion
-	
 	#region CEO Tears
 	newCreateUpgrade({
 				id : Weapons.CEOTears,
@@ -459,7 +454,6 @@ function populate_upgrades(){
 				unlocked : false,
 			});
 	#endregion
-	
 	#region EliteLavaBucket
 		newCreateUpgrade({ 
 				id : Weapons.EliteLavaBucket,
@@ -488,7 +482,6 @@ function populate_upgrades(){
 				//collabWith : Weapons.PsychoAxe
 			});
 	#endregion
-	
 	#region EN's Curse
 	newCreateUpgrade({ 
 			id : Weapons.ENsCurse,
@@ -518,7 +511,6 @@ function populate_upgrades(){
 			perk : false,
 		});
 	#endregion
-
 	#region Holobomb
 	newCreateUpgrade({
 				id : Weapons.HoloBomb,
@@ -560,7 +552,6 @@ function populate_upgrades(){
 		//Level 6 	Increase explosion size by 20%.
 		//Level MAX 	Throw 3 bombs. 
 	#endregion
-	
 	#region asacoco
 	newCreateUpgrade({ 
 				id : Weapons.PlugAsaCoco,
@@ -591,7 +582,6 @@ function populate_upgrades(){
 				//collabWith :[Weapons.FanBeam, Weapons.HoloBomb] 
 			});
 	#endregion
-		
 	#region SpiderCooking
 		newCreateUpgrade({
 				id : Weapons.SpiderCooking,
@@ -617,7 +607,6 @@ function populate_upgrades(){
 				size : [1, 1.15, 1.15, 1.40, 1.40, 1.40, 1.40],
 			});
 	#endregion
-	
 	#region Glowstick
 			newCreateUpgrade({
 				id : Weapons.Glowstick,
@@ -726,8 +715,8 @@ function populate_upgrades(){
 				unlocked : false,
 			});
 	#endregion
-	
-	newCreateUpgrade({ //XPotato
+	#region XPotato
+	newCreateUpgrade({
 				id : Weapons.XPotato,
 				weight : 2,
 				name : "X-Potato",
@@ -777,7 +766,7 @@ function populate_upgrades(){
 				perk : true,
 				characterid : Characters.Lenght
 			});
-	
+	#endregion
 	#region Collabs
 	#region MiComet
 	newCreateUpgrade({ 
@@ -1254,53 +1243,52 @@ function populate_upgrades(){
 	});
 	#endregion
 	#endregion
-	
 	#region Modded
 	#region Pipkin Pippa
 	newCreateUpgrade({
-				id : Weapons.PipiPilstol,
-				name : "PiPiPilstols",
-				maxlevel : 6,
-				sprite : sBulletPink,
-				thumb : sRifle,
-				mindmg : [7, 7, 7*1.25, 7*1.25, 7*1.25*1.50, 7*1.25*1.50*1.75],
-				maxdmg : [13, 13, 13*1.25, 13*1.25, 13*1.25, 13*1.20*1.40, 13*1.20*1.40],
-				cooldown : [80, 80, 80, 80*0.75, 80*0.75, 30],
-				duration : [120, 120, 120, 120, 120, 120, 120], 
-				hitCooldown : [10, 10, 10, 10, 10, 10, 10], 
-				canBeHasted : true,
-				attackdelay : 10,
-				speed : 5,
-				hits : [1, 1, 2, 3, 3, 3],
-				type : "red",
-				shoots : [2, 4, 4, 4, 4, 4],
-				knockbackSpeed : [0, 0, 0, 0, 0, 0, 0],
-				knockbackDuration : [0, 0, 0, 0, 0, 0, 0],
-				perk : true,
-				characterid : Characters.Pippa
-			},[snd_bullet, snd_bullet2, snd_bullet3]);
-			newCreateUpgrade({
-				id : Weapons.HeavyArtillery,
-				name : "Heavy Artillery",
-				maxlevel : 3,
-				sprite : sBombExplosion,
-				thumb : sRifle,
-				mindmg : (7*333)/100,
-				maxdmg : (13*333)/100,
-				cooldown : [180, 174, 174],
-				duration : 100, 
-				attackdelay : 20,
-				hitCooldown : 10, 
-				canBeHasted : true,
-				speed : 0,
-				hits : 100,
-				type : "red",
-				shoots : [1, 1, 2],
-				knockbackSpeed : [0, 0, 0, 0, 0, 0, 0],
-				knockbackDuration : [0, 0, 0, 0, 0, 0, 0],
-				perk : true,
-				characterid : Characters.Lenght
-			});
+		id : Weapons.PipiPilstol,
+		name : "PiPiPilstols",
+		maxlevel : 6,
+		sprite : sBulletPink,
+		thumb : sRifle,
+		mindmg : [7, 7, 7*1.25, 7*1.25, 7*1.25*1.50, 7*1.25*1.50*1.75],
+		maxdmg : [13, 13, 13*1.25, 13*1.25, 13*1.25, 13*1.20*1.40, 13*1.20*1.40],
+		cooldown : [80, 80, 80, 80*0.75, 80*0.75, 30],
+		duration : [120, 120, 120, 120, 120, 120, 120], 
+		hitCooldown : [10, 10, 10, 10, 10, 10, 10], 
+		canBeHasted : true,
+		attackdelay : 10,
+		speed : 5,
+		hits : [1, 1, 2, 3, 3, 3],
+		type : "red",
+		shoots : [2, 4, 4, 4, 4, 4],
+		knockbackSpeed : [0, 0, 0, 0, 0, 0, 0],
+		knockbackDuration : [0, 0, 0, 0, 0, 0, 0],
+		perk : true,
+		characterid : Characters.Pippa
+	},[snd_bullet, snd_bullet2, snd_bullet3]);
+	newCreateUpgrade({
+		id : Weapons.HeavyArtillery,
+		name : "Heavy Artillery",
+		maxlevel : 3,
+		sprite : sBombExplosion,
+		thumb : sRifle,
+		mindmg : (7*333)/100,
+		maxdmg : (13*333)/100,
+		cooldown : [180, 174, 174],
+		duration : 100, 
+		attackdelay : 20,
+		hitCooldown : 10, 
+		canBeHasted : true,
+		speed : 0,
+		hits : 100,
+		type : "red",
+		shoots : [1, 1, 2],
+		knockbackSpeed : [0, 0, 0, 0, 0, 0, 0],
+		knockbackDuration : [0, 0, 0, 0, 0, 0, 0],
+		perk : true,
+		characterid : Characters.Lenght
+	});
 	#endregion
 	#endregion
 }
@@ -1380,7 +1368,7 @@ function randomUpgrades(){
 						if (!variable_struct_exists(WEAPONS_LIST[i][1], "characterid") or WEAPONS_LIST[i][1][$ "characterid"] == -1 or WEAPONS_LIST[i][1][$ "characterid"] == global.player[?"id"]) {
 							//show_message("test");
 						    array_push(weapons_list, WEAPONS_LIST[i]);
-						}						
+						}
 					}
 				}
 			}else{
