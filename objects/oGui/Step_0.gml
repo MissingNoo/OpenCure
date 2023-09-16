@@ -393,14 +393,14 @@ if (room == rCharacterSelect) {
 					global.mode = "stage";
 					//room_goto(Room1);
 					characterSelected = true;
-					maxOutfits = array_length(CHARACTERS[selectedCharacter][?"outfits"]);
+					maxOutfits = array_length(CHARACTERS[selectedCharacter][?"outfits"]) - 1;
 					var _unlockedOutfits = 0;
 					for (var i = 0; i < maxOutfits; ++i) {
 						if (CHARACTERS[selectedCharacter][?"outfits"][i][$ "unlocked"]) {
 						    _unlockedOutfits += 1;
 						}
 					}
-					if (maxOutfits > 1 and _unlockedOutfits > 1) {
+					if (maxOutfits > 0 and _unlockedOutfits > 1) {
 					    selectingOutfit = true;
 					}
 					else{outfitSelected = true;}
