@@ -118,12 +118,12 @@ enum Enemies
 		create_enemy(Enemies.Takodachi,"TakoDachi",sTakodachi,50,.4,4,1,1, false, 1.5, 1.5);
 		create_enemy(Enemies.TakoViking,"TakoViking",sTakoViking,50,.4,4,1,0, false, 1.5, 1.5);
 		create_enemy(Enemies.HungryTakodachi,"Hungry TakoDachi",sHungryTakodachi,220,.65,8,9,1, false, 1.5, 1.5);
-		create_enemy(Enemies.TakoGrande,"Tako Grande",sTakodachi,1800,.75,10, 600,1, true, 2, 2);
+		create_enemy(Enemies.TakoGrande,"Tako Grande",sTakodachi,1800,0.75,10, 600,1, true, 2, 2);
 		create_enemy(Enemies.KFPEmployee, "KFPEmployee", sKFPEmployee, 20, 1, 2, 3, 1);
 		create_enemy(Enemies.DisgruntledEmployee, "Disgruntled Employee", sDisgruntledEmployee, 50, 1.15, 4, 7, 1);
 		create_enemy(Enemies.Gloom, "Gloom", sGloom, 30, .7, 6, 12, 1);
 		create_enemy(Enemies.Bloom, "Bloom", sBloom, 30, .7, 6, 12, 1);
-		create_enemy(Enemies.InvestiGator, "Inveti-Gator", sInvestigator, 180, 0.85, 7, 9, 1);
+		create_enemy(Enemies.InvestiGator, "Investi-Gator", sInvestigator, 180, 0.85, 7, 9, 1);
 		create_enemy(Enemies.FubuZilla, "FubuZilla", sFubuzilla, 8000, 0.8, 15, 2000,1,true, 1, 1, true);
 		create_enemy(Enemies.BaeRat, "BaeRat", sBaeRat, 100, 1.1, 5, 8, 1);
 		create_enemy(Enemies.KronieA, "KronieA", sKronieA, 450, 0.8, 11, 10, 1);

@@ -7,6 +7,6 @@ if (instance_exists(oSlave)) {
 	//oCam.y += (y_middle - oCam.y) / 16;
 }
 
-if (keyboard_check_pressed(vk_alt)) {
+if (keyboard_check_pressed(vk_alt) and !global.singleplayer) {
     instance_create_depth(x,y, depth, oSlave);
 }

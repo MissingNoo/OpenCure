@@ -210,7 +210,7 @@ if (instance_exists(oPlayer) and canspawn == true and global.gamePaused == false
 	_y,
 	"Instances",
 	oEnemy	
-	)
+	);
 }
 #endregion
 
@@ -219,7 +219,7 @@ if (instance_exists(oPlayer) and canspawn == true and global.gamePaused == false
 	    global.seconds+=(1/60) * Delta ;
 		#region Skills Cooldown		
 			#region cooldownamount
-				var down = 1
+				var down = 1;
 				//for (var i = 0; i < array_length(Bonuses[BonusType.Haste]); ++i) {
 				//	if (Bonuses[BonusType.Haste][i] != 0) {
 				//	    down = 1 * Bonuses[BonusType.Haste][i];

@@ -60,10 +60,10 @@ enum StageTypes{
 	var variables = ["musicVolume","soundVolume","damageNumbers","screenShake", "gamePad"];
 	for (var i = 0; i < array_length(variables); ++i) {
 			if (!variable_global_exists(variables[i])) {
-				variable_global_set(variables[i], 1)
+				variable_global_set(variables[i], 1);
 			}
 			if (!variable_global_exists(variables[i]) and variable_global_get(variables[i]) == undefined) {
-				variable_global_set(variables[i], 1)
+				variable_global_set(variables[i], 1);
 			}
 		}
 

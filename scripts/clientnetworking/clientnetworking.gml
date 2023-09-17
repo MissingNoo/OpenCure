@@ -147,7 +147,7 @@ function clientReceivedPacket2(_response)
 				
 		 case Network.Spawn:{
 				var enemyvars = json_parse(r[$ "sendvars"]);
-				var enemyvarnames = variable_struct_get_names(enemyvars)
+				var enemyvarnames = variable_struct_get_names(enemyvars);
 				var _enemy = instance_create_layer(r[$ "x"], r[$ "y"], "Instances", oEnemy);
 				for (var i = 0; i < variable_struct_names_count(enemyvars); ++i) {
 				    variable_instance_set(_enemy, enemyvarnames[i], variable_struct_get(enemyvars, enemyvarnames[i]));
@@ -335,7 +335,7 @@ function clientReceivedPacket(_buffer)
 					var upgvars = json_parse(_vars);
 					//show_message(upgvars[$"upg"]);
 					//show_debug_message(upgvars[]);
-					var upgvarnames = variable_struct_get_names(upgvars)
+					var upgvarnames = variable_struct_get_names(upgvars);
 					var _upg = instance_create_layer(_x, _y, "Instances", oSlaveUpgrade);
 					for (var i = 0; i < variable_struct_names_count(upgvars); ++i) {
 						if (upgvarnames[i] != "id") {
@@ -382,7 +382,7 @@ function clientReceivedPacket(_buffer)
 				var _vars = buffer_read(_buffer, buffer_string);
 				//if (_s != oClient.connected) {
 					var enemyvars = json_parse(_vars);
-					var enemyvarnames = variable_struct_get_names(enemyvars)
+					var enemyvarnames = variable_struct_get_names(enemyvars);
 					var _enemy = instance_create_layer(_x, _y, "Instances", oEnemy);
 					for (var i = 0; i < variable_struct_names_count(enemyvars); ++i) {
 					    variable_instance_set(_enemy, enemyvarnames[i], variable_struct_get(enemyvars, enemyvarnames[i]));
@@ -500,9 +500,11 @@ function clientReceivedPacket(_buffer)
 /// @param {any}     data data to send
 function sendMessage(data){
 	if (!instance_exists(oClient)) { return; }
-	data.roomname = global.roomname;
-	buffer_seek(oClient.clientBuffer, buffer_seek_start, 0);
-	var _json = json_stringify(data);
-	buffer_write(oClient.clientBuffer, buffer_text, _json);	
-	network_send_udp_raw(oClient.client, global.serverip, global.port, oClient.clientBuffer, buffer_tell(oClient.clientBuffer));
+	if(global.singleplayer == false){
+		data.roomname = global.roomname;
+		buffer_seek(oClient.clientBuffer, buffer_seek_start, 0);
+		var _json = json_stringify(data);
+		buffer_write(oClient.clientBuffer, buffer_text, _json);	
+		network_send_udp_raw(oClient.client, global.serverip, global.port, oClient.clientBuffer, buffer_tell(oClient.clientBuffer));
+	}
 }

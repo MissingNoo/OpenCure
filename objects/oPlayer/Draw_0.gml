@@ -80,17 +80,3 @@ if (ds_list_size(coordsx) > 0) {
 //	}
 //}
 #endregion
-
-
-
-
-
-
-
-
-
-
-
-
-
-
